@@ -1,0 +1,279 @@
+{
+  "type": "FeatureCollection",
+  "bbox": [-105.770969, 40.417682, -104.639957, 40.878316],
+  "features": [
+      {
+      "type": "Feature",
+      "bbox": [-105.011365, 40.551927, -105.011365, 40.551927],
+      "properties": {
+        "Station_Name": "CACHE LA POUDRE RIVER ABOVE BOXELDER CREEK NEAR TIMNATH",
+        "Data_Source": "U.S. Geological Survey",
+        "dwrabbrev": "CLABOXCO",
+        "usgsstatid": "6752280",
+        "WDID": "301673",
+        "Division": 1,
+        "Water_District": 3,
+        "County": "LARIMER",
+        "Latitude": 40.551927,
+        "Longitude": -105.011365,
+        "Website": "http://waterdata.usgs.gov/nwis/uv?06752280"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-105.011365, 40.551927]
+      }
+    },
+    {
+      "type": "Feature",
+      "bbox": [-105.252205, 40.787482, -105.252205, 40.787482],
+      "properties": {
+        "Station_Name": "NORTH FORK CACHE LA POUDRE R. AT LIVERMORE, CO",
+        "Data_Source": "U.S. Geological Survey",
+        "dwrabbrev": "CLANLICO",
+        "usgsstatid": "6751490",
+        "WDID": "301676",
+        "Division": 1,
+        "Water_District": 3,
+        "County": "LARIMER",
+        "Latitude": 40.787482,
+        "Longitude": -105.252205,
+        "Website": "http://waterdata.usgs.gov/nwis/uv?06751490"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-105.252205, 40.787482]
+      }
+    },
+    {
+      "type": "Feature",
+      "bbox": [-105.224188, 40.66451, -105.224188, 40.66451],
+      "properties": {
+        "Station_Name": "CACHE LA POUDRE AT CANYON MOUTH NEAR FORT COLLINS",
+        "Data_Source": "Co. Division of Water Resources",
+        "dwrabbrev": "CLAFTCCO",
+        "usgsstatid": "6752000",
+        "WDID": "301200",
+        "Division": 1,
+        "Water_District": 3,
+        "County": "LARIMER",
+        "Latitude": 40.66451,
+        "Longitude": -105.224188,
+        "Website": "http://www.dwr.state.co.us/SurfaceWater/data/detail_graph.aspx?ID\u003dCLAFTCCO\u0026MTYPE\u003dDISCHRG"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-105.224188, 40.66451]
+      }
+    },
+    {
+      "type": "Feature",
+      "bbox": [-105.338041, 40.878316, -105.338041, 40.878316],
+      "properties": {
+        "Station_Name": "NORTH FORK CACHE LA POUDRE BELOW HALLIGAN RESERVOIR",
+        "Data_Source": "U.S. Geological Survey",
+        "dwrabbrev": "NOCALACO",
+        "usgsstatid": "6751150",
+        "WDID": "302994",
+        "Division": 1,
+        "Water_District": 3,
+        "County": "LARIMER",
+        "Latitude": 40.878316,
+        "Longitude": -105.338041,
+        "Website": "http://waterdata.usgs.gov/nwis/uv?06751150"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-105.338041, 40.878316]
+      }
+    },
+    {
+      "type": "Feature",
+      "bbox": [-104.967012, 40.501293, -104.967012, 40.501293],
+      "properties": {
+        "Station_Name": "CACHE LA POUDRE RIVER BELOW NEW CACHE",
+        "Data_Source": "Co. Division of Water Resources",
+        "dwrabbrev": "CLARIVCO",
+        "usgsstatid": "",
+        "WDID": "302929",
+        "Division": 1,
+        "Water_District": 3,
+        "County": "LARIMER",
+        "Latitude": 40.501293,
+        "Longitude": -104.967012,
+        "Website": "http://www.dwr.state.co.us/SurfaceWater/data/detail_graph.aspx?ID\u003dCLARIVCO\u0026MTYPE\u003dDISCHRG2"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-104.967012, 40.501293]
+      }
+    },
+    {
+      "type": "Feature",
+      "bbox": [-104.639957, 40.417682, -104.639957, 40.417682],
+      "properties": {
+        "Station_Name": "CACHE LA POUDRE NEAR GREELEY",
+        "Data_Source": "Co. Division of Water Resources",
+        "dwrabbrev": "CLAGRECO",
+        "usgsstatid": "6752500",
+        "WDID": "301201",
+        "Division": 1,
+        "Water_District": 3,
+        "County": "WELD",
+        "Latitude": 40.417682,
+        "Longitude": -104.639957,
+        "Website": "http://www.dwr.state.co.us/SurfaceWater/data/detail_graph.aspx?ID\u003dCLAGRECO\u0026MTYPE\u003dDISCHRG"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-104.639957, 40.417682]
+      }
+    },
+    {
+      "type": "Feature",
+      "bbox": [-105.25499, 40.691094, -105.25499, 40.691094],
+      "properties": {
+        "Station_Name": "MUNROE CANAL",
+        "Data_Source": "Cooperative SDR Program of CDWR \u0026 NCWCD",
+        "dwrabbrev": "MUNCANCO",
+        "usgsstatid": "",
+        "WDID": "",
+        "Division": 1,
+        "Water_District": 3,
+        "County": "LARIMER",
+        "Latitude": 40.691094,
+        "Longitude": -105.25499,
+        "Website": "http://www.dwr.state.co.us/SurfaceWater/data/detail_graph.aspx?ID\u003dMUNCANCO\u0026MTYPE\u003dDISCHRG"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-105.25499, 40.691094]
+      }
+    },
+    {
+      "type": "Feature",
+      "bbox": [-105.171368, 40.600534, -105.171368, 40.600534],
+      "properties": {
+        "Station_Name": "HORSETOOTH RESERVOIR (OUTFLOW)",
+        "Data_Source": "NCWCD/Bureau of Reclamation (Station Cooperators)",
+        "dwrabbrev": "HOROUTCO",
+        "usgsstatid": "",
+        "WDID": "303732",
+        "Division": 1,
+        "Water_District": 3,
+        "County": "LARIMER",
+        "Latitude": 40.600534,
+        "Longitude": -105.171368,
+        "Website": "http://www.dwr.state.co.us/SurfaceWater/data/detail_graph.aspx?ID\u003dHOROUTCO\u0026MTYPE\u003dDISCHRG"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-105.171368, 40.600534]
+      }
+    },
+    {
+      "type": "Feature",
+      "bbox": [-104.677204, 40.42272, -104.677204, 40.42272],
+      "properties": {
+        "Station_Name": "CACHE LA POUDRE RIVER AT GREELEY WASTEWATER PLANT",
+        "Data_Source": "Co. Division of Water Resources",
+        "dwrabbrev": "CLAWASCO",
+        "usgsstatid": "",
+        "WDID": "301674",
+        "Division": 1,
+        "Water_District": 3,
+        "County": "WELD",
+        "Latitude": 40.42272,
+        "Longitude": -104.677204,
+        "Website": "http://www.dwr.state.co.us/SurfaceWater/data/detail_graph.aspx?ID\u003dCLAWASCO\u0026MTYPE\u003dDISCHRG"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-104.677204, 40.42272]
+      }
+    },
+    {
+      "type": "Feature",
+      "bbox": [-104.992271, 40.493696, -104.992271, 40.493696],
+      "properties": {
+        "Station_Name": "FOSSIL CREEK OUTLET",
+        "Data_Source": "Cooperative Program of CDWR, NCWCD \u0026 LSPWCD",
+        "dwrabbrev": "FOSOUTCO",
+        "usgsstatid": "FOSOUTCO",
+        "WDID": "303774",
+        "Division": 1,
+        "Water_District": 3,
+        "County": "LARIMER",
+        "Latitude": 40.493696,
+        "Longitude": -104.992271,
+        "Website": "http://www.dwr.state.co.us/SurfaceWater/data/detail_graph.aspx?ID\u003dFOSOUTCO\u0026MTYPE\u003dDISCHRG"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-104.992271, 40.493696]
+      }
+    },
+    {
+      "type": "Feature",
+      "bbox": [-105.770969, 40.503744, -105.770969, 40.503744],
+      "properties": {
+        "Station_Name": "LA POUDRE PASS CREEK BELOW LONG DRAW RESERVOIR",
+        "Data_Source": "Co. Division of Water Resources",
+        "dwrabbrev": "LAPLODCO",
+        "usgsstatid": "LAPLODCO",
+        "WDID": "301675",
+        "Division": 1,
+        "Water_District": 3,
+        "County": "LARIMER",
+        "Latitude": 40.503744,
+        "Longitude": -105.770969,
+        "Website": "http://www.dwr.state.co.us/SurfaceWater/data/detail_graph.aspx?ID\u003dLAPLODCO\u0026MTYPE\u003dDISCHRG"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-105.770969, 40.503744]
+      }
+    },
+    {
+      "type": "Feature",
+      "bbox": [-105.234118, 40.70266, -105.234118, 40.70266],
+      "properties": {
+        "Station_Name": "NORTH FORK CACHE LA POUDRE RIVER BELOW SEAMAN RESERVOIR",
+        "Data_Source": "Co. Division of Water Resources",
+        "dwrabbrev": "CLANSECO",
+        "usgsstatid": "",
+        "WDID": "301202",
+        "Division": 1,
+        "Water_District": 3,
+        "County": "LARIMER",
+        "Latitude": 40.70266,
+        "Longitude": -105.234118,
+        "Website": "http://www.dwr.state.co.us/SurfaceWater/data/detail_graph.aspx?ID\u003dCLANSECO\u0026MTYPE\u003dDISCHRG"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-105.234118, 40.70266]
+      }
+    },
+    {
+      "type": "Feature",
+      "bbox": [-105.069222, 40.588083, -105.069222, 40.588083],
+      "properties": {
+        "Station_Name": "CACHE LA POUDRE RIVER AT FORT COLLINS",
+        "Data_Source": "U.S. Geological Survey",
+        "dwrabbrev": "CLAFORCO",
+        "usgsstatid": "6752260",
+        "WDID": "302900",
+        "Division": 1,
+        "Water_District": 3,
+        "County": "LARIMER",
+        "Latitude": 40.588083,
+        "Longitude": -105.069222,
+        "Website": "http://waterdata.usgs.gov/nwis/uv?06752260"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-105.069222, 40.588083]
+      }
+    }
+  ]
+}

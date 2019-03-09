@@ -1,0 +1,4 @@
+# Ignore everything in this folder except a few important files that should persist
+*
+!.gitignore
+!poudre-info-portal.qgs
