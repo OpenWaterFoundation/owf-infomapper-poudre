@@ -1,4 +1,4 @@
-# 01-DownloadMunicipalBoundaries #
+# 01-Download-MunicipalBoundaries #
 
 This folder contains TSTool and GeoProcessor command files for downloading Colorado municipal boundaries.
 
