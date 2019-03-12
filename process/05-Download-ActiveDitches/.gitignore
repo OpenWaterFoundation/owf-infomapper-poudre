@@ -1,0 +1,37 @@
+# Ignore the following files (do not commit working files to repository)
+
+# Ignore geojson files so that repo is not too large
+*.geojson
+
+# Ignore shapefiles so that repo is not too large
+*.cpg
+*.dbf
+*.prj
+*.sbn
+*.sbx
+*.shp
+*.shp.xml
+*.shx
+
+# Ignore zipped files so that repo is not too large
+*.zip
+
+# Ignore temporary files from editors
+# vi/vim
+*.swp
+*.swo
+
+# Ignore log files
+*.log
+
+# Office temporary files
+
+*.tmp
+
+# Word
+#~$*.doc*
+# Excel
+#~$*.xls*
+# PowerPoint
+#~$*.ppt*
+~$*

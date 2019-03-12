@@ -1,0 +1,9 @@
+# Download the municipal boundaries layer from the Colorado Department of Local Affairs (DOLA)
+# https://demography.dola.colorado.gov/gis/gis-data/#gis-data
+WebGet(URI="https://storage.googleapis.com/co-publicdata/MuniBounds.zip",LocalFile="municipal-boundaries.zip")
+#
+# Extraction of files and conversion to geojson done in the GeoProcessor
+# See file municipal-boundaries-download.gp
+#
+#
+#

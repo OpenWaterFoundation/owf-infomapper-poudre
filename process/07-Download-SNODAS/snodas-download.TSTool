@@ -1,0 +1,7 @@
+# Download the most recent SNODAS layer from the CDSS SNODAS Tools website
+# http://snodas.cdss.state.co.us/app/index.html
+WebGet(URI="http://snodas.cdss.state.co.us/app/SnowpackStatisticsByDate/SnowpackStatisticsByDate_LatestDate.geojson",LocalFile="snodas.geojson")
+#
+# Conversion of coordinate reference system (CRS) done in snodas-download.gp
+#
+#

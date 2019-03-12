@@ -1,0 +1,13 @@
+# Read in data from NRCS Interactive Map focused on reservoir storage
+# From link below click on Reservoir Storage
+# https://www.wcc.nrcs.usda.gov/snow/snow_map.html
+# From the Map Controls menu on the right side of the screen, scroll down to "Station Selection" and type in 10190007 in the "HUCs:" option.
+# Had to manually download data; don't know how to get to this data programmatically; web services doesn't seem to have it.
+# On the left side of the screen, click the drop-down menu "Selected Stations: 8".  Then click "Export Site Data as CSV".
+ReadTableFromDelimitedFile(TableID="reservoir-levels",InputFile="reservoir-levels.csv")
+# 
+# Export reservoir-levels table to geojson
+WriteTableToGeoJSON(TableID="reservoir-levels",OutputFile="reservoir-levels.geojson",LongitudeColumn="Longitude",LatitudeColumn="Latitude")
+# 
+# 
+# 
