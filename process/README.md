@@ -37,6 +37,7 @@ The contents for processing folders are generally ignored from the repository us
 	+ BAERperimeter20120703Owner.shp
 	+ co_hewlett_burnarea2012.shp
 	+ FirePerimeter20120626.shp
+	+ The GeoProcessor command file, burn-areas.gp, converts the data from shapefile format into GeoJSON format.
 * 09-Municipal-Population
 	+ This folder contains an R file, municipal-population-dola.R, that directly accesses data from the Colorado Department of Local Affairs (DOLA)'s State Demography Office.  The Demography Office provides historical population data for municipalities and counties and also provides population forecast estimates for counties. 
 	+ The R file links the population data to the municipal boundaries spatial file downloaded in the `01-Download-MunicipalBoundaries` folder.
