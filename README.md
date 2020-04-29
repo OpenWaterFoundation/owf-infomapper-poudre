@@ -1,6 +1,5 @@
 # owf-app-poudre-dashboard-workflow #
 
-Open Water Foundation data processing workflow for Poudre Basin Information Platform web application.
 This repository contains command files and supporting files to process data products
 for the Poudre Basin Information Platform, which includes a web application to view the data.
 The output can then be deployed to the cloud for public viewing and can be used in the development environment.
@@ -8,12 +7,14 @@ The output can then be deployed to the cloud for public viewing and can be used 
 
 * [owf-app-poudre-dashboard-ng](https://github.com/OpenWaterFoundation/owf-app-poudre-dashboard-ng)
 repository for the Poudre Basin Information Portal web application code.
-* [Deployed prototype application](http://viz.openwaterfoundation.org/owf-app-poudre-dashboard/home)
+* [Deployed prototype application](http://poudre.openwaterfoundation.org/latest/)
 
 The following sections are included in this documentation:
 
 * [Repository Contents](#repository-contents)
 * [Development Environment](#development-environment)
+* [Relationship of Application Menus and Maps to Processing Folders](#relationship-of-application-menus-and-maps-to-processing-folders)
+* [Maintainers](#maintainers)
 
 --------------
 
@@ -39,13 +40,13 @@ C:\Users\user\                                 User's home folder for Windows.
       ---- below here folder names should match exactly ----
       git-repos/                               Git repositories for the Angular portal web application.
         owf-app-poudre-dashboard-ng/           Angular web application.
-        owf-app-poudre-dashboard-workflow/     Workkflow files to process input for web application.
+        owf-app-poudre-dashboard-workflow/     Workflow files to process input for web application.
 ```
 
 The repository contains the following:
 
 ```
-owf-app-poudre-dashboard-workflow/     Workkflow files to process input for web application.
+owf-app-poudre-dashboard-workflow/     Workflow files to process input for web application.
   .git/                                Standard Git software folder for repository (DO NOT TOUCH).
   .gitattributes/                      Standard Git configuration file for repository (for portability).
   .gitignore/                          Standard Git configuration file to ignore dynamic working files.
@@ -64,27 +65,69 @@ owf-app-poudre-dashboard-workflow/     Workkflow files to process input for web 
 The development environment for this repository depends primarily on software tools used to process and view data,
 including the following.  Install the software in normal default locations.
 
-* QGIS - open source geographic information system
-	+ it is recommended to use the "Standalone Installation" (rather than OSGeo4W suite)
-	because multiple versions can be installed at the same time.
-	+ QGIS 3.4 was used for initial work on this repository.
-	+ QGIS project files (`*.qgs`) are used to prototype maps for the web application.
-	+ See [OWF / Learn QGIS](http://learn.openwaterfoundation.org/owf-learn-qgis/) for information on installing QGIS.
 * GeoProcessor - open source software for spatial data processing
 	+ Automates download and processing of spatial data.
 	+ Command files (`*.gp`) in `process` folders indicate how to process spatial data and are
 	committed to the repository.
 	+ See the [GeoProcessor download page](http://software.openwaterfoundation.org/geoprocessor/)
+* QGIS - open source geographic information system
+	+ install the "Standalone Installation" (rather than OSGeo4W suite)
+	corresponding to the GeoProcessor version
+	+ QGIS project files (`*.qgs`) are used to prototype maps for the web application
+	and correspond to GeoProcessor GeoProjectFile configurations.
+	+ See [OWF / Learn QGIS](http://learn.openwaterfoundation.org/owf-learn-qgis/) for information on installing QGIS.
 * TSTool - open source software for time series processing
 	+ Automates download and processing of time series data.
 	+ Command files (`*.TSTool`) in `process` folders indicate how to process time series data and are
 	committed to the repository.
-	* See the [TSTool Software page](http://software.openwaterfoundation.org/)
+	* See the [TSTool download page](http://software.openwaterfoundation.org/)
 	for installation information
 * R - open source statistics softare
-	+ Include more information here from Kristin
+	+ Need to fill out
 * Python - open source scripting
-	+ Include more information about installing if needed
+	+ Need to fill out
+
+## Relationship of Application Menus and Maps to Processing Folders ##
+
+The web application provides menus, which display context-specific maps, as follows:
+
+| **Menu** | **Submenu** | **Map File** | **Process Folder** |
+| -- | -- | -- | -- |
+| ***Basin Entities*** | | | |
+| | ***Agricultural Ditches*** | | |
+| | ***Environmental Entities*** | | |
+| | ***Municipalities*** | | |
+| | ***Water Providers*** | | |
+| ***Current Conditions*** | | | |
+| | ***Boating*** | | |
+| | ***Drought*** | | |
+| | ***Evapotranspiration*** | | |
+| | ***Fishing*** | | |
+| | ***Reservoirs (Storage)*** | | |
+| | ***Snowpack (SNODAS)*** | | |
+| | ***Soil Moisture*** | | |
+| | ***Streamflow*** | | |
+| | ***Wind*** | | |
+| | ***Wildfire Burn Areas*** | | |
+| ***Seasonal Outlook*** | | | |
+| | ***Diversions*** | | |
+| | ***Drought*** | | |
+| | ***Reservoirs (Storage)*** | | |
+| | ***Snow*** | | |
+| ***Historical Data*** | | | |
+| | ***Diversions*** | | |
+| | ***Boating*** | | |
+| | ***Municipal Population*** | | |
+| | ***Municipal Water Demand*** | | |
+| | ***Streamflow*** | | |
+| | ***Snow*** | | |
+| ***Future Planning*** | | | |
+| | ***Agricultural Land Transfer*** | | |
+| | ***Climate Change*** | | |
+| | ***Municipal Growth*** | | |
+| | ***Open Space*** | | |
+| | ***Stormwater/Floodplain Plans*** | | |
+| | ***Watershed Plans*** | | |
 
 ## Maintainers ##
 
