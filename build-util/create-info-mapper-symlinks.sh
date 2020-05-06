@@ -87,9 +87,9 @@ createSymbolicLink() {
       read -p "Create link [Y/n]? " answer
       if [ -z "${answer}" -o "${answer}" = "Y" -o "${answer}" = "y" ]; then
         if [ "${operatingSystem}" = "mingw" ]; then
-          if [ "${targetIsFile}" ]; then
+          if [ "${targetIsFile}" = "yes" ]; then
             cmd //c mklink ${linkWindows} ${targetWindows}
-          elif [ "${targetIsDir}" ]; then
+          elif [ "${targetIsDir}" = "yes" ]; then
             cmd //c mklink /d ${linkWindows} ${targetWindows}
           fi
         fi
