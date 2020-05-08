@@ -43,8 +43,8 @@ buildDist() {
 
   logInfo ""
   logInfo "Regenerating Angular dist folder to deploy the website..."
-  logInfo "Changing to:  ${mainFolder}"
-  cd ${mainFolder}
+  logInfo "Changing to:  ${infoMapperMainFolder}"
+  cd ${infoMapperMainFolder}
 
   # Run the ng build
   # - use the command line from 'copy-to-owf-amazon-s3.bat', which was used more recently
@@ -117,11 +117,16 @@ getUserLogin() {
   # Else - not critical since used for temporary files
 }
 
-# Get the Poudre Information Portal version.
-# - the version is in the 'assets/version.json' file in format:  "version": "0.7.0.dev (2020-04-24)"
+# Get the InfoMapper version and Poudre Information Portal version.
+# - the version is in the 'assets/config-app.json' file in format:  "version": "0.7.0.dev (2020-04-24)"
+# - the Info Mapper software version in 'assets/version.json' with format similar to above
 getVersion() {
-  versionFile="${mainFolder}/src/assets/version.json"
+  # Application version
+  versionFile="${repoFolder}/dist/info-mapper/app-config.json"
   version=$(grep '"version":' ${versionFile} | cut -d ":" -f 2 | cut -d "(" -f 1 | tr -d '"' | tr -d ' ' | tr -d ',')
+  # InfoMapper version
+  versionFile="${infoMapperMainFolder}/src/assets/version.json"
+  infoMapperVersion=$(grep '"version":' ${versionFile} | cut -d ":" -f 2 | cut -d "(" -f 1 | tr -d '"' | tr -d ' ' | tr -d ',')
 }
 
 # Print a DEBUG message, currently prints to stderr.
@@ -262,7 +267,7 @@ syncFiles() {
 
   if [ "$operatingSystem" = "cygwin" -o "$operatingSystem" = "linux" ]; then
     # aws is in a standard location such as /usr/bin/aws
-    aws s3 sync ${distAppFolder} ${s3FolderUrl} ${dryrun} --delete --profile "$awsProfile"
+    aws s3 sync ${infoMapperDistAppFolder} ${s3FolderUrl} ${dryrun} --delete --profile "$awsProfile"
     errorCode=$?
     if [ $errorCode -ne 0 ]; then
       logError "Error code $errorCode from 'aws' command.  Exiting."
@@ -275,7 +280,7 @@ syncFiles() {
     # - TODO smalers 2019-01-04 could try to find where py thinks Python is installed but not sure how
     awsScript="$HOME/AppData/Local/Programs/Python/Python37/scripts/aws"
     if [ -f "${awsScript}" ]; then
-      ${awsScript} s3 sync ${distAppFolder} ${s3FolderUrl} ${dryrun} --delete --profile "$awsProfile"
+      ${awsScript} s3 sync ${infoMapperDistAppFolder} ${s3FolderUrl} ${dryrun} --delete --profile "$awsProfile"
       errorCode=$?
       if [ $errorCode -ne 0 ]; then
         logError "Error code $errorCode from 'aws' command.  Exiting."
@@ -298,9 +303,9 @@ uploadDist() {
   logInfo "Changing to:  ${scriptFolder}"
   cd ${scriptFolder}
 
-  if [ ! -d "${distAppFolder}" ]; then
+  if [ ! -d "${infoMapperDistAppFolder}" ]; then
     logError ""
-    logError "dist/app to sync to S3 does not exist:  ${distAppFolder}"
+    logError "dist/app to sync to S3 does not exist:  ${infoMapperDistAppFolder}"
     exit 1
   fi
 
@@ -309,16 +314,18 @@ uploadDist() {
   checkInput
 
   # Add an upload log file to the dist, useful to know who did an upload.
-  uploadLogFile="${distAppFolder}/upload.log.txt"
+  uploadLogFile="${infoMapperDistAppFolder}/upload.log.txt"
   echo "UploadUser = ${USER}" > ${uploadLogFile}
   now=$(date "+%Y-%m-%d %H:%M:%S %z")
   echo "UploadTime = ${now}" >> ${uploadLogFile}
   echo "UploaderName = ${programName}" >> ${uploadLogFile}
   echo "UploaderVersion = ${programVersion} ${programVersionDate}" >> ${uploadLogFile}
+  echo "AppVersion = ${version}" >> ${uploadLogFile}
+  echo "InfoMapperVersion = ${infoMapperVersion}" >> ${uploadLogFile}
 
   # First upload to the version folder
   echo "Uploading Angular ${version} version"
-  echo "  from: ${distAppFolder}"
+  echo "  from: ${infoMapperDistAppFolder}"
   echo "    to: ${s3FolderVersionUrl}"
   read -p "Continue [Y/n]? " answer
   if [ -z "${answer}" -o "${answer}" = "y" -o "${answer}" = "Y" ]; then
@@ -330,7 +337,7 @@ uploadDist() {
   # Next upload to the 'latest' folder
   # - TODO smalers 2020-04-20 evaluate whether to prevent 'dev' versions to be updated to 'latest'
   echo "Uploading Angular 'latest' version"
-  echo "  from: ${distAppFolder}"
+  echo "  from: ${infoMapperDistAppFolder}"
   echo "    to: ${s3FolderLatestUrl}"
   read -p "Continue [Y/n]? " answer
   if [ -z "${answer}" -o "${answer}" = "y" -o "${answer}" = "Y" ]; then
@@ -357,29 +364,32 @@ scriptFolder=$(cd $(dirname "$0") && pwd)
 # mainFolder is info-mapper
 repoFolder=$(dirname ${scriptFolder})
 gitReposFolder=$(dirname ${repoFolder})
-# Start must match Info Mapper...
+# Start must be consistent with Info Mapper...
 infoMapperRepoFolder="${gitReposFolder}/owf-app-info-mapper-ng"
-mainFolder="${infoMapperRepoFolder}/info-mapper"
-distFolder="${mainFolder}/dist"
+infoMapperMainFolder="${infoMapperRepoFolder}/info-mapper"
+infoMapperDistFolder="${infoMapperMainFolder}/dist"
 # TODO smalers 2020-04-20 is the app folder redundant?
 # - it is not copied to S3
-distAppFolder="${distFolder}/info-mapper"
+infoMapperDistAppFolder="${infoMapperDistFolder}/info-mapper"
 # ...end must match Info Mapper
 programName=$(basename $0)
 programVersion="1.3.0"
 programVersionDate="2020-05-05"
-logInfo "Script folder:     ${scriptFolder}"
-logInfo "Program name:      ${programName}"
-logInfo "Repository folder: ${repoFolder}"
-logInfo "Main folder:       ${mainFolder}"
-logInfo "dist folder:       ${distFolder}"
-logInfo "dist/app folder:   ${distAppFolder}"
+logInfo "scriptFolder:             ${scriptFolder}"
+logInfo "Program name:             ${programName}"
+logInfo "repoFolder:               ${repoFolder}"
+logInfo "gitReposFolder:           ${gitReposFolder}"
+logInfo "infoMapperRepoFolder:     ${infoMapperRepoFolder}"
+logInfo "infoMapperMainFolder:     ${infoMapperMainFolder}"
+logInfo "infoMapperDistFolder:     ${infoMapperDistFolder}"
+logInfo "infoMapperDistAppFolder:  ${infoMapperDistAppFolder}"
 
 # S3 folder for upload
 # - put before parseCommandLine so can be used in print usage, etc.
 # - TODO smalers 2020-04-20 does this need an app folder at end like "/owf-app-poudre-dashboard"?
 getVersion
-logInfo "Product version:   ${version}"
+logInfo "Application version:  ${version}"
+logInfo "InfoMapper version:   ${infoMapperVersion}"
 s3FolderVersionUrl="s3://poudre.openwaterfoundation.org/${version}"
 s3FolderLatestUrl="s3://poudre.openwaterfoundation.org/latest"
 
@@ -406,7 +416,7 @@ fi
 
 # TODO smalers 2020-04-20 need to suggest how to run
 # - maybe a one-line Python http server command?
-logInfo "Run the application in folder: ${distAppFolder}"
+logInfo "Run the application in folder: ${infoMapperDistAppFolder}"
 
 # If here, was successful
 exit 0
