@@ -75,16 +75,16 @@ Do the following to quickly set up a new development environment, assuming that 
 If development tools have not been previously installed, see the next section for more information.
 
 1. On windows, create a folder `C:\Users\user\owf-dev\App-Poudre-Portal\git-repos`
-2. In the above folder, clone the repo:  `git clone https://github.com/OpenWaterFoundation/owf-app-poudre-dashboard-workflow.git`
-3. In the repository, change to `build-util`.
-4. Clone other related repositories:  `./git-clone-all-ng.sh`
+2. In the above folder, clone the repository:  `git clone https://github.com/OpenWaterFoundation/owf-app-poudre-dashboard-workflow.git`
+3. In the above repository, change to `build-util`.
+4. Clone other related repositories, including InfoMapper:  `./git-clone-all-ng.sh`
 5. Update the InfoMapper working files:
 	1. Change to the `git-repos/owf-app-info-mapper-ng/info-mapper` folder.
 	2. Install needed modules:  `npm install`
 	3. Test: `ng serve --open`  (the application should display in a browser with menu bar title ***Info Mapper***).
 6. Configure and test the Poudre portal:
 	1. Change to the `git-repos/owf-app-poudre-dashboard-workflow/build-util` folder.
-	2. Run:  `./create-info-mapper-symlinks.sh`  (see [InfoMapper Configuration](#infomapper-configuration) section below for details)
+	2. Create symbolic link between InfoMapper files and this repository's files:  `./create-info-mapper-symlinks.sh`  (see [InfoMapper Configuration](#infomapper-configuration) section below for details)
 	3. Change to `git-repos/owf-app-info-mapper-ng/info-mapper` folder.
 	4. Run the InfoMapper:  `ng serve --open`  (the application should display in a browser with menu bar title ***Poudre Basin Information***).
 
