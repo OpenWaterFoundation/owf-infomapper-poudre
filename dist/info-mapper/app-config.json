@@ -27,10 +27,22 @@
           "mapProject": "theNameOfTheMapProjectFile"
         },
         {
+          "name":  "Industry - Brewing",
+          "enabled": "true",
+          "action": "displayMap",
+          "mapProject" : "theNameOfTheMapProjectFile"
+        },
+        {
           "name": "Municipalities",
           "enabled": "true",
           "action": "displayMap",
           "mapProject" : "theNameOfTheMapProjectFile"
+        },
+        {
+          "name": "Recreation - Boating Companies",
+          "enabled": "true",
+          "action": "displayMap",
+          "mapProject": "theNameOfTheMapProjectFile"
         },
         {
           "name": "Water Providers",
@@ -303,7 +315,7 @@
     {
       "id": "Tab",
       "name": "About the Project",
-      "action": "genericPage",
+      "action": "contentPage",
       "align": "right",
       "enabled": "true",
       "markdownFile": "about-the-project"

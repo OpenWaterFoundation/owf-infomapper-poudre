@@ -4,15 +4,22 @@
 #
 # Create symbolic links in the owf-app-info-mapper-ng repository to folders in this
 # repository so that the Info Mapper has access to data from this repository.
+# This is an alternative to copying the files from one repository to another.
+# Using symbolic links requires turning on Developer Mode in Windows 10.
 
 # Supporting functions, alphabetized
 
 # Create a single symbolic link, using Windows mklink
 # - first argument is the target (existing file or folder)
 # - second argument is the link
+# - use Windows mklink so that the link adheres to Windows file system conventions
+# - have to use double slash for /c and /d when running Windows command from MinGW, see:
+#   https://superuser.com/questions/526736/how-to-run-internal-cmd-command-from-the-msys-shell
+#   http://www.mingw.org/wiki/Posix_path_conversion
 createSymbolicLink() {
   target=$1
   link=$2
+  # Cygpath is available on Cygwin and MinGW
   targetWindows=$(cygpath -w "${target}")
   linkWindows=$(cygpath -w "${link}")
 
@@ -88,10 +95,16 @@ createSymbolicLink() {
       if [ -z "${answer}" -o "${answer}" = "Y" -o "${answer}" = "y" ]; then
         if [ "${operatingSystem}" = "mingw" ]; then
           if [ "${targetIsFile}" = "yes" ]; then
+            logInfo "Executing: cmd //c mklink ${linkWindows} ${targetWindows}"
             cmd //c mklink ${linkWindows} ${targetWindows}
           elif [ "${targetIsDir}" = "yes" ]; then
-            cmd //c mklink /d ${linkWindows} ${targetWindows}
+            logInfo "Executing: cmd //c mklink //d ${linkWindows} ${targetWindows}"
+            cmd //c mklink //d ${linkWindows} ${targetWindows}
           fi
+        else
+          # TODO smalers 2020-05-08 Need to test on Cygwin and Linux.  Should work.
+          logError "Script has not been tested on operating system ${operatingSystem}.  Exiting."
+          exit 1
         fi
       fi
     fi
@@ -101,27 +114,11 @@ createSymbolicLink() {
 # Create symbolic links for all content
 # - 'link' is the symbolic link to be created (link to be created)
 # - 'target' is the file/folder that it points to (source)
-# - use Windows mklink so that the link adheres to Windows file system conventions
-# - have to use double slash, see:
-#   https://superuser.com/questions/526736/how-to-run-internal-cmd-command-from-the-msys-shell
-#   http://www.mingw.org/wiki/Posix_path_conversion
 createSymbolicLinks() {
-  # Link the application configuration file
-  logInfo "Creating link for application configuration file 'app-config.json'."
-  target0="${distInfoMapperFolder}/app-config.json"
-  link0="${infoMapperAssetsFolder}/app-config.json"
-  createSymbolicLink "${target0}" "${link0}"
-
-  # Link the data-maps folder
-  logInfo "Creating link for application configuration folder 'data-maps'."
-  target0="${distInfoMapperFolder}/data-maps"
-  link0="${infoMapperAssetsFolder}/data-maps"
-  createSymbolicLink "${target0}" "${link0}"
-
-  # Link the data-ts folder
-  logInfo "Creating link for application configuration folder 'data-ts'."
-  target0="${distInfoMapperFolder}/data-ts"
-  link0="${infoMapperAssetsFolder}/data-ts"
+  # Link the app folder
+  logInfo "Creating link for application folder 'app'."
+  target0="${distInfoMapperFolder}"
+  link0="${infoMapperAssetsFolder}/app"
   createSymbolicLink "${target0}" "${link0}"
 }
 
@@ -245,10 +242,13 @@ parseCommandLine() {
 # - calling code must exit with appropriate code
 printUsage() {
   echoStderr ""
-  echoStderr "Usage:  $programName --aws-profile=profile"
+  echoStderr "Usage:  $programName"
   echoStderr ""
-  echoStderr "Create symbolic links in the owf-app-info-mapper-ng assets to files and folders in this repository."
-  echoStderr "This allows the Info Mapper to be used with custom application data without mixing/copying files."
+  echoStderr "Create symbolic link in the owf-app-info-mapper-ng assets to files and folders in this repository."
+  echoStderr ""
+  echoStderr "   owf-app-info-mapper-ng/info-mapper/src/assets/app -> dist/info-mapper"
+  echoStderr ""
+  echoStderr "This allows the Info Mapper to be used with custom application data without copying files."
   echoStderr ""
   echoStderr "-h or --help            Print the usage."
   echoStderr "-v or --version         Print the version and copyright/license notice."
@@ -317,8 +317,6 @@ parseCommandLine "$@"
 # Create the symbolic links
 createSymbolicLinks
 
-# TODO smalers 2020-04-20 need to suggest how to run
-# - maybe a one-line Python http server command?
 logInfo "Run the application with 'ng serve --open' in: ${infoMapperMainFolder}"
 
 # If here, was successful

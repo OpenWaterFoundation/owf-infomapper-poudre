@@ -4,3 +4,4 @@
 owf-app-poudre-dashboard-workflow
 # The Info Mapper software is used to serve the portal.
 owf-app-info-mapper-ng
+# Do not include the InfoMapper documentation - that is edited with the InforMapper.
