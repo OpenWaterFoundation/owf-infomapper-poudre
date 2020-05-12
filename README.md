@@ -124,7 +124,7 @@ including the following.  Install the software in normal default locations.
 ### InfoMapper Configuration ###
 
 The InfoMapper is an Angular application, which expects run-time configuration and data files to be
-located in `info-mapper/src/assets` folder of the `owf-app-info-mapper-ng` repository working files.
+located in `owf-app-info-mapper-ng/info-mapper/src/assets` repository working files.
 Because the InfoMapper is a general application,
 specific configuration and data for this Poudre information project cannot live in the InfoMapper repository.
 Two options can be used to provide custom configuration and data to the InfoMapper:
@@ -135,7 +135,11 @@ Two options can be used to provide custom configuration and data to the InfoMapp
 	* The downside is that files, perhaps  many files, would need to be repeatedly copied, which can be slow.
 	* This option may need to be used if the second option (symbolic links) is not possible,
 	for example if the developer cannot enable symbolic links on Windows 10 by turning on Developer Mode.
-2. Use symbolic links to point InfoMapper `assets/app` folders to the `dist/info-mapper` folder in this repository:
+2. Use symbolic links to allow the InfoMapper to access data without doing a copy.
+	1. Published data files and content live with this repository and InfoMapper `assets/app` folder links to `dist/info-mapper` folder in this repository.
+	* **This approach is desirable because published data live in the repository that is publishing the data, but does not seem to work.**
+	Angular does not seem to follow the link in sub-folders, despite using `preserveSymlink=true` in the
+	`angular.json` configuration file.
 	* Requires activating Windows 10 features to use symbolic links
 	(see [Symlinks in Windows, MinGW, Git, and Cygwin](https://www.joshkel.com/2018/01/18/symlinks-in-windows/)).
 	* Requires confirming that symbolic links are working with all technologies involved,
@@ -144,11 +148,20 @@ Two options can be used to provide custom configuration and data to the InfoMapp
 	[mklink](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/mklink) command and
 	confirming that other development environment tools work with links,
 	in order to do the minimal amount of extra configuration.
-	* The `build-util/create-info-mapper-symlinks.sh` script has been tested with Git Bash.
+	* The `build-util/create-info-mapper-symlinks.sh --files-live-here`
+	script automates the above has been tested with Git Bash.
+	2. Published data files and content live with the InfoMapper repository and symbolic link from this repository
+	allows the files to be written.
+	* **This works but is undesirable.  Hopefully the first option can be figured out and implemented.**
+	* See above for enabling symbolic links.
+	* The `build-util/create-info-mapper-symlinks.sh --files-live-with-info-mapper` script automates creating the symbolic link.
+	* Because `app` folder is git-ignored in the InfoMapper and the `dist/info-mapper` symbolic link is git-ignored in
+	this repository, any content that is static, such as `app-config.json` and `content-pages` must be saved in
+	in this repository and copied to the `dist/info-mapper` linked folder.  This is not ideal but is the current work-around.
+	Use the `dist/copy-local-to-info-mapper.sh` script to do this
+	(this approach is similar to what would be done for #1 should that approach ultimatey be needed).
 
-The first option is relatively trivial; however, the second option is used in this repository because
-it is more efficient for development.  Testing has been done with Git Bash.
-The following describes steps to use symbolic links:
+Results of option 2b are as follows.  Testing has been done with Git Bash.
 
 1. Enable Developer Mode in Windows as described in the above article and
 [Enable your device for development](https://docs.microsoft.com/en-us/windows/uwp/get-started/enable-your-device-for-development) article.
@@ -157,23 +170,25 @@ the settings do allow turning off specific features, such as remote access, to r
 Many of the Developer Mode features seem to be related to developing Microsoft Store applications,
 which is not the focus here.
 2. Run the `build-util/create-info-mapper-symlinks.sh` script in this repository
-to (re)create the symbolic links in the InfoMapper repository.
+to (re)create the symbolic link to the InfoMapper repository.
 Note that any links that are created use full paths so moving the development environment folders
 will require recreating the links.
 Listing files in the InfoMapper `assets` folder will then show output similar to:
 
 ```
-lrwxrwxrwx 1 sam 197121 99 May  9 00:53 app -> /c/Users/sam/owf-dev/App-Poudre-Portal/git-repos/owf-app-poudre-dashboard-workflow/dist/info-mapper/
-drwxr-xr-x 1 sam 197121  0 May  9 00:02 app-default/
-drwxr-xr-x 1 sam 197121  0 May  5 16:40 leaflet/
--rw-r--r-- 1 sam 197121 43 May  5 16:40 version.json
+sam (master *) dist $ ls -l
+total 8
+lrwxrwxrwx 1 sam 197121   98 May 12 12:33 info-mapper -> /c/Users/sam/owf-dev/App-Poudre-Portal/git-repos/owf-app-info-mapper-ng/info-mapper/src/assets/app/
+-rw-r--r-- 1 sam 197121 2070 May 12 12:56 README.md
+drwxr-xr-x 1 sam 197121    0 May 11 08:54 x-info-mapper/
 ```
 
-Once the links are established, map configurations and related can be created in
-this repository in the `dist/info-mapper` folder, and will be visible to the InfoMapper via the symbolic links.
+Once the link is established, map configurations and related can be created in
+this repository in the `dist/info-mapper` folder, and will be visible to the InfoMapper via the symbolic link.
 The top-level `data-maps` and `data-ts` folders should always exist but underlying files are in `.gitignore` since
 the files are dynamically generated.
 A snapshot of the full data files will be saved when the website is published, and other copies can be made if desired.
+Run the `dist/copy-local-to-info-mapper.sh` script to copy select static content to InfoMapper.
 
 Run the InfoMapper in its repository as per InfoMapper documentation (e.g., `ng serve --open` in the `info-mapper` folder).
 

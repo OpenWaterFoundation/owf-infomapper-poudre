@@ -33,7 +33,7 @@ createSymbolicLink() {
     targetIsDir="yes"
   fi
   if [ "${targetIsFile}" = "no" -a "${targetIsDir}" = "no" ]; then
-    logWarning "Skipping link.  Target does not exist as file or directory:"
+	  logWarning "Skipping link.  Target does not exist as file or directory (need to create it?):"
     logWarning "  ${target}"
     logWarning "  ${targetWindows}"
   else
@@ -117,9 +117,23 @@ createSymbolicLink() {
 createSymbolicLinks() {
   # Link the app folder
   logInfo "Creating link for application folder 'app'."
-  target0="${distInfoMapperFolder}"
-  link0="${infoMapperAssetsFolder}/app"
-  createSymbolicLink "${target0}" "${link0}"
+  if [ "${fileLocation}" = "here" ]; then
+    # Files live in this repo in dist/info-mapper.
+    # InfoMapper assets/app -> dist/info-mapper
+    target0="${distInfoMapperFolder}"
+    link0="${infoMapperAssetsFolder}/app"
+    createSymbolicLink "${target0}" "${link0}"
+  elif [ "${fileLocation}" = "info-mapper" ]; then
+    # Files live in InofMapper repo in assets/app
+    # dist/info-mapper -> assets/app
+    target0="${infoMapperAssetsFolder}/app"
+    link0="${distInfoMapperFolder}"
+    createSymbolicLink "${target0}" "${link0}"
+  else
+    logError "Unknown file location.  Not creating links.  See --files-live* options."
+    printUsage
+    exit 1
+  fi
 }
 
 # Determine the operating system that is running the script
@@ -216,6 +230,16 @@ parseCommandLine() {
   while true; do
     #logDebug "Command line option is ${opt}"
     case "$1" in
+      --files-live-here) # --files-live-here  Link is info-mapper -> dist/info-mapper
+        logInfo "--files-live-here detected"
+        fileLocation="here"
+        shift 1
+        ;;
+      --files-live-with-info-mapper) # --files-live-with-info-mapper  Link is info-mapper <- dist/info-mapper
+        logInfo "--files-live-here detected"
+        fileLocation="info-mapper"
+        shift 1
+        ;;
       -h|--help) # -h or --help  Print the program usage
         printUsage
         exit 0
@@ -246,12 +270,15 @@ printUsage() {
   echoStderr ""
   echoStderr "Create symbolic link in the owf-app-info-mapper-ng assets to files and folders in this repository."
   echoStderr ""
-  echoStderr "   owf-app-info-mapper-ng/info-mapper/src/assets/app -> dist/info-mapper"
+  echoStderr "   dist/info-mapper -> owf-app-info-mapper-ng/info-mapper/src/assets/app   (use --files-live-with-info-mapper)"
+  echoStderr "   owf-app-info-mapper-ng/info-mapper/src/assets/app -> dist/info-mapper   (use --files-live-here)"
   echoStderr ""
   echoStderr "This allows the Info Mapper to be used with custom application data without copying files."
   echoStderr ""
-  echoStderr "-h or --help            Print the usage."
-  echoStderr "-v or --version         Print the version and copyright/license notice."
+  echoStderr "--files-live-here              Files live in this repository (InfoMapper links to dist/info-mapper)."
+  echoStderr "--files-live-with-info-mapper  Files live in InfoMapper (dist/info-mapper links to InfoMapper)."
+  echoStderr "-h or --help                   Print the usage."
+  echoStderr "-v or --version                Print the version and copyright/license notice."
   echoStderr ""
 }
 
@@ -295,7 +322,7 @@ infoMapperMainFolder="${infoMapperRepoFolder}/info-mapper"
 infoMapperAssetsFolder="${infoMapperMainFolder}/src/assets"
 # ...end must match Info Mapper
 programName=$(basename $0)
-programVersion="1.0.0"
+programVersion="1.1.0"
 programVersionDate="2020-05-05"
 logInfo "Script folder:           ${scriptFolder}"
 logInfo "Program name:            ${programName}"
@@ -312,6 +339,8 @@ logInfo "infoMapperAssetsFolder:  ${infoMapperAssetsFolder}"
 # logInfo "Product version:   ${version}"
 
 # Parse the command line.
+# - Default file location is with InfoMapper so it does not need to deal with symbolic links
+fileLocation="info-mapper"
 parseCommandLine "$@"
 
 # Create the symbolic links
