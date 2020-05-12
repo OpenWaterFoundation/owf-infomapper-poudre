@@ -1,0 +1,6 @@
+# Ignore files that don't need to be in the repository.
+# - 'info-mapper/' - folder should be a symbolic link created with the 'build-util/create-info-mapper-symlinks.sh' script.
+# - 'x-info-mapper/' - temporary files used in testing
+# - 'info-mapper-local/' - content that needs to be version controlled, and is copied to the 'info-mapper' folder to publish.
+/info-mapper
+/x-info-mapper

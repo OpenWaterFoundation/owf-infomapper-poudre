@@ -9,10 +9,28 @@
       "enabled": "true",
       "menus": [
         {
-          "name": "Division 1 Water Districts",
+          "name": "Physical - Counties",
           "enabled": "true",
           "action": "displayMap",
-          "mapProject" : "div1-water-districts.json"
+          "mapProject" : "Entities-Map-Counties"
+        },
+        {
+          "name": "Physical - Hydrologic Unit Codes",
+          "enabled": "true",
+          "action": "displayMap",
+          "mapProject" : "Entities-Map-HUC"
+        },
+        {
+          "name": "Physical - Stream Reaches",
+          "enabled": "true",
+          "action": "displayMap",
+          "mapProject" : "Entities-Map-Streams"
+        },
+        {
+          "name": "Administrative -  Division 1 Water Districts",
+          "enabled": "true",
+          "action": "displayMap",
+          "mapProject" : "Entities-Map-WaterDistricts"
         },
         {
           "name":  "Agriculture - Ditches",
@@ -21,19 +39,19 @@
           "mapProject" : "theNameOfTheMapProjectFile"
         },
         {
-          "name": "Environmental Entities",
+          "name": "Environment - Organizations",
           "enabled": "true",
           "action": "displayMap",
           "mapProject": "theNameOfTheMapProjectFile"
         },
         {
-          "name":  "Industry - Brewing",
+          "name":  "Industry - Breweries",
           "enabled": "true",
           "action": "displayMap",
           "mapProject" : "theNameOfTheMapProjectFile"
         },
         {
-          "name": "Municipalities",
+          "name": "Municipal - Municipalities",
           "enabled": "true",
           "action": "displayMap",
           "mapProject" : "theNameOfTheMapProjectFile"
@@ -45,7 +63,19 @@
           "mapProject": "theNameOfTheMapProjectFile"
         },
         {
-          "name": "Water Providers",
+          "name": "Recreation - Trails",
+          "enabled": "true",
+          "action": "displayMap",
+          "mapProject": "theNameOfTheMapProjectFile"
+        },
+        {
+          "name": "Water Supply - Water Providers",
+          "enabled": "true",
+          "action": "displayMap",
+          "mapProject": "theNameOfTheMapProjectFile"
+        },
+        {
+          "name": "Water Supply - Transbasin",
           "enabled": "true",
           "action": "displayMap",
           "mapProject": "theNameOfTheMapProjectFile"
@@ -59,73 +89,85 @@
       "enabled": "true",
       "menus" : [
         {
-          "name": "Boating",
+          "name": "System - Point Flow",
+          "enabled": "true",
+          "action": "displayMap",
+          "mapProject": "theNameOfTheMapProjectFile"
+        },
+        {
+          "name": "Environment - Wildfire Burn Areas",
+          "enabled": "true",
+          "action": "displayMap",
+          "mapProject": "theNameOfTheMapProjectFile"
+        },
+        {
+          "name": "Operations - Calls",
+          "enabled": "true",
+          "action": "displayMap",
+          "mapProject": "theNameOfTheMapProjectFile"
+        },
+        {
+          "name": "Recreation - Boating",
           "enabled": "true",
           "action": "displayMap",
           "mapProject": "boatingMap"
         },
         {
-          "name": "Drought",
-          "enabled": "true",
-          "action": "displayMap",
-          "mapProject": "theNameOfTheMapProjectFile"
-        },
-        {
-          "name": "Evapotranspiration",
-          "enabled": "true",
-          "action": "displayMap",
-          "mapProject": "theNameOfTheMapProjectFile"
-        },
-        {
-          "name": "Fishing",
+          "name": "Recreation - Fishing",
           "enabled": "true",
           "action": "displayMap",
           "mapProject": "fishingMap"
         },
         {
-          "name": "Operations",
+          "name": "Water Supply - Drought",
           "enabled": "true",
           "action": "displayMap",
           "mapProject": "theNameOfTheMapProjectFile"
         },
         {
-          "name": "Reservoirs (Storage)",
+          "name": "Water Supply - Operations",
           "enabled": "true",
           "action": "displayMap",
           "mapProject": "theNameOfTheMapProjectFile"
         },
         {
-          "name": "Snowpack (SNODAS)",
+          "name": "Water Supply - Reservoirs (Storage)",
+          "enabled": "true",
+          "action": "displayMap",
+          "mapProject": "theNameOfTheMapProjectFile"
+        },
+        {
+          "name": "Water Supply - Snowpack (SNODAS)",
           "enabled": "true",
           "action": "externalLink",
           "url": "http://snodas.cdss.state.co.us/app/index.html"
         },
         {
-          "name": "Snowpack (NRCS) - Need link from Susan?",
+          "name": "Water Supply - Snowpack (NRCS) - Need link from Susan?",
           "enabled": "true",
           "action": "externalLink",
           "url": "http://snodas.cdss.state.co.us/app/index.html"
         },
         {
-          "name": "Soil Moisture",
+          "name": "Water Supply - Streamflow",
           "enabled": "true",
           "action": "displayMap",
           "mapProject": "theNameOfTheMapProjectFile"
         },
         {
-          "name": "Streamflow",
+          "name": "Weather - Evapotranspiration",
           "enabled": "true",
           "action": "displayMap",
           "mapProject": "theNameOfTheMapProjectFile"
         },
         {
-          "name": "Wind",
+          "name": "Weather - Soil Moisture",
           "enabled": "true",
           "action": "displayMap",
           "mapProject": "theNameOfTheMapProjectFile"
         },
         {
-          "name": "Wildfire Burn Areas",
+          "name": "Weather - Wind",
           "enabled": "true",
           "action": "displayMap",
           "mapProject": "theNameOfTheMapProjectFile"
@@ -138,6 +180,12 @@
       "align": "left",
       "enabled": "true",
       "menus" : [
+        {
+          "name": "System",
+          "enabled": "true",
+          "action": "displayMap",
+          "mapProject": "theNameOfTheMapProjectFile"
+        },
         {
           "name": "CBT Quota",
           "enabled": "true",
