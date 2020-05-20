@@ -3,11 +3,18 @@
 # - output to the dist/info-mapper folder for use by the InfoMapper
 # - layer view groups are added from 1st drawn (bottom) to last drawn (top)
 #
+# Define properties to control processing.
+# - use relative paths so that the command file is portable
+# - AssetsFolder is where map files exist for the InfoMapper tool
+SetProperty(PropertyName="AssetsFolder",PropertyType="str",PropertyValue="../../dist/info-mapper")
+SetProperty(PropertyName="MapsFolder",PropertyType="str",PropertyValue="${AssetsFolder}/data-maps")
+SetProperty(PropertyName="MapFolder",PropertyType="str",PropertyValue="${MapsFolder}/Entities/Administrative-WaterDistricts")
+#
 # Create a single map project and map for that project.
 # - GeoMapProjectID:  WaterDistrictsProject
 # - GeoMapID:  WaterDistrictsMap
 CreateGeoMapProject(NewGeoMapProjectID="WaterDistrictsProject",ProjectType="SingleMap",Name="CO Division 1 Water Districts",Description="Colorado Division 1 water districts for water administration.",Properties="author:'Open Water Foundation',specificationFlavor:'',specificationVersion:'1.0.0'")
-CreateGeoMap(NewGeoMapID="WaterDistrictsMap",Name="CO Division 1 Water Districts",Description="Colorado Division 1 water districts for water administration.",CRS="EPSG:4326",Properties="center:'[40, -105.385]',extentInitial:8,extentMinimum:7,extentMaximum:15")
+CreateGeoMap(NewGeoMapID="WaterDistrictsMap",Name="CO Division 1 Water Districts",Description="Colorado Division 1 water districts for water administration.",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.385,40,8'")
 AddGeoMapToGeoMapProject(GeoMapProjectID="WaterDistrictsProject",GeoMapID="WaterDistrictsMap")
 # = = = = = = = = = =
 # Background layers:  read layers and add a layer view group
@@ -25,15 +32,14 @@ AddGeoLayerViewToGeoMap(GeoLayerID="MapBoxStreets&SatelliteLayer",GeoMapID="Wate
 # Water districts:  read layers and add to a layer view group.
 # GeoLayerViewGroupID: WaterDistrictsGroup
 ReadGeoLayerFromGeoJSON(InputFile="layers/co-dwr-water-districts-division1.geojson",GeoLayerID="WaterDistrictsLayer",Name="CO DWR Division 1 Water Districts",Description="Water District boundaries for Division 1 from the Colorado Division of Water Resources.")
-AddGeoLayerViewGroupToGeoMap(GeoMapID="WaterDistrictsMap",GeoLayerViewGroupID="WaterDistrictsGroup",Name="CO DWR Division 1 Water Districts",Description="Water District boundaries fro Division 1 from the Colorado Division of Water Resources.",Properties="selectedInitial: true")
+AddGeoLayerViewGroupToGeoMap(GeoMapID="WaterDistrictsMap",GeoLayerViewGroupID="WaterDistrictsGroup",Name="CO DWR Division 1 Water Districts",Description="Water District boundaries for Division 1 from the Colorado Division of Water Resources.",Properties="selectedInitial: true")
 AddGeoLayerViewToGeoMap(GeoLayerID="WaterDistrictsLayer",GeoMapID="WaterDistrictsMap",GeoLayerViewGroupID="WaterDistrictsGroup",GeoLayerViewID="WaterDistrictsLayerView",Name="CO DWR Division 1 Water Districts",Description="Water District boundaries for Division 1 from the Colorado Division of Water Resources")
-SetGeoLayerViewCategorizedSymbol(GeoMapID="WaterDistrictsMap",GeoLayerViewGroupID="WaterDistrictsGroup",GeoLayerViewID="WaterDistrictsLayerView",Name="Colorize districts",Description="Show each water district in a different color.",ClassificationAttribute="DISTRICT",Properties="classification:'categorized',classificationField:'',classificationFile:co-dwr-water-districts-division1-classify-district.csv'',color:black,fillOpacity:0.4,opacity:1.0,size:'',sizeUnits:pixels,symbolShape:square,weight:1.5")
+SetGeoLayerViewCategorizedSymbol(GeoMapID="WaterDistrictsMap",GeoLayerViewGroupID="WaterDistrictsGroup",GeoLayerViewID="WaterDistrictsLayerView",Name="Colorize districts",Description="Show each water district in a different color.",ClassificationAttribute="DISTRICT",Properties="classification:'categorized',classificationField:'',classificationFile:layers/co-dwr-water-districts-division1-classify-district.csv'',color:black,fillOpacity:0.4,opacity:1.0,size:'',sizeUnits:pixels,symbolShape:square,weight:1.5")
 # = = = = = = = = = =
 # Write the map project file and copy layers to the location needed by the web application.
 # - follow InfoMapper conventions
-WriteGeoMapProjectToJSON(GeoMapProjectID="WaterDistrictsProject",Indent="2",OutputFile="maps/Entities-Map-WaterDistricts.json")
-SetProperty(PropertyName="AssetsFolder",PropertyType="str",PropertyValue="../../dist/info-mapper")
-CopyFile(SourceFile="maps/Entities-Map-WaterDistricts.json",DestinationFile="${AssetsFolder}/data-maps/map-configuration-files/Entities-Map-WaterDistricts.json")
-CopyFile(SourceFile="layers/co-dwr-water-districts-division1.geojson",DestinationFile="${AssetsFolder}/data-maps/map-layers/co-dwr-water-districts-division1.json")
-# CopyFile(SourceFile="layers/co-dwr-water-districts-division1-classify-district.csv",DestinationFile="${AssetsFolder}/data-maps/map-layers/co-dwr-water-districts-division1-classify-district.csv")
-CopyFile(SourceFile="layers/co-dwr-water-districts-division1-classify-district.csv",DestinationFile="${AssetsFolder}/data-maps/map-classification-files/co-dwr-water-districts-division1-classification.csv")
+WriteGeoMapProjectToJSON(GeoMapProjectID="WaterDistrictsProject",Indent="2",OutputFile="codwr-waterdistricts.json")
+CopyFile(SourceFile="codwr-waterdistricts.json",DestinationFile="${MapFolder}/codwr-waterdistricts.json")
+CopyFile(SourceFile="layers/co-dwr-water-districts-division1.geojson",DestinationFile="${MapFolder}/layers/co-dwr-water-districts-division1.geojson")
+# CopyFile(SourceFile="layers/co-dwr-water-districts-division1-classify-district.csv",DestinationFile="${MapFolder}/layers/co-dwr-water-districts-division1-classify-district.csv")
+CopyFile(SourceFile="layers/co-dwr-water-districts-division1-classify-district.csv",DestinationFile="${MapFolder}/layers/co-dwr-water-districts-division1-classify-district.csv")
