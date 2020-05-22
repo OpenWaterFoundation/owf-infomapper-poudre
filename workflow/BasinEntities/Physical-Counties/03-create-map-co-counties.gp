@@ -35,7 +35,7 @@ AddGeoLayerViewToGeoMap(GeoLayerID="MapBoxStreets&SatelliteLayer",GeoMapID="Coun
 ReadGeoLayerFromGeoJSON(InputFile="../Physical-Counties/layers/co-counties.geojson",GeoLayerID="CountiesLayer",Name="Colorado Counties",Description="Colorado Counties")
 AddGeoLayerViewGroupToGeoMap(GeoMapID="CountiesMap",GeoLayerViewGroupID="CountiesGroup",Name="Colorado Counties",Description="Colorado Counties",Properties="selectedInitial: true",InsertPosition="Top")
 AddGeoLayerViewToGeoMap(GeoLayerID="CountiesLayer",GeoMapID="CountiesMap",GeoLayerViewGroupID="CountiesGroup",GeoLayerViewID="CountiesLayerView",Name="Colorado Counties",Description="Water Colorado Counties")
-SetGeoLayerViewCategorizedSymbol(GeoMapID="CountiesMap",GeoLayerViewGroupID="CountiesGroup",GeoLayerViewID="CountiesLayerView",Name="Colorize counties",Description="Show each county the same color except those that overlap the Poudre",ClassificationAttribute="county",Properties="classification:'categorized',classificationFile:layers/co-counties-classify-county.csv''")
+SetGeoLayerViewCategorizedSymbol(GeoMapID="CountiesMap",GeoLayerViewGroupID="CountiesGroup",GeoLayerViewID="CountiesLayerView",Name="Colorize counties",Description="Show each county the same color except those that overlap the Poudre",ClassificationAttribute="county",Properties="classificationType:'categorized',classificationFile:'layers/co-counties-classify-county.csv'")
 # = = = = = = = = = =
 # Write the map project file and copy layers to the location needed by the web application.
 # - follow InfoMapper conventions
