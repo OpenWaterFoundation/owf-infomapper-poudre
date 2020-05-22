@@ -49,7 +49,7 @@ buildDist() {
   # Run the ng build
   # - use the command line from 'copy-to-owf-amazon-s3.bat', which was used more recently
   # - this should be found in the Windows PATH, for example C:\Users\user\AppData\Roaming\npm\ng
-  logInfo "Start running 'ng build...' ..."
+  logInfo "Start running:  ng build --prod --aot=true --baseHref=${ngBuildHrefOpt} --prod=true --extractCss=true --namedChunks=false --outputHashing=all --sourceMap=false"
   ng build --prod --aot=true --baseHref=${ngBuildHrefOpt} --prod=true --extractCss=true --namedChunks=false --outputHashing=all --sourceMap=false
   logInfo "...done running 'ng build...'"
 }

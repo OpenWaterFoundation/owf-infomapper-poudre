@@ -32,13 +32,13 @@ AddGeoLayerViewToGeoMap(GeoLayerID="MapBoxStreets&SatelliteLayer",GeoMapID="Wate
 # Water division:  read layer and add to a layer view group.
 # GeoLayerViewGroupID: WaterDistrictsGroup
 ReadGeoLayerFromGeoJSON(InputFile="layers/co-dwr-water-division.geojson",GeoLayerID="WaterDivisionLayer",Name="CO DWR Division 1",Description="Water Division 1 boundary from the Colorado Division of Water Resources.")
+AddGeoLayerViewGroupToGeoMap(GeoMapID="WaterDistrictsMap",GeoLayerViewGroupID="WaterDistrictsGroup",Name="CO DWR Division 1 Water Districts",Description="Water District boundaries for Division 1 from the Colorado Division of Water Resources.",Properties="selectedInitial: true",InsertPosition="Top")
 AddGeoLayerViewToGeoMap(GeoLayerID="WaterDivisionLayer",GeoMapID="WaterDistrictsMap",GeoLayerViewGroupID="WaterDistrictsGroup",GeoLayerViewID="WaterDivisionLayerView",Name="CO DWR Division 1",Description="Boundary for Division 1 from the Colorado Division of Water Resources",InsertPosition="Top")
 SetGeoLayerViewCategorizedSymbol(GeoMapID="WaterDistrictsMap",GeoLayerViewGroupID="WaterDistrictsGroup",GeoLayerViewID="WaterDivisionLayerView",Name="Colorize divisions",Description="Symbol for the division",ClassificationAttribute="DIV",Properties="classificationType:'categorized',classificationFile:'layers/co-dwr-water-division-classify-division.csv'")
 # = = = = = = = = = =
 # Water districts:  read layer and add to a layer view group.
 # GeoLayerViewGroupID: WaterDistrictsGroup
 ReadGeoLayerFromGeoJSON(InputFile="layers/co-dwr-water-districts-division1.geojson",GeoLayerID="WaterDistrictsLayer",Name="CO DWR Division 1 Water Districts",Description="Water District boundaries for Division 1 from the Colorado Division of Water Resources.")
-AddGeoLayerViewGroupToGeoMap(GeoMapID="WaterDistrictsMap",GeoLayerViewGroupID="WaterDistrictsGroup",Name="CO DWR Division 1 Water Districts",Description="Water District boundaries for Division 1 from the Colorado Division of Water Resources.",Properties="selectedInitial: true",InsertPosition="Top")
 AddGeoLayerViewToGeoMap(GeoLayerID="WaterDistrictsLayer",GeoMapID="WaterDistrictsMap",GeoLayerViewGroupID="WaterDistrictsGroup",GeoLayerViewID="WaterDistrictsLayerView",Name="CO DWR Division 1 Water Districts",Description="Water District boundaries for Division 1 from the Colorado Division of Water Resources",InsertPosition="Top")
 SetGeoLayerViewCategorizedSymbol(GeoMapID="WaterDistrictsMap",GeoLayerViewGroupID="WaterDistrictsGroup",GeoLayerViewID="WaterDistrictsLayerView",Name="Colorize districts",Description="Show each water district in a different color.",ClassificationAttribute="DISTRICT",Properties="classification:'categorized',classificationField:'',classificationFile:layers/co-dwr-water-districts-division1-classify-district.csv'',color:black,fillOpacity:0.4,opacity:1.0,size:'',sizeUnits:pixels,symbolShape:square,weight:1.5")
 # = = = = = = = = = =
