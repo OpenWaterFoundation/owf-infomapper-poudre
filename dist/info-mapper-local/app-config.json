@@ -93,6 +93,105 @@
       ]
     },
     {
+      "id": "HistoricalData",
+      "name": "Historical Data",
+      "align": "left",
+      "enabled": "true",
+      "menus" : [
+        {
+          "id": "hist-ag-ownership",
+          "name": "Agriculture - Ditch Company Ownership",
+          "enabled": "false",
+          "action": "displayMap",
+          "mapProject": "theNameOfTheMapProjectFile"
+        },
+        {
+          "id": "hist-ag-diversions",
+          "name": "Agriculture - Diversions",
+          "enabled": "false",
+          "action": "displayMap",
+          "mapProject": "theNameOfTheMapProjectFile"
+        },
+        {
+          "id": "hist-ag-irrigated",
+          "name": "Agriculture - Irrigated Acreage",
+          "enabled": "false",
+          "action": "displayMap",
+          "mapProject": "theNameOfTheMapProjectFile"
+        },
+        {
+          "id": "hist-ag-rentals",
+          "name": "Agriculture - Water Rentals",
+          "enabled": "false",
+          "action": "displayMap",
+          "mapProject": "theNameOfTheMapProjectFile"
+        },
+        {
+          "id": "hist-env-climatechange",
+          "name": "Environment - Climate Change",
+          "enabled": "false",
+          "action": "displayMap",
+          "mapProject": "theNameOfTheMapProjectFile"
+        },
+        {
+          "id": "hist-env-floods",
+          "name": "Environment - Floods",
+          "enabled": "false",
+          "action": "displayMap",
+          "mapProject": "theNameOfTheMapProjectFile"
+        },
+        {
+          "id": "hist-env-floods",
+          "name": "Environment - Flows",
+          "enabled": "false",
+          "action": "displayMap",
+          "mapProject": "theNameOfTheMapProjectFile"
+        },
+        {
+          "id": "hist-muni-pop",
+          "name": "Municipal - Population",
+          "enabled": "false",
+          "action": "displayMap",
+          "mapProject": "theNameOfTheMapProjectFile"
+        },
+        {
+          "id": "hist-muni-demand",
+          "name": "Municipal - Water Demand",
+          "enabled": "false",
+          "action": "displayMap",
+          "mapProject": "theNameOfTheMapProjectFile"
+        },
+        {
+          "id": "hist-rec-boating",
+          "name": "Recreation - Boating Days",
+          "enabled": "false",
+          "action": "displayMap",
+          "mapProject": "theNameOfTheMapProjectFile"
+        },
+        {
+          "id": "hist-cbt",
+          "name": "Water Supply - CBT Quota and Deliveries",
+          "enabled": "false",
+          "action": "displayMap",
+          "mapProject": "theNameOfTheMapProjectFile"
+        },
+        {
+          "id": "hist-snow",
+          "name": "Water Supply - Snow",
+          "enabled": "false",
+          "action": "displayMap",
+          "mapProject": "theNameOfTheMapProjectFile"
+        },
+        {
+          "id": "hist-streamflow",
+          "name": "Water Supply - Streamflow",
+          "enabled": "false",
+          "action": "displayMap",
+          "mapProject": "theNameOfTheMapProjectFile"
+        }
+      ]
+    },
+    {
       "id": "CurrentConditions",
       "name": "Current Conditions",
       "align": "left",
@@ -249,105 +348,6 @@
         {
           "id": "season-snow",
           "name": "Snow",
-          "enabled": "false",
-          "action": "displayMap",
-          "mapProject": "theNameOfTheMapProjectFile"
-        }
-      ]
-    },
-    {
-      "id": "HistoricalData",
-      "name": "Historical Data",
-      "align": "left",
-      "enabled": "true",
-      "menus" : [
-        {
-          "id": "hist-ag-ownership",
-          "name": "Agriculture - Ditch Company Ownership",
-          "enabled": "false",
-          "action": "displayMap",
-          "mapProject": "theNameOfTheMapProjectFile"
-        },
-        {
-          "id": "hist-ag-diversions",
-          "name": "Agriculture - Diversions",
-          "enabled": "false",
-          "action": "displayMap",
-          "mapProject": "theNameOfTheMapProjectFile"
-        },
-        {
-          "id": "hist-ag-irrigated",
-          "name": "Agriculture - Irrigated Acreage",
-          "enabled": "false",
-          "action": "displayMap",
-          "mapProject": "theNameOfTheMapProjectFile"
-        },
-        {
-          "id": "hist-ag-rentals",
-          "name": "Agriculture - Water Rentals",
-          "enabled": "false",
-          "action": "displayMap",
-          "mapProject": "theNameOfTheMapProjectFile"
-        },
-        {
-          "id": "hist-env-climatechange",
-          "name": "Environment - Climate Change",
-          "enabled": "false",
-          "action": "displayMap",
-          "mapProject": "theNameOfTheMapProjectFile"
-        },
-        {
-          "id": "hist-env-floods",
-          "name": "Environment - Floods",
-          "enabled": "false",
-          "action": "displayMap",
-          "mapProject": "theNameOfTheMapProjectFile"
-        },
-        {
-          "id": "hist-env-floods",
-          "name": "Environment - Flows",
-          "enabled": "false",
-          "action": "displayMap",
-          "mapProject": "theNameOfTheMapProjectFile"
-        },
-        {
-          "id": "hist-muni-pop",
-          "name": "Municipal - Population",
-          "enabled": "false",
-          "action": "displayMap",
-          "mapProject": "theNameOfTheMapProjectFile"
-        },
-        {
-          "id": "hist-muni-demand",
-          "name": "Municipal - Water Demand",
-          "enabled": "false",
-          "action": "displayMap",
-          "mapProject": "theNameOfTheMapProjectFile"
-        },
-        {
-          "id": "hist-rec-boating",
-          "name": "Recreation - Boating Days",
-          "enabled": "false",
-          "action": "displayMap",
-          "mapProject": "theNameOfTheMapProjectFile"
-        },
-        {
-          "id": "hist-cbt",
-          "name": "Water Supply - CBT Quota and Deliveries",
-          "enabled": "false",
-          "action": "displayMap",
-          "mapProject": "theNameOfTheMapProjectFile"
-        },
-        {
-          "id": "hist-snow",
-          "name": "Water Supply - Snow",
-          "enabled": "false",
-          "action": "displayMap",
-          "mapProject": "theNameOfTheMapProjectFile"
-        },
-        {
-          "id": "hist-streamflow",
-          "name": "Water Supply - Streamflow",
           "enabled": "false",
           "action": "displayMap",
           "mapProject": "theNameOfTheMapProjectFile"
