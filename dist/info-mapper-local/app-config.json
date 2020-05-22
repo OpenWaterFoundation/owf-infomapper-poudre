@@ -6,7 +6,6 @@
       "id": "BasinEntities",
       "name": "Basin Entities",
       "align": "left",
-      "enabled": "true",
       "menus": [
         {
           "id": "entities-counties",
@@ -22,52 +21,57 @@
           "mapProject" : "data-maps/BasinEntities/Physical-Hucs/hucs.json"
         },
         {
-          "id": "entities-streams",
+          "id": "entities-stream-reaches",
           "name": "Physical - Stream Reaches",
-          "enabled": "false",
           "action": "displayMap",
-          "mapProject" : "data-maps/BasinEntities/Physical-Streams/streams.json"
+          "mapProject" : "data-maps/BasinEntities/Physical-StreamReaches/stream-reaches.json"
         },
         {
           "id": "entities-codwr-waterdistricts",
           "name": "Administrative -  Division 1 Water Districts",
           "action": "displayMap",
-          "mapProject" : "data-maps/BasinEntities/Administrative-WaterDistricts/codwr-waterdistricts.json"
+          "mapProject" : "data-maps/BasinEntities/Administrative-WaterDistricts/codwr-waterdistricts.json",
+          "separatorBefore" : true
         },
         {
           "id": "entities-ditches",
           "name":  "Agriculture - Ditches",
           "enabled": "false",
           "action": "displayMap",
-          "mapProject" : "data-maps/BasinEntities/Agriculture-Ditches/ditches.json"
+          "mapProject" : "data-maps/BasinEntities/Agriculture-Ditches/ditches.json",
+          "separatorBefore" : true
         },
         {
           "id": "entities-envorg",
           "name": "Environment - Organizations",
           "enabled": "false",
           "action": "displayMap",
-          "mapProject": "data-maps/BasinEntities/Environmental-Organizations/envorgs.json"
+          "mapProject": "data-maps/BasinEntities/Environmental-Organizations/envorgs.json",
+          "separatorBefore" : true
         },
         {
           "id": "entities-breweries",
           "name":  "Industry - Breweries",
           "enabled": "false",
           "action": "displayMap",
-          "mapProject" : "data-maps/BasinEntities/Industry-Breweries/breweries.json"
+          "mapProject" : "data-maps/BasinEntities/Industry-Breweries/breweries.json",
+          "separatorBefore" : true
         },
         {
           "id": "entities-municipalities",
           "name": "Municipal - Municipalities",
           "enabled": "false",
           "action": "displayMap",
-          "mapProject" : "data-maps/BasinEntities/Municipalities/municipalities.json"
+          "mapProject" : "data-maps/BasinEntities/Municipalities/municipalities.json",
+          "separatorBefore" : true
         },
         {
           "id": "entities-boating",
           "name": "Recreation - Boating Companies",
           "enabled": "false",
           "action": "displayMap",
-          "mapProject": "data-maps/BasinEntities/Recreation-Boating/boating.json"
+          "mapProject": "data-maps/BasinEntities/Recreation-Boating/boating.json",
+          "separatorBefore" : true
         },
         {
           "id": "entities-trails",
@@ -81,7 +85,8 @@
           "name": "Water Supply - Water Providers",
           "enabled": "false",
           "action": "displayMap",
-          "mapProject": "data-maps/BasinEntities/WaterSupply-Providers/water-providers.json"
+          "mapProject": "data-maps/BasinEntities/WaterSupply-Providers/water-providers.json",
+          "separatorBefore" : true
         },
         {
           "id": "entities-transbasin",
@@ -96,7 +101,6 @@
       "id": "HistoricalData",
       "name": "Historical Data",
       "align": "left",
-      "enabled": "true",
       "menus" : [
         {
           "id": "hist-ag-ownership",
@@ -131,7 +135,8 @@
           "name": "Environment - Climate Change",
           "enabled": "false",
           "action": "displayMap",
-          "mapProject": "theNameOfTheMapProjectFile"
+          "mapProject": "theNameOfTheMapProjectFile",
+          "separatorBefore" : true
         },
         {
           "id": "hist-env-floods",
@@ -152,7 +157,8 @@
           "name": "Municipal - Population",
           "enabled": "false",
           "action": "displayMap",
-          "mapProject": "theNameOfTheMapProjectFile"
+          "mapProject": "theNameOfTheMapProjectFile",
+          "separatorBefore" : true
         },
         {
           "id": "hist-muni-demand",
@@ -166,14 +172,16 @@
           "name": "Recreation - Boating Days",
           "enabled": "false",
           "action": "displayMap",
-          "mapProject": "theNameOfTheMapProjectFile"
+          "mapProject": "theNameOfTheMapProjectFile",
+          "separatorBefore" : true
         },
         {
           "id": "hist-cbt",
           "name": "Water Supply - CBT Quota and Deliveries",
           "enabled": "false",
           "action": "displayMap",
-          "mapProject": "theNameOfTheMapProjectFile"
+          "mapProject": "theNameOfTheMapProjectFile",
+          "separatorBefore" : true
         },
         {
           "id": "hist-snow",
@@ -195,7 +203,6 @@
       "id": "CurrentConditions",
       "name": "Current Conditions",
       "align": "left",
-      "enabled": "true",
       "menus" : [
         {
           "id": "current-pointflow",
@@ -209,21 +216,24 @@
           "name": "Administration - Calls",
           "enabled": "false",
           "action": "displayMap",
-          "mapProject": "theNameOfTheMapProjectFile"
+          "mapProject": "theNameOfTheMapProjectFile",
+          "separatorBefore" : true
         },
         {
           "id": "current-burnareas",
           "name": "Environment - Wildfire Burn Areas",
           "enabled": "false",
           "action": "displayMap",
-          "mapProject": "theNameOfTheMapProjectFile"
+          "mapProject": "theNameOfTheMapProjectFile",
+          "separatorBefore" : true
         },
         {
           "id": "current-boating",
           "name": "Recreation - Boating",
           "enabled": "false",
           "action": "displayMap",
-          "mapProject": "boatingMap"
+          "mapProject": "boatingMap",
+          "separatorBefore" : true
         },
         {
           "id": "current-fishing",
@@ -237,7 +247,8 @@
           "name": "Water Supply - Drought",
           "enabled": "false",
           "action": "displayMap",
-          "mapProject": "theNameOfTheMapProjectFile"
+          "mapProject": "theNameOfTheMapProjectFile",
+          "separatorBefore" : true
         },
         {
           "id": "current-ops",
@@ -279,7 +290,8 @@
           "name": "Weather - Evapotranspiration",
           "enabled": "false",
           "action": "displayMap",
-          "mapProject": "theNameOfTheMapProjectFile"
+          "mapProject": "theNameOfTheMapProjectFile",
+          "separatorBefore" : true
         },
         {
           "id": "current-soilmoisture",
@@ -301,7 +313,6 @@
       "id": "SeasonalOutlook",
       "name": "Seasonal Outlook",
       "align": "left",
-      "enabled": "true",
       "menus" : [
         {
           "id": "season-system",
@@ -315,42 +326,48 @@
           "name": "CBT Quota",
           "enabled": "false",
           "action": "externalLink",
-          "url": "https://www.northernwater.org/AllotteeInformation/C-BTQuota.aspx"
+          "url": "https://www.northernwater.org/AllotteeInformation/C-BTQuota.aspx",
+          "separatorBefore" : true
         },
         {
           "id": "season-diversions",
           "name": "Diversions",
           "enabled": "false",
           "action": "displayMap",
-          "mapProject": "theNameOfTheMapProjectFile"
+          "mapProject": "theNameOfTheMapProjectFile",
+          "separatorBefore" : true
         },
         {
           "id": "season-drought",
           "name": "Drought",
           "enabled": "false",
           "action": "displayMap",
-          "mapProject": "theNameOfTheMapProjectFile"
+          "mapProject": "theNameOfTheMapProjectFile",
+          "separatorBefore" : true
         },
         {
           "id": "season-ops",
           "name": "Operations",
           "enabled": "false",
           "action": "displayMap",
-          "mapProject": "theNameOfTheMapProjectFile"
+          "mapProject": "theNameOfTheMapProjectFile",
+          "separatorBefore" : true
         },
         {
           "id": "season-reservoirs",
           "name": "Reservoirs (Storage)",
           "enabled": "false",
           "action": "displayMap",
-          "mapProject": "theNameOfTheMapProjectFile"
+          "mapProject": "theNameOfTheMapProjectFile",
+          "separatorBefore" : true
         },
         {
           "id": "season-snow",
           "name": "Snow",
           "enabled": "false",
           "action": "displayMap",
-          "mapProject": "theNameOfTheMapProjectFile"
+          "mapProject": "theNameOfTheMapProjectFile",
+          "separatorBefore" : true
         }
       ]
     },
@@ -358,56 +375,62 @@
       "id": "FuturePlanning",
       "name": "Future Planning",
       "align": "left",
-      "enabled": "true",
       "menus" : [
         {
           "id": "planning-ag-transfers",
           "name": "Agricultural Land Transfer",
           "enabled": "false",
           "action": "displayMap",
-          "mapProject": "theNameOfTheMapProjectFile"
+          "mapProject": "theNameOfTheMapProjectFile",
+          "separatorBefore" : true
         },
         {
           "id": "planning-climatechange",
           "name": "Climate Change",
           "enabled": "false",
           "action": "displayMap",
-          "mapProject": "theNameOfTheMapProjectFile"
+          "mapProject": "theNameOfTheMapProjectFile",
+          "separatorBefore" : true
         },
         {
           "id": "planning-projects",
           "name": "Major Projects",
           "enabled": "false",
           "action": "displayMap",
-          "mapProject": "theNameOfTheMapProjectFile"
+          "mapProject": "theNameOfTheMapProjectFile",
+          "separatorBefore" : true
         },
         {
           "id": "planning-muni-growth",
           "name": "Municipal Growth",
           "enabled": "false",
           "action": "displayMap",
-          "mapProject": "theNameOfTheMapProjectFile"
+          "mapProject": "theNameOfTheMapProjectFile",
+          "separatorBefore" : true
         },
         {
           "id": "planning-open-space",
           "name": "Open Space",
           "enabled": "false",
           "action": "displayMap",
-          "mapProject": "theNameOfTheMapProjectFile"
+          "mapProject": "theNameOfTheMapProjectFile",
+          "separatorBefore" : true
         },
         {
           "id": "planning-floodplains",
           "name": "Stormwater/Floodplain Plans",
           "enabled": "false",
           "action": "displayMap",
-          "mapProject": "theNameOfTheMapProjectFile"
+          "mapProject": "theNameOfTheMapProjectFile",
+          "separatorBefore" : true
         },
         {
           "id": "planning-smps",
           "name": "Stream Management & Watershed Plans",
           "enabled": "false",
           "action": "displayMap",
-          "mapProject" : "theNameOfTheMapProjectFile"
+          "mapProject" : "theNameOfTheMapProjectFile",
+          "separatorBefore" : true
         }
       ]
     },
@@ -416,7 +439,6 @@
       "name": "About the Project",
       "action": "contentPage",
       "align": "right",
-      "enabled": "true",
       "markdownFile": "content-pages/about-the-project.md"
     }
   ]
