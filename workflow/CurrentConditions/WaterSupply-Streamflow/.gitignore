@@ -1,4 +1,4 @@
-# Ignore downloadfiles, which are dynamically created.
+# Ignore all downloads files, which are dynamically created
 /downloads/*
 !/downloads/README.md
 
