@@ -1,13 +1,8 @@
-# Ignore downloadfiles, which are dynamically created.
-/downloads/*
-!/downloads/README.md
-
 # Ignore all layer files, which are dynamically created.
 # Allow this README and other files to remain
 /layers/*
 !/layers/README.md
 # Keep csv files, used for classification
 !/layers/*.csv
-!/layers/.gitignore
 # Ignore map configurations created in this folder
 *.json

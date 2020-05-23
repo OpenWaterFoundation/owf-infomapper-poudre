@@ -46,7 +46,7 @@ SetGeoLayerViewCategorizedSymbol(GeoMapID="WaterDistrictsMap",GeoLayerViewGroupI
 # GeoLayerViewGroupID: WaterDistrictsGroup
 ReadGeoLayerFromGeoJSON(InputFile="layers/co-dwr-offices-division1.geojson",GeoLayerID="DWROfficesLayer",Name="CO DWR Division 1 Offices",Description="DWR Offices for Division 1")
 AddGeoLayerViewToGeoMap(GeoLayerID="DWROfficesLayer",GeoMapID="WaterDistrictsMap",GeoLayerViewGroupID="WaterDistrictsGroup",GeoLayerViewID="DWROfficesLayerView",Name="CO DWR Division 1 Offices",Description="Offices for Division 1",InsertPosition="Top")
-SetGeoLayerViewSingleSymbol(GeoMapID="WaterDistrictsMap",GeoLayerViewGroupID="WaterDistrictsGroup",GeoLayerViewID="DWROfficesLayerView",Name="Use marker image for DWR offices",Description="Use marker image for DWR offices",Properties="symbolShape:default")
+SetGeoLayerViewSingleSymbol(GeoMapID="WaterDistrictsMap",GeoLayerViewGroupID="WaterDistrictsGroup",GeoLayerViewID="DWROfficesLayerView",Name="Use marker image for DWR offices",Description="Use marker image for DWR offices",Properties="builtinSymbolImage:/img/default-marker.png")
 # = = = = = = = = = =
 # Write the map project file and copy layers to the location needed by the web application.
 # - follow InfoMapper conventions

@@ -52,7 +52,6 @@
         {
           "id": "entities-breweries",
           "name":  "Industry - Breweries",
-          "enabled": "false",
           "action": "displayMap",
           "mapProject" : "data-maps/BasinEntities/Industry-Breweries/breweries.json",
           "separatorBefore" : true
@@ -281,9 +280,8 @@
         {
           "id": "current-streamflow",
           "name": "Water Supply - Streamflow",
-          "enabled": "false",
           "action": "displayMap",
-          "mapProject": "theNameOfTheMapProjectFile"
+          "mapProject": "data-maps/CurrentConditions/WaterSupply-Streamflow/streamflow.json"
         },
         {
           "id": "current-evap",
