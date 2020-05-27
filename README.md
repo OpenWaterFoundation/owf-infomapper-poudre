@@ -1,10 +1,10 @@
 # owf-app-poudre-dashboard-workflow #
 
 This repository contains command files and supporting files to process data products
-for the Poudre Basin Information Platform,
+for the Poudre Basin Information website,
 which uses the OWF InfoMapper web application to view information products.
-The output can then be deployed to the cloud for public viewing and can be used in the development environment.
-**This repository might in the future be renamed to remove "dashboard".**  See also:
+The workflow output can be used in the development environment and
+deployed to the cloud for public viewing.  See also:
 
 * [owf-app-info-mapper-ng](https://github.com/OpenWaterFoundation/owf-app-info-mapper-ng)
 repository for the general InfoMapper web application code.
@@ -55,7 +55,6 @@ owf-app-poudre-dashboard-workflow/     Workflow files to process input for web a
   .gitattributes/                      Standard Git configuration file for repository (for portability).
   .gitignore/                          Standard Git configuration file to ignore dynamic working files.
   build-util/                          Scripts to manage repository, as needed.
-  process/                             Command files and scripts to process the data.
     01-xxx/                            Numbered process steps.
   qgis/                                Files that QGIS can use.
     latest/                            Latest files from "process" steps (data files are in gitgnore).
@@ -63,6 +62,8 @@ owf-app-poudre-dashboard-workflow/     Workflow files to process input for web a
     snapshots/                         Periodic saved snapshots of QGIS files, useful to freeze test data
                                        in the repository so web application developers don't need to regenerate.
                                        This is being evaluated.
+  workflow/                            Command files and scripts to download and process data into maps
+                                       and other information products, match menu organization.
 ```
 
 ## Development Environment ##
@@ -75,16 +76,17 @@ Do the following to quickly set up a new development environment, assuming that 
 If development tools have not been previously installed, see the next section for more information.
 
 1. On windows, create a folder `C:\Users\user\owf-dev\App-Poudre-Portal\git-repos`
-2. In the above folder, clone the repository:  `git clone https://github.com/OpenWaterFoundation/owf-app-poudre-dashboard-workflow.git`
-3. In the above repository, change to `build-util`.
-4. Clone other related repositories, including InfoMapper:  `./git-clone-all-ng.sh`
-5. Update the InfoMapper working files:
+2. Typically, start a Git Bash or Cygwin terminal for development.
+3. In the above folder, clone the repository:  `git clone https://github.com/OpenWaterFoundation/owf-app-poudre-dashboard-workflow.git`
+4. In the above repository, change to `build-util`.
+5. Clone other related repositories, including InfoMapper:  `./git-clone-all-ng.sh`
+6. Update the InfoMapper working files:
 	1. Change to the `git-repos/owf-app-info-mapper-ng/info-mapper` folder.
 	2. Install needed modules:  `npm install`
 	3. Test: `ng serve --open`  (the application should display in a browser with menu bar title ***Info Mapper***).
-6. Configure and test the Poudre portal:
+7. Configure and test the Poudre portal:
 	1. Change to the `git-repos/owf-app-poudre-dashboard-workflow/build-util` folder.
-	2. Create symbolic link between InfoMapper files and this repository's files:  `./create-info-mapper-symlinks.sh`  (see [InfoMapper Configuration](#infomapper-configuration) section below for details)
+	2. Create symbolic link from this repository's files to InfoMapper files:  `./create-info-mapper-symlinks.sh`  (see [InfoMapper Configuration](#infomapper-configuration) section below for details)
 	3. Change to `git-repos/owf-app-info-mapper-ng/info-mapper` folder.
 	4. Run the InfoMapper:  `ng serve --open`  (the application should display in a browser with menu bar title ***Poudre Basin Information***).
 
@@ -94,7 +96,7 @@ The development environment for this repository depends primarily on software to
 including the following.  Install the software in normal default locations.
 
 * Git client:
-	+ For example Git for Windows
+	+ For example Git for Windows or Cygwin git.
 * InfoMapper - open source web application software to visualize data:
 	+ See the [owf-app-info-mapper-ng](https://github.com/OpenWaterFoundation/owf-app-info-mapper-ng) repository for information.
 	+ Currently must be cloned - will create an installer in the future.
@@ -135,13 +137,16 @@ Two options can be used to provide custom configuration and data to the InfoMapp
 	* The downside is that files, perhaps  many files, would need to be repeatedly copied, which can be slow.
 	* This option may need to be used if the second option (symbolic links) is not possible,
 	for example if the developer cannot enable symbolic links on Windows 10 by turning on Developer Mode.
-2. Use symbolic links to allow the InfoMapper to access data without doing a copy.
+2. Use symbolic link(s) in the InforMappper files to allow the InfoMapper to access data without doing a copy.
 	1. Published data files and content live with this repository and InfoMapper `assets/app` folder links to `dist/info-mapper` folder in this repository.
 	* **This approach is desirable because published data live in the repository that is publishing the data, but does not seem to work.**
 	Angular does not seem to follow the link in sub-folders, despite using `preserveSymlink=true` in the
 	`angular.json` configuration file.
 	* Requires activating Windows 10 features to use symbolic links
 	(see [Symlinks in Windows, MinGW, Git, and Cygwin](https://www.joshkel.com/2018/01/18/symlinks-in-windows/)).
+		+ Add to `~/.bashrc_profile` in Git Bash and Cygwin the following:  `export MSYS=winsymlinks:nativestrict`
+		+ Add to `C:\ProgramData\Git\config` in the `core` section:  `symlinks=true`
+		+ Can also run: `git config --system core.symlinks true` (but need to do above to have an effect)
 	* Requires confirming that symbolic links are working with all technologies involved,
 	as indicated in the above article.
 	It is recommended to create the symbolic links using Windows
@@ -196,43 +201,66 @@ Run the InfoMapper in its repository as per InfoMapper documentation (e.g., `ng 
 
 The web application provides menus, which display context-specific maps, as follows:
 
-| **Menu** | **Submenu** | **Map File** | **Process Folder** |
-| -- | -- | -- | -- |
-| ***Basin Entities*** | | | |
-| | ***Agricultural Ditches*** | | |
-| | ***Environmental Entities*** | | |
-| | ***Municipalities*** | | |
-| | ***Water Providers*** | | |
-| ***Current Conditions*** | | | |
-| | ***Boating*** | | |
-| | ***Drought*** | | |
-| | ***Evapotranspiration*** | | |
-| | ***Fishing*** | | |
-| | ***Reservoirs (Storage)*** | | |
-| | ***Snowpack (SNODAS)*** | | |
-| | ***Soil Moisture*** | | |
-| | ***Streamflow*** | | |
-| | ***Wind*** | | |
-| | ***Wildfire Burn Areas*** | | |
-| ***Seasonal Outlook*** | | | |
-| | ***Diversions*** | | |
-| | ***Drought*** | | |
-| | ***Reservoirs (Storage)*** | | |
-| | ***Snow*** | | |
-| ***Historical Data*** | | | |
-| | ***Diversions*** | | |
-| | ***Boating*** | | |
-| | ***Municipal Population*** | | |
-| | ***Municipal Water Demand*** | | |
-| | ***Streamflow*** | | |
-| | ***Snow*** | | |
-| ***Future Planning*** | | | |
-| | ***Agricultural Land Transfer*** | | |
-| | ***Climate Change*** | | |
-| | ***Municipal Growth*** | | |
-| | ***Open Space*** | | |
-| | ***Stormwater/Floodplain Plans*** | | |
-| | ***Watershed Plans*** | | |
+| **Menu** | **README** | **Description** |
+| -- | -- | -- |
+| ***Basin Entities*** | ===========| ===========|
+| ***Physical - Counties*** | [README](workflow/BasinEntities/Physical-Counties/doc/README.md) | Counties that provide or consume Poudre Basin water. |
+| ***Physical - Hydrologic Unit Codes*** | | |
+| ***Physical - Stream Reaches*** | README | [README](workflow/BasinEntities/Physical-StreamReaches/doc/README.md) | Stream reaches in the Poudre Basin. |
+| ***Administrative - Division 1 Water Districts*** | [README](workflow/BasinEntities/Administrative-WaterDistricts/doc/README.md) | Colorado Division of Water Resources administrative basins. |
+| ***Agricultural - Ditches*** | | |
+| ***Environmental - Organizations*** | | |
+| ***Industry - Breweries*** | [README](workflow/BasinEntities/Industry-Breweries/doc/README.md) | Breweries in the Poudre Basin. |
+| ***Municipal - Municipalities*** | | |
+| ***Recreation - Boating Companies*** | | |
+| ***Recreation - Trails*** | | |
+| ***Water Supply - Water Providers*** | | |
+| ***Water Supply - Transbasin*** | | |
+| ***Historical Data*** | ===========| ===========|
+| ***Agriculture - Ditch Company Ownership*** | | |
+| ***Agriculture - Diversions*** | | |
+| ***Agriculture - Irrigated Acreage*** | | |
+| ***Agriculture - Water Rentals*** | | |
+| ***Environment - Climate Change*** | | |
+| ***Environment - Floods*** | | |
+| ***Environment - Flows*** | | |
+| ***Municipal - Population*** | | |
+| ***Municipal - Water Demand*** | | |
+| ***Recreation - Boating Days*** | | |
+| ***Water Supply - CBT Quota and Water Supplies*** | | |
+| ***Water Supply - Snow*** | | |
+| ***Water Supply - Streamflow*** | | |
+| ***Current Conditions*** | ===========| ===========|
+| ***System - Point Flow*** | | |
+| ***Administration - Calls*** | | |
+| ***Environment - Wildfire Burn Areas*** | | |
+| ***Recreation - Boating*** | | |
+| ***Recreation - Fishing*** | | |
+| ***Water Supply - Drought*** | | |
+| ***Water Supply - Operations*** | | |
+| ***Water Supply - Reservoirs (Storage)*** | | |
+| ***Water Supply - Snowpack (SNODAS)*** | | |
+| ***Water Supply - Snowpack (NRCS)*** | | |
+| ***Water Supply - Streamflow*** | [README](workflow/CurrentConditions/WaterSupply-Streamflow/doc/README.md) | Flow measurement points. |
+| ***Weather - Evapotranspiration*** | | |
+| ***Weather - Soil Moisture*** | | |
+| ***Weather - Wind*** | | |
+| ***Seasonal Outlook*** | ===========| ===========|
+| ***System*** | | |
+| ***Agriculture - Diversions*** | | |
+| ***Water Supply - CBT Quota*** | | |
+| ***Water Supply - Drought*** | | |
+| ***Water Supply - Operations*** | | |
+| ***Water Supply - Reservoirs (Storage)*** | | |
+| ***Water Supply - Snow*** | | |
+| ***Future Planning*** | ===========| ===========|
+| ***Agriculture - Land Transfer*** | | |
+| ***Environment - Climate Change*** | | |
+| ***Environment - Open Space*** | | |
+| ***Environment - Watershed Plans*** | | |
+| ***Municipal - Growth*** | | |
+| ***Municipal - Major Projects*** | | |
+| ***Municipal - Stormwater/Floodplain Plans*** | | |
 
 ## Maintainers ##
 
