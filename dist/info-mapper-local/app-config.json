@@ -272,7 +272,7 @@
         },
         {
           "id": "current-snowpack-nrcs",
-          "name": "Water Supply - Snowpack (NRCS) - Need link from Susan?",
+          "name": "Water Supply - Snowpack (NRCS)",
           "enabled": "false",
           "action": "externalLink",
           "url": "http://snodas.cdss.state.co.us/app/index.html"
@@ -320,24 +320,24 @@
           "mapProject": "theNameOfTheMapProjectFile"
         },
         {
-          "id": "season-cbt",
-          "name": "CBT Quota",
-          "enabled": "false",
-          "action": "externalLink",
-          "url": "https://www.northernwater.org/AllotteeInformation/C-BTQuota.aspx",
-          "separatorBefore" : true
-        },
-        {
           "id": "season-diversions",
-          "name": "Diversions",
+          "name": "Agriculture - Diversions",
           "enabled": "false",
           "action": "displayMap",
           "mapProject": "theNameOfTheMapProjectFile",
           "separatorBefore" : true
         },
         {
+          "id": "season-cbt",
+          "name": "Water Supply - CBT Quota",
+          "enabled": "false",
+          "action": "externalLink",
+          "url": "https://www.northernwater.org/AllotteeInformation/C-BTQuota.aspx",
+          "separatorBefore" : true
+        },
+        {
           "id": "season-drought",
-          "name": "Drought",
+          "name": "Water Supply - Drought",
           "enabled": "false",
           "action": "displayMap",
           "mapProject": "theNameOfTheMapProjectFile",
@@ -345,7 +345,7 @@
         },
         {
           "id": "season-ops",
-          "name": "Operations",
+          "name": "Water Supply - Operations",
           "enabled": "false",
           "action": "displayMap",
           "mapProject": "theNameOfTheMapProjectFile",
@@ -353,7 +353,7 @@
         },
         {
           "id": "season-reservoirs",
-          "name": "Reservoirs (Storage)",
+          "name": "Water Supply - Reservoirs (Storage)",
           "enabled": "false",
           "action": "displayMap",
           "mapProject": "theNameOfTheMapProjectFile",
@@ -361,7 +361,7 @@
         },
         {
           "id": "season-snow",
-          "name": "Snow",
+          "name": "Water Supply - Snow",
           "enabled": "false",
           "action": "displayMap",
           "mapProject": "theNameOfTheMapProjectFile",
@@ -376,7 +376,7 @@
       "menus" : [
         {
           "id": "planning-ag-transfers",
-          "name": "Agricultural Land Transfer",
+          "name": "Agriculture - Land Transfer",
           "enabled": "false",
           "action": "displayMap",
           "mapProject": "theNameOfTheMapProjectFile",
@@ -384,23 +384,7 @@
         },
         {
           "id": "planning-climatechange",
-          "name": "Climate Change",
-          "enabled": "false",
-          "action": "displayMap",
-          "mapProject": "theNameOfTheMapProjectFile",
-          "separatorBefore" : true
-        },
-        {
-          "id": "planning-projects",
-          "name": "Major Projects",
-          "enabled": "false",
-          "action": "displayMap",
-          "mapProject": "theNameOfTheMapProjectFile",
-          "separatorBefore" : true
-        },
-        {
-          "id": "planning-muni-growth",
-          "name": "Municipal Growth",
+          "name": "Environment - Climate Change",
           "enabled": "false",
           "action": "displayMap",
           "mapProject": "theNameOfTheMapProjectFile",
@@ -408,15 +392,7 @@
         },
         {
           "id": "planning-open-space",
-          "name": "Open Space",
-          "enabled": "false",
-          "action": "displayMap",
-          "mapProject": "theNameOfTheMapProjectFile",
-          "separatorBefore" : true
-        },
-        {
-          "id": "planning-floodplains",
-          "name": "Stormwater/Floodplain Plans",
+          "name": "Environment - Open Space",
           "enabled": "false",
           "action": "displayMap",
           "mapProject": "theNameOfTheMapProjectFile",
@@ -424,10 +400,34 @@
         },
         {
           "id": "planning-smps",
-          "name": "Stream Management & Watershed Plans",
+          "name": "Environment - Stream Management & Watershed Plans",
           "enabled": "false",
           "action": "displayMap",
           "mapProject" : "theNameOfTheMapProjectFile",
+          "separatorBefore" : true
+        },
+        {
+          "id": "planning-muni-growth",
+          "name": "Municipal - Growth",
+          "enabled": "false",
+          "action": "displayMap",
+          "mapProject": "theNameOfTheMapProjectFile",
+          "separatorBefore" : true
+        },
+        {
+          "id": "planning-projects",
+          "name": "Municipal - Major Projects",
+          "enabled": "false",
+          "action": "displayMap",
+          "mapProject": "theNameOfTheMapProjectFile",
+          "separatorBefore" : true
+        },
+        {
+          "id": "planning-floodplains",
+          "name": "Municipal - Stormwater/Floodplain Plans",
+          "enabled": "false",
+          "action": "displayMap",
+          "mapProject": "theNameOfTheMapProjectFile",
           "separatorBefore" : true
         }
       ]

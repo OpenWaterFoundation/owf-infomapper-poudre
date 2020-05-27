@@ -1,5 +1,9 @@
 # process #
 
+**This README needs to be udpated.  Older map workflows have been moved to `x-` folders and will be reworked.
+Newer map workflows are organized in folders consistent with application menus,
+with a README for each map.**
+
 This folder contains subfolders for data processing steps.
 Numbered folders exist for automated data processing steps.
 The contents for processing folders are generally ignored from the repository using `.gitignore` files.
