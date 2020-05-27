@@ -1,4 +1,7 @@
 # Ignore all layer files, which are dynamically created.
+# Ignore files other than README
+/downloads/*
+!/downloads/README.md
 # Allow this README and other files to remain
 /layers/*
 !/layers/README.md

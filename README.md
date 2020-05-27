@@ -13,11 +13,11 @@ repository for the general InfoMapper web application code.
 The following sections are included in this documentation:
 
 * [Repository Contents](#repository-contents)
+* [Application Menus and Corresponding Workflow](#application-menus-and-corresponding-workflows)
 * [Development Environment](#development-environment)
 	+ [Quick Start](#quick-start)
 	+ [Development Tools](#development-tools)
 	+ [InfoMapper Configuration](#infomapper-configuration)
-* [Relationship of Application Menus and Maps to Processing Folders](#relationship-of-application-menus-and-maps-to-processing-folders)
 * [Maintainers](#maintainers)
 
 --------------
@@ -65,6 +65,71 @@ owf-app-poudre-dashboard-workflow/     Workflow files to process input for web a
   workflow/                            Command files and scripts to download and process data into maps
                                        and other information products, match menu organization.
 ```
+
+## Application Menus and Corresponding Workflow ##
+
+The web application provides menus, which display context-specific maps, as follows:
+
+| **Menu** | **README** | **Description** |
+| -- | -- | -- |
+| ***Basin Entities /*** | ===========| ===============================|
+| ***Physical - Counties*** | [README](workflow/BasinEntities/Physical-Counties/doc/README.md) | Counties that provide or consume Poudre Basin water. |
+| ***Physical - Hydrologic Unit Codes*** | | |
+| ***Physical - Stream Reaches*** | [README](workflow/BasinEntities/Physical-StreamReaches/doc/README.md) | Stream reaches in the Poudre Basin. |
+| ***Administrative - Division 1 Water Districts*** | [README](workflow/BasinEntities/Administrative-WaterDistricts/doc/README.md) | Colorado Division of Water Resources administrative basins. |
+| ***Agricultural - Ditches*** | | |
+| ***Environmental - Organizations*** | | |
+| ***Industry - Breweries*** | [README](workflow/BasinEntities/Industry-Breweries/doc/README.md) | Breweries in the Poudre Basin. |
+| ***Municipal - Municipalities*** | | |
+| ***Recreation - Boating Companies*** | | |
+| ***Recreation - Trails*** | | |
+| ***Water Supply - Water Providers*** | | |
+| ***Water Supply - Transbasin*** | | |
+| ***Historical Data /*** | ===========| ===============================|
+| ***Agriculture - Ditch Company Ownership*** | | |
+| ***Agriculture - Diversions*** | | |
+| ***Agriculture - Irrigated Acreage*** | | |
+| ***Agriculture - Water Rentals*** | | |
+| ***Environment - Climate Change*** | | |
+| ***Environment - Floods*** | | |
+| ***Environment - Flows*** | | |
+| ***Municipal - Population*** | | |
+| ***Municipal - Water Demand*** | | |
+| ***Recreation - Boating Days*** | | |
+| ***Water Supply - CBT Quota and Water Supplies*** | | |
+| ***Water Supply - Snow*** | | |
+| ***Water Supply - Streamflow*** | | |
+| ***Current Conditions /*** | ===========| ===============================|
+| ***System - Point Flow*** | | |
+| ***Administration - Calls*** | | |
+| ***Environment - Wildfire Burn Areas*** | | |
+| ***Recreation - Boating*** | | |
+| ***Recreation - Fishing*** | | |
+| ***Water Supply - Drought*** | | |
+| ***Water Supply - Operations*** | | |
+| ***Water Supply - Reservoirs (Storage)*** | | |
+| ***Water Supply - Snowpack (SNODAS)*** | | |
+| ***Water Supply - Snowpack (NRCS)*** | | |
+| ***Water Supply - Streamflow*** | [README](workflow/CurrentConditions/WaterSupply-Streamflow/doc/README.md) | Flow measurement points. |
+| ***Weather - Evapotranspiration*** | | |
+| ***Weather - Soil Moisture*** | | |
+| ***Weather - Wind*** | | |
+| ***Seasonal Outlook /*** | ===========| ===============================|
+| ***System*** | | |
+| ***Agriculture - Diversions*** | | |
+| ***Water Supply - CBT Quota*** | | |
+| ***Water Supply - Drought*** | | |
+| ***Water Supply - Operations*** | | |
+| ***Water Supply - Reservoirs (Storage)*** | | |
+| ***Water Supply - Snow*** | | |
+| ***Future Planning /*** | ===========| ===============================|
+| ***Agriculture - Land Transfer*** | | |
+| ***Environment - Climate Change*** | | |
+| ***Environment - Open Space*** | | |
+| ***Environment - Watershed Plans*** | | |
+| ***Municipal - Growth*** | | |
+| ***Municipal - Major Projects*** | | |
+| ***Municipal - Stormwater/Floodplain Plans*** | | |
 
 ## Development Environment ##
 
@@ -196,71 +261,6 @@ A snapshot of the full data files will be saved when the website is published, a
 Run the `dist/copy-local-to-info-mapper.sh` script to copy select static content to InfoMapper.
 
 Run the InfoMapper in its repository as per InfoMapper documentation (e.g., `ng serve --open` in the `info-mapper` folder).
-
-## Relationship of Application Menus and Maps to Processing Folders ##
-
-The web application provides menus, which display context-specific maps, as follows:
-
-| **Menu** | **README** | **Description** |
-| -- | -- | -- |
-| ***Basin Entities*** | ===========| ===========|
-| ***Physical - Counties*** | [README](workflow/BasinEntities/Physical-Counties/doc/README.md) | Counties that provide or consume Poudre Basin water. |
-| ***Physical - Hydrologic Unit Codes*** | | |
-| ***Physical - Stream Reaches*** | README | [README](workflow/BasinEntities/Physical-StreamReaches/doc/README.md) | Stream reaches in the Poudre Basin. |
-| ***Administrative - Division 1 Water Districts*** | [README](workflow/BasinEntities/Administrative-WaterDistricts/doc/README.md) | Colorado Division of Water Resources administrative basins. |
-| ***Agricultural - Ditches*** | | |
-| ***Environmental - Organizations*** | | |
-| ***Industry - Breweries*** | [README](workflow/BasinEntities/Industry-Breweries/doc/README.md) | Breweries in the Poudre Basin. |
-| ***Municipal - Municipalities*** | | |
-| ***Recreation - Boating Companies*** | | |
-| ***Recreation - Trails*** | | |
-| ***Water Supply - Water Providers*** | | |
-| ***Water Supply - Transbasin*** | | |
-| ***Historical Data*** | ===========| ===========|
-| ***Agriculture - Ditch Company Ownership*** | | |
-| ***Agriculture - Diversions*** | | |
-| ***Agriculture - Irrigated Acreage*** | | |
-| ***Agriculture - Water Rentals*** | | |
-| ***Environment - Climate Change*** | | |
-| ***Environment - Floods*** | | |
-| ***Environment - Flows*** | | |
-| ***Municipal - Population*** | | |
-| ***Municipal - Water Demand*** | | |
-| ***Recreation - Boating Days*** | | |
-| ***Water Supply - CBT Quota and Water Supplies*** | | |
-| ***Water Supply - Snow*** | | |
-| ***Water Supply - Streamflow*** | | |
-| ***Current Conditions*** | ===========| ===========|
-| ***System - Point Flow*** | | |
-| ***Administration - Calls*** | | |
-| ***Environment - Wildfire Burn Areas*** | | |
-| ***Recreation - Boating*** | | |
-| ***Recreation - Fishing*** | | |
-| ***Water Supply - Drought*** | | |
-| ***Water Supply - Operations*** | | |
-| ***Water Supply - Reservoirs (Storage)*** | | |
-| ***Water Supply - Snowpack (SNODAS)*** | | |
-| ***Water Supply - Snowpack (NRCS)*** | | |
-| ***Water Supply - Streamflow*** | [README](workflow/CurrentConditions/WaterSupply-Streamflow/doc/README.md) | Flow measurement points. |
-| ***Weather - Evapotranspiration*** | | |
-| ***Weather - Soil Moisture*** | | |
-| ***Weather - Wind*** | | |
-| ***Seasonal Outlook*** | ===========| ===========|
-| ***System*** | | |
-| ***Agriculture - Diversions*** | | |
-| ***Water Supply - CBT Quota*** | | |
-| ***Water Supply - Drought*** | | |
-| ***Water Supply - Operations*** | | |
-| ***Water Supply - Reservoirs (Storage)*** | | |
-| ***Water Supply - Snow*** | | |
-| ***Future Planning*** | ===========| ===========|
-| ***Agriculture - Land Transfer*** | | |
-| ***Environment - Climate Change*** | | |
-| ***Environment - Open Space*** | | |
-| ***Environment - Watershed Plans*** | | |
-| ***Municipal - Growth*** | | |
-| ***Municipal - Major Projects*** | | |
-| ***Municipal - Stormwater/Floodplain Plans*** | | |
 
 ## Maintainers ##
 
