@@ -1,19 +1,18 @@
-# process #
+# workflow #
 
-**This README needs to be udpated.  Older map workflows have been moved to `x-` folders and will be reworked.
-Newer map workflows are organized in folders consistent with application menus,
-with a README for each map.**
+This folder contains folders for each product being generated for the application.
 
 * [Introduction](#introduction)
 * [Workflow Guidelines](#workflow-guidelines)
 * [Tools](#tools)
+* [Old Documentation](#old-documentation)
 
 --------
 
 ## Introduction ##
 
 This `workflow` folder contains folders for each major menu in the ***Poudre Basin Information*** application.
-Sub-folders match the sub-folders in the application and include files to create the corresponding information product.
+Sub-folders match the sub-menus in the application and include files to create the corresponding information product.
 Some products only need to be created once or infrequently when somewhat static datasets are updated.
 Other products may be created more frequently if they contain data that are updated regularly,
 with the most frequent updates for products based on real-time data.
@@ -24,17 +23,18 @@ The workflows are described by command files that allow processing to be automat
 Command files are run by corresponding software, based on the command file extension (see the [Tools](#tools) section).
 Command file names use a number at the front to indicate the order in the workflow for the product.
 The following are general guidelines for naming command files.
+More complex workflows may need to use more numbered steps.
+Simple workflows may combine steps.
 
-| **Command File Number Prefix** | **Description** |
+| **Command File Prefix** | **Description** |
 | -- | -- |
 | `01-download-...` | Command files that download data into `downloads` folder. |
-| `02-create-...` | Command files that process downloaded data to create layers in `layers` folder and other files for for the information product. |
+| `02-create-...` | Command files that process downloaded data to create layers in `layers` folder and other files for for the information product.  Common tasks include clipping larger data sets to the basin, converting file formats, and performing data clean up. |
 | `03-create-map-...` | Command files that create maps. |
 
 ## Tools ##
 
-The workflows use several tools to automate processing.
-The tool to use is indicated by the file extension.
+The workflows use several tools to automate processing as listed in the following table.
 
 | **Tool** | **File Extension** | **Description** |
 | -- | -- | -- |
@@ -45,7 +45,8 @@ The tool to use is indicated by the file extension.
 
 ## Old Documentation ##
 
-**The following products are being transformed into the `workflow` folders using current conventions.**
+**The following products are being transformed into the `workflow` folders using current conventions.
+Old workflow folders have been renamed with `x-` in front.**
 
 This folder contains subfolders for data processing steps.
 Numbered folders exist for automated data processing steps.

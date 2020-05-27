@@ -3,7 +3,8 @@
 This folder contains files for the ***Physical - Stream Reaches*** product.
 
 * [Introduction](#introduction)
-* [Data Sources](#data-sources)
+* [Update Frequency](#update-frequency)
+* [Datasets](#datasets)
 * [Files](#files)
 * [Workflow](#workflow)
 
@@ -15,9 +16,14 @@ The ***Physical - Stream Reaches*** map illustrates the locations of streams in 
 as lines that generally follow the river/stream center line.
 The stream reaches layer is a foundational layer that is displayed on many maps.
 
-## Data sources ##
+## Update Frequency ##
 
-The following are data sources for the map.
+This product is updated infrequently,
+based on changes in CDSS Source Water Route Framework dataset.
+
+## Datasets ##
+
+The following are datasets for the map.
 
 | **Dataset** | **Description** | **Data Source** |
 | -- | -- | -- |
@@ -31,7 +37,7 @@ The following files and folders are used.
 | -- | -- | -- |
 | `.gitignore` | Indicates which files should be ignored in the repository. | |
 | `01a-download-swrf.gp` | GeoProcessor command file to download data. | |
-| `03-create-map-stream-reaches.gp` | GeoProcessor command file to Create map. |
+| `03-create-map-stream-reaches.gp` | GeoProcessor command file to create map. |
 | `doc/` | This `README.md` and related files. | |
 | `downloads/` | Downloaded files. | Yes - for generated files. |
 | `layers/` | Layers and supporting files used in the map. | Yes - for generated files. |
