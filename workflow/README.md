@@ -4,6 +4,49 @@
 Newer map workflows are organized in folders consistent with application menus,
 with a README for each map.**
 
+* [Introduction](#introduction)
+* [Workflow Guidelines](#workflow-guidelines)
+* [Tools](#tools)
+
+--------
+
+## Introduction ##
+
+This `workflow` folder contains folders for each major menu in the ***Poudre Basin Information*** application.
+Sub-folders match the sub-folders in the application and include files to create the corresponding information product.
+Some products only need to be created once or infrequently when somewhat static datasets are updated.
+Other products may be created more frequently if they contain data that are updated regularly,
+with the most frequent updates for products based on real-time data.
+
+## Workflow Guidelines ##
+
+The workflows are described by command files that allow processing to be automated.
+Command files are run by corresponding software, based on the command file extension (see the [Tools](#tools) section).
+Command file names use a number at the front to indicate the order in the workflow for the product.
+The following are general guidelines for naming command files.
+
+| **Command File Number Prefix** | **Description** |
+| -- | -- |
+| `01-download-...` | Command files that download data into `downloads` folder. |
+| `02-create-...` | Command files that process downloaded data to create layers in `layers` folder and other files for for the information product. |
+| `03-create-map-...` | Command files that create maps. |
+
+## Tools ##
+
+The workflows use several tools to automate processing.
+The tool to use is indicated by the file extension.
+
+| **Tool** | **File Extension** | **Description** |
+| -- | -- | -- |
+| GeoProcessor |`*.gp` | Open source software developed by the Open Water Foundation for geospatial processing. See [OWF Software](http://software.openwaterfoundation.org/). |
+| TSTool |`*.tstool` | Open source software from OpenCDSS for time series processing. See [OpenCDSS TSTool Page](http://opencdss.state.co.us/opencdss/tstool/). |
+
+--------
+
+## Old Documentation ##
+
+**The following products are being transformed into the `workflow` folders using current conventions.**
+
 This folder contains subfolders for data processing steps.
 Numbered folders exist for automated data processing steps.
 The contents for processing folders are generally ignored from the repository using `.gitignore` files.

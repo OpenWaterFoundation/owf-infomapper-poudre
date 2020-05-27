@@ -42,6 +42,6 @@ The following files and folders are used.
 The following describes the workflow steps, which should be run in the order shown to fully regenerate the information products.
 
 | **Command File/Script** | **Software** | **Description** |
-| -- | -- |
+| -- | -- | -- |
 | `01a-download-swrf.gp` | GeoProcessor | Download the stream reaches from OWF data website and rewrite to ensure latest GeoJSON format. |
 | `03-create-map-stream-reaches.gp` | GeoProcessor | Create the map configuration file and copy map and layer files to the distribution folder. |
