@@ -36,6 +36,7 @@ if [ -z "${answer}" -o "${answer}" = "Y" -o "${answer}" = "y" ]; then
   # Images
   cp -v ${localFolder}/img/brewery.png ${infoMapperFolder}/img/brewery.png
   cp -v ${localFolder}/img/brewery2.png ${infoMapperFolder}/img/brewery2.png
+  cp -v ${localFolder}/img/milk_bottle.png ${infoMapperFolder}/img/milk_bottle.png
 else
   echo "Did not copy anything."
 fi

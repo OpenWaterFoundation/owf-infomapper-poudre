@@ -46,7 +46,7 @@ The following files and folders are used.
 | `codwr-waterdistricts.json` | Map configuration file. | Yes |
 | `data/` | Data files used as input and stored in the repository. | |
 | `doc/` | This `README.md` and related files. | |
-| `downloads/` | Downloaded files. | Yes - for generated files. |
+| `downloads/` | Downloaded files. | Yes - for downloaded files. |
 | `layers/` | Layers and supporting files used in the map. | Yes - for generated files. |
 
 ## Workflow ##
