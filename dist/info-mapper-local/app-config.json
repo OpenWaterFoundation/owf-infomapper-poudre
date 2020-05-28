@@ -34,12 +34,18 @@
           "separatorBefore" : true
         },
         {
+          "id": "entities-dairies",
+          "name":  "Agriculture - Dairies",
+          "action": "displayMap",
+          "mapProject" : "data-maps/BasinEntities/Agriculture-Dairies/dairies.json",
+          "separatorBefore" : true
+        },
+        {
           "id": "entities-ditches",
           "name":  "Agriculture - Ditches",
           "enabled": "false",
           "action": "displayMap",
-          "mapProject" : "data-maps/BasinEntities/Agriculture-Ditches/ditches.json",
-          "separatorBefore" : true
+          "mapProject" : "data-maps/BasinEntities/Agriculture-Ditches/ditches.json"
         },
         {
           "id": "entities-envorg",
