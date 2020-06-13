@@ -315,6 +315,12 @@ printVersion() {
 
 # Entry point into the script
 
+echo ""
+echo "This script is no longer used."
+echo "Files from this repository are copied to the 'info-mapper/src/assets/app' folder."
+echo ""
+exit 0
+
 # Check the operating system
 checkOperatingSystem
 
