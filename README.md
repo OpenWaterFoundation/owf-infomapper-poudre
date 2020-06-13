@@ -1,10 +1,9 @@
-# owf-app-poudre-dashboard-workflow #
+# owf-infomapper-poudre #
 
-This repository contains command files and supporting files to process data products
-for the Poudre Basin Information website,
-which uses the OWF InfoMapper web application to view information products.
-The workflow output can be used in the development environment and
-deployed to the cloud for public viewing.  See also:
+This repository contains the InfoMapper implementation for
+the Poudre Basin Information website.
+The OWF InfoMapper web application provides access to information products.
+See also:
 
 * [owf-app-info-mapper-ng](https://github.com/OpenWaterFoundation/owf-app-info-mapper-ng)
 repository for the general InfoMapper web application code.
@@ -27,7 +26,7 @@ The following sections are included in this documentation:
 The following folder structure is recommended for development.
 Top-level folders should be created as necessary.
 The following folder structure clearly separates user files (as per operating system),
-development area (`owf-dev`), product (`App-Poudre-Portal`), repositories for product (`git-repos`),
+development area (`owf-dev`), product (`InfoMapper-Poudre`), repositories for product (`git-repos`),
 and specific repositories for the product.
 Repository folder names should agree with GitHub repository names.
 Scripts in repository folders that process data should detect their starting location
@@ -39,23 +38,22 @@ C:\Users\user\                                 User's home folder for Windows.
 /cygdrive/C/Users/user/                        User's home folder for Cygwin.
 /home/user/                                    User's home folder for Linux.
   owf-dev/                                     Work done on Open Water Foundation projects.
-    App-Poudre-Information/                    Poudre Basin Information website, using Angular
-                                               (name of this folder is not critical).
+    InfoMapper-Poudre/                         Poudre Basin Information website, using InfoMapper
+                                               (name of this folder is recommended).
       ---- below here folder names should match exactly ----
       git-repos/                               Git repositories for the Angular portal web application.
         owf-app-info-mapper-ng/                InfoMapper web application.
-        owf-app-poudre-dashboard-workflow/     Workflow files to process input for web application.
+        owf-infomapper-poudre/                 Workflow files to process input for web application.
 ```
 
 This repository contains the following:
 
 ```
-owf-app-poudre-dashboard-workflow/     Workflow files to process input for web application.
+owf-infomapper-poudre/                 Workflow files to process input for web application.
   .git/                                Standard Git software folder for repository (DO NOT TOUCH).
   .gitattributes/                      Standard Git configuration file for repository (for portability).
   .gitignore/                          Standard Git configuration file to ignore dynamic working files.
   build-util/                          Scripts to manage repository, as needed.
-    01-xxx/                            Numbered process steps.
   qgis/                                Files that QGIS can use.
     latest/                            Latest files from "process" steps (data files are in gitgnore).
        *.qgs                           QGIS project file, saved in repo to preserve configuration.
@@ -63,9 +61,9 @@ owf-app-poudre-dashboard-workflow/     Workflow files to process input for web a
                                        in the repository so web application developers don't need to regenerate.
                                        This is being evaluated.
   web/                                 Location of assembled website files created by workflow steps.
-                                       Will be copied to InfoMapper assets.
+                                       Will be copied to InfoMapper 'assets/app' folder.
   workflow/                            Command files and scripts to download and process data into maps
-                                       and other information products, match menu organization.
+                                       and other information products.  Folders match menu organization.
 ```
 
 ## Application Menus and Corresponding Workflow ##

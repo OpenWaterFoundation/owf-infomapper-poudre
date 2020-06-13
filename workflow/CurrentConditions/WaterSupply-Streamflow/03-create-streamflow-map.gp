@@ -6,8 +6,8 @@
 # Define properties to control processing.
 # - use relative paths so that the command file is portable
 # - AssetsFolder is where map files exist for the InfoMapper tool
-SetProperty(PropertyName="AssetsFolder",PropertyType="str",PropertyValue="../../../dist/info-mapper")
-SetProperty(PropertyName="MapsFolder",PropertyType="str",PropertyValue="${AssetsFolder}/data-maps")
+SetProperty(PropertyName="AppFolder",PropertyType="str",PropertyValue="../../../web")
+SetProperty(PropertyName="MapsFolder",PropertyType="str",PropertyValue="${AppFolder}/data-maps")
 SetProperty(PropertyName="MapFolder",PropertyType="str",PropertyValue="${MapsFolder}/CurrentConditions/WaterSupply-Streamflow")
 #
 # Create a single map project and map for that project.
@@ -61,8 +61,9 @@ SetGeoLayerViewSingleSymbol(GeoMapID="StreamflowMap",GeoLayerViewGroupID="Stream
 # = = = = = = = = = =
 # Write the map project file and copy layers to the location needed by the web application.
 # - follow InfoMapper conventions
-WriteGeoMapProjectToJSON(GeoMapProjectID="StreamflowProject",Indent="2",OutputFile="streamflow.json")
-CopyFile(SourceFile="streamflow.json",DestinationFile="${MapFolder}/streamflow.json")
+WriteGeoMapProjectToJSON(GeoMapProjectID="StreamflowProject",Indent="2",OutputFile="streamflow-map.json")
+CreateFolder(Folder="${MapFolder}/layers",CreateParentFolders="True",IfFolderExists="Ignore")
+CopyFile(SourceFile="streamflow-map.json",DestinationFile="${MapFolder}/streamflow-map.json")
 CopyFile(SourceFile="layers/streamgages.geojson",DestinationFile="${MapFolder}/layers/streamgages.geojson")
 CopyFile(SourceFile="layers/diversions.geojson",DestinationFile="${MapFolder}/layers/diversions.geojson")
 CopyFile(SourceFile="layers/stream-reaches.geojson",DestinationFile="${MapFolder}/layers/stream-reaches.geojson")

@@ -26,7 +26,7 @@ The following are datasets for the map.
 
 | **Dataset** | **Description** | **Data Source** |
 | -- | -- | -- |
-| County Boundaries | County boundaries. | The dataset is from [Colorado Information Marketplace (CIM)](https://data.colorado.gov/Transportation/Counties-in-Colorado/67vn-ijga), manually exported as a GeoJSON file to `downloads/co-counties.geojson`. |
+| County Boundaries | County boundaries. | The dataset is from [Colorado Information Marketplace (CIM)](https://data.colorado.gov/Transportation/Counties-in-Colorado/67vn-ijga), downloaded as a GeoJSON file to `downloads/counties.geojson`. |
 | County Seats | County seat location. | **Need to add this layer.** |
 
 ## Files ##
@@ -35,9 +35,9 @@ The following files and folders are used.
 
 | **File/Folder** | **Description** | **Repo Ignore** |
 | -- | -- | -- |
-| `.gitignore` | Indicates which files should be ignored in the repository. | |
-| `03-create-map-co-counties.gp` | GeoProcessor command file to create map. |
-| `co-counties.json` | Map configuration file. | Yes |
+| `01-download-counties.gp` | GeoProcessor command file to downloaded counties data. | |
+| `03-create-counties-map.gp` | GeoProcessor command file to create map. | |
+| `counties-map.json` | Map configuration file. | Yes |
 | `doc/` | This `README.md` and related files. | |
 | `downloads/` | Downloaded files. | Yes - for downloaded files. |
 | `layers/` | Layers and supporting files used in the map. | Yes - for generated files. |
@@ -48,4 +48,5 @@ The following describes the workflow steps, which should be run in the order sho
 
 | **Command File/Script** | **Software** | **Description** |
 | -- | -- | -- |
-| `03-create-map-co-counties.gp` | GeoProcessor | Create the map configuration file and copy map and layer files to the distribution folder. |
+| `01-download-counties.gp` | GeoProcessor | Download counties layer. |
+| `03-create-counties-map.gp` | GeoProcessor | Create the map configuration file and copy map and layer files to the distribution folder. |

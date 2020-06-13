@@ -1,6 +1,6 @@
-# Industry-Breweries/doc #
+# Industry-Dairies/doc #
 
-This folder contains files for the ***Industry - Breweries*** product.
+This folder contains files for the ***Industry - Dairies*** product.
 
 * [Introduction](#introduction)
 * [Update Frequency](#update-frequency)
@@ -12,12 +12,12 @@ This folder contains files for the ***Industry - Breweries*** product.
 
 ## Introduction ##
 
-The ***Industry - Breweries*** map indicates the locations of breweries in the Poudre Basin.
+The ***Industry - Dairies*** map indicates the locations of dairies in the Poudre Basin.
 
 ## Update Frequency ##
 
 This product is updated infrequently,
-based on changes in Breweries dataset.
+based on changes in dairies dataset.
 
 ## Datasets ##
 
@@ -25,7 +25,7 @@ The following are datasets for the map.
 
 | **Dataset** | **Description** | **Data Source** |
 | -- | -- | -- |
-| Breweries | Location of breweries in the Poudre Basin. | The current dataset was created by OWF as a prototype and focuses on Fort Collins Breweries.  The dataset needs to be updated to include more breweries throughout the Poudre Basin.  See the [`owf-data-co-breweries` GitHub repository](https://github.com/OpenWaterFoundation/owf-data-co-breweries). |
+| Dairies | Location of dairies in the Poudre Basin. | The current dataset was created by OWF as a prototype and focuses on Fort Collins dairies.  The dataset needs to be updated to include more dairies throughout the Poudre Basin.  See the [`owf-data-co-dairies` GitHub repository](https://github.com/OpenWaterFoundation/owf-data-co-dairies). |
 
 ## Files ##
 
@@ -34,12 +34,12 @@ The following files and folders are used.
 | **File/Folder** | **Description** | **Repo Ignore** |
 | -- | -- | -- |
 | `.gitignore` | Indicates which files should be ignored in the repository. | |
-| `01-download-breweries.gp` | GeoProcessor command file to download data. | |
-| `03-create-map-breweries.gp` | GeoProcessor command file to create map. |
+| `01-download-dairies.gp` | GeoProcessor command file to download data. | |
+| `03-create-dairies-map.gp` | GeoProcessor command file to create map. |
 | `doc/` | This `README.md` and related files. | |
 | `downloads/` | Downloaded files. | Yes - for downloaded files. |
 | `layers/` | Layers and supporting files used in the map. | Yes - for generated files. |
-| `breweries.json` | Map configuration file. | Yes |
+| `dairies.json` | Map configuration file. | Yes |
 
 ## Workflow ##
 
@@ -48,4 +48,4 @@ The following describes the workflow steps, which should be run in the order sho
 | **Command File/Script** | **Software** | **Description** |
 | -- | -- | -- |
 | `01-download-basins.gp` | GeoProcessor | Download the basins from OWF GitHub repository and rewrite to ensure latest GeoJSON format. |
-| `03-create-map-breweries.gp` | GeoProcessor | Create the map configuration file and copy map and layer files to the distribution folder. |
+| `03-create-dairies-map.gp` | GeoProcessor | Create the map configuration file and copy map and layer files to the distribution folder. |

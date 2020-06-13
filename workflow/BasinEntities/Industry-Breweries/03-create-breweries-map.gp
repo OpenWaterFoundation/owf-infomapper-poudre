@@ -6,8 +6,8 @@
 # Define properties to control processing.
 # - use relative paths so that the command file is portable
 # - AssetsFolder is where map files exist for the InfoMapper tool
-SetProperty(PropertyName="AssetsFolder",PropertyType="str",PropertyValue="../../../dist/info-mapper")
-SetProperty(PropertyName="MapsFolder",PropertyType="str",PropertyValue="${AssetsFolder}/data-maps")
+SetProperty(PropertyName="AppFolder",PropertyType="str",PropertyValue="../../../web")
+SetProperty(PropertyName="MapsFolder",PropertyType="str",PropertyValue="${AppFolder}/data-maps")
 SetProperty(PropertyName="MapFolder",PropertyType="str",PropertyValue="${MapsFolder}/BasinEntities/Industry-Breweries")
 #
 # Create a single map project and map for that project.
@@ -52,7 +52,8 @@ SetGeoLayerViewSingleSymbol(GeoMapID="BreweriesMap",GeoLayerViewGroupID="Breweri
 # = = = = = = = = = =
 # Write the map project file and copy layers to the location needed by the web application.
 # - follow InfoMapper conventions
-WriteGeoMapProjectToJSON(GeoMapProjectID="BreweriesProject",Indent="2",OutputFile="breweries.json")
-CopyFile(SourceFile="breweries.json",DestinationFile="${MapFolder}/breweries.json")
+WriteGeoMapProjectToJSON(GeoMapProjectID="BreweriesProject",Indent="2",OutputFile="breweries-map.json")
+CreateFolder(Folder="${MapFolder}/layers",CreateParentFolders="True",IfFolderExists="Ignore")
+CopyFile(SourceFile="breweries-map.json",DestinationFile="${MapFolder}/breweries-map.json")
 CopyFile(SourceFile="layers/breweries.geojson",DestinationFile="${MapFolder}/layers/breweries.geojson")
 #CopyFile(SourceFile="layers/stream-reaches.geojson",DestinationFile="${MapFolder}/layers/stream-reaches.geojson")

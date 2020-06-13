@@ -1,18 +1,9 @@
 # Ignore files in repository working files
 
-# Ignore user-specific files in PyCharm environment
-# - based on experience, it is easy enough to set up a PyCharm dev environment
-#   so don't hand off any PyCharm files in the repository
-.idea/
-venv/
-__pycache__/
-# The following is a newer convention
-venv-qgis-python37/
-
 # Ignore "junk" and other files often used for work
 junk
 
-# Ignore compiled Python files
+# Ignore compiled Python files, in case Python scripts are used.
 *.py[cod]
 
 # Ignore Python stack dump files when a crash occurs
@@ -20,17 +11,6 @@ junk
 
 # Ignore log files
 *.log
-
-# Ignore build folder files, used to create installers
-# - remove these at some point when process is in place since local .gitignore files are used
-build/*.tar
-build/*.gz
-build/*.zip
-build/tmp-gp/
-build/tmp-gptest/
-
-# MkDocs site
-doc-dev-mkdocs-project/site/
 
 # vim editor files
 
@@ -43,3 +23,100 @@ doc-dev-mkdocs-project/site/
 
 # Ignore file extension used as temporary for .bat, etc. so email attachment works
 *.xxx
+
+# Ignore working files, in particular dynamically-created files created for InfoMapper.
+# Putting these items here avoids the need for many separate .gitignore files,
+# but need to pay attention to conventions.
+#
+#
+# For web, just ignore dynamically-created files
+# - all other content is version-controlled
+/web/data-maps/*
+/web/data-ts/*
+
+# ======================================================
+# Basin Entities menu
+# ======================================================
+
+# BasinEntities/Administrative-StreamReaches
+/workflow/BasinEntities/Administrative-CoDwrWaterDistricts/downloads/*
+!/workflow/BasinEntities/Administrative-CoDwrWaterDistricts/downloads/README.md
+/workflow/BasinEntities/Administrative-CoDwrWaterDistricts/layers/*
+!/workflow/BasinEntities/Administrative-CoDwrWaterDistricts/layers/README.md
+!/workflow/BasinEntities/Administrative-CoDwrWaterDistricts/layers/*.csv
+# Dynamic map configurations
+/workflow/BasinEntities/Administrative-CoDwrWaterDistricts/*.json
+
+# BasinEntities/Agriculture-Dairies
+/workflow/BasinEntities/Agriculture-Dairies/downloads/*
+!/workflow/BasinEntities/Agriculture-Dairies/downloads/README.md
+/workflow/BasinEntities/Agriculture-Dairies/layers/*
+!/workflow/BasinEntities/Agriculture-Dairies/layers/README.md
+!/workflow/BasinEntities/Agriculture-Dairies/layers/*.csv
+# Dynamic map configurations
+/workflow/BasinEntities/Agriculture-Dairies/*.json
+
+# BasinEntities/Industry-Dairies
+/workflow/BasinEntities/Industry-Breweries/downloads/*
+!/workflow/BasinEntities/Industry-Breweries/downloads/README.md
+/workflow/BasinEntities/Industry-Breweries/layers/*
+!/workflow/BasinEntities/Industry-Breweries/layers/README.md
+!/workflow/BasinEntities/Industry-Breweries/layers/*.csv
+# Dynamic map configurations
+/workflow/BasinEntities/Industry-Breweries/*.json
+
+# BasinEntities/Physical-Counties
+/workflow/BasinEntities/Physical-Counties/downloads/*
+!/workflow/BasinEntities/Physical-Counties/downloads/README.md
+/workflow/BasinEntities/Physical-Counties/layers/*
+!/workflow/BasinEntities/Physical-Counties/layers/README.md
+!/workflow/BasinEntities/Physical-Counties/layers/*.csv
+# Dynamic map configurations
+/workflow/BasinEntities/Physical-Counties/*.json
+
+# BasinEntities/Physical-StreamReaches
+/workflow/BasinEntities/Physical-StreamReaches/downloads/*
+!/workflow/BasinEntities/Physical-StreamReaches/downloads/README.md
+/workflow/BasinEntities/Physical-StreamReaches/layers/*
+!/workflow/BasinEntities/Physical-StreamReaches/layers/README.md
+!/workflow/BasinEntities/Physical-StreamReaches/layers/*.csv
+# Dynamic map configurations
+/workflow/BasinEntities/Physical-StreamReaches/*.json
+
+# ======================================================
+# Historical Data menu
+# ======================================================
+
+# HistoricalData/Agriculture-IrrigatedLands
+/workflow/HistoricalData/Agriculture-IrrigatedLands/downloads/*
+!/workflow/HistoricalData/Agriculture-IrrigatedLands/downloads/README.md
+/workflow/HistoricalData/Agriculture-IrrigatedLands/layers/*
+!/workflow/HistoricalData/Agriculture-IrrigatedLands/layers/README.md
+!/workflow/HistoricalData/Agriculture-IrrigatedLands/layers/*.csv
+# Dynamic map configurations
+/workflow/HistoricalData/Agriculture-IrrigatedLands/*.json
+
+# ======================================================
+# Current Conditions menu
+# ======================================================
+
+# CurrentConditions/WaterSupply-Streamflow
+/workflow/CurrentConditions/WaterSupply-Streamflow/downloads/*
+!/workflow/CurrentConditions/WaterSupply-Streamflow/downloads/README.md
+/workflow/CurrentConditions/WaterSupply-Streamflow/layers/*
+!/workflow/CurrentConditions/WaterSupply-Streamflow/layers/README.md
+!/workflow/CurrentConditions/WaterSupply-Streamflow/layers/*.csv
+# Dynamic map configurations
+/workflow/CurrentConditions/WaterSupply-Streamflow/*.json
+
+# ======================================================
+# Seasonal Outlook menu
+# ======================================================
+
+# ======================================================
+# Future Planning menu
+# ======================================================
+
+# ======================================================
+# Resources menu
+# ======================================================
