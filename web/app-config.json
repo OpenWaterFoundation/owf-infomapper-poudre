@@ -1,6 +1,7 @@
 {
   "title": "Poudre Basin Information",
   "version": "0.2.0.dev (2020-05-05)",
+  "homePage": "/content-pages/home.md",
   "mainMenu": [
     {
       "id": "BasinEntities",
@@ -11,7 +12,7 @@
           "id": "entities-counties",
           "name": "Physical - Counties",
           "action": "displayMap",
-          "mapProject" : "data-maps/BasinEntities/Physical-Counties/co-counties.json"
+          "mapProject" : "data-maps/BasinEntities/Physical-Counties/counties-map.json"
         },
         {
           "id": "entities-hucs",
@@ -24,20 +25,20 @@
           "id": "entities-stream-reaches",
           "name": "Physical - Stream Reaches",
           "action": "displayMap",
-          "mapProject" : "data-maps/BasinEntities/Physical-StreamReaches/stream-reaches.json"
+          "mapProject" : "data-maps/BasinEntities/Physical-StreamReaches/stream-reaches-map.json"
         },
         {
           "id": "entities-codwr-waterdistricts",
           "name": "Administrative -  Division 1 Water Districts",
           "action": "displayMap",
-          "mapProject" : "data-maps/BasinEntities/Administrative-WaterDistricts/codwr-waterdistricts.json",
+          "mapProject" : "data-maps/BasinEntities/Administrative-CoDwrWaterDistricts/codwr-waterdistricts-map.json",
           "separatorBefore" : true
         },
         {
           "id": "entities-dairies",
           "name":  "Agriculture - Dairies",
           "action": "displayMap",
-          "mapProject" : "data-maps/BasinEntities/Agriculture-Dairies/dairies.json",
+          "mapProject" : "data-maps/BasinEntities/Agriculture-Dairies/dairies-map.json",
           "separatorBefore" : true
         },
         {
@@ -49,17 +50,24 @@
         },
         {
           "id": "entities-envorg",
+          "name": "Environment - Instream Flow Reaches",
+          "enabled": "false",
+          "action": "displayMap",
+          "mapProject": "data-maps/BasinEntities/Environmental-InstreamFlowReaches/instream-reaches-map.json",
+          "separatorBefore" : true
+        },
+        {
+          "id": "entities-envorg",
           "name": "Environment - Organizations",
           "enabled": "false",
           "action": "displayMap",
-          "mapProject": "data-maps/BasinEntities/Environmental-Organizations/envorgs.json",
-          "separatorBefore" : true
+          "mapProject": "data-maps/BasinEntities/Environmental-Organizations/envorgs.json"
         },
         {
           "id": "entities-breweries",
           "name":  "Industry - Breweries",
           "action": "displayMap",
-          "mapProject" : "data-maps/BasinEntities/Industry-Breweries/breweries.json",
+          "mapProject" : "data-maps/BasinEntities/Industry-Breweries/breweries-map.json",
           "separatorBefore" : true
         },
         {
@@ -123,10 +131,9 @@
         },
         {
           "id": "hist-ag-irrigated",
-          "name": "Agriculture - Irrigated Acreage",
-          "enabled": "false",
+          "name": "Agriculture - Irrigated Lands",
           "action": "displayMap",
-          "mapProject": "theNameOfTheMapProjectFile"
+          "mapProject": "data-maps/HistoricalData/Agriculture-IrrigatedLands/irrigated-lands-map.json"
         },
         {
           "id": "hist-ag-rentals",
@@ -287,7 +294,7 @@
           "id": "current-streamflow",
           "name": "Water Supply - Streamflow",
           "action": "displayMap",
-          "mapProject": "data-maps/CurrentConditions/WaterSupply-Streamflow/streamflow.json"
+          "mapProject": "data-maps/CurrentConditions/WaterSupply-Streamflow/streamflow-map.json"
         },
         {
           "id": "current-evap",
@@ -439,11 +446,25 @@
       ]
     },
     {
-      "id": "about-the-project",
-      "name": "About the Project",
-      "action": "contentPage",
-      "align": "right",
-      "markdownFile": "content-pages/about-the-project.md"
+      "id": "Resources",
+      "name": "Resources",
+      "align": "left",
+      "menus" : [
+        {
+          "id": "about-the-project",
+          "name": "About the Project",
+          "action": "contentPage",
+          "align": "right",
+          "markdownFile": "content-pages/about-the-project.md"
+        },
+        {
+          "id": "release-notes",
+          "name": "Release Notes",
+          "action": "contentPage",
+          "align": "right",
+          "markdownFile": "content-pages/release-notes.md"
+        }
+      ]
     }
   ]
 }

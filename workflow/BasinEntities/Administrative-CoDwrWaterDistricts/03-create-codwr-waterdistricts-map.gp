@@ -6,9 +6,9 @@
 # Define properties to control processing.
 # - use relative paths so that the command file is portable
 # - AssetsFolder is where map files exist for the InfoMapper tool
-SetProperty(PropertyName="AssetsFolder",PropertyType="str",PropertyValue="../../../dist/info-mapper")
-SetProperty(PropertyName="MapsFolder",PropertyType="str",PropertyValue="${AssetsFolder}/data-maps")
-SetProperty(PropertyName="MapFolder",PropertyType="str",PropertyValue="${MapsFolder}/BasinEntities/Administrative-WaterDistricts")
+SetProperty(PropertyName="AppFolder",PropertyType="str",PropertyValue="../../../web")
+SetProperty(PropertyName="MapsFolder",PropertyType="str",PropertyValue="${AppFolder}/data-maps")
+SetProperty(PropertyName="MapFolder",PropertyType="str",PropertyValue="${MapsFolder}/BasinEntities/Administrative-CoDwrWaterDistricts")
 #
 # Create a single map project and map for that project.
 # - GeoMapProjectID:  WaterDistrictsProject
@@ -50,8 +50,9 @@ SetGeoLayerViewSingleSymbol(GeoMapID="WaterDistrictsMap",GeoLayerViewGroupID="Wa
 # = = = = = = = = = =
 # Write the map project file and copy layers to the location needed by the web application.
 # - follow InfoMapper conventions
-WriteGeoMapProjectToJSON(GeoMapProjectID="WaterDistrictsProject",Indent="2",OutputFile="codwr-waterdistricts.json")
-CopyFile(SourceFile="codwr-waterdistricts.json",DestinationFile="${MapFolder}/codwr-waterdistricts.json")
+WriteGeoMapProjectToJSON(GeoMapProjectID="WaterDistrictsProject",Indent="2",OutputFile="codwr-waterdistricts-map.json")
+CreateFolder(Folder="${MapFolder}/layers",CreateParentFolders="True",IfFolderExists="Ignore")
+CopyFile(SourceFile="codwr-waterdistricts-map.json",DestinationFile="${MapFolder}/codwr-waterdistricts-map.json")
 CopyFile(SourceFile="layers/co-dwr-offices-division1.geojson",DestinationFile="${MapFolder}/layers/co-dwr-offices-division1.geojson")
 CopyFile(SourceFile="layers/co-dwr-water-districts-division1.geojson",DestinationFile="${MapFolder}/layers/co-dwr-water-districts-division1.geojson")
 CopyFile(SourceFile="layers/co-dwr-water-districts-division1-classify-district.csv",DestinationFile="${MapFolder}/layers/co-dwr-water-districts-division1-classify-district.csv")
