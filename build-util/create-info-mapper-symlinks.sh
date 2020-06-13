@@ -9,6 +9,19 @@
 
 # Supporting functions, alphabetized
 
+# Check environment
+# - make sure enviornment variable MSYS=winsymlinks:nativescript (for Git Bash and Cygwin)
+checkEnvironment() {
+  if [ "${MSYS}" = "winsymlinks:nativestrict" ]; then
+    echo "MSYS value is set for symbolic links:"
+    echo "  MSYS=${MSIS}"
+  else
+    echo "MSYS value is NOT set properly for symbolic links."
+    echo "  Set MSYS=winsymlinks:nativestrict in ~/.bash_profile"
+    exit 1
+  fi
+}
+
 # Create a single symbolic link, using Windows mklink
 # - first argument is the target (existing file or folder)
 # - second argument is the link
@@ -33,7 +46,7 @@ createSymbolicLink() {
     targetIsDir="yes"
   fi
   if [ "${targetIsFile}" = "no" -a "${targetIsDir}" = "no" ]; then
-	  logWarning "Skipping link.  Target does not exist as file or directory (need to create it?):"
+    logWarning "Skipping link.  Target does not exist as file or directory (need to create it?):"
     logWarning "  ${target}"
     logWarning "  ${targetWindows}"
   else
@@ -214,7 +227,7 @@ parseCommandLine() {
   # Single character options
   optstring="hv"
   # Long options
-  optstringLong="help,version"
+  optstringLong="files-live-here,files-live-with-info-mapper,help,version"
   # Parse the options using getopt command
   GETOPT_OUT=$(getopt --options $optstring --longoptions $optstringLong -- "$@")
   exitCode=$?
@@ -236,7 +249,7 @@ parseCommandLine() {
         shift 1
         ;;
       --files-live-with-info-mapper) # --files-live-with-info-mapper  Link is info-mapper <- dist/info-mapper
-        logInfo "--files-live-here detected"
+        logInfo "--files-live-with-info-mapper detected"
         fileLocation="info-mapper"
         shift 1
         ;;
@@ -276,7 +289,7 @@ printUsage() {
   echoStderr "This allows the Info Mapper to be used with custom application data without copying files."
   echoStderr ""
   echoStderr "--files-live-here              Files live in this repository (InfoMapper links to dist/info-mapper)."
-  echoStderr "--files-live-with-info-mapper  Files live in InfoMapper (dist/info-mapper links to InfoMapper)."
+  echoStderr "--files-live-with-info-mapper  Files live in InfoMapper (dist/info-mapper links to InfoMapper) - DEFAULT."
   echoStderr "-h or --help                   Print the usage."
   echoStderr "-v or --version                Print the version and copyright/license notice."
   echoStderr ""
@@ -322,8 +335,8 @@ infoMapperMainFolder="${infoMapperRepoFolder}/info-mapper"
 infoMapperAssetsFolder="${infoMapperMainFolder}/src/assets"
 # ...end must match Info Mapper
 programName=$(basename $0)
-programVersion="1.1.0"
-programVersionDate="2020-05-05"
+programVersion="1.2.0"
+programVersionDate="2020-05-27"
 logInfo "Script folder:           ${scriptFolder}"
 logInfo "Program name:            ${programName}"
 logInfo "repoFolder:              ${repoFolder}"
@@ -342,6 +355,9 @@ logInfo "infoMapperAssetsFolder:  ${infoMapperAssetsFolder}"
 # - Default file location is with InfoMapper so it does not need to deal with symbolic links
 fileLocation="info-mapper"
 parseCommandLine "$@"
+
+# Check environment
+checkEnvironment
 
 # Create the symbolic links
 createSymbolicLinks

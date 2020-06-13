@@ -47,7 +47,7 @@ AddGeoLayerViewGroupToGeoMap(GeoMapID="DairiesMap",GeoLayerViewGroupID="DairiesG
 AddGeoLayerViewToGeoMap(GeoLayerID="DairiesLayer",GeoMapID="DairiesMap",GeoLayerViewGroupID="DairiesGroup",GeoLayerViewID="DairiesLayerView",Name="Poudre Dairies",Description="Poudre Dairies")
 # For now use single symbol
 # - TODO smalers 2020-05-22 need to enable a graduated symbol based on flow value
-SetGeoLayerViewSingleSymbol(GeoMapID="DairiesMap",GeoLayerViewGroupID="DairiesGroup",GeoLayerViewID="DairiesLayerView",Name="Poudre Dairies",Description="Poudre Dairies",Properties="symbolImage:/img/brewery2.png")
+SetGeoLayerViewSingleSymbol(GeoMapID="DairiesMap",GeoLayerViewGroupID="DairiesGroup",GeoLayerViewID="DairiesLayerView",Name="Poudre Dairies",Description="Poudre Dairies",Properties="symbolImage:/img/milk_bottle.png")
 # SetGeoLayerViewCategorizedSymbol(GeoMapID="DairiesMap",GeoLayerViewGroupID="DairiesGroup",GeoLayerViewID="DairiesLayerView",Name="Poudre Dairies",Description="Poudre Basin dairies",ClassificationAttribute="county",Properties="classificationType:'SingleSymbol'")
 # = = = = = = = = = =
 # Write the map project file and copy layers to the location needed by the web application.
