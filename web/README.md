@@ -1,13 +1,8 @@
-# dist #
+# web #
 
 This folder contains files to publish the Poudre Basin Information web application.
-This is accomplished by using the general OWF InfoMapper application,
+The website is implemented using the general OWF InfoMapper application,
 which is a web application that provides access to maps and other content.
-Other tools might be used to distribute content and would have separate folders.
-Hence, the `info-mapper` folder is used for InfoMapper content and other applications
-would use a folder at the same level for their content.
-
-The `build-util/create-info-mapper-symlinks.sh` script creates the following symbolic links:
 
 ```
 git-repos/
@@ -15,10 +10,9 @@ git-repos/
     info-mapper/
       src/
         assets/
-          app
+          app/
   owf-app-poudre-dashboard-ng/
-    dist/
-      info-mapper -> owf-app-info-mapper-ng/src/assets/app
+    web/
       info-mapper-local/                                             Files that need to be version-controlled.
       copy-local-to-info-mapper.sh                                   Script to copy info-mapper-local/ files to info-mapper/.
 ```

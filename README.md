@@ -39,7 +39,7 @@ C:\Users\user\                                 User's home folder for Windows.
 /cygdrive/C/Users/user/                        User's home folder for Cygwin.
 /home/user/                                    User's home folder for Linux.
   owf-dev/                                     Work done on Open Water Foundation projects.
-    App-Poudre-Portal/                         Poudre Basin Information Portal product, using Angular
+    App-Poudre-Information/                    Poudre Basin Information website, using Angular
                                                (name of this folder is not critical).
       ---- below here folder names should match exactly ----
       git-repos/                               Git repositories for the Angular portal web application.
@@ -62,6 +62,8 @@ owf-app-poudre-dashboard-workflow/     Workflow files to process input for web a
     snapshots/                         Periodic saved snapshots of QGIS files, useful to freeze test data
                                        in the repository so web application developers don't need to regenerate.
                                        This is being evaluated.
+  web/                                 Location of assembled website files created by workflow steps.
+                                       Will be copied to InfoMapper assets.
   workflow/                            Command files and scripts to download and process data into maps
                                        and other information products, match menu organization.
 ```
