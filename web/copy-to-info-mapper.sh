@@ -115,6 +115,13 @@ copy_BasinEntities_Recreation_BoatingOrganizations() {
   cp -rv ${scriptFolder}/data-maps/BasinEntities/Recreation-BoatingOrganizations ${folder}
 }
 
+copy_BasinEntities_WaterSupply_WaterProviders() {
+  checkBasinEntitiesFolder
+
+  # Copy environment organizations map folder and files
+  cp -rv ${scriptFolder}/data-maps/BasinEntities/WaterSupply-WaterProviders ${folder}
+}
+
 copy_CurrentConditions_WaterSupply_Streamflow() {
   checkCurrentConditionsFolder
 
@@ -160,6 +167,7 @@ runInteractive() {
     echo "                         eeo.    Copy Environment - Organizations files."
     echo "                         ebrew.  Copy Industry - Breweries files."
     echo "                         eboat.  Copy Recreation - BoatingOrganizations files."
+    echo "                         ewp.    Copy WaterSupply - WaterProviders files."
     echo ""
     echo "Historical Data:         hl.     Copy IrrigatedLands map files."
     echo ""
@@ -174,15 +182,17 @@ runInteractive() {
 
     if [ "${answer}" = "a" ]; then
       # Basin Entities
-      copy_BasinEntities_Industry_Breweries
       copy_BasinEntities_Physical_Counties
+      copy_BasinEntities_Physical_StreamReaches
+      copy_BasinEntities_Administrative_WaterDistricts
       copy_BasinEntities_Agriculture_Dairies
       copy_BasinEntities_Agriculture_Ditches
       copy_BasinEntities_Education_Organizations
       copy_BasinEntities_Environment_InstreamFlowReaches
       copy_BasinEntities_Environment_Organizations
-      copy_BasinEntities_Physical_StreamReaches
-      copy_BasinEntities_Administrative_WaterDistricts
+      copy_BasinEntities_Industry_Breweries
+      copy_BasinEntities_Recreation_Boating
+      copy_BasinEntities_WaterSupply_WaterProviders
       # Historical Data
       copy_HistoricalData_Agriculture_IrrigatedLands
       # Current Conditions
@@ -214,6 +224,8 @@ runInteractive() {
       copy_BasinEntities_Industry_Breweries
     elif [ "${answer}" = "eboat" ]; then
       copy_BasinEntities_Recreation_BoatingOrganizations
+    elif [ "${answer}" = "ewp" ]; then
+      copy_BasinEntities_WaterSupply_WaterProviders
 
     # Historical Data
 
