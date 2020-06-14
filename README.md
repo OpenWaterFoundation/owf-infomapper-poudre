@@ -2,7 +2,7 @@
 
 This repository contains the InfoMapper implementation for
 the Poudre Basin Information website.
-The OWF InfoMapper web application provides access to information products.
+The OWF InfoMapper web application provides access to maps, graphs, and other information products.
 See also:
 
 * [owf-app-info-mapper-ng](https://github.com/OpenWaterFoundation/owf-app-info-mapper-ng)
@@ -41,7 +41,7 @@ C:\Users\user\                                 User's home folder for Windows.
     InfoMapper-Poudre/                         Poudre Basin Information website, using InfoMapper
                                                (name of this folder is recommended).
       ---- below here folder names should match exactly ----
-      git-repos/                               Git repositories for the Angular portal web application.
+      git-repos/                               Git repositories for the Angular portal web application software.
         owf-app-info-mapper-ng/                InfoMapper web application.
         owf-infomapper-poudre/                 Workflow files to process input for web application.
 ```
@@ -54,6 +54,7 @@ owf-infomapper-poudre/                 Workflow files to process input for web a
   .gitattributes/                      Standard Git configuration file for repository (for portability).
   .gitignore/                          Standard Git configuration file to ignore dynamic working files.
   build-util/                          Scripts to manage repository, as needed.
+    git-check-prod.sh                  Check whether need to push/pull any product repositories.
   qgis/                                Files that QGIS can use.
     latest/                            Latest files from "process" steps (data files are in gitgnore).
        *.qgs                           QGIS project file, saved in repo to preserve configuration.
@@ -68,7 +69,8 @@ owf-infomapper-poudre/                 Workflow files to process input for web a
 
 ## Application Menus and Corresponding Workflow ##
 
-The web application provides menus, which display context-specific maps, as follows:
+The web application provides menus, which display context-specific maps, as follows.
+The README for each product provides information about data sources and workflow processing.
 
 | **Menu** | **README** | **Description** |
 | -- | -- | -- |
@@ -76,8 +78,10 @@ The web application provides menus, which display context-specific maps, as foll
 | ***Physical - Counties*** | [README](workflow/BasinEntities/Physical-Counties/doc/README.md) | Counties that provide or consume Poudre Basin water. |
 | ***Physical - Hydrologic Unit Codes*** | | |
 | ***Physical - Stream Reaches*** | [README](workflow/BasinEntities/Physical-StreamReaches/doc/README.md) | Stream reaches in the Poudre Basin. |
-| ***Administrative - Division 1 Water Districts*** | [README](workflow/BasinEntities/Administrative-WaterDistricts/doc/README.md) | Colorado Division of Water Resources administrative basins. |
-| ***Agricultural - Ditches*** | | |
+| ***Administrative - Division 1 Water Districts*** | [README](workflow/BasinEntities/Administrative-CoDwrWaterDistricts/doc/README.md) | Colorado Division of Water Resources administrative basins. |
+| ***Agricultural - Dairies*** | [README](workflow/BasinEntities/Agriculture-Dairies/doc/README.md) | Statewide dairies layer. |
+| ***Agricultural - Ditches*** | [README](workflow/BasinEntities/Agriculture-Ditches/doc/README.md) | Ditch service areas. |
+| ***Environmental - Instream Flow Reaches*** | [README](workflow/BasinEntities/Environmental-InstreamFlowReaches/doc/README.md) | Instream flow reaches with water rights for environmental flows. |
 | ***Environmental - Organizations*** | | |
 | ***Industry - Breweries*** | [README](workflow/BasinEntities/Industry-Breweries/doc/README.md) | Breweries in the Poudre Basin. |
 | ***Municipal - Municipalities*** | | |
@@ -88,7 +92,7 @@ The web application provides menus, which display context-specific maps, as foll
 | ***Historical Data /*** | ===========| ===============================|
 | ***Agriculture - Ditch Company Ownership*** | | |
 | ***Agriculture - Diversions*** | | |
-| ***Agriculture - Irrigated Acreage*** | | |
+| ***Agriculture - Irrigated Lands*** | [README](workflow/HistoricalData/Agriculture-IrrigatedLands/doc/README.md) | Irrigated lands, indicating parcels, crop, and irrigation method, used to estimate agricultural water demand and use. |
 | ***Agriculture - Water Rentals*** | | |
 | ***Environment - Climate Change*** | | |
 | ***Environment - Floods*** | | |
@@ -137,23 +141,40 @@ This section provides an overview of the development environment.
 
 ### Quick Start ###
 
-Do the following to quickly set up a new development environment, assuming that development tools are installed.
-If development tools have not been previously installed, see the next section for more information.
+Do the following to set up a new development environment, assuming that development tools are installed.
+Skip software installation steps if tools have been previously installed.
+See the next section for more information about installing necessary tools.
+**The following approach copies website content from `owf-infomapper-poudre` repository
+into the the `owf-app-info-mapper-ng/info-mapper/src/assets/app` folder
+(it should be possible to use a symbolic link rather than copy, but this has not worked on Windows).**
 
-1. On windows, create a folder `C:\Users\user\owf-dev\App-Poudre-Portal\git-repos`
-2. Typically, start a Git Bash or Cygwin terminal for development.
-3. In the above folder, clone the repository:  `git clone https://github.com/OpenWaterFoundation/owf-app-poudre-dashboard-workflow.git`
+1. On windows, create a folder `C:\Users\user\owf-dev\InfoMapper-Poudre\git-repos`,
+as per the [Repository Contents](#repository-contents) section above.
+2. Typically, start a Git Bash or Cygwin terminal for development.  Command line scripts are run to process and copy files.
+3. In the above folder, clone the repository:  `git clone https://github.com/OpenWaterFoundation/owf-infomapper-poudre.git`
 4. In the above repository, change to `build-util`.
-5. Clone other related repositories, including InfoMapper:  `./git-clone-all-ng.sh`
+5. Clone other related repositories, including InfoMapper:  `./git-clone-all-prod.sh`
 6. Update the InfoMapper working files:
 	1. Change to the `git-repos/owf-app-info-mapper-ng/info-mapper` folder.
 	2. Install needed modules:  `npm install`
-	3. Test: `ng serve --open`  (the application should display in a browser with menu bar title ***Info Mapper***).
-7. Configure and test the Poudre portal:
-	1. Change to the `git-repos/owf-app-poudre-dashboard-workflow/build-util` folder.
-	2. Create symbolic link from this repository's files to InfoMapper files:  `./create-info-mapper-symlinks.sh`  (see [InfoMapper Configuration](#infomapper-configuration) section below for details)
-	3. Change to `git-repos/owf-app-info-mapper-ng/info-mapper` folder.
-	4. Run the InfoMapper:  `ng serve --open`  (the application should display in a browser with menu bar title ***Poudre Basin Information***).
+	3. **Do not run `npm audit fix`**, which can unexpectedly change Angular packages and cause errors building the software.
+	The development team will work to update packages as time allows.
+	Options used with `npm audit` may be appropriate but have not been tested.
+	4. Test: `ng serve --open`.
+	The application should display in a browser with menu bar title ***Info Mapper***,
+	which is the default when content is not available.
+7. Create and test the Poudre Basin Information application content:
+	1. Run the command files in the `git-repos/owf-infomapper-poudre/workflow` folder
+	to create and assemble content in the `web/` folder.
+	**Automated execution of all steps together will be implemented at some point.**
+	2. Run the `git-repos/owf-infomapper-poudre/web/copy-to-info-mapper.sh` script,
+	which copies files in `web/` folder to the InfoMapper appliction files.
+	3. In the `git-repos/owf-app-info-mapper-ng/info-mapper` folder, run `ng serve --open` to start the application server.
+	The application should display in a browser with menu bar title ***Poudre Basin Information***.
+8. Publish the application to the web:
+	1. Run the `build-util/copy-to-owf-amazon-s3.sh` script to copy the
+	InfoMapper `assets/app/` folder to the cloud.  A versioned and `latest` folder can be updated.
+	See the deployed [latest Poudre Basin Information website](http://poudre.openwaterfoundation.org/latest/#/content-page/home).
 
 ### Development Tools ###
 
@@ -174,8 +195,7 @@ including the following.  Install the software in normal default locations.
 * QGIS - open source geographic information system:
 	+ Install the "Standalone Installation" (rather than OSGeo4W suite)
 	corresponding to the GeoProcessor version.
-	+ QGIS project files (`*.qgs`) are used to prototype maps for the web application
-	and correspond to GeoProcessor GeoProjectFile configurations.
+	+ QGIS may be used to review data and create preliminary project files (`*.qgs`) for prototype maps.
 	+ See [OWF / Learn QGIS](http://learn.openwaterfoundation.org/owf-learn-qgis/) for information on installing QGIS.
 * TSTool - open source software for time series processing:
 	+ Automates download and processing of time series data.
@@ -184,29 +204,40 @@ including the following.  Install the software in normal default locations.
 	* See the [TSTool download page](http://software.openwaterfoundation.org/)
 	for installation information.
 * R - open source statistics software:
-	+ Need to fill out if used for product generation.
+	+ Need to fill out if used for product generation, currently not used.
 * Python - open source scripting:
-	+ Need to fill out if used for product generation.
+	+ Need to fill out if used for product generation, currently not used.
 
 ### InfoMapper Configuration ###
 
 The InfoMapper is an Angular application, which expects run-time configuration and data files to be
-located in `owf-app-info-mapper-ng/info-mapper/src/assets` repository working files.
+located in `owf-app-info-mapper-ng/info-mapper/src/assets/app` repository working files.
+The `app-default/` folder that is distributed with the InfoMapper software will be used if
+the `app/` folder is not found or there is a major error initializing the application,
+and is used to confirm basic application configuration.
+
 Because the InfoMapper is a general application,
 specific configuration and data for this Poudre information project cannot live in the InfoMapper repository.
-Two options can be used to provide custom configuration and data to the InfoMapper:
+Three options have been tested on Windows to provide custom configuration and data to the InfoMapper,
+which applies to any implementation of the InfoMapper.
 
-1. Copy files into the InfoMapper `assets/app` folder:
-	* This would typically be done with a script, either brute force to copy entire folder trees,
+1. Copy files from the implementation repository to the InfoMapper `assets/app` folder:
+	* This is typically be done with a script, either brute force to copy entire folder trees,
 	or with options for selective copies.
-	* The downside is that files, perhaps  many files, would need to be repeatedly copied, which can be slow.
-	* This option may need to be used if the second option (symbolic links) is not possible,
-	for example if the developer cannot enable symbolic links on Windows 10 by turning on Developer Mode.
-2. Use symbolic link(s) in the InforMappper files to allow the InfoMapper to access data without doing a copy.
-	1. Published data files and content live with this repository and InfoMapper `assets/app` folder links to `dist/info-mapper` folder in this repository.
-	* **This approach is desirable because published data live in the repository that is publishing the data, but does not seem to work.**
-	Angular does not seem to follow the link in sub-folders, despite using `preserveSymlink=true` in the
-	`angular.json` configuration file.
+	* The downside is that files, perhaps many files, would need to be repeatedly copied, which can be slow
+	and will require additional disk space.
+	However, if the content is being updated incrementally,
+	then it is not difficult to only copy the updated content.
+	* **This option is currently recommended on Windows because it does not require special configuration
+	for windows to enable symbolic links, and because symbolic links on Windows do not seem to
+	work propertly with Angular.**  The previous section describes using this approach.
+2. Use symbolic link(s) in the InforMappper files to allow the InfoMapper to access data without doing a copy,
+for example: `owf-app-info-mapper-ng/info-mapper/src/assets/app -> owf-infomapper-poudre/web`.
+	* All files live with the implementation repository and the InfoMapper `app` folder is in `.gitignore`.
+	**This approach is desirable because published data live in the repository that is publishing the data
+	and should be immediately detected by Angular when updated;
+	however, it does not seem to work and is documented in a
+	[Stack Overflow](https://stackoverflow.com/questions/62072054/angular-ng-serve-angular-cli-on-windows-cannot-find-assets-files-when-symbolic) article.**
 	* Requires activating Windows 10 features to use symbolic links
 	(see [Symlinks in Windows, MinGW, Git, and Cygwin](https://www.joshkel.com/2018/01/18/symlinks-in-windows/)).
 		+ Add to `~/.bashrc_profile` in Git Bash and Cygwin the following:  `export MSYS=winsymlinks:nativestrict`
@@ -218,49 +249,20 @@ Two options can be used to provide custom configuration and data to the InfoMapp
 	[mklink](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/mklink) command and
 	confirming that other development environment tools work with links,
 	in order to do the minimal amount of extra configuration.
-	* The `build-util/create-info-mapper-symlinks.sh --files-live-here`
-	script automates the above has been tested with Git Bash.
-	2. Published data files and content live with the InfoMapper repository and symbolic link from this repository
-	allows the files to be written.
-	* **This works but is undesirable.  Hopefully the first option can be figured out and implemented.**
+	* The `build-util/x-create-info-mapper-symlinks.sh --files-live-here`
+	script automates the above and has been tested with Git Bash.
+3. Similar to the above option but the symbolic link points in the opposite direction, for example:
+`owf-infomapper-poudre/web -> owf-app-info-mapper-ng/info-mapper/src/assets/app`.
+	* All files live with the InfoMapper and the `app` folder is in `.gitignore`.
+	* **This works but is undesirable due to issues noted below.  Hopefully the first option can be figured out and implemented.**
 	* See above for enabling symbolic links.
-	* The `build-util/create-info-mapper-symlinks.sh --files-live-with-info-mapper` script automates creating the symbolic link.
+	* The `build-util/x-create-info-mapper-symlinks.sh --files-live-with-info-mapper` script automates creating the symbolic link.
 	* Because `app` folder is git-ignored in the InfoMapper and the `dist/info-mapper` symbolic link is git-ignored in
 	this repository, any content that is static, such as `app-config.json` and `content-pages` must be saved in
-	in this repository and copied to the `dist/info-mapper` linked folder.  This is not ideal but is the current work-around.
-	Use the `dist/copy-local-to-info-mapper.sh` script to do this
-	(this approach is similar to what would be done for #1 should that approach ultimatey be needed).
-
-Results of option 2b are as follows.  Testing has been done with Git Bash.
-
-1. Enable Developer Mode in Windows as described in the above article and
-[Enable your device for development](https://docs.microsoft.com/en-us/windows/uwp/get-started/enable-your-device-for-development) article.
-Although there are warnings about hightened risk of security issues,
-the settings do allow turning off specific features, such as remote access, to reduce concerns.
-Many of the Developer Mode features seem to be related to developing Microsoft Store applications,
-which is not the focus here.
-2. Run the `build-util/create-info-mapper-symlinks.sh` script in this repository
-to (re)create the symbolic link to the InfoMapper repository.
-Note that any links that are created use full paths so moving the development environment folders
-will require recreating the links.
-Listing files in the InfoMapper `assets` folder will then show output similar to:
-
-```
-sam (master *) dist $ ls -l
-total 8
-lrwxrwxrwx 1 sam 197121   98 May 12 12:33 info-mapper -> /c/Users/sam/owf-dev/App-Poudre-Portal/git-repos/owf-app-info-mapper-ng/info-mapper/src/assets/app/
--rw-r--r-- 1 sam 197121 2070 May 12 12:56 README.md
-drwxr-xr-x 1 sam 197121    0 May 11 08:54 x-info-mapper/
-```
-
-Once the link is established, map configurations and related can be created in
-this repository in the `dist/info-mapper` folder, and will be visible to the InfoMapper via the symbolic link.
-The top-level `data-maps` and `data-ts` folders should always exist but underlying files are in `.gitignore` since
-the files are dynamically generated.
-A snapshot of the full data files will be saved when the website is published, and other copies can be made if desired.
-Run the `dist/copy-local-to-info-mapper.sh` script to copy select static content to InfoMapper.
-
-Run the InfoMapper in its repository as per InfoMapper documentation (e.g., `ng serve --open` in the `info-mapper` folder).
+	in this repository and copied to the `web/` linked folder.
+	This is not ideal but is a work-around.
+	Use the `web/x-copy-local-to-info-mapper.sh` script to do this
+	* **This approach has been abandoned as too complicated.**
 
 ## Maintainers ##
 

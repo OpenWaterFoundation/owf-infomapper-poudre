@@ -14,7 +14,7 @@ SetProperty(PropertyName="MapFolder",PropertyType="str",PropertyValue="${MapsFol
 # - GeoMapProjectID:  IrrigatedLandsProject
 # - GeoMapID:  IrrigatedLandsMap
 CreateGeoMapProject(NewGeoMapProjectID="IrrigatedLandsProject",ProjectType="SingleMap",Name="District 3 Irrigated Lands",Description="District 3 irrigated lands.",Properties="author:'Open Water Foundation',specificationVersion:'1.0.0'")
-CreateGeoMap(NewGeoMapID="IrrigatedLandsMap",Name="District 3 Irrigated Lands",Description="District 3 irrigated lands from CDSS.",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-106.13,39.92,8.4'")
+CreateGeoMap(NewGeoMapID="IrrigatedLandsMap",Name="District 3 Irrigated Lands",Description="District 3 irrigated lands from CDSS.",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.5,40.7,10'")
 AddGeoMapToGeoMapProject(GeoMapProjectID="IrrigatedLandsProject",GeoMapID="IrrigatedLandsMap")
 # = = = = = = = = = =
 # Background layers:  read layers and add a layer view group
