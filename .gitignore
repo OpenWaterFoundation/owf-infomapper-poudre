@@ -74,6 +74,15 @@ junk
 # Dynamic map configurations
 /workflow/BasinEntities/Education-Organizations/*.json
 
+# BasinEntities/Environment-InstreamFlowReaches
+/workflow/BasinEntities/Environment-InstreamFlowReaches/downloads/*
+!/workflow/BasinEntities/Environment-InstreamFlowReaches/downloads/README.md
+/workflow/BasinEntities/Environment-InstreamFlowReaches/layers/*
+!/workflow/BasinEntities/Environment-InstreamFlowReaches/layers/README.md
+!/workflow/BasinEntities/Environment-InstreamFlowReaches/layers/*.csv
+# Dynamic map configurations
+/workflow/BasinEntities/Environment-InstreamFlowReaches/*.json
+
 # BasinEntities/Industry-Breweries
 /workflow/BasinEntities/Industry-Breweries/downloads/*
 !/workflow/BasinEntities/Industry-Breweries/downloads/README.md

@@ -55,11 +55,10 @@
           "separatorBefore" : true
         },
         {
-          "id": "entities-envorg",
+          "id": "entities-instream",
           "name": "Environment - Instream Flow Reaches",
-          "enabled": "false",
           "action": "displayMap",
-          "mapProject": "data-maps/BasinEntities/Environmental-InstreamFlowReaches/instream-reaches-map.json",
+          "mapProject": "data-maps/BasinEntities/Environment-InstreamFlowReaches/instream-reaches-map.json",
           "separatorBefore" : true
         },
         {
@@ -67,7 +66,7 @@
           "name": "Environment - Organizations",
           "enabled": "false",
           "action": "displayMap",
-          "mapProject": "data-maps/BasinEntities/Environmental-Organizations/envorgs.json"
+          "mapProject": "data-maps/BasinEntities/Environment-Organizations/environment-orgs.json"
         },
         {
           "id": "entities-breweries",
