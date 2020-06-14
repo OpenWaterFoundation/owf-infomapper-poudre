@@ -64,9 +64,8 @@
         {
           "id": "entities-envorg",
           "name": "Environment - Organizations",
-          "enabled": "false",
           "action": "displayMap",
-          "mapProject": "data-maps/BasinEntities/Environment-Organizations/environment-orgs.json"
+          "mapProject": "data-maps/BasinEntities/Environment-Organizations/environment-orgs-map.json"
         },
         {
           "id": "entities-breweries",

@@ -80,6 +80,13 @@ copy_BasinEntities_Environment_InstreamFlowReaches() {
   cp -rv ${scriptFolder}/data-maps/BasinEntities/Environment-InstreamFlowReaches ${folder}
 }
 
+copy_BasinEntities_Environment_Organizations() {
+  checkBasinEntitiesFolder
+
+  # Copy environment organizations map folder and files
+  cp -rv ${scriptFolder}/data-maps/BasinEntities/Environment-Organizations ${folder}
+}
+
 copy_BasinEntities_Industry_Breweries() {
   checkBasinEntitiesFolder
 
@@ -143,6 +150,7 @@ runInteractive() {
     echo "                         edi.  Copy Agriculture - Ditches files."
     echo "                         edu.  Copy Education - Organizations files."
     echo "                         ei.   Copy Environment - InstreamFlowReaches files."
+    echo "                         eeo.  Copy Environment - Organizations files."
     echo "                         eb.   Copy Industry - Breweries files."
     echo ""
     echo "Historical Data:         hl.   Copy IrrigatedLands map files."
@@ -164,6 +172,7 @@ runInteractive() {
       copy_BasinEntities_Agriculture_Ditches
       copy_BasinEntities_Education_Organizations
       copy_BasinEntities_Environment_InstreamFlowReaches
+      copy_BasinEntities_Environment_Organizations
       copy_BasinEntities_Physical_StreamReaches
       copy_BasinEntities_Administrative_WaterDistricts
       # Historical Data
@@ -189,6 +198,8 @@ runInteractive() {
       copy_BasinEntities_Education_Organizations
     elif [ "${answer}" = "ei" ]; then
       copy_BasinEntities_Environment_InstreamFlowReaches
+    elif [ "${answer}" = "eeo" ]; then
+      copy_BasinEntities_Environment_Organizations
     elif [ "${answer}" = "es" ]; then
       copy_BasinEntities_Physical_StreamReaches
     elif [ "${answer}" = "ew" ]; then
