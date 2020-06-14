@@ -108,6 +108,13 @@ copy_BasinEntities_Physical_StreamReaches() {
   cp -rv ${scriptFolder}/data-maps/BasinEntities/Physical-StreamReaches ${folder}
 }
 
+copy_BasinEntities_Recreation_BoatingOrganizations() {
+  checkBasinEntitiesFolder
+
+  # Copy environment organizations map folder and files
+  cp -rv ${scriptFolder}/data-maps/BasinEntities/Recreation-BoatingOrganizations ${folder}
+}
+
 copy_CurrentConditions_WaterSupply_Streamflow() {
   checkCurrentConditionsFolder
 
@@ -142,23 +149,24 @@ runInteractive() {
     echo ""
     echo "Enter an option to update application data.  Menus are listed in order of application."
     echo ""
-    echo "App. Config & Content:    c.   Copy main configuration files."
-    echo "Basin Entities:          ec.   Copy Physical - Counties files."
-    echo "                         es.   Copy Physical - StreamReaches files."
-    echo "                         ew.   Copy Administrative - CoDwrWaterDistricts files."
-    echo "                         eda.  Copy Agriculture - Dairies files."
-    echo "                         edi.  Copy Agriculture - Ditches files."
-    echo "                         edu.  Copy Education - Organizations files."
-    echo "                         ei.   Copy Environment - InstreamFlowReaches files."
-    echo "                         eeo.  Copy Environment - Organizations files."
-    echo "                         eb.   Copy Industry - Breweries files."
+    echo "App. Config & Content:    c.     Copy main configuration files."
+    echo "Basin Entities:          ec.     Copy Physical - Counties files."
+    echo "                         es.     Copy Physical - StreamReaches files."
+    echo "                         ew.     Copy Administrative - CoDwrWaterDistricts files."
+    echo "                         eda.    Copy Agriculture - Dairies files."
+    echo "                         edi.    Copy Agriculture - Ditches files."
+    echo "                         edu.    Copy Education - Organizations files."
+    echo "                         ei.     Copy Environment - InstreamFlowReaches files."
+    echo "                         eeo.    Copy Environment - Organizations files."
+    echo "                         ebrew.  Copy Industry - Breweries files."
+    echo "                         eboat.  Copy Recreation - BoatingOrganizations files."
     echo ""
-    echo "Historical Data:         hl.   Copy IrrigatedLands map files."
+    echo "Historical Data:         hl.     Copy IrrigatedLands map files."
     echo ""
-    echo "Current Conditions:      cs.   Copy Streamflow map files."
+    echo "Current Conditions:      cs.     Copy Streamflow map files."
     echo ""
-    echo "                          a.   Run all copy commands from above."
-    echo "                          q.   Quit"
+    echo "                          a.     Run all copy commands from above."
+    echo "                          q.     Quit"
     echo ""
     read -p "Enter command: " answer
 
@@ -186,10 +194,12 @@ runInteractive() {
 
     # Basin Entities
 
-    elif [ "${answer}" = "eb" ]; then
-      copy_BasinEntities_Industry_Breweries
     elif [ "${answer}" = "ec" ]; then
       copy_BasinEntities_Physical_Counties
+    elif [ "${answer}" = "es" ]; then
+      copy_BasinEntities_Physical_StreamReaches
+    elif [ "${answer}" = "ew" ]; then
+      copy_BasinEntities_Administrative_WaterDistricts
     elif [ "${answer}" = "eda" ]; then
       copy_BasinEntities_Agriculture_Dairies
     elif [ "${answer}" = "edi" ]; then
@@ -200,10 +210,10 @@ runInteractive() {
       copy_BasinEntities_Environment_InstreamFlowReaches
     elif [ "${answer}" = "eeo" ]; then
       copy_BasinEntities_Environment_Organizations
-    elif [ "${answer}" = "es" ]; then
-      copy_BasinEntities_Physical_StreamReaches
-    elif [ "${answer}" = "ew" ]; then
-      copy_BasinEntities_Administrative_WaterDistricts
+    elif [ "${answer}" = "ebrew" ]; then
+      copy_BasinEntities_Industry_Breweries
+    elif [ "${answer}" = "eboat" ]; then
+      copy_BasinEntities_Recreation_BoatingOrganizations
 
     # Historical Data
 

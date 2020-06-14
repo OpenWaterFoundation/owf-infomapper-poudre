@@ -19,7 +19,7 @@
           "name": "Physical - Hydrologic Unit Codes",
           "enabled": "false",
           "action": "displayMap",
-          "mapProject" : "data-maps/BasinEntities/Physical-Hucs/hucs.json"
+          "mapProject" : "data-maps/BasinEntities/Physical-Hucs/hucs-map.json"
         },
         {
           "id": "entities-stream-reaches",
@@ -79,15 +79,14 @@
           "name": "Municipal - Municipalities",
           "enabled": "false",
           "action": "displayMap",
-          "mapProject" : "data-maps/BasinEntities/Municipalities/municipalities.json",
+          "mapProject" : "data-maps/BasinEntities/Municipalities/municipalities-map.json",
           "separatorBefore" : true
         },
         {
-          "id": "entities-boating",
-          "name": "Recreation - Boating Companies",
-          "enabled": "false",
+          "id": "entities-boating-orgs",
+          "name": "Recreation - Boating Organizations",
           "action": "displayMap",
-          "mapProject": "data-maps/BasinEntities/Recreation-Boating/boating.json",
+          "mapProject": "data-maps/BasinEntities/Recreation-BoatingOrganizations/boating-orgs-map.json",
           "separatorBefore" : true
         },
         {
@@ -95,14 +94,14 @@
           "name": "Recreation - Trails",
           "enabled": "false",
           "action": "displayMap",
-          "mapProject": "data-maps/BasinEntities/Recreation-Trails/trails.json"
+          "mapProject": "data-maps/BasinEntities/Recreation-Trails/trails-map.json"
         },
         {
           "id": "entities-providers",
           "name": "Water Supply - Water Providers",
           "enabled": "false",
           "action": "displayMap",
-          "mapProject": "data-maps/BasinEntities/WaterSupply-Providers/water-providers.json",
+          "mapProject": "data-maps/BasinEntities/WaterSupply-Providers/water-providers-map.json",
           "separatorBefore" : true
         },
         {
@@ -110,7 +109,7 @@
           "name": "Water Supply - Transbasin",
           "enabled": "false",
           "action": "displayMap",
-          "mapProject": "data-maps/BasinEntities/WaterSupply-Transbasin/transbasin.json"
+          "mapProject": "data-maps/BasinEntities/WaterSupply-Transbasin/transbasin-map.json"
         }
       ]
     },
