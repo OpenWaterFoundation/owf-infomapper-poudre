@@ -47,7 +47,7 @@ AddGeoLayerViewGroupToGeoMap(GeoMapID="WaterProvidersMap",GeoLayerViewGroupID="W
 AddGeoLayerViewToGeoMap(GeoLayerID="WaterProvidersLayer",GeoMapID="WaterProvidersMap",GeoLayerViewGroupID="WaterProvidersGroup",GeoLayerViewID="WaterProvidersLayerView",Name="Poudre Water Providers",Description="Poudre Water Providers")
 # For now use single symbol
 # - TODO smalers 2020-05-22 need to enable a graduated symbol based on flow value
-SetGeoLayerViewSingleSymbol(GeoMapID="WaterProvidersMap",GeoLayerViewGroupID="WaterProvidersGroup",GeoLayerViewID="WaterProvidersLayerView",Name="Poudre Water Providers",Description="Poudre Water Providers",Properties="symbolImage:/img/drinkingwater/.png")
+SetGeoLayerViewSingleSymbol(GeoMapID="WaterProvidersMap",GeoLayerViewGroupID="WaterProvidersGroup",GeoLayerViewID="WaterProvidersLayerView",Name="Poudre Water Providers",Description="Poudre Water Providers",Properties="symbolImage:/img/drinkingwater.png")
 # SetGeoLayerViewCategorizedSymbol(GeoMapID="WaterProvidersMap",GeoLayerViewGroupID="WaterProvidersGroup",GeoLayerViewID="WaterProvidersLayerView",Name="Poudre Water Providers",Description="Poudre Basin water providers",ClassificationAttribute="county",Properties="classificationType:'SingleSymbol'")
 # = = = = = = = = = =
 # Write the map project file and copy layers to the location needed by the web application.

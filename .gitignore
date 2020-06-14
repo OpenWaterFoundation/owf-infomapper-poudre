@@ -101,6 +101,15 @@ junk
 # Dynamic map configurations
 /workflow/BasinEntities/Industry-Breweries/*.json
 
+# BasinEntities/Municipal-Municipalities
+/workflow/BasinEntities/Municipal-Municipalities/downloads/*
+!/workflow/BasinEntities/Municipal-Municipalities/downloads/README.md
+/workflow/BasinEntities/Municipal-Municipalities/layers/*
+!/workflow/BasinEntities/Municipal-Municipalities/layers/README.md
+!/workflow/BasinEntities/Municipal-Municipalities/layers/*.csv
+# Dynamic map configurations
+/workflow/BasinEntities/Municipal-Municipalities/*.json
+
 # BasinEntities/Physical-Counties
 /workflow/BasinEntities/Physical-Counties/downloads/*
 !/workflow/BasinEntities/Physical-Counties/downloads/README.md
