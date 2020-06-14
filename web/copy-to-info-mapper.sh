@@ -94,6 +94,13 @@ copy_BasinEntities_Industry_Breweries() {
   cp -rv ${scriptFolder}/data-maps/BasinEntities/Industry-Breweries ${folder}
 }
 
+copy_BasinEntities_Municipal_Municipalities() {
+  checkBasinEntitiesFolder
+
+  # Copy breweries map folder and files
+  cp -rv ${scriptFolder}/data-maps/BasinEntities/Municipal-Municipalities ${folder}
+}
+
 copy_BasinEntities_Physical_Counties() {
   checkBasinEntitiesFolder
 
@@ -166,6 +173,7 @@ runInteractive() {
     echo "                         ei.     Copy Environment - InstreamFlowReaches files."
     echo "                         eeo.    Copy Environment - Organizations files."
     echo "                         ebrew.  Copy Industry - Breweries files."
+    echo "                         emuni.  Copy Municipal - Municipalities files."
     echo "                         eboat.  Copy Recreation - BoatingOrganizations files."
     echo "                         ewp.    Copy WaterSupply - WaterProviders files."
     echo ""
@@ -222,6 +230,8 @@ runInteractive() {
       copy_BasinEntities_Environment_Organizations
     elif [ "${answer}" = "ebrew" ]; then
       copy_BasinEntities_Industry_Breweries
+    elif [ "${answer}" = "emuni" ]; then
+      copy_BasinEntities_Municipal_Municipalities
     elif [ "${answer}" = "eboat" ]; then
       copy_BasinEntities_Recreation_BoatingOrganizations
     elif [ "${answer}" = "ewp" ]; then

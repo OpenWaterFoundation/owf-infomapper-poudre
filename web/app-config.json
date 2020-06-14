@@ -77,9 +77,8 @@
         {
           "id": "entities-municipalities",
           "name": "Municipal - Municipalities",
-          "enabled": "false",
           "action": "displayMap",
-          "mapProject" : "data-maps/BasinEntities/Municipalities/municipalities-map.json",
+          "mapProject" : "data-maps/BasinEntities/Municipal-Municipalities/municipalities-map.json",
           "separatorBefore" : true
         },
         {
@@ -169,7 +168,6 @@
         {
           "id": "hist-muni-pop",
           "name": "Municipal - Population",
-          "enabled": "false",
           "action": "displayMap",
           "mapProject": "theNameOfTheMapProjectFile",
           "separatorBefore" : true
