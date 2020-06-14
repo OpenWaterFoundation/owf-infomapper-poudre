@@ -119,6 +119,15 @@ junk
 # Dynamic map configurations
 /workflow/BasinEntities/Physical-StreamReaches/*.json
 
+# BasinEntities/Recreation-BoatingOrganizations
+/workflow/BasinEntities/Recreation-BoatingOrganizations/downloads/*
+!/workflow/BasinEntities/Recreation-BoatingOrganizations/downloads/README.md
+/workflow/BasinEntities/Recreation-BoatingOrganizations/layers/*
+!/workflow/BasinEntities/Recreation-BoatingOrganizations/layers/README.md
+!/workflow/BasinEntities/Recreation-BoatingOrganizations/layers/*.csv
+# Dynamic map configurations
+/workflow/BasinEntities/Recreation-BoatingOrganizations/*.json
+
 # ======================================================
 # Historical Data menu
 # ======================================================
