@@ -28,3 +28,5 @@ This website and content published on the website use the following software:
 * [TSTool](http://opencdss.state.co.us/opencdss/tstool/) - OpenCDSS software to process time series into useful products
 
 ### **This website is under development.  OWF uses its own resources for research and development and is seeking additional funding to develop open source software tools that can be applied to the Poudre and scaled to any river basin.**
+
+To provide feedback, email [Steve Malers](mailto://steve.malers@openwaterfoundation.org).

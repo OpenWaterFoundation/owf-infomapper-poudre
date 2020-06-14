@@ -48,6 +48,13 @@
           "mapProject" : "data-maps/BasinEntities/Agriculture-Ditches/ditches-map.json"
         },
         {
+          "id": "entities-education",
+          "name": "Education - Organizations",
+          "action": "displayMap",
+          "mapProject": "data-maps/BasinEntities/Education-Organizations/education-orgs-map.json",
+          "separatorBefore" : true
+        },
+        {
           "id": "entities-envorg",
           "name": "Environment - Instream Flow Reaches",
           "enabled": "false",
