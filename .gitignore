@@ -56,7 +56,16 @@ junk
 # Dynamic map configurations
 /workflow/BasinEntities/Agriculture-Dairies/*.json
 
-# BasinEntities/Industry-Dairies
+# BasinEntities/Agriculture-Ditches
+/workflow/BasinEntities/Agriculture-Ditches/downloads/*
+!/workflow/BasinEntities/Agriculture-Ditches/downloads/README.md
+/workflow/BasinEntities/Agriculture-Ditches/layers/*
+!/workflow/BasinEntities/Agriculture-Ditches/layers/README.md
+!/workflow/BasinEntities/Agriculture-Ditches/layers/*.csv
+# Dynamic map configurations
+/workflow/BasinEntities/Agriculture-Ditches/*.json
+
+# BasinEntities/Industry-Breweries
 /workflow/BasinEntities/Industry-Breweries/downloads/*
 !/workflow/BasinEntities/Industry-Breweries/downloads/README.md
 /workflow/BasinEntities/Industry-Breweries/layers/*

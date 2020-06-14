@@ -45,53 +45,67 @@ checkHistoricalDataFolder() {
   fi
 }
 
-copyBreweries() {
+copy_BasinEntities_Administrative_WaterDistricts() {
   checkBasinEntitiesFolder
 
-  # Copy breweries map folder and files
-  cp -rv ${scriptFolder}/data-maps/BasinEntities/Industry-Breweries ${folder}
+  # Copy stream reaches map folder and files
+  cp -rv ${scriptFolder}/data-maps/BasinEntities/Administrative-CoDwrWaterDistricts ${folder}
 }
 
-copyCounties() {
-  checkBasinEntitiesFolder
-
-  # Copy counties map folder and files
-  cp -rv ${scriptFolder}/data-maps/BasinEntities/Physical-Counties ${folder}
-}
-
-copyCurrentConditionsStreamflow() {
-  checkCurrentConditionsFolder
-
-  # Copy current conditions streamflow folder and files
-  cp -rv ${scriptFolder}/data-maps/CurrentConditions/WaterSupply-Streamflow ${folder}
-}
-
-copyCm2015H2() {
-  checkHistoricalSimulationFolder
-
-  # Copy historical simulation map folder and files
-  cp -rv ${scriptFolder}/data-maps/HistoricalSimulation/cm2015H2 ${folder}
-}
-
-copyDairies() {
+copy_BasinEntities_Agriculture_Dairies() {
   checkBasinEntitiesFolder
 
   # Copy dairies map folder and files
   cp -rv ${scriptFolder}/data-maps/BasinEntities/Agriculture-Dairies ${folder}
 }
 
-copyHistoricalIrrigatedLands() {
-  checkHistoricalDataFolder
+copy_BasinEntities_Agriculture_Ditches() {
+  checkBasinEntitiesFolder
 
-  # Copy irrigated lands map folder and files
-  cp -rv ${scriptFolder}/data-maps/HistoricalData/Agriculture-IrrigatedLands ${folder}
+  # Copy ditches map folder and files
+  cp -rv ${scriptFolder}/data-maps/BasinEntities/Agriculture-Ditches ${folder}
 }
 
-copyInstreamFlowReaches() {
+copy_BasinEntities_Environmental_InstreamFlowReaches() {
   checkBasinEntitiesFolder
 
   # Copy instream flow reaches map folder and files
   cp -rv ${scriptFolder}/data-maps/BasinEntities/InstreamFlowReaches ${folder}
+}
+
+copy_BasinEntities_Industry_Breweries() {
+  checkBasinEntitiesFolder
+
+  # Copy breweries map folder and files
+  cp -rv ${scriptFolder}/data-maps/BasinEntities/Industry-Breweries ${folder}
+}
+
+copy_BasinEntities_Physical_Counties() {
+  checkBasinEntitiesFolder
+
+  # Copy counties map folder and files
+  cp -rv ${scriptFolder}/data-maps/BasinEntities/Physical-Counties ${folder}
+}
+
+copy_BasinEntities_Physical_StreamReaches() {
+  checkBasinEntitiesFolder
+
+  # Copy stream reaches map folder and files
+  cp -rv ${scriptFolder}/data-maps/BasinEntities/Physical-StreamReaches ${folder}
+}
+
+copy_CurrentConditions_WaterSupply_Streamflow() {
+  checkCurrentConditionsFolder
+
+  # Copy current conditions streamflow folder and files
+  cp -rv ${scriptFolder}/data-maps/CurrentConditions/WaterSupply-Streamflow ${folder}
+}
+
+copy_HistoricalData_Agriculture_IrrigatedLands() {
+  checkHistoricalDataFolder
+
+  # Copy irrigated lands map folder and files
+  cp -rv ${scriptFolder}/data-maps/HistoricalData/Agriculture-IrrigatedLands ${folder}
 }
 
 copyMainConfig() {
@@ -109,64 +123,76 @@ copyMainConfig() {
   cp -rv ${scriptFolder}/img ${appFolder}
 }
 
-copyStreamReaches() {
-  checkBasinEntitiesFolder
-
-  # Copy stream reaches map folder and files
-  cp -rv ${scriptFolder}/data-maps/BasinEntities/Physical-StreamReaches ${folder}
-}
-
-copyWaterDistricts() {
-  checkBasinEntitiesFolder
-
-  # Copy stream reaches map folder and files
-  cp -rv ${scriptFolder}/data-maps/BasinEntities/Administrative-CoDwrWaterDistricts ${folder}
-}
-
 runInteractive() {
   while true; do
     echo ""
     echo "Enter an option to update application data."
     echo ""
-    echo "Config:              c.  Copy main configuration files."
-    echo "BasinEntities/:     eb.  Copy Breweries map files."
-    echo "                    ec.  Copy Counties map files."
-    echo "                    ed.  Copy Dairies map files."
-    echo "                    ei.  Copy InstreamFlowReaches map files."
-    echo "                    es.  Copy StreamReaches map files."
-    echo "                    ew.  Copy CoDwrWaterDistricts map files."
+    echo "App. Config & Content:    c.   Copy main configuration files."
+    echo "Basin Entities:          eb.   Copy Breweries map files."
+    echo "                         ec.   Copy Counties map files."
+    echo "                         eda.  Copy Dairies map files."
+    echo "                         edi.  Copy Ditches map files."
+    echo "                         ei.   Copy InstreamFlowReaches map files."
+    echo "                         es.   Copy StreamReaches map files."
+    echo "                         ew.   Copy CoDwrWaterDistricts map files."
     echo ""
-    echo "HistoricalData:     hl.  Copy IrrigatedLands map files."
+    echo "Historical Data:         hl.   Copy IrrigatedLands map files."
     echo ""
-    echo "CurrentConditions:  cs.  Copy Streamflow map files."
+    echo "Current Conditions:      cs.   Copy Streamflow map files."
     echo ""
-    #echo "h.   Copy HistoricalSimulation/cm2015H2 map files."
-    echo ""
-    echo "q.  Quit"
+    echo "                          a.   Run all copy commands from above."
+    echo "                          q.   Quit"
     echo ""
     read -p "Enter command: " answer
+
+    # Organize the following by menu item
+
+    if [ "${answer}" = "a" ]; then
+      # Basin Entities
+      copy_BasinEntities_Industry_Breweries
+      copy_BasinEntities_Physical_Counties
+      copy_BasinEntities_Agriculture_Dairies
+      copy_BasinEntities_Agriculture_Ditches
+      copy_BasinEntities_Environmental_InstreamFlowReaches
+      copy_BasinEntities_Physical_StreamReaches
+      copy_BasinEntities_Administrative_WaterDistricts
+      # Historical Data
+      copy_HistoricalData_Agriculture_IrrigatedLands
+      # Current Conditions
+      copy_CurrentConditions_WaterSupply_Streamflow
     if [ "${answer}" = "c" ]; then
       copyMainConfig
-    elif [ "${answer}" = "cs" ]; then
-      copyCurrentConditionsStreamflow
-    #elif [ "${answer}" = "h" ]; then
-    #  copyCm2015H2
-    elif [ "${answer}" = "eb" ]; then
-      copyBreweries
-    elif [ "${answer}" = "ec" ]; then
-      copyCounties
-    elif [ "${answer}" = "ed" ]; then
-      copyDairies
-    elif [ "${answer}" = "ei" ]; then
-      copyInstreamFlowReaches
-    elif [ "${answer}" = "es" ]; then
-      copyStreamReaches
-    elif [ "${answer}" = "ew" ]; then
-      copyWaterDistricts
-    elif [ "${answer}" = "hl" ]; then
-      copyHistoricalIrrigatedLands
     elif [ "${answer}" = "q" ]; then
       break
+
+    # Basin Entities
+
+    elif [ "${answer}" = "eb" ]; then
+      copy_BasinEntities_Industry_Breweries
+    elif [ "${answer}" = "ec" ]; then
+      copy_BasinEntities_Physical_Counties
+    elif [ "${answer}" = "eda" ]; then
+      copy_BasinEntities_Agriculture_Dairies
+    elif [ "${answer}" = "edi" ]; then
+      copy_BasinEntities_Agriculture_Ditches
+    elif [ "${answer}" = "ei" ]; then
+      copy_BasinEntities_Environmental_InstreamFlowReaches
+    elif [ "${answer}" = "es" ]; then
+      copy_BasinEntities_Physical_StreamReaches
+    elif [ "${answer}" = "ew" ]; then
+      copy_BasinEntities_Administrative_WaterDistricts
+
+    # Historical Data
+
+    elif [ "${answer}" = "hl" ]; then
+      copy_HistoricalData_Agriculture_IrrigatedLands
+
+    # Current Conditions
+
+    elif [ "${answer}" = "cs" ]; then
+      copy_CurrentConditions_WaterSupply_Streamflow
+
     fi
   done
   return 0
