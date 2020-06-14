@@ -118,14 +118,24 @@ getUserLogin() {
 }
 
 # Get the InfoMapper version and Poudre Information Portal version.
-# - the version is in the 'assets/config-app.json' file in format:  "version": "0.7.0.dev (2020-04-24)"
+# - the version is in the 'web/app-config.json' file in format:  "version": "0.7.0.dev (2020-04-24)"
 # - the Info Mapper software version in 'assets/version.json' with format similar to above
 getVersion() {
   # Application version
-  versionFile="${repoFolder}/dist/info-mapper/app-config.json"
+  versionFile="${webFolder}/app-config.json"
+  if [ ! -f "${versionFile}" ]; then
+    logError "Application version file does not exist: ${versionFile}"
+    logError "Exiting."
+    exit 1
+  fi
   version=$(grep '"version":' ${versionFile} | cut -d ":" -f 2 | cut -d "(" -f 1 | tr -d '"' | tr -d ' ' | tr -d ',')
   # InfoMapper version
   versionFile="${infoMapperMainFolder}/src/assets/version.json"
+  if [ ! -f "${versionFile}" ]; then
+    logError "InfoMapper version file does not exist: ${versionFile}"
+    logError "Exiting."
+    exit 1
+  fi
   infoMapperVersion=$(grep '"version":' ${versionFile} | cut -d ":" -f 2 | cut -d "(" -f 1 | tr -d '"' | tr -d ' ' | tr -d ',')
 }
 
@@ -324,7 +334,7 @@ uploadDist() {
   echo "InfoMapperVersion = ${infoMapperVersion}" >> ${uploadLogFile}
 
   # First upload to the version folder
-  echo "Uploading Angular ${version} version"
+  echo "Uploading application ${version} version"
   echo "  from: ${infoMapperDistAppFolder}"
   echo "    to: ${s3FolderVersionUrl}"
   read -p "Continue [Y/n]? " answer
@@ -363,6 +373,7 @@ getUserLogin
 scriptFolder=$(cd $(dirname "$0") && pwd)
 # mainFolder is info-mapper
 repoFolder=$(dirname ${scriptFolder})
+webFolder=${repoFolder}/web
 gitReposFolder=$(dirname ${repoFolder})
 # Start must be consistent with Info Mapper...
 infoMapperRepoFolder="${gitReposFolder}/owf-app-info-mapper-ng"
@@ -378,6 +389,7 @@ programVersionDate="2020-05-05"
 logInfo "scriptFolder:             ${scriptFolder}"
 logInfo "Program name:             ${programName}"
 logInfo "repoFolder:               ${repoFolder}"
+logInfo "webFolder:                ${webFolder}"
 logInfo "gitReposFolder:           ${gitReposFolder}"
 logInfo "infoMapperRepoFolder:     ${infoMapperRepoFolder}"
 logInfo "infoMapperMainFolder:     ${infoMapperMainFolder}"
