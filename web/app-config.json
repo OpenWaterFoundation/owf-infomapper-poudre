@@ -97,11 +97,10 @@
           "mapProject": "data-maps/BasinEntities/Recreation-Trails/trails-map.json"
         },
         {
-          "id": "entities-providers",
+          "id": "entities-water-providers",
           "name": "Water Supply - Water Providers",
-          "enabled": "false",
           "action": "displayMap",
-          "mapProject": "data-maps/BasinEntities/WaterSupply-Providers/water-providers-map.json",
+          "mapProject": "data-maps/BasinEntities/WaterSupply-WaterProviders/water-providers-map.json",
           "separatorBefore" : true
         },
         {
@@ -458,6 +457,13 @@
           "action": "contentPage",
           "align": "right",
           "markdownFile": "content-pages/about-the-project.md"
+        },
+        {
+          "id": "contact",
+          "name": "Contact",
+          "action": "contentPage",
+          "align": "right",
+          "markdownFile": "content-pages/contact.md"
         },
         {
           "id": "release-notes",

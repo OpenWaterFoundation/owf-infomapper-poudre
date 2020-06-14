@@ -128,6 +128,15 @@ junk
 # Dynamic map configurations
 /workflow/BasinEntities/Recreation-BoatingOrganizations/*.json
 
+# BasinEntities/WaterSupply-WaterProviders
+/workflow/BasinEntities/WaterSupply-WaterProviders/downloads/*
+!/workflow/BasinEntities/WaterSupply-WaterProviders/downloads/README.md
+/workflow/BasinEntities/WaterSupply-WaterProviders/layers/*
+!/workflow/BasinEntities/WaterSupply-WaterProviders/layers/README.md
+!/workflow/BasinEntities/WaterSupply-WaterProviders/layers/*.csv
+# Dynamic map configurations
+/workflow/BasinEntities/WaterSupply-WaterProviders/*.json
+
 # ======================================================
 # Historical Data menu
 # ======================================================
