@@ -168,6 +168,7 @@
         {
           "id": "hist-muni-pop",
           "name": "Municipal - Population",
+          "enabled": "false",
           "action": "displayMap",
           "mapProject": "theNameOfTheMapProjectFile",
           "separatorBefore" : true

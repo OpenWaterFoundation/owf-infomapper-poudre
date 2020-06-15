@@ -9,12 +9,14 @@
 SetProperty(PropertyName="AppFolder",PropertyType="str",PropertyValue="../../../web")
 SetProperty(PropertyName="MapsFolder",PropertyType="str",PropertyValue="${AppFolder}/data-maps")
 SetProperty(PropertyName="MapFolder",PropertyType="str",PropertyValue="${MapsFolder}/BasinEntities/Municipal-Municipalities")
+# Municipal boundaries causes the app to freeze.  Only include for testing.
+SetProperty(PropertyName="IncludeBoundaries",PropertyType="str",PropertyValue="false")
 #
 # Create a single map project and map for that project.
 # - GeoMapProjectID:  MunicipalitiesProject
 # - GeoMapID:  MunicipalitiesMap
-CreateGeoMapProject(NewGeoMapProjectID="MunicipalitiesProject",ProjectType="SingleMap",Name="Poudre Municipalities",Description="Poudre Municipalities",Properties="author:'Open Water Foundation',specificationFlavor:'',specificationVersion:'1.0.0'")
-CreateGeoMap(NewGeoMapID="MunicipalitiesMap",Name="Poudre Municipalities",Description="Poudre Municipalities",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.5,40.7,10'")
+CreateGeoMapProject(NewGeoMapProjectID="MunicipalitiesProject",ProjectType="SingleMap",Name="Poudre Basin Municipalities",Description="Poudre Basin Municipalities",Properties="author:'Open Water Foundation',specificationFlavor:'',specificationVersion:'1.0.0'")
+CreateGeoMap(NewGeoMapID="MunicipalitiesMap",Name="Poudre Basin Municipalities",Description="Poudre Basin Municipalities",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.5,40.7,10'")
 AddGeoMapToGeoMapProject(GeoMapProjectID="MunicipalitiesProject",GeoMapID="MunicipalitiesMap")
 # = = = = = = = = = =
 # Background layers:  read layers and add a layer view group
@@ -40,15 +42,26 @@ AddGeoLayerViewToGeoMap(GeoLayerID="MapBoxStreets&SatelliteLayer",GeoMapID="Muni
 #SetGeoLayerViewSingleSymbol(GeoMapID="MunicipalitiesMap",GeoLayerViewGroupID="StreamReachesGroup",GeoLayerViewID="StreamReachesLayerView",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches",Properties="weight:2")
 ## SetGeoLayerViewCategorizedSymbol(GeoMapID="StreamReachesMap",GeoLayerViewGroupID="StreamReachesGroup",GeoLayerViewID="StreamReachesLayerView",Name="Poudre Stream Reaches",Description="Show stream reaches is blue lines",ClassificationAttribute="county",Properties="classificationType:'SingleSymbol'")
 # = = = = = = = = = =
+# Municipal boundaries:  read layer and add to a layer view group.
+# - TODO smalers 2020-06-13 this seems to hang the app when in production
+# GeoLayerViewGroupID: MunicipalBoundariesGroup
+ReadGeoLayerFromGeoJSON(InputFile="layers/municipal-boundaries.geojson",GeoLayerID="MunicipalBoundariesLayer",Name="Poudre Basin Municipal Boundaries",Description="Poudre Basin Municipal Boundaries")
+AddGeoLayerViewGroupToGeoMap(GeoMapID="MunicipalitiesMap",GeoLayerViewGroupID="MunicipalitiesGroup",Name="Poudre Basin Municipalities",Description="Poudre Basin Municipalities",InsertPosition="Top")
+If(Name="IncludeBoundaries",Condition="${IncludeBoundaries} == true")
+    AddGeoLayerViewToGeoMap(GeoLayerID="MunicipalBoundariesLayer",GeoMapID="MunicipalitiesMap",GeoLayerViewGroupID="MunicipalitiesGroup",GeoLayerViewID="MunicipalBoundariesLayerView",Name="Poudre Basin Municipal Boundaries",Description="Poudre Basin Municipal Boundaries")
+    # For now use single symbol
+    # - grey
+    SetGeoLayerViewSingleSymbol(GeoMapID="MunicipalitiesMap",GeoLayerViewGroupID="MunicipalitiesGroup",GeoLayerViewID="MunicipalBoundariesLayerView",Name="Poudre Basin Municipal Boundaries",Description="Poudre Basin Municipal Boundaries",Properties="color:#595959,opacity:1.0,fillColor:#595959,fillOpacity:0.3,weight:2")
+EndIf(Name="IncludeBoundaries")
+# = = = = = = = = = =
 # Municipalities:  read layer and add to a layer view group.
 # GeoLayerViewGroupID: MunicipalitiesGroup
-ReadGeoLayerFromGeoJSON(InputFile="layers/municipalities.geojson",GeoLayerID="WaterProvidersLayer",Name="Poudre Municipalities",Description="Poudre Municipalities")
-AddGeoLayerViewGroupToGeoMap(GeoMapID="MunicipalitiesMap",GeoLayerViewGroupID="MunicipalitiesGroup",Name="Poudre Municipalities",Description="Poudre Municipalities",Properties="selectedInitial: true",InsertPosition="Top")
-AddGeoLayerViewToGeoMap(GeoLayerID="WaterProvidersLayer",GeoMapID="MunicipalitiesMap",GeoLayerViewGroupID="MunicipalitiesGroup",GeoLayerViewID="MunicipalitiesLayerView",Name="Poudre Municipalities",Description="Poudre Municipalities")
+ReadGeoLayerFromGeoJSON(InputFile="layers/municipalities.geojson",GeoLayerID="MunicipalitiesLayer",Name="Poudre Basin Municipalities",Description="Poudre Basin Municipalities")
+AddGeoLayerViewToGeoMap(GeoLayerID="MunicipalitiesLayer",GeoMapID="MunicipalitiesMap",GeoLayerViewGroupID="MunicipalitiesGroup",GeoLayerViewID="MunicipalitiesLayerView",Name="Poudre Basin Municipalities",Description="Poudre Basin Municipalities")
 # For now use single symbol
 # - TODO smalers 2020-05-22 need to enable a graduated symbol based on flow value
-SetGeoLayerViewSingleSymbol(GeoMapID="MunicipalitiesMap",GeoLayerViewGroupID="MunicipalitiesGroup",GeoLayerViewID="MunicipalitiesLayerView",Name="Poudre Municipalities",Description="Poudre Municipalities",Properties="symbolImage:/img/drinkingwater/.png")
-# SetGeoLayerViewCategorizedSymbol(GeoMapID="MunicipalitiesMap",GeoLayerViewGroupID="MunicipalitiesGroup",GeoLayerViewID="MunicipalitiesLayerView",Name="Poudre Municipalities",Description="Poudre Basin water providers",ClassificationAttribute="county",Properties="classificationType:'SingleSymbol'")
+SetGeoLayerViewSingleSymbol(GeoMapID="MunicipalitiesMap",GeoLayerViewGroupID="MunicipalitiesGroup",GeoLayerViewID="MunicipalitiesLayerView",Name="Poudre Basin Municipalities",Description="Poudre Basin Municipalities",Properties="symbolImage:/img/group-2.png")
+# SetGeoLayerViewCategorizedSymbol(GeoMapID="MunicipalitiesMap",GeoLayerViewGroupID="MunicipalitiesGroup",GeoLayerViewID="MunicipalitiesLayerView",Name="Poudre Basin Municipalities",Description="Poudre Basin water providers",ClassificationAttribute="county",Properties="classificationType:'SingleSymbol'")
 # = = = = = = = = = =
 # Write the map project file and copy layers to the location needed by the web application.
 # - follow InfoMapper conventions
@@ -56,4 +69,8 @@ WriteGeoMapProjectToJSON(GeoMapProjectID="MunicipalitiesProject",Indent="2",Outp
 CreateFolder(Folder="${MapFolder}/layers",CreateParentFolders="True",IfFolderExists="Ignore")
 CopyFile(SourceFile="municipalities-map.json",DestinationFile="${MapFolder}/municipalities-map.json")
 CopyFile(SourceFile="layers/municipalities.geojson",DestinationFile="${MapFolder}/layers/municipalities.geojson")
+## TODO smalers 2020-06-13 enable when it does not hang the app
+If(Name="IncludeBoundaries2",Condition="${IncludeBoundaries} == true")
+    CopyFile(SourceFile="layers/municipal-boundaries.geojson",DestinationFile="${MapFolder}/layers/municipal-boundaries.geojson")
+EndIf(Name="IncludeBoundaries2")
 #CopyFile(SourceFile="layers/stream-reaches.geojson",DestinationFile="${MapFolder}/layers/stream-reaches.geojson")

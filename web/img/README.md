@@ -11,6 +11,7 @@ Image files used in the application.
 | `group-2.png` | Map marker for municipalities. | Downloaded from [group icons](https://mapicons.mapsmarker.com/markers/offices/group/?custom_color=ff5100). |
 | `kayaking.png` | Boating marker, with kayaker. | Downloaded from [Water sports map markers](https://mapicons.mapsmarker.com/markers/sports/water-sports/). |
 | `milk-bottle.png` | Milk bottle for dairies. | Downloaded from [milk bottle map icons](https://mapicons.mapsmarker.com/markers/stores/food-drink/milk-bottle/). |
-| `university.png` | Mortar board - use for education. | Downloaded from [health and education](https://mapicons.mapsmarker.com/markers/health-education/education/university/). |
+| `office-building.png` | Office building. | Downloaded from [office building map icons](https://mapicons.mapsmarker.com/markers/offices/real-estate/office-building/). |
 | `river-2.png` | Water ripples. | Downloaded from [nature map icons](https://mapicons.mapsmarker.com/markers/health-education/education/river-2/). |
+| `university.png` | Mortar board - use for education. | Downloaded from [health and education](https://mapicons.mapsmarker.com/markers/health-education/education/university/). |
 | `wetlands.png` | Plant and water. | Downloaded from [nature map icons](https://mapicons.mapsmarker.com/markers/health-education/education/wetlands/). |
