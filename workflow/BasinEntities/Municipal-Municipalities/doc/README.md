@@ -33,7 +33,8 @@ The following files and folders are used.
 
 | **File/Folder** | **Description** | **Repo Ignore** |
 | -- | -- | -- |
-| `01-download-municipalities.gp` | GeoProcessor command file to download data. | |
+| `01a-download-municipalities.gp` | GeoProcessor command file to download data. | |
+| `01b-download-municipal-boundaries.gp` | GeoProcessor command file to download data. | |
 | `03-create-municipalities-map.gp` | GeoProcessor command file to create map. |
 | `doc/` | This `README.md` and related files. | |
 | `downloads/` | Downloaded files. | Yes - for downloaded files. |
@@ -46,5 +47,6 @@ The following describes the workflow steps, which should be run in the order sho
 
 | **Command File/Script** | **Software** | **Description** |
 | -- | -- | -- |
-| `01-download-municipalities.gp` | GeoProcessor | Download the municipalities data from OWF GitHub repository and rewrite to ensure latest GeoJSON format. |
+| `01a-download-municipalities.gp` | GeoProcessor | Download the municipalities data from OWF GitHub repository and rewrite to ensure latest GeoJSON format. |
+| `01b-download-municipal-boundaries.gp` | GeoProcessor | Download the municipal boundaries data from Colorado Information Marketplace. |
 | `03-create-municipalities-map.gp` | GeoProcessor | Create the map configuration file and copy map and layer files to the distribution folder. |
