@@ -16,7 +16,7 @@ repoFolder=$(dirname ${scriptFolder})
 gitReposFolder=$(dirname ${repoFolder})
 
 # Main GeoProcessor repository
-mainRepo="owf-app-poudre-dashboard-workflow"
+mainRepo="owf-infomapper-poudre"
 
 # Run the general script
 ${scriptFolder}/git-util/git-check.sh -m "${mainRepo}" -g "${gitReposFolder}" $@

@@ -2,6 +2,7 @@
   "title": "Poudre Basin Information",
   "version": "0.2.0.dev (2020-05-05)",
   "homePage": "/content-pages/home.md",
+  "favicon": "/img/OWF-Logo-Favicon-32x32.ico",
   "mainMenu": [
     {
       "id": "BasinEntities",

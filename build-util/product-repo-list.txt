@@ -1,7 +1,7 @@
 # Repositories that comprise the product
 # - used with git-util scripts
 # - assumes that local folder name will match the repository name
-owf-app-poudre-dashboard-workflow
+owf-infomapper-poudre
 # The Info Mapper software is used to serve the portal.
 owf-app-info-mapper-ng
 # Do not include the InfoMapper documentation - that is edited with the InforMapper.

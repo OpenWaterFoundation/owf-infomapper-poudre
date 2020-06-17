@@ -34,7 +34,7 @@ AddGeoLayerViewToGeoMap(GeoLayerID="MapBoxStreets&SatelliteLayer",GeoMapID="Inst
 ReadGeoLayerFromGeoJSON(InputFile="layers/instream-reaches.geojson",GeoLayerID="InstreamReachesLayer",Name="Poudre Basin Instream Flow Reaches",Description="Poudre Basin Instream Flow Reaches")
 AddGeoLayerViewGroupToGeoMap(GeoMapID="InstreamReachesMap",GeoLayerViewGroupID="InstreamReachesGroup",Name="Poudre Basin Instream Flow Reaches",Description="Poudre Basin Instream Flow Reaches",Properties="selectedInitial: true",InsertPosition="Top")
 AddGeoLayerViewToGeoMap(GeoLayerID="InstreamReachesLayer",GeoMapID="InstreamReachesMap",GeoLayerViewGroupID="InstreamReachesGroup",GeoLayerViewID="InstreamReachesLayerView",Name="Poudre Basin Instream Flow Reaches",Description="Poudre Basin Instream Flow Reaches")
-SetGeoLayerViewSingleSymbol(GeoMapID="InstreamReachesMap",GeoLayerViewGroupID="InstreamReachesGroup",GeoLayerViewID="InstreamReachesLayerView",Name="Poudre Basin Instream Flow Reaches",Description="Poudre Basin Instream Flow Reaches")
+SetGeoLayerViewSingleSymbol(GeoMapID="InstreamReachesMap",GeoLayerViewGroupID="InstreamReachesGroup",GeoLayerViewID="InstreamReachesLayerView",Name="Poudre Basin Instream Flow Reaches",Description="Poudre Basin Instream Flow Reaches",Properties="color:#6297f7")
 # = = = = = = = = = =
 # Instream flow termini:  read layer and add to a layer view group.
 # GeoLayerViewGroupID: InstreamReachesGroup

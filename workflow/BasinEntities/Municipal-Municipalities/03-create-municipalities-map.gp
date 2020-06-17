@@ -10,7 +10,7 @@ SetProperty(PropertyName="AppFolder",PropertyType="str",PropertyValue="../../../
 SetProperty(PropertyName="MapsFolder",PropertyType="str",PropertyValue="${AppFolder}/data-maps")
 SetProperty(PropertyName="MapFolder",PropertyType="str",PropertyValue="${MapsFolder}/BasinEntities/Municipal-Municipalities")
 # Municipal boundaries causes the app to freeze.  Only include for testing.
-SetProperty(PropertyName="IncludeBoundaries",PropertyType="str",PropertyValue="false")
+SetProperty(PropertyName="IncludeBoundaries",PropertyType="str",PropertyValue="true")
 #
 # Create a single map project and map for that project.
 # - GeoMapProjectID:  MunicipalitiesProject

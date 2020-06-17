@@ -36,7 +36,8 @@ CopyFile(SourceFile="../../BasinEntities/Physical-StreamReaches/layers/stream-re
 ReadGeoLayerFromGeoJSON(InputFile="layers/stream-reaches.geojson",GeoLayerID="StreamReachesLayer",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches")
 AddGeoLayerViewGroupToGeoMap(GeoMapID="StreamflowMap",GeoLayerViewGroupID="StreamReachesGroup",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches",Properties="selectedInitial: true",InsertPosition="Top")
 AddGeoLayerViewToGeoMap(GeoLayerID="StreamReachesLayer",GeoMapID="StreamflowMap",GeoLayerViewGroupID="StreamReachesGroup",GeoLayerViewID="StreamReachesLayerView",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches")
-SetGeoLayerViewSingleSymbol(GeoMapID="StreamflowMap",GeoLayerViewGroupID="StreamReachesGroup",GeoLayerViewID="StreamReachesLayerView",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches",Properties="weight:2")
+SetGeoLayerViewSingleSymbol(GeoMapID="StreamflowMap",GeoLayerViewGroupID="StreamReachesGroup",GeoLayerViewID="StreamReachesLayerView",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches",Properties="color:#6297f7,width:2")
+#SetGeoLayerViewSingleSymbol(GeoMapID="StreamflowMap",GeoLayerViewGroupID="StreamReachesGroup",GeoLayerViewID="StreamReachesLayerView",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches")
 # SetGeoLayerViewCategorizedSymbol(GeoMapID="StreamReachesMap",GeoLayerViewGroupID="StreamReachesGroup",GeoLayerViewID="StreamReachesLayerView",Name="Poudre Stream Reaches",Description="Show stream reaches is blue lines",ClassificationAttribute="county",Properties="classificationType:'SingleSymbol'")
 # = = = = = = = = = =
 # Diversions:  read layer and add to a layer view group.
@@ -46,7 +47,7 @@ AddGeoLayerViewGroupToGeoMap(GeoMapID="StreamflowMap",GeoLayerViewGroupID="Diver
 AddGeoLayerViewToGeoMap(GeoLayerID="DiversionLayer",GeoMapID="StreamflowMap",GeoLayerViewGroupID="DiversionGroup",GeoLayerViewID="DiversionLayerView",Name="Poudre Diversions",Description="Poudre Diversions")
 # For now use single symbol
 # - TODO smalers 2020-05-22 need to enable a graduated symbol based on flow value
-SetGeoLayerViewSingleSymbol(GeoMapID="StreamflowMap",GeoLayerViewGroupID="DiversionGroup",GeoLayerViewID="DiversionLayerView",Name="Poudre Diversions",Description="Poudre Diversions",Properties="symbolShape:Square,color:black,fillColor:black,size:4,sizeUnits:pixels,opacity:1.0,fillOpacity:1.0,weight:1.5")
+SetGeoLayerViewSingleSymbol(GeoMapID="StreamflowMap",GeoLayerViewGroupID="DiversionGroup",GeoLayerViewID="DiversionLayerView",Name="Poudre Diversions",Description="Poudre Diversions",Properties="symbolShape:Square,color:black,fillColor:black,symbolSize:4,sizeUnits:pixels,opacity:1.0,fillOpacity:1.0,weight:1.5")
 # SetGeoLayerViewCategorizedSymbol(GeoMapID="StreamflowMap",GeoLayerViewGroupID="DiversionGroup",GeoLayerViewID="DiversionLayerView",Name="Poudre Streamflow",Description="Show diversion structures",ClassificationAttribute="county",Properties="classificationType:'SingleSymbol'")
 # = = = = = = = = = =
 # Streamflow stations:  read layer and add to a layer view group.
@@ -56,7 +57,7 @@ AddGeoLayerViewGroupToGeoMap(GeoMapID="StreamflowMap",GeoLayerViewGroupID="Strea
 AddGeoLayerViewToGeoMap(GeoLayerID="StreamflowLayer",GeoMapID="StreamflowMap",GeoLayerViewGroupID="StreamflowGroup",GeoLayerViewID="StreamflowLayerView",Name="Poudre Streamflow",Description="Poudre Streamflow")
 # For now use single symbol
 # - TODO smalers 2020-05-22 need to enable a graduated symbol based on flow value
-SetGeoLayerViewSingleSymbol(GeoMapID="StreamflowMap",GeoLayerViewGroupID="StreamflowGroup",GeoLayerViewID="StreamflowLayerView",Name="Poudre Streamflow",Description="Poudre Streamflow",Properties="symbolShape:Circle,color:black,fillColor:red,size:4,sizeUnits:pixels,opacity:1.0,fillOpacity:1.0,weight:1.5")
+SetGeoLayerViewSingleSymbol(GeoMapID="StreamflowMap",GeoLayerViewGroupID="StreamflowGroup",GeoLayerViewID="StreamflowLayerView",Name="Poudre Streamflow",Description="Poudre Streamflow",Properties="symbolShape:Circle,color:black,fillColor:red,symbolSize:4,sizeUnits:pixels,opacity:1.0,fillOpacity:1.0,weight:1.5")
 # SetGeoLayerViewCategorizedSymbol(GeoMapID="StreamflowMap",GeoLayerViewGroupID="StreamflowGroup",GeoLayerViewID="StreamflowLayerView",Name="Poudre Streamflow",Description="Show streamflow stations",ClassificationAttribute="county",Properties="classificationType:'SingleSymbol'")
 # = = = = = = = = = =
 # Write the map project file and copy layers to the location needed by the web application.
