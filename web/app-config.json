@@ -459,6 +459,13 @@
           "markdownFile": "content-pages/about-the-project.md"
         },
         {
+          "id": "infomapper-doc",
+          "name": "InfoMapper Documentation",
+          "action": "externalLink",
+          "align": "right",
+          "url": "http://software.openwaterfoundation.org/infomapper/latest/doc-user/"
+        },
+        {
           "id": "contact",
           "name": "Contact",
           "action": "contentPage",
