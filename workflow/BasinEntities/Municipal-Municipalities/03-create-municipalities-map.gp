@@ -57,7 +57,7 @@ EndIf(Name="IncludeBoundaries")
 # Municipalities:  read layer and add to a layer view group.
 # GeoLayerViewGroupID: MunicipalitiesGroup
 ReadGeoLayerFromGeoJSON(InputFile="layers/municipalities.geojson",GeoLayerID="MunicipalitiesLayer",Name="Poudre Basin Municipalities",Description="Poudre Basin Municipalities")
-AddGeoLayerViewToGeoMap(GeoLayerID="MunicipalitiesLayer",GeoMapID="MunicipalitiesMap",GeoLayerViewGroupID="MunicipalitiesGroup",GeoLayerViewID="MunicipalitiesLayerView",Name="Poudre Basin Municipalities",Description="Poudre Basin Municipalities")
+AddGeoLayerViewToGeoMap(GeoLayerID="MunicipalitiesLayer",GeoMapID="MunicipalitiesMap",GeoLayerViewGroupID="MunicipalitiesGroup",GeoLayerViewID="MunicipalitiesLayerView",Name="Poudre Basin Municipalities",Description="Poudre Basin Municipalities",InsertPosition="Top")
 # For now use single symbol
 # - TODO smalers 2020-05-22 need to enable a graduated symbol based on flow value
 SetGeoLayerViewSingleSymbol(GeoMapID="MunicipalitiesMap",GeoLayerViewGroupID="MunicipalitiesGroup",GeoLayerViewID="MunicipalitiesLayerView",Name="Poudre Basin Municipalities",Description="Poudre Basin Municipalities",Properties="symbolImage:/img/group-2.png")
