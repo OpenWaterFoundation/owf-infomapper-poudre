@@ -49,9 +49,16 @@ buildDist() {
   # Run the ng build
   # - use the command line from 'copy-to-owf-amazon-s3.bat', which was used more recently
   # - this should be found in the Windows PATH, for example C:\Users\user\AppData\Roaming\npm\ng
-  logInfo "Start running:  ng build --prod --aot=true --baseHref=${ngBuildHrefOpt} --prod=true --extractCss=true --namedChunks=false --outputHashing=all --sourceMap=false"
-  ng build --prod --aot=true --baseHref=${ngBuildHrefOpt} --prod=true --extractCss=true --namedChunks=false --outputHashing=all --sourceMap=false
+  logInfo "Start running:  ng build --prod=true --aot=true --baseHref=${ngBuildHrefOpt} --extractCss=true --namedChunks=false --outputHashing=all --sourceMap=false"
+  ng build --prod=true --aot=true --baseHref=${ngBuildHrefOpt} --extractCss=true --namedChunks=false --outputHashing=all --sourceMap=false
   logInfo "...done running 'ng build...'"
+
+  # Fix the distribution index.html file as per:  
+  #   Problem:   https://github.com/angular/angular/issues/30835
+  #   Solution:  https://stackoverflow.com/questions/56606789/angular-8-ng-build-throwing-mime-error-with-cordova
+  indexFile="${infoMapperDistAppFolder}/index.html"
+  logInfo "Updating mime type in: ${indexFile}"
+  sed -i 's/type="module"/type="text\/javascript"/g' ${indexFile}
 }
 
 # Check to make sure the Angular version is as expected
@@ -384,8 +391,8 @@ infoMapperDistFolder="${infoMapperMainFolder}/dist"
 infoMapperDistAppFolder="${infoMapperDistFolder}/info-mapper"
 # ...end must match Info Mapper
 programName=$(basename $0)
-programVersion="1.3.0"
-programVersionDate="2020-05-05"
+programVersion="1.3.1"
+programVersionDate="2020-07-06"
 logInfo "scriptFolder:             ${scriptFolder}"
 logInfo "Program name:             ${programName}"
 logInfo "repoFolder:               ${repoFolder}"
