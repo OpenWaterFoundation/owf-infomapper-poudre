@@ -1,8 +1,14 @@
 # Download Division 1 boundary file.
+# - use the zipped shapefile on the CDSS website and split out Division 1
 # - this should only need to be done if setting up a new workspace
-# - use the file on the OWF website since it has already been clipped for Division 1
-# - save the file to 'downloads' and then read and write to make sure GeoJSON version uses the latest specification
-WebGet(URL="http://data.openwaterfoundation.org/co/cdss-data-spatial-bybasin/data-files/CO-DWR-WaterDivisionBoundaries-Division01-20180228.geojson",OutputFile="downloads/co-dwr-water-division.geojson")
-# Read 'download/' file and rewrite to 'layers/' to make sure the latest GeoJSON spec is used.
-ReadGeoLayerFromGeoJSON(InputFile="downloads/co-dwr-water-division.geojson",GeoLayerID="WaterDivisionLayer",Name="DWR Division 1 Boundary",Description="DWR Division 1 Boundary")
-WriteGeoLayerToGeoJSON(GeoLayerID="WaterDivisionLayer",OutputFile="layers/co-dwr-water-division.geojson")
+# - apparently the 'DIV3' in the filename means version 3 and not 'Division 3'?
+WebGet(URL="https://dnrftp.state.co.us/CDSS/GIS/DIV3CO.zip",OutputFile="downloads/DIV3CO.zip")
+# Unzip the zip file
+UnzipFile(File="downloads/DIV3CO.zip",OutputFolder="downloads/DIV3CO",IfFolderDoesNotExist="Create")
+# Read the 'downloads' shapefile, split out Division 1 into a new layer (default is GeoPackage format),
+# and write to 'layers/'as a GeoJSON file.
+ReadGeoLayerFromShapefile(InputFile="downloads/DIV3CO/DIV3CO.shp",GeoLayerID="WaterDivisionsLayer",Name="DWR Division Boundaries",Description="DWR Division Boundaries")
+SplitGeoLayerByAttribute(InputGeoLayerID="WaterDivisionsLayer",AttributeName="DIV",IncludeAttributeValues="1",TemporaryFolder="downloads/DIV3CO-split")
+# Use the following to troubleshoot the split command if necessary.
+# ReadGeoLayersFromGeoPackage(InputFile="downloads/DIV3CO-split/DIV_1.gpkg",ReadOneLayer="True",LayerName="DIV_1",GeoLayerID="WaterDivisionLayer")
+WriteGeoLayerToGeoJSON(GeoLayerID="WaterDivisionsLayer_DIV_1",OutputFile="layers/co-dwr-water-division.geojson")

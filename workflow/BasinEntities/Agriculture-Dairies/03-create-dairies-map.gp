@@ -13,8 +13,8 @@ SetProperty(PropertyName="MapFolder",PropertyType="str",PropertyValue="${MapsFol
 # Create a single map project and map for that project.
 # - GeoMapProjectID:  DairiesProject
 # - GeoMapID:  DairiesMap
-CreateGeoMapProject(NewGeoMapProjectID="DairiesProject",ProjectType="SingleMap",Name="Poudre Dairies",Description="Poudre Dairies",Properties="author:'Open Water Foundation',specificationFlavor:'',specificationVersion:'1.0.0'")
-CreateGeoMap(NewGeoMapID="DairiesMap",Name="Poudre Dairies",Description="Poudre Dairies",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.5,40.7,10'")
+CreateGeoMapProject(NewGeoMapProjectID="DairiesProject",ProjectType="SingleMap",Name="Colorado Dairies",Description="Colorado Dairies",Properties="author:'Open Water Foundation',specificationFlavor:'',specificationVersion:'1.0.0'")
+CreateGeoMap(NewGeoMapID="DairiesMap",Name="Colorado Dairies",Description="Colorado Dairies",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.5,40.7,10'")
 AddGeoMapToGeoMapProject(GeoMapProjectID="DairiesProject",GeoMapID="DairiesMap")
 # = = = = = = = = = =
 # Background layers:  read layers and add a layer view group
@@ -29,6 +29,15 @@ AddGeoLayerViewToGeoMap(GeoLayerID="MapBoxSatelliteLayer",GeoMapID="DairiesMap",
 AddGeoLayerViewToGeoMap(GeoLayerID="MapBoxStreetsLayer",GeoMapID="DairiesMap",GeoLayerViewGroupID="BackgroundGroup",GeoLayerViewID="MapBoxStreetsLayerView",Name="Streets (MapBox)",Description="Streets background map from MapBox.",Properties="selectedInitial: false")
 AddGeoLayerViewToGeoMap(GeoLayerID="MapBoxStreets&SatelliteLayer",GeoMapID="DairiesMap",GeoLayerViewGroupID="BackgroundGroup",GeoLayerViewID="MapBoxStreets&SatelliteLayerView",Name="Streets & Satellite (MapBox)",Description="Streets and satellite background map from MapBox.",Properties="selectedInitial: false")
 # = = = = = = = = = =
+# Water district 3:  read layer and add to layer view group.
+# GeoLayerViewGroupID: WaterDistrictsGroup
+CopyFile(SourceFile="../Administrative-CoDwrWaterDistricts/layers/co-dwr-water-district-3.geojson",DestinationFile="layers/co-dwr-water-district-3.geojson")
+CopyFile(SourceFile="../Administrative-CoDwrWaterDistricts/layers/co-dwr-water-district-3-classify-district.csv",DestinationFile="layers/co-dwr-water-district-3-classify-district.csv")
+ReadGeoLayerFromGeoJSON(InputFile="layers/co-dwr-water-district-3.geojson",GeoLayerID="WaterDistrictLayer",Name="CO DWR Water District 3",Description="Water District 3 boundary from the Colorado Division of Water Resources.")
+AddGeoLayerViewGroupToGeoMap(GeoMapID="DairiesMap",GeoLayerViewGroupID="WaterDistrictsGroup",Name="CO DWR Water Districts",Description="Water District boundaries from the Colorado Division of Water Resources.",Properties="selectedInitial: true",InsertPosition="Top")
+AddGeoLayerViewToGeoMap(GeoLayerID="WaterDistrictLayer",GeoMapID="DairiesMap",GeoLayerViewGroupID="WaterDistrictsGroup",GeoLayerViewID="WaterDistrictLayerView",Name="CO DWR Water District 3",Description="Water District 3 boundary from the Colorado Division of Water Resources",InsertPosition="Top")
+SetGeoLayerViewCategorizedSymbol(GeoMapID="DairiesMap",GeoLayerViewGroupID="WaterDistrictsGroup",GeoLayerViewID="WaterDistrictLayerView",Name="Colorize district",Description="Show Water District 3 in black.",ClassificationAttribute="DISTRICT",Properties="classificationFile:layers/co-dwr-water-district-3-classify-district.csv")
+# = = = = = = = = = =
 # Stream reaches:  read layer and add to a layer view group.
 # - TODO smalers 2020-05-22 evaluate whether to include this
 # - TODO smalers 2020-05-22 for now copy the stream reaches but want to use shared layer
@@ -42,18 +51,20 @@ AddGeoLayerViewToGeoMap(GeoLayerID="MapBoxStreets&SatelliteLayer",GeoMapID="Dair
 # = = = = = = = = = =
 # Dairies:  read layer and add to a layer view group.
 # GeoLayerViewGroupID: DairiesGroup
-ReadGeoLayerFromGeoJSON(InputFile="layers/dairies.geojson",GeoLayerID="DairiesLayer",Name="Poudre Dairies",Description="Poudre Dairies")
-AddGeoLayerViewGroupToGeoMap(GeoMapID="DairiesMap",GeoLayerViewGroupID="DairiesGroup",Name="Poudre Dairies",Description="Poudre Dairies",Properties="selectedInitial: true",InsertPosition="Top")
-AddGeoLayerViewToGeoMap(GeoLayerID="DairiesLayer",GeoMapID="DairiesMap",GeoLayerViewGroupID="DairiesGroup",GeoLayerViewID="DairiesLayerView",Name="Poudre Dairies",Description="Poudre Dairies")
+ReadGeoLayerFromGeoJSON(InputFile="layers/dairies.geojson",GeoLayerID="DairiesLayer",Name="Colorado Dairies",Description="Colorado Dairies")
+AddGeoLayerViewGroupToGeoMap(GeoMapID="DairiesMap",GeoLayerViewGroupID="DairiesGroup",Name="Colorado Dairies",Description="Colorado Dairies",Properties="selectedInitial: true",InsertPosition="Top")
+AddGeoLayerViewToGeoMap(GeoLayerID="DairiesLayer",GeoMapID="DairiesMap",GeoLayerViewGroupID="DairiesGroup",GeoLayerViewID="DairiesLayerView",Name="Colorado Dairies",Description="Colorado Dairies")
 # For now use single symbol
 # - TODO smalers 2020-05-22 need to enable a graduated symbol based on flow value
-SetGeoLayerViewSingleSymbol(GeoMapID="DairiesMap",GeoLayerViewGroupID="DairiesGroup",GeoLayerViewID="DairiesLayerView",Name="Poudre Dairies",Description="Poudre Dairies",Properties="symbolImage:/img/milk_bottle.png")
-# SetGeoLayerViewCategorizedSymbol(GeoMapID="DairiesMap",GeoLayerViewGroupID="DairiesGroup",GeoLayerViewID="DairiesLayerView",Name="Poudre Dairies",Description="Poudre Basin dairies",ClassificationAttribute="county",Properties="classificationType:'SingleSymbol'")
+SetGeoLayerViewSingleSymbol(GeoMapID="DairiesMap",GeoLayerViewGroupID="DairiesGroup",GeoLayerViewID="DairiesLayerView",Name="Colorado Dairies",Description="Colorado Dairies",Properties="symbolImage:/img/milk_bottle.png")
+# SetGeoLayerViewCategorizedSymbol(GeoMapID="DairiesMap",GeoLayerViewGroupID="DairiesGroup",GeoLayerViewID="DairiesLayerView",Name="Colorado Dairies",Description="Poudre Basin dairies",ClassificationAttribute="county",Properties="classificationType:'SingleSymbol'")
 # = = = = = = = = = =
 # Write the map project file and copy layers to the location needed by the web application.
 # - follow InfoMapper conventions
 WriteGeoMapProjectToJSON(GeoMapProjectID="DairiesProject",Indent="2",OutputFile="dairies-map.json")
 CreateFolder(Folder="${MapFolder}/layers",CreateParentFolders="True",IfFolderExists="Ignore")
+CopyFile(SourceFile="layers/co-dwr-water-district-3.geojson",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3.geojson")
+CopyFile(SourceFile="layers/co-dwr-water-district-3-classify-district.csv",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3-classify-district.csv")
+#CopyFile(SourceFile="layers/stream-reaches.geojson",DestinationFile="${MapFolder}/layers/stream-reaches.geojson")
 CopyFile(SourceFile="dairies-map.json",DestinationFile="${MapFolder}/dairies-map.json")
 CopyFile(SourceFile="layers/dairies.geojson",DestinationFile="${MapFolder}/layers/dairies.geojson")
-#CopyFile(SourceFile="layers/stream-reaches.geojson",DestinationFile="${MapFolder}/layers/stream-reaches.geojson")

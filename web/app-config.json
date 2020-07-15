@@ -10,10 +10,17 @@
       "align": "left",
       "menus": [
         {
+          "id": "entities-codwr-waterdistricts",
+          "name": "Administrative -  Division 1 Water Districts",
+          "action": "displayMap",
+          "mapProject" : "data-maps/BasinEntities/Administrative-CoDwrWaterDistricts/codwr-waterdistricts-map.json"
+        },
+        {
           "id": "entities-counties",
           "name": "Physical - Counties",
           "action": "displayMap",
-          "mapProject" : "data-maps/BasinEntities/Physical-Counties/counties-map.json"
+          "mapProject" : "data-maps/BasinEntities/Physical-Counties/counties-map.json",
+          "separatorBefore" : true
         },
         {
           "id": "entities-hucs",
@@ -27,13 +34,6 @@
           "name": "Physical - Stream Reaches",
           "action": "displayMap",
           "mapProject" : "data-maps/BasinEntities/Physical-StreamReaches/stream-reaches-map.json"
-        },
-        {
-          "id": "entities-codwr-waterdistricts",
-          "name": "Administrative -  Division 1 Water Districts",
-          "action": "displayMap",
-          "mapProject" : "data-maps/BasinEntities/Administrative-CoDwrWaterDistricts/codwr-waterdistricts-map.json",
-          "separatorBefore" : true
         },
         {
           "id": "entities-dairies",

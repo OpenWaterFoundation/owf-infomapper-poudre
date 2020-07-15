@@ -29,6 +29,15 @@ AddGeoLayerViewToGeoMap(GeoLayerID="MapBoxSatelliteLayer",GeoMapID="InstreamReac
 AddGeoLayerViewToGeoMap(GeoLayerID="MapBoxStreetsLayer",GeoMapID="InstreamReachesMap",GeoLayerViewGroupID="BackgroundGroup",GeoLayerViewID="MapBoxStreetsLayerView",Name="Streets (MapBox)",Description="Streets background map from MapBox.",Properties="selectedInitial: false")
 AddGeoLayerViewToGeoMap(GeoLayerID="MapBoxStreets&SatelliteLayer",GeoMapID="InstreamReachesMap",GeoLayerViewGroupID="BackgroundGroup",GeoLayerViewID="MapBoxStreets&SatelliteLayerView",Name="Streets & Satellite (MapBox)",Description="Streets and satellite background map from MapBox.",Properties="selectedInitial: false")
 # = = = = = = = = = =
+# Water district 3:  read layer and add to layer view group.
+# GeoLayerViewGroupID: WaterDistrictsGroup
+CopyFile(SourceFile="../Administrative-CoDwrWaterDistricts/layers/co-dwr-water-district-3.geojson",DestinationFile="layers/co-dwr-water-district-3.geojson")
+CopyFile(SourceFile="../Administrative-CoDwrWaterDistricts/layers/co-dwr-water-district-3-classify-district.csv",DestinationFile="layers/co-dwr-water-district-3-classify-district.csv")
+ReadGeoLayerFromGeoJSON(InputFile="layers/co-dwr-water-district-3.geojson",GeoLayerID="WaterDistrictLayer",Name="CO DWR Water District 3",Description="Water District 3 boundary from the Colorado Division of Water Resources.")
+AddGeoLayerViewGroupToGeoMap(GeoMapID="InstreamReachesMap",GeoLayerViewGroupID="WaterDistrictsGroup",Name="CO DWR Water Districts",Description="Water District boundaries from the Colorado Division of Water Resources.",Properties="selectedInitial: true",InsertPosition="Top")
+AddGeoLayerViewToGeoMap(GeoLayerID="WaterDistrictLayer",GeoMapID="InstreamReachesMap",GeoLayerViewGroupID="WaterDistrictsGroup",GeoLayerViewID="WaterDistrictLayerView",Name="CO DWR Water District 3",Description="Water District 3 boundary from the Colorado Division of Water Resources",InsertPosition="Top")
+SetGeoLayerViewCategorizedSymbol(GeoMapID="InstreamReachesMap",GeoLayerViewGroupID="WaterDistrictsGroup",GeoLayerViewID="WaterDistrictLayerView",Name="Colorize district",Description="Show Water District 3 in black.",ClassificationAttribute="DISTRICT",Properties="classificationFile:layers/co-dwr-water-district-3-classify-district.csv")
+# = = = = = = = = = =
 # Instream flow reaches:  read layer and add to a layer view group.
 # GeoLayerViewGroupID: InstreamReachesGroup
 ReadGeoLayerFromGeoJSON(InputFile="layers/instream-reaches.geojson",GeoLayerID="InstreamReachesLayer",Name="Poudre Basin Instream Flow Reaches",Description="Poudre Basin Instream Flow Reaches")
@@ -47,5 +56,7 @@ SetGeoLayerViewSingleSymbol(GeoMapID="InstreamReachesMap",GeoLayerViewGroupID="I
 WriteGeoMapProjectToJSON(GeoMapProjectID="InstreamReachesProject",Indent="2",OutputFile="instream-reaches-map.json")
 CreateFolder(Folder="${MapFolder}/layers",CreateParentFolders="True",IfFolderExists="Ignore")
 CopyFile(SourceFile="instream-reaches-map.json",DestinationFile="${MapFolder}/instream-reaches-map.json")
+CopyFile(SourceFile="layers/co-dwr-water-district-3.geojson",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3.geojson")
+CopyFile(SourceFile="layers/co-dwr-water-district-3-classify-district.csv",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3-classify-district.csv")
 CopyFile(SourceFile="layers/instream-reaches.geojson",DestinationFile="${MapFolder}/layers/instream-reaches.geojson")
 CopyFile(SourceFile="layers/instream-termini.geojson",DestinationFile="${MapFolder}/layers/instream-termini.geojson")
