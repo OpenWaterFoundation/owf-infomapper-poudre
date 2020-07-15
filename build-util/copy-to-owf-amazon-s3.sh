@@ -58,7 +58,12 @@ buildDist() {
   #   Solution:  https://stackoverflow.com/questions/56606789/angular-8-ng-build-throwing-mime-error-with-cordova
   indexFile="${infoMapperDistAppFolder}/index.html"
   logInfo "Updating mime type in: ${indexFile}"
-  sed -i 's/type="module"/type="text\/javascript"/g' ${indexFile}
+  if [ -f "${indexFile}" ]; then
+    sed -i 's/type="module"/type="text\/javascript"/g' ${indexFile}
+  else
+    logError "index.html file does not exist: ${indexFile}"
+    logError "Maybe the budget nees to be increased?"
+  fi
 }
 
 # Check to make sure the Angular version is as expected
@@ -391,8 +396,8 @@ infoMapperDistFolder="${infoMapperMainFolder}/dist"
 infoMapperDistAppFolder="${infoMapperDistFolder}/info-mapper"
 # ...end must match Info Mapper
 programName=$(basename $0)
-programVersion="1.3.1"
-programVersionDate="2020-07-06"
+programVersion="1.3.2"
+programVersionDate="2020-07-14"
 logInfo "scriptFolder:             ${scriptFolder}"
 logInfo "Program name:             ${programName}"
 logInfo "repoFolder:               ${repoFolder}"
