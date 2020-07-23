@@ -46,11 +46,17 @@ buildDist() {
   logInfo "Changing to:  ${infoMapperMainFolder}"
   cd ${infoMapperMainFolder}
 
+  optimizationArg=""
+  if [ "$doOptimization" = "no" ]; then
+    # Turn off optimization
+    optimizationArg="--optimization=false"
+  fi
+
   # Run the ng build
   # - use the command line from 'copy-to-owf-amazon-s3.bat', which was used more recently
   # - this should be found in the Windows PATH, for example C:\Users\user\AppData\Roaming\npm\ng
-  logInfo "Start running:  ng build --prod=true --aot=true --baseHref=${ngBuildHrefOpt} --extractCss=true --namedChunks=false --outputHashing=all --sourceMap=false"
-  ng build --prod=true --aot=true --baseHref=${ngBuildHrefOpt} --extractCss=true --namedChunks=false --outputHashing=all --sourceMap=false
+  logInfo "Start running:  ng build --prod=true --aot=true --baseHref=${ngBuildHrefOpt} --extractCss=true --namedChunks=false --outputHashing=all --sourceMap=false ${optimizationArg}"
+  ng build --prod=true --aot=true --baseHref=${ngBuildHrefOpt} --extractCss=true --namedChunks=false --outputHashing=all --sourceMap=false ${optimizationArg}
   logInfo "...done running 'ng build...'"
 
   # Fix the distribution index.html file as per:  
@@ -62,7 +68,9 @@ buildDist() {
     sed -i 's/type="module"/type="text\/javascript"/g' ${indexFile}
   else
     logError "index.html file does not exist: ${indexFile}"
-    logError "Maybe the budget nees to be increased?"
+    logError "Maybe the budget needs to be increased?"
+    # This tends to cause major issues so exit
+    exit 1
   fi
 }
 
@@ -177,7 +185,7 @@ parseCommandLine() {
   # Single character options
   optstring="hv"
   # Long options
-  optstringLong="aws-profile::,dryrun,help,nobuild,noupload,version"
+  optstringLong="aws-profile::,dryrun,help,nobuild,noupload,nooptimization,version"
   # Parse the options using getopt command
   GETOPT_OUT=$(getopt --options $optstring --longoptions $optstringLong -- "$@")
   exitCode=$?
@@ -219,6 +227,11 @@ parseCommandLine() {
         doBuild="no"
         shift 1
         ;;
+      --nooptimization) # --nooptimization  Control 'ng build --optimization'
+        logInfo "--nooptimization detected - will set 'ng build --optimization=false"
+        doOptimization="no"
+        shift 1
+        ;;
       --noupload) # --noupload  Indicate to create staging area dist but not upload
         logInfo "--noupload detected - will not upload 'dist' contents"
         doUpload="no"
@@ -258,6 +271,7 @@ printUsage() {
   echoStderr "-h or --help            Print the usage."
   echoStderr "--nobuild               Do not run 'ng build...' to create the 'dist' folder contents, useful for testing."
   echoStderr "--noupload              Do not upload the staging area 'dist' folder contents, useful for testing."
+  echoStderr "--nooptimization        Set --optimization=false for 'ng build' useful for troubleshooting."
   echoStderr "-v or --version         Print the version and copyright/license notice."
   echoStderr ""
 }
@@ -426,6 +440,8 @@ dryrun=""
 # Default is to build the dist and upload
 doBuild="yes"
 doUpload="yes"
+# Default is optimization for 'ng build', which is the ng default.
+doOptimization="yes"
 parseCommandLine "$@"
 
 # Build the distribution.

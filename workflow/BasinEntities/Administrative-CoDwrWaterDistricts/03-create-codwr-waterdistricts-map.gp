@@ -33,25 +33,25 @@ AddGeoLayerViewToGeoMap(GeoLayerID="MapBoxStreets&SatelliteLayer",GeoMapID="Wate
 # GeoLayerViewGroupID: WaterDistrictsGroup
 ReadGeoLayerFromGeoJSON(InputFile="layers/co-dwr-water-division.geojson",GeoLayerID="WaterDivisionLayer",Name="CO DWR Division 1",Description="Water Division 1 boundary from the Colorado Division of Water Resources.")
 AddGeoLayerViewGroupToGeoMap(GeoMapID="WaterDistrictsMap",GeoLayerViewGroupID="WaterDistrictsGroup",Name="CO DWR Division 1 Water Districts",Description="Water District boundaries for Division 1 from the Colorado Division of Water Resources.",Properties="selectedInitial: true",InsertPosition="Top")
-AddGeoLayerViewToGeoMap(GeoLayerID="WaterDivisionLayer",GeoMapID="WaterDistrictsMap",GeoLayerViewGroupID="WaterDistrictsGroup",GeoLayerViewID="WaterDivisionLayerView",Name="CO DWR Division 1",Description="Boundary for Division 1 from the Colorado Division of Water Resources",InsertPosition="Top")
+AddGeoLayerViewToGeoMap(GeoLayerID="WaterDivisionLayer",GeoMapID="WaterDistrictsMap",GeoLayerViewGroupID="WaterDistrictsGroup",GeoLayerViewID="WaterDivisionLayerView",Name="CO DWR Division 1",Description="Boundary for Division 1 from the Colorado Division of Water Resources",Properties="docPath:layers/co-dwr-water-division.md",InsertPosition="Top")
 SetGeoLayerViewCategorizedSymbol(GeoMapID="WaterDistrictsMap",GeoLayerViewGroupID="WaterDistrictsGroup",GeoLayerViewID="WaterDivisionLayerView",Name="Colorize divisions",Description="Symbol for the division",ClassificationAttribute="DIV",Properties="classificationFile:'layers/co-dwr-water-division-classify-division.csv'")
 # = = = = = = = = = =
 # Water districts:  read layer and add to the layer view group.
 # GeoLayerViewGroupID: WaterDistrictsGroup
 ReadGeoLayerFromGeoJSON(InputFile="layers/co-dwr-water-districts-division1.geojson",GeoLayerID="WaterDistrictsLayer",Name="CO DWR Division 1 Water Districts",Description="Water District boundaries for Division 1 from the Colorado Division of Water Resources.")
-AddGeoLayerViewToGeoMap(GeoLayerID="WaterDistrictsLayer",GeoMapID="WaterDistrictsMap",GeoLayerViewGroupID="WaterDistrictsGroup",GeoLayerViewID="WaterDistrictsLayerView",Name="CO DWR Division 1 Water Districts",Description="Water District boundaries for Division 1 from the Colorado Division of Water Resources",InsertPosition="Top")
+AddGeoLayerViewToGeoMap(GeoLayerID="WaterDistrictsLayer",GeoMapID="WaterDistrictsMap",GeoLayerViewGroupID="WaterDistrictsGroup",GeoLayerViewID="WaterDistrictsLayerView",Name="CO DWR Division 1 Water Districts",Description="Water District boundaries for Division 1 from the Colorado Division of Water Resources",Properties="docPath:layers/co-dwr-water-districts-division1.md",InsertPosition="Top")
 SetGeoLayerViewCategorizedSymbol(GeoMapID="WaterDistrictsMap",GeoLayerViewGroupID="WaterDistrictsGroup",GeoLayerViewID="WaterDistrictsLayerView",Name="Colorize districts",Description="Show each water district in a different color.",ClassificationAttribute="DISTRICT",Properties="classificationFile:layers/co-dwr-water-districts-division1-classify-district.csv")
 # = = = = = = = = = =
 # Water district 3:  read layer and add to the layer view group.
 # GeoLayerViewGroupID: WaterDistrictsGroup
 ReadGeoLayerFromGeoJSON(InputFile="layers/co-dwr-water-district-3.geojson",GeoLayerID="WaterDistrictLayer",Name="CO DWR Water District 3",Description="Water District 3 boundary from the Colorado Division of Water Resources.")
-AddGeoLayerViewToGeoMap(GeoLayerID="WaterDistrictLayer",GeoMapID="WaterDistrictsMap",GeoLayerViewGroupID="WaterDistrictsGroup",GeoLayerViewID="WaterDistrictLayerView",Name="CO DWR Water District 3",Description="Water District 3 boundary from the Colorado Division of Water Resources",InsertPosition="Top")
+AddGeoLayerViewToGeoMap(GeoLayerID="WaterDistrictLayer",GeoMapID="WaterDistrictsMap",GeoLayerViewGroupID="WaterDistrictsGroup",GeoLayerViewID="WaterDistrictLayerView",Name="CO DWR Water District 3",Description="Water District 3 boundary from the Colorado Division of Water Resources",Properties="docPath:layers/co-dwr-water-diistrict-3.md",InsertPosition="Top")
 SetGeoLayerViewCategorizedSymbol(GeoMapID="WaterDistrictsMap",GeoLayerViewGroupID="WaterDistrictsGroup",GeoLayerViewID="WaterDistrictLayerView",Name="Colorize district",Description="Show Water District 3 in black.",ClassificationAttribute="DISTRICT",Properties="classificationFile:layers/co-dwr-water-district-3-classify-district.csv")
 # = = = = = = = = = =
 # DWR offices:  read layer and add to the same layer group
 # GeoLayerViewGroupID: WaterDistrictsGroup
 ReadGeoLayerFromGeoJSON(InputFile="layers/co-dwr-offices-division1.geojson",GeoLayerID="DWROfficesLayer",Name="CO DWR Division 1 Offices",Description="DWR Offices for Division 1")
-AddGeoLayerViewToGeoMap(GeoLayerID="DWROfficesLayer",GeoMapID="WaterDistrictsMap",GeoLayerViewGroupID="WaterDistrictsGroup",GeoLayerViewID="DWROfficesLayerView",Name="CO DWR Division 1 Offices",Description="Offices for Division 1",InsertPosition="Top")
+AddGeoLayerViewToGeoMap(GeoLayerID="DWROfficesLayer",GeoMapID="WaterDistrictsMap",GeoLayerViewGroupID="WaterDistrictsGroup",GeoLayerViewID="DWROfficesLayerView",Name="CO DWR Division 1 Offices",Description="Offices for Division 1",Properties="docPath:layers/co-dwr-offices-division1.md",InsertPosition="Top")
 SetGeoLayerViewSingleSymbol(GeoMapID="WaterDistrictsMap",GeoLayerViewGroupID="WaterDistrictsGroup",GeoLayerViewID="DWROfficesLayerView",Name="Use marker image for DWR offices",Description="Use marker image for DWR offices",Properties="symbolImage:/img/office-building.png")
 # = = = = = = = = = =
 # Write the map project file and copy layers to the location needed by the web application.
@@ -60,9 +60,16 @@ WriteGeoMapProjectToJSON(GeoMapProjectID="WaterDistrictsProject",Indent="2",Outp
 CreateFolder(Folder="${MapFolder}/layers",CreateParentFolders="True",IfFolderExists="Ignore")
 CopyFile(SourceFile="codwr-waterdistricts-map.json",DestinationFile="${MapFolder}/codwr-waterdistricts-map.json")
 CopyFile(SourceFile="layers/co-dwr-water-division.geojson",DestinationFile="${MapFolder}/layers/co-dwr-water-division.geojson")
+CopyFile(SourceFile="layers/co-dwr-water-division.md",DestinationFile="${MapFolder}/layers/co-dwr-water-division.md")
 CopyFile(SourceFile="layers/co-dwr-water-division-classify-division.csv",DestinationFile="${MapFolder}/layers/co-dwr-water-division-classify-division.csv")
+#
 CopyFile(SourceFile="layers/co-dwr-water-districts-division1.geojson",DestinationFile="${MapFolder}/layers/co-dwr-water-districts-division1.geojson")
+CopyFile(SourceFile="layers/co-dwr-water-districts-division1.md",DestinationFile="${MapFolder}/layers/co-dwr-water-districts-division1.md")
 CopyFile(SourceFile="layers/co-dwr-water-districts-division1-classify-district.csv",DestinationFile="${MapFolder}/layers/co-dwr-water-districts-division1-classify-district.csv")
+#
 CopyFile(SourceFile="layers/co-dwr-water-district-3.geojson",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3.geojson")
+CopyFile(SourceFile="layers/co-dwr-water-district-3.md",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3.md")
 CopyFile(SourceFile="layers/co-dwr-water-district-3-classify-district.csv",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3-classify-district.csv")
+#
 CopyFile(SourceFile="layers/co-dwr-offices-division1.geojson",DestinationFile="${MapFolder}/layers/co-dwr-offices-division1.geojson")
+CopyFile(SourceFile="layers/co-dwr-offices-division1.md",DestinationFile="${MapFolder}/layers/co-dwr-offices-division1.md")
