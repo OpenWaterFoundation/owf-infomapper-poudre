@@ -1,0 +1,57 @@
+# Create county population graph configurations
+# - download population data from Colorado Information Marketplace
+# - convert data into time series files for each county
+# - create graph configurations that are used by map popup
+# - files are written directly to the web folder
+#
+# Define properties to control processing.
+# - use relative paths so that the command file is portable
+# - AssetsFolder is where map files exist for the InfoMapper tool
+SetProperty(PropertyName="AppFolder",PropertyType=String,PropertyValue="../../../web")
+SetProperty(PropertyName="MapsFolder",PropertyType=String,PropertyValue="${AppFolder}/data-maps")
+SetProperty(PropertyName="MapFolder",PropertyType=String,PropertyValue="${MapsFolder}/BasinEntities/Physical-Counties")
+SetProperty(PropertyName="TsFolder",PropertyType=String,PropertyValue="${MapFolder}/ts")
+CreateFolder(Folder="${TsFolder}",CreateParentFolders=True,IfFolderExists=Ignore)
+#
+# Download the population data and convert floaging point population to integer
+WebGet(URI="https://data.colorado.gov/resource/9dd2-kw29.csv",LocalFile="downloads/population-data.csv")
+ReadTableFromDelimitedFile(TableID="county-population-table",InputFile="downloads/population-data.csv",HeaderLines="1",DateTimeColumns="year")
+ManipulateTableString(TableID="county-population-table",InputColumn1="totalpopulation",Operator="ToInteger",OutputColumn="totalpopulation2")
+ManipulateTableString(TableID="county-population-table",InputColumn1="county",Operator="ToUpperCase",OutputColumn="county")
+#
+# Get the list of unique counties
+CopyTable(TableID="county-population-table",NewTableID="counties-table",IncludeColumns="county",DistinctColumns="county")
+SortTable(TableID="counties-table",SortColumns="county")
+#
+# Loop through the counties and create output for each
+For(Name="county",TableID="counties-table",TableColumn="county")
+CopyTable(TableID="county-population-table",NewTableID="county-population-${county}",ColumnFilters="county:${county}")
+SortTable(TableID="county-population-${county}",SortColumns="year")
+TableToTimeSeries(TableID="county-population-${county}",DateTimeColumn="year",LocationColumn="county",ValueColumn="totalpopulation2",DataSource="DOLA",DataType="Population",Interval=Year,Units="persons",Alias="${county}-population")
+#
+# Copy the time series and fill enough to be able to do a line graph
+Copy(TSID="${county}-population",NewTSID="${county}.DOLA.Population.Year.filled",Alias="${county}-population-filled")
+FillInterpolate(TSList=AllMatchingTSID,TSID="${county}-population-filled",MaxIntervals=0,FillStart="1990",FillEnd="2010")
+WriteDelimitedFile(TSList=AllMatchingTSID,TSID="${county}-population",OutputFile="${TsFolder}/${county}.DOLA.Population.Year.csv",DateTimeColumn="year",ValueColumns="population")
+WriteDateValue(TSList=AllMatchingTSID,TSID="${county}-population",OutputFile="${TsFolder}/${county}.DOLA.Population.Year.dv")
+WriteDelimitedFile(TSList=AllMatchingTSID,TSID="${county}-population-filled",OutputFile="${TsFolder}/${county}.DOLA.Population.Year.filled.csv",DateTimeColumn="year",ValueColumns="population")
+WriteDateValue(TSList=AllMatchingTSID,TSID="${county}-population-filled",OutputFile="${TsFolder}/${county}.DOLA.Population.Year.filled.dv")
+EndFor(Name="county")
+#
+# Create graph template for use with InfoMapper
+# - only need to do this once
+# - use Larimer County as the example
+ProcessTSProduct(TSProductFile="graphs/county-population-graph-config.tsp",View=False,OutputFile="graphs/county-population-graph-prototype.png",OutputProductFile="graphs/county-population-graph-config-prototype.json",OutputProductFormat="JSON")
+#
+# Convert the prototype graph into a template by replacing strings with ${Property} notation
+# - convert prototype LARIMER to property that can be filled by InfoMapper
+TextEdit(InputFile="graphs/county-population-graph-config-prototype.json",SearchFor="LARIMER",ReplaceWith="\$\{featureAttribute:county}",OutputFile="graphs/county-population-graph-config.json")
+# Always convert to Linux-like line endings if processing full lines to simplify processing
+# - TODO smalers 2020-06-22 this is actually not needed since not replacing entire line
+#TextEdit(InputFile="graphs/county-population-graph-config.json",SearchFor="\r\n",ReplaceWith="\n",OutputFile="graphs/county-population-graph-config.json")
+# Edit TSID
+# - first part of the string will have been replaced above
+# - final step corrects a replace from previous steps
+TextEdit(InputFile="graphs/county-population-graph-config.json",SearchFor="Population.Year",ReplaceWith="Population\.Year~DateValue~ts/\$\{featureAttribute:county}\.DOLA\.Population\.Year\.dv",OutputFile="graphs/county-population-graph-config.json")
+TextEdit(InputFile="graphs/county-population-graph-config.json",SearchFor="Population.Year.filled",ReplaceWith="Population\.Year\.filled~DateValue~ts/\$\{featureAttribute:county}\.DOLA\.Population\.Year\.filled\.dv",OutputFile="graphs/county-population-graph-config.json")
+TextEdit(InputFile="graphs/county-population-graph-config.json",SearchFor="dv.filled",ReplaceWith="filled\.dv",OutputFile="graphs/county-population-graph-config.json")

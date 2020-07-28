@@ -110,14 +110,26 @@ junk
 # Dynamic map configurations
 /workflow/BasinEntities/Municipal-Municipalities/*.json
 
-# BasinEntities/Physical-Counties
+# BasinEntities/Physical-Counties/
+# Dynamic map configurations
+/workflow/BasinEntities/Physical-Counties/*.json
+# downloads/
 /workflow/BasinEntities/Physical-Counties/downloads/*
 !/workflow/BasinEntities/Physical-Counties/downloads/README.md
+# layers/
+# - csv are layer classification files
+# - md are Markdown filees to document layers
 /workflow/BasinEntities/Physical-Counties/layers/*
 !/workflow/BasinEntities/Physical-Counties/layers/README.md
 !/workflow/BasinEntities/Physical-Counties/layers/*.csv
-# Dynamic map configurations
-/workflow/BasinEntities/Physical-Counties/*.json
+!/workflow/BasinEntities/Physical-Counties/layers/*.md
+# ts/
+# - ignore generated time series files
+/workflow/BasinEntities/Physical-Counties/ts/*
+!/workflow/BasinEntities/Physical-Counties/ts/README.md
+# graphs/
+# - ignore images created for prototype
+/workflow/BasinEntities/Physical-Counties/graphs/*.png
 
 # BasinEntities/Physical-StreamReaches
 /workflow/BasinEntities/Physical-StreamReaches/downloads/*
