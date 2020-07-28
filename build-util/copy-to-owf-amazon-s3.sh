@@ -65,7 +65,11 @@ buildDist() {
   indexFile="${infoMapperDistAppFolder}/index.html"
   logInfo "Updating mime type in: ${indexFile}"
   if [ -f "${indexFile}" ]; then
+    # Replace "module" with "text/javascript" so that Amazon S3 works.
     sed -i 's/type="module"/type="text\/javascript"/g' ${indexFile}
+    # Additionally need to insert "defer" at the end of the main-es2015*.js item so it looks like:
+    #   <script src="main-es2015.afb0c8c9a69f82c651a0.js" type="text/javascript" defer>
+    sed -i 's/main-es2015.*" type="text\/javascript"/& defer/' ${indexFile}
   else
     logError "index.html file does not exist: ${indexFile}"
     logError "Maybe the budget needs to be increased?"

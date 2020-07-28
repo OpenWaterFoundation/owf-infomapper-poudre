@@ -45,7 +45,7 @@ SetGeoLayerViewCategorizedSymbol(GeoMapID="WaterDistrictsMap",GeoLayerViewGroupI
 # Water district 3:  read layer and add to the layer view group.
 # GeoLayerViewGroupID: WaterDistrictsGroup
 ReadGeoLayerFromGeoJSON(InputFile="layers/co-dwr-water-district-3.geojson",GeoLayerID="WaterDistrictLayer",Name="CO DWR Water District 3",Description="Water District 3 boundary from the Colorado Division of Water Resources.")
-AddGeoLayerViewToGeoMap(GeoLayerID="WaterDistrictLayer",GeoMapID="WaterDistrictsMap",GeoLayerViewGroupID="WaterDistrictsGroup",GeoLayerViewID="WaterDistrictLayerView",Name="CO DWR Water District 3",Description="Water District 3 boundary from the Colorado Division of Water Resources",Properties="docPath:layers/co-dwr-water-diistrict-3.md",InsertPosition="Top")
+AddGeoLayerViewToGeoMap(GeoLayerID="WaterDistrictLayer",GeoMapID="WaterDistrictsMap",GeoLayerViewGroupID="WaterDistrictsGroup",GeoLayerViewID="WaterDistrictLayerView",Name="CO DWR Water District 3",Description="Water District 3 boundary from the Colorado Division of Water Resources",Properties="docPath:layers/co-dwr-water-district-3.md",InsertPosition="Top")
 SetGeoLayerViewCategorizedSymbol(GeoMapID="WaterDistrictsMap",GeoLayerViewGroupID="WaterDistrictsGroup",GeoLayerViewID="WaterDistrictLayerView",Name="Colorize district",Description="Show Water District 3 in black.",ClassificationAttribute="DISTRICT",Properties="classificationFile:layers/co-dwr-water-district-3-classify-district.csv")
 # = = = = = = = = = =
 # DWR offices:  read layer and add to the same layer group
