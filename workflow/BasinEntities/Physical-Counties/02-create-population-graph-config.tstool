@@ -52,6 +52,10 @@ TextEdit(InputFile="graphs/county-population-graph-config-prototype.json",Search
 # Edit TSID
 # - first part of the string will have been replaced above
 # - final step corrects a replace from previous steps
-TextEdit(InputFile="graphs/county-population-graph-config.json",SearchFor="Population.Year",ReplaceWith="Population\.Year~DateValue~ts/\$\{featureAttribute:county}\.DOLA\.Population\.Year\.dv",OutputFile="graphs/county-population-graph-config.json")
-TextEdit(InputFile="graphs/county-population-graph-config.json",SearchFor="Population.Year.filled",ReplaceWith="Population\.Year\.filled~DateValue~ts/\$\{featureAttribute:county}\.DOLA\.Population\.Year\.filled\.dv",OutputFile="graphs/county-population-graph-config.json")
-TextEdit(InputFile="graphs/county-population-graph-config.json",SearchFor="dv.filled",ReplaceWith="filled\.dv",OutputFile="graphs/county-population-graph-config.json")
+# - uncomment DateValue version when that format is supported
+# TextEdit(InputFile="graphs/county-population-graph-config.json",SearchFor="Population.Year",ReplaceWith="Population\.Year~DateValue~ts/\$\{featureAttribute:county}\.DOLA\.Population\.Year\.dv",OutputFile="graphs/county-population-graph-config.json")
+# TextEdit(InputFile="graphs/county-population-graph-config.json",SearchFor="Population.Year.filled",ReplaceWith="Population\.Year\.filled~DateValue~ts/\$\{featureAttribute:county}\.DOLA\.Population\.Year\.filled\.dv",OutputFile="graphs/county-population-graph-config.json")
+#TextEdit(InputFile="graphs/county-population-graph-config.json",SearchFor="dv.filled",ReplaceWith="filled\.dv",OutputFile="graphs/county-population-graph-config.json")
+TextEdit(InputFile="graphs/county-population-graph-config.json",SearchFor="Population.Year",ReplaceWith="Population\.Year~csv~ts/\$\{featureAttribute:county}\.DOLA\.Population\.Year\.csv",OutputFile="graphs/county-population-graph-config.json")
+TextEdit(InputFile="graphs/county-population-graph-config.json",SearchFor="Population.Year.filled",ReplaceWith="Population\.Year\.filled~csv~ts/\$\{featureAttribute:county}\.DOLA\.Population\.Year\.filled\.csv",OutputFile="graphs/county-population-graph-config.json")
+TextEdit(InputFile="graphs/county-population-graph-config.json",SearchFor="csv.filled",ReplaceWith="filled\.csv",OutputFile="graphs/county-population-graph-config.json")
