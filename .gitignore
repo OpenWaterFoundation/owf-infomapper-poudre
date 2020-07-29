@@ -149,6 +149,15 @@ junk
 # Dynamic map configurations
 /workflow/BasinEntities/Recreation-BoatingOrganizations/*.json
 
+# BasinEntities/Recreation-Trails
+/workflow/BasinEntities/Recreation-Trails/downloads/*
+!/workflow/BasinEntities/Recreation-Trails/downloads/README.md
+/workflow/BasinEntities/Recreation-Trails/layers/*
+!/workflow/BasinEntities/Recreation-Trails/layers/README.md
+!/workflow/BasinEntities/Recreation-Trails/layers/*.csv
+# Dynamic map configurations
+/workflow/BasinEntities/Recreation-Trails/*.json
+
 # BasinEntities/WaterSupply-WaterProviders
 /workflow/BasinEntities/WaterSupply-WaterProviders/downloads/*
 !/workflow/BasinEntities/WaterSupply-WaterProviders/downloads/README.md

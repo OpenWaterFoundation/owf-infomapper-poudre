@@ -118,8 +118,15 @@ copy_BasinEntities_Physical_StreamReaches() {
 copy_BasinEntities_Recreation_BoatingOrganizations() {
   checkBasinEntitiesFolder
 
-  # Copy environment organizations map folder and files
+  # Copy boating organizations map folder and files
   cp -rv ${scriptFolder}/data-maps/BasinEntities/Recreation-BoatingOrganizations ${folder}
+}
+
+copy_BasinEntities_Recreation_Trails() {
+  checkBasinEntitiesFolder
+
+  # Copy trails map folder and files
+  cp -rv ${scriptFolder}/data-maps/BasinEntities/Recreation-Trails ${folder}
 }
 
 copy_BasinEntities_WaterSupply_WaterProviders() {
@@ -163,26 +170,27 @@ runInteractive() {
     echo ""
     echo "Enter an option to update application data.  Menus are listed in order of application."
     echo ""
-    echo "App. Config & Content:    c.     Copy main configuration files."
-    echo "Basin Entities:          ec.     Copy Physical - Counties files."
-    echo "                         es.     Copy Physical - StreamReaches files."
-    echo "                         ew.     Copy Administrative - CoDwrWaterDistricts files."
-    echo "                         eda.    Copy Agriculture - Dairies files."
-    echo "                         edi.    Copy Agriculture - Ditches files."
-    echo "                         edu.    Copy Education - Organizations files."
-    echo "                         ei.     Copy Environment - InstreamFlowReaches files."
-    echo "                         eeo.    Copy Environment - Organizations files."
-    echo "                         ebrew.  Copy Industry - Breweries files."
-    echo "                         emuni.  Copy Municipal - Municipalities files."
-    echo "                         eboat.  Copy Recreation - BoatingOrganizations files."
-    echo "                         ewp.    Copy WaterSupply - WaterProviders files."
+    echo "App. Config & Content:    c.      Copy main configuration files."
+    echo "Basin Entities:          ec.      Copy Physical - Counties files."
+    echo "                         es.      Copy Physical - StreamReaches files."
+    echo "                         ew.      Copy Administrative - CoDwrWaterDistricts files."
+    echo "                         eda.     Copy Agriculture - Dairies files."
+    echo "                         edi.     Copy Agriculture - Ditches files."
+    echo "                         edu.     Copy Education - Organizations files."
+    echo "                         ei.      Copy Environment - InstreamFlowReaches files."
+    echo "                         eeo.     Copy Environment - Organizations files."
+    echo "                         ebrew.   Copy Industry - Breweries files."
+    echo "                         emuni.   Copy Municipal - Municipalities files."
+    echo "                         eboat.   Copy Recreation - BoatingOrganizations files."
+    echo "                         etrails. Copy Recreation - Trails files."
+    echo "                         ewp.     Copy WaterSupply - WaterProviders files."
     echo ""
-    echo "Historical Data:         hl.     Copy IrrigatedLands map files."
+    echo "Historical Data:         hl.      Copy IrrigatedLands map files."
     echo ""
-    echo "Current Conditions:      cs.     Copy Streamflow map files."
+    echo "Current Conditions:      cs.      Copy Streamflow map files."
     echo ""
-    echo "                          a.     Run all copy commands from above."
-    echo "                          q.     Quit"
+    echo "                          a.      Run all copy commands from above."
+    echo "                          q.      Quit"
     echo ""
     read -p "Enter command: " answer
 
@@ -200,6 +208,7 @@ runInteractive() {
       copy_BasinEntities_Environment_Organizations
       copy_BasinEntities_Industry_Breweries
       copy_BasinEntities_Recreation_Boating
+      copy_BasinEntities_Recreation_Trails
       copy_BasinEntities_WaterSupply_WaterProviders
       # Historical Data
       copy_HistoricalData_Agriculture_IrrigatedLands
@@ -234,6 +243,8 @@ runInteractive() {
       copy_BasinEntities_Municipal_Municipalities
     elif [ "${answer}" = "eboat" ]; then
       copy_BasinEntities_Recreation_BoatingOrganizations
+    elif [ "${answer}" = "etrails" ]; then
+      copy_BasinEntities_Recreation_Trails
     elif [ "${answer}" = "ewp" ]; then
       copy_BasinEntities_WaterSupply_WaterProviders
 
