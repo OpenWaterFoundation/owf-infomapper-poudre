@@ -92,7 +92,6 @@
         {
           "id": "entities-trails",
           "name": "Recreation - Trails",
-          "enabled": "false",
           "action": "displayMap",
           "mapProject": "data-maps/BasinEntities/Recreation-Trails/trails-map.json"
         },
