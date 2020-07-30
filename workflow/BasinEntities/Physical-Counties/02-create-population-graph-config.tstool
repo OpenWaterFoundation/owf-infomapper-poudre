@@ -29,9 +29,9 @@ CopyTable(TableID="county-population-table",NewTableID="county-population-${coun
 SortTable(TableID="county-population-${county}",SortColumns="year")
 TableToTimeSeries(TableID="county-population-${county}",DateTimeColumn="year",LocationColumn="county",ValueColumn="totalpopulation2",DataSource="DOLA",DataType="Population",Interval=Year,Units="persons",Alias="${county}-population")
 #
-# Copy the time series and fill enough to be able to do a line graph
+# Copy the time series and fill to make it easier to evaluate trends
 Copy(TSID="${county}-population",NewTSID="${county}.DOLA.Population.Year.filled",Alias="${county}-population-filled")
-FillInterpolate(TSList=AllMatchingTSID,TSID="${county}-population-filled",MaxIntervals=0,FillStart="1990",FillEnd="2010")
+FillInterpolate(TSList=AllMatchingTSID,TSID="${county}-population-filled",MaxIntervals=0)
 WriteDelimitedFile(TSList=AllMatchingTSID,TSID="${county}-population",OutputFile="${TsFolder}/${county}.DOLA.Population.Year.csv",DateTimeColumn="year",ValueColumns="population")
 WriteDateValue(TSList=AllMatchingTSID,TSID="${county}-population",OutputFile="${TsFolder}/${county}.DOLA.Population.Year.dv")
 WriteDelimitedFile(TSList=AllMatchingTSID,TSID="${county}-population-filled",OutputFile="${TsFolder}/${county}.DOLA.Population.Year.filled.csv",DateTimeColumn="year",ValueColumns="population")
@@ -41,7 +41,7 @@ EndFor(Name="county")
 # Create graph template for use with InfoMapper
 # - only need to do this once
 # - use Larimer County as the example
-ProcessTSProduct(TSProductFile="graphs/county-population-graph-config.tsp",View=False,OutputFile="graphs/county-population-graph-prototype.png",OutputProductFile="graphs/county-population-graph-config-prototype.json",OutputProductFormat="JSON")
+ProcessTSProduct(TSProductFile="graphs/county-population-graph-config.tsp",View=True,OutputFile="graphs/county-population-graph-prototype.png",OutputProductFile="graphs/county-population-graph-config-prototype.json",OutputProductFormat="JSON")
 #
 # Convert the prototype graph into a template by replacing strings with ${Property} notation
 # - convert prototype LARIMER to property that can be filled by InfoMapper
