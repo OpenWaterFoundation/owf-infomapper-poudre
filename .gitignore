@@ -155,6 +155,7 @@ junk
 /workflow/BasinEntities/Recreation-Trails/layers/*
 !/workflow/BasinEntities/Recreation-Trails/layers/README.md
 !/workflow/BasinEntities/Recreation-Trails/layers/*.csv
+!/workflow/BasinEntities/Recreation-Trails/layers/*doc
 # Dynamic map configurations
 /workflow/BasinEntities/Recreation-Trails/*.json
 

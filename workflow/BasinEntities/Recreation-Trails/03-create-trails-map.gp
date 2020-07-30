@@ -38,21 +38,38 @@ AddGeoLayerViewGroupToGeoMap(GeoMapID="TrailsMap",GeoLayerViewGroupID="WaterDist
 AddGeoLayerViewToGeoMap(GeoLayerID="WaterDistrictLayer",GeoMapID="TrailsMap",GeoLayerViewGroupID="WaterDistrictsGroup",GeoLayerViewID="WaterDistrictLayerView",Name="CO DWR Water District 3",Description="Water District 3 boundary from the Colorado Division of Water Resources",InsertPosition="Top")
 SetGeoLayerViewCategorizedSymbol(GeoMapID="TrailsMap",GeoLayerViewGroupID="WaterDistrictsGroup",GeoLayerViewID="WaterDistrictLayerView",Name="Colorize district",Description="Show Water District 3 in black.",ClassificationAttribute="DISTRICT",Properties="classificationFile:layers/co-dwr-water-district-3-classify-district.csv")
 # = = = = = = = = = =
+# Stream reaches:  read layer and add to a layer view group.
+# - TODO smalers 2020-05-22 for now copy the stream reaches but want to use shared layer
+# GeoLayerViewGroupID: StreamReachesGroup
+CopyFile(SourceFile="../../BasinEntities/Physical-StreamReaches/layers/stream-reaches.geojson",DestinationFile="layers/stream-reaches.geojson")
+ReadGeoLayerFromGeoJSON(InputFile="layers/stream-reaches.geojson",GeoLayerID="StreamReachesLayer",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches")
+AddGeoLayerViewGroupToGeoMap(GeoMapID="TrailsMap",GeoLayerViewGroupID="StreamReachesGroup",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches",Properties="selectedInitial: true",InsertPosition="Top")
+AddGeoLayerViewToGeoMap(GeoLayerID="StreamReachesLayer",GeoMapID="TrailsMap",GeoLayerViewGroupID="StreamReachesGroup",GeoLayerViewID="StreamReachesLayerView",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches")
+SetGeoLayerViewSingleSymbol(GeoMapID="TrailsMap",GeoLayerViewGroupID="StreamReachesGroup",GeoLayerViewID="StreamReachesLayerView",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches",Properties="color:#6297f7,width:2")
+#SetGeoLayerViewSingleSymbol(GeoMapID="TrailsMap",GeoLayerViewGroupID="StreamReachesGroup",GeoLayerViewID="StreamReachesLayerView",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches")
+# SetGeoLayerViewCategorizedSymbol(GeoMapID="StreamReachesMap",GeoLayerViewGroupID="StreamReachesGroup",GeoLayerViewID="StreamReachesLayerView",Name="Poudre Stream Reaches",Description="Show stream reaches is blue lines",ClassificationAttribute="county",Properties="classificationType:'SingleSymbol'")
+# = = = = = = = = = =
 # Trails:  read layer and add to a layer view group.
 # GeoLayerViewGroupID: TrailsGroup
 ReadGeoLayerFromGeoJSON(InputFile="layers/trails-fortcollins.geojson",GeoLayerID="TrailsLayer",Name="Poudre Trails",Description="Poudre Trails")
 AddGeoLayerViewGroupToGeoMap(GeoMapID="TrailsMap",GeoLayerViewGroupID="TrailsGroup",Name="Poudre Trails",Description="Poudre Trails",Properties="selectedInitial: true,docPath:layers/group-trails.md",InsertPosition="Top")
-AddGeoLayerViewToGeoMap(GeoLayerID="TrailsLayer",GeoMapID="TrailsMap",GeoLayerViewGroupID="TrailsGroup",GeoLayerViewID="TrailsLayerView",Name="Poudre Trails",Description="Poudre Trails",Properties="docPath:layers/trails-fortcollins.md")
+AddGeoLayerViewToGeoMap(GeoLayerID="TrailsLayer",GeoMapID="TrailsMap",GeoLayerViewGroupID="TrailsGroup",GeoLayerViewID="TrailsLayerView",Name="Poudre Trails",Description="Poudre Trails",Properties="docPath:layers/trails-fortcollins-doc/trails-fortcollins.md")
 SetGeoLayerViewSingleSymbol(GeoMapID="TrailsMap",GeoLayerViewGroupID="TrailsGroup",GeoLayerViewID="TrailsLayerView",Name="Poudre Trails",Description="Poudre Trails",Properties="color:#ff9900,weight:3")
 # = = = = = = = = = =
 # Write the map project file and copy layers to the location needed by the web application.
 # - follow InfoMapper conventions
 WriteGeoMapProjectToJSON(GeoMapProjectID="TrailsProject",Indent="2",OutputFile="trails-map.json")
 CreateFolder(Folder="${MapFolder}/layers",CreateParentFolders="True",IfFolderExists="Ignore")
-CopyFile(SourceFile="layers/co-dwr-water-district-3.geojson",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3.geojson")
-CopyFile(SourceFile="layers/co-dwr-water-district-3-classify-district.csv",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3-classify-district.csv")
 CopyFile(SourceFile="trails-map.json",DestinationFile="${MapFolder}/trails-map.json")
 CopyFile(SourceFile="trails-map.md",DestinationFile="${MapFolder}/trails-map.md")
+#
+CopyFile(SourceFile="layers/co-dwr-water-district-3.geojson",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3.geojson")
+CopyFile(SourceFile="layers/co-dwr-water-district-3-classify-district.csv",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3-classify-district.csv")
+#
+CopyFile(SourceFile="layers/stream-reaches.geojson",DestinationFile="${MapFolder}/layers/stream-reaches.geojson")
+#
+CreateFolder(Folder="${MapFolder}/layers/trails-fortcollins-doc",CreateParentFolders="True",IfFolderExists="Ignore")
 CopyFile(SourceFile="layers/trails-fortcollins.geojson",DestinationFile="${MapFolder}/layers/trails-fortcollins.geojson")
-CopyFile(SourceFile="layers/trails-fortcollins.md",DestinationFile="${MapFolder}/layers/trails-fortcollins.md")
+CopyFile(SourceFile="layers/trails-fortcollins-doc/trails-fortcollins.md",DestinationFile="${MapFolder}/layers/trails-fortcollins-doc/trails-fortcollins.md")
+CopyFile(SourceFile="layers/trails-fortcollins-doc/ruby-wash.jpg",DestinationFile="${MapFolder}/layers/trails-fortcollins-doc/ruby-wash.jpg")
 CopyFile(SourceFile="layers/group-trails.md",DestinationFile="${MapFolder}/layers/group-trails.md")
