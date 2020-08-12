@@ -1,15 +1,15 @@
 # Layer: Poudre Trails 
 
-* [Trails and Water](#trails-and-water)
-	+ [Flooding](#flooding)
-* [Data Sources](#data-sources)
-* [Map Creation Workflow](#map-creation-workflow)
-
----
-
 The Poudre trails layer contains trails within the Poudre Basin.
 **Currently only Fort Collins trails are included.  Additional layers will be added from other sources,
 or a merged layer may be created.**
+
+* Trails and Water
+	+ Flooding
+* Data Sources
+* Map Creation Workflow
+
+---
 
 ## Trails and Water
 
@@ -22,15 +22,16 @@ The trails map illustrates opportunities to learn about water, as described in t
 The [Red Mountain Open Space](https://www.larimer.org/naturalresources/parks/red-mountain) near the Wyoming Boarder
 has trails through the Boxelder Creek drainage.
 Flooding in the Boxelder Creek basin has caused loss of property and life in
-in developed areas such as Fort Collins and surrounding communities,
-resulting in establishment of the [Boxelder Stormwwater Authority](https://www.boxelderauthority.org/),
+developed areas such as Fort Collins and surrounding communities,
+resulting in establishment of the [Boxelder Stormwater Authority](https://www.boxelderauthority.org/),
 which collects fees in order to construct and manage stormwater infrastructure.
 The potential for and impacts of flooding may not be obvious in downstream areas;
 however, a hike in Red Mountain Open Space
 points out the impacts of flooding in that area and potential of high flows to cause damage downstream.
 
-![ruby-wash](ruby-wash.jpg)
-**Ruby Wash** (image from [AllTrails](https://www.alltrails.com/parks/us/colorado/red-mountain-open-space))
+![boxelder-creek.jpg](assets/app/data-maps/BasinEntities/Recreation-Trails/layers/trails-fortcollins-doc/boxelder-creek.jpg)
+
+**Boxelder Creek Upstream of Flood Control Dam** (photo by Steve Malers, 2020)
 
 ## Data Sources
 
@@ -40,6 +41,8 @@ The following are data sources for this map:
 | -- | -- |
 | Fort Collins trails. | [Multi-Use Trails](https://opendata.fcgov.com/dataset/Multiuse-Trail/3j2e-2d5c) map layer dataset from Fort Collins open data portal. |
 
-## Workflow
 
-The workflow to process the data can be found in the [GitHub repository](https://github.com/OpenWaterFoundation/owf-infomapper-poudre/tree/master/workflow/BasinEntities/Recreation-Trails).
+## Map Creation Workflow
+
+The workflow to process the data can be found in the
+[Poudre Basin Information GitHub repository](https://github.com/OpenWaterFoundation/owf-infomapper-poudre/tree/master/workflow/BasinEntities/Recreation-Trails).
