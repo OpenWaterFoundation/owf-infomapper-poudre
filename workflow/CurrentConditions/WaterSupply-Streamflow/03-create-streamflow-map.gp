@@ -14,7 +14,7 @@ SetProperty(PropertyName="MapFolder",PropertyType="str",PropertyValue="${MapsFol
 # - GeoMapProjectID:  StreamflowProject
 # - GeoMapID:  StreamflowMap
 CreateGeoMapProject(NewGeoMapProjectID="StreamflowProject",ProjectType="SingleMap",Name="Poudre Streamflow",Description="Poudre Streamflow",Properties="author:'Open Water Foundation',specificationFlavor:'',specificationVersion:'1.0.0'")
-CreateGeoMap(NewGeoMapID="StreamflowMap",Name="Poudre Streamflow",Description="Poudre Streamflow",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.5,40.7,10'")
+CreateGeoMap(NewGeoMapID="StreamflowMap",Name="Poudre Streamflow",Description="Poudre Streamflow",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.5,40.7,10',docPath:'streamflow-map.md'")
 AddGeoMapToGeoMapProject(GeoMapProjectID="StreamflowProject",GeoMapID="StreamflowMap")
 # = = = = = = = = = =
 # Background layers:  read layers and add a layer view group
@@ -53,7 +53,7 @@ SetGeoLayerViewSingleSymbol(GeoMapID="StreamflowMap",GeoLayerViewGroupID="Stream
 # GeoLayerViewGroupID: DiversionGroup
 ReadGeoLayerFromGeoJSON(InputFile="layers/diversions.geojson",GeoLayerID="DiversionLayer",Name="Poudre Diversions",Description="Poudre Diversions")
 AddGeoLayerViewGroupToGeoMap(GeoMapID="StreamflowMap",GeoLayerViewGroupID="DiversionGroup",Name="Poudre Diversions",Description="Poudre Diversions",Properties="selectedInitial: true",InsertPosition="Top")
-AddGeoLayerViewToGeoMap(GeoLayerID="DiversionLayer",GeoMapID="StreamflowMap",GeoLayerViewGroupID="DiversionGroup",GeoLayerViewID="DiversionLayerView",Name="Poudre Diversions",Description="Poudre Diversions")
+AddGeoLayerViewToGeoMap(GeoLayerID="DiversionLayer",GeoMapID="StreamflowMap",GeoLayerViewGroupID="DiversionGroup",GeoLayerViewID="DiversionLayerView",Name="Poudre Diversions",Description="Poudre Diversions",Properties="docPath:'layers/diversions.md'")
 # For now use single symbol
 # - TODO smalers 2020-05-22 need to enable a graduated symbol based on flow value
 SetGeoLayerViewSingleSymbol(GeoMapID="StreamflowMap",GeoLayerViewGroupID="DiversionGroup",GeoLayerViewID="DiversionLayerView",Name="Poudre Diversions",Description="Poudre Diversions",Properties="symbolShape:Square,color:black,fillColor:black,symbolSize:4,sizeUnits:pixels,opacity:1.0,fillOpacity:1.0,weight:1.5")
@@ -63,7 +63,7 @@ SetGeoLayerViewSingleSymbol(GeoMapID="StreamflowMap",GeoLayerViewGroupID="Divers
 # GeoLayerViewGroupID: StreamflowGroup
 ReadGeoLayerFromGeoJSON(InputFile="layers/streamgages.geojson",GeoLayerID="StreamflowLayer",Name="Poudre Streamflow",Description="Poudre Streamflow")
 AddGeoLayerViewGroupToGeoMap(GeoMapID="StreamflowMap",GeoLayerViewGroupID="StreamflowGroup",Name="Poudre Streamflow",Description="Poudre Streamflow",Properties="selectedInitial: true",InsertPosition="Top")
-AddGeoLayerViewToGeoMap(GeoLayerID="StreamflowLayer",GeoMapID="StreamflowMap",GeoLayerViewGroupID="StreamflowGroup",GeoLayerViewID="StreamflowLayerView",Name="Poudre Streamflow",Description="Poudre Streamflow")
+AddGeoLayerViewToGeoMap(GeoLayerID="StreamflowLayer",GeoMapID="StreamflowMap",GeoLayerViewGroupID="StreamflowGroup",GeoLayerViewID="StreamflowLayerView",Name="Poudre Streamflow",Description="Poudre Streamflow",Properties="docPath:'layers/streamgages.md'")
 # For now use single symbol
 # - TODO smalers 2020-05-22 need to enable a graduated symbol based on flow value
 SetGeoLayerViewSingleSymbol(GeoMapID="StreamflowMap",GeoLayerViewGroupID="StreamflowGroup",GeoLayerViewID="StreamflowLayerView",Name="Poudre Streamflow",Description="Poudre Streamflow",Properties="symbolShape:Circle,color:black,fillColor:red,symbolSize:4,sizeUnits:pixels,opacity:1.0,fillOpacity:1.0,weight:1.5")
@@ -74,8 +74,15 @@ SetGeoLayerViewSingleSymbol(GeoMapID="StreamflowMap",GeoLayerViewGroupID="Stream
 WriteGeoMapProjectToJSON(GeoMapProjectID="StreamflowProject",Indent="2",OutputFile="streamflow-map.json")
 CreateFolder(Folder="${MapFolder}/layers",CreateParentFolders="True",IfFolderExists="Ignore")
 CopyFile(SourceFile="streamflow-map.json",DestinationFile="${MapFolder}/streamflow-map.json")
+CopyFile(SourceFile="streamflow-map.md",DestinationFile="${MapFolder}/streamflow-map.md")
+#
 CopyFile(SourceFile="layers/co-dwr-water-district-3.geojson",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3.geojson")
 CopyFile(SourceFile="layers/co-dwr-water-district-3-classify-district.csv",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3-classify-district.csv")
-CopyFile(SourceFile="layers/streamgages.geojson",DestinationFile="${MapFolder}/layers/streamgages.geojson")
-CopyFile(SourceFile="layers/diversions.geojson",DestinationFile="${MapFolder}/layers/diversions.geojson")
+#
 CopyFile(SourceFile="layers/stream-reaches.geojson",DestinationFile="${MapFolder}/layers/stream-reaches.geojson")
+#
+CopyFile(SourceFile="layers/streamgages.geojson",DestinationFile="${MapFolder}/layers/streamgages.geojson")
+CopyFile(SourceFile="layers/streamgages.md",DestinationFile="${MapFolder}/layers/streamgages.md")
+#
+CopyFile(SourceFile="layers/diversions.geojson",DestinationFile="${MapFolder}/layers/diversions.geojson")
+CopyFile(SourceFile="layers/diversions.md",DestinationFile="${MapFolder}/layers/diversions.md")

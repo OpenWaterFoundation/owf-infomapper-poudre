@@ -52,7 +52,7 @@ SetGeoLayerViewSingleSymbol(GeoMapID="TrailsMap",GeoLayerViewGroupID="StreamReac
 # Trails:  read layer and add to a layer view group.
 # GeoLayerViewGroupID: TrailsGroup
 ReadGeoLayerFromGeoJSON(InputFile="layers/trails-fortcollins.geojson",GeoLayerID="TrailsLayer",Name="Poudre Trails",Description="Poudre Trails")
-AddGeoLayerViewGroupToGeoMap(GeoMapID="TrailsMap",GeoLayerViewGroupID="TrailsGroup",Name="Poudre Trails",Description="Poudre Trails",Properties="selectedInitial: true,docPath:layers/group-trails.md",InsertPosition="Top")
+AddGeoLayerViewGroupToGeoMap(GeoMapID="TrailsMap",GeoLayerViewGroupID="TrailsGroup",Name="Poudre Trails",Description="Poudre Trails",Properties="selectedInitial: true",InsertPosition="Top")
 AddGeoLayerViewToGeoMap(GeoLayerID="TrailsLayer",GeoMapID="TrailsMap",GeoLayerViewGroupID="TrailsGroup",GeoLayerViewID="TrailsLayerView",Name="Poudre Trails",Description="Poudre Trails",Properties="docPath:layers/trails-fortcollins-doc/trails-fortcollins.md")
 SetGeoLayerViewSingleSymbol(GeoMapID="TrailsMap",GeoLayerViewGroupID="TrailsGroup",GeoLayerViewID="TrailsLayerView",Name="Poudre Trails",Description="Poudre Trails",Properties="color:#ff9900,weight:3")
 # = = = = = = = = = =
@@ -71,5 +71,4 @@ CopyFile(SourceFile="layers/stream-reaches.geojson",DestinationFile="${MapFolder
 CreateFolder(Folder="${MapFolder}/layers/trails-fortcollins-doc",CreateParentFolders="True",IfFolderExists="Ignore")
 CopyFile(SourceFile="layers/trails-fortcollins.geojson",DestinationFile="${MapFolder}/layers/trails-fortcollins.geojson")
 CopyFile(SourceFile="layers/trails-fortcollins-doc/trails-fortcollins.md",DestinationFile="${MapFolder}/layers/trails-fortcollins-doc/trails-fortcollins.md")
-CopyFile(SourceFile="layers/trails-fortcollins-doc/ruby-wash.jpg",DestinationFile="${MapFolder}/layers/trails-fortcollins-doc/ruby-wash.jpg")
-CopyFile(SourceFile="layers/group-trails.md",DestinationFile="${MapFolder}/layers/group-trails.md")
+CopyFile(SourceFile="layers/trails-fortcollins-doc/boxelder-creek.jpg",DestinationFile="${MapFolder}/layers/trails-fortcollins-doc/boxelder-creek.jpg")

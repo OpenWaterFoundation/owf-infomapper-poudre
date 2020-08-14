@@ -13,8 +13,8 @@ SetProperty(PropertyName="MapFolder",PropertyType="str",PropertyValue="${MapsFol
 # Create a single map project and map for that project.
 # - GeoMapProjectID:  WaterProvidersProject
 # - GeoMapID:  WaterProvidersMap
-CreateGeoMapProject(NewGeoMapProjectID="WaterProvidersProject",ProjectType="SingleMap",Name="Poudre Water Providers",Description="Poudre Water Providers",Properties="author:'Open Water Foundation',specificationFlavor:'',specificationVersion:'1.0.0'")
-CreateGeoMap(NewGeoMapID="WaterProvidersMap",Name="Poudre Water Providers",Description="Poudre Water Providers",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.5,40.7,10'")
+CreateGeoMapProject(NewGeoMapProjectID="WaterProvidersProject",ProjectType="SingleMap",Name="Colorado Water Providers",Description="Colorado Water Providers",Properties="author:'Open Water Foundation',specificationFlavor:'',specificationVersion:'1.0.0'")
+CreateGeoMap(NewGeoMapID="WaterProvidersMap",Name="Colorado Water Providers",Description="Colorado Water Providers",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.5,40.7,10',docPath:'water-providers-map.md'")
 AddGeoMapToGeoMapProject(GeoMapProjectID="WaterProvidersProject",GeoMapID="WaterProvidersMap")
 # = = = = = = = = = =
 # Background layers:  read layers and add a layer view group
@@ -53,7 +53,7 @@ SetGeoLayerViewCategorizedSymbol(GeoMapID="WaterProvidersMap",GeoLayerViewGroupI
 # GeoLayerViewGroupID: WaterProvidersGroup
 ReadGeoLayerFromGeoJSON(InputFile="layers/water-providers.geojson",GeoLayerID="WaterProvidersLayer",Name="Colorado Water Providers",Description="Colorado Water Providers")
 AddGeoLayerViewGroupToGeoMap(GeoMapID="WaterProvidersMap",GeoLayerViewGroupID="WaterProvidersGroup",Name="Colorado Water Providers",Description="Colorado Water Providers",Properties="selectedInitial: true",InsertPosition="Top")
-AddGeoLayerViewToGeoMap(GeoLayerID="WaterProvidersLayer",GeoMapID="WaterProvidersMap",GeoLayerViewGroupID="WaterProvidersGroup",GeoLayerViewID="WaterProvidersLayerView",Name="Colorado Water Providers",Description="Colorado Water Providers")
+AddGeoLayerViewToGeoMap(GeoLayerID="WaterProvidersLayer",GeoMapID="WaterProvidersMap",GeoLayerViewGroupID="WaterProvidersGroup",GeoLayerViewID="WaterProvidersLayerView",Name="Colorado Water Providers",Description="Colorado Water Providers",Properties="docPath:'layers/water-providers.md'")
 # For now use single symbol
 # - TODO smalers 2020-05-22 need to enable a graduated symbol based on flow value
 SetGeoLayerViewSingleSymbol(GeoMapID="WaterProvidersMap",GeoLayerViewGroupID="WaterProvidersGroup",GeoLayerViewID="WaterProvidersLayerView",Name="Colorado Water Providers",Description="Colorado Water Providers",Properties="symbolImage:/img/drinkingwater.png")
@@ -64,7 +64,12 @@ SetGeoLayerViewSingleSymbol(GeoMapID="WaterProvidersMap",GeoLayerViewGroupID="Wa
 WriteGeoMapProjectToJSON(GeoMapProjectID="WaterProvidersProject",Indent="2",OutputFile="water-providers-map.json")
 CreateFolder(Folder="${MapFolder}/layers",CreateParentFolders="True",IfFolderExists="Ignore")
 CopyFile(SourceFile="water-providers-map.json",DestinationFile="${MapFolder}/water-providers-map.json")
+CopyFile(SourceFile="water-providers-map.md",DestinationFile="${MapFolder}/water-providers-map.md")
+#
 CopyFile(SourceFile="layers/co-dwr-water-district-3.geojson",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3.geojson")
 CopyFile(SourceFile="layers/co-dwr-water-district-3-classify-district.csv",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3-classify-district.csv")
-CopyFile(SourceFile="layers/water-providers.geojson",DestinationFile="${MapFolder}/layers/water-providers.geojson")
+#
 #CopyFile(SourceFile="layers/stream-reaches.geojson",DestinationFile="${MapFolder}/layers/stream-reaches.geojson")
+#
+CopyFile(SourceFile="layers/water-providers.geojson",DestinationFile="${MapFolder}/layers/water-providers.geojson")
+CopyFile(SourceFile="layers/water-providers.md",DestinationFile="${MapFolder}/layers/water-providers.md")

@@ -44,6 +44,8 @@ junk
 /workflow/BasinEntities/Administrative-CoDwrWaterDistricts/layers/*
 !/workflow/BasinEntities/Administrative-CoDwrWaterDistricts/layers/README.md
 !/workflow/BasinEntities/Administrative-CoDwrWaterDistricts/layers/*.csv
+!/workflow/BasinEntities/Administrative-CoDwrWaterDistricts/layers/*.md
+!/workflow/BasinEntities/Administrative-CoDwrWaterDistricts/layers/*doc
 # Dynamic map configurations
 /workflow/BasinEntities/Administrative-CoDwrWaterDistricts/*.json
 
@@ -53,6 +55,8 @@ junk
 /workflow/BasinEntities/Agriculture-Dairies/layers/*
 !/workflow/BasinEntities/Agriculture-Dairies/layers/README.md
 !/workflow/BasinEntities/Agriculture-Dairies/layers/*.csv
+!/workflow/BasinEntities/Agriculture-Dairies/layers/*.md
+!/workflow/BasinEntities/Agriculture-Dairies/layers/*doc
 # Dynamic map configurations
 /workflow/BasinEntities/Agriculture-Dairies/*.json
 
@@ -62,6 +66,8 @@ junk
 /workflow/BasinEntities/Agriculture-Ditches/layers/*
 !/workflow/BasinEntities/Agriculture-Ditches/layers/README.md
 !/workflow/BasinEntities/Agriculture-Ditches/layers/*.csv
+!/workflow/BasinEntities/Agriculture-Ditches/layers/*.md
+!/workflow/BasinEntities/Agriculture-Ditches/layers/*doc
 # Dynamic map configurations
 /workflow/BasinEntities/Agriculture-Ditches/*.json
 
@@ -71,6 +77,8 @@ junk
 /workflow/BasinEntities/Education-Organizations/layers/*
 !/workflow/BasinEntities/Education-Organizations/layers/README.md
 !/workflow/BasinEntities/Education-Organizations/layers/*.csv
+!/workflow/BasinEntities/Education-Organizations/layers/*.md
+!/workflow/BasinEntities/Education-Organizations/layers/*doc
 # Dynamic map configurations
 /workflow/BasinEntities/Education-Organizations/*.json
 
@@ -80,6 +88,8 @@ junk
 /workflow/BasinEntities/Environment-InstreamFlowReaches/layers/*
 !/workflow/BasinEntities/Environment-InstreamFlowReaches/layers/README.md
 !/workflow/BasinEntities/Environment-InstreamFlowReaches/layers/*.csv
+!/workflow/BasinEntities/Environment-InstreamFlowReaches/layers/*.md
+!/workflow/BasinEntities/Environment-InstreamFlowReaches/layers/*doc
 # Dynamic map configurations
 /workflow/BasinEntities/Environment-InstreamFlowReaches/*.json
 
@@ -89,6 +99,8 @@ junk
 /workflow/BasinEntities/Environment-Organizations/layers/*
 !/workflow/BasinEntities/Environment-Organizations/layers/README.md
 !/workflow/BasinEntities/Environment-Organizations/layers/*.csv
+!/workflow/BasinEntities/Environment-Organizations/layers/*.md
+!/workflow/BasinEntities/Environment-Organizations/layers/*doc
 # Dynamic map configurations
 /workflow/BasinEntities/Environment-Organizations/*.json
 
@@ -98,6 +110,8 @@ junk
 /workflow/BasinEntities/Industry-Breweries/layers/*
 !/workflow/BasinEntities/Industry-Breweries/layers/README.md
 !/workflow/BasinEntities/Industry-Breweries/layers/*.csv
+!/workflow/BasinEntities/Industry-Breweries/layers/*.md
+!/workflow/BasinEntities/Industry-Breweries/layers/*doc
 # Dynamic map configurations
 /workflow/BasinEntities/Industry-Breweries/*.json
 
@@ -107,6 +121,8 @@ junk
 /workflow/BasinEntities/Municipal-Municipalities/layers/*
 !/workflow/BasinEntities/Municipal-Municipalities/layers/README.md
 !/workflow/BasinEntities/Municipal-Municipalities/layers/*.csv
+!/workflow/BasinEntities/Municipal-Municipalities/layers/*.md
+!/workflow/BasinEntities/Municipal-Municipalities/layers/*doc
 # Dynamic map configurations
 /workflow/BasinEntities/Municipal-Municipalities/*.json
 
@@ -123,6 +139,7 @@ junk
 !/workflow/BasinEntities/Physical-Counties/layers/README.md
 !/workflow/BasinEntities/Physical-Counties/layers/*.csv
 !/workflow/BasinEntities/Physical-Counties/layers/*.md
+!/workflow/BasinEntities/Physical-Counties/layers/*doc
 # ts/
 # - ignore generated time series files
 /workflow/BasinEntities/Physical-Counties/ts/*
@@ -137,6 +154,8 @@ junk
 /workflow/BasinEntities/Physical-StreamReaches/layers/*
 !/workflow/BasinEntities/Physical-StreamReaches/layers/README.md
 !/workflow/BasinEntities/Physical-StreamReaches/layers/*.csv
+!/workflow/BasinEntities/Physical-StreamReaches/layers/*.md
+!/workflow/BasinEntities/Physical-StreamReaches/layers/*doc
 # Dynamic map configurations
 /workflow/BasinEntities/Physical-StreamReaches/*.json
 
@@ -146,6 +165,8 @@ junk
 /workflow/BasinEntities/Recreation-BoatingOrganizations/layers/*
 !/workflow/BasinEntities/Recreation-BoatingOrganizations/layers/README.md
 !/workflow/BasinEntities/Recreation-BoatingOrganizations/layers/*.csv
+!/workflow/BasinEntities/Recreation-BoatingOrganizations/layers/*.md
+!/workflow/BasinEntities/Recreation-BoatingOrganizations/layers/*doc
 # Dynamic map configurations
 /workflow/BasinEntities/Recreation-BoatingOrganizations/*.json
 
@@ -155,6 +176,7 @@ junk
 /workflow/BasinEntities/Recreation-Trails/layers/*
 !/workflow/BasinEntities/Recreation-Trails/layers/README.md
 !/workflow/BasinEntities/Recreation-Trails/layers/*.csv
+!/workflow/BasinEntities/Recreation-Trails/layers/*.md
 !/workflow/BasinEntities/Recreation-Trails/layers/*doc
 # Dynamic map configurations
 /workflow/BasinEntities/Recreation-Trails/*.json
@@ -165,6 +187,8 @@ junk
 /workflow/BasinEntities/WaterSupply-WaterProviders/layers/*
 !/workflow/BasinEntities/WaterSupply-WaterProviders/layers/README.md
 !/workflow/BasinEntities/WaterSupply-WaterProviders/layers/*.csv
+!/workflow/BasinEntities/WaterSupply-WaterProviders/layers/*.md
+!/workflow/BasinEntities/WaterSupply-WaterProviders/layers/*doc
 # Dynamic map configurations
 /workflow/BasinEntities/WaterSupply-WaterProviders/*.json
 
@@ -178,6 +202,8 @@ junk
 /workflow/HistoricalData/Agriculture-IrrigatedLands/layers/*
 !/workflow/HistoricalData/Agriculture-IrrigatedLands/layers/README.md
 !/workflow/HistoricalData/Agriculture-IrrigatedLands/layers/*.csv
+!/workflow/HistoricalData/Agriculture-IrrigatedLands/layers/*.md
+!/workflow/HistoricalData/Agriculture-IrrigatedLands/layers/*doc
 # Dynamic map configurations
 /workflow/HistoricalData/Agriculture-IrrigatedLands/*.json
 
@@ -191,6 +217,8 @@ junk
 /workflow/CurrentConditions/WaterSupply-Streamflow/layers/*
 !/workflow/CurrentConditions/WaterSupply-Streamflow/layers/README.md
 !/workflow/CurrentConditions/WaterSupply-Streamflow/layers/*.csv
+!/workflow/CurrentConditions/WaterSupply-Streamflow/layers/*.md
+!/workflow/CurrentConditions/WaterSupply-Streamflow/layers/*doc
 # Dynamic map configurations
 /workflow/CurrentConditions/WaterSupply-Streamflow/*.json
 

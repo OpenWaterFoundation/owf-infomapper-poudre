@@ -14,7 +14,7 @@ SetProperty(PropertyName="MapFolder",PropertyType="str",PropertyValue="${MapsFol
 # - GeoMapProjectID:  IrrigatedLandsProject
 # - GeoMapID:  IrrigatedLandsMap
 CreateGeoMapProject(NewGeoMapProjectID="IrrigatedLandsProject",ProjectType="SingleMap",Name="District 3 Irrigated Lands",Description="District 3 irrigated lands.",Properties="author:'Open Water Foundation',specificationVersion:'1.0.0'")
-CreateGeoMap(NewGeoMapID="IrrigatedLandsMap",Name="District 3 Irrigated Lands",Description="District 3 irrigated lands from CDSS.",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.5,40.7,10'")
+CreateGeoMap(NewGeoMapID="IrrigatedLandsMap",Name="District 3 Irrigated Lands",Description="District 3 irrigated lands from CDSS.",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.5,40.7,10',docPath:'irrigated-lands-map.md'")
 AddGeoMapToGeoMapProject(GeoMapProjectID="IrrigatedLandsProject",GeoMapID="IrrigatedLandsMap")
 # = = = = = = = = = =
 # Background layers:  read layers and add a layer view group
@@ -45,7 +45,7 @@ SetGeoLayerViewCategorizedSymbol(GeoMapID="IrrigatedLandsMap",GeoLayerViewGroupI
 # GeoLayerViewGroupID: IrrigatedLandsGroup
 ReadGeoLayerFromGeoJSON(InputFile="layers/irrigated-lands-1956.geojson",GeoLayerID="IrrigatedLands1956Layer",Name="District 3 Irrigated Lands",Description="Irrigated lands (1956) for District 3 from Colorado's Decision Support Systems.")
 # The following layer view group is used for all years
-AddGeoLayerViewGroupToGeoMap(GeoMapID="IrrigatedLandsMap",GeoLayerViewGroupID="IrrigatedLandsGroup",Name="District 3 Irrigated Lands",Description="Irrigated lands for District 3 from from Colorado's Decision Support System.",Properties="selectedInitial: true",InsertPosition="Top")
+AddGeoLayerViewGroupToGeoMap(GeoMapID="IrrigatedLandsMap",GeoLayerViewGroupID="IrrigatedLandsGroup",Name="District 3 Irrigated Lands",Description="Irrigated lands for District 3 from from Colorado's Decision Support System.",Properties="selectedInitial: true,docPath:'layers/group-irrigated-lands.md'",InsertPosition="Top")
 AddGeoLayerViewToGeoMap(GeoLayerID="IrrigatedLands1956Layer",GeoMapID="IrrigatedLandsMap",GeoLayerViewGroupID="IrrigatedLandsGroup",GeoLayerViewID="IrrigatedLands1956LayerView",Name="District 3 Irrigated Lands (1956)",Description="Irrigated lands (1956) from CDSS",InsertPosition="Top",Properties="selectedInitial:true")
 SetGeoLayerViewCategorizedSymbol(GeoMapID="IrrigatedLandsMap",GeoLayerViewGroupID="IrrigatedLandsGroup",GeoLayerViewID="IrrigatedLands1956LayerView",Name="Colorize irrigated lands by crop type",Description="Show each irrigated parcel colored by crop type.",ClassificationAttribute="CROP_TYPE",Properties="classificationType:'categorized',classificationFile:'layers/irrigated-lands-classify-croptype.csv'")
 # = = = = = = = = = =
@@ -96,8 +96,11 @@ SetGeoLayerViewCategorizedSymbol(GeoMapID="IrrigatedLandsMap",GeoLayerViewGroupI
 WriteGeoMapProjectToJSON(GeoMapProjectID="IrrigatedLandsProject",Indent="2",OutputFile="irrigated-lands-map.json")
 CreateFolder(Folder="${MapFolder}/layers",CreateParentFolders="True",IfFolderExists="Ignore")
 CopyFile(SourceFile="irrigated-lands-map.json",DestinationFile="${MapFolder}/irrigated-lands-map.json")
+CopyFile(SourceFile="irrigated-lands-map.md",DestinationFile="${MapFolder}/irrigated-lands-map.md")
+#
 CopyFile(SourceFile="layers/co-dwr-water-district-3.geojson",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3.geojson")
 CopyFile(SourceFile="layers/co-dwr-water-district-3-classify-district.csv",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3-classify-district.csv")
+#
 CopyFile(SourceFile="layers/irrigated-lands-1956.geojson",DestinationFile="${MapFolder}/layers/irrigated-lands-1956.geojson")
 CopyFile(SourceFile="layers/irrigated-lands-1976.geojson",DestinationFile="${MapFolder}/layers/irrigated-lands-1976.geojson")
 CopyFile(SourceFile="layers/irrigated-lands-1987.geojson",DestinationFile="${MapFolder}/layers/irrigated-lands-1987.geojson")
@@ -107,3 +110,4 @@ CopyFile(SourceFile="layers/irrigated-lands-2005.geojson",DestinationFile="${Map
 CopyFile(SourceFile="layers/irrigated-lands-2010.geojson",DestinationFile="${MapFolder}/layers/irrigated-lands-2010.geojson")
 CopyFile(SourceFile="layers/irrigated-lands-2015.geojson",DestinationFile="${MapFolder}/layers/irrigated-lands-2015.geojson")
 CopyFile(SourceFile="layers/irrigated-lands-classify-croptype.csv",DestinationFile="${MapFolder}/layers/irrigated-lands-classify-croptype.csv")
+CopyFile(SourceFile="layers/group-irrigated-lands.md",DestinationFile="${MapFolder}/layers/group-irrigated-lands.md")

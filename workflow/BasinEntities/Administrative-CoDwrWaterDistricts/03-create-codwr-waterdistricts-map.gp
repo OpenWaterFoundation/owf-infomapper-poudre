@@ -14,7 +14,7 @@ SetProperty(PropertyName="MapFolder",PropertyType="str",PropertyValue="${MapsFol
 # - GeoMapProjectID:  WaterDistrictsProject
 # - GeoMapID:  WaterDistrictsMap
 CreateGeoMapProject(NewGeoMapProjectID="WaterDistrictsProject",ProjectType="SingleMap",Name="CO Division 1 Water Districts",Description="Colorado Division 1 water districts for water administration.",Properties="author:'Open Water Foundation',specificationFlavor:'',specificationVersion:'1.0.0'")
-CreateGeoMap(NewGeoMapID="WaterDistrictsMap",Name="CO Division 1 Water Districts",Description="Colorado Division 1 water districts for water administration.",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.385,40,8'")
+CreateGeoMap(NewGeoMapID="WaterDistrictsMap",Name="CO Division 1 Water Districts",Description="Colorado Division 1 water districts for water administration.",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.385,40,8',docPath:'codwr-waterdistricts-map.md'")
 AddGeoMapToGeoMapProject(GeoMapProjectID="WaterDistrictsProject",GeoMapID="WaterDistrictsMap")
 # = = = = = = = = = =
 # Background layers:  read layers and add a layer view group
@@ -59,6 +59,8 @@ SetGeoLayerViewSingleSymbol(GeoMapID="WaterDistrictsMap",GeoLayerViewGroupID="Wa
 WriteGeoMapProjectToJSON(GeoMapProjectID="WaterDistrictsProject",Indent="2",OutputFile="codwr-waterdistricts-map.json")
 CreateFolder(Folder="${MapFolder}/layers",CreateParentFolders="True",IfFolderExists="Ignore")
 CopyFile(SourceFile="codwr-waterdistricts-map.json",DestinationFile="${MapFolder}/codwr-waterdistricts-map.json")
+CopyFile(SourceFile="codwr-waterdistricts-map.md",DestinationFile="${MapFolder}/codwr-waterdistricts-map.md")
+#
 CopyFile(SourceFile="layers/co-dwr-water-division.geojson",DestinationFile="${MapFolder}/layers/co-dwr-water-division.geojson")
 CopyFile(SourceFile="layers/co-dwr-water-division.md",DestinationFile="${MapFolder}/layers/co-dwr-water-division.md")
 CopyFile(SourceFile="layers/co-dwr-water-division-classify-division.csv",DestinationFile="${MapFolder}/layers/co-dwr-water-division-classify-division.csv")

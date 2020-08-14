@@ -13,8 +13,8 @@ SetProperty(PropertyName="MapFolder",PropertyType="str",PropertyValue="${MapsFol
 # Create a single map project and map for that project.
 # - GeoMapProjectID:  EnvironmentProject
 # - GeoMapID:  EnvironmentMap
-CreateGeoMapProject(NewGeoMapProjectID="EnvironmentProject",ProjectType="SingleMap",Name="Poudre Environmental Organizations",Description="Poudre Environmental Organizations",Properties="author:'Open Water Foundation',specificationFlavor:'',specificationVersion:'1.0.0'")
-CreateGeoMap(NewGeoMapID="EnvironmentMap",Name="Poudre Environmental Organizations",Description="Poudre Environmental Organizations",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.5,40.7,10'")
+CreateGeoMapProject(NewGeoMapProjectID="EnvironmentProject",ProjectType="SingleMap",Name="Environmental Organizations",Description="Poudre Environmental Organizations",Properties="author:'Open Water Foundation',specificationFlavor:'',specificationVersion:'1.0.0'")
+CreateGeoMap(NewGeoMapID="EnvironmentMap",Name="Environmental Organizations",Description="Poudre Environmental Organizations",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.5,40.7,10',docPath:'environment-orgs-map.md'")
 AddGeoMapToGeoMapProject(GeoMapProjectID="EnvironmentProject",GeoMapID="EnvironmentMap")
 # = = = = = = = = = =
 # Background layers:  read layers and add a layer view group
@@ -51,9 +51,9 @@ SetGeoLayerViewCategorizedSymbol(GeoMapID="EnvironmentMap",GeoLayerViewGroupID="
 # = = = = = = = = = =
 # Environmental Organizations:  read layer and add to a layer view group.
 # GeoLayerViewGroupID: EnvironmentGroup
-ReadGeoLayerFromGeoJSON(InputFile="layers/environment-orgs.geojson",GeoLayerID="EnvironmentLayer",Name="Poudre Environmental Organizations",Description="Poudre Environmental Organizations")
+ReadGeoLayerFromGeoJSON(InputFile="layers/environment-orgs.geojson",GeoLayerID="EnvironmentLayer",Name="Environmental Organizations",Description="Poudre Environmental Organizations")
 AddGeoLayerViewGroupToGeoMap(GeoMapID="EnvironmentMap",GeoLayerViewGroupID="EnvironmentGroup",Name="Poudre Environmental Organizations",Description="Poudre Environmental Organizations",Properties="selectedInitial: true",InsertPosition="Top")
-AddGeoLayerViewToGeoMap(GeoLayerID="EnvironmentLayer",GeoMapID="EnvironmentMap",GeoLayerViewGroupID="EnvironmentGroup",GeoLayerViewID="EnvironmentLayerView",Name="Poudre Environmental Organizations",Description="Poudre Environmental Organizations")
+AddGeoLayerViewToGeoMap(GeoLayerID="EnvironmentLayer",GeoMapID="EnvironmentMap",GeoLayerViewGroupID="EnvironmentGroup",GeoLayerViewID="EnvironmentLayerView",Name="Poudre Environmental Organizations",Description="Poudre Environmental Organizations",Properties="docPath:'layers/environment-orgs.md")
 SetGeoLayerViewSingleSymbol(GeoMapID="EnvironmentMap",GeoLayerViewGroupID="EnvironmentGroup",GeoLayerViewID="EnvironmentLayerView",Name="Poudre Environmental Organizations",Description="Poudre Environmental Organizations",Properties="symbolImage:/img/wetlands.png")
 # = = = = = = = = = =
 # Write the map project file and copy layers to the location needed by the web application.
@@ -61,7 +61,12 @@ SetGeoLayerViewSingleSymbol(GeoMapID="EnvironmentMap",GeoLayerViewGroupID="Envir
 WriteGeoMapProjectToJSON(GeoMapProjectID="EnvironmentProject",Indent="2",OutputFile="environment-orgs-map.json")
 CreateFolder(Folder="${MapFolder}/layers",CreateParentFolders="True",IfFolderExists="Ignore")
 CopyFile(SourceFile="environment-orgs-map.json",DestinationFile="${MapFolder}/environment-orgs-map.json")
+CopyFile(SourceFile="environment-orgs-map.md",DestinationFile="${MapFolder}/environment-orgs-map.md")
+#
 CopyFile(SourceFile="layers/co-dwr-water-district-3.geojson",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3.geojson")
 CopyFile(SourceFile="layers/co-dwr-water-district-3-classify-district.csv",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3-classify-district.csv")
-CopyFile(SourceFile="layers/environment-orgs.geojson",DestinationFile="${MapFolder}/layers/environment-orgs.geojson")
+#
 #CopyFile(SourceFile="layers/stream-reaches.geojson",DestinationFile="${MapFolder}/layers/stream-reaches.geojson")
+#
+CopyFile(SourceFile="layers/environment-orgs.geojson",DestinationFile="${MapFolder}/layers/environment-orgs.geojson")
+CopyFile(SourceFile="layers/environment-orgs.md",DestinationFile="${MapFolder}/layers/environment-orgs.md")
