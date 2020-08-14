@@ -14,7 +14,7 @@ SetProperty(PropertyName="MapFolder",PropertyType="str",PropertyValue="${MapsFol
 # - GeoMapProjectID:  DitchesProject
 # - GeoMapID:  DitchesMap
 CreateGeoMapProject(NewGeoMapProjectID="DitchesProject",ProjectType="SingleMap",Name="District 3 Ditch Service Areas",Description="District 3 Ditch Service Areas.",Properties="author:'Open Water Foundation',specificationVersion:'1.0.0'")
-CreateGeoMap(NewGeoMapID="DitchesMap",Name="District 3 Ditch Service Areas",Description="District 3 Ditch service areas from CDSS.",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.5,40.7,10'")
+CreateGeoMap(NewGeoMapID="DitchesMap",Name="District 3 Ditch Service Areas",Description="District 3 Ditch service areas from CDSS.",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.5,40.7,10',docPath:'ditches-map.md'")
 AddGeoMapToGeoMapProject(GeoMapProjectID="DitchesProject",GeoMapID="DitchesMap")
 # = = = = = = = = = =
 # Background layers:  read layers and add a layer view group
@@ -46,7 +46,7 @@ SetGeoLayerViewCategorizedSymbol(GeoMapID="DitchesMap",GeoLayerViewGroupID="Wate
 # GeoLayerViewGroupID: DitchServiceAreasGroup
 ReadGeoLayerFromGeoJSON(InputFile="layers/ditch-service-areas-1956.geojson",GeoLayerID="DitchServiceAreas1956Layer",Name="District 3 Ditch Service Areas",Description="Ditch service areas (1956) for District 3 from Colorado's Decision Support Systems.")
 # The following layer view group is used for all years
-AddGeoLayerViewGroupToGeoMap(GeoMapID="DitchesMap",GeoLayerViewGroupID="DitchServiceAreasGroup",Name="District 3 Ditch Service Areas",Description="Ditch service areas for District 3 from from Colorado's Decision Support System.",Properties="selectedInitial: true",InsertPosition="Top")
+AddGeoLayerViewGroupToGeoMap(GeoMapID="DitchesMap",GeoLayerViewGroupID="DitchServiceAreasGroup",Name="District 3 Ditch Service Areas",Description="Ditch service areas for District 3 from from Colorado's Decision Support System.",Properties="selectedInitial: true,docPath:'layers/group-ditch-service-areas.md'",InsertPosition="Top")
 AddGeoLayerViewToGeoMap(GeoLayerID="DitchServiceAreas1956Layer",GeoMapID="DitchesMap",GeoLayerViewGroupID="DitchServiceAreasGroup",GeoLayerViewID="DitchServiceAreas1956LayerView",Name="District 3 Ditch Service Areas (1956)",Description="Ditch service areas (1956) from CDSS",InsertPosition="Top",Properties="selectedInitial:true")
 SetGeoLayerViewSingleSymbol(GeoMapID="DitchesMap",GeoLayerViewGroupID="DitchServiceAreasGroup",GeoLayerViewID="DitchServiceAreas1956LayerView",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches",Properties="color:#ffff00,opacity:1.0,fillColor:#ffff00,fillOpacity:0.3,weight:2")
 # = = = = = = = = = =
@@ -83,11 +83,15 @@ SetGeoLayerViewSingleSymbol(GeoMapID="DitchesMap",GeoLayerViewGroupID="DitchServ
 WriteGeoMapProjectToJSON(GeoMapProjectID="DitchesProject",Indent="2",OutputFile="ditches-map.json")
 CreateFolder(Folder="${MapFolder}/layers",CreateParentFolders="True",IfFolderExists="Ignore")
 CopyFile(SourceFile="ditches-map.json",DestinationFile="${MapFolder}/ditches-map.json")
+CopyFile(SourceFile="ditches-map.md",DestinationFile="${MapFolder}/ditches-map.md")
+#
 CopyFile(SourceFile="layers/co-dwr-water-district-3.geojson",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3.geojson")
 CopyFile(SourceFile="layers/co-dwr-water-district-3-classify-district.csv",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3-classify-district.csv")
+#
 CopyFile(SourceFile="layers/ditch-service-areas-1956.geojson",DestinationFile="${MapFolder}/layers/ditch-service-areas-1956.geojson")
 CopyFile(SourceFile="layers/ditch-service-areas-1976.geojson",DestinationFile="${MapFolder}/layers/ditch-service-areas-1976.geojson")
 CopyFile(SourceFile="layers/ditch-service-areas-1987.geojson",DestinationFile="${MapFolder}/layers/ditch-service-areas-1987.geojson")
 CopyFile(SourceFile="layers/ditch-service-areas-2001.geojson",DestinationFile="${MapFolder}/layers/ditch-service-areas-2001.geojson")
 CopyFile(SourceFile="layers/ditch-service-areas-2005.geojson",DestinationFile="${MapFolder}/layers/ditch-service-areas-2005.geojson")
+CopyFile(SourceFile="layers/group-ditch-service-areas.md",DestinationFile="${MapFolder}/layers/group-ditch-service-areas.md")
 # CopyFile(SourceFile="layers/ditch-service-areas-classify-croptype.csv",DestinationFile="${MapFolder}/layers/ditch-service-areas-classify-croptype.csv")

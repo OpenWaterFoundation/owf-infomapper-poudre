@@ -50,7 +50,7 @@ SetGeoLayerViewCategorizedSymbol(GeoMapID="CountiesMap",GeoLayerViewGroupID="Wat
 # Counties:  read layer and add to a layer view group.
 # GeoLayerViewGroupID: CountiesGroup
 ReadGeoLayerFromGeoJSON(InputFile="layers/counties.geojson",GeoLayerID="CountiesLayer",Name="Colorado Counties",Description="Colorado Counties")
-AddGeoLayerViewGroupToGeoMap(GeoMapID="CountiesMap",GeoLayerViewGroupID="CountiesGroup",Name="Colorado Counties",Description="Colorado Counties",Properties="selectedInitial: true, docPath:layers/group-counties.md",InsertPosition="Top")
+AddGeoLayerViewGroupToGeoMap(GeoMapID="CountiesMap",GeoLayerViewGroupID="CountiesGroup",Name="Colorado Counties",Description="Colorado Counties",Properties="selectedInitial: true",InsertPosition="Top")
 AddGeoLayerViewToGeoMap(GeoLayerID="CountiesLayer",GeoMapID="CountiesMap",GeoLayerViewGroupID="CountiesGroup",GeoLayerViewID="CountiesLayerView",Name="Colorado Counties",Description="Colorado Counties",Properties="docPath:layers/counties.md")
 SetGeoLayerViewCategorizedSymbol(GeoMapID="CountiesMap",GeoLayerViewGroupID="CountiesGroup",GeoLayerViewID="CountiesLayerView",Name="Colorize counties",Description="Show each county the same color except those that overlap the Poudre",ClassificationAttribute="county",Properties="classificationType:'categorized',classificationFile:'layers/counties-classify-county.csv'")
 SetGeoLayerViewEventHandler(GeoMapID="CountiesMap",GeoLayerViewGroupID="CountiesGroup",GeoLayerViewID="CountiesLayerView",EventType="click",Properties="popupConfigPath:graphs/county-popup-config.json")
@@ -74,7 +74,6 @@ CopyFile(SourceFile="../Administrative-CoDwrWaterDistricts/layers/co-dwr-water-d
 CopyFile(SourceFile="layers/counties.geojson",DestinationFile="${MapFolder}/layers/counties.geojson")
 CopyFile(SourceFile="layers/counties-classify-county.csv",DestinationFile="${MapFolder}/layers/counties-classify-county.csv")
 CopyFile(SourceFile="layers/counties.md",DestinationFile="${MapFolder}/layers/counties.md")
-CopyFile(SourceFile="layers/group-counties.md",DestinationFile="${MapFolder}/layers/group-counties.md")
 # -------
 # Graphs
 CreateFolder(Folder="${MapFolder}/graphs",CreateParentFolders="True",IfFolderExists="Ignore")

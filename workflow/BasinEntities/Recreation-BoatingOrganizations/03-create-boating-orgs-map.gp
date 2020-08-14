@@ -14,7 +14,7 @@ SetProperty(PropertyName="MapFolder",PropertyType="str",PropertyValue="${MapsFol
 # - GeoMapProjectID:  BoatingOrgsProject
 # - GeoMapID:  BoatingOrgsMap
 CreateGeoMapProject(NewGeoMapProjectID="BoatingOrgsProject",ProjectType="SingleMap",Name="Poudre Boating Organizations",Description="Poudre Boating Organizations",Properties="author:'Open Water Foundation',specificationFlavor:'',specificationVersion:'1.0.0'")
-CreateGeoMap(NewGeoMapID="BoatingOrgsMap",Name="Poudre Boating Organizations",Description="Poudre Boating Organizations",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.5,40.7,10'")
+CreateGeoMap(NewGeoMapID="BoatingOrgsMap",Name="Poudre Boating Organizations",Description="Poudre Boating Organizations",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.5,40.7,10',docPath:'boating-orgs-map.md'")
 AddGeoMapToGeoMapProject(GeoMapProjectID="BoatingOrgsProject",GeoMapID="BoatingOrgsMap")
 # = = = = = = = = = =
 # Background layers:  read layers and add a layer view group
@@ -53,7 +53,7 @@ SetGeoLayerViewCategorizedSymbol(GeoMapID="BoatingOrgsMap",GeoLayerViewGroupID="
 # GeoLayerViewGroupID: BoatingOrgsGroup
 ReadGeoLayerFromGeoJSON(InputFile="layers/boating-orgs.geojson",GeoLayerID="BoatingOrgsLayer",Name="Poudre Boating Organizations",Description="Poudre Boating Organizations")
 AddGeoLayerViewGroupToGeoMap(GeoMapID="BoatingOrgsMap",GeoLayerViewGroupID="BoatingOrgsGroup",Name="Poudre Boating Organizations",Description="Poudre Boating Organizations",Properties="selectedInitial: true",InsertPosition="Top")
-AddGeoLayerViewToGeoMap(GeoLayerID="BoatingOrgsLayer",GeoMapID="BoatingOrgsMap",GeoLayerViewGroupID="BoatingOrgsGroup",GeoLayerViewID="BoatingOrgsLayerView",Name="Poudre Boating Organizations",Description="Poudre Boating Organizations")
+AddGeoLayerViewToGeoMap(GeoLayerID="BoatingOrgsLayer",GeoMapID="BoatingOrgsMap",GeoLayerViewGroupID="BoatingOrgsGroup",GeoLayerViewID="BoatingOrgsLayerView",Name="Poudre Boating Organizations",Description="Poudre Boating Organizations",Properties="docPath:'layers/boating-orgs.md'")
 SetGeoLayerViewSingleSymbol(GeoMapID="BoatingOrgsMap",GeoLayerViewGroupID="BoatingOrgsGroup",GeoLayerViewID="BoatingOrgsLayerView",Name="Poudre Boating Organizations",Description="Poudre Boating Organizations",Properties="symbolImage:/img/kayaking.png")
 # = = = = = = = = = =
 # Write the map project file and copy layers to the location needed by the web application.
@@ -61,7 +61,12 @@ SetGeoLayerViewSingleSymbol(GeoMapID="BoatingOrgsMap",GeoLayerViewGroupID="Boati
 WriteGeoMapProjectToJSON(GeoMapProjectID="BoatingOrgsProject",Indent="2",OutputFile="boating-orgs-map.json")
 CreateFolder(Folder="${MapFolder}/layers",CreateParentFolders="True",IfFolderExists="Ignore")
 CopyFile(SourceFile="boating-orgs-map.json",DestinationFile="${MapFolder}/boating-orgs-map.json")
+CopyFile(SourceFile="boating-orgs-map.md",DestinationFile="${MapFolder}/boating-orgs-map.md")
+#
 CopyFile(SourceFile="layers/co-dwr-water-district-3.geojson",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3.geojson")
 CopyFile(SourceFile="layers/co-dwr-water-district-3-classify-district.csv",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3-classify-district.csv")
-CopyFile(SourceFile="layers/boating-orgs.geojson",DestinationFile="${MapFolder}/layers/boating-orgs.geojson")
+#
 #CopyFile(SourceFile="layers/stream-reaches.geojson",DestinationFile="${MapFolder}/layers/stream-reaches.geojson")
+#
+CopyFile(SourceFile="layers/boating-orgs.geojson",DestinationFile="${MapFolder}/layers/boating-orgs.geojson")
+CopyFile(SourceFile="layers/boating-orgs.md",DestinationFile="${MapFolder}/layers/boating-orgs.md")

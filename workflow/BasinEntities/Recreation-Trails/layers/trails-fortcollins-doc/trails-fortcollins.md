@@ -29,7 +29,7 @@ The potential for and impacts of flooding may not be obvious in downstream areas
 however, a hike in Red Mountain Open Space
 points out the impacts of flooding in that area and potential of high flows to cause damage downstream.
 
-![boxelder-creek.jpg](assets/app/data-maps/BasinEntities/Recreation-Trails/layers/trails-fortcollins-doc/boxelder-creek.jpg)
+![boxelder-creek.jpg](boxelder-creek.jpg)
 
 **Boxelder Creek Upstream of Flood Control Dam** (photo by Steve Malers, 2020)
 
@@ -39,7 +39,7 @@ The following are data sources for this map:
 
 | **Resource** | **Source** |
 | -- | -- |
-| Fort Collins trails. | [Multi-Use Trails](https://opendata.fcgov.com/dataset/Multiuse-Trail/3j2e-2d5c) map layer dataset from Fort Collins open data portal. |
+| Fort Collins trails layer | [Multi-Use Trails](https://opendata.fcgov.com/dataset/Multiuse-Trail/3j2e-2d5c) map layer dataset from Fort Collins open data portal. |
 
 
 ## Map Creation Workflow

@@ -14,7 +14,7 @@ SetProperty(PropertyName="MapFolder",PropertyType="str",PropertyValue="${MapsFol
 # - GeoMapProjectID:  DairiesProject
 # - GeoMapID:  DairiesMap
 CreateGeoMapProject(NewGeoMapProjectID="DairiesProject",ProjectType="SingleMap",Name="Colorado Dairies",Description="Colorado Dairies",Properties="author:'Open Water Foundation',specificationFlavor:'',specificationVersion:'1.0.0'")
-CreateGeoMap(NewGeoMapID="DairiesMap",Name="Colorado Dairies",Description="Colorado Dairies",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.5,40.7,10'")
+CreateGeoMap(NewGeoMapID="DairiesMap",Name="Colorado Dairies",Description="Colorado Dairies",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.5,40.7,10',docPath:'dairies-map.md'")
 AddGeoMapToGeoMapProject(GeoMapProjectID="DairiesProject",GeoMapID="DairiesMap")
 # = = = = = = = = = =
 # Background layers:  read layers and add a layer view group
@@ -53,7 +53,7 @@ SetGeoLayerViewCategorizedSymbol(GeoMapID="DairiesMap",GeoLayerViewGroupID="Wate
 # GeoLayerViewGroupID: DairiesGroup
 ReadGeoLayerFromGeoJSON(InputFile="layers/dairies.geojson",GeoLayerID="DairiesLayer",Name="Colorado Dairies",Description="Colorado Dairies")
 AddGeoLayerViewGroupToGeoMap(GeoMapID="DairiesMap",GeoLayerViewGroupID="DairiesGroup",Name="Colorado Dairies",Description="Colorado Dairies",Properties="selectedInitial: true",InsertPosition="Top")
-AddGeoLayerViewToGeoMap(GeoLayerID="DairiesLayer",GeoMapID="DairiesMap",GeoLayerViewGroupID="DairiesGroup",GeoLayerViewID="DairiesLayerView",Name="Colorado Dairies",Description="Colorado Dairies")
+AddGeoLayerViewToGeoMap(GeoLayerID="DairiesLayer",GeoMapID="DairiesMap",GeoLayerViewGroupID="DairiesGroup",GeoLayerViewID="DairiesLayerView",Name="Colorado Dairies",Description="Colorado Dairies",Properties="docPath:layers/dairies.md")
 # For now use single symbol
 # - TODO smalers 2020-05-22 need to enable a graduated symbol based on flow value
 SetGeoLayerViewSingleSymbol(GeoMapID="DairiesMap",GeoLayerViewGroupID="DairiesGroup",GeoLayerViewID="DairiesLayerView",Name="Colorado Dairies",Description="Colorado Dairies",Properties="symbolImage:/img/milk_bottle.png")
@@ -63,8 +63,13 @@ SetGeoLayerViewSingleSymbol(GeoMapID="DairiesMap",GeoLayerViewGroupID="DairiesGr
 # - follow InfoMapper conventions
 WriteGeoMapProjectToJSON(GeoMapProjectID="DairiesProject",Indent="2",OutputFile="dairies-map.json")
 CreateFolder(Folder="${MapFolder}/layers",CreateParentFolders="True",IfFolderExists="Ignore")
+CopyFile(SourceFile="dairies-map.json",DestinationFile="${MapFolder}/dairies-map.json")
+CopyFile(SourceFile="dairies-map.md",DestinationFile="${MapFolder}/dairies-map.md")
+#
 CopyFile(SourceFile="layers/co-dwr-water-district-3.geojson",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3.geojson")
 CopyFile(SourceFile="layers/co-dwr-water-district-3-classify-district.csv",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3-classify-district.csv")
+#
 #CopyFile(SourceFile="layers/stream-reaches.geojson",DestinationFile="${MapFolder}/layers/stream-reaches.geojson")
-CopyFile(SourceFile="dairies-map.json",DestinationFile="${MapFolder}/dairies-map.json")
+#
 CopyFile(SourceFile="layers/dairies.geojson",DestinationFile="${MapFolder}/layers/dairies.geojson")
+CopyFile(SourceFile="layers/dairies.md",DestinationFile="${MapFolder}/layers/dairies.md")

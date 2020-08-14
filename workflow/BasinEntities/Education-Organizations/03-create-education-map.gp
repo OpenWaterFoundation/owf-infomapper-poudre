@@ -14,7 +14,7 @@ SetProperty(PropertyName="MapFolder",PropertyType="str",PropertyValue="${MapsFol
 # - GeoMapProjectID:  EducationProject
 # - GeoMapID:  EducationMap
 CreateGeoMapProject(NewGeoMapProjectID="EducationProject",ProjectType="SingleMap",Name="Poudre Education Organizations",Description="Poudre Education Organizations",Properties="author:'Open Water Foundation',specificationFlavor:'',specificationVersion:'1.0.0'")
-CreateGeoMap(NewGeoMapID="EducationMap",Name="Poudre Education Organizations",Description="Poudre Education Organizations",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.5,40.7,10'")
+CreateGeoMap(NewGeoMapID="EducationMap",Name="Poudre Education Organizations",Description="Poudre Education Organizations",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.5,40.7,10',docPath:'education-orgs-map.md'")
 AddGeoMapToGeoMapProject(GeoMapProjectID="EducationProject",GeoMapID="EducationMap")
 # = = = = = = = = = =
 # Background layers:  read layers and add a layer view group
@@ -53,7 +53,7 @@ SetGeoLayerViewCategorizedSymbol(GeoMapID="EducationMap",GeoLayerViewGroupID="Wa
 # GeoLayerViewGroupID: EducationGroup
 ReadGeoLayerFromGeoJSON(InputFile="layers/education-orgs.geojson",GeoLayerID="EducationLayer",Name="Poudre Education Organizations",Description="Poudre Education Organizations")
 AddGeoLayerViewGroupToGeoMap(GeoMapID="EducationMap",GeoLayerViewGroupID="EducationGroup",Name="Poudre Education Organizations",Description="Poudre Education Organizations",Properties="selectedInitial: true",InsertPosition="Top")
-AddGeoLayerViewToGeoMap(GeoLayerID="EducationLayer",GeoMapID="EducationMap",GeoLayerViewGroupID="EducationGroup",GeoLayerViewID="EducationLayerView",Name="Poudre Education Organizations",Description="Poudre Education Organizations")
+AddGeoLayerViewToGeoMap(GeoLayerID="EducationLayer",GeoMapID="EducationMap",GeoLayerViewGroupID="EducationGroup",GeoLayerViewID="EducationLayerView",Name="Poudre Education Organizations",Description="Poudre Education Organizations",Properties="docPath:layers/education-orgs-doc/education-orgs.md")
 # For now use single symbol
 # - TODO smalers 2020-05-22 need to enable a graduated symbol based on flow value
 SetGeoLayerViewSingleSymbol(GeoMapID="EducationMap",GeoLayerViewGroupID="EducationGroup",GeoLayerViewID="EducationLayerView",Name="Poudre Education Organizations",Description="Poudre Education Organizations",Properties="symbolImage:/img/university.png")
@@ -63,7 +63,14 @@ SetGeoLayerViewSingleSymbol(GeoMapID="EducationMap",GeoLayerViewGroupID="Educati
 WriteGeoMapProjectToJSON(GeoMapProjectID="EducationProject",Indent="2",OutputFile="education-orgs-map.json")
 CreateFolder(Folder="${MapFolder}/layers",CreateParentFolders="True",IfFolderExists="Ignore")
 CopyFile(SourceFile="education-orgs-map.json",DestinationFile="${MapFolder}/education-orgs-map.json")
+CopyFile(SourceFile="education-orgs-map.md",DestinationFile="${MapFolder}/education-orgs-map.md")
+#
 CopyFile(SourceFile="layers/co-dwr-water-district-3.geojson",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3.geojson")
 CopyFile(SourceFile="layers/co-dwr-water-district-3-classify-district.csv",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3-classify-district.csv")
-CopyFile(SourceFile="layers/education-orgs.geojson",DestinationFile="${MapFolder}/layers/education-orgs.geojson")
+#
 #CopyFile(SourceFile="layers/stream-reaches.geojson",DestinationFile="${MapFolder}/layers/stream-reaches.geojson")
+#
+CreateFolder(Folder="${MapFolder}/layers/education-orgs-doc",CreateParentFolders="True",IfFolderExists="Ignore")
+CopyFile(SourceFile="layers/education-orgs.geojson",DestinationFile="${MapFolder}/layers/education-orgs.geojson")
+CopyFile(SourceFile="layers/education-orgs-doc/education-orgs.md",DestinationFile="${MapFolder}/layers/education-orgs-doc/education-orgs.md")
+CopyFile(SourceFile="layers/education-orgs-doc/SWEAPLogoStandard.png",DestinationFile="${MapFolder}/layers/education-orgs-doc/SWEAPLogoStandard.png")

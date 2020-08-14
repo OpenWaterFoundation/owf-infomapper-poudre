@@ -15,8 +15,8 @@ SetProperty(PropertyName="IncludeBoundaries",PropertyType="str",PropertyValue="t
 # Create a single map project and map for that project.
 # - GeoMapProjectID:  MunicipalitiesProject
 # - GeoMapID:  MunicipalitiesMap
-CreateGeoMapProject(NewGeoMapProjectID="MunicipalitiesProject",ProjectType="SingleMap",Name="Poudre Basin Municipalities",Description="Poudre Basin Municipalities",Properties="author:'Open Water Foundation',specificationFlavor:'',specificationVersion:'1.0.0'")
-CreateGeoMap(NewGeoMapID="MunicipalitiesMap",Name="Poudre Basin Municipalities",Description="Poudre Basin Municipalities",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.5,40.7,10'")
+CreateGeoMapProject(NewGeoMapProjectID="MunicipalitiesProject",ProjectType="SingleMap",Name="Colorado Municipalities",Description="Colorado Municipalities",Properties="author:'Open Water Foundation',specificationFlavor:'',specificationVersion:'1.0.0'")
+CreateGeoMap(NewGeoMapID="MunicipalitiesMap",Name="Colorado Municipalities",Description="Colorado Municipalities",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.5,40.7,10',docPath:'municipalities-map.md'")
 AddGeoMapToGeoMapProject(GeoMapProjectID="MunicipalitiesProject",GeoMapID="MunicipalitiesMap")
 # = = = = = = = = = =
 # Background layers:  read layers and add a layer view group
@@ -57,7 +57,7 @@ SetGeoLayerViewCategorizedSymbol(GeoMapID="MunicipalitiesMap",GeoLayerViewGroupI
 ReadGeoLayerFromGeoJSON(InputFile="layers/municipal-boundaries.geojson",GeoLayerID="MunicipalBoundariesLayer",Name="Colorado Municipal Boundaries",Description="Colorado Municipal Boundaries")
 AddGeoLayerViewGroupToGeoMap(GeoMapID="MunicipalitiesMap",GeoLayerViewGroupID="MunicipalitiesGroup",Name="Colorado Municipalities",Description="Colorado Municipalities",InsertPosition="Top")
 If(Name="IncludeBoundaries",Condition="${IncludeBoundaries} == true")
-    AddGeoLayerViewToGeoMap(GeoLayerID="MunicipalBoundariesLayer",GeoMapID="MunicipalitiesMap",GeoLayerViewGroupID="MunicipalitiesGroup",GeoLayerViewID="MunicipalBoundariesLayerView",Name="Colorado Municipal Boundaries",Description="Colorado Municipal Boundaries")
+    AddGeoLayerViewToGeoMap(GeoLayerID="MunicipalBoundariesLayer",GeoMapID="MunicipalitiesMap",GeoLayerViewGroupID="MunicipalitiesGroup",GeoLayerViewID="MunicipalBoundariesLayerView",Name="Colorado Municipal Boundaries",Description="Colorado Municipal Boundaries",Properties="docPath:'layers/municipal-boundaries.md'")
     # For now use single symbol
     # - grey
     SetGeoLayerViewSingleSymbol(GeoMapID="MunicipalitiesMap",GeoLayerViewGroupID="MunicipalitiesGroup",GeoLayerViewID="MunicipalBoundariesLayerView",Name="Colorado Municipal Boundaries",Description="Colorado Municipal Boundaries",Properties="color:#595959,opacity:1.0,fillColor:#595959,fillOpacity:0.3,weight:2")
@@ -66,7 +66,7 @@ EndIf(Name="IncludeBoundaries")
 # Municipalities:  read layer and add to a layer view group.
 # GeoLayerViewGroupID: MunicipalitiesGroup
 ReadGeoLayerFromGeoJSON(InputFile="layers/municipalities.geojson",GeoLayerID="MunicipalitiesLayer",Name="Colorado Municipalities",Description="Colorado Municipalities")
-AddGeoLayerViewToGeoMap(GeoLayerID="MunicipalitiesLayer",GeoMapID="MunicipalitiesMap",GeoLayerViewGroupID="MunicipalitiesGroup",GeoLayerViewID="MunicipalitiesLayerView",Name="Colorado Municipalities",Description="Colorado Municipalities",InsertPosition="Top")
+AddGeoLayerViewToGeoMap(GeoLayerID="MunicipalitiesLayer",GeoMapID="MunicipalitiesMap",GeoLayerViewGroupID="MunicipalitiesGroup",GeoLayerViewID="MunicipalitiesLayerView",Name="Colorado Municipalities",Description="Colorado Municipalities",InsertPosition="Top",Properties="docPath:'layers/municipalities.md'")
 # For now use single symbol
 # - TODO smalers 2020-05-22 need to enable a graduated symbol based on flow value
 SetGeoLayerViewSingleSymbol(GeoMapID="MunicipalitiesMap",GeoLayerViewGroupID="MunicipalitiesGroup",GeoLayerViewID="MunicipalitiesLayerView",Name="Colorado Municipalities",Description="Colorado Municipalities",Properties="symbolImage:/img/group-2.png")
@@ -77,11 +77,18 @@ SetGeoLayerViewSingleSymbol(GeoMapID="MunicipalitiesMap",GeoLayerViewGroupID="Mu
 WriteGeoMapProjectToJSON(GeoMapProjectID="MunicipalitiesProject",Indent="2",OutputFile="municipalities-map.json")
 CreateFolder(Folder="${MapFolder}/layers",CreateParentFolders="True",IfFolderExists="Ignore")
 CopyFile(SourceFile="municipalities-map.json",DestinationFile="${MapFolder}/municipalities-map.json")
+CopyFile(SourceFile="municipalities-map.md",DestinationFile="${MapFolder}/municipalities-map.md")
+#
 CopyFile(SourceFile="layers/co-dwr-water-district-3.geojson",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3.geojson")
 CopyFile(SourceFile="layers/co-dwr-water-district-3-classify-district.csv",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3-classify-district.csv")
-CopyFile(SourceFile="layers/municipalities.geojson",DestinationFile="${MapFolder}/layers/municipalities.geojson")
+#
+#CopyFile(SourceFile="layers/stream-reaches.geojson",DestinationFile="${MapFolder}/layers/stream-reaches.geojson")
+#
 ## TODO smalers 2020-06-13 enable when it does not hang the app
 If(Name="IncludeBoundaries2",Condition="${IncludeBoundaries} == true")
     CopyFile(SourceFile="layers/municipal-boundaries.geojson",DestinationFile="${MapFolder}/layers/municipal-boundaries.geojson")
+    CopyFile(SourceFile="layers/municipal-boundaries.md",DestinationFile="${MapFolder}/layers/municipal-boundaries.md")
 EndIf(Name="IncludeBoundaries2")
-#CopyFile(SourceFile="layers/stream-reaches.geojson",DestinationFile="${MapFolder}/layers/stream-reaches.geojson")
+#
+CopyFile(SourceFile="layers/municipalities.geojson",DestinationFile="${MapFolder}/layers/municipalities.geojson")
+CopyFile(SourceFile="layers/municipalities.md",DestinationFile="${MapFolder}/layers/municipalities.md")

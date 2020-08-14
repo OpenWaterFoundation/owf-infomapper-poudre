@@ -13,8 +13,8 @@ SetProperty(PropertyName="MapFolder",PropertyType="str",PropertyValue="${MapsFol
 # Create a single map project and map for that project.
 # - GeoMapProjectID:  InstreamReachesProject
 # - GeoMapID:  InstreamReachesMap
-CreateGeoMapProject(NewGeoMapProjectID="InstreamReachesProject",ProjectType="SingleMap",Name="Poudre Basin Instream Flow Reaches",Description="Poudre Basin Instream Flow Reaches",Properties="author:'Open Water Foundation',specificationVersion:'1.0.0'")
-CreateGeoMap(NewGeoMapID="InstreamReachesMap",Name="Poudre Basin Instream Flow Reaches",Description="Poudre Basin Instream Flow Reaches",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.5,40.7,10'")
+CreateGeoMapProject(NewGeoMapProjectID="InstreamReachesProject",ProjectType="SingleMap",Name="Poudre Instream Flow Reaches",Description="Poudre Basin Instream Flow Reaches",Properties="author:'Open Water Foundation',specificationVersion:'1.0.0'")
+CreateGeoMap(NewGeoMapID="InstreamReachesMap",Name="Poudre Instream Flow Reaches",Description="Poudre Basin Instream Flow Reaches",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.5,40.7,10',docPath:'instream-reaches-map.md'")
 AddGeoMapToGeoMapProject(GeoMapProjectID="InstreamReachesProject",GeoMapID="InstreamReachesMap")
 # = = = = = = = = = =
 # Background layers:  read layers and add a layer view group
@@ -40,23 +40,28 @@ SetGeoLayerViewCategorizedSymbol(GeoMapID="InstreamReachesMap",GeoLayerViewGroup
 # = = = = = = = = = =
 # Instream flow reaches:  read layer and add to a layer view group.
 # GeoLayerViewGroupID: InstreamReachesGroup
-ReadGeoLayerFromGeoJSON(InputFile="layers/instream-reaches.geojson",GeoLayerID="InstreamReachesLayer",Name="Poudre Basin Instream Flow Reaches",Description="Poudre Basin Instream Flow Reaches")
-AddGeoLayerViewGroupToGeoMap(GeoMapID="InstreamReachesMap",GeoLayerViewGroupID="InstreamReachesGroup",Name="Poudre Basin Instream Flow Reaches",Description="Poudre Basin Instream Flow Reaches",Properties="selectedInitial: true",InsertPosition="Top")
-AddGeoLayerViewToGeoMap(GeoLayerID="InstreamReachesLayer",GeoMapID="InstreamReachesMap",GeoLayerViewGroupID="InstreamReachesGroup",GeoLayerViewID="InstreamReachesLayerView",Name="Poudre Basin Instream Flow Reaches",Description="Poudre Basin Instream Flow Reaches")
+ReadGeoLayerFromGeoJSON(InputFile="layers/instream-reaches.geojson",GeoLayerID="InstreamReachesLayer",Name="Poudre Instream Flow Reaches",Description="Poudre Basin Instream Flow Reaches")
+AddGeoLayerViewGroupToGeoMap(GeoMapID="InstreamReachesMap",GeoLayerViewGroupID="InstreamReachesGroup",Name="Poudre Instream Flow Reaches",Description="Poudre Basin Instream Flow Reaches",Properties="selectedInitial: true",InsertPosition="Top")
+AddGeoLayerViewToGeoMap(GeoLayerID="InstreamReachesLayer",GeoMapID="InstreamReachesMap",GeoLayerViewGroupID="InstreamReachesGroup",GeoLayerViewID="InstreamReachesLayerView",Name="Poudre Basin Instream Flow Reaches",Description="Poudre Basin Instream Flow Reaches",Properties="docPath:'layers/instream-reaches.md'")
 SetGeoLayerViewSingleSymbol(GeoMapID="InstreamReachesMap",GeoLayerViewGroupID="InstreamReachesGroup",GeoLayerViewID="InstreamReachesLayerView",Name="Poudre Basin Instream Flow Reaches",Description="Poudre Basin Instream Flow Reaches",Properties="color:#6297f7")
 # = = = = = = = = = =
 # Instream flow termini:  read layer and add to a layer view group.
 # GeoLayerViewGroupID: InstreamReachesGroup
-ReadGeoLayerFromGeoJSON(InputFile="layers/instream-termini.geojson",GeoLayerID="InstreamTerminiLayer",Name="Poudre Basin Instream Flow Reach Termini",Description="Poudre Basin Instream Flow Reach Termini")
-AddGeoLayerViewToGeoMap(GeoLayerID="InstreamTerminiLayer",GeoMapID="InstreamReachesMap",GeoLayerViewGroupID="InstreamReachesGroup",GeoLayerViewID="InstreamTerminiLayerView",Name="Poudre Basin Instream Flow Reach Termini",Description="Poudre Basin Instream Flow Reach Termini")
-SetGeoLayerViewSingleSymbol(GeoMapID="InstreamReachesMap",GeoLayerViewGroupID="InstreamReachesGroup",GeoLayerViewID="InstreamTerminiLayerView",Name="Poudre Basin Instream Flow Reach Termini",Description="Poudre Basin Instream Flow Reach Termini shown as cyan diamond",Properties="symbolShape:Diamond,color:cyan,fillColor:cyan,size:6,sizeUnits:pixels,opacity:1.0,fillOpacity:1.0,weight:1.5")
+ReadGeoLayerFromGeoJSON(InputFile="layers/instream-termini.geojson",GeoLayerID="InstreamTerminiLayer",Name="Poudre Instream Flow Reach Termini",Description="Poudre Basin Instream Flow Reach Termini")
+AddGeoLayerViewToGeoMap(GeoLayerID="InstreamTerminiLayer",GeoMapID="InstreamReachesMap",GeoLayerViewGroupID="InstreamReachesGroup",GeoLayerViewID="InstreamTerminiLayerView",Name="Poudre Instream Flow Reach Termini",Description="Poudre Basin Instream Flow Reach Termini",Properties="docPath:'layers/instream-termini.md'")
+SetGeoLayerViewSingleSymbol(GeoMapID="InstreamReachesMap",GeoLayerViewGroupID="InstreamReachesGroup",GeoLayerViewID="InstreamTerminiLayerView",Name="Poudre Instream Flow Reach Termini",Description="Poudre Basin Instream Flow Reach Termini shown as cyan diamond",Properties="symbolShape:Diamond,color:cyan,fillColor:cyan,size:6,sizeUnits:pixels,opacity:1.0,fillOpacity:1.0,weight:1.5")
 # = = = = = = = = = =
 # Write the map project file and copy layers to the location needed by the web application.
 # - follow InfoMapper conventions
 WriteGeoMapProjectToJSON(GeoMapProjectID="InstreamReachesProject",Indent="2",OutputFile="instream-reaches-map.json")
 CreateFolder(Folder="${MapFolder}/layers",CreateParentFolders="True",IfFolderExists="Ignore")
 CopyFile(SourceFile="instream-reaches-map.json",DestinationFile="${MapFolder}/instream-reaches-map.json")
+CopyFile(SourceFile="instream-reaches-map.md",DestinationFile="${MapFolder}/instream-reaches-map.md")
+#
 CopyFile(SourceFile="layers/co-dwr-water-district-3.geojson",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3.geojson")
 CopyFile(SourceFile="layers/co-dwr-water-district-3-classify-district.csv",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3-classify-district.csv")
+#
 CopyFile(SourceFile="layers/instream-reaches.geojson",DestinationFile="${MapFolder}/layers/instream-reaches.geojson")
+CopyFile(SourceFile="layers/instream-reaches.md",DestinationFile="${MapFolder}/layers/instream-reaches.md")
 CopyFile(SourceFile="layers/instream-termini.geojson",DestinationFile="${MapFolder}/layers/instream-termini.geojson")
+CopyFile(SourceFile="layers/instream-termini.md",DestinationFile="${MapFolder}/layers/instream-termini.md")

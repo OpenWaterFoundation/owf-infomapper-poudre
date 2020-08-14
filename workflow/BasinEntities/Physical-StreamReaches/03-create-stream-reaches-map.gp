@@ -14,7 +14,7 @@ SetProperty(PropertyName="MapFolder",PropertyType="str",PropertyValue="${MapsFol
 # - GeoMapProjectID:  StreamReachesProject
 # - GeoMapID:  StreamReachesMap
 CreateGeoMapProject(NewGeoMapProjectID="StreamReachesProject",ProjectType="SingleMap",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches",Properties="author:'Open Water Foundation',specificationFlavor:'',specificationVersion:'1.0.0'")
-CreateGeoMap(NewGeoMapID="StreamReachesMap",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.5,40.7,10'")
+CreateGeoMap(NewGeoMapID="StreamReachesMap",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.5,40.7,10',docPath:stream-reaches-map.md")
 AddGeoMapToGeoMapProject(GeoMapProjectID="StreamReachesProject",GeoMapID="StreamReachesMap")
 # = = = = = = = = = =
 # Background layers:  read layers and add a layer view group
@@ -42,7 +42,7 @@ SetGeoLayerViewCategorizedSymbol(GeoMapID="StreamReachesMap",GeoLayerViewGroupID
 # GeoLayerViewGroupID: StreamReachesGroup
 ReadGeoLayerFromGeoJSON(InputFile="layers/stream-reaches.geojson",GeoLayerID="StreamReachesLayer",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches")
 AddGeoLayerViewGroupToGeoMap(GeoMapID="StreamReachesMap",GeoLayerViewGroupID="StreamReachesGroup",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches",Properties="selectedInitial: true",InsertPosition="Top")
-AddGeoLayerViewToGeoMap(GeoLayerID="StreamReachesLayer",GeoMapID="StreamReachesMap",GeoLayerViewGroupID="StreamReachesGroup",GeoLayerViewID="StreamReachesLayerView",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches")
+AddGeoLayerViewToGeoMap(GeoLayerID="StreamReachesLayer",GeoMapID="StreamReachesMap",GeoLayerViewGroupID="StreamReachesGroup",GeoLayerViewID="StreamReachesLayerView",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches",Properties="docPath:layers/stream-reaches-doc/stream-reaches.md")
 SetGeoLayerViewSingleSymbol(GeoMapID="StreamReachesMap",GeoLayerViewGroupID="StreamReachesGroup",GeoLayerViewID="StreamReachesLayerView",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches",Properties="color:#6297f7")
 # SetGeoLayerViewCategorizedSymbol(GeoMapID="StreamReachesMap",GeoLayerViewGroupID="StreamReachesGroup",GeoLayerViewID="StreamReachesLayerView",Name="Poudre Stream Reaches",Description="Show stream reaches is blue lines",ClassificationAttribute="county",Properties="classificationType:'SingleSymbol'")
 # = = = = = = = = = =
@@ -50,7 +50,12 @@ SetGeoLayerViewSingleSymbol(GeoMapID="StreamReachesMap",GeoLayerViewGroupID="Str
 # - follow InfoMapper conventions
 WriteGeoMapProjectToJSON(GeoMapProjectID="StreamReachesProject",Indent="2",OutputFile="stream-reaches-map.json")
 CreateFolder(Folder="${MapFolder}/layers",CreateParentFolders="True",IfFolderExists="Ignore")
+CopyFile(SourceFile="stream-reaches-map.json",DestinationFile="${MapFolder}/stream-reaches-map.json")
+CopyFile(SourceFile="stream-reaches-map.md",DestinationFile="${MapFolder}/stream-reaches-map.md")
+#
 CopyFile(SourceFile="layers/co-dwr-water-district-3.geojson",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3.geojson")
 CopyFile(SourceFile="layers/co-dwr-water-district-3-classify-district.csv",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3-classify-district.csv")
-CopyFile(SourceFile="stream-reaches-map.json",DestinationFile="${MapFolder}/stream-reaches-map.json")
+#
 CopyFile(SourceFile="layers/stream-reaches.geojson",DestinationFile="${MapFolder}/layers/stream-reaches.geojson")
+CreateFolder(Folder="${MapFolder}/layers/stream-reaches-doc",CreateParentFolders="True",IfFolderExists="Ignore")
+CopyFile(SourceFile="layers/stream-reaches-doc/stream-reaches.md",DestinationFile="${MapFolder}/layers/stream-reaches-doc/stream-reaches.md")

@@ -191,10 +191,9 @@
         {
           "id": "hist-cbt",
           "name": "Water Supply - CBT Quota and Deliveries",
-          "enabled": "false",
-          "action": "displayMap",
-          "mapProject": "theNameOfTheMapProjectFile",
-          "separatorBefore" : true
+          "separatorBefore" : true,
+          "action": "externalLink",
+          "url": "https://www.northernwater.org/your-water/allottees/cbt-quota"
         },
         {
           "id": "hist-snow",
@@ -227,18 +226,16 @@
         {
           "id": "current-calls",
           "name": "Administration - Calls",
-          "enabled": "false",
-          "action": "displayMap",
-          "mapProject": "theNameOfTheMapProjectFile",
-          "separatorBefore" : true
+          "separatorBefore" : true,
+          "action": "externalLink",
+          "url": "https://dwr.state.co.us/Tools/AdministrativeCalls/Active?submitButton=Submit"
         },
         {
           "id": "current-burnareas",
-          "name": "Environment - Wildfire Burn Areas",
-          "enabled": "false",
-          "action": "displayMap",
-          "mapProject": "theNameOfTheMapProjectFile",
-          "separatorBefore" : true
+          "name": "Environment - Wildfires",
+          "separatorBefore" : true,
+          "action": "externalLink",
+          "url": "https://gacc.nifc.gov/rmcc/"
         },
         {
           "id": "current-boating",
@@ -258,10 +255,9 @@
         {
           "id": "current-drought",
           "name": "Water Supply - Drought",
-          "enabled": "false",
-          "action": "displayMap",
-          "mapProject": "theNameOfTheMapProjectFile",
-          "separatorBefore" : true
+          "separatorBefore" : true,
+          "action": "externalLink",
+          "url": "https://droughtmonitor.unl.edu/CurrentMap/StateDroughtMonitor.aspx?CO"
         },
         {
           "id": "current-ops",
@@ -342,20 +338,25 @@
           "separatorBefore" : true
         },
         {
+          "id": "season-burnareas",
+          "name": "Environment - Wildfire Burn Outlook",
+          "separatorBefore" : true,
+          "action": "externalLink",
+          "url": "https://gacc.nifc.gov/rmcc/outlooks1.php"
+        },
+        {
           "id": "season-cbt",
           "name": "Water Supply - CBT Quota",
-          "enabled": "false",
+          "separatorBefore" : true,
           "action": "externalLink",
-          "url": "https://www.northernwater.org/AllotteeInformation/C-BTQuota.aspx",
-          "separatorBefore" : true
+          "url": "https://www.northernwater.org/your-water/allottees/cbt-quota"
         },
         {
           "id": "season-drought",
           "name": "Water Supply - Drought",
-          "enabled": "false",
-          "action": "displayMap",
-          "mapProject": "theNameOfTheMapProjectFile",
-          "separatorBefore" : true
+          "separatorBefore" : true,
+          "action": "externalLink",
+          "url": "https://www.cpc.ncep.noaa.gov/products/expert_assessment/month_drought.png"
         },
         {
           "id": "season-ops",

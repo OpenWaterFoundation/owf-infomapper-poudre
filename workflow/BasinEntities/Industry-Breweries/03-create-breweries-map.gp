@@ -14,7 +14,7 @@ SetProperty(PropertyName="MapFolder",PropertyType="str",PropertyValue="${MapsFol
 # - GeoMapProjectID:  BreweriesProject
 # - GeoMapID:  BreweriesMap
 CreateGeoMapProject(NewGeoMapProjectID="BreweriesProject",ProjectType="SingleMap",Name="Poudre Breweries",Description="Poudre Breweries",Properties="author:'Open Water Foundation',specificationFlavor:'',specificationVersion:'1.0.0'")
-CreateGeoMap(NewGeoMapID="BreweriesMap",Name="Poudre Breweries",Description="Poudre Breweries",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.5,40.7,10'")
+CreateGeoMap(NewGeoMapID="BreweriesMap",Name="Poudre Breweries",Description="Poudre Breweries",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.5,40.7,10',docPath:'breweries-map.md'")
 AddGeoMapToGeoMapProject(GeoMapProjectID="BreweriesProject",GeoMapID="BreweriesMap")
 # = = = = = = = = = =
 # Background layers:  read layers and add a layer view group
@@ -53,7 +53,7 @@ SetGeoLayerViewCategorizedSymbol(GeoMapID="BreweriesMap",GeoLayerViewGroupID="Wa
 # GeoLayerViewGroupID: BreweriesGroup
 ReadGeoLayerFromGeoJSON(InputFile="layers/breweries.geojson",GeoLayerID="BreweriesLayer",Name="Poudre Breweries",Description="Poudre Breweries")
 AddGeoLayerViewGroupToGeoMap(GeoMapID="BreweriesMap",GeoLayerViewGroupID="BreweriesGroup",Name="Poudre Breweries",Description="Poudre Breweries",Properties="selectedInitial: true",InsertPosition="Top")
-AddGeoLayerViewToGeoMap(GeoLayerID="BreweriesLayer",GeoMapID="BreweriesMap",GeoLayerViewGroupID="BreweriesGroup",GeoLayerViewID="BreweriesLayerView",Name="Poudre Breweries",Description="Poudre Breweries")
+AddGeoLayerViewToGeoMap(GeoLayerID="BreweriesLayer",GeoMapID="BreweriesMap",GeoLayerViewGroupID="BreweriesGroup",GeoLayerViewID="BreweriesLayerView",Name="Poudre Breweries",Description="Poudre Breweries",Properties="docPath:layers/breweries.md")
 # For now use single symbol
 # - TODO smalers 2020-05-22 need to enable a graduated symbol based on flow value
 SetGeoLayerViewSingleSymbol(GeoMapID="BreweriesMap",GeoLayerViewGroupID="BreweriesGroup",GeoLayerViewID="BreweriesLayerView",Name="Poudre Breweries",Description="Poudre Breweries",Properties="symbolImage:/img/brewery2.png")
@@ -64,7 +64,12 @@ SetGeoLayerViewSingleSymbol(GeoMapID="BreweriesMap",GeoLayerViewGroupID="Breweri
 WriteGeoMapProjectToJSON(GeoMapProjectID="BreweriesProject",Indent="2",OutputFile="breweries-map.json")
 CreateFolder(Folder="${MapFolder}/layers",CreateParentFolders="True",IfFolderExists="Ignore")
 CopyFile(SourceFile="breweries-map.json",DestinationFile="${MapFolder}/breweries-map.json")
+CopyFile(SourceFile="breweries-map.md",DestinationFile="${MapFolder}/breweries-map.md")
+#
 CopyFile(SourceFile="layers/co-dwr-water-district-3.geojson",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3.geojson")
 CopyFile(SourceFile="layers/co-dwr-water-district-3-classify-district.csv",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3-classify-district.csv")
-CopyFile(SourceFile="layers/breweries.geojson",DestinationFile="${MapFolder}/layers/breweries.geojson")
+#
 #CopyFile(SourceFile="layers/stream-reaches.geojson",DestinationFile="${MapFolder}/layers/stream-reaches.geojson")
+#
+CopyFile(SourceFile="layers/breweries.geojson",DestinationFile="${MapFolder}/layers/breweries.geojson")
+CopyFile(SourceFile="layers/breweries.md",DestinationFile="${MapFolder}/layers/breweries.md")
