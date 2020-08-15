@@ -38,16 +38,16 @@ junk
 # Basin Entities menu
 # ======================================================
 
-# BasinEntities/Administrative-StreamReaches
-/workflow/BasinEntities/Administrative-CoDwrWaterDistricts/downloads/*
-!/workflow/BasinEntities/Administrative-CoDwrWaterDistricts/downloads/README.md
-/workflow/BasinEntities/Administrative-CoDwrWaterDistricts/layers/*
-!/workflow/BasinEntities/Administrative-CoDwrWaterDistricts/layers/README.md
-!/workflow/BasinEntities/Administrative-CoDwrWaterDistricts/layers/*.csv
-!/workflow/BasinEntities/Administrative-CoDwrWaterDistricts/layers/*.md
-!/workflow/BasinEntities/Administrative-CoDwrWaterDistricts/layers/*doc
+# BasinEntities/Administration-StreamReaches
+/workflow/BasinEntities/Administration-CoDwrWaterDistricts/downloads/*
+!/workflow/BasinEntities/Administration-CoDwrWaterDistricts/downloads/README.md
+/workflow/BasinEntities/Administration-CoDwrWaterDistricts/layers/*
+!/workflow/BasinEntities/Administration-CoDwrWaterDistricts/layers/README.md
+!/workflow/BasinEntities/Administration-CoDwrWaterDistricts/layers/*.csv
+!/workflow/BasinEntities/Administration-CoDwrWaterDistricts/layers/*.md
+!/workflow/BasinEntities/Administration-CoDwrWaterDistricts/layers/*doc
 # Dynamic map configurations
-/workflow/BasinEntities/Administrative-CoDwrWaterDistricts/*.json
+/workflow/BasinEntities/Administration-CoDwrWaterDistricts/*.json
 
 # BasinEntities/Agriculture-Dairies
 /workflow/BasinEntities/Agriculture-Dairies/downloads/*
@@ -210,6 +210,17 @@ junk
 # ======================================================
 # Current Conditions menu
 # ======================================================
+#
+# CurrentConditions/Environment-Wildfires
+/workflow/CurrentConditions/Environment-Wildfires/downloads/*
+!/workflow/CurrentConditions/Environment-Wildfires/downloads/README.md
+/workflow/CurrentConditions/Environment-Wildfires/layers/*
+!/workflow/CurrentConditions/Environment-Wildfires/layers/README.md
+!/workflow/CurrentConditions/Environment-Wildfires/layers/*.csv
+!/workflow/CurrentConditions/Environment-Wildfires/layers/*.md
+!/workflow/CurrentConditions/Environment-Wildfires/layers/*doc
+# Dynamic map configurations
+/workflow/CurrentConditions/Environment-Wildfires/*.json
 
 # CurrentConditions/WaterSupply-Streamflow
 /workflow/CurrentConditions/WaterSupply-Streamflow/downloads/*
