@@ -2,7 +2,7 @@
   "title": "Poudre Basin Information",
   "homePage": "/content-pages/home.md",
   "favicon": "/img/owf-favicon-32x32.ico",
-  "version": "0.2.1 (2020-08-13)",
+  "version": "0.3.0 (2020-08-14)",
   "mainMenu": [
     {
       "id": "BasinEntities",
@@ -11,9 +11,9 @@
       "menus": [
         {
           "id": "entities-codwr-waterdistricts",
-          "name": "Administrative -  Division 1 Water Districts",
+          "name": "Administration -  Division 1 Water Districts",
           "action": "displayMap",
-          "mapProject" : "data-maps/BasinEntities/Administrative-CoDwrWaterDistricts/codwr-waterdistricts-map.json"
+          "mapProject" : "data-maps/BasinEntities/Administration-CoDwrWaterDistricts/codwr-waterdistricts-map.json"
         },
         {
           "id": "entities-counties",
@@ -132,7 +132,7 @@
         },
         {
           "id": "hist-ag-irrigated",
-          "name": "Agriculture - Irrigated Lands",
+          "name": "Agriculture - Irrigated Lands (SLOW)",
           "action": "displayMap",
           "mapProject": "data-maps/HistoricalData/Agriculture-IrrigatedLands/irrigated-lands-map.json"
         },
@@ -159,8 +159,16 @@
           "mapProject": "theNameOfTheMapProjectFile"
         },
         {
-          "id": "hist-env-floods",
+          "id": "hist-env-flows",
           "name": "Environment - Flows",
+          "enabled": "false",
+          "action": "displayMap",
+          "mapProject": "theNameOfTheMapProjectFile"
+        },
+        {
+          "id": "hist-env-wildfires",
+          "name": "Environment - Wildfires",
+          "separatorBefore" : true,
           "enabled": "false",
           "action": "displayMap",
           "mapProject": "theNameOfTheMapProjectFile"
@@ -231,11 +239,11 @@
           "url": "https://dwr.state.co.us/Tools/AdministrativeCalls/Active?submitButton=Submit"
         },
         {
-          "id": "current-burnareas",
+          "id": "current-wildfires",
           "name": "Environment - Wildfires",
           "separatorBefore" : true,
-          "action": "externalLink",
-          "url": "https://gacc.nifc.gov/rmcc/"
+          "action": "displayMap",
+          "mapProject": "data-maps/CurrentConditions/Environment-Wildfires/wildfires-map.json"
         },
         {
           "id": "current-boating",

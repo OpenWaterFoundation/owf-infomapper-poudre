@@ -45,11 +45,11 @@ checkHistoricalDataFolder() {
   fi
 }
 
-copy_BasinEntities_Administrative_WaterDistricts() {
+copy_BasinEntities_Administration_WaterDistricts() {
   checkBasinEntitiesFolder
 
   # Copy stream reaches map folder and files
-  cp -rv ${scriptFolder}/data-maps/BasinEntities/Administrative-CoDwrWaterDistricts ${folder}
+  cp -rv ${scriptFolder}/data-maps/BasinEntities/Administration-CoDwrWaterDistricts ${folder}
 }
 
 copy_BasinEntities_Agriculture_Dairies() {
@@ -136,6 +136,13 @@ copy_BasinEntities_WaterSupply_WaterProviders() {
   cp -rv ${scriptFolder}/data-maps/BasinEntities/WaterSupply-WaterProviders ${folder}
 }
 
+copy_CurrentConditions_Environment_Wildfires() {
+  checkCurrentConditionsFolder
+
+  # Copy current conditions streamflow folder and files
+  cp -rv ${scriptFolder}/data-maps/CurrentConditions/Environment-Wildfires ${folder}
+}
+
 copy_CurrentConditions_WaterSupply_Streamflow() {
   checkCurrentConditionsFolder
 
@@ -171,9 +178,9 @@ runInteractive() {
     echo "Enter an option to update application data.  Menus are listed in order of application."
     echo ""
     echo "App. Config & Content:    c.      Copy main configuration files."
-    echo "Basin Entities:          ec.      Copy Physical - Counties files."
+    echo "Basin Entities:          ea.      Copy Administration - CoDwrWaterDistricts files."
+    echo "                         ec.      Copy Physical - Counties files."
     echo "                         es.      Copy Physical - StreamReaches files."
-    echo "                         ew.      Copy Administrative - CoDwrWaterDistricts files."
     echo "                         eda.     Copy Agriculture - Dairies files."
     echo "                         edi.     Copy Agriculture - Ditches files."
     echo "                         edu.     Copy Education - Organizations files."
@@ -187,7 +194,8 @@ runInteractive() {
     echo ""
     echo "Historical Data:         hl.      Copy IrrigatedLands map files."
     echo ""
-    echo "Current Conditions:      cs.      Copy Streamflow map files."
+    echo "Current Conditions:      cew.     Copy Environment - Wildfires files."
+    echo "                         cws.     Copy WaterSupply - Streamflow files."
     echo ""
     echo "                          a.      Run all copy commands from above."
     echo "                          q.      Quit"
@@ -198,9 +206,9 @@ runInteractive() {
 
     if [ "${answer}" = "a" ]; then
       # Basin Entities
+      copy_BasinEntities_Administration_WaterDistricts
       copy_BasinEntities_Physical_Counties
       copy_BasinEntities_Physical_StreamReaches
-      copy_BasinEntities_Administrative_WaterDistricts
       copy_BasinEntities_Agriculture_Dairies
       copy_BasinEntities_Agriculture_Ditches
       copy_BasinEntities_Education_Organizations
@@ -213,6 +221,7 @@ runInteractive() {
       # Historical Data
       copy_HistoricalData_Agriculture_IrrigatedLands
       # Current Conditions
+      copy_CurrentConditions_Environment_Wildfires
       copy_CurrentConditions_WaterSupply_Streamflow
     elif [ "${answer}" = "c" ]; then
       copyMainConfig
@@ -221,12 +230,12 @@ runInteractive() {
 
     # Basin Entities
 
+    elif [ "${answer}" = "ea" ]; then
+      copy_BasinEntities_Administration_WaterDistricts
     elif [ "${answer}" = "ec" ]; then
       copy_BasinEntities_Physical_Counties
     elif [ "${answer}" = "es" ]; then
       copy_BasinEntities_Physical_StreamReaches
-    elif [ "${answer}" = "ew" ]; then
-      copy_BasinEntities_Administrative_WaterDistricts
     elif [ "${answer}" = "eda" ]; then
       copy_BasinEntities_Agriculture_Dairies
     elif [ "${answer}" = "edi" ]; then
@@ -255,7 +264,9 @@ runInteractive() {
 
     # Current Conditions
 
-    elif [ "${answer}" = "cs" ]; then
+    elif [ "${answer}" = "cew" ]; then
+      copy_CurrentConditions_Environment_Wildfires
+    elif [ "${answer}" = "cws" ]; then
       copy_CurrentConditions_WaterSupply_Streamflow
 
     fi
