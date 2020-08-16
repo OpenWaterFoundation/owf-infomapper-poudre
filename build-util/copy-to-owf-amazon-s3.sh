@@ -196,7 +196,7 @@ parseCommandLine() {
   # Single character options
   optstring="hv"
   # Long options
-  optstringLong="aws-profile::,dryrun,help,nobuild,noupload,nooptimization,upload-datamaps,version"
+  optstringLong="aws-profile::,dryrun,help,nobuild,noupload,nooptimization,upload-assets,upload-datamaps,version"
   # Parse the options using getopt command
   GETOPT_OUT=$(getopt --options $optstring --longoptions $optstringLong -- "$@")
   exitCode=$?
@@ -248,8 +248,13 @@ parseCommandLine() {
         doUpload="no"
         shift 1
         ;;
+      --upload-assets) # --upload-assets  Indicate to only upload assets
+        logInfo "--upload-assets detected - will upload only 'assets' folder"
+        uploadOnlyAssets="yes"
+        shift 1
+        ;;
       --upload-datamaps) # --upload-datamaps  Indicate to only upload data-maps
-        logInfo "--upload-datamaps detected - will upload only 'data-maps' folder"
+        logInfo "--upload-datamaps detected - will upload only 'assets/app/data-maps' folder"
         uploadOnlyDataMaps="yes"
         shift 1
         ;;
@@ -289,6 +294,7 @@ printUsage() {
   echoStderr "--nobuild               Do not run 'ng build...' to create the 'dist' folder contents, useful for testing."
   echoStderr "--noupload              Do not upload the staging area 'dist' folder contents, useful for testing."
   echoStderr "--nooptimization        Set --optimization=false for 'ng build' useful for troubleshooting."
+  echoStderr "--upload-assets         Only upload (sync) the 'assets' folder."
   echoStderr "--upload-datamaps       Only upload (sync) the 'assets/app/data-maps' folder."
   echoStderr "-v or --version         Print the version and copyright/license notice."
   echoStderr ""
@@ -377,9 +383,17 @@ uploadDist() {
   echo "AppVersion = ${version}" >> ${uploadLogFile}
   echo "InfoMapperVersion = ${infoMapperVersion}" >> ${uploadLogFile}
 
-  if [ "${uploadOnlyDataMaps}" = "yes" ]; then
+  if [ "${uploadOnlyAssets}" = "yes" ]; then
+    # Only updating assets
+    # - adjust the source folder and URL to be more specific
+    echo "Only uploading 'assets' files."
+    infoMapperDistAppFolder="${infoMapperDistAppFolder}/assets"
+    s3FolderVersionUrl="${s3FolderVersionUrl}/assets"
+    s3FolderLatestUrl="${s3FolderLatestUrl}/assets"
+  elif [ "${uploadOnlyDataMaps}" = "yes" ]; then
     # Only updating data-maps
     # - adjust the source folder and URL to be more specific
+    # - put this after so the most specific folder is used
     echo "Only uploading 'assets/app/data-maps' files."
     infoMapperDistAppFolder="${infoMapperDistAppFolder}/assets/app/data-maps"
     s3FolderVersionUrl="${s3FolderVersionUrl}/assets/app/data-maps"
@@ -472,6 +486,11 @@ dryrun=""
 # Default is to build the dist and upload
 doBuild="yes"
 doUpload="yes"
+# Only update /assets
+# - used when updating data files and configurations
+# - should work OK but may need to refine to only upload data layers
+#   but no configuration files
+uploadOnlyAssets="yes"
 # Only update /assets/app/data-maps
 # - used when updating data layers but not the InfoMapper
 # - should work OK but may need to refine to only upload data layers
