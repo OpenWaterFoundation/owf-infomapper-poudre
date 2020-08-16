@@ -57,7 +57,14 @@ buildDist() {
   # - this should be found in the Windows PATH, for example C:\Users\user\AppData\Roaming\npm\ng
   logInfo "Start running:  ng build --prod=true --aot=true --baseHref=${ngBuildHrefOpt} --extractCss=true --namedChunks=false --outputHashing=all --sourceMap=false ${optimizationArg}"
   ng build --prod=true --aot=true --baseHref=${ngBuildHrefOpt} --extractCss=true --namedChunks=false --outputHashing=all --sourceMap=false ${optimizationArg}
-  logInfo "...done running 'ng build...'"
+  exitCode=$?
+  logInfo "...done running 'ng build... (exit code ${exitCode})'"
+  if [ "${exitCode}" -ne 0 ]; then
+    logError "Error ${exitCode} running 'ng build...'"
+    logError "May be an 'ng' error."
+    logError "Or may have a terminal open in the 'dist' build folder."
+    exit ${exitCode}
+  fi
 
   # Fix the distribution index.html file as per:  
   #   Problem:   https://github.com/angular/angular/issues/30835
@@ -189,7 +196,7 @@ parseCommandLine() {
   # Single character options
   optstring="hv"
   # Long options
-  optstringLong="aws-profile::,dryrun,help,nobuild,noupload,nooptimization,version"
+  optstringLong="aws-profile::,dryrun,help,nobuild,noupload,nooptimization,upload-datamaps,version"
   # Parse the options using getopt command
   GETOPT_OUT=$(getopt --options $optstring --longoptions $optstringLong -- "$@")
   exitCode=$?
@@ -237,8 +244,13 @@ parseCommandLine() {
         shift 1
         ;;
       --noupload) # --noupload  Indicate to create staging area dist but not upload
-        logInfo "--noupload detected - will not upload 'dist' contents"
+        logInfo "--noupload detected - will not upload 'dist' folder"
         doUpload="no"
+        shift 1
+        ;;
+      --upload-datamaps) # --upload-datamaps  Indicate to only upload data-maps
+        logInfo "--upload-datamaps detected - will upload only 'data-maps' folder"
+        uploadOnlyDataMaps="yes"
         shift 1
         ;;
       -v|--version) # -v or --version  Print the program version
@@ -250,7 +262,7 @@ parseCommandLine() {
         break
         ;;
       *) # Unknown option
-        logError "" 
+        logError ""
         logError "Invalid option $1." >&2
         printUsage
         exit 1
@@ -265,7 +277,8 @@ printUsage() {
   echoStderr ""
   echoStderr "Usage:  $programName --aws-profile=profile"
   echoStderr ""
-  echoStderr "Copy the Poudre Information Portal application files to the Amazon S3 static website folder(s):"
+  echoStderr "Copy the Poudre Information Portal application files to the Amazon S3 static website folder(s),"
+  echoStderr "using the AWS S3 sync capabilities."
   echoStderr ""
   echoStderr "               ${s3FolderVersionUrl}"
   echoStderr "  optionally:  ${s3FolderLatestUrl}"
@@ -276,6 +289,7 @@ printUsage() {
   echoStderr "--nobuild               Do not run 'ng build...' to create the 'dist' folder contents, useful for testing."
   echoStderr "--noupload              Do not upload the staging area 'dist' folder contents, useful for testing."
   echoStderr "--nooptimization        Set --optimization=false for 'ng build' useful for troubleshooting."
+  echoStderr "--upload-datamaps       Only upload (sync) the 'assets/app/data-maps' folder."
   echoStderr "-v or --version         Print the version and copyright/license notice."
   echoStderr ""
 }
@@ -338,7 +352,7 @@ syncFiles() {
   fi
 }
 
-# Upload the staging area files to S3.
+# Upload the staging area 'dist' files to S3.
 uploadDist() {
   logInfo "Changing to:  ${scriptFolder}"
   cd ${scriptFolder}
@@ -363,12 +377,24 @@ uploadDist() {
   echo "AppVersion = ${version}" >> ${uploadLogFile}
   echo "InfoMapperVersion = ${infoMapperVersion}" >> ${uploadLogFile}
 
+  if [ "${uploadOnlyDataMaps}" = "yes" ]; then
+    # Only updating data-maps
+    # - adjust the source folder and URL to be more specific
+    echo "Only uploading 'assets/app/data-maps' files."
+    infoMapperDistAppFolder="${infoMapperDistAppFolder}/assets/app/data-maps"
+    s3FolderVersionUrl="${s3FolderVersionUrl}/assets/app/data-maps"
+    s3FolderLatestUrl="${s3FolderLatestUrl}/assets/app/data-maps"
+  fi
+
   # First upload to the version folder
-  echo "Uploading application ${version} version"
+  echo "Uploading (aws sync) application ${version} version"
   echo "  from: ${infoMapperDistAppFolder}"
   echo "    to: ${s3FolderVersionUrl}"
-  read -p "Continue [Y/n]? " answer
-  if [ -z "${answer}" -o "${answer}" = "y" -o "${answer}" = "Y" ]; then
+  echo "Uploading application ${version} version."
+  read -p "Continue [Y/n/q] (if 'n', will still be able to upload 'latest')? " answer
+  if [ "${answer}" = "q" -o "${answer}" = "Q" ]; then
+    exit 0
+  elif [ -z "${answer}" -o "${answer}" = "y" -o "${answer}" = "Y" ]; then
     logInfo "Starting aws sync of ${version} copy..."
     syncFiles ${s3FolderVersionUrl}
     logInfo "...done with aws sync of ${version} copy."
@@ -379,8 +405,10 @@ uploadDist() {
   echo "Uploading Angular 'latest' version"
   echo "  from: ${infoMapperDistAppFolder}"
   echo "    to: ${s3FolderLatestUrl}"
-  read -p "Continue [Y/n]? " answer
-  if [ -z "${answer}" -o "${answer}" = "y" -o "${answer}" = "Y" ]; then
+  read -p "Continue [Y/n/q]? " answer
+  if [ "${answer}" = "q" -o "${answer}" = "Q" ]; then
+    exit 0
+  elif [ -z "${answer}" -o "${answer}" = "y" -o "${answer}" = "Y" ]; then
     logInfo "Starting aws sync of 'latest' copy..."
     syncFiles ${s3FolderLatestUrl}
     logInfo "...done with aws sync of 'latest' copy."
@@ -444,6 +472,11 @@ dryrun=""
 # Default is to build the dist and upload
 doBuild="yes"
 doUpload="yes"
+# Only update /assets/app/data-maps
+# - used when updating data layers but not the InfoMapper
+# - should work OK but may need to refine to only upload data layers
+#   but no configuration files
+uploadOnlyDataMaps="yes"
 # Default is optimization for 'ng build', which is the ng default.
 doOptimization="yes"
 parseCommandLine "$@"

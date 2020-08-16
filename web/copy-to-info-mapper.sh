@@ -177,7 +177,7 @@ runInteractive() {
     echo ""
     echo "Enter an option to update application data.  Menus are listed in order of application."
     echo ""
-    echo "App. Config & Content:    c.      Copy main configuration files."
+    echo "App. Config & Content:   c.       Copy main configuration files."
     echo "Basin Entities:          ea.      Copy Administration - CoDwrWaterDistricts files."
     echo "                         ec.      Copy Physical - Counties files."
     echo "                         es.      Copy Physical - StreamReaches files."
@@ -197,8 +197,8 @@ runInteractive() {
     echo "Current Conditions:      cew.     Copy Environment - Wildfires files."
     echo "                         cws.     Copy WaterSupply - Streamflow files."
     echo ""
-    echo "                          a.      Run all copy commands from above."
-    echo "                          q.      Quit"
+    echo "                         a.       Run all copy commands from above."
+    echo "                         q.       Quit"
     echo ""
     read -p "Enter command: " answer
 

@@ -486,6 +486,13 @@
           "action": "contentPage",
           "align": "right",
           "markdownFile": "content-pages/release-notes.md"
+        },
+        {
+          "id": "report-issue",
+          "name": "Report an Issue",
+          "action": "contentPage",
+          "align": "right",
+          "markdownFile": "content-pages/report-issue.md"
         }
       ]
     }
