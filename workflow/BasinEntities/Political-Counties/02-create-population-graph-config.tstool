@@ -9,7 +9,7 @@
 # - AssetsFolder is where map files exist for the InfoMapper tool
 SetProperty(PropertyName="AppFolder",PropertyType=String,PropertyValue="../../../web")
 SetProperty(PropertyName="MapsFolder",PropertyType=String,PropertyValue="${AppFolder}/data-maps")
-SetProperty(PropertyName="MapFolder",PropertyType=String,PropertyValue="${MapsFolder}/BasinEntities/Physical-Counties")
+SetProperty(PropertyName="MapFolder",PropertyType=String,PropertyValue="${MapsFolder}/BasinEntities/Political-Counties")
 SetProperty(PropertyName="TsFolder",PropertyType=String,PropertyValue="${MapFolder}/ts")
 CreateFolder(Folder="${TsFolder}",CreateParentFolders=True,IfFolderExists=Ignore)
 #
