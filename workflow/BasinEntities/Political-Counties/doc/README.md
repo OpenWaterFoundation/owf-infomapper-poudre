@@ -1,6 +1,6 @@
-# Physical-Counties/doc #
+# Political-Counties/doc #
 
-This folder contains files for the ***Physical - Counties*** product.
+This folder contains files for the ***Political - Counties*** product.
 
 * [Introduction](#introduction)
 * [Update Frequency](#update-frequency)
@@ -12,7 +12,7 @@ This folder contains files for the ***Physical - Counties*** product.
 
 ## Introduction ##
 
-The ***Physical - Counties*** map indicates counties associated with the Poudre Basin,
+The ***Political - Counties*** map indicates counties associated with the Poudre Basin,
 in particular those that supply and consume water.
 The counties layer is a foundational layer that is displayed on other maps.
 

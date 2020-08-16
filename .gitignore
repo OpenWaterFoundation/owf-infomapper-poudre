@@ -126,27 +126,27 @@ junk
 # Dynamic map configurations
 /workflow/BasinEntities/Municipal-Municipalities/*.json
 
-# BasinEntities/Physical-Counties/
+# BasinEntities/Political-Counties/
 # Dynamic map configurations
-/workflow/BasinEntities/Physical-Counties/*.json
+/workflow/BasinEntities/Political-Counties/*.json
 # downloads/
-/workflow/BasinEntities/Physical-Counties/downloads/*
-!/workflow/BasinEntities/Physical-Counties/downloads/README.md
+/workflow/BasinEntities/Political-Counties/downloads/*
+!/workflow/BasinEntities/Political-Counties/downloads/README.md
 # layers/
 # - csv are layer classification files
 # - md are Markdown filees to document layers
-/workflow/BasinEntities/Physical-Counties/layers/*
-!/workflow/BasinEntities/Physical-Counties/layers/README.md
-!/workflow/BasinEntities/Physical-Counties/layers/*.csv
-!/workflow/BasinEntities/Physical-Counties/layers/*.md
-!/workflow/BasinEntities/Physical-Counties/layers/*doc
+/workflow/BasinEntities/Political-Counties/layers/*
+!/workflow/BasinEntities/Political-Counties/layers/README.md
+!/workflow/BasinEntities/Political-Counties/layers/*.csv
+!/workflow/BasinEntities/Political-Counties/layers/*.md
+!/workflow/BasinEntities/Political-Counties/layers/*doc
 # ts/
 # - ignore generated time series files
-/workflow/BasinEntities/Physical-Counties/ts/*
-!/workflow/BasinEntities/Physical-Counties/ts/README.md
+/workflow/BasinEntities/Political-Counties/ts/*
+!/workflow/BasinEntities/Political-Counties/ts/README.md
 # graphs/
 # - ignore images created for prototype
-/workflow/BasinEntities/Physical-Counties/graphs/*.png
+/workflow/BasinEntities/Political-Counties/graphs/*.png
 
 # BasinEntities/Physical-StreamReaches
 /workflow/BasinEntities/Physical-StreamReaches/downloads/*

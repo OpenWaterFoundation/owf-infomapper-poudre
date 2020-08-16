@@ -17,15 +17,16 @@
         },
         {
           "id": "entities-counties",
-          "name": "Physical - Counties",
+          "name": "Political - Counties",
           "action": "displayMap",
-          "mapProject" : "data-maps/BasinEntities/Physical-Counties/counties-map.json",
+          "mapProject" : "data-maps/BasinEntities/Political-Counties/counties-map.json",
           "separatorBefore" : true
         },
         {
           "id": "entities-hucs",
           "name": "Physical - Hydrologic Unit Codes",
           "enabled": "false",
+          "separatorBefore" : true,
           "action": "displayMap",
           "mapProject" : "data-maps/BasinEntities/Physical-Hucs/hucs-map.json"
         },
@@ -362,7 +363,6 @@
         {
           "id": "season-drought",
           "name": "Water Supply - Drought",
-          "separatorBefore" : true,
           "action": "externalLink",
           "url": "https://www.cpc.ncep.noaa.gov/products/expert_assessment/month_drought.png"
         },
@@ -371,24 +371,21 @@
           "name": "Water Supply - Operations",
           "enabled": "false",
           "action": "displayMap",
-          "mapProject": "theNameOfTheMapProjectFile",
-          "separatorBefore" : true
+          "mapProject": "theNameOfTheMapProjectFile"
         },
         {
           "id": "season-reservoirs",
           "name": "Water Supply - Reservoirs (Storage)",
           "enabled": "false",
           "action": "displayMap",
-          "mapProject": "theNameOfTheMapProjectFile",
-          "separatorBefore" : true
+          "mapProject": "theNameOfTheMapProjectFile"
         },
         {
           "id": "season-snow",
           "name": "Water Supply - Snow",
           "enabled": "false",
           "action": "displayMap",
-          "mapProject": "theNameOfTheMapProjectFile",
-          "separatorBefore" : true
+          "mapProject": "theNameOfTheMapProjectFile"
         }
       ]
     },
@@ -417,16 +414,14 @@
           "name": "Environment - Open Space",
           "enabled": "false",
           "action": "displayMap",
-          "mapProject": "theNameOfTheMapProjectFile",
-          "separatorBefore" : true
+          "mapProject": "theNameOfTheMapProjectFile"
         },
         {
           "id": "planning-smps",
           "name": "Environment - Stream Management & Watershed Plans",
           "enabled": "false",
           "action": "displayMap",
-          "mapProject" : "theNameOfTheMapProjectFile",
-          "separatorBefore" : true
+          "mapProject" : "theNameOfTheMapProjectFile"
         },
         {
           "id": "planning-muni-growth",
@@ -441,16 +436,14 @@
           "name": "Municipal - Major Projects",
           "enabled": "false",
           "action": "displayMap",
-          "mapProject": "theNameOfTheMapProjectFile",
-          "separatorBefore" : true
+          "mapProject": "theNameOfTheMapProjectFile"
         },
         {
           "id": "planning-floodplains",
           "name": "Municipal - Stormwater/Floodplain Plans",
           "enabled": "false",
           "action": "displayMap",
-          "mapProject": "theNameOfTheMapProjectFile",
-          "separatorBefore" : true
+          "mapProject": "theNameOfTheMapProjectFile"
         }
       ]
     },
