@@ -1,6 +1,6 @@
 # Create a GeoMapProject file for instream flow reaches for the Poudre Basin
 # - read the previously downloaded layer file
-# - output to the dist/info-mapper folder for use by the InfoMapper
+# - output to the web folder for use by the InfoMapper
 # - layer view groups are added from 1st drawn (bottom) to last drawn (top)
 #
 # Define properties to control processing.

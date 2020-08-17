@@ -34,7 +34,7 @@ buildDist() {
     # <head>...<base href=".">
     ngBuildHrefOpt="."
   elif [ "$hrefMode" = "path" ]; then
-    ngBuildHrefOpt="/info-mapper/"
+    ngBuildHrefOpt="/infomapper/"
   else
     logError ""
     logError "Unknown hrefMode=$hrefMode"
@@ -443,21 +443,21 @@ getUserLogin
 
 # Get the folder where this script is located since it may have been run from any folder
 scriptFolder=$(cd $(dirname "$0") && pwd)
-# mainFolder is info-mapper
+# mainFolder is infomapper
 repoFolder=$(dirname ${scriptFolder})
 webFolder=${repoFolder}/web
 gitReposFolder=$(dirname ${repoFolder})
 # Start must be consistent with Info Mapper...
-infoMapperRepoFolder="${gitReposFolder}/owf-app-info-mapper-ng"
-infoMapperMainFolder="${infoMapperRepoFolder}/info-mapper"
+infoMapperRepoFolder="${gitReposFolder}/owf-app-infomapper-ng"
+infoMapperMainFolder="${infoMapperRepoFolder}/infomapper"
 infoMapperDistFolder="${infoMapperMainFolder}/dist"
 # TODO smalers 2020-04-20 is the app folder redundant?
 # - it is not copied to S3
-infoMapperDistAppFolder="${infoMapperDistFolder}/info-mapper"
+infoMapperDistAppFolder="${infoMapperDistFolder}/infomapper"
 # ...end must match Info Mapper
 programName=$(basename $0)
-programVersion="1.3.2"
-programVersionDate="2020-07-14"
+programVersion="1.4.0"
+programVersionDate="2020-08-17"
 logInfo "scriptFolder:             ${scriptFolder}"
 logInfo "Program name:             ${programName}"
 logInfo "repoFolder:               ${repoFolder}"

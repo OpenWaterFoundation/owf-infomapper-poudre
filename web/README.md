@@ -6,37 +6,31 @@ which is a web application that provides access to maps and other content.
 
 ```
 git-repos/
-  owf-app-info-mapper-ng/
-    info-mapper/
+  owf-app-infomapper-ng/
+    infomapper/
       src/
         assets/
           app/
-  owf-app-poudre-dashboard-ng/
+  owf-infomapper-poudre/
     web/
-      info-mapper-local/                                             Files that need to be version-controlled.
-      copy-local-to-info-mapper.sh                                   Script to copy info-mapper-local/ files to info-mapper/.
+      app-config.json             Application configuration file.
+      content-pages/              Content pages that are referenced in the app-config.json.
+      copy-to-infomapper.sh       Script to copy 'web' files to InfoMapper infomapper/src/assets.
+      data-maps/                  Map configurations and supporting layers and time series files.
+      img/                        Images for the application, such as used for map markers.
 ```
 
-The above symbolic link is created by the `build-util/create-info-mapper-symlinks.sh` script.
-The symbolic link is defined above to avoid issues with Angular not finding content in a linked folder.
-For example, in Git Bash the configuration is:
-
-```
-drwxr-xr-x 1 sam 197121    0 May 12 12:33 ./
-drwxr-xr-x 1 sam 197121    0 May  9 23:25 ../
-lrwxrwxrwx 1 sam 197121   98 May 12 12:33 info-mapper -> /c/Users/sam/owf-dev/App-Poudre-Portal/git-repos/owf-app-info-mapper-ng/info-mapper/src/assets/app/
--rw-r--r-- 1 sam 197121 1080 May  9 22:55 README.md
-```
-
-The main application configuration file (`dist/info-mapper/app-config.json`) should be edited to indicate
+An attempt was made to use symbolic links to/from InfoMapper, but did not work on Windows.
+Therefore a copy strategy is now being used.
 menus and corresponding content.
 
-Workflow commands in this project should automate creation of map configuration files,
+Workflow commands in the main 'workflow' folder automate creation of map configuration files,
 time series, and other content so that Info Mapper can display the content.
 
 Content that is dynamically regenerated should be listed in `.gitgnore`.
 Snapshots of published content can be saved in versioned website folders,
 using the `version` defined in the `app-config.json` file.
+For example, published websites on Amazon S3 have a complete list of data files.
 
 **Because published content in the `dist` folder exist in the InfoMapper repository,
-appropriate `.gitignore` settings should be defined in both repositories to avoid committing dynamic content.**
+appropriate `.gitignore` settings must be are defined in both repositories to avoid committing dynamic content.**

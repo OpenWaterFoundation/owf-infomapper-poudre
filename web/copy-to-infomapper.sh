@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Copy  files to 'info-mapper/src/assets/app' folder.
+# Copy  files to 'infomapper/src/assets/app' folder.
 # Brute force way to provide content to InfoMapper and version control.
 # A better way would be to symbolically link InfoMapper 'app' to this `web` folder,
 # but that does not seem to work.
@@ -290,8 +290,8 @@ runInteractive() {
 scriptFolder=$(cd $(dirname "$0") && pwd)
 repoFolder=$(dirname $scriptFolder)
 gitReposFolder=$(dirname $repoFolder)
-infoMapperRepoFolder=${gitReposFolder}/owf-app-info-mapper-ng
-infoMapperFolder=${infoMapperRepoFolder}/info-mapper
+infoMapperRepoFolder=${gitReposFolder}/owf-app-infomapper-ng
+infoMapperFolder=${infoMapperRepoFolder}/infomapper
 appFolder=${infoMapperFolder}/src/assets/app
 
 echo "Folders for application:"

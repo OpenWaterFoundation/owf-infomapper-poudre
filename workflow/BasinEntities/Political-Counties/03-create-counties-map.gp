@@ -1,7 +1,7 @@
 # Create a GeoMapProject file for counties for the Poudre Basin
 # - read the previously downloaded layer file
 # - filter out counties that intersect the Poudre Basin
-# - output to the dist/info-mapper folder for use by the InfoMapper
+# - output to the web folder for use by the InfoMapper
 # - layer view groups are added from 1st drawn (bottom) to last drawn (top)
 #
 # Define properties to control processing.

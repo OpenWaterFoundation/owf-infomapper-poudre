@@ -29,4 +29,4 @@ Click on the information "i" icons to view documentation about maps, layer group
 **This website is under development.  Menus that are disabled are an outline for features that will be phased in over
 time as funding is acquired for development.**
 See the [Poudre Basin Information repository issues](https://github.com/OpenWaterFoundation/owf-infomapper-poudre/issues)
-and [InfoMapper software repository issues](https://github.com/OpenWaterFoundation/owf-app-info-mapper-ng/issues) for a list of work backlog.
+and [InfoMapper software repository issues](https://github.com/OpenWaterFoundation/owf-app-infomapper-ng/issues) for a list of work backlog.

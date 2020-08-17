@@ -2,7 +2,7 @@
 # - read the previously downloaded layer file
 # - focus on Poudre Basin
 # - TODO smalers 2020-08-16 need to re-add county boundaries and county and federal districts
-# - output to the dist/info-mapper folder for use by the InfoMapper
+# - output to the web folder for use by the InfoMapper
 # - layer view groups are added from 1st drawn (bottom) to last drawn (top)
 #
 # Define properties to control processing.
