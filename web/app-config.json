@@ -23,6 +23,12 @@
           "separatorBefore" : true
         },
         {
+          "id": "entities-legislative",
+          "name": "Political - Legislative Districts",
+          "action": "displayMap",
+          "mapProject" : "data-maps/BasinEntities/Political-LegislativeDistricts/legislative-districts-map.json"
+        },
+        {
           "id": "entities-hucs",
           "name": "Physical - Hydrologic Unit Codes",
           "enabled": "false",

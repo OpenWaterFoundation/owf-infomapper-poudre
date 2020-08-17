@@ -148,6 +148,17 @@ junk
 # - ignore images created for prototype
 /workflow/BasinEntities/Political-Counties/graphs/*.png
 
+# BasinEntities/Political-LegislativeDistricts
+/workflow/BasinEntities/Political-LegislativeDistricts/downloads/*
+!/workflow/BasinEntities/Political-LegislativeDistricts/downloads/README.md
+/workflow/BasinEntities/Political-LegislativeDistricts/layers/*
+!/workflow/BasinEntities/Political-LegislativeDistricts/layers/README.md
+!/workflow/BasinEntities/Political-LegislativeDistricts/layers/*.csv
+!/workflow/BasinEntities/Political-LegislativeDistricts/layers/*.md
+!/workflow/BasinEntities/Political-LegislativeDistricts/layers/*doc
+# Dynamic map configurations
+/workflow/BasinEntities/Political-LegislativeDistricts/*.json
+
 # BasinEntities/Physical-StreamReaches
 /workflow/BasinEntities/Physical-StreamReaches/downloads/*
 !/workflow/BasinEntities/Physical-StreamReaches/downloads/README.md
