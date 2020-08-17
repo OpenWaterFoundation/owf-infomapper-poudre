@@ -6,19 +6,19 @@
 
 # Get the folder where this script is located since it may have been run from any folder
 scriptFolder=$(cd $(dirname "$0") && pwd)
-# mainFolder is info-mapper
+# mainFolder is infomapper
 repoFolder=$(dirname ${scriptFolder})
 webFolder=${repoFolder}/web
 gitReposFolder=$(dirname ${repoFolder})
 # Start must be consistent with Info Mapper...
-infoMapperRepoFolder="${gitReposFolder}/owf-app-info-mapper-ng"
-infoMapperMainFolder="${infoMapperRepoFolder}/info-mapper"
+infoMapperRepoFolder="${gitReposFolder}/owf-app-infomapper-ng"
+infoMapperMainFolder="${infoMapperRepoFolder}/infomapper"
 infoMapperDistFolder="${infoMapperMainFolder}/dist"
 # TODO smalers 2020-04-20 is the app folder redundant?
 # - it is not copied to S3
-infoMapperDistAppFolder="${infoMapperDistFolder}/info-mapper"
+infoMapperDistAppFolder="${infoMapperDistFolder}/infomapper"
 
-# Change to the dist folder, which is the 'info-mapper' folder.
+# Change to the dist folder, which is the 'infomapper' folder.
 cd ${infoMapperDistAppFolder}
 
 # Run the python server on port 8000

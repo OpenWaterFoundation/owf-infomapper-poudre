@@ -3,5 +3,5 @@
 # - assumes that local folder name will match the repository name
 owf-infomapper-poudre
 # The Info Mapper software is used to serve the portal.
-owf-app-info-mapper-ng
+owf-app-infomapper-ng
 # Do not include the InfoMapper documentation - that is edited with the InforMapper.
