@@ -60,15 +60,23 @@ SetGeoLayerViewSingleSymbol(GeoMapID="CurrentWildfiresMap",GeoLayerViewGroupID="
 # Wildfire Perimeters:  read layer and add to a layer view group.
 # GeoLayerViewGroupID: WildfiresGroup
 # TODO smalers 2020-08-14 Use a file for now but get the WFS working
-SetProperty(PropertyName="UseFile",PropertyType="str",PropertyValue="true")
-If(Name="UseFileIf",Condition="${UseFile} == true")
-    # If reading from a file...
+# - set to LocalFile for prepreocessed GeoJSON file
+# - set to GeoJSONService for GeoJSON returned from service
+# - set to WFS to use WFS
+SetProperty(PropertyName="PerimeterSource",PropertyType="str",PropertyValue="LocalFile")
+# SetProperty(PropertyName="PerimeterSource",PropertyType="str",PropertyValue="WFS")
+If(Name="UseFileIf",Condition="${PerimeterSource} == LocalFile")
+    # Reading from a local file...
     ReadGeoLayerFromGeoJSON(InputFile="layers/wildfire-perimeters.geojson",GeoLayerID="WildfirePerimetersLayer",Name="Colorado Wildfire Perimeters",Description="Colorado wildfire Perimeters from the National Interagency Fire Center")
 EndIf(Name="UseFileIf")
-If(Name="NotUseFileIf",Condition="${UseFile} != true")
+If(Name="UseGeoJSONServiceIf",Condition="${PerimeterSource} == GeoJSONService")
     # If reading from the FWS...
     ReadGeoLayerFromGeoJSON(InputFile="https://opendata.arcgis.com/datasets/5da472c6d27b4b67970acc7b5044c862_0.geojson",GeoLayerID="WildfirePerimetersLayer",Name="Colorado Wildfire Perimeters",Description="Colorado wildfire Perimeters from the National Interagency Fire Center",Properties="sourceFormat:WFS")
-EndIf(Name="NotUseFileIf")
+EndIf(Name="UseGeoJSONServiceIf")
+If(Name="UseWFSIf",Condition="${PerimeterSource} == WFS")
+    # If reading from the WFS...
+    ReadGeoLayerFromWebFeatureService(InputUrl="https://services3.arcgis.com/T4QMspbfLg3qTGWY/arcgis/rest/services/Public_Wildfire_Perimeters_View/FeatureServer/0/query?outFields=*&where=1%3D1",GeoLayerID="WildfirePerimetersLayer",Name="Colorado Wildfire Perimiters",Description="Colorado wildfire perimeters web service")
+EndIf(Name="UseWFSIf")
 AddGeoLayerViewGroupToGeoMap(GeoMapID="CurrentWildfiresMap",GeoLayerViewGroupID="WildfiresGroup",Name="Colorado Wildfires",Description="Colorado wildfires",Properties="selectedInitial: true",InsertPosition="Top")
 AddGeoLayerViewToGeoMap(GeoLayerID="WildfirePerimetersLayer",GeoMapID="CurrentWildfiresMap",GeoLayerViewGroupID="WildfiresGroup",GeoLayerViewID="WildfirePerimetersLayerView",Name="Colorado Wildfires Perimeters",Description="Colorado wildfire perimeters from the National Interagency Fire Center",Properties="docPath:layers/wildfire-perimeters.md")
 SetGeoLayerViewSingleSymbol(GeoMapID="CurrentWildfiresMap",GeoLayerViewGroupID="WildfiresGroup",GeoLayerViewID="WildfirePerimetersLayerView",Name="WildfirePerimetersSymbol",Description="Wildfire Perimeters symbol",Properties="color:#ff0000,fillColor:#ff0000,fillOpacity:0.3")
