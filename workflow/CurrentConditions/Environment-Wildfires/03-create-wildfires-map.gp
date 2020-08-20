@@ -62,9 +62,10 @@ SetGeoLayerViewSingleSymbol(GeoMapID="CurrentWildfiresMap",GeoLayerViewGroupID="
 # TODO smalers 2020-08-14 Use a file for now but get the WFS working
 # - set to LocalFile for prepreocessed GeoJSON file
 # - set to GeoJSONService for GeoJSON returned from service
-# - set to WFS to use WFS
-SetProperty(PropertyName="PerimeterSource",PropertyType="str",PropertyValue="LocalFile")
-# SetProperty(PropertyName="PerimeterSource",PropertyType="str",PropertyValue="WFS")
+# - set to WFSGeoJSON to use WFS and return a GeoJSON
+# SetProperty(PropertyName="PerimeterSource",PropertyType="str",PropertyValue="LocalFile")
+#SetProperty(PropertyName="PerimeterSource",PropertyType="str",PropertyValue="WFSGeoJSON")
+SetProperty(PropertyName="PerimeterSource",PropertyType="str",PropertyValue="GeoJSONFromWFS")
 If(Name="UseFileIf",Condition="${PerimeterSource} == LocalFile")
     # Reading from a local file...
     ReadGeoLayerFromGeoJSON(InputFile="layers/wildfire-perimeters.geojson",GeoLayerID="WildfirePerimetersLayer",Name="Colorado Wildfire Perimeters",Description="Colorado wildfire Perimeters from the National Interagency Fire Center")
@@ -73,10 +74,40 @@ If(Name="UseGeoJSONServiceIf",Condition="${PerimeterSource} == GeoJSONService")
     # If reading from the FWS...
     ReadGeoLayerFromGeoJSON(InputFile="https://opendata.arcgis.com/datasets/5da472c6d27b4b67970acc7b5044c862_0.geojson",GeoLayerID="WildfirePerimetersLayer",Name="Colorado Wildfire Perimeters",Description="Colorado wildfire Perimeters from the National Interagency Fire Center",Properties="sourceFormat:WFS")
 EndIf(Name="UseGeoJSONServiceIf")
-If(Name="UseWFSIf",Condition="${PerimeterSource} == WFS")
+If(Name="UseWFSGeoJSONIf",Condition="${PerimeterSource} == WFSGeoJSON")
     # If reading from the WFS...
-    ReadGeoLayerFromWebFeatureService(InputUrl="https://services3.arcgis.com/T4QMspbfLg3qTGWY/arcgis/rest/services/Public_Wildfire_Perimeters_View/FeatureServer/0/query?outFields=*&where=1%3D1",GeoLayerID="WildfirePerimetersLayer",Name="Colorado Wildfire Perimiters",Description="Colorado wildfire perimeters web service")
-EndIf(Name="UseWFSIf")
+    # Does not work...
+    # ReadGeoLayerFromWebFeatureService(InputUrl="https://services3.arcgis.com/T4QMspbfLg3qTGWY/arcgis/rest/services/Public_Wildfire_Perimeters_View/FeatureServer/0/query?outFields=*&where=1%3D1",GeoLayerID="WildfirePerimetersLayer",Name="Colorado Wildfire Perimiters",Description="Colorado wildfire perimeters web service")
+    # Works but URL is too long
+    # - TODO smalers 2020-08-19
+    # - Can return GeoJSON, but in this case just use ReadGeoLayerFromGeoJSON
+    # ReadGeoLayerFromWebFeatureService(InputUrl="https://services3.arcgis.com/T4QMspbfLg3qTGWY/ArcGIS/rest/services/Public_Wildfire_Perimeters_View/FeatureServer/0/query?where=1%3D1&objectIds=&time=&geometry=-109.05%2C36.99%2C-102.05%2C41&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelContains&resultType=none&distance=0.0&units=esriSRUnit_Meter&returnGeodetic=false&outFields=*&returnGeometry=true&returnCentroid=false&featureEncoding=esriDefault&multipatchOption=xyFootprint&maxAllowableOffset=&geometryPrecision=&outSR=&datumTransformation=&applyVCSProjection=false&returnIdsOnly=false&returnUniqueIdsOnly=false&returnCountOnly=false&returnExtentOnly=false&returnQueryGeometry=false&returnDistinctValues=false&cacheHint=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&having=&resultOffset=&resultRecordCount=&returnZ=false&returnM=false&returnExceededLimitFeatures=true&quantizationParameters=&sqlFormat=none&f=pgeojson&token=",GeoLayerID="WildfirePerimetersLayer",Name="Colorado Wildfire Perimiters",Description="Colorado wildfire perimeters web service")
+EndIf(Name="UseWFSGeoJSONIf")
+If(Name="UseGeoJSONFromWFSIf",Condition="${PerimeterSource} == GeoJSONFromWFS")
+    # If reading from the WFS...
+    # Does not work...
+    # ReadGeoLayerFromWebFeatureService(InputUrl="https://services3.arcgis.com/T4QMspbfLg3qTGWY/arcgis/rest/services/Public_Wildfire_Perimeters_View/FeatureServer/0/query?outFields=*&where=1%3D1",GeoLayerID="WildfirePerimetersLayer",Name="Colorado Wildfire Perimiters",Description="Colorado wildfire perimeters web service")
+    # Works but URL is too long
+    # - TODO smalers 2020-08-19
+    # - Can return GeoJSON, but in this case just use ReadGeoLayerFromGeoJSON
+    # The following uses a minimual number of parameters, shown without URL encoding:
+    # - where=1=1 (why needed?)
+    # - geometryType=esriGeometryEnvelope (used to specify rectangle for query)
+    # - geometry=xmin,xmax,ymin,ymax  (where x is longitude and y is latitude, must URL-encode commas using %2C)
+    # - inSR=4326 (input CRS, for the bounding box, default is that of the layer on the server)
+    # - returnGeometry=true (default, to return geometries)
+    # - f=pgeojson (pretty GeoJSON)
+    # - f=geojson (GeoJSON)
+    # - outfields=* (return all attributes)
+    # - geometryPrecision=5 (digits for coordinates)
+    # - outSR (seems to default to 4326 for GeoJSON output format)
+    # - multipatchOption (is this needed?)
+    # - spatialRel=esriSpatialRelContains (how the envelope is used to select features)
+    ReadGeoLayerFromGeoJSON(InputFile="https://services3.arcgis.com/T4QMspbfLg3qTGWY/ArcGIS/rest/services/Public_Wildfire_Perimeters_View/FeatureServer/0/query?geometry=-109.05%2C36.99%2C-102.05%2C41&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelContains&outFields=*&geometryPrecision=5&f=geojson",GeoLayerID="WildfirePerimetersLayer",Name="Colorado Wildfire Perimiters",Description="Colorado wildfire perimeters web service")
+    #
+    # The following uses too many parameters based on the Esri URL-builder, which are difficult for a user to deal with.
+    #ReadGeoLayerFromGeoJSON(InputFile="https://services3.arcgis.com/T4QMspbfLg3qTGWY/ArcGIS/rest/services/Public_Wildfire_Perimeters_View/FeatureServer/0/query?where=1%3D1&objectIds=&time=&geometry=-109.05%2C36.99%2C-102.05%2C41&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelContains&resultType=none&distance=0.0&units=esriSRUnit_Meter&returnGeodetic=false&outFields=*&returnGeometry=true&returnCentroid=false&featureEncoding=esriDefault&multipatchOption=xyFootprint&maxAllowableOffset=&geometryPrecision=&outSR=&datumTransformation=&applyVCSProjection=false&returnIdsOnly=false&returnUniqueIdsOnly=false&returnCountOnly=false&returnExtentOnly=false&returnQueryGeometry=false&returnDistinctValues=false&cacheHint=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&having=&resultOffset=&resultRecordCount=&returnZ=false&returnM=false&returnExceededLimitFeatures=true&quantizationParameters=&sqlFormat=none&f=pgeojson&token=",GeoLayerID="WildfirePerimetersLayer",Name="Colorado Wildfire Perimiters",Description="Colorado wildfire perimeters web service")
+EndIf(Name="UseGeoJSONFromWFSIf")
 AddGeoLayerViewGroupToGeoMap(GeoMapID="CurrentWildfiresMap",GeoLayerViewGroupID="WildfiresGroup",Name="Colorado Wildfires",Description="Colorado wildfires",Properties="selectedInitial: true",InsertPosition="Top")
 AddGeoLayerViewToGeoMap(GeoLayerID="WildfirePerimetersLayer",GeoMapID="CurrentWildfiresMap",GeoLayerViewGroupID="WildfiresGroup",GeoLayerViewID="WildfirePerimetersLayerView",Name="Colorado Wildfires Perimeters",Description="Colorado wildfire perimeters from the National Interagency Fire Center",Properties="docPath:layers/wildfire-perimeters.md")
 SetGeoLayerViewSingleSymbol(GeoMapID="CurrentWildfiresMap",GeoLayerViewGroupID="WildfiresGroup",GeoLayerViewID="WildfirePerimetersLayerView",Name="WildfirePerimetersSymbol",Description="Wildfire Perimeters symbol",Properties="color:#ff0000,fillColor:#ff0000,fillOpacity:0.3")
