@@ -18,6 +18,8 @@ However, whereas NHD linework is composed of many segments created during map di
 the SWRF layer is composed of longer lines that each correspond to a named stream.
 For example, the Cache la Poudre River mainstem is a single line from its headwaters to the
 confluence with the South Platte River.
+See the [Source Water Route Framework And Stream Mile Processing](https://dnrweblink.state.co.us/dwr/DocView.aspx?dbid=0&id=3652914&page=1&searchid=cb53d6e2-bb6f-4a93-887a-dd9ce6413168&cr=1)
+memorandum from the Colorado Division of Water Resources.
 
 The SWRF layer includes `GNIS_ID` and `GNIS_Name` attributes, which correspond to the national
 [Geographic Names Information System (GNIS)](https://www.usgs.gov/faqs/what-geographic-names-information-system-gnis?qt-news_science_products=0#qt-news_science_products)
