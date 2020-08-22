@@ -232,6 +232,12 @@
       "align": "left",
       "menus" : [
         {
+          "id": "current-notices",
+          "name": "System - Important Notices",
+          "action": "contentPage",
+          "markdownFile": "content-pages/notices.md"
+        },
+        {
           "id": "current-pointflow",
           "name": "System - Point Flow",
           "enabled": "false",
