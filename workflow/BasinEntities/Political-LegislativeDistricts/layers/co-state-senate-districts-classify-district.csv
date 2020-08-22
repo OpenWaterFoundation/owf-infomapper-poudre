@@ -41,11 +41,12 @@ value,color,opacity,fillColor,fillOpacity,weight,label
 34,#b3ff66,1.0,#b3ff66,0.3,2,"District 34"
 # All other counties
 # - grey boundary, full transparency
-3,#f2f2f2,1.0,#f2f2f2,0.0,2,"District 3 - Other Districts"
-5,#f2f2f2,1.0,#f2f2f2,0.0,2,"District 5"
-6,#f2f2f2,1.0,#f2f2f2,0.0,2,"District 6"
-7,#f2f2f2,1.0,#f2f2f2,0.0,2,"District 7"
-10,#f2f2f2,1.0,#f2f2f2,0.0,2,"District 10"
-11,#f2f2f2,1.0,#f2f2f2,0.0,2,"District 11"
-12,#f2f2f2,1.0,#f2f2f2,0.0,2,"District 12"
-35,#f2f2f2,1.0,#f2f2f2,0.0,2,"District 35"
+# - #f2f2f2 is ok for MapBox Topographic
+3,#999999,1.0,#999999,0.0,2,"District 3 - Other Districts"
+5,#999999,1.0,#999999,0.0,2,"District 5"
+6,#999999,1.0,#999999,0.0,2,"District 6"
+7,#999999,1.0,#999999,0.0,2,"District 7"
+10,#999999,1.0,#999999,0.0,2,"District 10"
+11,#999999,1.0,#999999,0.0,2,"District 11"
+12,#999999,1.0,#999999,0.0,2,"District 12"
+35,#999999,1.0,#999999,0.0,2,"District 35"
