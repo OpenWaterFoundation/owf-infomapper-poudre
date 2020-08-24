@@ -159,6 +159,17 @@ junk
 # Dynamic map configurations
 /workflow/BasinEntities/Political-LegislativeDistricts/*.json
 
+# BasinEntities/Physical-Basins
+/workflow/BasinEntities/Physical-Basins/downloads/*
+!/workflow/BasinEntities/Physical-Basins/downloads/README.md
+/workflow/BasinEntities/Physical-Basins/layers/*
+!/workflow/BasinEntities/Physical-Basins/layers/README.md
+!/workflow/BasinEntities/Physical-Basins/layers/*.csv
+!/workflow/BasinEntities/Physical-Basins/layers/*.md
+!/workflow/BasinEntities/Physical-Basins/layers/*doc
+# Dynamic map configurations
+/workflow/BasinEntities/Physical-Basins/*.json
+
 # BasinEntities/Physical-StreamReaches
 /workflow/BasinEntities/Physical-StreamReaches/downloads/*
 !/workflow/BasinEntities/Physical-StreamReaches/downloads/README.md

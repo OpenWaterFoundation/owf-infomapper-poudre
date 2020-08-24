@@ -1,0 +1,15 @@
+# Category classification table for HUC10 basins
+# - the value corresponds to HUC10 attribute
+# - the label uses HUC10 and Name values, currently hard-coded here because simple
+# - #ff6666 is rosey red
+value,color,opacity,fillColor,fillOpacity,weight,label
+1019000701,#ff6666,1.0,#ff6666,0.3,2,"1019000701, South Fork Cache la Poudre River"
+1019000702,#ff6666,1.0,#ff6666,0.3,2,"1019000701, Headwaters Cache la Poudre River"
+1019000703,#ff6666,1.0,#ff6666,0.3,2,"1019000701, Gordon Creek-Cache la Poudre River"
+1019000704,#ff6666,1.0,#ff6666,0.3,2,"1019000701, Dale Creek"
+1019000705,#ff6666,1.0,#ff6666,0.3,2,"1019000701, Headwaters, North Fork Cache la Poudre River"
+1019000706,#ff6666,1.0,#ff6666,0.3,2,"1019000701, Lone Pine Creek"
+1019000707,#ff6666,1.0,#ff6666,0.3,2,"1019000701, Rabbit Creek-North Fork Cache la Poudre River"
+1019000708,#ff6666,1.0,#ff6666,0.3,2,"1019000701, Horsetooth Reservoir-Cache la Poudre"
+1019000709,#ff6666,1.0,#ff6666,0.3,2,"1019000701, Boxelder Creek"
+1019000710,#ff6666,1.0,#ff6666,0.3,2,"1019000701, Coalbank Creek-Cache la Poudre River"

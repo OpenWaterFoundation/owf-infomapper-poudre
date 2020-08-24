@@ -115,6 +115,13 @@ copy_BasinEntities_Political_LegislativeDistricts() {
   cp -rv ${scriptFolder}/data-maps/BasinEntities/Political-LegislativeDistricts ${folder}
 }
 
+copy_BasinEntities_Physical_Basins() {
+  checkBasinEntitiesFolder
+
+  # Copy basins map folder and files
+  cp -rv ${scriptFolder}/data-maps/BasinEntities/Physical-Basins ${folder}
+}
+
 copy_BasinEntities_Physical_StreamReaches() {
   checkBasinEntitiesFolder
 
@@ -188,6 +195,7 @@ runInteractive() {
     echo "Basin Entities:          ea.      Copy Administration - CoDwrWaterDistricts files."
     echo "                         ec.      Copy Political - Counties files."
     echo "                         el.      Copy Political - LegislativeDistricts files."
+    echo "                         eb.      Copy Physical - Basins files."
     echo "                         es.      Copy Physical - StreamReaches files."
     echo "                         eda.     Copy Agriculture - Dairies files."
     echo "                         edi.     Copy Agriculture - Ditches files."
@@ -217,6 +225,7 @@ runInteractive() {
       copy_BasinEntities_Administration_WaterDistricts
       copy_BasinEntities_Political_Counties
       copy_BasinEntities_Political_LegislativeDistricts
+      copy_BasinEntities_Physical_Basins
       copy_BasinEntities_Physical_StreamReaches
       copy_BasinEntities_Agriculture_Dairies
       copy_BasinEntities_Agriculture_Ditches
@@ -245,6 +254,8 @@ runInteractive() {
       copy_BasinEntities_Political_Counties
     elif [ "${answer}" = "el" ]; then
       copy_BasinEntities_Political_LegislativeDistricts
+    elif [ "${answer}" = "eb" ]; then
+      copy_BasinEntities_Physical_Basins
     elif [ "${answer}" = "es" ]; then
       copy_BasinEntities_Physical_StreamReaches
     elif [ "${answer}" = "eda" ]; then

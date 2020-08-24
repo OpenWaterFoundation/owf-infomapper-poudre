@@ -11,7 +11,7 @@
       "menus": [
         {
           "id": "entities-codwr-waterdistricts",
-          "name": "Administration -  Division 1 Water Districts",
+          "name": "Administration - CO DWR Water Districts",
           "action": "displayMap",
           "mapProject" : "data-maps/BasinEntities/Administration-CoDwrWaterDistricts/codwr-waterdistricts-map.json"
         },
@@ -29,12 +29,11 @@
           "mapProject" : "data-maps/BasinEntities/Political-LegislativeDistricts/legislative-districts-map.json"
         },
         {
-          "id": "entities-hucs",
-          "name": "Physical - Hydrologic Unit Codes",
-          "enabled": "false",
+          "id": "entities-basins",
+          "name": "Physical - Basins",
           "separatorBefore" : true,
           "action": "displayMap",
-          "mapProject" : "data-maps/BasinEntities/Physical-Hucs/hucs-map.json"
+          "mapProject" : "data-maps/BasinEntities/Physical-Basins/basins-map.json"
         },
         {
           "id": "entities-stream-reaches",
@@ -173,9 +172,15 @@
           "mapProject": "theNameOfTheMapProjectFile"
         },
         {
+          "id": "hist-env-wq",
+          "name": "Environment - Water Quality",
+          "enabled": "false",
+          "action": "displayMap",
+          "mapProject": "theNameOfTheMapProjectFile"
+        },
+        {
           "id": "hist-env-wildfires",
           "name": "Environment - Wildfires",
-          "separatorBefore" : true,
           "enabled": "false",
           "action": "displayMap",
           "mapProject": "theNameOfTheMapProjectFile"
@@ -252,9 +257,16 @@
           "url": "https://dwr.state.co.us/Tools/AdministrativeCalls/Active?submitButton=Submit"
         },
         {
+          "id": "current-wq",
+          "name": "Environment - Water Quality",
+          "separatorBefore" : true,
+          "enabled": false,
+          "action": "displayMap",
+          "mapProject": "theNameOfTheMap"
+        },
+        {
           "id": "current-wildfires",
           "name": "Environment - Wildfires",
-          "separatorBefore" : true,
           "action": "displayMap",
           "mapProject": "data-maps/CurrentConditions/Environment-Wildfires/wildfires-map.json"
         },
@@ -359,8 +371,8 @@
           "separatorBefore" : true
         },
         {
-          "id": "season-burnareas",
-          "name": "Environment - Wildfire Burn Outlook",
+          "id": "season-wildfires",
+          "name": "Environment - Wildfires",
           "separatorBefore" : true,
           "action": "externalLink",
           "url": "https://gacc.nifc.gov/rmcc/outlooks1.php"
@@ -414,7 +426,14 @@
           "mapProject": "theNameOfTheMapProjectFile"
         },
         {
-          "id": "planning-climatechange",
+          "id": "planning-ag-food",
+          "name": "Agriculture - Food Production",
+          "enabled": "false",
+          "action": "displayMap",
+          "mapProject": "theNameOfTheMapProjectFile"
+        },
+        {
+          "id": "planning-env-climatechange",
           "name": "Environment - Climate Change",
           "enabled": "false",
           "action": "displayMap",
@@ -422,18 +441,25 @@
           "separatorBefore" : true
         },
         {
-          "id": "planning-open-space",
+          "id": "planning-env-openspace",
           "name": "Environment - Open Space",
           "enabled": "false",
           "action": "displayMap",
           "mapProject": "theNameOfTheMapProjectFile"
         },
         {
-          "id": "planning-smps",
+          "id": "planning-env-smps",
           "name": "Environment - Stream Management & Watershed Plans",
           "enabled": "false",
           "action": "displayMap",
           "mapProject" : "theNameOfTheMapProjectFile"
+        },
+        {
+          "id": "planning-env-wildfires",
+          "name": "Environment - Wildfires",
+          "enabled": "false",
+          "action": "displayMap",
+          "mapProject": "theNameOfTheMapProjectFile"
         },
         {
           "id": "planning-muni-growth",
@@ -456,6 +482,13 @@
           "enabled": "false",
           "action": "displayMap",
           "mapProject": "theNameOfTheMapProjectFile"
+        },
+        {
+          "id": "planning-ws-cwp",
+          "name": "Water Supply - Colorado Water Plan",
+          "separatorBefore" : true,
+          "action": "externalLink",
+          "url": "https://www.colorado.gov/cowaterplan"
         }
       ]
     },
