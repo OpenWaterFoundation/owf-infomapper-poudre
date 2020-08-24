@@ -1,4 +1,4 @@
-# Map: CO Division 1 Water Districts
+# Map: CO DWR Water Districts
 
 * Background
 * Layer Groups
@@ -7,7 +7,8 @@
 
 ## Background
 
-The CO Division 1 Water Districts map shows basins used for water administration.
+The CO DWR Water Districts map shows basins used for water administration carried out by
+the Colorado Division of Water Resources (DWR).
 Decisions about water in Colorado invariably involve water rights and their administration.
 A water right is appropriated for a beneficial use of water,
 such as agriculture, municipal, industrial, and environmental use.
@@ -26,5 +27,5 @@ The following layer groups are included in this map.
 
 | **Layer Group** | **Description** |
 | -- | -- |
-| CO DWR Division 1 Water Districts | Division of Water Resources water districts and divisions. |
+| CO DWR Water Districts | Division of Water Resources water districts and divisions. |
 | Background Layers | Background layers that provide a frame of reference. |
