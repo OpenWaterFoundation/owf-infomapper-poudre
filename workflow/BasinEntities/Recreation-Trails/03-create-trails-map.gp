@@ -78,7 +78,7 @@ SetGeoLayerViewCategorizedSymbol(GeoMapID="TrailsMap",GeoLayerViewGroupID="Water
 CopyFile(SourceFile="../../BasinEntities/Physical-StreamReaches/layers/stream-reaches.geojson",DestinationFile="layers/stream-reaches.geojson")
 ReadGeoLayerFromGeoJSON(InputFile="layers/stream-reaches.geojson",GeoLayerID="StreamReachesLayer",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches")
 AddGeoLayerViewGroupToGeoMap(GeoMapID="TrailsMap",GeoLayerViewGroupID="StreamReachesGroup",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches",Properties="selectedInitial: true",InsertPosition="Top")
-AddGeoLayerViewToGeoMap(GeoLayerID="StreamReachesLayer",GeoMapID="TrailsMap",GeoLayerViewGroupID="StreamReachesGroup",GeoLayerViewID="StreamReachesLayerView",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches")
+AddGeoLayerViewToGeoMap(GeoLayerID="StreamReachesLayer",GeoMapID="TrailsMap",GeoLayerViewGroupID="StreamReachesGroup",GeoLayerViewID="StreamReachesLayerView",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches",Properties="highlightEnabled:true")
 SetGeoLayerViewSingleSymbol(GeoMapID="TrailsMap",GeoLayerViewGroupID="StreamReachesGroup",GeoLayerViewID="StreamReachesLayerView",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches",Properties="color:#6297f7,width:2")
 #SetGeoLayerViewSingleSymbol(GeoMapID="TrailsMap",GeoLayerViewGroupID="StreamReachesGroup",GeoLayerViewID="StreamReachesLayerView",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches")
 # SetGeoLayerViewCategorizedSymbol(GeoMapID="StreamReachesMap",GeoLayerViewGroupID="StreamReachesGroup",GeoLayerViewID="StreamReachesLayerView",Name="Poudre Stream Reaches",Description="Show stream reaches is blue lines",ClassificationAttribute="county",Properties="classificationType:'SingleSymbol'")
@@ -87,7 +87,7 @@ SetGeoLayerViewSingleSymbol(GeoMapID="TrailsMap",GeoLayerViewGroupID="StreamReac
 # GeoLayerViewGroupID: TrailsGroup
 ReadGeoLayerFromGeoJSON(InputFile="layers/trails-fortcollins.geojson",GeoLayerID="TrailsLayer",Name="Poudre Trails",Description="Poudre Trails")
 AddGeoLayerViewGroupToGeoMap(GeoMapID="TrailsMap",GeoLayerViewGroupID="TrailsGroup",Name="Poudre Trails",Description="Poudre Trails",Properties="selectedInitial: true",InsertPosition="Top")
-AddGeoLayerViewToGeoMap(GeoLayerID="TrailsLayer",GeoMapID="TrailsMap",GeoLayerViewGroupID="TrailsGroup",GeoLayerViewID="TrailsLayerView",Name="Poudre Trails",Description="Poudre Trails",Properties="docPath:layers/trails-fortcollins-doc/trails-fortcollins.md")
+AddGeoLayerViewToGeoMap(GeoLayerID="TrailsLayer",GeoMapID="TrailsMap",GeoLayerViewGroupID="TrailsGroup",GeoLayerViewID="TrailsLayerView",Name="Poudre Trails",Description="Poudre Trails",Properties="docPath:'layers/trails-fortcollins-doc/trails-fortcollins.md',highlightEnabled:true")
 SetGeoLayerViewSingleSymbol(GeoMapID="TrailsMap",GeoLayerViewGroupID="TrailsGroup",GeoLayerViewID="TrailsLayerView",Name="Poudre Trails",Description="Poudre Trails",Properties="color:#ff9900,weight:3")
 # = = = = = = = = = =
 # Write the map project file and copy layers to the location needed by the web application.

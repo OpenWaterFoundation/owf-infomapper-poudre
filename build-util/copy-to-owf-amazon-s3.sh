@@ -490,12 +490,12 @@ doUpload="yes"
 # - used when updating data files and configurations
 # - should work OK but may need to refine to only upload data layers
 #   but no configuration files
-uploadOnlyAssets="yes"
+uploadOnlyAssets="no"
 # Only update /assets/app/data-maps
 # - used when updating data layers but not the InfoMapper
 # - should work OK but may need to refine to only upload data layers
 #   but no configuration files
-uploadOnlyDataMaps="yes"
+uploadOnlyDataMaps="no"
 # Default is optimization for 'ng build', which is the ng default.
 doOptimization="yes"
 parseCommandLine "$@"

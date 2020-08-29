@@ -80,23 +80,23 @@ SetGeoLayerViewCategorizedSymbol(GeoMapID="BasinsMap",GeoLayerViewGroupID="Water
 AddGeoLayerViewGroupToGeoMap(GeoMapID="BasinsMap",GeoLayerViewGroupID="HUCBasinsGroup",Name="Hydrologic Unit Code (HUC) Basins",Description="HUC Basin boundaries from the USGS.",Properties="selectedInitial: true",InsertPosition="Top")
 # HUC 2 on bottom
 ReadGeoLayerFromGeoJSON(InputFile="layers/huc2.geojson",GeoLayerID="HUC2BasinLayer",Name="HUC2 Basin: 10, Missouri",Description="HUC2 Basin boundaries from the USGS")
-AddGeoLayerViewToGeoMap(GeoLayerID="HUC2BasinLayer",GeoMapID="BasinsMap",GeoLayerViewGroupID="HUCBasinsGroup",GeoLayerViewID="HUC2BasinsLayerView",Name="HUC2 Basin: 10, Missouri",Description="HUC2 Basin boundaries from the USGS",InsertPosition="Top")
+AddGeoLayerViewToGeoMap(GeoLayerID="HUC2BasinLayer",GeoMapID="BasinsMap",GeoLayerViewGroupID="HUCBasinsGroup",GeoLayerViewID="HUC2BasinsLayerView",Name="HUC2 Basin: 10, Missouri",Description="HUC2 Basin boundaries from the USGS",InsertPosition="Top",Properties="docPath:layers/huc2.md")
 SetGeoLayerViewCategorizedSymbol(GeoMapID="BasinsMap",GeoLayerViewGroupID="HUCBasinsGroup",GeoLayerViewID="HUC2BasinsLayerView",Name="Colorize HUC2",Description="Transparent polygon.",ClassificationAttribute="HUC2",Properties="classificationFile:layers/huc2-classify-huc2.csv")
 # HUC 4 next on top
 ReadGeoLayerFromGeoJSON(InputFile="layers/huc4.geojson",GeoLayerID="HUC4BasinLayer",Name="HUC4 Basin: 1019, Platte",Description="HUC4 Basin boundaries from the USGS")
-AddGeoLayerViewToGeoMap(GeoLayerID="HUC4BasinLayer",GeoMapID="BasinsMap",GeoLayerViewGroupID="HUCBasinsGroup",GeoLayerViewID="HUC4BasinsLayerView",Name="HUC4 Basin: 1019, Platte",Description="HUC4 Basin boundaries from the USGS",InsertPosition="Top")
+AddGeoLayerViewToGeoMap(GeoLayerID="HUC4BasinLayer",GeoMapID="BasinsMap",GeoLayerViewGroupID="HUCBasinsGroup",GeoLayerViewID="HUC4BasinsLayerView",Name="HUC4 Basin: 1019, Platte",Description="HUC4 Basin boundaries from the USGS",InsertPosition="Top",Properties="docPath:layers/huc4.md")
 SetGeoLayerViewCategorizedSymbol(GeoMapID="BasinsMap",GeoLayerViewGroupID="HUCBasinsGroup",GeoLayerViewID="HUC4BasinsLayerView",Name="Colorize HUC4",Description="Transparent polygon.",ClassificationAttribute="HUC4",Properties="classificationFile:layers/huc4-classify-huc4.csv")
 # HUC 8 next on top
 ReadGeoLayerFromGeoJSON(InputFile="layers/huc8.geojson",GeoLayerID="HUC8BasinLayer",Name="HUC8 Basin: 10190007, Cache la Poudre",Description="HUC8 Basin boundaries from the USGS")
-AddGeoLayerViewToGeoMap(GeoLayerID="HUC8BasinLayer",GeoMapID="BasinsMap",GeoLayerViewGroupID="HUCBasinsGroup",GeoLayerViewID="HUC8BasinsLayerView",Name="HUC8 Basin: 10100007, Cache la Poudre",Description="HUC8 Basin boundaries from the USGS",InsertPosition="Top")
+AddGeoLayerViewToGeoMap(GeoLayerID="HUC8BasinLayer",GeoMapID="BasinsMap",GeoLayerViewGroupID="HUCBasinsGroup",GeoLayerViewID="HUC8BasinsLayerView",Name="HUC8 Basin: 10100007, Cache la Poudre",Description="HUC8 Basin boundaries from the USGS",InsertPosition="Top",Properties="docPath:layers/huc8.md")
 SetGeoLayerViewCategorizedSymbol(GeoMapID="BasinsMap",GeoLayerViewGroupID="HUCBasinsGroup",GeoLayerViewID="HUC8BasinsLayerView",Name="Colorize HUC8",Description="Transparent polygon.",ClassificationAttribute="HUC8",Properties="classificationFile:layers/huc8-classify-huc8.csv")
 # HUC 10 next on top
 ReadGeoLayerFromGeoJSON(InputFile="layers/huc10.geojson",GeoLayerID="HUC10BasinLayer",Name="Cache la Poudre HUC10 Basins",Description="HUC10 Basin boundaries from the USGS")
-AddGeoLayerViewToGeoMap(GeoLayerID="HUC10BasinLayer",GeoMapID="BasinsMap",GeoLayerViewGroupID="HUCBasinsGroup",GeoLayerViewID="HUC10BasinsLayerView",Name="Cache la Poudre HUC10 Basins",Description="HUC10 Basin boundaries from the USGS",InsertPosition="Top")
+AddGeoLayerViewToGeoMap(GeoLayerID="HUC10BasinLayer",GeoMapID="BasinsMap",GeoLayerViewGroupID="HUCBasinsGroup",GeoLayerViewID="HUC10BasinsLayerView",Name="Cache la Poudre HUC10 Basins",Description="HUC10 Basin boundaries from the USGS",InsertPosition="Top",Properties="docPath:layers/huc10.md")
 SetGeoLayerViewCategorizedSymbol(GeoMapID="BasinsMap",GeoLayerViewGroupID="HUCBasinsGroup",GeoLayerViewID="HUC10BasinsLayerView",Name="Colorize HUC10",Description="Transparent polygon.",ClassificationAttribute="HUC10",Properties="classificationFile:layers/huc10-classify-huc10.csv")
 # HUC 12 next on top
 ReadGeoLayerFromGeoJSON(InputFile="layers/huc12.geojson",GeoLayerID="HUC12BasinLayer",Name="Cache la Poudre HUC12 Basins",Description="HUC12 Basin boundaries from the USGS")
-AddGeoLayerViewToGeoMap(GeoLayerID="HUC12BasinLayer",GeoMapID="BasinsMap",GeoLayerViewGroupID="HUCBasinsGroup",GeoLayerViewID="HUC12BasinsLayerView",Name="Cache la Poudre HUC 12 Basins",Description="HUC12 Basin boundaries from the USGS",InsertPosition="Top")
+AddGeoLayerViewToGeoMap(GeoLayerID="HUC12BasinLayer",GeoMapID="BasinsMap",GeoLayerViewGroupID="HUCBasinsGroup",GeoLayerViewID="HUC12BasinsLayerView",Name="Cache la Poudre HUC 12 Basins",Description="HUC12 Basin boundaries from the USGS",InsertPosition="Top",Properties="docPath:layers/huc12.md")
 SetGeoLayerViewCategorizedSymbol(GeoMapID="BasinsMap",GeoLayerViewGroupID="HUCBasinsGroup",GeoLayerViewID="HUC12BasinsLayerView",Name="Colorize HUC12",Description="Transparent polygon.",ClassificationAttribute="HUC12",Properties="classificationFile:layers/huc12-classify-huc12.csv")
 # = = = = = = = = = =
 # Stream reaches:  read layer and add to a layer view group.
@@ -105,7 +105,7 @@ SetGeoLayerViewCategorizedSymbol(GeoMapID="BasinsMap",GeoLayerViewGroupID="HUCBa
 CopyFile(SourceFile="../../BasinEntities/Physical-StreamReaches/layers/stream-reaches.geojson",DestinationFile="layers/stream-reaches.geojson")
 ReadGeoLayerFromGeoJSON(InputFile="layers/stream-reaches.geojson",GeoLayerID="StreamReachesLayer",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches")
 AddGeoLayerViewGroupToGeoMap(GeoMapID="BasinsMap",GeoLayerViewGroupID="StreamReachesGroup",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches",Properties="selectedInitial: true",InsertPosition="Top")
-AddGeoLayerViewToGeoMap(GeoLayerID="StreamReachesLayer",GeoMapID="BasinsMap",GeoLayerViewGroupID="StreamReachesGroup",GeoLayerViewID="StreamReachesLayerView",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches")
+AddGeoLayerViewToGeoMap(GeoLayerID="StreamReachesLayer",GeoMapID="BasinsMap",GeoLayerViewGroupID="StreamReachesGroup",GeoLayerViewID="StreamReachesLayerView",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches",Properties="highlightEnabled:true")
 SetGeoLayerViewSingleSymbol(GeoMapID="BasinsMap",GeoLayerViewGroupID="StreamReachesGroup",GeoLayerViewID="StreamReachesLayerView",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches",Properties="color:#6297f7,width:2")
 # = = = = = = = = = =
 # Write the map project file and copy layers to the location needed by the web application.

@@ -10,6 +10,10 @@ The following release notes document changes to the Poudre Basin Information web
 
 ## 0.3.0
 
+* [0.3.0] Add ***Basin Entities / Water Quality - Monitoring*** map.
+* [0.3.0] Wide attribute values are now truncated so that hover dialog is not too wide.
+Date/time attributes shown as integers will cause an auto-generated date/time string to be displayed.
+* [0.3.0] Fix bug where zooming and panning sometimes caused polygon layers to not draw completely.
 * [0.3.0] Add ***Basin Entities / Physical - Basins*** map with initial HUC basin maps.
 * [0.3.0] Add ***Current Conditions / System - Important Notices*** page for important
 system information.

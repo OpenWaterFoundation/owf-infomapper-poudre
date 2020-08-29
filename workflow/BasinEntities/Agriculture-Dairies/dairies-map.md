@@ -9,6 +9,11 @@
 
 The Colorado Dairies map shows the location of dairies in Colorado,
 in order to illustrate the relationship between dairies and water.
+See:
+
+* Colorado Dairy Farmers, 12000 N. Washington Street, Suite 200, Thornton, CO 80241, 303-945-1076
+(from [Colorado Water Congress](https://web.cowatercongress.org/Members/Colorado-Dairy-Farmers-306))
+* [Dairy Farmers of America](https://www.dfamilk.com/)
 
 ## Layer Groups
 

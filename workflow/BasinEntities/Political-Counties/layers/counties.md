@@ -4,11 +4,12 @@ The Colorado Counties layer contains all counties in Colorado, colored as follow
 
 | **Color** | **Description** |
 | -- | -- |
-| Black | Poudre Basin outline. |
-| Blue | Counties that provide water to the Poudre Basin via transbasin diversions. |
-| Dark green | Counties that physically intersect the Poudre Basin:  Larimer and Weld counties. |
-| Light green | Counties that are within the South Platte basin and benefit from the Poudre directly or indirectly (**more detail will be added in the future**). |
-| Yellow | Counties that currently or in the future will benefit from transbasin diversions out of the Poudre Basin (**more detail will be added in the future**). |
+| **<span style="color:#000000">Black</span>** | Poudre Basin outline. |
+| **<span style="color:#003cb3">Blue</span>** | Counties that provide water to the Poudre Basin via transbasin diversions. |
+| **<span style="color:#59b300">Dark green</span>** | Counties that physically intersect the Poudre Basin:  Larimer and Weld counties. |
+| **<span style="color:#b3ff66; background-color:#999999">Light green</span>** | Counties that are within the South Platte basin and benefit from the Poudre directly or indirectly (**more detail will be added in the future**). |
+| **<span style="color:#ffff00; background-color:#999999">Yellow</span>** | Counties that currently or in the future will benefit from transbasin diversions out of the Poudre Basin (**more detail will be added in the future**). |
+| **<span style="color:#999999">Gray outline</span>** | Other counties. |
 
 Popup graphs are available for population.
 
