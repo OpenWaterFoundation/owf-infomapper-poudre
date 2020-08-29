@@ -76,13 +76,13 @@ SetGeoLayerViewCategorizedSymbol(GeoMapID="InstreamReachesMap",GeoLayerViewGroup
 # GeoLayerViewGroupID: InstreamReachesGroup
 ReadGeoLayerFromGeoJSON(InputFile="layers/instream-reaches.geojson",GeoLayerID="InstreamReachesLayer",Name="Poudre Instream Flow Reaches",Description="Poudre Basin Instream Flow Reaches")
 AddGeoLayerViewGroupToGeoMap(GeoMapID="InstreamReachesMap",GeoLayerViewGroupID="InstreamReachesGroup",Name="Poudre Instream Flow Reaches",Description="Poudre Basin Instream Flow Reaches",Properties="selectedInitial: true",InsertPosition="Top")
-AddGeoLayerViewToGeoMap(GeoLayerID="InstreamReachesLayer",GeoMapID="InstreamReachesMap",GeoLayerViewGroupID="InstreamReachesGroup",GeoLayerViewID="InstreamReachesLayerView",Name="Poudre Basin Instream Flow Reaches",Description="Poudre Basin Instream Flow Reaches",Properties="docPath:'layers/instream-reaches.md'")
+AddGeoLayerViewToGeoMap(GeoLayerID="InstreamReachesLayer",GeoMapID="InstreamReachesMap",GeoLayerViewGroupID="InstreamReachesGroup",GeoLayerViewID="InstreamReachesLayerView",Name="Poudre Basin Instream Flow Reaches",Description="Poudre Basin Instream Flow Reaches",Properties="docPath:'layers/instream-reaches.md',highlightEnabled:true")
 SetGeoLayerViewSingleSymbol(GeoMapID="InstreamReachesMap",GeoLayerViewGroupID="InstreamReachesGroup",GeoLayerViewID="InstreamReachesLayerView",Name="Poudre Basin Instream Flow Reaches",Description="Poudre Basin Instream Flow Reaches",Properties="color:#6297f7")
 # = = = = = = = = = =
 # Instream flow termini:  read layer and add to a layer view group.
 # GeoLayerViewGroupID: InstreamReachesGroup
 ReadGeoLayerFromGeoJSON(InputFile="layers/instream-termini.geojson",GeoLayerID="InstreamTerminiLayer",Name="Poudre Instream Flow Reach Termini",Description="Poudre Basin Instream Flow Reach Termini")
-AddGeoLayerViewToGeoMap(GeoLayerID="InstreamTerminiLayer",GeoMapID="InstreamReachesMap",GeoLayerViewGroupID="InstreamReachesGroup",GeoLayerViewID="InstreamTerminiLayerView",Name="Poudre Instream Flow Reach Termini",Description="Poudre Basin Instream Flow Reach Termini",Properties="docPath:'layers/instream-termini.md'")
+AddGeoLayerViewToGeoMap(GeoLayerID="InstreamTerminiLayer",GeoMapID="InstreamReachesMap",GeoLayerViewGroupID="InstreamReachesGroup",GeoLayerViewID="InstreamTerminiLayerView",Name="Poudre Instream Flow Reach Termini",Description="Poudre Basin Instream Flow Reach Termini",Properties="docPath:'layers/instream-termini.md',highlightEnabled:true")
 SetGeoLayerViewSingleSymbol(GeoMapID="InstreamReachesMap",GeoLayerViewGroupID="InstreamReachesGroup",GeoLayerViewID="InstreamTerminiLayerView",Name="Poudre Instream Flow Reach Termini",Description="Poudre Basin Instream Flow Reach Termini shown as cyan diamond",Properties="symbolShape:Diamond,color:cyan,fillColor:cyan,size:6,sizeUnits:pixels,opacity:1.0,fillOpacity:1.0,weight:1.5")
 # = = = = = = = = = =
 # Write the map project file and copy layers to the location needed by the web application.

@@ -143,10 +143,17 @@ copy_BasinEntities_Recreation_Trails() {
   cp -rv ${scriptFolder}/data-maps/BasinEntities/Recreation-Trails ${folder}
 }
 
+copy_BasinEntities_WaterQuality_Monitoring() {
+  checkBasinEntitiesFolder
+
+  # Copy water quality monitoring map folder and files
+  cp -rv ${scriptFolder}/data-maps/BasinEntities/WaterQuality-Monitoring ${folder}
+}
+
 copy_BasinEntities_WaterSupply_WaterProviders() {
   checkBasinEntitiesFolder
 
-  # Copy environment organizations map folder and files
+  # Copy water supply map folder and files
   cp -rv ${scriptFolder}/data-maps/BasinEntities/WaterSupply-WaterProviders ${folder}
 }
 
@@ -206,6 +213,7 @@ runInteractive() {
     echo "                         emuni.   Copy Municipal - Municipalities files."
     echo "                         eboat.   Copy Recreation - BoatingOrganizations files."
     echo "                         etrails. Copy Recreation - Trails files."
+    echo "                         ewq.     Copy WaterQuality - Monitoring files."
     echo "                         ewp.     Copy WaterSupply - WaterProviders files."
     echo ""
     echo "Historical Data:         hl.      Copy IrrigatedLands map files."
@@ -240,6 +248,7 @@ runInteractive() {
       copy_HistoricalData_Agriculture_IrrigatedLands
       # Current Conditions
       copy_CurrentConditions_Environment_Wildfires
+      copy_CurrentConditions_WaterQuality_Monitoring
       copy_CurrentConditions_WaterSupply_Streamflow
     elif [ "${answer}" = "c" ]; then
       copyMainConfig
@@ -276,6 +285,8 @@ runInteractive() {
       copy_BasinEntities_Recreation_BoatingOrganizations
     elif [ "${answer}" = "etrails" ]; then
       copy_BasinEntities_Recreation_Trails
+    elif [ "${answer}" = "ewq" ]; then
+      copy_BasinEntities_WaterQuality_Monitoring
     elif [ "${answer}" = "ewp" ]; then
       copy_BasinEntities_WaterSupply_WaterProviders
 

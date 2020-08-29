@@ -2,6 +2,7 @@
   "title": "Poudre Basin Information",
   "homePage": "/content-pages/home.md",
   "favicon": "/img/owf-favicon-32x32.ico",
+  "googleAnalyticsTrackingId": "UA-135465513-1",
   "version": "0.3.0 (2020-08-14)",
   "mainMenu": [
     {
@@ -100,6 +101,13 @@
           "name": "Recreation - Trails",
           "action": "displayMap",
           "mapProject": "data-maps/BasinEntities/Recreation-Trails/trails-map.json"
+        },
+        {
+          "id": "entities-wq",
+          "name": "Water Quality - Monitoring",
+          "action": "displayMap",
+          "mapProject": "data-maps/BasinEntities/WaterQuality-Monitoring/wq-monitoring-map.json",
+          "separatorBefore" : true
         },
         {
           "id": "entities-water-providers",

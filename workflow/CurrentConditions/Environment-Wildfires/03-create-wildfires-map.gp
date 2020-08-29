@@ -80,16 +80,13 @@ SetGeoLayerViewCategorizedSymbol(GeoMapID="CurrentWildfiresMap",GeoLayerViewGrou
 #ReadRasterGeoLayerFromTileMapService(InputUrl="https://fsapps.nwcg.gov/afm/cgi-bin/mapserv.exe?map=conus.map&",GeoLayerID="MODISFireDetectionsCurrentLayer",Name="MODIS Fire Detections (Current)",Description="1 km MODIS fire detections.",Properties="attribution: 'GTAC',isBackground: true")
 #AddGeoLayerViewToGeoMap(GeoLayerID="MODISFireDetectionsCurrentLayer",GeoMapID="CurrentWildfiresMap",GeoLayerViewGroupID="BackgroundGroup",GeoLayerViewID="MODISFireDetectionsCurrentLayerView",Name="MODIS Fire Detections (Current)",Description="1 km MODIS fire detections.",Properties="selectedInitial: false")
 # = = = = = = = = = =
-# Stream reaches:  read layer and add to a layer view group.
-# - TODO smalers 2020-05-22 for now copy the stream reaches but want to use shared layer
-# GeoLayerViewGroupID: StreamReachesGroup
-CopyFile(SourceFile="../../BasinEntities/Physical-StreamReaches/layers/stream-reaches.geojson",DestinationFile="layers/stream-reaches.geojson")
-ReadGeoLayerFromGeoJSON(InputFile="layers/stream-reaches.geojson",GeoLayerID="StreamReachesLayer",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches")
-AddGeoLayerViewGroupToGeoMap(GeoMapID="CurrentWildfiresMap",GeoLayerViewGroupID="StreamReachesGroup",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches",Properties="selectedInitial: true",InsertPosition="Top")
-AddGeoLayerViewToGeoMap(GeoLayerID="StreamReachesLayer",GeoMapID="CurrentWildfiresMap",GeoLayerViewGroupID="StreamReachesGroup",GeoLayerViewID="StreamReachesLayerView",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches")
-SetGeoLayerViewSingleSymbol(GeoMapID="CurrentWildfiresMap",GeoLayerViewGroupID="StreamReachesGroup",GeoLayerViewID="StreamReachesLayerView",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches",Properties="color:#6297f7,width:2")
-#SetGeoLayerViewSingleSymbol(GeoMapID="CurrentWildfiresMap",GeoLayerViewGroupID="StreamReachesGroup",GeoLayerViewID="StreamReachesLayerView",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches")
-# SetGeoLayerViewCategorizedSymbol(GeoMapID="StreamReachesMap",GeoLayerViewGroupID="StreamReachesGroup",GeoLayerViewID="StreamReachesLayerView",Name="Poudre Stream Reaches",Description="Show stream reaches is blue lines",ClassificationAttribute="county",Properties="classificationType:'SingleSymbol'")
+# National parks:  read layer and add to a layer view group.
+# GeoLayerViewGroupID: NationalParksGroup
+ReadGeoLayerFromGeoJSON(InputFile="https://services1.arcgis.com/fBc8EJBxQRMcHlei/arcgis/rest/services/ROMO_BND_Boundary_py_NAD83_1/FeatureServer/0/query?geometry=-109.05%2C36.99%2C-102.05%2C41&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelContains&outFields=*&geometryPrecision=5&f=geojson",GeoLayerID="RMNPBoundaryLayer",Name="RMNP Boundary",Description="Rocky Mountain National Parck boundary web service")
+AddGeoLayerViewGroupToGeoMap(GeoMapID="CurrentWildfiresMap",GeoLayerViewGroupID="NationalParksGroup",Name="National Parks",Description="National parks",Properties="selectedInitial: true,docPath:'national-parks-group.md'",InsertPosition="Top")
+AddGeoLayerViewToGeoMap(GeoLayerID="RMNPBoundaryLayer",GeoMapID="CurrentWildfiresMap",GeoLayerViewGroupID="NationalParksGroup",GeoLayerViewID="RMNPBoundaryLayerView",Name="RMNP Boundary",Description="Rocky Mountain National Park boundary from National Park Service",Properties="docPath:layers/national-parks-rmnp.md")
+# Use #339933 - dark green
+SetGeoLayerViewSingleSymbol(GeoMapID="CurrentWildfiresMap",GeoLayerViewGroupID="NationalParksGroup",GeoLayerViewID="RMNPBoundaryLayerView",Name="RMNPBoundarySymbol",Description="RMNTP boundaries symbol",Properties="color:#339933,fillColor:#339933,fillOpacity:0.3")
 # = = = = = = = = = =
 # Wildfire Perimeters:  read layer and add to a layer view group.
 # GeoLayerViewGroupID: WildfiresGroup
@@ -149,6 +146,17 @@ SetGeoLayerViewSingleSymbol(GeoMapID="CurrentWildfiresMap",GeoLayerViewGroupID="
 #SetGeoLayerViewCategorizedSymbol(GeoMapID="CurrentWildfiresMap",GeoLayerViewGroupID="WildfiresGroup",GeoLayerViewID="WildfirePerimetersLayerView",Name="Colorize wildfire Perimeters",Description="Show each wildfire perimeter the same color",ClassificationAttribute="county",Properties="classificationType:'categorized',classificationFile:'layers/wildfire-perimeters-classify-county.csv'")
 #SetGeoLayerViewEventHandler(GeoMapID="CurrentWildfiresMap",GeoLayerViewGroupID="WildfiresGroup",GeoLayerViewID="WildfirePerimetersLayerView",EventType="click",Properties="popupConfigPath:graphs/county-popup-config.json")
 # = = = = = = = = = =
+# Stream reaches:  read layer and add to a layer view group.
+# - TODO smalers 2020-05-22 for now copy the stream reaches but want to use shared layer
+# GeoLayerViewGroupID: StreamReachesGroup
+CopyFile(SourceFile="../../BasinEntities/Physical-StreamReaches/layers/stream-reaches.geojson",DestinationFile="layers/stream-reaches.geojson")
+ReadGeoLayerFromGeoJSON(InputFile="layers/stream-reaches.geojson",GeoLayerID="StreamReachesLayer",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches")
+AddGeoLayerViewGroupToGeoMap(GeoMapID="CurrentWildfiresMap",GeoLayerViewGroupID="StreamReachesGroup",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches",Properties="selectedInitial: true",InsertPosition="Top")
+AddGeoLayerViewToGeoMap(GeoLayerID="StreamReachesLayer",GeoMapID="CurrentWildfiresMap",GeoLayerViewGroupID="StreamReachesGroup",GeoLayerViewID="StreamReachesLayerView",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches",Properties="highlightEnabled:true")
+SetGeoLayerViewSingleSymbol(GeoMapID="CurrentWildfiresMap",GeoLayerViewGroupID="StreamReachesGroup",GeoLayerViewID="StreamReachesLayerView",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches",Properties="color:#6297f7,width:2")
+#SetGeoLayerViewSingleSymbol(GeoMapID="CurrentWildfiresMap",GeoLayerViewGroupID="StreamReachesGroup",GeoLayerViewID="StreamReachesLayerView",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches")
+# SetGeoLayerViewCategorizedSymbol(GeoMapID="StreamReachesMap",GeoLayerViewGroupID="StreamReachesGroup",GeoLayerViewID="StreamReachesLayerView",Name="Poudre Stream Reaches",Description="Show stream reaches is blue lines",ClassificationAttribute="county",Properties="classificationType:'SingleSymbol'")
+# = = = = = = = = = =
 # Write the map project file and copy layers to the location needed by the web application.
 # - follow InfoMapper conventions
 WriteGeoMapProjectToJSON(GeoMapProjectID="WildfiresProject",Indent="2",OutputFile="wildfires-map.json")
@@ -162,8 +170,11 @@ CopyFile(SourceFile="layers/co-dwr-water-district-3.geojson",DestinationFile="${
 CopyFile(SourceFile="layers/co-dwr-water-district-3-classify-district.csv",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3-classify-district.csv")
 CopyFile(SourceFile="../../BasinEntities/Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3.md",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3.md")
 #
-CopyFile(SourceFile="layers/stream-reaches.geojson",DestinationFile="${MapFolder}/layers/stream-reaches.geojson")
+CopyFile(SourceFile="national-parks-group.md",DestinationFile="${MapFolder}/national-parks-group.md")
+CopyFile(SourceFile="layers/national-parks-rmnp.md",DestinationFile="${MapFolder}/layers/national-parks-rmnp.md")
 #
 CopyFile(SourceFile="layers/wildfire-perimeters.geojson",DestinationFile="${MapFolder}/layers/wildfire-perimeters.geojson")
 #CopyFile(SourceFile="layers/wildfire-perimeters-classify-wildfire-perimeters.csv",DestinationFile="${MapFolder}/layers/wildfire-perimeters-classify-wildfire-perimeters.csv")
 CopyFile(SourceFile="layers/wildfire-perimeters.md",DestinationFile="${MapFolder}/layers/wildfire-perimeters.md")
+#
+CopyFile(SourceFile="layers/stream-reaches.geojson",DestinationFile="${MapFolder}/layers/stream-reaches.geojson")
