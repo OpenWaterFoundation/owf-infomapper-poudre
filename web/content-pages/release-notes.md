@@ -10,6 +10,8 @@ The following release notes document changes to the Poudre Basin Information web
 
 ## 0.3.0
 
+* [0.3.0] Update GeoProcessor workflow command files to default many identifier parameters,
+which streamlines creating and maintaining maps.
 * [0.3.0] Add ***Basin Entities / Water Quality - Monitoring*** map.
 * [0.3.0] Wide attribute values are now truncated so that hover dialog is not too wide.
 Date/time attributes shown as integers will cause an auto-generated date/time string to be displayed.
