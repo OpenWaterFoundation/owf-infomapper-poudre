@@ -80,7 +80,7 @@ AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="BoatingOrgsGroup",Name="Poudre
 #
 ReadGeoLayerFromGeoJSON(InputFile="layers/boating-orgs.geojson",GeoLayerID="BoatingOrgsLayer",Name="Poudre Boating Organizations",Description="Poudre Boating Organizations")
 AddGeoLayerViewToGeoMap(GeoLayerID="BoatingOrgsLayer",GeoLayerViewID="BoatingOrgsLayerView",Name="Poudre Boating Organizations",Description="Poudre Boating Organizations",Properties="docPath:'layers/boating-orgs.md'")
-SetGeoLayerViewSingleSymbol(GeoLayerViewID="BoatingOrgsLayerView",Name="Poudre Boating Organizations",Description="Poudre Boating Organizations",Properties="symbolImage:/img/kayaking.png")
+SetGeoLayerViewSingleSymbol(GeoLayerViewID="BoatingOrgsLayerView",Name="Poudre Boating Organizations",Description="Poudre Boating Organizations",Properties="symbolImage:/img/kayaking-32x37.png,imageAnchorPoint:Bottom")
 # = = = = = = = = = =
 # Write the map project file and copy layers to the location needed by the web application.
 # - follow InfoMapper conventions

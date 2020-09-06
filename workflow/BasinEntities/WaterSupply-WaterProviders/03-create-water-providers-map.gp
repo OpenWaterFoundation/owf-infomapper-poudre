@@ -82,7 +82,7 @@ ReadGeoLayerFromGeoJSON(InputFile="layers/water-providers.geojson",GeoLayerID="W
 AddGeoLayerViewToGeoMap(GeoLayerID="WaterProvidersLayer",GeoLayerViewID="WaterProvidersLayerView",Name="Colorado Water Providers",Description="Colorado Water Providers",Properties="docPath:'layers/water-providers.md'")
 # For now use single symbol
 # - TODO smalers 2020-05-22 need to enable a graduated symbol based on flow value
-SetGeoLayerViewSingleSymbol(GeoLayerViewID="WaterProvidersLayerView",Name="Colorado Water Providers",Description="Colorado Water Providers",Properties="symbolImage:/img/drinkingwater.png")
+SetGeoLayerViewSingleSymbol(GeoLayerViewID="WaterProvidersLayerView",Name="Colorado Water Providers",Description="Colorado Water Providers",Properties="symbolImage:/img/drinkingwater-32x37.png,imageAnchorPoint:Bottom")
 # SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="WaterProvidersLayerView",Name="Colorado Water Providers",Description="Colorado Basin water providers",ClassificationAttribute="county",Properties="classificationType:'SingleSymbol'")
 # = = = = = = = = = =
 # Write the map project file and copy layers to the location needed by the web application.

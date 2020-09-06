@@ -82,7 +82,7 @@ ReadGeoLayerFromGeoJSON(InputFile="layers/breweries.geojson",GeoLayerID="Breweri
 AddGeoLayerViewToGeoMap(GeoLayerID="BreweriesLayer",GeoLayerViewID="BreweriesLayerView",Name="Poudre Breweries",Description="Poudre Breweries",Properties="docPath:layers/breweries.md")
 # For now use single symbol
 # - TODO smalers 2020-05-22 need to enable a graduated symbol based on flow value
-SetGeoLayerViewSingleSymbol(GeoLayerViewID="BreweriesLayerView",Name="Poudre Breweries",Description="Poudre Breweries",Properties="symbolImage:/img/brewery2.png")
+SetGeoLayerViewSingleSymbol(GeoLayerViewID="BreweriesLayerView",Name="Poudre Breweries",Description="Poudre Breweries",Properties="symbolImage:/img/brewery2-32x37.png,imageAnchorPoint:Bottom")
 # SetGeoLayerViewCategorizedSymbol(GeoLayerViewGroupID="BreweriesGroup",GeoLayerViewID="BreweriesLayerView",Name="Poudre Breweries",Description="Poudre Basin breweries",ClassificationAttribute="county",Properties="classificationType:'SingleSymbol'")
 # = = = = = = = = = =
 # Write the map project file and copy layers to the location needed by the web application.

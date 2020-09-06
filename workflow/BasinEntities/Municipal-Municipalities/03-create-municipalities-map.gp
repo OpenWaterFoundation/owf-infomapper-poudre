@@ -95,7 +95,7 @@ ReadGeoLayerFromGeoJSON(InputFile="layers/municipalities.geojson",GeoLayerID="Mu
 AddGeoLayerViewToGeoMap(GeoLayerID="MunicipalitiesLayer",GeoLayerViewID="MunicipalitiesLayerView",Name="Colorado Municipalities",Description="Colorado Municipalities",InsertPosition="Top",Properties="docPath:'layers/municipalities.md'")
 # For now use single symbol
 # - TODO smalers 2020-05-22 need to enable a graduated symbol based on flow value
-SetGeoLayerViewSingleSymbol(GeoLayerViewID="MunicipalitiesLayerView",Name="Colorado Municipalities",Description="Colorado Municipalities",Properties="symbolImage:/img/group-2.png")
+SetGeoLayerViewSingleSymbol(GeoLayerViewID="MunicipalitiesLayerView",Name="Colorado Municipalities",Description="Colorado Municipalities",Properties="symbolImage:/img/group-2-32x37.png,imageAnchorPoint:Bottom")
 # SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="MunicipalitiesLayerView",Name="Colorado Municipalities",Description="Colorado Municipalities",ClassificationAttribute="county",Properties="classificationType:'SingleSymbol'")
 # = = = = = = = = = =
 # Write the map project file and copy layers to the location needed by the web application.
