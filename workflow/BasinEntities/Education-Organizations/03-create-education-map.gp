@@ -81,7 +81,7 @@ ReadGeoLayerFromGeoJSON(InputFile="layers/education-orgs.geojson",GeoLayerID="Ed
 AddGeoLayerViewToGeoMap(GeoLayerID="EducationLayer",GeoLayerViewID="EducationLayerView",Name="Poudre Education Organizations",Description="Poudre Education Organizations",Properties="docPath:layers/education-orgs-doc/education-orgs.md")
 # For now use single symbol
 # - TODO smalers 2020-05-22 need to enable a graduated symbol based on flow value
-SetGeoLayerViewSingleSymbol(GeoLayerViewGroupID="EducationGroup",GeoLayerViewID="EducationLayerView",Name="Poudre Education Organizations",Description="Poudre Education Organizations",Properties="symbolImage:/img/university.png")
+SetGeoLayerViewSingleSymbol(GeoLayerViewGroupID="EducationGroup",GeoLayerViewID="EducationLayerView",Name="Poudre Education Organizations",Description="Poudre Education Organizations",Properties="symbolImage:/img/university-32x37.png,imageAnchorPoint:Bottom")
 # = = = = = = = = = =
 # Write the map project file and copy layers to the location needed by the web application.
 # - follow InfoMapper conventions

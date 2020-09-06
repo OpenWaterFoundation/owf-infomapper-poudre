@@ -88,7 +88,7 @@ SetGeoLayerViewCategorizedSymbol(GeoMapID="EnvironmentOrgMap",GeoLayerViewGroupI
 ReadGeoLayerFromGeoJSON(InputFile="layers/environment-orgs.geojson",GeoLayerID="EnvironmentLayer",Name="Environmental Organizations",Description="Poudre Environmental Organizations")
 AddGeoLayerViewGroupToGeoMap(GeoMapID="EnvironmentOrgMap",GeoLayerViewGroupID="EnvironmentGroup",Name="Poudre Environmental Organizations",Description="Poudre Environmental Organizations",Properties="selectedInitial: true",InsertPosition="Top")
 AddGeoLayerViewToGeoMap(GeoLayerID="EnvironmentLayer",GeoMapID="EnvironmentOrgMap",GeoLayerViewGroupID="EnvironmentGroup",GeoLayerViewID="EnvironmentLayerView",Name="Poudre Environmental Organizations",Description="Poudre Environmental Organizations",Properties="docPath:'layers/environment-orgs.md")
-SetGeoLayerViewSingleSymbol(GeoMapID="EnvironmentOrgMap",GeoLayerViewGroupID="EnvironmentGroup",GeoLayerViewID="EnvironmentLayerView",Name="Poudre Environmental Organizations",Description="Poudre Environmental Organizations",Properties="symbolImage:/img/wetlands.png")
+SetGeoLayerViewSingleSymbol(GeoMapID="EnvironmentOrgMap",GeoLayerViewGroupID="EnvironmentGroup",GeoLayerViewID="EnvironmentLayerView",Name="Poudre Environmental Organizations",Description="Poudre Environmental Organizations",Properties="symbolImage:/img/wetlands-32x37.png,imageAnchorPoint:Bottom")
 # = = = = = = = = = =
 # Write the map project file and copy layers to the location needed by the web application.
 # - follow InfoMapper conventions
