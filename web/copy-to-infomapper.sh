@@ -45,10 +45,17 @@ checkHistoricalDataFolder() {
   fi
 }
 
+copy_BasinEntities_Administration_Roundtables() {
+  checkBasinEntitiesFolder
+
+  # Copy roundtables map folder and files
+  cp -rv ${scriptFolder}/data-maps/BasinEntities/Administration-Roundtables ${folder}
+}
+
 copy_BasinEntities_Administration_WaterDistricts() {
   checkBasinEntitiesFolder
 
-  # Copy stream reaches map folder and files
+  # Copy CO water districts folder and files
   cp -rv ${scriptFolder}/data-maps/BasinEntities/Administration-CoDwrWaterDistricts ${folder}
 }
 
@@ -69,7 +76,7 @@ copy_BasinEntities_Agriculture_Ditches() {
 copy_BasinEntities_Education_Organizations() {
   checkBasinEntitiesFolder
 
-  # Copy instream flow reaches map folder and files
+  # Copy education organizations map folder and files
   cp -rv ${scriptFolder}/data-maps/BasinEntities/Education-Organizations ${folder}
 }
 
@@ -160,7 +167,7 @@ copy_BasinEntities_WaterSupply_WaterProviders() {
 copy_CurrentConditions_Environment_Wildfires() {
   checkCurrentConditionsFolder
 
-  # Copy current conditions streamflow folder and files
+  # Copy current conditions wildfires folder and files
   cp -rv ${scriptFolder}/data-maps/CurrentConditions/Environment-Wildfires ${folder}
 }
 
@@ -200,6 +207,7 @@ runInteractive() {
     echo ""
     echo "App. Config & Content:   c.       Copy main configuration files."
     echo "Basin Entities:          ea.      Copy Administration - CoDwrWaterDistricts files."
+    echo "                         er.      Copy Administration - Roundtables files."
     echo "                         ec.      Copy Political - Counties files."
     echo "                         el.      Copy Political - LegislativeDistricts files."
     echo "                         eb.      Copy Physical - Basins files."
@@ -231,6 +239,7 @@ runInteractive() {
     if [ "${answer}" = "a" ]; then
       # Basin Entities
       copy_BasinEntities_Administration_WaterDistricts
+      copy_BasinEntities_Administration_Roundtables
       copy_BasinEntities_Political_Counties
       copy_BasinEntities_Political_LegislativeDistricts
       copy_BasinEntities_Physical_Basins
@@ -259,6 +268,8 @@ runInteractive() {
 
     elif [ "${answer}" = "ea" ]; then
       copy_BasinEntities_Administration_WaterDistricts
+    elif [ "${answer}" = "er" ]; then
+      copy_BasinEntities_Administration_Roundtables
     elif [ "${answer}" = "ec" ]; then
       copy_BasinEntities_Political_Counties
     elif [ "${answer}" = "el" ]; then

@@ -1,6 +1,6 @@
-# Administrative-WaterDistricts/doc #
+# Administration-WaterDistricts/doc #
 
-This folder contains files for the ***Administrative - Water Districts*** product.
+This folder contains files for the ***Administration - CO DWR Water Districts*** product.
 
 * [Introduction](#introduction)
 * [Update Frequency](#update-frequency)
@@ -12,7 +12,7 @@ This folder contains files for the ***Administrative - Water Districts*** produc
 
 ## Introduction ##
 
-The ***Administrative - Division 1 Water Districts*** map indicates Colorado Division of Water Resources
+The ***Administration - CO DWR Water Districts*** map indicates Colorado Division of Water Resources (DWR)
 Water Districts, which are used to administer water.
 
 Many datasets use "water district identifier" (WDID), which is a two-digit, zero padded water district
@@ -29,7 +29,7 @@ The following are datasets for the map.
 
 | **Dataset** | **Description** | **Data Source** |
 | -- | -- | -- |
-| CO Division 1 Water Districts | Colorado Division of Water Resources water district boundaries. | The data is originally from a statewide layer downloaded from the [State of Colorado CDSS website](https://www.colorado.gov/pacific/cdss/gis-data-category).  It was then processed by OWF to split into water division 1 extent and is available on the [CDSS Spatial Datasets for Colorado Water Districts and Divisions](http://data.openwaterfoundation.org/co/cdss-data-spatial-bybasin/) website.  **The OWF dataset is older and uses the original GeoJSON specification.  The workflow reads the old GeoJSON and writes in latest specification.** |
+| CO DWR Water Districts | Colorado Division of Water Resources water district boundaries. | The data is originally from a statewide layer downloaded from the [State of Colorado CDSS website](https://www.colorado.gov/pacific/cdss/gis-data-category).  It was then processed by OWF to split into water division 1 extent and is available on the [CDSS Spatial Datasets for Colorado Water Districts and Divisions](http://data.openwaterfoundation.org/co/cdss-data-spatial-bybasin/) website.  **The OWF dataset is older and uses the original GeoJSON specification.  The workflow reads the old GeoJSON and writes in latest specification.** |
 
 ## Files ##
 

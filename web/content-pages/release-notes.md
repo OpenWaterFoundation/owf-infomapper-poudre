@@ -4,9 +4,18 @@ The following release notes document changes to the Poudre Basin Information web
 
 | **Release** | **Description** |
 | -- | -- |
+| 0.4.0 | Add popup layer menu with option to view data table. |
 | 0.3.0 | Add popup documentation for all maps and layers.  Add wildfires and others maps. |
 | 0.2.x | Update to use general InfoMapper software as a platform for the application. |
 | 0.1.0 | Initial version as custom application. | 
+
+## 0.4.0
+
+* [0.4.0] Each layer now has a popup menu, which will be enhanced over time to add new tools.
+The menu initially allows viewing the layer data table.
+* [0.4.0] Fix so image markers for point data are properly positioned at the pointer
+image pointer location.
+* [0.4.0] Add separators to group background layers.
 
 ## 0.3.0
 

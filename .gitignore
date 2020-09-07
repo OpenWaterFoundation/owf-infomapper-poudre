@@ -38,7 +38,7 @@ junk
 # Basin Entities menu
 # ======================================================
 
-# BasinEntities/Administration-StreamReaches
+# BasinEntities/Administration-CoDwrWaterDistricts
 /workflow/BasinEntities/Administration-CoDwrWaterDistricts/downloads/*
 !/workflow/BasinEntities/Administration-CoDwrWaterDistricts/downloads/README.md
 /workflow/BasinEntities/Administration-CoDwrWaterDistricts/layers/*
@@ -48,6 +48,17 @@ junk
 !/workflow/BasinEntities/Administration-CoDwrWaterDistricts/layers/*doc
 # Dynamic map configurations
 /workflow/BasinEntities/Administration-CoDwrWaterDistricts/*.json
+
+# BasinEntities/Administration-Roundtables
+/workflow/BasinEntities/Administration-Roundtables/downloads/*
+!/workflow/BasinEntities/Administration-Roundtables/downloads/README.md
+/workflow/BasinEntities/Administration-Roundtables/layers/*
+!/workflow/BasinEntities/Administration-Roundtables/layers/README.md
+!/workflow/BasinEntities/Administration-Roundtables/layers/*.csv
+!/workflow/BasinEntities/Administration-Roundtables/layers/*.md
+!/workflow/BasinEntities/Administration-Roundtables/layers/*doc
+# Dynamic map configurations
+/workflow/BasinEntities/Administration-Roundtables/*.json
 
 # BasinEntities/Agriculture-Dairies
 /workflow/BasinEntities/Agriculture-Dairies/downloads/*

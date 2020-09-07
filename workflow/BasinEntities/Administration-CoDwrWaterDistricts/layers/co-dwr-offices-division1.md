@@ -13,9 +13,9 @@ The following are data sources for this map:
 
 | **Resource** | **Source** |
 | -- | -- |
-| Division 1 Office locations layer | [Division 1 Offices dataset](https://github.com/OpenWaterFoundation/owf-infomapper-poudre/tree/master/workflow/BasinEntities/Administrative-CoDwrWaterDistricts/data) created by the Open Water Foundation. |
+| Division 1 Office locations layer | [Division 1 Offices dataset](https://github.com/OpenWaterFoundation/owf-infomapper-poudre/tree/master/workflow/BasinEntities/Administration-CoDwrWaterDistricts/data) created by the Open Water Foundation. |
 
 ## Map Creation Workflow
 
 The workflow to create the map can be found in the
-[Poudre Basin Information GitHub repository](https://github.com/OpenWaterFoundation/owf-infomapper-poudre/tree/master/workflow/BasinEntities/Administrative-CoDwrWaterDistricts)
+[Poudre Basin Information GitHub repository](https://github.com/OpenWaterFoundation/owf-infomapper-poudre/tree/master/workflow/BasinEntities/Administration-CoDwrWaterDistricts)

@@ -1,6 +1,5 @@
-# Create a GeoMapProject file for counties for the Poudre Basin
+# Create a GeoMapProject file for roundtable basins for the State
 # - read the previously downloaded layer file
-# - filter out counties that intersect the Poudre Basin
 # - output to the web folder for use by the InfoMapper
 # - layer view groups are added from 1st drawn (bottom) to last drawn (top)
 #
@@ -9,14 +8,14 @@
 # - AssetsFolder is where map files exist for the InfoMapper tool
 SetProperty(PropertyName="AppFolder",PropertyType="str",PropertyValue="../../../web")
 SetProperty(PropertyName="MapsFolder",PropertyType="str",PropertyValue="${AppFolder}/data-maps")
-SetProperty(PropertyName="MapFolder",PropertyType="str",PropertyValue="${MapsFolder}/BasinEntities/Political-Counties")
+SetProperty(PropertyName="MapFolder",PropertyType="str",PropertyValue="${MapsFolder}/BasinEntities/Administration-Roundtables")
 #
 # Create a single map project and map for that project.
-# - GeoMapProjectID:  CountiesProject
-# - GeoMapID:  CountiesMap
-CreateGeoMapProject(NewGeoMapProjectID="CountiesProject",ProjectType="SingleMap",Name="CO Counties",Description="Colorado Counties",Properties="author:'Open Water Foundation',specificationFlavor:'',specificationVersion:'1.0.0'")
-CreateGeoMap(NewGeoMapID="CountiesMap",Name="Colorado Counties",Description="Colorado Counties",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.385,40,8',docPath:counties-map.md")
-AddGeoMapToGeoMapProject(GeoMapProjectID="CountiesProject",GeoMapID="CountiesMap")
+# - GeoMapProjectID:  RoundtablesProject
+# - GeoMapID:  RoundtablesMap
+CreateGeoMapProject(NewGeoMapProjectID="RoundtablesProject",ProjectType="SingleMap",Name="IBCC Roundtable Basins",Description="Interbasin Compact Commission Roundtable Basins",Properties="author:'Open Water Foundation',specificationFlavor:'',specificationVersion:'1.0.0'")
+CreateGeoMap(NewGeoMapID="RoundtablesMap",Name="IBCC Roundtable Basins",Description="Interbasin Compact Commission Roundtable Basins",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.385,40,8',docPath:roundtables-map.md")
+AddGeoMapToGeoMapProject(GeoMapProjectID="RoundtablesProject",GeoMapID="RoundtablesMap")
 # = = = = = = = = = =
 # Background layers:  read layers and add a layer view group
 # GeoLayerViewGroupID: BackgroundGroup
@@ -65,55 +64,37 @@ AddGeoLayerViewToGeoMap(GeoLayerID="GoogleTerrain",GeoLayerViewID="GoogleTerrain
 ReadRasterGeoLayerFromTileMapService(InputUrl="https://basemap.nationalmap.gov/ArcGIS/rest/services/USGSTopo/MapServer/tile/{z}/{y}/{x}",GeoLayerID="USGSTopo",Name="USGS Topo (USGS)",Description="Topo background map from USGS.",Properties="attribution: 'USGS',isBackground: true")
 AddGeoLayerViewToGeoMap(GeoLayerID="USGSTopo",GeoLayerViewID="USGSTopoView",Name="USGS Topo (USGS)",Description="USGS Topo background map from USGS.",Properties="selectedInitial: true,separatorBefore:true")
 # = = = = = = = = = =
-# Water division:  read layer and add to a layer view group.
-# GeoLayerViewGroupID: WaterDistrictsGroup
-AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="WaterDistrictsGroup",Name="CO DWR Water Districts",Description="Water District boundaries from the Colorado Division of Water Resources.",Properties="selectedInitial: true",InsertPosition="Top")
-#
-CopyFile(SourceFile="../Administration-CoDwrWaterDistricts/layers/co-dwr-water-division.geojson",DestinationFile="layers/co-dwr-water-division.geojson")
-# Don't copy since symbol configuration is slightly different from the original
-#CopyFile(SourceFile="../Administration-CoDwrWaterDistricts/layers/co-dwr-water-division-classify-division.csv",DestinationFile="layers/co-dwr-water-division-classify-division.csv")
-ReadGeoLayerFromGeoJSON(InputFile="layers/co-dwr-water-division.geojson",GeoLayerID="WaterDivisionLayer",Name="CO DWR Division 1",Description="Water Division 1 boundary from the Colorado Division of Water Resources.")
-AddGeoLayerViewToGeoMap(GeoLayerID="WaterDivisionLayer",GeoLayerViewID="WaterDivisionLayerView",Name="CO DWR Division 1",Description="Boundary for Division 1 from the Colorado Division of Water Resources",Properties="docPath:layers/co-dwr-water-division.md",InsertPosition="Top")
-SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="WaterDivisionLayerView",Name="Colorize divisions",Description="Symbol for the division",ClassificationAttribute="DIV",Properties="classificationFile:'layers/co-dwr-water-division-classify-division.csv'")
+# Roundtables:  read layer and add to a layer view group.
+# GeoLayerViewGroupID: RoundtablesGroup
+AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="RoundtablesGroup",Name="IBCC Roundtable Basins",Description="Interbasin Compact Commission Roundtable Basins",Properties="selectedInitial: true",InsertPosition="Top")
+ReadGeoLayerFromGeoJSON(InputFile="layers/roundtables.geojson",GeoLayerID="RoundtablesLayer",Name="IBCC Basins",Description="Interbasin Compact Commission Roundtable Basins")
+AddGeoLayerViewToGeoMap(GeoLayerID="RoundtablesLayer",GeoLayerViewID="RoundtablesLayerView",Name="IBCC Roundtable Basins",Description="Interbasin Compact Commission Roundtable Basins",Properties="docPath:layers/roundtables.md")
+SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="RoundtablesLayerView",Name="Colorize roundtable basins",Description="Show South Platte roundtable in one color and others in another color",ClassificationAttribute="Label",Properties="classificationType:'categorized',classificationFile:'layers/roundtables-classify-label.csv'")
 # = = = = = = = = = =
 # Water district 3:  read layer and add to layer view group.
 # GeoLayerViewGroupID: WaterDistrictsGroup
 # - group added above
+AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="WaterDistrictsGroup",Name="CO DWR Water Districts",Description="Water District boundaries from the Colorado Division of Water Resources.",Properties="selectedInitial: true",InsertPosition="Top")
+#
 CopyFile(SourceFile="../Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3.geojson",DestinationFile="layers/co-dwr-water-district-3.geojson")
 CopyFile(SourceFile="../Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3-classify-district.csv",DestinationFile="layers/co-dwr-water-district-3-classify-district.csv")
 ReadGeoLayerFromGeoJSON(InputFile="layers/co-dwr-water-district-3.geojson",GeoLayerID="WaterDistrictLayer",Name="CO DWR Water District 3",Description="Water District 3 boundary from the Colorado Division of Water Resources.")
 AddGeoLayerViewToGeoMap(GeoLayerID="WaterDistrictLayer",GeoLayerViewID="WaterDistrictLayerView",Name="CO DWR Water District 3",Description="Water District 3 boundary from the Colorado Division of Water Resources",Properties="docPath:layers/co-dwr-water-district-3.md",InsertPosition="Top")
 SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="WaterDistrictLayerView",Name="Colorize district",Description="Show Water District 3 in black.",ClassificationAttribute="DISTRICT",Properties="classificationFile:layers/co-dwr-water-district-3-classify-district.csv")
 # = = = = = = = = = =
-# Counties:  read layer and add to a layer view group.
-# GeoLayerViewGroupID: CountiesGroup
-AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="CountiesGroup",Name="Colorado Counties",Description="Colorado Counties",Properties="selectedInitial: true",InsertPosition="Top")
-ReadGeoLayerFromGeoJSON(InputFile="layers/counties.geojson",GeoLayerID="CountiesLayer",Name="Colorado Counties",Description="Colorado Counties")
-AddGeoLayerViewToGeoMap(GeoLayerID="CountiesLayer",GeoLayerViewID="CountiesLayerView",Name="Colorado Counties",Description="Colorado Counties",Properties="docPath:layers/counties.md")
-SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="CountiesLayerView",Name="Colorize counties",Description="Show each county the same color except those that overlap the Poudre",ClassificationAttribute="county",Properties="classificationType:'categorized',classificationFile:'layers/counties-classify-county.csv'")
-SetGeoLayerViewEventHandler(GeoLayerViewID="CountiesLayerView",EventType="click",Properties="popupConfigPath:graphs/county-popup-config.json")
-# = = = = = = = = = =
 # Write the map project file and copy layers to the location needed by the web application.
 # - follow InfoMapper conventions
-WriteGeoMapProjectToJSON(GeoMapProjectID="CountiesProject",Indent="2",OutputFile="counties-map.json")
+WriteGeoMapProjectToJSON(GeoMapProjectID="RoundtablesProject",Indent="2",OutputFile="roundtables-map.json")
 CreateFolder(Folder="${MapFolder}/layers",CreateParentFolders="True",IfFolderExists="Ignore")
-CopyFile(SourceFile="counties-map.json",DestinationFile="${MapFolder}/counties-map.json")
-CopyFile(SourceFile="counties-map.md",DestinationFile="${MapFolder}/counties-map.md")
+CopyFile(SourceFile="roundtables-map.json",DestinationFile="${MapFolder}/roundtables-map.json")
+CopyFile(SourceFile="roundtables-map.md",DestinationFile="${MapFolder}/roundtables-map.md")
 # -----
 # Layers
-CopyFile(SourceFile="layers/co-dwr-water-division.geojson",DestinationFile="${MapFolder}/layers/co-dwr-water-division.geojson")
-CopyFile(SourceFile="layers/co-dwr-water-division-classify-division.csv",DestinationFile="${MapFolder}/layers/co-dwr-water-division-classify-division.csv")
-CopyFile(SourceFile="../Administration-CoDwrWaterDistricts/layers/co-dwr-water-division.md",DestinationFile="${MapFolder}/layers/co-dwr-water-division.md")
 #
 CopyFile(SourceFile="layers/co-dwr-water-district-3.geojson",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3.geojson")
 CopyFile(SourceFile="layers/co-dwr-water-district-3-classify-district.csv",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3-classify-district.csv")
 CopyFile(SourceFile="../Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3.md",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3.md")
 #
-CopyFile(SourceFile="layers/counties.geojson",DestinationFile="${MapFolder}/layers/counties.geojson")
-CopyFile(SourceFile="layers/counties-classify-county.csv",DestinationFile="${MapFolder}/layers/counties-classify-county.csv")
-CopyFile(SourceFile="layers/counties.md",DestinationFile="${MapFolder}/layers/counties.md")
-# -------
-# Graphs
-CreateFolder(Folder="${MapFolder}/graphs",CreateParentFolders="True",IfFolderExists="Ignore")
-CopyFile(SourceFile="graphs/county-popup-config.json",DestinationFile="${MapFolder}/graphs/county-popup-config.json")
-CopyFile(SourceFile="graphs/county-population-graph-config.json",DestinationFile="${MapFolder}/graphs/county-population-graph-config.json")
+CopyFile(SourceFile="layers/roundtables.geojson",DestinationFile="${MapFolder}/layers/roundtables.geojson")
+CopyFile(SourceFile="layers/roundtables-classify-label.csv",DestinationFile="${MapFolder}/layers/roundtables-classify-label.csv")
+CopyFile(SourceFile="layers/roundtables.md",DestinationFile="${MapFolder}/layers/roundtables.md")
