@@ -17,6 +17,12 @@
           "mapProject" : "data-maps/BasinEntities/Administration-CoDwrWaterDistricts/codwr-waterdistricts-map.json"
         },
         {
+          "id": "entities-roundtables",
+          "name": "Administration - Roundtable Basins",
+          "action": "displayMap",
+          "mapProject" : "data-maps/BasinEntities/Administration-Roundtables/roundtables-map.json"
+        },
+        {
           "id": "entities-counties",
           "name": "Political - Counties",
           "action": "displayMap",

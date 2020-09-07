@@ -1,5 +1,5 @@
-# Download Division 1 Water Disctricts file.
-# - output is a layer with water districts for Divsion 1, and a layer with only Water District 3
+# Download Division 1 Water Districts file.
+# - output is a layer with water districts for Division 1, and a layer with only Water District 3
 # - use the zipped shapefile on the CDSS website and split out Division 1
 # - this should only need to be done if setting up a new workspace
 WebGet(URL="https://dnrftp.state.co.us/CDSS/GIS/Water_Districts.zip",OutputFile="downloads/Water_Districts.zip")
