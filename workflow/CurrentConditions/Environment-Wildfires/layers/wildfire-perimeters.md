@@ -1,7 +1,7 @@
-# Layer: Colorado Wildfire Perimeters
+# Layer: Active Wildfire Perimeters
 
-The Poudre Wildfires layer contains all active wildfires for the Poudre Basin.
-The national layer is clipped to the Poudre Basin to limit the size of data files.
+The Active Wildfire Perimeters layer contains all active wildfires for Colorado.
+The national layer is clipped to Colorado to limit the size of the layer.
 
 ## Data Sources
 
@@ -9,7 +9,7 @@ The following are data sources for this map:
 
 | **Resource** | **Source** |
 | -- | -- |
-| Wildfire Perimeters. | [Wildfire Perimeters](https://data-nifc.opendata.arcgis.com/datasets/wildfire-perimeters) dataset from the National Interagency Fire Center.  The Feature Web Service (FWS) for Colorado is queried. |
+| Active Wildfire Perimeters. | [Wildfire Perimeters](https://data-nifc.opendata.arcgis.com/datasets/wildfire-perimeters) dataset from the National Interagency Fire Center.  The Feature Web Service (FWS) for is queried. |
 
 ## Workflow
 
