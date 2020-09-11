@@ -27,7 +27,7 @@ The following are data sources for this map:
 
 | **Resource** | **Source** |
 | -- | -- |
-| RMNP Boundary layer | [Rocky Mountain National Park - Boundary Polygon](https://romo-nps.opendata.arcgis.com/datasets/rocky-mountain-national-park-boundary-polygon?geometry=-108.135%2C39.988%2C-103.271%2C40.721) dataset from the National Park Service, using a feature web service (FWS). |
+| RMNP Boundary layer | [Rocky Mountain National Park - Boundary Polygon](https://romo-nps.opendata.arcgis.com/datasets/rocky-mountain-national-park-boundary-polygon?geometry=-108.135%2C39.988%2C-103.271%2C40.721) dataset from the National Park Service, using GeoJSON dataset. |
 
 ## Workflow
 

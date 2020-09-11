@@ -14,8 +14,8 @@ SetProperty(PropertyName="MapFolder",PropertyType="str",PropertyValue="${MapsFol
 # Create a single map project and map for that project.
 # - GeoMapProjectID:  WildfiresProject
 # - GeoMapID:  CurrentWildfiresMap
-CreateGeoMapProject(NewGeoMapProjectID="WildfiresProject",ProjectType="SingleMap",Name="Colorado Wildfires",Description="Colorado Wildfires",Properties="author:'Open Water Foundation',specificationFlavor:'',specificationVersion:'1.0.0'")
-CreateGeoMap(NewGeoMapID="CurrentWildfiresMap",Name="Colorado Wildfires",Description="Colorado Wildfires",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.5,40.7,10',docPath:wildfires-map.md")
+CreateGeoMapProject(NewGeoMapProjectID="WildfiresProject",ProjectType="SingleMap",Name="Wildfires",Description="Wildfires",Properties="author:'Open Water Foundation',specificationFlavor:'',specificationVersion:'1.0.0'")
+CreateGeoMap(NewGeoMapID="CurrentWildfiresMap",Name="Wildfires",Description="Wildfires",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.5,40.7,10',docPath:wildfires-map.md")
 AddGeoMapToGeoMapProject(GeoMapProjectID="WildfiresProject",GeoMapID="CurrentWildfiresMap")
 # = = = = = = = = = =
 # Background layers:  read layers and add a layer view group
@@ -86,14 +86,26 @@ SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="WaterDistrictLayerView",Name="C
 # GeoLayerViewGroupID: NationalParksGroup
 AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="NationalParksGroup",Name="National Parks",Description="National parks",Properties="selectedInitial: true,docPath:'national-parks-group.md'",InsertPosition="Top")
 #
-ReadGeoLayerFromGeoJSON(InputFile="https://services1.arcgis.com/fBc8EJBxQRMcHlei/arcgis/rest/services/ROMO_BND_Boundary_py_NAD83_1/FeatureServer/0/query?geometry=-109.05%2C36.99%2C-102.05%2C41&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelContains&outFields=*&geometryPrecision=5&f=geojson",GeoLayerID="RMNPBoundaryLayer",Name="RMNP Boundary",Description="Rocky Mountain National Parck boundary web service")
+# Use the GeoJSON dataset
+#ReadGeoLayerFromGeoJSON(InputFile="https://services1.arcgis.com/fBc8EJBxQRMcHlei/arcgis/rest/services/ROMO_BND_Boundary_py_NAD83_1/FeatureServer/0/query?geometry=-109.05%2C36.99%2C-102.05%2C41&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelContains&outFields=*&geometryPrecision=5&f=geojson",GeoLayerID="RMNPBoundaryLayer",Name="RMNP Boundary",Description="Rocky Mountain National Parck boundary web service")
+ReadGeoLayerFromGeoJSON(InputFile="https://opendata.arcgis.com/datasets/7cb5f22df8c44900a9f6632adb5f96a5_0.geojson",GeoLayerID="RMNPBoundaryLayer",Name="RMNP Boundary",Description="Rocky Mountain National Parck boundary web service")
 AddGeoLayerViewToGeoMap(GeoLayerID="RMNPBoundaryLayer",GeoLayerViewID="RMNPBoundaryLayerView",Name="RMNP Boundary",Description="Rocky Mountain National Park boundary from National Park Service",Properties="docPath:layers/national-parks-rmnp.md")
 # Use #339933 - dark green
-SetGeoLayerViewSingleSymbol(GeoLayerViewID="RMNPBoundaryLayerView",Name="RMNPBoundarySymbol",Description="RMNTP boundaries symbol",Properties="color:#339933,fillColor:#339933,fillOpacity:0.3")
+SetGeoLayerViewSingleSymbol(GeoLayerViewID="RMNPBoundaryLayerView",Name="RMNPBoundarySymbol",Description="RMNP boundaries symbol",Properties="color:#339933,fillColor:#339933,fillOpacity:0.3")
 # = = = = = = = = = =
-# Wildfire Perimeters:  read layer and add to a layer view group.
+# Wildfire Perimeters (historical):  read layer and add to a layer view group.
 # GeoLayerViewGroupID: WildfiresGroup
-AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="WildfiresGroup",Name="Colorado Wildfires",Description="Colorado wildfires",Properties="selectedInitial: true",InsertPosition="Top")
+# FIRE_YEAR >= 2000
+# GIS_ACRES >= 100
+#
+AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="WildfiresGroup",Name="Wildfires",Description="Wildfires",Properties="selectedInitial: true",InsertPosition="Top")
+#
+ReadGeoLayerFromGeoJSON(InputFile="https://services3.arcgis.com/T4QMspbfLg3qTGWY/arcgis/rest/services/Interagency_Fire_Perimeter_History_All_Years_Read_Only/FeatureServer/0/query?where=GIS_ACRES%20%3E%3D%20100%20AND%20FIRE_YEAR%20%3E%3D%202000&geometry=-109.05%2C36.99%2C-102.05%2C41&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelContains&outFields=*&geometryPrecision=5&f=geojson",GeoLayerID="WildfirePerimetersArchiveLayer",Name="Historical Wildfire Perimiters",Description="Wildfire perimeters web service")
+AddGeoLayerViewToGeoMap(GeoLayerID="WildfirePerimetersArchiveLayer",GeoLayerViewID="WildfirePerimetersArchiveLayerView",Name="Historical Wildfire Perimeters",Description="Historical wildfire perimeters (acres>= 100, year>=2000) from the National Interagency Fire Center",Properties="docPath:layers/wildfire-perimeters-archive.md",InsertPosition="Top")
+SetGeoLayerViewSingleSymbol(GeoLayerViewID="WildfirePerimetersArchiveLayerView",Name="WildfirePerimetersArchiveSymbol",Description="Wildfire Perimeters archive symbol",Properties="color:#cc9900,fillColor:#cc9900,fillOpacity:0.3")
+# = = = = = = = = = =
+# Wildfire Perimeters (current fires):  read layer and add to a layer view group.
+# GeoLayerViewGroupID: WildfiresGroup
 #
 # TODO smalers 2020-08-14 Use a file for now but get the WFS working
 # - set to LocalFile for prepreocessed GeoJSON file
@@ -144,7 +156,7 @@ If(Name="UseGeoJSONFromWFSIf",Condition="${PerimeterSource} == GeoJSONFromWFS")
     # The following uses too many parameters based on the Esri URL-builder, which are difficult for a user to deal with.
     #ReadGeoLayerFromGeoJSON(InputFile="https://services3.arcgis.com/T4QMspbfLg3qTGWY/ArcGIS/rest/services/Public_Wildfire_Perimeters_View/FeatureServer/0/query?where=1%3D1&objectIds=&time=&geometry=-109.05%2C36.99%2C-102.05%2C41&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelContains&resultType=none&distance=0.0&units=esriSRUnit_Meter&returnGeodetic=false&outFields=*&returnGeometry=true&returnCentroid=false&featureEncoding=esriDefault&multipatchOption=xyFootprint&maxAllowableOffset=&geometryPrecision=&outSR=&datumTransformation=&applyVCSProjection=false&returnIdsOnly=false&returnUniqueIdsOnly=false&returnCountOnly=false&returnExtentOnly=false&returnQueryGeometry=false&returnDistinctValues=false&cacheHint=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&having=&resultOffset=&resultRecordCount=&returnZ=false&returnM=false&returnExceededLimitFeatures=true&quantizationParameters=&sqlFormat=none&f=pgeojson&token=",GeoLayerID="WildfirePerimetersLayer",Name="Colorado Wildfire Perimiters",Description="Colorado wildfire perimeters web service")
 EndIf(Name="UseGeoJSONFromWFSIf")
-AddGeoLayerViewToGeoMap(GeoLayerID="WildfirePerimetersLayer",GeoLayerViewID="WildfirePerimetersLayerView",Name="Colorado Wildfires Perimeters",Description="Colorado wildfire perimeters from the National Interagency Fire Center",Properties="docPath:layers/wildfire-perimeters.md")
+AddGeoLayerViewToGeoMap(GeoLayerID="WildfirePerimetersLayer",GeoLayerViewID="WildfirePerimetersLayerView",Name="Active Wildfire Perimeters",Description="Active wildfire perimeters from the National Interagency Fire Center",Properties="docPath:layers/wildfire-perimeters.md",InsertPosition="Top")
 SetGeoLayerViewSingleSymbol(GeoLayerViewID="WildfirePerimetersLayerView",Name="WildfirePerimetersSymbol",Description="Wildfire Perimeters symbol",Properties="color:#ff0000,fillColor:#ff0000,fillOpacity:0.3")
 # TODO smalers 2020-08-14 need to classify on area or some other attribute
 #SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="WildfirePerimetersLayerView",Name="Colorize wildfire Perimeters",Description="Show each wildfire perimeter the same color",ClassificationAttribute="county",Properties="classificationType:'categorized',classificationFile:'layers/wildfire-perimeters-classify-county.csv'")
@@ -181,5 +193,6 @@ CopyFile(SourceFile="layers/national-parks-rmnp.md",DestinationFile="${MapFolder
 CopyFile(SourceFile="layers/wildfire-perimeters.geojson",DestinationFile="${MapFolder}/layers/wildfire-perimeters.geojson")
 #CopyFile(SourceFile="layers/wildfire-perimeters-classify-wildfire-perimeters.csv",DestinationFile="${MapFolder}/layers/wildfire-perimeters-classify-wildfire-perimeters.csv")
 CopyFile(SourceFile="layers/wildfire-perimeters.md",DestinationFile="${MapFolder}/layers/wildfire-perimeters.md")
+CopyFile(SourceFile="layers/wildfire-perimeters-archive.md",DestinationFile="${MapFolder}/layers/wildfire-perimeters-archive.md")
 #
 CopyFile(SourceFile="layers/stream-reaches.geojson",DestinationFile="${MapFolder}/layers/stream-reaches.geojson")
