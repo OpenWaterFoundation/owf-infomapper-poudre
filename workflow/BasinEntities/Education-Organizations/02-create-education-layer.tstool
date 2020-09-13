@@ -1,3 +1,5 @@
+# Create the layer for educational organizations.
+#
 # Read education organizations from Excel worksheet
 # - TODO smalers 2020-06-13 maybe filter by InBasin to 2 layers and show different icon
 #   or otherwise filter and change icons

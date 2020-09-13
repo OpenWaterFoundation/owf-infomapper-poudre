@@ -17,5 +17,6 @@ The following layer groups are included in this map.
 | **Layer Group** | **Description** |
 | -- | -- |
 | Poudre Education Organizations | Organizations that provide educational programs about water. |
+| News Organizations | Organizations that provide local news, which includes news about water. |
 | CO DWR Water Districts | Division of Water Resources water districts, to highlight the Poudre Basin (Water District 3).  See the ***Basin Entities / Administration - CO DWR Water Districts*** map for more information. |
 | Background Layers | Background layers that provide a frame of reference. |

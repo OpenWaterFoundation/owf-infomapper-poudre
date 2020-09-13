@@ -73,15 +73,31 @@ AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="WaterDistrictsGroup",Name="CO 
 AddGeoLayerViewToGeoMap(GeoLayerID="WaterDistrictLayer",GeoLayerViewGroupID="WaterDistrictsGroup",GeoLayerViewID="WaterDistrictLayerView",Name="CO DWR Water District 3",Description="Water District 3 boundary from the Colorado Division of Water Resources",InsertPosition="Top")
 SetGeoLayerViewCategorizedSymbol(GeoLayerViewGroupID="WaterDistrictsGroup",GeoLayerViewID="WaterDistrictLayerView",Name="Colorize district",Description="Show Water District 3 in black.",ClassificationAttribute="DISTRICT",Properties="classificationFile:layers/co-dwr-water-district-3-classify-district.csv")
 # = = = = = = = = = =
+# News Organizations:  read layer and add to a layer view group.
+# GeoLayerViewGroupID: NewsGroup
+#
+AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="NewsGroup",Name="News Organizations",Description="News Organizations",Properties="selectedInitial: true",InsertPosition="Top")
+#
+ReadGeoLayerFromGeoJSON(InputFile="layers/news-orgs.geojson",GeoLayerID="NewsLayer",Name="News Organizations",Description="News Organizations")
+AddGeoLayerViewToGeoMap(GeoLayerID="NewsLayer",GeoLayerViewID="NewsLayerView",Name="News Organizations",Description="News organizations focusing on articles, possibly with printed editions",Properties="docPath:layers/education-orgs-doc/news-orgs.md")
+SetGeoLayerViewSingleSymbol(GeoLayerViewID="NewsLayerView",Name="News Organizations",Description="News Organizations",Properties="symbolImage:/img/text-32x37.png,imageAnchorPoint:Bottom")
+#
+ReadGeoLayerFromGeoJSON(InputFile="layers/tv-stations.geojson",GeoLayerID="TVLayer",Name="Television Stations",Description="Television Stations")
+AddGeoLayerViewToGeoMap(GeoLayerID="TVLayer",GeoLayerViewID="TVLayerView",Name="Television Stations",Description="Television stations",Properties="docPath:layers/education-orgs-doc/tv-stations.md")
+SetGeoLayerViewSingleSymbol(GeoLayerViewID="TVLayerView",Name="Television Stations",Description="Television Stations",Properties="symbolImage:/img/tv-32x37.png,imageAnchorPoint:Bottom")
+#
+ReadGeoLayerFromGeoJSON(InputFile="layers/radio-stations.geojson",GeoLayerID="RadioLayer",Name="Radio Stations",Description="Radio Stations")
+AddGeoLayerViewToGeoMap(GeoLayerID="RadioLayer",GeoLayerViewID="RadioLayerView",Name="Radio Stations",Description="Radio stations",Properties="docPath:layers/education-orgs-doc/radio-stations.md")
+SetGeoLayerViewSingleSymbol(GeoLayerViewID="RadioLayerView",Name="Radio Stations",Description="Radio Stations",Properties="symbolImage:/img/audio-32x37.png,imageAnchorPoint:Bottom")
+# = = = = = = = = = =
 # Education Organizations:  read layer and add to a layer view group.
 # GeoLayerViewGroupID: EducationGroup
+#
 AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="EducationGroup",Name="Poudre Education Organizations",Description="Poudre Education Organizations",Properties="selectedInitial: true",InsertPosition="Top")
 #
 ReadGeoLayerFromGeoJSON(InputFile="layers/education-orgs.geojson",GeoLayerID="EducationLayer",Name="Poudre Education Organizations",Description="Poudre Education Organizations")
 AddGeoLayerViewToGeoMap(GeoLayerID="EducationLayer",GeoLayerViewID="EducationLayerView",Name="Poudre Education Organizations",Description="Poudre Education Organizations",Properties="docPath:layers/education-orgs-doc/education-orgs.md")
-# For now use single symbol
-# - TODO smalers 2020-05-22 need to enable a graduated symbol based on flow value
-SetGeoLayerViewSingleSymbol(GeoLayerViewGroupID="EducationGroup",GeoLayerViewID="EducationLayerView",Name="Poudre Education Organizations",Description="Poudre Education Organizations",Properties="symbolImage:/img/university-32x37.png,imageAnchorPoint:Bottom")
+SetGeoLayerViewSingleSymbol(GeoLayerViewID="EducationLayerView",Name="Poudre Education Organizations",Description="Poudre Education Organizations",Properties="symbolImage:/img/university-32x37.png,imageAnchorPoint:Bottom")
 # = = = = = = = = = =
 # Write the map project file and copy layers to the location needed by the web application.
 # - follow InfoMapper conventions
@@ -99,3 +115,12 @@ CreateFolder(Folder="${MapFolder}/layers/education-orgs-doc",CreateParentFolders
 CopyFile(SourceFile="layers/education-orgs.geojson",DestinationFile="${MapFolder}/layers/education-orgs.geojson")
 CopyFile(SourceFile="layers/education-orgs-doc/education-orgs.md",DestinationFile="${MapFolder}/layers/education-orgs-doc/education-orgs.md")
 CopyFile(SourceFile="layers/education-orgs-doc/SWEAPLogoStandard.png",DestinationFile="${MapFolder}/layers/education-orgs-doc/SWEAPLogoStandard.png")
+#
+CopyFile(SourceFile="layers/news-orgs.geojson",DestinationFile="${MapFolder}/layers/news-orgs.geojson")
+CopyFile(SourceFile="layers/education-orgs-doc/news-orgs.md",DestinationFile="${MapFolder}/layers/education-orgs-doc/news-orgs.md")
+#
+CopyFile(SourceFile="layers/tv-stations.geojson",DestinationFile="${MapFolder}/layers/tv-stations.geojson")
+CopyFile(SourceFile="layers/education-orgs-doc/tv-stations.md",DestinationFile="${MapFolder}/layers/education-orgs-doc/tv-stations.md")
+#
+CopyFile(SourceFile="layers/radio-stations.geojson",DestinationFile="${MapFolder}/layers/radio-stations.geojson")
+CopyFile(SourceFile="layers/education-orgs-doc/radio-stations.md",DestinationFile="${MapFolder}/layers/education-orgs-doc/radio-stations.md")
