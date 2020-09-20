@@ -31,4 +31,5 @@ The following layer groups are included in this map.
 | -- | -- |
 | CO DWR Water Districts | Division of Water Resources water districts and divisions, to highlight the Poudre Basin (Water District 3).  See the ***Basin Entities / Administration - CO DWR Water Districts*** map for more information. |
 | IBCC Basins | Interbasin Compact Committee (IBCC) Basins. |
+| Continental Divide | Continental divide line, to help understand transbasin issues. |
 | Background Layers | Background layers that provide a frame of reference. |

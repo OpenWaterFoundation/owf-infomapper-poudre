@@ -14,7 +14,7 @@ SetProperty(PropertyName="MapFolder",PropertyType="str",PropertyValue="${MapsFol
 # - GeoMapProjectID:  RoundtablesProject
 # - GeoMapID:  RoundtablesMap
 CreateGeoMapProject(NewGeoMapProjectID="RoundtablesProject",ProjectType="SingleMap",Name="IBCC Roundtable Basins",Description="Interbasin Compact Commission Roundtable Basins",Properties="author:'Open Water Foundation',specificationFlavor:'',specificationVersion:'1.0.0'")
-CreateGeoMap(NewGeoMapID="RoundtablesMap",Name="IBCC Roundtable Basins",Description="Interbasin Compact Commission Roundtable Basins",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.385,40,8',docPath:roundtables-map.md")
+CreateGeoMap(NewGeoMapID="RoundtablesMap",Name="IBCC Roundtable Basins",Description="Interbasin Compact Commission Roundtable Basins",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-107.473,39.106,7.5',docPath:roundtables-map.md")
 AddGeoMapToGeoMapProject(GeoMapProjectID="RoundtablesProject",GeoMapID="RoundtablesMap")
 # = = = = = = = = = =
 # Background layers:  read layers and add a layer view group

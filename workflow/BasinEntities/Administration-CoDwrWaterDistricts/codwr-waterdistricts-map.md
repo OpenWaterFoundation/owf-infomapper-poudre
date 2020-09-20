@@ -28,4 +28,5 @@ The following layer groups are included in this map.
 | **Layer Group** | **Description** |
 | -- | -- |
 | CO DWR Water Districts | Division of Water Resources water districts and divisions. |
+| Continental Divide | Continental divide line, to help understand transbasin issues. |
 | Background Layers | Background layers that provide a frame of reference. |
