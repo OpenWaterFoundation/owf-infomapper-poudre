@@ -10,7 +10,7 @@
 The Colorado Municipalities map provides information about Colorado municipalities,
 focusing on water resources.
 
-Large municipalities may be served my multiple water providers
+Large municipalities may be served by multiple water providers
 (see also the ***Basin Entities / Water Supply - Water Providers*** map),
 which are typically utilities and special districts.
 Depending on location, municipalities may rely on surface water and groundwater.
