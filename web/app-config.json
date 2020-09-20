@@ -3,7 +3,7 @@
   "homePage": "/content-pages/home.md",
   "favicon": "/img/owf-favicon-32x32.ico",
   "googleAnalyticsTrackingId": "UA-135465513-1",
-  "version": "0.4.0 (2020-09-05)",
+  "version": "0.5.0 (2020-09-16)",
   "mainMenu": [
     {
       "id": "BasinEntities",
