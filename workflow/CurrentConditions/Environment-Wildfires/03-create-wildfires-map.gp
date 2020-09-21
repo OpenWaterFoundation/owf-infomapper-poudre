@@ -15,7 +15,7 @@ SetProperty(PropertyName="MapFolder",PropertyType="str",PropertyValue="${MapsFol
 # - GeoMapProjectID:  WildfiresProject
 # - GeoMapID:  CurrentWildfiresMap
 CreateGeoMapProject(NewGeoMapProjectID="WildfiresProject",ProjectType="SingleMap",Name="Wildfires",Description="Wildfires",Properties="author:'Open Water Foundation',specificationFlavor:'',specificationVersion:'1.0.0'")
-CreateGeoMap(NewGeoMapID="CurrentWildfiresMap",Name="Wildfires",Description="Wildfires",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.5,40.7,10',docPath:wildfires-map.md")
+CreateGeoMap(NewGeoMapID="CurrentWildfiresMap",Name="Current Wildfires",Description="Current wildfires",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.5,40.7,10',docPath:wildfires-map.md")
 AddGeoMapToGeoMapProject(GeoMapProjectID="WildfiresProject",GeoMapID="CurrentWildfiresMap")
 # = = = = = = = = = =
 # Background layers:  read layers and add a layer view group
