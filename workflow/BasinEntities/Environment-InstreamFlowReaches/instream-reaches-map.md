@@ -12,6 +12,7 @@ are protected by an instream flow water right.
 
 Instream flow reaches in Colorado are associated with the
 [Instream Flow Program of the Colorado Water Conservation Board](https://cwcb.colorado.gov/focus-areas/ecosystem-health/instream-flow-program).
+The nonprofit [Colorado Water Trust](https://coloradowatertrust.org/) also works to restore flows on rivers.
 
 Instream flow water rights are generally junior to water rights for agriculture and municipal water supply
 and are often appropriated for headwaters in order to protect species in those areas from additional water development.
