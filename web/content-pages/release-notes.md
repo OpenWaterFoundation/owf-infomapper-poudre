@@ -14,6 +14,8 @@ The following release notes document changes to the Poudre Basin Information web
 
 * [0.5.0] Update InfoMapper software to use Angular 10.
 * [0.5.0] Add continental divide layer to some maps.
+* [0.5.0] Enhance time series graph to have ***Data Table*** button and implement initial
+time series data table display.
 
 ## 0.4.0
 

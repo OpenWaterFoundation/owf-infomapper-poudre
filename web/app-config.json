@@ -265,10 +265,10 @@
         },
         {
           "id": "current-calls",
-          "name": "Administration - Calls",
+          "name": "Administration - Calls (South Platte)",
           "separatorBefore" : true,
           "action": "externalLink",
-          "url": "https://dwr.state.co.us/Tools/AdministrativeCalls/Active?submitButton=Submit"
+          "url": "https://dwr.state.co.us/Tools/AdministrativeCalls/Active?submitButton=Submit&SelectedWaterDivisionId=1"
         },
         {
           "id": "current-wq",
