@@ -120,7 +120,7 @@
           "SymbolSize" : "5",
           "SymbolStyle" : "Circle-Filled",
           "TSAlias" : "${featureAttribute:county}-population",
-          "TSID" : "${featureAttribute:county}.DOLA.Population.Year~csv~ts/${featureAttribute:county}.DOLA.Population.Year.csv",
+          "TSID" : "${featureAttribute:county}.DOLA.Population.Year~DateValue~ts/${featureAttribute:county}.DOLA.Population.Year.dv",
           "XAxis" : "Bottom",
           "YAxis" : "Left"
         }
@@ -138,7 +138,7 @@
           "SymbolSize" : "0",
           "SymbolStyle" : "None",
           "TSAlias" : "${featureAttribute:county}-population-filled",
-          "TSID" : "${featureAttribute:county}.DOLA.Population.Year~csv~ts/${featureAttribute:county}.DOLA.Population.Year.filled.csv",
+          "TSID" : "${featureAttribute:county}.DOLA.Population.Year~DateValue~ts/${featureAttribute:county}.DOLA.Population.Year.filled.dv",
           "XAxis" : "Bottom",
           "YAxis" : "Left"
         }
