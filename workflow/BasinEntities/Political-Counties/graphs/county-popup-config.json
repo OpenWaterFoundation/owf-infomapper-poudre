@@ -11,7 +11,8 @@
       {
         "label" : "Population",
         "action" : "displayTimeSeries",
-        "resourcePath" : "graphs/county-population-graph-config.json"
+        "resourcePath" : "graphs/county-population-graph-config.json",
+        "saveFile" : "${featureAttribute:county}-population-total.csv"
       }
   ]
 }

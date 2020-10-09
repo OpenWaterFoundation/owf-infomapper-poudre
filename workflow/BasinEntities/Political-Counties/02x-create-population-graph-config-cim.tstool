@@ -1,62 +1,30 @@
-StartLog(LogFile="02-create-population-graph-config.tstool.log")
+# THIS IS THE ORIGINAL VERSION USING Colorado Information Marketplace dataset.
+# Correspondence with State Demographer indicated that DOLA datasets are available
+# and may be preferred.  See the latest 02-create-population-graph-config.tstool command file.
+# 
 # Create county population graph configurations
-# - this version uses datasets from DOLA website rather than
-#   Colorado Information Marketplace, the former is recommended by the State demographer.
-# - convert data into time series files for each county,
-#   unincorporated county, municipalities, and municipality totals
+# - download population data from Colorado Information Marketplace
+# - convert data into time series files for each county
 # - create graph configurations that are used by map popup
-# - time series and other files are written directly to the web folder for
-#   Political-Counties and also for Municipal-Municipalities (for use later)
+# - files are written directly to the web folder
 #
 # Define properties to control processing.
 # - use relative paths so that the command file is portable
 # - AssetsFolder is where map files exist for the InfoMapper tool
 SetProperty(PropertyName="AppFolder",PropertyType=String,PropertyValue="../../../web")
 SetProperty(PropertyName="MapsFolder",PropertyType=String,PropertyValue="${AppFolder}/data-maps")
-SetProperty(PropertyName="CountiesMapFolder",PropertyType=String,PropertyValue="${MapsFolder}/BasinEntities/Political-Counties")
-SetProperty(PropertyName="CountiesTsFolder",PropertyType=String,PropertyValue="${CountiesMapFolder}/ts")
-SetProperty(PropertyName="MunicipalitiesMapFolder",PropertyType=String,PropertyValue="${MapsFolder}/BasinEntities/Municipal-Municipalities")
-SetProperty(PropertyName="MunicipalitiesTsFolder",PropertyType=String,PropertyValue="${MunicipalitiesMapFolder}/ts")
+SetProperty(PropertyName="MapFolder",PropertyType=String,PropertyValue="${MapsFolder}/BasinEntities/Political-Counties")
+SetProperty(PropertyName="TsFolder",PropertyType=String,PropertyValue="${MapFolder}/ts")
 #
-# Set the following to true to write files, false to not write files
-# - useful for troubleshooting
-#SetProperty(PropertyName="CreateFiles",PropertyType=String,PropertyValue="true")
-SetProperty(PropertyName="CreateFiles",PropertyType=String,PropertyValue="false")
+# Set the following to true to not write files, useful for troubleshooting.
+SetProperty(PropertyName="CreateFiles",PropertyType=String,PropertyValue="true")
+# SetProperty(PropertyName="CreateFiles",PropertyType=String,PropertyValue="false")
 #
-# Create the output folders for time series
-CreateFolder(Folder="${CountiesTsFolder}",CreateParentFolders=True,IfFolderExists=Ignore)
-CreateFolder(Folder="${MunicipalitiesTsFolder}",CreateParentFolders=True,IfFolderExists=Ignore)
+# Create the output folder for time series
+CreateFolder(Folder="${TsFolder}",CreateParentFolders=True,IfFolderExists=Ignore)
 #
-# Download the counties dataset from OWF, which cross-references FIPS and DOLA identifiers
-# - used to iterate through counties
-WebGet(URI="https://raw.githubusercontent.com/OpenWaterFoundation/owf-data-co-counties/master/data/Colorado-Counties.csv",LocalFile="downloads/counties-data.csv")
-#
-# Download the estimated total population data and convert floating point population to integer
-# - estimates have total population for county, unincorporated county, and municipalities
-# - forecasts have total population for county
-WebGet(URI="https://storage.googleapis.com/co-publicdata/county-muni-timeseries.csv",LocalFile="downloads/population-estimate-data.csv")
-WebGet(URI="https://drive.google.com/uc?export=download&id=0B-vz6H4k4SESdkNHSng2VGlEc1k",LocalFile="downloads/population-forecast-data.xlsx")
-#
-# Create a SQLite database to manipulate county data
-# - first close the datastore if it is open and delete the database file
-# - this will ensure that the create occurs as expected with inserts rather than updates
-CloseDataStore(DataStore="CountiesDataStore",StatusMessage="Close previously opened datastore before (re)creating database.",IfNotFound=Ignore)
-RemoveFile(InputFile="downloads/counties.db",IfNotFound=Ignore)
-NewSQLiteDatabase(DataStore="CountiesDataStore",DatabaseFile="downloads/counties.db")
-#
-# Read csv files and load tables into the SQLite database
-ReadTableFromDelimitedFile(TableID="CountiesCsvTable",InputFile="downloads/counties-data.csv",TextColumns="FIPS_ID,FIPS_wState_ID")
-RunSql(DataStore="CountiesDataStore",SqlFile="create-county-table.sqlite")
-SetDebugLevel(LogFileLevel=10)
-WriteTableToDataStore(TableID="CountiesCsvTable",DataStore="CountiesDataStore",DataStoreTable="County",WriteMode=InsertUpdate)
-SetDebugLevel(ScreenLevel=0,LogFileLevel=0)
-ReadTableFromDataStore(DataStore="CountiesDataStore",DataStoreTable="County",TableID="CountiesTable")
-# Use the following to compare counties tables read from csv nd database
-# CompareTables(Table1ID="CountiesCsvTable",Table2ID="CountiesTable",IfDifferent=Warn)
-#
-# Exit command processing until other logic can be added
-Exit()
-
+# Download the population data and convert floating point population to integer
+WebGet(URI="https://data.colorado.gov/resource/9dd2-kw29.csv",LocalFile="downloads/population-data.csv")
 ReadTableFromDelimitedFile(TableID="county-population-table",InputFile="downloads/population-data.csv",HeaderLines="1",DateTimeColumns="year")
 ManipulateTableString(TableID="county-population-table",InputColumn1="totalpopulation",Operator="ToInteger",OutputColumn="totalpopulation2")
 ManipulateTableString(TableID="county-population-table",InputColumn1="county",Operator="ToUpperCase",OutputColumn="county")
