@@ -2,6 +2,7 @@
   "title": "Poudre Basin Information",
   "homePage": "/content-pages/home.md",
   "favicon": "/img/owf-favicon-32x32.ico",
+  "dataUnitsPath": "/system/DATAUNIT",
   "googleAnalyticsTrackingId": "UA-135465513-1",
   "version": "0.5.0 (2020-09-16)",
   "mainMenu": [

@@ -198,6 +198,8 @@ copyMainConfig() {
   cp -rv ${scriptFolder}/content-pages ${appFolder}
   # Images
   cp -rv ${scriptFolder}/img ${appFolder}
+  # System
+  cp -rv ${scriptFolder}/system ${appFolder}
 }
 
 runInteractive() {
