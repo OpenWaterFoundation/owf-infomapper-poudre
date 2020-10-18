@@ -4,11 +4,19 @@ The following release notes document changes to the Poudre Basin Information web
 
 | **Release** | **Description** |
 | -- | -- |
+| 0.6.0 | Add data tables for map layers and search feature for layers. |
 | 0.5.0 | Update to Angular 10. |
 | 0.4.0 | Add popup layer menu with option to view layer data table. |
 | 0.3.0 | Add popup documentation for all maps and layers.  Add wildfires and others maps. |
 | 0.2.x | Update to use general InfoMapper software as a platform for the application. |
 | 0.1.0 | Initial version as custom application. | 
+
+------------
+
+## 0.6.0
+
+* [0.6.0] Add data table views for layer attributes and time series.
+* [0.6.0] Popup dialogs are now resizable, other than time series graph.
 
 ## 0.5.0
 
