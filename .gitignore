@@ -143,6 +143,10 @@ junk
 # downloads/
 /workflow/BasinEntities/Political-Counties/downloads/*
 !/workflow/BasinEntities/Political-Counties/downloads/README.md
+# db/
+# - ignore generated database
+/workflow/BasinEntities/Political-Counties/db/*
+!/workflow/BasinEntities/Political-Counties/db/README.md
 # layers/
 # - csv are layer classification files
 # - md are Markdown filees to document layers
