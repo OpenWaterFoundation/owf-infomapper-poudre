@@ -12,6 +12,9 @@ junk
 # Ignore log files
 *.log
 
+# Ignore temporary HTML files
+*.tmp.html
+
 # vim editor files
 
 *.swp

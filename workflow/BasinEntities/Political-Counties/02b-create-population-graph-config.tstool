@@ -1,0 +1,52 @@
+StartLog(LogFile="02b-create-population-graph-config.tstool.log",MaxSize="100000000")
+# Create the county population graph configurations
+# - use the SQLite database of county population data that was created in the previous step
+#
+OpenDataStore(DataStoreName="CountyDatabase",DataStoreType="GenericDatabaseDataStore",DatabaseEngine="SQLite",ServerName="db/counties.db")
+#===================================================================
+#
+# Process the county data into time series
+# - first get the unique list of counties
+ReadTableFromDataStore(DataStore="CountyDatabase",Sql="SELECT DISTINCT municipalityname, countyfips FROM county_pop_estimate_dola WHERE municipalityname LIKE '%COUNTY%' ORDER BY municipalityname",TableID="CountyListTable")
+ManipulateTableString(TableID="CountyListTable",InputColumn1="municipalityname",Operator="Remove",InputValue2="\sCOUNTY",OutputColumn="county")
+#
+For(Name="For_Counties",IteratorProperty="County",TableID="CountyListTable",TableColumn="county")
+# First get the data records from the database.
+ReadTableFromDataStore(DataStore="CountyDatabase",Sql="SELECT * FROM county_pop_estimate_dola WHERE municipalityname = '${County} COUNTY' ORDER BY year",TableID="${County}_County_Data_Table")
+# Convert the data records to a time series.
+TableToTimeSeries(TableID="${County}_County_Data_Table",DateColumn="year",LocationID="${County}",LocationType="County",ValueColumn="totalpopulation",DataSource="DOLA",DataType="Population",Interval=Year,Units="persons",Alias="%L-%T-%I")
+EndFor(Name="For_Counties")
+#===================================================================
+#
+# Process the county unincorporated area data into time series
+For(Name="For_Counties_Unincorp",IteratorProperty="County",TableID="CountyListTable",TableColumn="county")
+# First get the data records from the database.
+ReadTableFromDataStore(DataStore="CountyDatabase",Sql="SELECT * FROM county_pop_estimate_dola WHERE UPPER(municipalityname) = '${County} UNINCORP. AREA' ORDER BY year",TableID="${County}_County_Unincorported_Data_Table")
+# Convert the data records to a time series.
+TableToTimeSeries(TableID="${County}_County_Unincorported_Data_Table",DateColumn="year",LocationID="${County}",LocationType="CountyUnincorporated",ValueColumn="totalpopulation",DataSource="DOLA",DataType="Population",Interval=Year,Units="persons",Alias="%L_Unincorporated-%T-%I")
+EndFor(Name="For_Counties_Unincorp")
+#===================================================================
+#
+# Process the county muni area data into time series
+# - all non-county and non-total time series
+For(Name="For_Counties_Muni",IteratorProperty="CountyFIPS",TableID="CountyListTable",TableColumn="countyfips",TablePropertyMap="county:County")
+# First get the data records from the database.
+ReadTableFromDataStore(DataStore="CountyDatabase",Sql="SELECT * FROM county_pop_estimate_dola WHERE ((countyfips = ${CountyFIPS}) AND (municipalityname NOT LIKE '%COUNTY%') AND (municipalityname NOT LIKE '%(Total)%') AND (municipalityname NOT LIKE '%Unincorp%')) ORDER BY year",TableID="${County}_County_Muni_Data_Table")
+# Convert the data records to a time series.
+TableToTimeSeries(TableID="${County}_County_Muni_Data_Table",DateColumn="year",LocationID="${County}",LocationType="CountyMuni",ValueColumn="totalpopulation",DataSource="DOLA",DataType="Population",Interval=Year,Units="persons",HandleDuplicatesHow=Add,Alias="%L_Muni-%T-%I")
+EndFor(Name="For_Counties_Muni")
+#===================================================================
+#
+# Process municipality data into time series
+# - counties have placefips=0 and unincorporated areas have 'Unincorp' in municipalityname
+# - some municipalities are in more than one county and have '(Total)' in the name, so remove
+# - some municipalities have the same name as counties so filter out
+ReadTableFromDataStore(DataStore="CountyDatabase",Sql="SELECT DISTINCT municipalityname FROM county_pop_estimate_dola WHERE ((placefips != 0) AND (municipalityname NOT LIKE '%Unincorp%') AND (municipalityname NOT LIKE '%Part%') AND (municipalityname NOT LIKE '%COUNTY%')) ORDER BY municipalityname",TableID="MunicipalityListTable")
+ManipulateTableString(TableID="MunicipalityListTable",InputColumn1="municipalityname",Operator="Remove",InputValue2="\s(Total)",OutputColumn="dola_municipality")
+#
+For(Name="For_Municipalities",IteratorProperty="Municipality",TableID="MunicipalityListTable",TableColumn="dola_municipality")
+# First get the data records from the database.
+ReadTableFromDataStore(DataStore="CountyDatabase",Sql="SELECT * FROM county_pop_estimate_dola WHERE ((municipalityname LIKE '%${Municipality}%') AND (municipalityname NOT LIKE '%Part%') AND (municipalityname NOT LIKE '%COUNTY%') AND (municipalityname NOT LIKE '%Unincorp%')) ORDER BY year",TableID="${Municipality}_Municipality_Data_Table")
+# Convert the data records to a time series.
+TableToTimeSeries(TableID="${Municipality}_Municipality_Data_Table",DateColumn="year",LocationID="${Municipality}",LocationType="Municipality",ValueColumn="totalpopulation",DataSource="DOLA",DataType="Population",Interval=Year,Units="persons",Alias="%L-Municipality-%T-%I")
+EndFor(Name="For_Municipalities")
