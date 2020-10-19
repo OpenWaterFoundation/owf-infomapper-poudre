@@ -23,9 +23,9 @@ were downloaded and processed to gain a general understanding of population and 
 
 * [Population Data](https://demography.dola.colorado.gov/population/) - main population page
 * [Population: Data and Lookups](https://demography.dola.colorado.gov/population/data) - main dataset download page
-	+ [County and Municipal Population Timeseries Download](https://storage.googleapis.com/co-publicdata/county-muni-timeseries.csv)
+	+ [County and Municipal Population Timeseries Download](https://storage.googleapis.com/co-publicdata/county-muni-timeseries.csv) - `csv` file
 * [Population Totals for Colorado Counties](https://demography.dola.colorado.gov/population/population-totals-counties/#population-totals-for-colorado-counties)
-	+ [Population Forecasts (1 year increments)](https://drive.google.com/uc?export=download&id=0B-vz6H4k4SESdkNHSng2VGlEc1k)
+	+ [Population Forecasts (1 year increments)](https://drive.google.com/uc?export=download&id=0B-vz6H4k4SESdkNHSng2VGlEc1k) - Excel `xls` file
 * [Colorado Information Marketplace, Total Population by County by Year](https://data.colorado.gov/Demographics/Total-Population-by-County-by-Year/9dd2-kw29) - used for initial map data,
 but now are using the data from above
 

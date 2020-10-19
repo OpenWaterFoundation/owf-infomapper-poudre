@@ -3,9 +3,10 @@ StartLog(LogFile="02b-create-population-graph-config.tstool.log",MaxSize="100000
 # - use the SQLite database of county population data that was created in the previous step
 #
 OpenDataStore(DataStoreName="CountyDatabase",DataStoreType="GenericDatabaseDataStore",DatabaseEngine="SQLite",ServerName="db/counties.db")
+# ReadTableFromDataStore(DataStore="CountyDatabase",DataStoreTable="population_forecast_dola",TableID="x")
 #===================================================================
 #
-# Process the county data into time series
+# Process the county historical data into time series
 # - first get the unique list of counties
 ReadTableFromDataStore(DataStore="CountyDatabase",Sql="SELECT DISTINCT municipalityname, countyfips FROM county_pop_estimate_dola WHERE municipalityname LIKE '%COUNTY%' ORDER BY municipalityname",TableID="CountyListTable")
 ManipulateTableString(TableID="CountyListTable",InputColumn1="municipalityname",Operator="Remove",InputValue2="\sCOUNTY",OutputColumn="county")
@@ -16,6 +17,16 @@ ReadTableFromDataStore(DataStore="CountyDatabase",Sql="SELECT * FROM county_pop_
 # Convert the data records to a time series.
 TableToTimeSeries(TableID="${County}_County_Data_Table",DateColumn="year",LocationID="${County}",LocationType="County",ValueColumn="totalpopulation",DataSource="DOLA",DataType="Population",Interval=Year,Units="persons",Alias="%L-%T-%I")
 EndFor(Name="For_Counties")
+#===================================================================
+#
+# Process the county forecast data into time series
+# - first get the unique list of counties
+For(Name="For_Forecast_Counties",IteratorProperty="County",TableID="CountyListTable",TableColumn="county")
+# First get the data records from the database.
+ReadTableFromDataStore(DataStore="CountyDatabase",Sql="SELECT * FROM population_forecast_dola WHERE UPPER(county) = '${County}' ORDER BY year",TableID="${County}_County_Forecast_Table")
+# Convert the data records to a time series.
+TableToTimeSeries(TableID="${County}_County_Forecast_Table",DateColumn="year",LocationID="${County}",LocationType="County",ValueColumn="population_forecast",DataSource="DOLA",DataType="Population",Interval=Year,Scenario="Forecast",Units="persons",Alias="%L-%T-%I-forecast")
+EndFor(Name="For_Forecast_Counties")
 #===================================================================
 #
 # Process the county unincorporated area data into time series
