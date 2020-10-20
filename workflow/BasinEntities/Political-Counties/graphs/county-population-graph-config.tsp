@@ -3,7 +3,7 @@
 ProductType = "Graph"
 TotalWidth = "600"
 TotalHeight = "400"
-MainTitleString = "LARIMER County Total Population"
+MainTitleString = "Larimer County Total Population"
 SubTitleString = "Source:  DOLA"
 
 [SubProduct 1]
@@ -18,14 +18,33 @@ LayoutYPercent = ""
 
 [Data 1.1]
 
-GraphType = "Point"
-TSID = "LARIMER.DOLA.Population.Year"
-TSAlias = "LARIMER-population"
-SymbolSize = "5"
-SymbolStyle = "Circle-Filled"
+Color = "0x0000ff"
+GraphType = "Line"
+TSID = "County:Larimer.DOLA.Population-Total.Year"
+LineWidth = 2
+TSAlias = "Larimer-County-Population-Total"
 
 [Data 1.2]
 
+GraphType = "Point"
+TSID = "County:Larimer.DOLA.Population-Forecast.Year"
+TSAlias = "Larimer-County-Population-Forecast"
+Color = "0xff0000"
+SymbolSize = "5"
+SymbolStyle = "Circle-Filled"
+
+[Data 1.3]
+
+Color = "0x000000"
 GraphType = "Line"
-TSID = "LARIMER.DOLA.Population.Year.filled"
-TSAlias = "LARIMER-population-filled"
+LineWidth = 2
+TSID = "County:Larimer.DOLA.Population-Muni.Year"
+TSAlias = "Larimer-County-Population-Muni"
+
+[Data 1.4]
+
+Color = "0x00ff00"
+GraphType = "Line"
+LineWidth = 2
+TSID = "County:Larimer.DOLA.Population-Unincorp.Year"
+TSAlias = "Larimer-County-Population-Unincorp"

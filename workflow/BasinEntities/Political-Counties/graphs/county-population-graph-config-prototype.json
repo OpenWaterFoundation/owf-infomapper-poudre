@@ -10,7 +10,7 @@
       "MainTitleFontName" : "Arial",
       "MainTitleFontSize" : "20",
       "MainTitleFontStyle" : "Plain",
-      "MainTitleString" : "LARIMER County Total Population",
+      "MainTitleString" : "Larimer County Total Population",
       "ProductID" : "Product1",
       "ProductName" : "",
       "ProductType" : "Graph",
@@ -108,7 +108,25 @@
       },
       "data" : [ {
         "properties" : {
-          "Color" : "red",
+          "Color" : "0x0000ff",
+          "DataLabelFormat" : "",
+          "DataLabelPosition" : "Right",
+          "Enabled" : "True",
+          "FlaggedDataSymbolStyle" : "None",
+          "GraphType" : "Line",
+          "LegendFormat" : "Auto",
+          "LineStyle" : "Solid",
+          "LineWidth" : "2",
+          "SymbolSize" : "0",
+          "SymbolStyle" : "None",
+          "TSAlias" : "Larimer-County-Population-Total",
+          "TSID" : "County:Larimer.DOLA.Population-Total.Year",
+          "XAxis" : "Bottom",
+          "YAxis" : "Left"
+        }
+      }, {
+        "properties" : {
+          "Color" : "0xff0000",
           "DataLabelFormat" : "",
           "DataLabelPosition" : "Right",
           "Enabled" : "True",
@@ -119,14 +137,14 @@
           "LineWidth" : "1",
           "SymbolSize" : "5",
           "SymbolStyle" : "Circle-Filled",
-          "TSAlias" : "LARIMER-population",
-          "TSID" : "LARIMER.DOLA.Population.Year",
+          "TSAlias" : "Larimer-County-Population-Forecast",
+          "TSID" : "County:Larimer.DOLA.Population-Forecast.Year",
           "XAxis" : "Bottom",
           "YAxis" : "Left"
         }
       }, {
         "properties" : {
-          "Color" : "blue",
+          "Color" : "0x000000",
           "DataLabelFormat" : "",
           "DataLabelPosition" : "Right",
           "Enabled" : "True",
@@ -134,11 +152,29 @@
           "GraphType" : "Line",
           "LegendFormat" : "Auto",
           "LineStyle" : "Solid",
-          "LineWidth" : "1",
+          "LineWidth" : "2",
           "SymbolSize" : "0",
           "SymbolStyle" : "None",
-          "TSAlias" : "LARIMER-population-filled",
-          "TSID" : "LARIMER.DOLA.Population.Year.filled",
+          "TSAlias" : "Larimer-County-Population-Muni",
+          "TSID" : "County:Larimer.DOLA.Population-Muni.Year",
+          "XAxis" : "Bottom",
+          "YAxis" : "Left"
+        }
+      }, {
+        "properties" : {
+          "Color" : "0x00ff00",
+          "DataLabelFormat" : "",
+          "DataLabelPosition" : "Right",
+          "Enabled" : "True",
+          "FlaggedDataSymbolStyle" : "None",
+          "GraphType" : "Line",
+          "LegendFormat" : "Auto",
+          "LineStyle" : "Solid",
+          "LineWidth" : "2",
+          "SymbolSize" : "0",
+          "SymbolStyle" : "None",
+          "TSAlias" : "Larimer-County-Population-Unincorp",
+          "TSID" : "County:Larimer.DOLA.Population-Unincorp.Year",
           "XAxis" : "Bottom",
           "YAxis" : "Left"
         }

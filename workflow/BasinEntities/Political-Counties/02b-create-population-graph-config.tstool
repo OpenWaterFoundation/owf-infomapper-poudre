@@ -72,8 +72,9 @@ ReadTableFromDataStore(DataStore="CountyDatabase",Sql="SELECT * FROM county_pop_
 # Convert the data records to a time series.
 TableToTimeSeries(TableID="${county_no_space}_County_Population_Total_Table",DateColumn="year",LocationID="${county_no_space}",LocationType="County",ValueColumn="totalpopulation",DataSource="DOLA",DataType="Population-Total",Interval=Year,Units="persons",Alias="%L-County-%T",InputStart="${HistPopulationStart}",InputEnd="${ForecastPopulationEnd}")
 # Write the time series files
-WriteDelimitedFile(TSList=AllMatchingTSID,TSID="${county_no_space}-County-Population-Total",OutputFile="${CountiesTsFolder}/County_${county_no_space}.DOLA.Population-Total.Year.csv",DateTimeColumn="year",ValueColumns="population",Precision=0)
-WriteDateValue(TSList=AllMatchingTSID,TSID="${county_no_space}-County-Population-Total",OutputFile="${CountiesTsFolder}/County_${county_no_space}.DOLA.Population-Total.Year.dv",Precision=0)
+# - actually, this time series is modified later when forecasts are added so don't write here
+# WriteDelimitedFile(TSList=AllMatchingTSID,TSID="${county_no_space}-County-Population-Total",OutputFile="${CountiesTsFolder}/County_${county_no_space}.DOLA.Population-Total.Year.csv",DateTimeColumn="year",ValueColumns="population",Precision=0)
+# WriteDateValue(TSList=AllMatchingTSID,TSID="${county_no_space}-County-Population-Total",OutputFile="${CountiesTsFolder}/County_${county_no_space}.DOLA.Population-Total.Year.dv",Precision=0)
 EndFor(Name="For_Counties_Population_Total")
 #===================================================================
 #
@@ -122,7 +123,7 @@ EndFor(Name="For_Municipalities")
 #===================================================================
 #
 # Process the county forecast data into time series
-# - also copy over the county population total
+# - also set the forecasted county population total into the main population time series
 For(Name="For_Counties_Forecast",IteratorProperty="County",TableID="CountyListTable",TableColumn="county",TablePropertyMap="county_upper:county_upper,county_no_space:county_no_space")
 # First get the data records from the database.
 ReadTableFromDataStore(DataStore="CountyDatabase",Sql="SELECT * FROM population_forecast_dola WHERE county = '${County}' ORDER BY year",TableID="${county_no_space}_County_Population_Forecast_Table")
@@ -132,4 +133,24 @@ SetFromTS(TSList=AllMatchingTSID,TSID="${county_no_space}-County-Population-Tota
 # Write the time series files
 WriteDelimitedFile(TSList=AllMatchingTSID,TSID="${county_no_space}-County-Population-Forecast",OutputFile="${CountiesTsFolder}/County_${county_no_space}.DOLA.Population-Forecast.Year.csv",DateTimeColumn="year",ValueColumns="population",Precision=0)
 WriteDateValue(TSList=AllMatchingTSID,TSID="${county_no_space}-County-Population-Forecast",OutputFile="${CountiesTsFolder}/County_${county_no_space}.DOLA.Population-Forecast.Year.dv",Precision=0)
+# Write the main time series since data where added
+WriteDelimitedFile(TSList=AllMatchingTSID,TSID="${county_no_space}-County-Population-Total",OutputFile="${CountiesTsFolder}/County_${county_no_space}.DOLA.Population-Total.Year.csv",DateTimeColumn="year",ValueColumns="population",Precision=0)
+WriteDateValue(TSList=AllMatchingTSID,TSID="${county_no_space}-County-Population-Total",OutputFile="${CountiesTsFolder}/County_${county_no_space}.DOLA.Population-Total.Year.dv",Precision=0)
 EndFor(Name="For_Counties_Forecast")
+#===================================================================
+#
+# Create graph template for use with InfoMapper
+# - only need to do this once
+# - use Larimer County as the example
+ProcessTSProduct(TSProductFile="graphs/county-population-graph-config.tsp",View=True,OutputFile="graphs/county-population-graph-prototype.png",OutputProductFile="graphs/county-population-graph-config-prototype.json",OutputProductFormat="JSON")
+#
+# Convert the prototype graph into a template by replacing strings with ${Property} notation
+# - convert prototype Larimer to property that can be filled by InfoMapper
+TextEdit(InputFile="graphs/county-population-graph-config-prototype.json",SearchFor="Larimer",ReplaceWith="\$\{featureAttribute:county}",OutputFile="graphs/county-population-graph-config.json")
+# Edit TSID
+# - first part of the string will have been replaced above
+# - final step corrects a replace from previous steps
+TextEdit(InputFile="graphs/county-population-graph-config.json",SearchFor="Population-Total.Year",ReplaceWith="Population-Total\.Year~dv~ts/County_\$\{featureAttribute:county}\.DOLA\.Population-Total\.Year\.dv",OutputFile="graphs/county-population-graph-config.json")
+TextEdit(InputFile="graphs/county-population-graph-config.json",SearchFor="Population-Muni.Year",ReplaceWith="Population-Muni\.Year~dv~ts/County_\$\{featureAttribute:county}\.DOLA\.Population-Muni\.Year\.dv",OutputFile="graphs/county-population-graph-config.json")
+TextEdit(InputFile="graphs/county-population-graph-config.json",SearchFor="Population-Unincorp.Year",ReplaceWith="Population-Unincorp\.Year~dv~ts/County_\$\{featureAttribute:county}\.DOLA\.Population-Unincorp\.Year\.dv",OutputFile="graphs/county-population-graph-config.json")
+TextEdit(InputFile="graphs/county-population-graph-config.json",SearchFor="Population-Forecast.Year",ReplaceWith="Population-Forecast\.Year~dv~ts/County_\$\{featureAttribute:county}\.DOLA\.Population-Forecast\.Year\.dv",OutputFile="graphs/county-population-graph-config.json")
