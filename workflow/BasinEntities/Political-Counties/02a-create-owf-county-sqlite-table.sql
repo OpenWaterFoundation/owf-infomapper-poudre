@@ -4,7 +4,6 @@
 */
 CREATE TABLE IF NOT EXISTS county_owf (
   CountyName TEXT NOT NULL,
-  County TEXT NOT NULL,
   State_Abbrev TEXT NOT NULL,
   FIPS_ID TEXT NOT NULL,
   FIPS_ID_Flag TEXT NOT NULL,
