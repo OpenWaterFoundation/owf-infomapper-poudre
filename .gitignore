@@ -139,6 +139,13 @@ junk
 !/workflow/BasinEntities/Municipal-Municipalities/layers/*doc
 # Dynamic map configurations
 #/workflow/BasinEntities/Municipal-Municipalities/*.json
+# ts/
+# - ignore generated time series files
+/workflow/BasinEntities/Municipal-Municipalities/ts/*
+!/workflow/BasinEntities/Municipal-Municipalities/ts/README.md
+# graphs/
+# - ignore images created for prototype
+/workflow/BasinEntities/Municipal-Municipalities/graphs/*.png
 
 # BasinEntities/Political-Counties/
 # Dynamic map configurations

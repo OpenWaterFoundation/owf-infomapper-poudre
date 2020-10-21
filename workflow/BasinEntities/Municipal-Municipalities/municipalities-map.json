@@ -357,7 +357,16 @@
                   "imageAnchorPoint": "Bottom"
                 }
               },
-              "eventHandlers": []
+              "eventHandlers": [
+                {
+                  "eventType": "click",
+                  "name": null,
+                  "description": "",
+                  "properties": {
+                    "popupConfigPath": "graphs/municipality-popup-config.json"
+                  }
+                }
+              ]
             },
             {
               "geoLayerViewId": "MunicipalBoundariesLayerView",
