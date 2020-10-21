@@ -48,6 +48,8 @@ CompareTables(Table1ID="CountyPopulationEstimates_DOLA_Table",Table2ID="tmp_coun
 #
 # Create a table that contains DOLA counties, in order to join to other data and do cross-checks.
 # - for example, later can join the counties from DOLA and OWF to confirm that they are consistent
+# - because downstream data process requires different variations on the county name,
+#   include those in the database:  county_upper (SAN JUAN), county (San Juan), county_no_space (SanJuan)
 # - first get the unique list of counties
 ReadTableFromDataStore(DataStore="CountyDatabase",Sql="SELECT DISTINCT municipalityname, countyfips, countyplace FROM county_pop_estimate_dola WHERE municipalityname LIKE '%COUNTY%' ORDER BY municipalityname",TableID="CountyList_DOLA_Table")
 ManipulateTableString(TableID="CountyList_DOLA_Table",InputColumn1="municipalityname",Operator="Remove",InputValue2="\sCOUNTY",OutputColumn="county_upper")

@@ -46,7 +46,7 @@ SetProperty(PropertyName="ForecastPopulationEnd",PropertyType=DateTime,PropertyV
 # Set the following to true to write files, false to not write files
 # - useful for troubleshooting
 #SetProperty(PropertyName="CreateFiles",PropertyType=String,PropertyValue="true")
-SetProperty(PropertyName="CreateFiles",PropertyType=String,PropertyValue="false")
+#SetProperty(PropertyName="CreateFiles",PropertyType=String,PropertyValue="false")
 #
 # Create the output folders for time series
 CreateFolder(Folder="${CountiesTsFolder}",CreateParentFolders=True,IfFolderExists=Ignore)
