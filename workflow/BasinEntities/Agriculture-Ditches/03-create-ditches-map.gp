@@ -75,7 +75,7 @@ AddGeoLayerViewToGeoMap(GeoLayerID="WaterDistrictLayer",GeoLayerViewID="WaterDis
 SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="WaterDistrictLayerView",Name="Colorize district",Description="Show Water District 3 in black.",ClassificationAttribute="DISTRICT",Properties="classificationFile:layers/co-dwr-water-district-3-classify-district.csv")
 # = = = = = = = = = =
 # Ditch service areas
-# - select the most recent for initial view
+# - select the most recent for initial view, others are not selected
 # = = = = = = = = = =
 # Ditch service areas (1956):  read layer and add to a layer view group.
 # - color is yellow
@@ -84,28 +84,28 @@ AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="DitchServiceAreasGroup",Name="
 #
 ReadGeoLayerFromGeoJSON(InputFile="layers/ditch-service-areas-1956.geojson",GeoLayerID="DitchServiceAreas1956Layer",Name="Poudre  Ditch Service Areas",Description="Ditch service areas (1956) for District 3 from Colorado's Decision Support Systems.")
 # The following layer view group is used for all years
-AddGeoLayerViewToGeoMap(GeoLayerID="DitchServiceAreas1956Layer",GeoLayerViewID="DitchServiceAreas1956LayerView",Name="District 3 Ditch Service Areas (1956)",Description="Ditch service areas (1956) from CDSS",InsertPosition="Top",Properties="selectedInitial:true")
+AddGeoLayerViewToGeoMap(GeoLayerID="DitchServiceAreas1956Layer",GeoLayerViewID="DitchServiceAreas1956LayerView",Name="District 3 Ditch Service Areas (1956)",Description="Ditch service areas (1956) from CDSS",InsertPosition="Top",Properties="selectedInitial:false")
 SetGeoLayerViewSingleSymbol(GeoLayerViewID="DitchServiceAreas1956LayerView",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches",Properties="color:#ffff00,opacity:1.0,fillColor:#ffff00,fillOpacity:0.3,weight:2")
 # = = = = = = = = = =
 # Ditch service areas (1976):  read layer and add to a layer view group.
 # - color is orange
 # GeoLayerViewGroupID: DitchServiceAreasGroup
 ReadGeoLayerFromGeoJSON(InputFile="layers/ditch-service-areas-1976.geojson",GeoLayerID="DitchServiceAreas1976Layer",Name="Poudre Ditch Service Areas (1976)",Description="Ditch service areas (1976) for District 3 from Colorado's Decision Support Systems.")
-AddGeoLayerViewToGeoMap(GeoLayerID="DitchServiceAreas1976Layer",GeoLayerViewID="DitchServiceAreas1976LayerView",Name="District 3 Ditch Service Areas (1976)",Description="Ditch service areas (1976) from CDSS",InsertPosition="Top",Properties="selectedInitial:true")
+AddGeoLayerViewToGeoMap(GeoLayerID="DitchServiceAreas1976Layer",GeoLayerViewID="DitchServiceAreas1976LayerView",Name="District 3 Ditch Service Areas (1976)",Description="Ditch service areas (1976) from CDSS",InsertPosition="Top",Properties="selectedInitial:false")
 SetGeoLayerViewSingleSymbol(GeoLayerViewID="DitchServiceAreas1976LayerView",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches",Properties="color:#ff6600,opacity:1.0,fillColor:#ff6600,fillOpacity:0.3,weight:2")
 # = = = = = = = = = =
 # Ditch service areas (1987):  read layer and add to a layer view group.
 # - color is cyan
 # GeoLayerViewGroupID: DitchServiceAreasGroup
 ReadGeoLayerFromGeoJSON(InputFile="layers/ditch-service-areas-1987.geojson",GeoLayerID="DitchServiceAreas1987Layer",Name="Poudre Ditch Service Areas (1987)",Description="Ditch service areas (1987) for District 3 from Colorado's Decision Support Systems.")
-AddGeoLayerViewToGeoMap(GeoLayerID="DitchServiceAreas1987Layer",GeoLayerViewID="DitchServiceAreas1987LayerView",Name="District 3 Ditch Service Areas (1987)",Description="Ditch service areas (1987) from CDSS",InsertPosition="Top",Properties="selectedInitial:true")
+AddGeoLayerViewToGeoMap(GeoLayerID="DitchServiceAreas1987Layer",GeoLayerViewID="DitchServiceAreas1987LayerView",Name="District 3 Ditch Service Areas (1987)",Description="Ditch service areas (1987) from CDSS",InsertPosition="Top",Properties="selectedInitial:false")
 SetGeoLayerViewSingleSymbol(GeoLayerViewID="DitchServiceAreas1987LayerView",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches",Properties="color:#00ffff,opacity:1.0,fillColor:#00ffff,fillOpacity:0.3,weight:2")
 # = = = = = = = = = =
 # Ditch service areas (2001):  read layer and add to a layer view group.
 # - color is light green
 # GeoLayerViewGroupID: DitchServiceAreasGroup
 ReadGeoLayerFromGeoJSON(InputFile="layers/ditch-service-areas-2001.geojson",GeoLayerID="DitchServiceAreas2001Layer",Name="Poudre Ditch Service Areas (2001)",Description="Ditch service areas (2001) for District 3 from Colorado's Decision Support Systems.")
-AddGeoLayerViewToGeoMap(GeoLayerID="DitchServiceAreas2001Layer",GeoLayerViewID="DitchServiceAreas2001LayerView",Name="District 3 Ditch Service Areas (2001)",Description="Ditch service areas (2001) from CDSS",InsertPosition="Top",Properties="selectedInitial:true")
+AddGeoLayerViewToGeoMap(GeoLayerID="DitchServiceAreas2001Layer",GeoLayerViewID="DitchServiceAreas2001LayerView",Name="District 3 Ditch Service Areas (2001)",Description="Ditch service areas (2001) from CDSS",InsertPosition="Top",Properties="selectedInitial:false")
 SetGeoLayerViewSingleSymbol(GeoLayerViewID="DitchServiceAreas2001LayerView",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches",Properties="color:#b3ff66,opacity:1.0,fillColor:#b3ff66,fillOpacity:0.3,weight:2")
 # = = = = = = = = = =
 # Ditch service areas (2005):  read layer and add to a layer view group.

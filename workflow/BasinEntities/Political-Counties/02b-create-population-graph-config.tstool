@@ -160,4 +160,4 @@ TextEdit(InputFile="graphs/county-population-graph-config.json",SearchFor="Popul
 TextEdit(InputFile="graphs/county-population-graph-config.json",SearchFor="Population-Unincorp.Year",ReplaceWith="Population-Unincorp\.Year~dv~ts/County_\${featureAttribute:county}.toMixedCase().replace(' ','')\.DOLA\.Population-Unincorp\.Year\.dv",OutputFile="graphs/county-population-graph-config.json")
 TextEdit(InputFile="graphs/county-population-graph-config.json",SearchFor="Population-Forecast.Year",ReplaceWith="Population-Forecast\.Year~dv~ts/County_\${featureAttribute:county}.toMixedCase().replace(' ','')\.DOLA\.Population-Forecast\.Year\.dv",OutputFile="graphs/county-population-graph-config.json")
 # Edit remaining county name, such as title
-TextEdit(InputFile="graphs/county-population-graph-config.json",SearchFor="Larimer",ReplaceWith="\${featureAttribute:county}",OutputFile="graphs/county-population-graph-config.json")
+TextEdit(InputFile="graphs/county-population-graph-config.json",SearchFor="Larimer",ReplaceWith="\${featureAttribute:county}.toMixedCase()",OutputFile="graphs/county-population-graph-config.json")

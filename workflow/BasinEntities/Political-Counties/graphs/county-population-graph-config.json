@@ -10,7 +10,7 @@
       "MainTitleFontName" : "Arial",
       "MainTitleFontSize" : "20",
       "MainTitleFontStyle" : "Plain",
-      "MainTitleString" : "${featureAttribute:county} County Total Population",
+      "MainTitleString" : "${featureAttribute:county}.toMixedCase() County Total Population",
       "ProductID" : "Product1",
       "ProductName" : "",
       "ProductType" : "Graph",

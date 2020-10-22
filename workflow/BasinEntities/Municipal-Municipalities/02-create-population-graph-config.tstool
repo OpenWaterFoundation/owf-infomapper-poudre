@@ -94,10 +94,13 @@ EndFor(Name="For_Counties_Population_Muni")
 #===================================================================
 #
 # Process county historical muni data into time series
+# - can't query by municipality name because there is some overlap,
+#   for example 'Crested Butte' and 'Mount Crested Butte'
+# - therefore, iterate using the 'placefips'
 #
-For(Name="For_Muni_Population",IteratorProperty="dola_municipality",TableID="MunicipalityList_DOLA_Table",TableColumn="dola_municipality",TablePropertyMap="OWF_ID_Full:OWF_ID_Full")
+For(Name="For_Muni_Population",IteratorProperty="dola_municipality",TableID="MunicipalityList_DOLA_Table",TableColumn="dola_municipality",TablePropertyMap="OWF_ID_Full:OWF_ID_Full,placefips:placefips")
 # First get the data records from the database.
-ReadTableFromDataStore(DataStore="CountyDatabase",Sql="SELECT * FROM county_pop_estimate_dola WHERE ((municipalityname LIKE '%${dola_municipality}%') AND (municipalityname NOT LIKE '%Part%') AND (municipalityname NOT LIKE '%COUNTY%') AND (municipalityname NOT LIKE '%Unincorp%')) ORDER BY year",TableID="${OWF_ID_Full}_Municipality_Data_Table")
+ReadTableFromDataStore(DataStore="CountyDatabase",Sql="SELECT * FROM county_pop_estimate_dola WHERE ((placefips = ${placefips}) AND (municipalityname NOT LIKE '%Part%') AND (municipalityname NOT LIKE '%COUNTY%') AND (municipalityname NOT LIKE '%Unincorp%')) ORDER BY year",TableID="${OWF_ID_Full}_Municipality_Data_Table")
 # Convert the data records to a time series.
 TableToTimeSeries(TableID="${OWF_ID_Full}_Municipality_Data_Table",DateColumn="year",LocationID="${OWF_ID_Full}",LocationType="Muni",ValueColumn="totalpopulation",DataSource="DOLA",DataType="Population-Total",Interval=Year,Units="persons",Alias="%L-Muni-%T")
 # Write the time series files
@@ -132,4 +135,4 @@ TextEdit(InputFile="graphs/municipality-population-graph-config.json",SearchFor=
 TextEdit(InputFile="graphs/municipality-population-graph-config.json",SearchFor="Population-Unincorp.Year",ReplaceWith="Population-Unincorp\.Year~dv~ts/Muni_\$\{featureAttribute:MunicipalityName}.toMixedCase().replace(' ','')\.DOLA\.Population-Unincorp\.Year\.dv",OutputFile="graphs/municipality-population-graph-config.json")
 TextEdit(InputFile="graphs/municipality-population-graph-config.json",SearchFor="Population-Forecast.Year",ReplaceWith="Population-Forecast\.Year~dv~ts/Muni_\$\{featureAttribute:MunicipalityName}.toMixedCase().replace(' ','')\.DOLA\.Population-Forecast\.Year\.dv",OutputFile="graphs/municipality-population-graph-config.json")
 # Edit remaining municipality name, such as title
-TextEdit(InputFile="graphs/municipality-population-graph-config.json",SearchFor="Swink",ReplaceWith="\${featureAttribute:MunicipalityName}",OutputFile="graphs/municipality-population-graph-config.json")
+TextEdit(InputFile="graphs/municipality-population-graph-config.json",SearchFor="Swink",ReplaceWith="\${featureAttribute:MunicipalityName}.toMixedCase()",OutputFile="graphs/municipality-population-graph-config.json")
