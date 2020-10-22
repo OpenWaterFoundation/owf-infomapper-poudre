@@ -398,7 +398,7 @@
               "description": "Ditch service areas (2001) from CDSS",
               "geoLayerId": "DitchServiceAreas2001Layer",
               "properties": {
-                "selectedInitial": "true"
+                "selectedInitial": "false"
               },
               "geoLayerSymbol": {
                 "name": "Poudre Stream Reaches",
@@ -421,7 +421,7 @@
               "description": "Ditch service areas (1987) from CDSS",
               "geoLayerId": "DitchServiceAreas1987Layer",
               "properties": {
-                "selectedInitial": "true"
+                "selectedInitial": "false"
               },
               "geoLayerSymbol": {
                 "name": "Poudre Stream Reaches",
@@ -444,7 +444,7 @@
               "description": "Ditch service areas (1976) from CDSS",
               "geoLayerId": "DitchServiceAreas1976Layer",
               "properties": {
-                "selectedInitial": "true"
+                "selectedInitial": "false"
               },
               "geoLayerSymbol": {
                 "name": "Poudre Stream Reaches",
@@ -467,7 +467,7 @@
               "description": "Ditch service areas (1956) from CDSS",
               "geoLayerId": "DitchServiceAreas1956Layer",
               "properties": {
-                "selectedInitial": "true"
+                "selectedInitial": "false"
               },
               "geoLayerSymbol": {
                 "name": "Poudre Stream Reaches",

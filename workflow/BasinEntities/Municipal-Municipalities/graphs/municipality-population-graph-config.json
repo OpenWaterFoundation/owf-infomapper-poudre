@@ -10,7 +10,7 @@
       "MainTitleFontName" : "Arial",
       "MainTitleFontSize" : "20",
       "MainTitleFontStyle" : "Plain",
-      "MainTitleString" : "${featureAttribute:MunicipalityName} Municipality Total Population",
+      "MainTitleString" : "${featureAttribute:MunicipalityName}.toMixedCase() Municipality Total Population",
       "ProductID" : "Product1",
       "ProductName" : "",
       "ProductType" : "Graph",
