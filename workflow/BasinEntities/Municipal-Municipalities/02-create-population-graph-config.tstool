@@ -70,7 +70,7 @@ ManipulateTableString(TableID="MunicipalityList_OWF_Table",InputColumn1="FIPS_ID
 #   join on FIPS ID, but need to format consistently in both.
 ReadTableFromDataStore(DataStore="CountyDatabase",Sql="SELECT DISTINCT municipalityname, placefips FROM county_pop_estimate_dola WHERE ((placefips != 0) AND (municipalityname NOT LIKE '%Unincorp%') AND (municipalityname NOT LIKE '%Part%') AND (municipalityname NOT LIKE '%COUNTY%')) ORDER BY municipalityname",TableID="MunicipalityList_DOLA_Table")
 ManipulateTableString(TableID="MunicipalityList_DOLA_Table",InputColumn1="municipalityname",Operator="Remove",InputValue2="\s(Total)",OutputColumn="dola_municipality")
-# Join to OWF municipality list that additional inforamtion such as OWF_ID can be used
+# Join to OWF municipality list that additional inforamtion such as OWF_ID_Full can be used
 # - if the result is not 272 rows (length of OWF dataset), warn
 JoinTables(TableID="MunicipalityList_DOLA_Table",TableToJoinID="MunicipalityList_OWF_Table",JoinColumns="placefips:FIPS_ID_int",JoinMethod=JoinIfInBoth,HandleMultipleJoinMatchesHow=UseLastMatch,RowCountProperty="MunicipalityJoinRowCount")
 If(Name="If_MunicipalityJoinCount",Condition="${MunicipalityJoinRowCount} != 272")
@@ -95,15 +95,15 @@ EndFor(Name="For_Counties_Population_Muni")
 #
 # Process county historical muni data into time series
 #
-For(Name="For_Muni_Population",IteratorProperty="dola_municipality",TableID="MunicipalityList_DOLA_Table",TableColumn="dola_municipality",TablePropertyMap="OWF_ID:OWF_ID")
+For(Name="For_Muni_Population",IteratorProperty="dola_municipality",TableID="MunicipalityList_DOLA_Table",TableColumn="dola_municipality",TablePropertyMap="OWF_ID_Full:OWF_ID_Full")
 # First get the data records from the database.
-ReadTableFromDataStore(DataStore="CountyDatabase",Sql="SELECT * FROM county_pop_estimate_dola WHERE ((municipalityname LIKE '%${dola_municipality}%') AND (municipalityname NOT LIKE '%Part%') AND (municipalityname NOT LIKE '%COUNTY%') AND (municipalityname NOT LIKE '%Unincorp%')) ORDER BY year",TableID="${OWF_ID}_Municipality_Data_Table")
+ReadTableFromDataStore(DataStore="CountyDatabase",Sql="SELECT * FROM county_pop_estimate_dola WHERE ((municipalityname LIKE '%${dola_municipality}%') AND (municipalityname NOT LIKE '%Part%') AND (municipalityname NOT LIKE '%COUNTY%') AND (municipalityname NOT LIKE '%Unincorp%')) ORDER BY year",TableID="${OWF_ID_Full}_Municipality_Data_Table")
 # Convert the data records to a time series.
-TableToTimeSeries(TableID="${OWF_ID}_Municipality_Data_Table",DateColumn="year",LocationID="${OWF_ID}",LocationType="Muni",ValueColumn="totalpopulation",DataSource="DOLA",DataType="Population-Total",Interval=Year,Units="persons",Alias="%L-Muni-%T")
+TableToTimeSeries(TableID="${OWF_ID_Full}_Municipality_Data_Table",DateColumn="year",LocationID="${OWF_ID_Full}",LocationType="Muni",ValueColumn="totalpopulation",DataSource="DOLA",DataType="Population-Total",Interval=Year,Units="persons",Alias="%L-Muni-%T")
 # Write the time series files
 # - TODO smalers 2020-10-19 need to read the OWF municipalities to get the identifier, or use MixedCase with no spaces
-WriteDelimitedFile(TSList=AllMatchingTSID,TSID="${OWF_ID}-Muni-Population-Total",OutputFile="${MunicipalitiesTsFolder}/Muni_${OWF_ID}.DOLA.Population-Total.Year.csv",DateTimeColumn="year",ValueColumns="population",Precision=0)
-WriteDateValue(TSList=AllMatchingTSID,TSID="${OWF_ID}-Muni-Population-Total",OutputFile="${MunicipalitiesTsFolder}/Muni_${OWF_ID}.DOLA.Population-Total.Year.dv",Precision=0)
+WriteDelimitedFile(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-Muni-Population-Total",OutputFile="${MunicipalitiesTsFolder}/Muni_${OWF_ID_Full}.DOLA.Population-Total.Year.csv",DateTimeColumn="year",ValueColumns="population",Precision=0)
+WriteDateValue(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-Muni-Population-Total",OutputFile="${MunicipalitiesTsFolder}/Muni_${OWF_ID_Full}.DOLA.Population-Total.Year.dv",Precision=0)
 EndFor(Name="For_Muni_Population")
 #===================================================================
 #
@@ -115,16 +115,21 @@ EndFor(Name="For_Muni_Population")
 # - only need to do this once
 # - use La Junta municipality as the example
 ProcessTSProduct(TSProductFile="graphs/municipality-population-graph-config.tsp",View=True,OutputFile="graphs/municipality-population-graph-prototype.png",OutputProductFile="graphs/municipality-population-graph-config-prototype.json",OutputProductFormat="JSON")
+# Copy the prototype to the final name for further editing below
+CopyFile(InputFile="graphs/municipality-population-graph-config-prototype.json",OutputFile="graphs/municipality-population-graph-config.json",IfInputNotFound=Warn)
 #
 # Convert the prototype graph into a template by replacing strings with ${Property} notation
 # - convert prototype 'SwinkNoSpace' to property that can be filled by InfoMapper - attribute without space, for files
 # - convert prototype 'Swink' to property that can be filled by InfoMapper - attribute as is, for title
-TextEdit(InputFile="graphs/municipality-population-graph-config-prototype.json",SearchFor="SwinkNoSpace",ReplaceWith="\$\{featureAttribute:MunicipalityName}",OutputFile="graphs/municipality-population-graph-config.json")
-TextEdit(InputFile="graphs/municipality-population-graph-config.json",SearchFor="Swink",ReplaceWith="\$\{featureAttribute:MunicipalityName}",OutputFile="graphs/municipality-population-graph-config.json")
-# Edit TSID
+# Front part of TSID and TSAlias
+TextEdit(InputFile="graphs/municipality-population-graph-config.json",SearchFor="Swink-",ReplaceWith="\${featureAttribute:MunicipalityName}.toMixedCase().replace(' ','')-",OutputFile="graphs/municipality-population-graph-config.json")
+TextEdit(InputFile="graphs/municipality-population-graph-config.json",SearchFor="Swink\.",ReplaceWith="\${featureAttribute:MunicipalityName}.toMixedCase().replace(' ','').",OutputFile="graphs/municipality-population-graph-config.json")
+# Edit TSID file paths
 # - first part of the string will have been replaced above
 # - final step corrects a replace from previous steps
-TextEdit(InputFile="graphs/municipality-population-graph-config.json",SearchFor="Population-Total.Year",ReplaceWith="Population-Total\.Year~dv~ts/Muni_\$\{featureAttribute:MunicipalityName}\.DOLA\.Population-Total\.Year\.dv",OutputFile="graphs/municipality-population-graph-config.json")
-TextEdit(InputFile="graphs/municipality-population-graph-config.json",SearchFor="Population-Muni.Year",ReplaceWith="Population-Muni\.Year~dv~ts/Muni_\$\{featureAttribute:MunicipalityName}\.DOLA\.Population-Muni\.Year\.dv",OutputFile="graphs/municipality-population-graph-config.json")
-TextEdit(InputFile="graphs/municipality-population-graph-config.json",SearchFor="Population-Unincorp.Year",ReplaceWith="Population-Unincorp\.Year~dv~ts/Muni_\$\{featureAttribute:MunicipalityName}\.DOLA\.Population-Unincorp\.Year\.dv",OutputFile="graphs/municipality-population-graph-config.json")
-TextEdit(InputFile="graphs/municipality-population-graph-config.json",SearchFor="Population-Forecast.Year",ReplaceWith="Population-Forecast\.Year~dv~ts/Muni_\$\{featureAttribute:MunicipalityName}\.DOLA\.Population-Forecast\.Year\.dv",OutputFile="graphs/municipality-population-graph-config.json")
+TextEdit(InputFile="graphs/municipality-population-graph-config.json",SearchFor="Population-Total.Year",ReplaceWith="Population-Total\.Year~dv~ts/Muni_\$\{featureAttribute:MunicipalityName}.toMixedCase().replace(' ','')\.DOLA\.Population-Total\.Year\.dv",OutputFile="graphs/municipality-population-graph-config.json")
+TextEdit(InputFile="graphs/municipality-population-graph-config.json",SearchFor="Population-Muni.Year",ReplaceWith="Population-Muni\.Year~dv~ts/Muni_\$\{featureAttribute:MunicipalityName}.toMixedCase().replace(' ','')\.DOLA\.Population-Muni\.Year\.dv",OutputFile="graphs/municipality-population-graph-config.json")
+TextEdit(InputFile="graphs/municipality-population-graph-config.json",SearchFor="Population-Unincorp.Year",ReplaceWith="Population-Unincorp\.Year~dv~ts/Muni_\$\{featureAttribute:MunicipalityName}.toMixedCase().replace(' ','')\.DOLA\.Population-Unincorp\.Year\.dv",OutputFile="graphs/municipality-population-graph-config.json")
+TextEdit(InputFile="graphs/municipality-population-graph-config.json",SearchFor="Population-Forecast.Year",ReplaceWith="Population-Forecast\.Year~dv~ts/Muni_\$\{featureAttribute:MunicipalityName}.toMixedCase().replace(' ','')\.DOLA\.Population-Forecast\.Year\.dv",OutputFile="graphs/municipality-population-graph-config.json")
+# Edit remaining municipality name, such as title
+TextEdit(InputFile="graphs/municipality-population-graph-config.json",SearchFor="Swink",ReplaceWith="\${featureAttribute:MunicipalityName}",OutputFile="graphs/municipality-population-graph-config.json")

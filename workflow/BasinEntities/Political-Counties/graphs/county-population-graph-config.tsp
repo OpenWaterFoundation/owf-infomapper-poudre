@@ -1,3 +1,8 @@
+# This product is used to generate the template JSON file.
+# Use Larimer county for example.
+# The word 'Larimer' will be replaced in the JSON template so that it
+# can be usd for all counties by the InfoMapper.
+
 [Product]
 
 ProductType = "Graph"
