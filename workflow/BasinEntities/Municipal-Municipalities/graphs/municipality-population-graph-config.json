@@ -119,8 +119,8 @@
           "LineWidth" : "2",
           "SymbolSize" : "0",
           "SymbolStyle" : "None",
-          "TSAlias" : "${featureAttribute:MunicipalityName}-Muni-Population-Total",
-          "TSID" : "Muni:${featureAttribute:MunicipalityName}.DOLA.Population-Total.Year~dv~ts/Muni_${featureAttribute:MunicipalityName}.DOLA.Population-Total.Year.dv",
+          "TSAlias" : "${featureAttribute:MunicipalityName}.toMixedCase().replace(' ','')-Muni-Population-Total",
+          "TSID" : "Muni:${featureAttribute:MunicipalityName}.toMixedCase().replace(' ','').DOLA.Population-Total.Year~dv~ts/Muni_${featureAttribute:MunicipalityName}.toMixedCase().replace(' ','').DOLA.Population-Total.Year.dv",
           "XAxis" : "Bottom",
           "YAxis" : "Left"
         }

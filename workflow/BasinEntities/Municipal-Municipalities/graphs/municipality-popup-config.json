@@ -12,7 +12,7 @@
         "label" : "Population",
         "action" : "displayTimeSeries",
         "resourcePath" : "graphs/municipality-population-graph-config.json",
-        "saveFile" : "${featureAttribute:MunicipalityName}-population-total.csv"
+        "saveFile" : "${featureAttribute:MunicipalityName}.toMixedCase().replace(' ','')-population-total.csv"
       }
   ]
 }

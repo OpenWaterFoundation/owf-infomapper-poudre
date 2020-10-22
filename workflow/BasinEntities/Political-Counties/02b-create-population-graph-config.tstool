@@ -139,18 +139,25 @@ WriteDateValue(TSList=AllMatchingTSID,TSID="${county_no_space}-County-Population
 EndFor(Name="For_Counties_Forecast")
 #===================================================================
 #
-# Create graph template for use with InfoMapper
+# Create graph configuration file for use with InfoMapper
 # - only need to do this once
 # - use Larimer County as the example
 ProcessTSProduct(TSProductFile="graphs/county-population-graph-config.tsp",View=True,OutputFile="graphs/county-population-graph-prototype.png",OutputProductFile="graphs/county-population-graph-config-prototype.json",OutputProductFormat="JSON")
 #
 # Convert the prototype graph into a template by replacing strings with ${Property} notation
 # - convert prototype Larimer to property that can be filled by InfoMapper
-TextEdit(InputFile="graphs/county-population-graph-config-prototype.json",SearchFor="Larimer",ReplaceWith="\$\{featureAttribute:county}",OutputFile="graphs/county-population-graph-config.json")
+# Copy the prototype to the final name for further editing below
+CopyFile(InputFile="graphs/county-population-graph-config-prototype.json",OutputFile="graphs/county-population-graph-config.json",IfInputNotFound=Warn)
 # Edit TSID
 # - first part of the string will have been replaced above
 # - final step corrects a replace from previous steps
-TextEdit(InputFile="graphs/county-population-graph-config.json",SearchFor="Population-Total.Year",ReplaceWith="Population-Total\.Year~dv~ts/County_\$\{featureAttribute:county}\.DOLA\.Population-Total\.Year\.dv",OutputFile="graphs/county-population-graph-config.json")
-TextEdit(InputFile="graphs/county-population-graph-config.json",SearchFor="Population-Muni.Year",ReplaceWith="Population-Muni\.Year~dv~ts/County_\$\{featureAttribute:county}\.DOLA\.Population-Muni\.Year\.dv",OutputFile="graphs/county-population-graph-config.json")
-TextEdit(InputFile="graphs/county-population-graph-config.json",SearchFor="Population-Unincorp.Year",ReplaceWith="Population-Unincorp\.Year~dv~ts/County_\$\{featureAttribute:county}\.DOLA\.Population-Unincorp\.Year\.dv",OutputFile="graphs/county-population-graph-config.json")
-TextEdit(InputFile="graphs/county-population-graph-config.json",SearchFor="Population-Forecast.Year",ReplaceWith="Population-Forecast\.Year~dv~ts/County_\$\{featureAttribute:county}\.DOLA\.Population-Forecast\.Year\.dv",OutputFile="graphs/county-population-graph-config.json")
+# Front part of TSID and TSAlias
+TextEdit(InputFile="graphs/county-population-graph-config.json",SearchFor="Larimer-",ReplaceWith="\${featureAttribute:county}.toMixedCase().replace(' ','')-",OutputFile="graphs/county-population-graph-config.json")
+TextEdit(InputFile="graphs/county-population-graph-config.json",SearchFor="Larimer\.",ReplaceWith="\${featureAttribute:county}.toMixedCase().replace(' ','').",OutputFile="graphs/county-population-graph-config.json")
+# File names for TSID
+TextEdit(InputFile="graphs/county-population-graph-config.json",SearchFor="Population-Total.Year",ReplaceWith="Population-Total\.Year~dv~ts/County_\${featureAttribute:county}.toMixedCase().replace(' ','')\.DOLA\.Population-Total\.Year\.dv",OutputFile="graphs/county-population-graph-config.json")
+TextEdit(InputFile="graphs/county-population-graph-config.json",SearchFor="Population-Muni.Year",ReplaceWith="Population-Muni\.Year~dv~ts/County_\${featureAttribute:county}.toMixedCase().replace(' ','')\.DOLA\.Population-Muni\.Year\.dv",OutputFile="graphs/county-population-graph-config.json")
+TextEdit(InputFile="graphs/county-population-graph-config.json",SearchFor="Population-Unincorp.Year",ReplaceWith="Population-Unincorp\.Year~dv~ts/County_\${featureAttribute:county}.toMixedCase().replace(' ','')\.DOLA\.Population-Unincorp\.Year\.dv",OutputFile="graphs/county-population-graph-config.json")
+TextEdit(InputFile="graphs/county-population-graph-config.json",SearchFor="Population-Forecast.Year",ReplaceWith="Population-Forecast\.Year~dv~ts/County_\${featureAttribute:county}.toMixedCase().replace(' ','')\.DOLA\.Population-Forecast\.Year\.dv",OutputFile="graphs/county-population-graph-config.json")
+# Edit remaining county name, such as title
+TextEdit(InputFile="graphs/county-population-graph-config.json",SearchFor="Larimer",ReplaceWith="\${featureAttribute:county}",OutputFile="graphs/county-population-graph-config.json")
