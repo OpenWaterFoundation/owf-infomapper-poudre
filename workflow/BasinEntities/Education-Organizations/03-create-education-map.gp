@@ -72,6 +72,8 @@ ReadGeoLayerFromGeoJSON(InputFile="layers/co-dwr-water-district-3.geojson",GeoLa
 AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="WaterDistrictsGroup",Name="CO DWR Water Districts",Description="Water District boundaries from the Colorado Division of Water Resources.",Properties="selectedInitial: true",InsertPosition="Top")
 AddGeoLayerViewToGeoMap(GeoLayerID="WaterDistrictLayer",GeoLayerViewGroupID="WaterDistrictsGroup",GeoLayerViewID="WaterDistrictLayerView",Name="CO DWR Water District 3",Description="Water District 3 boundary from the Colorado Division of Water Resources",InsertPosition="Top")
 SetGeoLayerViewCategorizedSymbol(GeoLayerViewGroupID="WaterDistrictsGroup",GeoLayerViewID="WaterDistrictLayerView",Name="Colorize district",Description="Show Water District 3 in black.",ClassificationAttribute="DISTRICT",Properties="classificationFile:layers/co-dwr-water-district-3-classify-district.csv")
+SetGeoLayerViewEventHandler(GeoLayerViewID="WaterDistrictLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/co-dwr-water-district-3-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="WaterDistrictLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/co-dwr-water-district-3-event-config.json")
 # = = = = = = = = = =
 # News Organizations:  read layer and add to a layer view group.
 # GeoLayerViewGroupID: NewsGroup
@@ -81,14 +83,20 @@ AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="NewsGroup",Name="News Organiza
 ReadGeoLayerFromGeoJSON(InputFile="layers/news-orgs.geojson",GeoLayerID="NewsLayer",Name="News Organizations",Description="News Organizations")
 AddGeoLayerViewToGeoMap(GeoLayerID="NewsLayer",GeoLayerViewID="NewsLayerView",Name="News Organizations",Description="News organizations focusing on articles, possibly with printed editions",Properties="docPath:layers/education-orgs-doc/news-orgs.md")
 SetGeoLayerViewSingleSymbol(GeoLayerViewID="NewsLayerView",Name="News Organizations",Description="News Organizations",Properties="symbolImage:/img/text-32x37.png,imageAnchorPoint:Bottom")
+SetGeoLayerViewEventHandler(GeoLayerViewID="NewsLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/news-orgs-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="NewsLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/news-orgs-event-config.json")
 #
 ReadGeoLayerFromGeoJSON(InputFile="layers/tv-stations.geojson",GeoLayerID="TVLayer",Name="Television Stations",Description="Television Stations")
 AddGeoLayerViewToGeoMap(GeoLayerID="TVLayer",GeoLayerViewID="TVLayerView",Name="Television Stations",Description="Television stations",Properties="docPath:layers/education-orgs-doc/tv-stations.md")
 SetGeoLayerViewSingleSymbol(GeoLayerViewID="TVLayerView",Name="Television Stations",Description="Television Stations",Properties="symbolImage:/img/tv-32x37.png,imageAnchorPoint:Bottom")
+SetGeoLayerViewEventHandler(GeoLayerViewID="TVLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/tv-stations-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="TVLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/tv-stations-event-config.json")
 #
 ReadGeoLayerFromGeoJSON(InputFile="layers/radio-stations.geojson",GeoLayerID="RadioLayer",Name="Radio Stations",Description="Radio Stations")
 AddGeoLayerViewToGeoMap(GeoLayerID="RadioLayer",GeoLayerViewID="RadioLayerView",Name="Radio Stations",Description="Radio stations",Properties="docPath:layers/education-orgs-doc/radio-stations.md")
 SetGeoLayerViewSingleSymbol(GeoLayerViewID="RadioLayerView",Name="Radio Stations",Description="Radio Stations",Properties="symbolImage:/img/audio-32x37.png,imageAnchorPoint:Bottom")
+SetGeoLayerViewEventHandler(GeoLayerViewID="RadioLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/radio-stations-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="RadioLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/radio-stations-event-config.json")
 # = = = = = = = = = =
 # Education Organizations:  read layer and add to a layer view group.
 # GeoLayerViewGroupID: EducationGroup
@@ -98,6 +106,8 @@ AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="EducationGroup",Name="Poudre E
 ReadGeoLayerFromGeoJSON(InputFile="layers/education-orgs.geojson",GeoLayerID="EducationLayer",Name="Poudre Education Organizations",Description="Poudre Education Organizations")
 AddGeoLayerViewToGeoMap(GeoLayerID="EducationLayer",GeoLayerViewID="EducationLayerView",Name="Poudre Education Organizations",Description="Poudre Education Organizations",Properties="docPath:layers/education-orgs-doc/education-orgs.md")
 SetGeoLayerViewSingleSymbol(GeoLayerViewID="EducationLayerView",Name="Poudre Education Organizations",Description="Poudre Education Organizations",Properties="symbolImage:/img/university-32x37.png,imageAnchorPoint:Bottom")
+SetGeoLayerViewEventHandler(GeoLayerViewID="EducationLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/education-orgs-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="EducationLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/education-orgs-event-config.json")
 # = = = = = = = = = =
 # Write the map project file and copy layers to the location needed by the web application.
 # - follow InfoMapper conventions
@@ -108,6 +118,7 @@ CopyFile(SourceFile="education-orgs-map.md",DestinationFile="${MapFolder}/educat
 #
 CopyFile(SourceFile="layers/co-dwr-water-district-3.geojson",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3.geojson")
 CopyFile(SourceFile="layers/co-dwr-water-district-3-classify-district.csv",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3-classify-district.csv")
+CopyFile(SourceFile="../Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3-event-config.json",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3-event-config.json")
 #
 #CopyFile(SourceFile="layers/stream-reaches.geojson",DestinationFile="${MapFolder}/layers/stream-reaches.geojson")
 #
@@ -115,12 +126,16 @@ CreateFolder(Folder="${MapFolder}/layers/education-orgs-doc",CreateParentFolders
 CopyFile(SourceFile="layers/education-orgs.geojson",DestinationFile="${MapFolder}/layers/education-orgs.geojson")
 CopyFile(SourceFile="layers/education-orgs-doc/education-orgs.md",DestinationFile="${MapFolder}/layers/education-orgs-doc/education-orgs.md")
 CopyFile(SourceFile="layers/education-orgs-doc/SWEAPLogoStandard.png",DestinationFile="${MapFolder}/layers/education-orgs-doc/SWEAPLogoStandard.png")
+CopyFile(SourceFile="layers/education-orgs-event-config.json",DestinationFile="${MapFolder}/layers/education-orgs-event-config.json")
 #
 CopyFile(SourceFile="layers/news-orgs.geojson",DestinationFile="${MapFolder}/layers/news-orgs.geojson")
 CopyFile(SourceFile="layers/education-orgs-doc/news-orgs.md",DestinationFile="${MapFolder}/layers/education-orgs-doc/news-orgs.md")
+CopyFile(SourceFile="layers/news-orgs-event-config.json",DestinationFile="${MapFolder}/layers/news-orgs-event-config.json")
 #
 CopyFile(SourceFile="layers/tv-stations.geojson",DestinationFile="${MapFolder}/layers/tv-stations.geojson")
 CopyFile(SourceFile="layers/education-orgs-doc/tv-stations.md",DestinationFile="${MapFolder}/layers/education-orgs-doc/tv-stations.md")
+CopyFile(SourceFile="layers/tv-stations-event-config.json",DestinationFile="${MapFolder}/layers/tv-stations-event-config.json")
 #
 CopyFile(SourceFile="layers/radio-stations.geojson",DestinationFile="${MapFolder}/layers/radio-stations.geojson")
 CopyFile(SourceFile="layers/education-orgs-doc/radio-stations.md",DestinationFile="${MapFolder}/layers/education-orgs-doc/radio-stations.md")
+CopyFile(SourceFile="layers/radio-stations-event-config.json",DestinationFile="${MapFolder}/layers/radio-stations-event-config.json")

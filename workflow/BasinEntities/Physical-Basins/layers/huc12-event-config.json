@@ -1,0 +1,12 @@
+{
+  "id" : "huc12-event-config",
+  "name": "HUC12 event configuration",
+  "description":  "List main attributes.",
+  "layerAttributes" : {
+    "include" : [ "Name", "HUC12", "GNIS_ID", "States", "AreaSqKm", "AreaAcres", "ToHUC" ],
+    "exclude" : [],
+    "formats": []
+  },
+  "actions": [
+  ]
+}

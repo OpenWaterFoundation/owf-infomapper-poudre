@@ -1,0 +1,12 @@
+{
+  "id" : "stream-reaches-event-config",
+  "name": "Instram reaches event configuration",
+  "description":  "List main attributes.",
+  "layerAttributes" : {
+    "include" : [ "Name", "ISF_Type", "Status", "ID", "Case_Numbe", "cwcbCaseNm", "cwcbWDID", "cwcbSegID", "Comment" ],
+    "exclude" : [],
+    "formats": []
+  },
+  "actions": [
+  ]
+}

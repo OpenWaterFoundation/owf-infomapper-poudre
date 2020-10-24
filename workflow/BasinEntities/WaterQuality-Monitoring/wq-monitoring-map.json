@@ -379,7 +379,24 @@
                   "weight": "1.5"
                 }
               },
-              "eventHandlers": []
+              "eventHandlers": [
+                {
+                  "eventType": "hover",
+                  "name": "Hover event",
+                  "description": "Hover event configuration",
+                  "properties": {
+                    "eventConfigPath": "layers/wq-monitoring-sites-event-config.json"
+                  }
+                },
+                {
+                  "eventType": "click",
+                  "name": "Click event",
+                  "description": "Click event configuration",
+                  "properties": {
+                    "eventConfigPath": "layers/wq-monitoring-sites-event-config.json"
+                  }
+                }
+              ]
             },
             {
               "geoLayerViewId": "WaterQualityNorthForkBasinLayerView",
@@ -398,7 +415,24 @@
                   "classificationFile": "layers/wq-monitoring-northfork-basin-classify-hu12name.csv"
                 }
               },
-              "eventHandlers": []
+              "eventHandlers": [
+                {
+                  "eventType": "hover",
+                  "name": "Hover event",
+                  "description": "Hover event configuration",
+                  "properties": {
+                    "eventConfigPath": "layers/wq-monitoring-northfork-basin-event-config.json"
+                  }
+                },
+                {
+                  "eventType": "click",
+                  "name": "Click event",
+                  "description": "Click event configuration",
+                  "properties": {
+                    "eventConfigPath": "layers/wq-monitoring-northfork-basin-event-config.json"
+                  }
+                }
+              ]
             },
             {
               "geoLayerViewId": "WaterQualityMainStemBasinLayerView",
@@ -417,7 +451,24 @@
                   "classificationFile": "layers/wq-monitoring-mainstem-basin-classify-hu12name.csv"
                 }
               },
-              "eventHandlers": []
+              "eventHandlers": [
+                {
+                  "eventType": "hover",
+                  "name": "Hover event",
+                  "description": "Hover event configuration",
+                  "properties": {
+                    "eventConfigPath": "layers/wq-monitoring-mainstem-basin-event-config.json"
+                  }
+                },
+                {
+                  "eventType": "click",
+                  "name": "Click event",
+                  "description": "Click event configuration",
+                  "properties": {
+                    "eventConfigPath": "layers/wq-monitoring-mainstem-basin-event-config.json"
+                  }
+                }
+              ]
             }
           ]
         },
@@ -446,7 +497,24 @@
                   "color": "#6297f7"
                 }
               },
-              "eventHandlers": []
+              "eventHandlers": [
+                {
+                  "eventType": "hover",
+                  "name": "Hover event",
+                  "description": "Hover event configuration",
+                  "properties": {
+                    "eventConfigPath": "layers/stream-reaches-event-config.json"
+                  }
+                },
+                {
+                  "eventType": "click",
+                  "name": "Click event",
+                  "description": "Click event configuration",
+                  "properties": {
+                    "eventConfigPath": "layers/stream-reaches-event-config.json"
+                  }
+                }
+              ]
             }
           ]
         },
@@ -473,7 +541,24 @@
                   "classificationFile": "layers/co-dwr-water-district-3-classify-district.csv"
                 }
               },
-              "eventHandlers": []
+              "eventHandlers": [
+                {
+                  "eventType": "hover",
+                  "name": "Hover event",
+                  "description": "Hover event configuration",
+                  "properties": {
+                    "eventConfigPath": "layers/co-dwr-water-district-3-event-config.json"
+                  }
+                },
+                {
+                  "eventType": "click",
+                  "name": "Click event",
+                  "description": "Click event configuration",
+                  "properties": {
+                    "eventConfigPath": "layers/co-dwr-water-district-3-event-config.json"
+                  }
+                }
+              ]
             }
           ]
         },

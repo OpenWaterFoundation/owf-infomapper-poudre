@@ -73,6 +73,8 @@ CopyFile(SourceFile="../Administration-CoDwrWaterDistricts/layers/co-dwr-water-d
 ReadGeoLayerFromGeoJSON(InputFile="layers/co-dwr-water-district-3.geojson",GeoLayerID="WaterDistrictLayer",Name="CO DWR Water District 3",Description="Water District 3 boundary from the Colorado Division of Water Resources.")
 AddGeoLayerViewToGeoMap(GeoLayerID="WaterDistrictLayer",GeoLayerViewID="WaterDistrictLayerView",Name="CO DWR Water District 3",Description="Water District 3 boundary from the Colorado Division of Water Resources",InsertPosition="Top")
 SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="WaterDistrictLayerView",Name="Colorize district",Description="Show Water District 3 in black.",ClassificationAttribute="DISTRICT",Properties="classificationFile:layers/co-dwr-water-district-3-classify-district.csv")
+SetGeoLayerViewEventHandler(GeoLayerViewID="WaterDistrictLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/co-dwr-water-district-3-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="WaterDistrictLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/co-dwr-water-district-3-event-config.json")
 # = = = = = = = = = =
 # Stream reaches:  read layer and add to a layer view group.
 # - TODO smalers 2020-05-22 evaluate whether to include this
@@ -84,6 +86,8 @@ CopyFile(SourceFile="../../BasinEntities/Physical-StreamReaches/layers/stream-re
 ReadGeoLayerFromGeoJSON(InputFile="layers/stream-reaches.geojson",GeoLayerID="StreamReachesLayer",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches")
 AddGeoLayerViewToGeoMap(GeoLayerID="StreamReachesLayer",GeoLayerViewID="StreamReachesLayerView",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches",Properties="highlightEnabled:true")
 SetGeoLayerViewSingleSymbol(GeoLayerViewID="StreamReachesLayerView",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches",Properties="color:#6297f7")
+SetGeoLayerViewEventHandler(GeoLayerViewID="StreamReachesLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/stream-reaches-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="StreamReachesLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/stream-reaches-event-config.json")
 # = = = = = = = = = =
 # Water quality monitoring:  read layer and add to a layer view group.
 # - TODO smalers 2020-08-27 should basins be under streams?
@@ -93,15 +97,21 @@ AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="WaterQualityMonitoringGroup",N
 ReadGeoLayerFromGeoJSON(InputFile="layers/wq-monitoring-mainstem-basin.geojson",GeoLayerID="WaterQualityMainStemBasinLayer",Name="Main Stem Monitoring Basin",Description="Poudre main stem monitoring basin (Upper Poudre) from Fort Collins Utilities")
 AddGeoLayerViewToGeoMap(GeoLayerID="WaterQualityMainStemBasinLayer",GeoLayerViewID="WaterQualityMainStemBasinLayerView",Name="Main Stem Monitoring Basin",Description="Poudre main stem monitoring basin (Upper Poudre) from Fort Collins Utilities",Properties="docPath:'layers/wq-monitoring-mainstem-basin.md'",InsertPosition="Top")
 SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="WaterQualityMainStemBasinLayerView",Name="Colorize main stem",Description="",ClassificationAttribute="HU_12_NAME",Properties="classificationFile:layers/wq-monitoring-mainstem-basin-classify-hu12name.csv")
+SetGeoLayerViewEventHandler(GeoLayerViewID="WaterQualityMainStemBasinLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/wq-monitoring-mainstem-basin-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="WaterQualityMainStemBasinLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/wq-monitoring-mainstem-basin-event-config.json")
 #
 ReadGeoLayerFromGeoJSON(InputFile="layers/wq-monitoring-northfork-basin.geojson",GeoLayerID="WaterQualityNorthForkBasinLayer",Name="Poudre North Fork Monitoring Basin",Description="Poudre North Fork monitoring basin (Upper Poudre) from Fort Collins Utilities")
 AddGeoLayerViewToGeoMap(GeoLayerID="WaterQualityNorthForkBasinLayer",GeoLayerViewID="WaterQualityNorthForkBasinLayerView",Name="North Fork Monitoring Basin",Description="Poudre North Fork monitoring basin (Upper Poudre) from Fort Collins Utilities",Properties="docPath:'layers/wq-monitoring-northfork-basin.md'",InsertPosition="Top")
 SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="WaterQualityNorthForkBasinLayerView",Name="Colorize North Fork",Description="",ClassificationAttribute="HU_12_NAME",Properties="classificationFile:layers/wq-monitoring-northfork-basin-classify-hu12name.csv")
+SetGeoLayerViewEventHandler(GeoLayerViewID="WaterQualityNorthForkBasinLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/wq-monitoring-northfork-basin-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="WaterQualityNorthForkBasinLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/wq-monitoring-northfork-basin-event-config.json")
 #
 ReadGeoLayerFromGeoJSON(InputFile="layers/wq-monitoring-sites.geojson",GeoLayerID="WaterQualitySitesLayer",Name="Poudre Water Quality Monitoring Sites",Description="Poudre Water Quality Monitoring Sites")
 AddGeoLayerViewToGeoMap(GeoLayerID="WaterQualitySitesLayer",GeoLayerViewID="WaterQualitySitesLayerView",Name="Poudre Water Quality Monitoring Sites",Description="Poudre water quality monitoring sites for upper and lower Poudre, from Fort Collins Utilities",Properties="docPath:'layers/wq-monitoring-sites.md'",InsertPosition="Top")
 # For now use single symbol
 SetGeoLayerViewSingleSymbol(GeoLayerViewID="WaterQualitySitesLayerView",Name="Poudre monitoring",Description="Poudre monitoring",Properties="symbolShape:Circle,color:black,fillColor:black,symbolSize:4,sizeUnits:pixels,opacity:1.0,fillOpacity:1.0,weight:1.5")
+SetGeoLayerViewEventHandler(GeoLayerViewID="WaterQualitySitesLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/wq-monitoring-sites-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="WaterQualitySitesLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/wq-monitoring-sites-event-config.json")
 # = = = = = = = = = =
 # Write the map project file and copy layers to the location needed by the web application.
 # - follow InfoMapper conventions
@@ -112,16 +122,21 @@ CopyFile(SourceFile="wq-monitoring-map.md",DestinationFile="${MapFolder}/wq-moni
 #
 CopyFile(SourceFile="layers/co-dwr-water-district-3.geojson",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3.geojson")
 CopyFile(SourceFile="layers/co-dwr-water-district-3-classify-district.csv",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3-classify-district.csv")
+CopyFile(SourceFile="../Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3-event-config.json",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3-event-config.json")
 #
 CopyFile(SourceFile="layers/stream-reaches.geojson",DestinationFile="${MapFolder}/layers/stream-reaches.geojson")
+CopyFile(SourceFile="layers/stream-reaches-event-config.json",DestinationFile="${MapFolder}/layers/stream-reaches-event-config.json")
 #
 CopyFile(SourceFile="layers/wq-monitoring-mainstem-basin.geojson",DestinationFile="${MapFolder}/layers/wq-monitoring-mainstem-basin.geojson")
 CopyFile(SourceFile="layers/wq-monitoring-mainstem-basin.md",DestinationFile="${MapFolder}/layers/wq-monitoring-mainstem-basin.md")
 CopyFile(SourceFile="layers/wq-monitoring-mainstem-basin-classify-hu12name.csv",DestinationFile="${MapFolder}/layers/wq-monitoring-mainstem-basin-classify-hu12name.csv")
+CopyFile(SourceFile="layers/wq-monitoring-mainstem-basin-event-config.json",DestinationFile="${MapFolder}/layers/wq-monitoring-mainstem-basin-event-config.json")
 #
 CopyFile(SourceFile="layers/wq-monitoring-northfork-basin.geojson",DestinationFile="${MapFolder}/layers/wq-monitoring-northfork-basin.geojson")
 CopyFile(SourceFile="layers/wq-monitoring-northfork-basin.md",DestinationFile="${MapFolder}/layers/wq-monitoring-northfork-basin.md")
 CopyFile(SourceFile="layers/wq-monitoring-northfork-basin-classify-hu12name.csv",DestinationFile="${MapFolder}/layers/wq-monitoring-northfork-basin-classify-hu12name.csv")
+CopyFile(SourceFile="layers/wq-monitoring-northfork-basin-event-config.json",DestinationFile="${MapFolder}/layers/wq-monitoring-northfork-basin-event-config.json")
 #
 CopyFile(SourceFile="layers/wq-monitoring-sites.geojson",DestinationFile="${MapFolder}/layers/wq-monitoring-sites.geojson")
 CopyFile(SourceFile="layers/wq-monitoring-sites.md",DestinationFile="${MapFolder}/layers/wq-monitoring-sites.md")
+CopyFile(SourceFile="layers/wq-monitoring-sites-event-config.json",DestinationFile="${MapFolder}/layers/wq-monitoring-sites-event-config.json")
