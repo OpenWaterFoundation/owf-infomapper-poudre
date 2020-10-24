@@ -373,7 +373,24 @@
                   "imageAnchorPoint": "Bottom"
                 }
               },
-              "eventHandlers": []
+              "eventHandlers": [
+                {
+                  "eventType": "hover",
+                  "name": "Hover event",
+                  "description": "Hover event configuration",
+                  "properties": {
+                    "eventConfigPath": "layers/education-orgs-event-config.json"
+                  }
+                },
+                {
+                  "eventType": "click",
+                  "name": "Click event",
+                  "description": "Click event configuration",
+                  "properties": {
+                    "eventConfigPath": "layers/education-orgs-event-config.json"
+                  }
+                }
+              ]
             }
           ]
         },
@@ -403,7 +420,24 @@
                   "imageAnchorPoint": "Bottom"
                 }
               },
-              "eventHandlers": []
+              "eventHandlers": [
+                {
+                  "eventType": "hover",
+                  "name": "Hover event",
+                  "description": "Hover event configuration",
+                  "properties": {
+                    "eventConfigPath": "layers/news-orgs-event-config.json"
+                  }
+                },
+                {
+                  "eventType": "click",
+                  "name": "Click event",
+                  "description": "Click event configuration",
+                  "properties": {
+                    "eventConfigPath": "layers/news-orgs-event-config.json"
+                  }
+                }
+              ]
             },
             {
               "geoLayerViewId": "TVLayerView",
@@ -423,7 +457,24 @@
                   "imageAnchorPoint": "Bottom"
                 }
               },
-              "eventHandlers": []
+              "eventHandlers": [
+                {
+                  "eventType": "hover",
+                  "name": "Hover event",
+                  "description": "Hover event configuration",
+                  "properties": {
+                    "eventConfigPath": "layers/tv-stations-event-config.json"
+                  }
+                },
+                {
+                  "eventType": "click",
+                  "name": "Click event",
+                  "description": "Click event configuration",
+                  "properties": {
+                    "eventConfigPath": "layers/tv-stations-event-config.json"
+                  }
+                }
+              ]
             },
             {
               "geoLayerViewId": "RadioLayerView",
@@ -443,7 +494,24 @@
                   "imageAnchorPoint": "Bottom"
                 }
               },
-              "eventHandlers": []
+              "eventHandlers": [
+                {
+                  "eventType": "hover",
+                  "name": "Hover event",
+                  "description": "Hover event configuration",
+                  "properties": {
+                    "eventConfigPath": "layers/radio-stations-event-config.json"
+                  }
+                },
+                {
+                  "eventType": "click",
+                  "name": "Click event",
+                  "description": "Click event configuration",
+                  "properties": {
+                    "eventConfigPath": "layers/radio-stations-event-config.json"
+                  }
+                }
+              ]
             }
           ]
         },
@@ -470,7 +538,24 @@
                   "classificationFile": "layers/co-dwr-water-district-3-classify-district.csv"
                 }
               },
-              "eventHandlers": []
+              "eventHandlers": [
+                {
+                  "eventType": "hover",
+                  "name": "Hover event",
+                  "description": "Hover event configuration",
+                  "properties": {
+                    "eventConfigPath": "layers/co-dwr-water-district-3-event-config.json"
+                  }
+                },
+                {
+                  "eventType": "click",
+                  "name": "Click event",
+                  "description": "Click event configuration",
+                  "properties": {
+                    "eventConfigPath": "layers/co-dwr-water-district-3-event-config.json"
+                  }
+                }
+              ]
             }
           ]
         },

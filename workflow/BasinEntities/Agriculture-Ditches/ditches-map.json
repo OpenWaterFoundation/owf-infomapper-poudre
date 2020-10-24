@@ -390,7 +390,24 @@
                   "weight": "2"
                 }
               },
-              "eventHandlers": []
+              "eventHandlers": [
+                {
+                  "eventType": "hover",
+                  "name": "Hover event",
+                  "description": "Hover event configuration",
+                  "properties": {
+                    "eventConfigPath": "layers/ditch-service-areas-2005-event-config.json"
+                  }
+                },
+                {
+                  "eventType": "click",
+                  "name": "Click event",
+                  "description": "Click event configuration",
+                  "properties": {
+                    "eventConfigPath": "layers/ditch-service-areas-2005-event-config.json"
+                  }
+                }
+              ]
             },
             {
               "geoLayerViewId": "DitchServiceAreas2001LayerView",
@@ -413,7 +430,24 @@
                   "weight": "2"
                 }
               },
-              "eventHandlers": []
+              "eventHandlers": [
+                {
+                  "eventType": "hover",
+                  "name": "Hover event",
+                  "description": "Hover event configuration",
+                  "properties": {
+                    "eventConfigPath": "layers/ditch-service-areas-2001-event-config.json"
+                  }
+                },
+                {
+                  "eventType": "click",
+                  "name": "Click event",
+                  "description": "Click event configuration",
+                  "properties": {
+                    "eventConfigPath": "layers/ditch-service-areas-2001-event-config.json"
+                  }
+                }
+              ]
             },
             {
               "geoLayerViewId": "DitchServiceAreas1987LayerView",
@@ -436,7 +470,24 @@
                   "weight": "2"
                 }
               },
-              "eventHandlers": []
+              "eventHandlers": [
+                {
+                  "eventType": "hover",
+                  "name": "Hover event",
+                  "description": "Hover event configuration",
+                  "properties": {
+                    "eventConfigPath": "layers/ditch-service-areas-1987-event-config.json"
+                  }
+                },
+                {
+                  "eventType": "click",
+                  "name": "Click event",
+                  "description": "Click event configuration",
+                  "properties": {
+                    "eventConfigPath": "layers/ditch-service-areas-1987-event-config.json"
+                  }
+                }
+              ]
             },
             {
               "geoLayerViewId": "DitchServiceAreas1976LayerView",
@@ -459,7 +510,24 @@
                   "weight": "2"
                 }
               },
-              "eventHandlers": []
+              "eventHandlers": [
+                {
+                  "eventType": "hover",
+                  "name": "Hover event",
+                  "description": "Hover event configuration",
+                  "properties": {
+                    "eventConfigPath": "layers/ditch-service-areas-1976-event-config.json"
+                  }
+                },
+                {
+                  "eventType": "click",
+                  "name": "Click event",
+                  "description": "Click event configuration",
+                  "properties": {
+                    "eventConfigPath": "layers/ditch-service-areas-1976-event-config.json"
+                  }
+                }
+              ]
             },
             {
               "geoLayerViewId": "DitchServiceAreas1956LayerView",
@@ -482,7 +550,24 @@
                   "weight": "2"
                 }
               },
-              "eventHandlers": []
+              "eventHandlers": [
+                {
+                  "eventType": "hover",
+                  "name": "Hover event",
+                  "description": "Hover event configuration",
+                  "properties": {
+                    "eventConfigPath": "layers/ditch-service-areas-1956-event-config.json"
+                  }
+                },
+                {
+                  "eventType": "click",
+                  "name": "Click event",
+                  "description": "Click event configuration",
+                  "properties": {
+                    "eventConfigPath": "layers/ditch-service-areas-1956-event-config.json"
+                  }
+                }
+              ]
             }
           ]
         },
@@ -509,7 +594,24 @@
                   "classificationFile": "layers/co-dwr-water-district-3-classify-district.csv"
                 }
               },
-              "eventHandlers": []
+              "eventHandlers": [
+                {
+                  "eventType": "hover",
+                  "name": "Hover event",
+                  "description": "Hover event configuration",
+                  "properties": {
+                    "eventConfigPath": "layers/co-dwr-water-district-3-event-config.json"
+                  }
+                },
+                {
+                  "eventType": "click",
+                  "name": "Click event",
+                  "description": "Click event configuration",
+                  "properties": {
+                    "eventConfigPath": "layers/co-dwr-water-district-3-event-config.json"
+                  }
+                }
+              ]
             }
           ]
         },

@@ -69,9 +69,11 @@ AddGeoLayerViewToGeoMap(GeoLayerID="USGSTopo",GeoMapID="EnvironmentOrgMap",GeoLa
 CopyFile(SourceFile="../Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3.geojson",DestinationFile="layers/co-dwr-water-district-3.geojson")
 CopyFile(SourceFile="../Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3-classify-district.csv",DestinationFile="layers/co-dwr-water-district-3-classify-district.csv")
 ReadGeoLayerFromGeoJSON(InputFile="layers/co-dwr-water-district-3.geojson",GeoLayerID="WaterDistrictLayer",Name="CO DWR Water District 3",Description="Water District 3 boundary from the Colorado Division of Water Resources.")
-AddGeoLayerViewGroupToGeoMap(GeoMapID="EnvironmentOrgMap",GeoLayerViewGroupID="WaterDistrictsGroup",Name="CO DWR Water Districts",Description="Water District boundaries from the Colorado Division of Water Resources.",Properties="selectedInitial: true",InsertPosition="Top")
-AddGeoLayerViewToGeoMap(GeoLayerID="WaterDistrictLayer",GeoMapID="EnvironmentOrgMap",GeoLayerViewGroupID="WaterDistrictsGroup",GeoLayerViewID="WaterDistrictLayerView",Name="CO DWR Water District 3",Description="Water District 3 boundary from the Colorado Division of Water Resources",InsertPosition="Top")
-SetGeoLayerViewCategorizedSymbol(GeoMapID="EnvironmentOrgMap",GeoLayerViewGroupID="WaterDistrictsGroup",GeoLayerViewID="WaterDistrictLayerView",Name="Colorize district",Description="Show Water District 3 in black.",ClassificationAttribute="DISTRICT",Properties="classificationFile:layers/co-dwr-water-district-3-classify-district.csv")
+AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="WaterDistrictsGroup",Name="CO DWR Water Districts",Description="Water District boundaries from the Colorado Division of Water Resources.",Properties="selectedInitial: true",InsertPosition="Top")
+AddGeoLayerViewToGeoMap(GeoLayerID="WaterDistrictLayer",GeoLayerViewID="WaterDistrictLayerView",Name="CO DWR Water District 3",Description="Water District 3 boundary from the Colorado Division of Water Resources",InsertPosition="Top")
+SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="WaterDistrictLayerView",Name="Colorize district",Description="Show Water District 3 in black.",ClassificationAttribute="DISTRICT",Properties="classificationFile:layers/co-dwr-water-district-3-classify-district.csv")
+SetGeoLayerViewEventHandler(GeoLayerViewID="WaterDistrictLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/co-dwr-water-district-3-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="WaterDistrictLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/co-dwr-water-district-3-event-config.json")
 # = = = = = = = = = =
 # Stream reaches:  read layer and add to a layer view group.
 # - TODO smalers 2020-05-22 evaluate whether to include this
@@ -87,9 +89,11 @@ SetGeoLayerViewCategorizedSymbol(GeoMapID="EnvironmentOrgMap",GeoLayerViewGroupI
 # Environmental Organizations:  read layer and add to a layer view group.
 # GeoLayerViewGroupID: EnvironmentGroup
 ReadGeoLayerFromGeoJSON(InputFile="layers/environment-orgs.geojson",GeoLayerID="EnvironmentLayer",Name="Environmental Organizations",Description="Poudre Environmental Organizations")
-AddGeoLayerViewGroupToGeoMap(GeoMapID="EnvironmentOrgMap",GeoLayerViewGroupID="EnvironmentGroup",Name="Poudre Environmental Organizations",Description="Poudre Environmental Organizations",Properties="selectedInitial: true",InsertPosition="Top")
-AddGeoLayerViewToGeoMap(GeoLayerID="EnvironmentLayer",GeoMapID="EnvironmentOrgMap",GeoLayerViewGroupID="EnvironmentGroup",GeoLayerViewID="EnvironmentLayerView",Name="Poudre Environmental Organizations",Description="Poudre Environmental Organizations",Properties="docPath:'layers/environment-orgs.md")
-SetGeoLayerViewSingleSymbol(GeoMapID="EnvironmentOrgMap",GeoLayerViewGroupID="EnvironmentGroup",GeoLayerViewID="EnvironmentLayerView",Name="Poudre Environmental Organizations",Description="Poudre Environmental Organizations",Properties="symbolImage:/img/wetlands-32x37.png,imageAnchorPoint:Bottom")
+AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="EnvironmentGroup",Name="Poudre Environmental Organizations",Description="Poudre Environmental Organizations",Properties="selectedInitial: true",InsertPosition="Top")
+AddGeoLayerViewToGeoMap(GeoLayerID="EnvironmentLayer",GeoLayerViewID="EnvironmentLayerView",Name="Poudre Environmental Organizations",Description="Poudre Environmental Organizations",Properties="docPath:'layers/environment-orgs.md")
+SetGeoLayerViewSingleSymbol(GeoLayerViewID="EnvironmentLayerView",Name="Poudre Environmental Organizations",Description="Poudre Environmental Organizations",Properties="symbolImage:/img/wetlands-32x37.png,imageAnchorPoint:Bottom")
+SetGeoLayerViewEventHandler(GeoLayerViewID="EnvironmentLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/environment-orgs-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="EnvironmentLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/environment-orgs-event-config.json")
 # = = = = = = = = = =
 # Write the map project file and copy layers to the location needed by the web application.
 # - follow InfoMapper conventions
@@ -100,8 +104,10 @@ CopyFile(SourceFile="environment-orgs-map.md",DestinationFile="${MapFolder}/envi
 #
 CopyFile(SourceFile="layers/co-dwr-water-district-3.geojson",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3.geojson")
 CopyFile(SourceFile="layers/co-dwr-water-district-3-classify-district.csv",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3-classify-district.csv")
+CopyFile(SourceFile="../Administration-CoDwrWaterDistricts/layers/co-dwr-water-division-event-config.json",DestinationFile="${MapFolder}/layers/co-dwr-water-division-event-config.json")
 #
 #CopyFile(SourceFile="layers/stream-reaches.geojson",DestinationFile="${MapFolder}/layers/stream-reaches.geojson")
 #
 CopyFile(SourceFile="layers/environment-orgs.geojson",DestinationFile="${MapFolder}/layers/environment-orgs.geojson")
 CopyFile(SourceFile="layers/environment-orgs.md",DestinationFile="${MapFolder}/layers/environment-orgs.md")
+CopyFile(SourceFile="layers/environment-orgs-event-config.json",DestinationFile="${MapFolder}/layers/environment-orgs-event-config.json")

@@ -78,10 +78,13 @@ SetGeoLayerViewSingleSymbol(GeoLayerViewID="StateBoundaryLayerView",Name="State 
 # LayerViewGroupID: ContinentalDivideGroup
 #
 AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="ContinentalDivideGroup",Name="Continental Divide",Description="Continental Divide based on Hydrologic Unit Code basins.",Properties="selectedInitial: true",InsertPosition="Top")
+CopyFile(SourceFile="../Administration-CoDwrWaterDistricts/layers/continental-divide-co-event-config.json",DestinationFile="layers/continental-divide-co-event-config.json")
 #
 ReadGeoLayerFromGeoJSON(InputFile="https://raw.githubusercontent.com/OpenWaterFoundation/owf-data-us-continental-divide/master/data/continental-divide-co.geojson",GeoLayerID="ContinentalDivideLayer",Name="Continental Divide",Description="Continental divide based on Hydrologic Unit Code basins")
 AddGeoLayerViewToGeoMap(GeoLayerID="ContinentalDivideLayer",GeoLayerViewID="ContinentalDivideLayerView",Name="Continental Divide",Description="Continental divide based on Hydrologic Unit Code basins",InsertPosition="Top")
 SetGeoLayerViewSingleSymbol(GeoLayerViewID="ContinentalDivideLayerView",Name="Continental divide symbol",Description="Continental divide line in wide dark grey.",Properties="color:#663300,opacity:0.5,fillColor:#663300,fillOpacity:0.5,weight:10")
+SetGeoLayerViewEventHandler(GeoLayerViewID="ContinentalDivideLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/continental-divide-co-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="ContinentalDivideLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/continental-divide-co-event-config.json")
 # = = = = = = = = = =
 # Water division:  read layer and add to a layer view group.
 # GeoLayerViewGroupID: WaterDistrictsGroup
@@ -93,6 +96,8 @@ CopyFile(SourceFile="../Administration-CoDwrWaterDistricts/layers/co-dwr-water-d
 ReadGeoLayerFromGeoJSON(InputFile="layers/co-dwr-water-division.geojson",GeoLayerID="WaterDivisionLayer",Name="CO DWR Division 1",Description="Water Division 1 boundary from the Colorado Division of Water Resources.")
 AddGeoLayerViewToGeoMap(GeoLayerID="WaterDivisionLayer",GeoLayerViewID="WaterDivisionLayerView",Name="CO DWR Division 1",Description="Boundary for Division 1 from the Colorado Division of Water Resources",Properties="docPath:layers/co-dwr-water-division.md",InsertPosition="Top")
 SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="WaterDivisionLayerView",Name="Colorize divisions",Description="Symbol for the division",ClassificationAttribute="DIV",Properties="classificationFile:'layers/co-dwr-water-division-classify-division.csv'")
+SetGeoLayerViewEventHandler(GeoLayerViewID="WaterDivisionLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/co-dwr-water-division-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="WaterDivisionLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/co-dwr-water-division-event-config.json")
 # = = = = = = = = = =
 # Water district 3:  read layer and add to layer view group.
 # GeoLayerViewGroupID: WaterDistrictsGroup
@@ -102,6 +107,8 @@ CopyFile(SourceFile="../Administration-CoDwrWaterDistricts/layers/co-dwr-water-d
 ReadGeoLayerFromGeoJSON(InputFile="layers/co-dwr-water-district-3.geojson",GeoLayerID="WaterDistrictLayer",Name="CO DWR Water District 3",Description="Water District 3 boundary from the Colorado Division of Water Resources.")
 AddGeoLayerViewToGeoMap(GeoLayerID="WaterDistrictLayer",GeoLayerViewID="WaterDistrictLayerView",Name="CO DWR Water District 3",Description="Water District 3 boundary from the Colorado Division of Water Resources",Properties="docPath:layers/co-dwr-water-district-3.md",InsertPosition="Top")
 SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="WaterDistrictLayerView",Name="Colorize district",Description="Show Water District 3 in black.",ClassificationAttribute="DISTRICT",Properties="classificationFile:layers/co-dwr-water-district-3-classify-district.csv")
+SetGeoLayerViewEventHandler(GeoLayerViewID="WaterDistrictLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/co-dwr-water-district-3-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="WaterDistrictLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/co-dwr-water-district-3-event-config.json")
 # = = = = = = = = = =
 # State house districts:  read layer and add to a layer view group.
 # GeoLayerViewGroupID: StateLegislativeDistrictsGroup
@@ -112,6 +119,8 @@ AddGeoLayerViewToGeoMap(GeoLayerID="StateHouseLegislativeDistrictsLayer",GeoLaye
 SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="StateHouseDistrictsLayerView",Name="Colorize state house districts",Description="Show each district the same color except those that overlap the Poudre",ClassificationAttribute="District_N",Properties="classificationType:'categorized',classificationFile:'layers/co-state-house-districts-classify-district.csv'")
 # Currently no graphs
 #SetGeoLayerViewEventHandler(GeoLayerViewID="StateHouseDistrictsLayerView",EventType="click",Properties="popupConfigPath:graphs/county-popup-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="StateHouseDistrictsLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/co-state-house-districts-2011-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="StateHouseDistrictsLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/co-state-house-districts-2011-event-config.json")
 # = = = = = = = = = =
 # State senate districts:  read layer and add to a layer view group.
 # GeoLayerViewGroupID: StateLegislativeDistrictsGroup
@@ -120,7 +129,8 @@ ReadGeoLayerFromGeoJSON(InputFile="layers/co-state-senate-districts-2011.geojson
 AddGeoLayerViewToGeoMap(GeoLayerID="StateSenateLegislativeDistrictsLayer",GeoLayerViewID="StateSenateDistrictsLayerView",Name="State Senate Districts (2011)",Description="Colorado State Senate districts from 2011 redistricting",Properties="docPath:layers/co-state-senate-districts-2011.md,highlightEnabled:true")
 SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="StateSenateDistrictsLayerView",Name="Colorize state senate districts",Description="Show each district the same color except those that overlap the Poudre",ClassificationAttribute="District_N",Properties="classificationType:'categorized',classificationFile:'layers/co-state-senate-districts-classify-district.csv'")
 # Currently no graphs
-#SetGeoLayerViewEventHandler(GeoLayerViewID="StateSenateDistrictsLayerView",EventType="click",Properties="popupConfigPath:graphs/county-popup-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="StateSenateDistrictsLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/co-state-senate-districts-2011-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="StateSenateDistrictsLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/co-state-senate-districts-2011-event-config.json")
 # = = = = = = = = = =
 # Write the map project file and copy layers to the location needed by the web application.
 # - follow InfoMapper conventions
@@ -132,9 +142,11 @@ CopyFile(SourceFile="legislative-districts-map.md",DestinationFile="${MapFolder}
 # Layers
 CopyFile(SourceFile="layers/co-dwr-water-division.geojson",DestinationFile="${MapFolder}/layers/co-dwr-water-division.geojson")
 CopyFile(SourceFile="layers/co-dwr-water-division-classify-division.csv",DestinationFile="${MapFolder}/layers/co-dwr-water-division-classify-division.csv")
+CopyFile(SourceFile="../Administration-CoDwrWaterDistricts/layers/co-dwr-water-division-event-config.json",DestinationFile="${MapFolder}/layers/co-dwr-water-division-event-config.json")
 #
 CopyFile(SourceFile="layers/co-dwr-water-district-3.geojson",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3.geojson")
 CopyFile(SourceFile="layers/co-dwr-water-district-3-classify-district.csv",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3-classify-district.csv")
+CopyFile(SourceFile="../Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3-event-config.json",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3-event-config.json")
 #
 #CopyFile(SourceFile="layers/counties.geojson",DestinationFile="${MapFolder}/layers/counties.geojson")
 #CopyFile(SourceFile="layers/counties-classify-county.csv",DestinationFile="${MapFolder}/layers/counties-classify-county.csv")
@@ -142,7 +154,11 @@ CopyFile(SourceFile="layers/co-dwr-water-district-3-classify-district.csv",Desti
 CopyFile(SourceFile="layers/co-state-house-districts-2011.geojson",DestinationFile="${MapFolder}/layers/co-state-house-districts-2011.geojson")
 CopyFile(SourceFile="layers/co-state-house-districts-classify-district.csv",DestinationFile="${MapFolder}/layers/co-state-house-districts-classify-district.csv")
 CopyFile(SourceFile="layers/co-state-house-districts-2011.md",DestinationFile="${MapFolder}/layers/co-state-house-districts-2011.md")
+CopyFile(SourceFile="layers/co-state-house-districts-2011-event-config.json",DestinationFile="${MapFolder}/layers/co-state-house-districts-2011-event-config.json")
 #
 CopyFile(SourceFile="layers/co-state-senate-districts-2011.geojson",DestinationFile="${MapFolder}/layers/co-state-senate-districts-2011.geojson")
 CopyFile(SourceFile="layers/co-state-senate-districts-classify-district.csv",DestinationFile="${MapFolder}/layers/co-state-senate-districts-classify-district.csv")
 CopyFile(SourceFile="layers/co-state-senate-districts-2011.md",DestinationFile="${MapFolder}/layers/co-state-senate-districts-2011.md")
+CopyFile(SourceFile="layers/co-state-senate-districts-2011-event-config.json",DestinationFile="${MapFolder}/layers/co-state-senate-districts-2011-event-config.json")
+#
+CopyFile(SourceFile="layers/continental-divide-co-event-config.json",DestinationFile="${MapFolder}/layers/continental-divide-co-event-config.json")

@@ -73,6 +73,8 @@ CopyFile(SourceFile="../../BasinEntities/Administration-CoDwrWaterDistricts/laye
 ReadGeoLayerFromGeoJSON(InputFile="layers/co-dwr-water-district-3.geojson",GeoLayerID="WaterDistrictLayer",Name="CO DWR Water District 3",Description="Water District 3 boundary from the Colorado Division of Water Resources.")
 AddGeoLayerViewToGeoMap(GeoLayerID="WaterDistrictLayer",GeoLayerViewID="WaterDistrictLayerView",Name="CO DWR Water District 3",Description="Water District 3 boundary from the Colorado Division of Water Resources",InsertPosition="Top")
 SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="WaterDistrictLayerView",Name="Colorize district",Description="Show Water District 3 in black.",ClassificationAttribute="DISTRICT",Properties="classificationFile:layers/co-dwr-water-district-3-classify-district.csv")
+SetGeoLayerViewEventHandler(GeoLayerViewID="WaterDistrictLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/co-dwr-water-district-3-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="WaterDistrictLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/co-dwr-water-district-3-event-config.json")
 # = = = = = = = = = =
 # Stream reaches:  read layer and add to a layer view group.
 # - TODO smalers 2020-05-22 for now copy the stream reaches but want to use shared layer
@@ -85,6 +87,8 @@ AddGeoLayerViewToGeoMap(GeoLayerID="StreamReachesLayer",GeoLayerViewID="StreamRe
 SetGeoLayerViewSingleSymbol(GeoLayerViewID="StreamReachesLayerView",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches",Properties="color:#6297f7,width:2")
 #SetGeoLayerViewSingleSymbol(GeoLayerViewID="StreamReachesLayerView",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches")
 # SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="StreamReachesLayerView",Name="Poudre Stream Reaches",Description="Show stream reaches is blue lines",ClassificationAttribute="county",Properties="classificationType:'SingleSymbol'")
+SetGeoLayerViewEventHandler(GeoLayerViewID="StreamReachesLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/stream-reaches-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="StreamReachesLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/stream-reaches-event-config.json")
 # = = = = = = = = = =
 # Diversions:  read layer and add to a layer view group.
 # GeoLayerViewGroupID: DiversionGroup
@@ -96,6 +100,8 @@ AddGeoLayerViewToGeoMap(GeoLayerID="DiversionLayer",GeoLayerViewID="DiversionLay
 # - TODO smalers 2020-05-22 need to enable a graduated symbol based on flow value
 SetGeoLayerViewSingleSymbol(GeoLayerViewID="DiversionLayerView",Name="Poudre Diversions",Description="Poudre Diversions",Properties="symbolShape:Square,color:black,fillColor:black,symbolSize:4,sizeUnits:pixels,opacity:1.0,fillOpacity:1.0,weight:1.5")
 # SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="DiversionLayerView",Name="Poudre Streamflow",Description="Show diversion structures",ClassificationAttribute="county",Properties="classificationType:'SingleSymbol'")
+SetGeoLayerViewEventHandler(GeoLayerViewID="DiversionLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/diversions-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="DiversionLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/diversions-event-config.json")
 # = = = = = = = = = =
 # Streamflow stations:  read layer and add to a layer view group.
 # GeoLayerViewGroupID: StreamflowGroup
@@ -107,6 +113,8 @@ AddGeoLayerViewToGeoMap(GeoLayerID="StreamflowLayer",GeoLayerViewID="StreamflowL
 # - TODO smalers 2020-05-22 need to enable a graduated symbol based on flow value
 SetGeoLayerViewSingleSymbol(GeoLayerViewID="StreamflowLayerView",Name="Poudre Streamflow",Description="Poudre Streamflow",Properties="symbolShape:Circle,color:black,fillColor:red,symbolSize:4,sizeUnits:pixels,opacity:1.0,fillOpacity:1.0,weight:1.5")
 # SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="StreamflowLayerView",Name="Poudre Streamflow",Description="Show streamflow stations",ClassificationAttribute="county",Properties="classificationType:'SingleSymbol'")
+SetGeoLayerViewEventHandler(GeoLayerViewID="StreamflowLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/streamgages-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="StreamflowLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/streamgages-event-config.json")
 # = = = = = = = = = =
 # Write the map project file and copy layers to the location needed by the web application.
 # - follow InfoMapper conventions
@@ -117,11 +125,15 @@ CopyFile(SourceFile="streamflow-map.md",DestinationFile="${MapFolder}/streamflow
 #
 CopyFile(SourceFile="layers/co-dwr-water-district-3.geojson",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3.geojson")
 CopyFile(SourceFile="layers/co-dwr-water-district-3-classify-district.csv",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3-classify-district.csv")
+CopyFile(SourceFile="../../BasinEntities/Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3-event-config.json",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3-event-config.json")
 #
 CopyFile(SourceFile="layers/stream-reaches.geojson",DestinationFile="${MapFolder}/layers/stream-reaches.geojson")
+CopyFile(SourceFile="../../BasinEntities/Physical-StreamReaches/layers/stream-reaches-event-config.json",DestinationFile="${MapFolder}/layers/stream-reaches-event-config.json")
 #
 CopyFile(SourceFile="layers/streamgages.geojson",DestinationFile="${MapFolder}/layers/streamgages.geojson")
 CopyFile(SourceFile="layers/streamgages.md",DestinationFile="${MapFolder}/layers/streamgages.md")
+CopyFile(SourceFile="layers/streamgages-event-config.json",DestinationFile="${MapFolder}/layers/streamgages-event-config.json")
 #
 CopyFile(SourceFile="layers/diversions.geojson",DestinationFile="${MapFolder}/layers/diversions.geojson")
 CopyFile(SourceFile="layers/diversions.md",DestinationFile="${MapFolder}/layers/diversions.md")
+CopyFile(SourceFile="layers/diversions-event-config.json",DestinationFile="${MapFolder}/layers/diversions-event-config.json")
