@@ -10,6 +10,7 @@ The following are data sources for this map:
 | **Resource** | **Source** |
 | -- | -- |
 | Colorado municipalities map layer. | [Colorado Municipalities](https://github.com/OpenWaterFoundation/owf-data-co-municipalities) dataset created by the Open Water Foundation. |
+| Colorado municipalities historical population time series. | Dataset processed from Colorado Department of Local Affairs (DOLA) time series dataset.  See the ***Basin Entities / Political - Counties*** map information. |
 
 ## Workflow
 
