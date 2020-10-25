@@ -4,6 +4,7 @@ The following release notes document changes to the Poudre Basin Information web
 
 | **Release** | **Description** |
 | -- | -- |
+| 0.7.0 | Update all layers to limit the attributes shown in popup dialogs. |
 | 0.6.0 | Add data tables for map layers and search feature for layers. |
 | 0.5.0 | Update to Angular 10. |
 | 0.4.0 | Add popup layer menu with option to view layer data table. |
@@ -12,6 +13,11 @@ The following release notes document changes to the Poudre Basin Information web
 | 0.1.0 | Initial version as custom application. | 
 
 ------------
+
+## 0.7.0
+
+* [0.7.0] Update all the layer event configurations to limit attributes that are shown.
+* [0.7.0] Update population time series data and enable graphs for municipalities.
 
 ## 0.6.0
 

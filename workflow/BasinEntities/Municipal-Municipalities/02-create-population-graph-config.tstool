@@ -34,9 +34,9 @@ StartLog(LogFile="02-create-population-graph-config.tstool.log",MaxSize="5000000
 # - AssetsFolder is where map files exist for the InfoMapper tool
 SetProperty(PropertyName="AppFolder",PropertyType=String,PropertyValue="../../../web")
 SetProperty(PropertyName="MapsFolder",PropertyType=String,PropertyValue="${AppFolder}/data-maps")
-SetProperty(PropertyName="CountiesMapFolder",PropertyType=String,PropertyValue="${MapsFolder}/BasinEntities/Political-Counties")
+SetProperty(PropertyName="CountiesMapFolder",PropertyType=String,PropertyValue="${MapsFolder}/BasinEntites/Political-Counties")
 SetProperty(PropertyName="CountiesTsFolder",PropertyType=String,PropertyValue="${CountiesMapFolder}/ts")
-SetProperty(PropertyName="MunicipalitiesMapFolder",PropertyType=String,PropertyValue="${MapsFolder}/BasinEntities/Municipal-Municipalities")
+SetProperty(PropertyName="MunicipalitiesMapFolder",PropertyType=String,PropertyValue="${MapsFolder}/BasinEntites/Municipal-Municipalities")
 SetProperty(PropertyName="MunicipalitiesTsFolder",PropertyType=String,PropertyValue="${MunicipalitiesMapFolder}/ts")
 #
 SetProperty(PropertyName="HistPopulationStart",PropertyType=DateTime,PropertyValue="1980")
@@ -58,7 +58,7 @@ ReadTableFromDataStore(DataStore="CountyDatabase",DataStoreTable="county_pop_est
 ReadTableFromDataStore(DataStore="CountyDatabase",Sql="SELECT * FROM county_dola ORDER BY county",TableID="CountyListTable")
 # Get the unique list of municipalities to use in loops (from OWF dataset).
 # - add a FIPS_ID_int as integer to be able to join with DOLA FIPS ID, which does not have leading zeros.
-ReadTableFromDelimitedFile(TableID="MunicipalityList_OWF_Table",InputFile="downloads\municipalities-owf.csv",HeaderLines="1",IntegerColumns="NumCounty,Num_IBCC_Basin",TextColumns="FIPS_ID,GNIS_ID")
+ReadTableFromDelimitedFile(TableID="MunicipalityList_OWF_Table",InputFile="downloads\municipalities-owf.csv",HeaderLines="1",IntegerColumns="NumCounty,Num_IBCC_Basin",TextColumns="FIPS_ID,GNIS_ID",RowCountProperty="MunicipalityList_OWF_Table_RowCount")
 ManipulateTableString(TableID="MunicipalityList_OWF_Table",InputColumn1="FIPS_ID",Operator="ToInteger",OutputColumn="FIPS_ID_int")
 #===================================================================
 #
@@ -68,13 +68,26 @@ ManipulateTableString(TableID="MunicipalityList_OWF_Table",InputColumn1="FIPS_ID
 # - some municipalities have the same name as counties so filter out
 # - because of possible numerous differenes in municipality name spelling,
 #   join on FIPS ID, but need to format consistently in both.
-ReadTableFromDataStore(DataStore="CountyDatabase",Sql="SELECT DISTINCT municipalityname, placefips FROM county_pop_estimate_dola WHERE ((placefips != 0) AND (municipalityname NOT LIKE '%Unincorp%') AND (municipalityname NOT LIKE '%Part%') AND (municipalityname NOT LIKE '%COUNTY%')) ORDER BY municipalityname",TableID="MunicipalityList_DOLA_Table")
-ManipulateTableString(TableID="MunicipalityList_DOLA_Table",InputColumn1="municipalityname",Operator="Remove",InputValue2="\s(Total)",OutputColumn="dola_municipality")
+# - Johnstown and Thornton are the only municipality with odd data.
+#   For example, Johnstown has Johnstown and Johnstown (Total) beause it grew into 2 counties.
+#   Eliminate extra rows by copying the table and adding values when constructing the time series.
+# - Remove "Bonza City", which is the same as "Bonanza City" because it shares the same 'placefips'
+#   and therefore when time series are queried below its records show up for "Bonanza City".
+# - Remove "Massa", which is the same as "Manassa City" because it shares the same 'placefips'
+#   and therefore when time series are queried below its records show up for "Manassa".
+# - Leave Carbonate in the dataset since it is on the map, but it will have no time series
+#   since DOLA does not have any data.
+ReadTableFromDataStore(DataStore="CountyDatabase",Sql="SELECT DISTINCT municipalityname, placefips FROM county_pop_estimate_dola WHERE ((placefips != 0) AND (municipalityname NOT LIKE '%Unincorp%') AND (municipalityname NOT LIKE '%Part%') AND (municipalityname NOT LIKE '%COUNTY%')) ORDER BY municipalityname",TableID="MunicipalityList_DOLA_Table0")
+ManipulateTableString(TableID="MunicipalityList_DOLA_Table0",InputColumn1="municipalityname",Operator="Remove",InputValue2="\s(Total)",OutputColumn="dola_municipality")
+DeleteTableRows(TableID="MunicipalityList_DOLA_Table0",Condition="municipalityname == Bonza City")
+DeleteTableRows(TableID="MunicipalityList_DOLA_Table0",Condition="municipalityname == Massa")
+CopyTable(TableID="MunicipalityList_DOLA_Table0",NewTableID="MunicipalityList_DOLA_Table",DistinctColumns="dola_municipality")
 # Join to OWF municipality list that additional inforamtion such as OWF_ID_Full can be used
 # - if the result is not 272 rows (length of OWF dataset), warn
 JoinTables(TableID="MunicipalityList_DOLA_Table",TableToJoinID="MunicipalityList_OWF_Table",JoinColumns="placefips:FIPS_ID_int",JoinMethod=JoinIfInBoth,HandleMultipleJoinMatchesHow=UseLastMatch,RowCountProperty="MunicipalityJoinRowCount")
-If(Name="If_MunicipalityJoinCount",Condition="${MunicipalityJoinRowCount} != 272")
-Message(Message="DOLA and OWF municipality datasets do not align. Expect 272 matches from OWF dataset size.  Found ${MunicipalityJoinRowCount}.",CommandStatus=WARNING)
+SetProperty(PropertyName="MunicipalityList_OWF_Table_RowCount_Minus1",PropertyType=Integer,PropertyValue="${MunicipalityList_OWF_Table_RowCount}",Subtract="1")
+If(Name="If_MunicipalityJoinCount",Condition="${MunicipalityJoinRowCount} != ${MunicipalityList_OWF_Table_RowCount_Minus1}")
+Message(Message="DOLA and OWF municipality datasets do not align. Expect ${MunicipalityList_OWF_Table_RowCount_Minus1} matches from OWF dataset size.  Found ${MunicipalityJoinRowCount}.",CommandStatus=WARNING)
 EndIf(Name="If_MunicipalityJoinCount")
 #===================================================================
 #
@@ -102,7 +115,7 @@ For(Name="For_Muni_Population",IteratorProperty="dola_municipality",TableID="Mun
 # First get the data records from the database.
 ReadTableFromDataStore(DataStore="CountyDatabase",Sql="SELECT * FROM county_pop_estimate_dola WHERE ((placefips = ${placefips}) AND (municipalityname NOT LIKE '%Part%') AND (municipalityname NOT LIKE '%COUNTY%') AND (municipalityname NOT LIKE '%Unincorp%')) ORDER BY year",TableID="${OWF_ID_Full}_Municipality_Data_Table")
 # Convert the data records to a time series.
-TableToTimeSeries(TableID="${OWF_ID_Full}_Municipality_Data_Table",DateColumn="year",LocationID="${OWF_ID_Full}",LocationType="Muni",ValueColumn="totalpopulation",DataSource="DOLA",DataType="Population-Total",Interval=Year,Units="persons",Alias="%L-Muni-%T")
+TableToTimeSeries(TableID="${OWF_ID_Full}_Municipality_Data_Table",DateColumn="year",LocationID="${OWF_ID_Full}",LocationType="Muni",ValueColumn="totalpopulation",DataSource="DOLA",DataType="Population-Total",Interval=Year,Units="persons",HandleDuplicatesHow=Add,Alias="%L-Muni-%T")
 # Write the time series files
 # - TODO smalers 2020-10-19 need to read the OWF municipalities to get the identifier, or use MixedCase with no spaces
 WriteDelimitedFile(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-Muni-Population-Total",OutputFile="${MunicipalitiesTsFolder}/Muni_${OWF_ID_Full}.DOLA.Population-Total.Year.csv",DateTimeColumn="year",ValueColumns="population",Precision=0)
