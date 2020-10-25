@@ -1,6 +1,8 @@
 # Layer: Colorado Counties
 
-The Colorado Counties layer contains all counties in Colorado, colored as follows:
+The Colorado Counties layer contains all counties in Colorado, with context for Poudre Basin water supplies.
+
+Counties on the map colored as follows:
 
 | **Color** | **Description** |
 | -- | -- |
@@ -20,7 +22,7 @@ The following are data sources for this map:
 | **Resource** | **Source** |
 | -- | -- |
 | County boundaries map layer. | [Counties in Colorado](https://data.colorado.gov/Transportation/Counties-in-Colorado/67vn-ijga) map layer dataset from Colorado Information Marketplace. |
-| County annual population time series | [Total Population by County by Year](https://data.colorado.gov/Demographics/Total-Population-by-County-by-Year/9dd2-kw29) dataset on Colorado Information Marketplace, **currently used, but are updating to use datasets from DOLA's website - see the Colorado Counties map documentation**. |
+| County annual population time series | Population data are downloaded from State Demographer's Office (SDO) and are processed into time series for displays.  See the ***Basin Entities / Political - Counties*** map information.  A previous version of this website uses the [Total Population by County by Year](https://data.colorado.gov/Demographics/Total-Population-by-County-by-Year/9dd2-kw29) dataset on Colorado Information Marketplace, which is uploaded by the SDO. |
 
 ## Workflow
 
