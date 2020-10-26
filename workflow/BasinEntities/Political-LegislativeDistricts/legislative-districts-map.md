@@ -1,11 +1,11 @@
 # Map: Colorado Legislative Districts
 
-* Background
+* Overview
 * Layer Groups
 
 ---------------
 
-## Background
+## Overview
 
 The Colorado Legislative Districts map provides information about Colorado legislative districts,
 for County, State, and Federal representatives.

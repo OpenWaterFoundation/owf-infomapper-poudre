@@ -1,4 +1,4 @@
-# Poudre Basin Information - Release Notes
+# Poudre Basin Information / Release Notes
 
 The following release notes document changes to the Poudre Basin Information website.
 
@@ -18,6 +18,7 @@ The following release notes document changes to the Poudre Basin Information web
 
 * [0.7.0] Update all the layer event configurations to limit attributes that are shown.
 * [0.7.0] Update population time series data and enable graphs for municipalities.
+* [0.7.0] Add initial page for ***Current Conditions / Water Supply - Snowpack***.  Integrated maps will be added in the future.
 
 ## 0.6.0
 

@@ -1,11 +1,11 @@
 # Map: Colorado Dairies
 
-* Background
+* Overview
 * Layer Groups
 
 ------------------------
 
-## Background
+## Overview
 
 The Colorado Dairies map shows the location of dairies in Colorado,
 in order to illustrate the relationship between dairies and water.

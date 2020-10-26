@@ -1,11 +1,11 @@
 # Map: Poudre Trails
 
-* Background
+* Overview
 * Layer Groups
 
 ----------
 
-## Background
+## Overview
 
 The Poudre Trails map shows trails in the basin.
 

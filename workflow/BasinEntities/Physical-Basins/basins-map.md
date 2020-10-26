@@ -1,11 +1,12 @@
 # Map: Poudre Basins
 
-* Background
+* Overview
+* Comparison with Administrative and Other Basins
 * Layer Groups
 
 -------------------
 
-## Background
+## Overview
 
 The Poudre Basins map shows hydrologic basins, also called catchments.
 Although there are multiple basin delineations available,
@@ -29,7 +30,7 @@ Two-digits are reserved at each scale level to provide additional granularity.
 Note that this identification code is similar to the
 [USGS approach used to identify stream sites](https://help.waterdata.usgs.gov/faq/sites/do-station-numbers-have-any-particular-meaning),
 but is not the same number.
-The following table lists the HUC identifiers that are relevant to the Poudre Basin,
+The following table lists the HUC identifiers that are relevant to the Poudre Basin.
 
 | **HUC level (# of digits)** | **HUC for Poudre Basin** | **Basin Name** | **Comment** |
 | -- | -- | -- | -- |
@@ -42,12 +43,32 @@ The following table lists the HUC identifiers that are relevant to the Poudre Ba
 | 14 | `10190007xxxxxx` | | No further subdivision - no data. |
 | 16 | `10190007xxxxxxxx` | | No further subdivision - no data. |
 
+## Comparison with Administrative and Other Basins
+
+Hydrologic basins are typically determined from elevation data that defines the flow path for water.
+Ridge lines define breaks between flow directions. Streams meet at confluence points that
+define where small basins can be combined to create larger basins.
+
+In contrast, administrative (see ***Basin Entities / Administrative - CO DWR Water Districts***)
+and other basins, may have boundaries that correspond to political, operational, or other jurisdictions.
+These boundaries may generally follow hydrologic basin boundaries in part,
+and may also correspond to straight-line boundaries for counties, states, and other entities.
+This unfortunately leads to complexities in data presentation and use.
+
+To avoid confusion, it is important to pick basin boundaries that are relevant to the purpose
+and scale of an analysis and visualization, and clearly indicate what the meaning of "basin"
+is within the context of a discussion.
+For example, the general term "Poudre River Basin", "upper basin", "lower basin", etc. may be clear from the context,
+or may need to be clarified by using more specific basin terminology such as
+"DWR Water District 3", or "HUC 8 basin".
+
 ## Layer Groups
 
 The following layer groups are included in this map.
 
 | **Layer Group** | **Description** |
 | -- | -- |
+| Poudre Stream Reaches | Stream reaches within the basin. |
 | Hydrologic Unit Code Basins | Hydrologic Unit Code (HUC) basins. |
 | CO DWR Water Districts | Division of Water Resources water districts, to highlight the Poudre Basin (Water District 3).  See the ***Basin Entities / Administration - CO DWR Water Districts*** map for more information. |
 | Continental Divide | Continental divide line, to help understand transbasin issues. |

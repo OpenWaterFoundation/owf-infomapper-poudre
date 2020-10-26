@@ -1,11 +1,11 @@
 # Map: Poudre Education Organizations
 
-* Background
+* Overview
 * Layer Groups
 
 -----------
 
-## Background
+## Overview
 
 The Poudre Education Organizations map shows information for
 organizations that provide education programs about water.

@@ -1,11 +1,11 @@
 # Map: Poudre Streamflow
 
-* Background
+* Overview
 * Layer Groups
 
 -------------
 
-## Background
+## Overview
 
 The Poudre Streamflow map shows locations that provide real-time flow data,
 including diversions and stream gages.

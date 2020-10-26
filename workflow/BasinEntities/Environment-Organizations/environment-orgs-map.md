@@ -1,11 +1,11 @@
 # Map: Poudre Environmental Organizations
 
-* Background
+* Overview
 * Layer Groups
 
 ------------
 
-## Background
+## Overview
 
 The Poudre Environmental Organizations map shows information for
 organizations that provide environmental programs related to water.

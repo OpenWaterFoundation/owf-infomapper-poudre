@@ -1,6 +1,6 @@
 # Map: Colorado Municipalities
 
-* Background
+* Overview
 	+ Land Use
 	+ Municipal Water Providers
 	+ Population
@@ -8,7 +8,7 @@
 
 --------------
 
-## Background
+## Overview
 
 The Colorado Municipalities map provides information about Colorado municipalities,
 focusing on water resources.

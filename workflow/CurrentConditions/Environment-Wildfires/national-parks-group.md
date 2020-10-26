@@ -1,11 +1,11 @@
 # Layer Group: National Parks
 
-* Background
+* Overview
 * Layers
 
 --------------
 
-## Background
+## Overview
 
 The National Parks layer group provides information about national parks.
 The National Parks program was established to conserve natural resources.

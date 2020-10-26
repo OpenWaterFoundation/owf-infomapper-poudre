@@ -1,11 +1,11 @@
 # Map: Poudre Stream Reaches
 
-* Background
+* Overview
 * Layer Groups
 
 -------------------
 
-## Background
+## Overview
 
 The Poudre Stream Reaches map shows the network of streams and rivers.
 

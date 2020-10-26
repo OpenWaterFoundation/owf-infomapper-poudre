@@ -1,11 +1,11 @@
 # Map: Poudre Instream Flow Reaches
 
-* Background
+* Overview
 * Layer Groups
 
 ----------------
 
-## Background
+## Overview
 
 The Poudre Instream Flow Reaches map shows stream reaches that
 are protected by an instream flow water right.
