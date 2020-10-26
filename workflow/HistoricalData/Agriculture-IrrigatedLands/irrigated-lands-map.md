@@ -1,11 +1,11 @@
 # Map: District 3 Irrigated Lands 
 
-* Background
+* Overview
 * Layer Groups
 
 ----------
 
-## Background
+## Overview
 
 The District 3 Irrigated Lands map shows irrigated lands for multiple historical years.
 The amount of irrigated acreage in recent years has decreased as urban areas have grown onto

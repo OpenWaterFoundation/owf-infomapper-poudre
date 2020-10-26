@@ -1,12 +1,12 @@
 # Map: Colorado Counties
 
-* Background
+* Overview
 * Population Data
 * Layer Groups
 
 ---------------
 
-## Background
+## Overview
 
 The Colorado Counties map provides information about Colorado counties related to the Poudre Basin,
 focusing on water resources.

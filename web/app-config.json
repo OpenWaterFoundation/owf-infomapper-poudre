@@ -323,17 +323,10 @@
         },
         {
           "id": "current-snowpack-snodas",
-          "name": "Water Supply - Snowpack (SNODAS)",
-          "enabled": "false",
-          "action": "externalLink",
-          "url": "http://snodas.cdss.state.co.us/app/index.html"
-        },
-        {
-          "id": "current-snowpack-nrcs",
-          "name": "Water Supply - Snowpack (NRCS)",
-          "enabled": "false",
-          "action": "externalLink",
-          "url": "http://snodas.cdss.state.co.us/app/index.html"
+          "name": "Water Supply - Snowpack",
+          "action": "contentPage",
+          "align": "right",
+          "markdownFile": "content-pages/current-snowpack.md"
         },
         {
           "id": "current-streamflow",

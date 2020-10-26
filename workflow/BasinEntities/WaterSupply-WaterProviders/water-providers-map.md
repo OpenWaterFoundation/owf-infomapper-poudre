@@ -1,11 +1,11 @@
 # Map: Colorado Water Providers
 
-* Background
+* Overview
 * Layer Grouops
 
 -----------
 
-## Background
+## Overview
 
 The Colorado Water Providers map provides information about municipal water providers.
 Water providers include municipal utilities, [special districts](https://www.sdaco.org/),

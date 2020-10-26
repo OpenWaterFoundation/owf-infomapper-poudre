@@ -1,11 +1,11 @@
 # Map: Poudre Boating Organizations
 
-* Background
+* Overview
 * Layer Groups
 
 ---------
 
-## Background
+## Overview
 
 The Poudre Boating Organizations map shows information for
 organizations that provide recreational boating services.

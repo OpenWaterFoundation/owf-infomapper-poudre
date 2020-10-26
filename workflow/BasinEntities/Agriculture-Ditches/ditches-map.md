@@ -1,11 +1,11 @@
 # Map: Poudre Ditch Service Areas
 
-* Background
+* Overview
 * Layer Groups
 
 -----------------
 
-## Background
+## Overview
 
 The Poudre Ditch Service Areas map shows the areal extent of water deliveries for ditches.
 See also the ***Historical Data / Agriculture - Irrigated Lands*** map for detailed information about irrigated parcels.
