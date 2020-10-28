@@ -3,17 +3,18 @@
 The Poudre Basin Information website provides access to cross-jurisdictional
 information for the
 Cache la Poudre River Basin located in Northern Colorado (see [Wikipedia](https://en.wikipedia.org/wiki/Cache_la_Poudre_River)
-and [Cache la Poudre Watershed](https://www.poudrewatershed.org/cache-la-poudre-watershed)).
-This website helps people and organizations efficiently find information and datasets
+and [Cache la Poudre Watershed (Coalition for Poudre River Watershed)](https://www.poudrewatershed.org/cache-la-poudre-watershed)).
+This website is a community resource that helps people and organizations efficiently find information and datasets
 in order to understand complex
 water-related problems and implement sustainable and resilient solutions.
+Content is updated in response to feedback and as datasets are updated.
 
 Information is presented as maps, visualizations, and narrative content.
 This website integrates datasets from various entities in the basin and provides
 links to additional datasets and resources.
 
 Use the navigation menu at the top to select maps, visualizations, and other information products, organized as shown in the following table.
-Click on the information "i" icons for maps and layers to view documentation and data sources.
+Click on the information ![info](/assets/app/img/info-icon.png) icons for maps and layer menu to view documentation and data sources.
 
 | **Menu** | **Description** |
 | -- | -- |

@@ -7,6 +7,27 @@
   "version": "0.7.0 (2020-10-24)",
   "mainMenu": [
     {
+      "id": "SupportingData",
+      "name": "Supporting Data",
+      "description" : "This menu is used for supporing data that is used in other maps.  Set to visible to test but should not be visible in production.",
+      "align": "left",
+      "visible": "false",
+      "menus": [
+        {
+          "id": "continental-divide",
+          "name": "Physical - Continental Divide",
+          "action": "displayMap",
+          "mapProject" : "data-maps/SupportingData/Physical-ContinentalDivide/continental-divide-map.json"
+        },
+        {
+          "id": "state-boundary",
+          "name": "Political - Colorado State Boundary",
+          "action": "displayMap",
+          "mapProject" : "data-maps/SupportingData/Political-ColoradoStateBoundary/co-state-boundary-map.json"
+        }
+      ]
+    },
+    {
       "id": "BasinEntities",
       "name": "Basin Entities",
       "align": "left",

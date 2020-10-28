@@ -3,13 +3,13 @@
 The Poudre Basin Instream Flow Reaches layer contains linework for streams
 that are protected with an instream flow water right.
 
-* Background
+* Overview
 * Data Sources
 * Map Creation Workflow
 
 ---
 
-## Background
+## Overview
 
 Instream flow reaches in Colorado are associated with the
 [Instream Flow Program of the Colorado Water Conservation Board](https://cwcb.colorado.gov/focus-areas/ecosystem-health/instream-flow-program).

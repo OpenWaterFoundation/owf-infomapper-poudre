@@ -407,8 +407,7 @@
           "name": "District 3 Irrigated Lands",
           "description": "Irrigated lands for District 3 from from Colorado's Decision Support System.",
           "properties": {
-            "selectedInitial": "true",
-            "docPath": "layers/group-irrigated-lands.md"
+            "selectedInitial": "true"
           },
           "geoLayerViews": [
             {
@@ -417,6 +416,7 @@
               "description": "Irrigated lands (2015) from CDSS",
               "geoLayerId": "IrrigatedLands2015Layer",
               "properties": {
+                "docPath": "layers/irrigated-lands.md",
                 "selectedInitial": "true"
               },
               "geoLayerSymbol": {
@@ -454,6 +454,7 @@
               "description": "Irrigated lands (2010) from CDSS",
               "geoLayerId": "IrrigatedLands2010Layer",
               "properties": {
+                "docPath": "layers/irrigated-lands.md",
                 "selectedInitial": "true"
               },
               "geoLayerSymbol": {
@@ -491,6 +492,7 @@
               "description": "Irrigated lands (2005) from CDSS",
               "geoLayerId": "IrrigatedLands2005Layer",
               "properties": {
+                "docPath": "layers/irrigated-lands.md",
                 "selectedInitial": "true"
               },
               "geoLayerSymbol": {
@@ -528,6 +530,7 @@
               "description": "Irrigated lands (2001) from CDSS",
               "geoLayerId": "IrrigatedLands2001Layer",
               "properties": {
+                "docPath": "layers/irrigated-lands.md",
                 "selectedInitial": "true"
               },
               "geoLayerSymbol": {
@@ -565,6 +568,7 @@
               "description": "Irrigated lands (1997) from CDSS",
               "geoLayerId": "IrrigatedLands1997Layer",
               "properties": {
+                "docPath": "layers/irrigated-lands.md",
                 "selectedInitial": "true"
               },
               "geoLayerSymbol": {
@@ -602,6 +606,7 @@
               "description": "Irrigated lands (1987) from CDSS",
               "geoLayerId": "IrrigatedLands1987Layer",
               "properties": {
+                "docPath": "layers/irrigated-lands.md",
                 "selectedInitial": "true"
               },
               "geoLayerSymbol": {
@@ -639,6 +644,7 @@
               "description": "Irrigated lands (1976) from CDSS",
               "geoLayerId": "IrrigatedLands1976Layer",
               "properties": {
+                "docPath": "layers/irrigated-lands.md",
                 "selectedInitial": "true"
               },
               "geoLayerSymbol": {
@@ -676,6 +682,7 @@
               "description": "Irrigated lands (1956) from CDSS",
               "geoLayerId": "IrrigatedLands1956Layer",
               "properties": {
+                "docPath": "layers/irrigated-lands.md",
                 "selectedInitial": "true"
               },
               "geoLayerSymbol": {
@@ -722,7 +729,9 @@
               "name": "CO DWR Water District 3",
               "description": "Water District 3 boundary from the Colorado Division of Water Resources",
               "geoLayerId": "WaterDistrictLayer",
-              "properties": {},
+              "properties": {
+                "docPath": "layers/co-dwr-water-district-3.md"
+              },
               "geoLayerSymbol": {
                 "name": "Colorize district",
                 "description": "Show Water District 3 in black.",

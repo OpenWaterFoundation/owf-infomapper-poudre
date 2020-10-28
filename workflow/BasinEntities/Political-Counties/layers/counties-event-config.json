@@ -12,7 +12,7 @@
         "label" : "Population",
         "action" : "displayTimeSeries",
         "resourcePath" : "graphs/county-population-graph-config.json",
-        "saveFile" : "${featureAttribute:county}.toMixedCase().replace(' ','')-population-total.csv"
+        "downloadFile" : "${featureAttribute:county}.toMixedCase().replace(' ','')-population-total.csv"
       }
   ]
 }

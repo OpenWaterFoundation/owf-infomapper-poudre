@@ -2,13 +2,13 @@
 
 The Poudre Stream Reaches layer contains linework for physical streams in the basin.
 
-* Background
+* Overview
 * Data Sources
 * Map Creation Workflow
 
 ---
 
-## Background
+## Overview
 
 The Poudre Stream Reaches layer features were extracted from statewide
 Source Water Route Framework (SWRF) layer, developed by the Colorado Division of Water Resources.

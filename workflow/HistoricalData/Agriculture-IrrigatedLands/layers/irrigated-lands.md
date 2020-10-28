@@ -1,7 +1,6 @@
-# Layer Group: District 3 Irrigated Lands
+# Layer: District 3 Irrigated Lands
 
-The District 3 Irrigated Lands layer group contains layers
-for irrigated lands for historical years.
+The District 3 Irrigated Lands layers include irrigated lands data for historical years.
 The parcels, crop type, irrigation method, and water source were digitized as part of
 Colorado's Decision Support Systems (CDSS).
 
