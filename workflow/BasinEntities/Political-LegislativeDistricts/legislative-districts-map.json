@@ -542,7 +542,9 @@
               "name": "Continental Divide",
               "description": "Continental divide based on Hydrologic Unit Code basins",
               "geoLayerId": "ContinentalDivideLayer",
-              "properties": {},
+              "properties": {
+                "docPath": "layers/continental-divide.md"
+              },
               "geoLayerSymbol": {
                 "name": "Continental divide symbol",
                 "description": "Continental divide line in wide dark grey.",
@@ -590,7 +592,9 @@
               "name": "Colorado State Boundary",
               "description": "Colorado state boundary from CDPHE",
               "geoLayerId": "StateBoundaryLayer",
-              "properties": {},
+              "properties": {
+                "docPath": "layers/co-state-boundary.md"
+              },
               "geoLayerSymbol": {
                 "name": "State boundary symbol",
                 "description": "State boundary in black.",

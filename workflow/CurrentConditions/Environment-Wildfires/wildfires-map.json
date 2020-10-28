@@ -375,6 +375,7 @@
               "description": "Poudre Stream Reaches",
               "geoLayerId": "StreamReachesLayer",
               "properties": {
+                "docPath": "layers/stream-reaches.md",
                 "highlightEnabled": "true"
               },
               "geoLayerSymbol": {
@@ -602,7 +603,9 @@
               "name": "Continental Divide",
               "description": "Continental divide based on Hydrologic Unit Code basins",
               "geoLayerId": "ContinentalDivideLayer",
-              "properties": {},
+              "properties": {
+                "docPath": "layers/continental-divide.md"
+              },
               "geoLayerSymbol": {
                 "name": "Continental divide symbol",
                 "description": "Continental divide line in wide dark grey.",

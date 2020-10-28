@@ -319,7 +319,7 @@
               "description": "Poudre Stream Reaches",
               "geoLayerId": "StreamReachesLayer",
               "properties": {
-                "docPath": "layers/stream-reaches-doc/stream-reaches.md",
+                "docPath": "layers/stream-reaches.md",
                 "highlightEnabled": "true"
               },
               "geoLayerSymbol": {
@@ -365,7 +365,9 @@
               "name": "CO DWR Water District 3",
               "description": "Water District 3 boundary from the Colorado Division of Water Resources",
               "geoLayerId": "WaterDistrictLayer",
-              "properties": {},
+              "properties": {
+                "docPath": "layers/co-dwr-water-district-3.md"
+              },
               "geoLayerSymbol": {
                 "name": "Colorize district",
                 "description": "Show Water District 3 in black.",

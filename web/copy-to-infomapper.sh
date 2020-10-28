@@ -45,6 +45,15 @@ checkHistoricalDataFolder() {
   fi
 }
 
+checkSupportingDataFolder() {
+  # Make sure that the receiving folder exists
+  folder=${appFolder}/data-maps/SupportingData
+  if [ ! -d "${folder}" ]; then
+    echo "Creating folder ${folder}"
+    mkdir -p ${folder}
+  fi
+}
+
 copy_BasinEntities_Administration_Roundtables() {
   checkBasinEntitiesFolder
 
@@ -202,12 +211,30 @@ copyMainConfig() {
   cp -rv ${scriptFolder}/system ${appFolder}
 }
 
+copy_SupportingData_Physical_ContinentalDivide() {
+  checkSupportingDataFolder
+
+  # Copy continental divide folder and files
+  cp -rv ${scriptFolder}/data-maps/SupportingData/Physical-ContinentalDivide ${folder}
+}
+
+copy_SupportingData_Political_ColoradoStateBoundary() {
+  checkSupportingDataFolder
+
+  # Copy continental divide folder and files
+  cp -rv ${scriptFolder}/data-maps/SupportingData/Political-ColoradoStateBoundary ${folder}
+}
+
 runInteractive() {
   while true; do
     echo ""
     echo "Enter an option to update application data.  Menus are listed in order of application."
     echo ""
     echo "App. Config & Content:   c.       Copy main configuration files."
+    echo ""
+    echo "Supporting Data:         sc.      Copy Physical - Continental Divide files."
+    echo "                         sb.      Copy Political - Colorado State Boundary files."
+    echo ""
     echo "Basin Entities:          ea.      Copy Administration - CoDwrWaterDistricts files."
     echo "                         er.      Copy Administration - Roundtables files."
     echo "                         ec.      Copy Political - Counties files."
@@ -239,6 +266,9 @@ runInteractive() {
     # Organize the following by menu item
 
     if [ "${answer}" = "a" ]; then
+      # Supporting Data 
+      copy_SupportingData_Political_ColoradoStateBoundary
+      copy_SupportingData_Physical_ContinentalDivide
       # Basin Entities
       copy_BasinEntities_Administration_WaterDistricts
       copy_BasinEntities_Administration_Roundtables
@@ -265,6 +295,13 @@ runInteractive() {
       copyMainConfig
     elif [ "${answer}" = "q" ]; then
       break
+
+    # Supporting Data
+
+    elif [ "${answer}" = "sb" ]; then
+      copy_SupportingData_Political_ColoradoStateBoundary
+    elif [ "${answer}" = "sc" ]; then
+      copy_SupportingData_Physical_ContinentalDivide
 
     # Basin Entities
 

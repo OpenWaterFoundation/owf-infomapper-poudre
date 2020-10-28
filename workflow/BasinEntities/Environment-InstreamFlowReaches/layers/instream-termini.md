@@ -1,15 +1,15 @@
-# Layer: Poudre Basin Instream Flow Reache Termini 
+# Layer: Poudre Basin Instream Flow Reach Termini 
 
 The Poudre Basin Instream Flow Reach Termini layer contains the upstream and downstream
 termini for corresponding instream flow reaches.
 
-* Background
+* Overview
 * Data Sources
 * Map Creation Workflow
 
 ---
 
-## Background
+## Overview
 
 See the background for the Poudre Basin Instream Flow Reaches layer.
 

@@ -417,6 +417,7 @@
               "description": "Poudre Stream Reaches",
               "geoLayerId": "StreamReachesLayer",
               "properties": {
+                "docPath": "layers/stream-reaches.md",
                 "highlightEnabled": "true"
               },
               "geoLayerSymbol": {
@@ -653,7 +654,9 @@
               "name": "CO DWR Water District 3",
               "description": "Water District 3 boundary from the Colorado Division of Water Resources",
               "geoLayerId": "WaterDistrictLayer",
-              "properties": {},
+              "properties": {
+                "docPath": "layers/co-dwr-water-district-3.md"
+              },
               "geoLayerSymbol": {
                 "name": "Colorize district",
                 "description": "Show Water District 3 in black.",
@@ -697,7 +700,9 @@
               "name": "Continental Divide",
               "description": "Continental divide based on Hydrologic Unit Code basins",
               "geoLayerId": "ContinentalDivideLayer",
-              "properties": {},
+              "properties": {
+                "docPath": "layers/continental-divide.md"
+              },
               "geoLayerSymbol": {
                 "name": "Continental divide symbol",
                 "description": "Continental divide line in wide dark grey.",
@@ -745,7 +750,9 @@
               "name": "Colorado State Boundary",
               "description": "Colorado state boundary from CDPHE",
               "geoLayerId": "StateBoundaryLayer",
-              "properties": {},
+              "properties": {
+                "docPath": "layers/co-state-boundary.md"
+              },
               "geoLayerSymbol": {
                 "name": "State boundary symbol",
                 "description": "State boundary in black.",

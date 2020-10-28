@@ -375,6 +375,7 @@
               "description": "Ditch service areas (2005) from CDSS",
               "geoLayerId": "DitchServiceAreas2005Layer",
               "properties": {
+                "docPath": "layers/ditch-service-areas.md",
                 "selectedInitial": "true"
               },
               "geoLayerSymbol": {
@@ -415,6 +416,7 @@
               "description": "Ditch service areas (2001) from CDSS",
               "geoLayerId": "DitchServiceAreas2001Layer",
               "properties": {
+                "docPath": "layers/ditch-service-areas.md",
                 "selectedInitial": "false"
               },
               "geoLayerSymbol": {
@@ -455,6 +457,7 @@
               "description": "Ditch service areas (1987) from CDSS",
               "geoLayerId": "DitchServiceAreas1987Layer",
               "properties": {
+                "docPath": "layers/ditch-service-areas.md",
                 "selectedInitial": "false"
               },
               "geoLayerSymbol": {
@@ -495,6 +498,7 @@
               "description": "Ditch service areas (1976) from CDSS",
               "geoLayerId": "DitchServiceAreas1976Layer",
               "properties": {
+                "docPath": "layers/ditch-service-areas.md",
                 "selectedInitial": "false"
               },
               "geoLayerSymbol": {
@@ -535,6 +539,7 @@
               "description": "Ditch service areas (1956) from CDSS",
               "geoLayerId": "DitchServiceAreas1956Layer",
               "properties": {
+                "docPath": "layers/ditch-service-areas.md",
                 "selectedInitial": "false"
               },
               "geoLayerSymbol": {
@@ -584,7 +589,9 @@
               "name": "CO DWR Water District 3",
               "description": "Water District 3 boundary from the Colorado Division of Water Resources",
               "geoLayerId": "WaterDistrictLayer",
-              "properties": {},
+              "properties": {
+                "docPath": "layers/co-dwr-water-district-3.md"
+              },
               "geoLayerSymbol": {
                 "name": "Colorize district",
                 "description": "Show Water District 3 in black.",

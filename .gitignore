@@ -38,6 +38,30 @@ junk
 /web/data-ts/*
 
 # ======================================================
+# Supporting Data menu
+# ======================================================
+
+# SupportingData/Political-ColoradoStateBoundary
+/workflow/SupportingData/Political-ColoradoStateBoundary/downloads/*
+!/workflow/SupportingData/Political-ColoradoStateBoundary/downloads/README.md
+/workflow/SupportingData/Political-ColoradoStateBoundary/layers/*
+!/workflow/SupportingData/Political-ColoradoStateBoundary/layers/README.md
+!/workflow/SupportingData/Political-ColoradoStateBoundary/layers/*.csv
+!/workflow/SupportingData/Political-ColoradoStateBoundary/layers/*.json
+!/workflow/SupportingData/Political-ColoradoStateBoundary/layers/*.md
+!/workflow/SupportingData/Political-ColoradoStateBoundary/layers/*doc
+
+# SupportingData/Physical-ContinentalDivide
+/workflow/SupportingData/Physical-ContinentalDivide/downloads/*
+!/workflow/SupportingData/Physical-ContinentalDivide/downloads/README.md
+/workflow/SupportingData/Physical-ContinentalDivide/layers/*
+!/workflow/SupportingData/Physical-ContinentalDivide/layers/README.md
+!/workflow/SupportingData/Physical-ContinentalDivide/layers/*.csv
+!/workflow/SupportingData/Physical-ContinentalDivide/layers/*.json
+!/workflow/SupportingData/Physical-ContinentalDivide/layers/*.md
+!/workflow/SupportingData/Physical-ContinentalDivide/layers/*doc
+
+# ======================================================
 # Basin Entities menu
 # ======================================================
 
