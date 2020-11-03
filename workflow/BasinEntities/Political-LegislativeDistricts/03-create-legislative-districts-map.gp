@@ -111,7 +111,7 @@ SetGeoLayerViewEventHandler(GeoLayerViewID="WaterDistrictLayerView",EventType="c
 # = = = = = = = = = =
 # State house districts:  read layer and add to a layer view group.
 # GeoLayerViewGroupID: StateLegislativeDistrictsGroup
-AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="StateLegislativeDistrictsGroup",Name="State Legislative Districts",Description="Colorado State legislative districts",Properties="selectedInitial: true",InsertPosition="Top")
+AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="StateLegislativeDistrictsGroup",Name="State Legislative Districts",Description="Colorado State legislative districts",Properties="selectBehavior:Single",InsertPosition="Top")
 #
 ReadGeoLayerFromGeoJSON(InputFile="layers/co-state-house-districts-2011.geojson",GeoLayerID="StateHouseLegislativeDistrictsLayer",Name="State House Districts (2011)",Description="Colorado State House districts (2011)")
 AddGeoLayerViewToGeoMap(GeoLayerID="StateHouseLegislativeDistrictsLayer",GeoLayerViewID="StateHouseDistrictsLayerView",Name="State House Districts (2011)",Description="Colorado State House districts from 2011 redistricting",Properties="docPath:layers/co-state-house-districts-2011.md,highlightEnabled:true")

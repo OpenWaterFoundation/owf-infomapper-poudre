@@ -4,7 +4,7 @@
   "favicon": "/img/owf-favicon-32x32.ico",
   "dataUnitsPath": "/system/DATAUNIT",
   "googleAnalyticsTrackingId": "UA-135465513-1",
-  "version": "0.7.0 (2020-10-24)",
+  "version": "1.0.0 (2020-10-30)",
   "mainMenu": [
     {
       "id": "SupportingData",
@@ -174,7 +174,7 @@
         },
         {
           "id": "hist-ag-irrigated",
-          "name": "Agriculture - Irrigated Lands (SLOW)",
+          "name": "Agriculture - Irrigated Lands",
           "action": "displayMap",
           "mapProject": "data-maps/HistoricalData/Agriculture-IrrigatedLands/irrigated-lands-map.json"
         },
