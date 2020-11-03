@@ -85,9 +85,8 @@ CopyTable(TableID="MunicipalityList_DOLA_Table0",NewTableID="MunicipalityList_DO
 # Join to OWF municipality list that additional inforamtion such as OWF_ID_Full can be used
 # - if the result is not 272 rows (length of OWF dataset), warn
 JoinTables(TableID="MunicipalityList_DOLA_Table",TableToJoinID="MunicipalityList_OWF_Table",JoinColumns="placefips:FIPS_ID_int",JoinMethod=JoinIfInBoth,HandleMultipleJoinMatchesHow=UseLastMatch,RowCountProperty="MunicipalityJoinRowCount")
-SetProperty(PropertyName="MunicipalityList_OWF_Table_RowCount_Minus1",PropertyType=Integer,PropertyValue="${MunicipalityList_OWF_Table_RowCount}",Subtract="1")
-If(Name="If_MunicipalityJoinCount",Condition="${MunicipalityJoinRowCount} != ${MunicipalityList_OWF_Table_RowCount_Minus1}")
-Message(Message="DOLA and OWF municipality datasets do not align. Expect ${MunicipalityList_OWF_Table_RowCount_Minus1} matches from OWF dataset size.  Found ${MunicipalityJoinRowCount}.",CommandStatus=WARNING)
+If(Name="If_MunicipalityJoinCount",Condition="${MunicipalityJoinRowCount} != ${MunicipalityList_OWF_Table_RowCount}")
+Message(Message="DOLA and OWF municipality datasets do not align. Expect ${MunicipalityList_OWF_Table_RowCount} matches from OWF dataset size.  Found ${MunicipalityJoinRowCount}.",CommandStatus=WARNING)
 EndIf(Name="If_MunicipalityJoinCount")
 #===================================================================
 #
@@ -97,6 +96,7 @@ EndIf(Name="If_MunicipalityJoinCount")
 # - therefore, iterate using the 'placefips'
 #
 For(Name="For_Muni_Population",IteratorProperty="dola_municipality",TableID="MunicipalityList_DOLA_Table",TableColumn="dola_municipality",TablePropertyMap="OWF_ID_Full:OWF_ID_Full,placefips:placefips")
+Message(Message="Processing municipality ${dola_municipality}, OWF ID=${OWF_ID_Full}")
 # First get the data records from the database.
 ReadTableFromDataStore(DataStore="CountyDatabase",Sql="SELECT * FROM county_pop_estimate_dola WHERE ((placefips = ${placefips}) AND (municipalityname NOT LIKE '%Part%') AND (municipalityname NOT LIKE '%COUNTY%') AND (municipalityname NOT LIKE '%Unincorp%')) ORDER BY year",TableID="${OWF_ID_Full}_Municipality_Data_Table")
 # Convert the data records to a time series.
