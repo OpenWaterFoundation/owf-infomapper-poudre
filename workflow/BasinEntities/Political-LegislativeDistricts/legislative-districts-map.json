@@ -366,7 +366,7 @@
           "name": "State Legislative Districts",
           "description": "Colorado State legislative districts",
           "properties": {
-            "selectedInitial": "true"
+            "selectBehavior": "Single"
           },
           "geoLayerViews": [
             {

@@ -14,7 +14,7 @@ This website integrates datasets from various entities in the basin and provides
 links to additional datasets and resources.
 
 Use the navigation menu at the top to select maps, visualizations, and other information products, organized as shown in the following table.
-Click on the information ![info](/assets/app/img/info-icon.png) icons for maps and layer menu to view documentation and data sources.
+Click on the information ![info-icon](/img/info-icon.png) icons for maps and layer menu to view documentation and data sources.
 
 | **Menu** | **Description** |
 | -- | -- |

@@ -407,7 +407,7 @@
           "name": "District 3 Irrigated Lands",
           "description": "Irrigated lands for District 3 from from Colorado's Decision Support System.",
           "properties": {
-            "selectedInitial": "true"
+            "selectBehavior": "Single"
           },
           "geoLayerViews": [
             {
@@ -455,7 +455,7 @@
               "geoLayerId": "IrrigatedLands2010Layer",
               "properties": {
                 "docPath": "layers/irrigated-lands.md",
-                "selectedInitial": "true"
+                "selectedInitial": "false"
               },
               "geoLayerSymbol": {
                 "name": "Colorize irrigated lands by crop type",
@@ -493,7 +493,7 @@
               "geoLayerId": "IrrigatedLands2005Layer",
               "properties": {
                 "docPath": "layers/irrigated-lands.md",
-                "selectedInitial": "true"
+                "selectedInitial": "false"
               },
               "geoLayerSymbol": {
                 "name": "Colorize irrigated lands by crop type",
@@ -531,7 +531,7 @@
               "geoLayerId": "IrrigatedLands2001Layer",
               "properties": {
                 "docPath": "layers/irrigated-lands.md",
-                "selectedInitial": "true"
+                "selectedInitial": "false"
               },
               "geoLayerSymbol": {
                 "name": "Colorize irrigated lands by crop type",
@@ -569,7 +569,7 @@
               "geoLayerId": "IrrigatedLands1997Layer",
               "properties": {
                 "docPath": "layers/irrigated-lands.md",
-                "selectedInitial": "true"
+                "selectedInitial": "false"
               },
               "geoLayerSymbol": {
                 "name": "Colorize irrigated lands by crop type",
@@ -607,7 +607,7 @@
               "geoLayerId": "IrrigatedLands1987Layer",
               "properties": {
                 "docPath": "layers/irrigated-lands.md",
-                "selectedInitial": "true"
+                "selectedInitial": "false"
               },
               "geoLayerSymbol": {
                 "name": "Colorize irrigated lands by crop type",
@@ -645,7 +645,7 @@
               "geoLayerId": "IrrigatedLands1976Layer",
               "properties": {
                 "docPath": "layers/irrigated-lands.md",
-                "selectedInitial": "true"
+                "selectedInitial": "false"
               },
               "geoLayerSymbol": {
                 "name": "Colorize irrigated lands by crop type",
@@ -683,7 +683,7 @@
               "geoLayerId": "IrrigatedLands1956Layer",
               "properties": {
                 "docPath": "layers/irrigated-lands.md",
-                "selectedInitial": "true"
+                "selectedInitial": "false"
               },
               "geoLayerSymbol": {
                 "name": "Colorize irrigated lands by crop type",

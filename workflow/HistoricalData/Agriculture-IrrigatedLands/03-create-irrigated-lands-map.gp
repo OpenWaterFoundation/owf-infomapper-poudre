@@ -81,11 +81,11 @@ SetGeoLayerViewEventHandler(GeoLayerViewID="WaterDistrictLayerView",EventType="c
 # = = = = = = = = = =
 # Irrigated lands (1956):  read layer and add to a layer view group.
 # GeoLayerViewGroupID: IrrigatedLandsGroup
-AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="IrrigatedLandsGroup",Name="District 3 Irrigated Lands",Description="Irrigated lands for District 3 from from Colorado's Decision Support System.",Properties="selectedInitial: true",InsertPosition="Top")
+AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="IrrigatedLandsGroup",Name="District 3 Irrigated Lands",Description="Irrigated lands for District 3 from from Colorado's Decision Support System.",Properties="selectBehavior:Single",InsertPosition="Top")
 #
 ReadGeoLayerFromGeoJSON(InputFile="layers/irrigated-lands-1956.geojson",GeoLayerID="IrrigatedLands1956Layer",Name="District 3 Irrigated Lands",Description="Irrigated lands (1956) for District 3 from Colorado's Decision Support Systems.")
 # The following layer view group is used for all years
-AddGeoLayerViewToGeoMap(GeoLayerID="IrrigatedLands1956Layer",GeoLayerViewID="IrrigatedLands1956LayerView",Name="District 3 Irrigated Lands (1956)",Description="Irrigated lands (1956) from CDSS",InsertPosition="Top",Properties="docPath:layers/irrigated-lands.md,selectedInitial:true")
+AddGeoLayerViewToGeoMap(GeoLayerID="IrrigatedLands1956Layer",GeoLayerViewID="IrrigatedLands1956LayerView",Name="District 3 Irrigated Lands (1956)",Description="Irrigated lands (1956) from CDSS",InsertPosition="Top",Properties="docPath:layers/irrigated-lands.md,selectedInitial:false")
 SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="IrrigatedLands1956LayerView",Name="Colorize irrigated lands by crop type",Description="Show each irrigated parcel colored by crop type.",ClassificationAttribute="CROP_TYPE",Properties="classificationType:'categorized',classificationFile:'layers/irrigated-lands-classify-croptype.csv'")
 SetGeoLayerViewEventHandler(GeoLayerViewID="IrrigatedLands1956LayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/irrigated-lands-1956-event-config.json")
 SetGeoLayerViewEventHandler(GeoLayerViewID="IrrigatedLands1956LayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/irrigated-lands-1956-event-config.json")
@@ -93,7 +93,7 @@ SetGeoLayerViewEventHandler(GeoLayerViewID="IrrigatedLands1956LayerView",EventTy
 # Irrigated lands (1976):  read layer and add to a layer view group.
 # GeoLayerViewGroupID: IrrigatedLandsGroup
 ReadGeoLayerFromGeoJSON(InputFile="layers/irrigated-lands-1976.geojson",GeoLayerID="IrrigatedLands1976Layer",Name="District 3 Irrigated Lands",Description="Irrigated lands (1976) for District 3 from Colorado's Decision Support Systems.")
-AddGeoLayerViewToGeoMap(GeoLayerID="IrrigatedLands1976Layer",GeoLayerViewID="IrrigatedLands1976LayerView",Name="District 3 Irrigated Lands (1976)",Description="Irrigated lands (1976) from CDSS",InsertPosition="Top",Properties="docPath:layers/irrigated-lands.md,selectedInitial:true")
+AddGeoLayerViewToGeoMap(GeoLayerID="IrrigatedLands1976Layer",GeoLayerViewID="IrrigatedLands1976LayerView",Name="District 3 Irrigated Lands (1976)",Description="Irrigated lands (1976) from CDSS",InsertPosition="Top",Properties="docPath:layers/irrigated-lands.md,selectedInitial:false")
 SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="IrrigatedLands1976LayerView",Name="Colorize irrigated lands by crop type",Description="Show each irrigated parcel colored by crop type.",ClassificationAttribute="CROP_TYPE",Properties="classificationType:'categorized',classificationFile:'layers/irrigated-lands-classify-croptype.csv'")
 SetGeoLayerViewEventHandler(GeoLayerViewID="IrrigatedLands1976LayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/irrigated-lands-1976-event-config.json")
 SetGeoLayerViewEventHandler(GeoLayerViewID="IrrigatedLands1976LayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/irrigated-lands-1976-event-config.json")
@@ -101,7 +101,7 @@ SetGeoLayerViewEventHandler(GeoLayerViewID="IrrigatedLands1976LayerView",EventTy
 # Irrigated lands (1987):  read layer and add to a layer view group.
 # GeoLayerViewGroupID: IrrigatedLandsGroup
 ReadGeoLayerFromGeoJSON(InputFile="layers/irrigated-lands-1987.geojson",GeoLayerID="IrrigatedLands1987Layer",Name="District 3 Irrigated Lands",Description="Irrigated lands (1987) for District 3 from Colorado's Decision Support Systems.")
-AddGeoLayerViewToGeoMap(GeoLayerID="IrrigatedLands1987Layer",GeoLayerViewID="IrrigatedLands1987LayerView",Name="District 3 Irrigated Lands (1987)",Description="Irrigated lands (1987) from CDSS",InsertPosition="Top",Properties="docPath:layers/irrigated-lands.md,selectedInitial:true")
+AddGeoLayerViewToGeoMap(GeoLayerID="IrrigatedLands1987Layer",GeoLayerViewID="IrrigatedLands1987LayerView",Name="District 3 Irrigated Lands (1987)",Description="Irrigated lands (1987) from CDSS",InsertPosition="Top",Properties="docPath:layers/irrigated-lands.md,selectedInitial:false")
 SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="IrrigatedLands1987LayerView",Name="Colorize irrigated lands by crop type",Description="Show each irrigated parcel colored by crop type.",ClassificationAttribute="CROP_TYPE",Properties="classificationType:'categorized',classificationFile:'layers/irrigated-lands-classify-croptype.csv'")
 SetGeoLayerViewEventHandler(GeoLayerViewID="IrrigatedLands1987LayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/irrigated-lands-1987-event-config.json")
 SetGeoLayerViewEventHandler(GeoLayerViewID="IrrigatedLands1987LayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/irrigated-lands-1987-event-config.json")
@@ -109,7 +109,7 @@ SetGeoLayerViewEventHandler(GeoLayerViewID="IrrigatedLands1987LayerView",EventTy
 # Irrigated lands (1997):  read layer and add to a layer view group.
 # GeoLayerViewGroupID: IrrigatedLandsGroup
 ReadGeoLayerFromGeoJSON(InputFile="layers/irrigated-lands-1997.geojson",GeoLayerID="IrrigatedLands1997Layer",Name="District 3 Irrigated Lands",Description="Irrigated lands (1997) for District 3 from Colorado's Decision Support Systems.")
-AddGeoLayerViewToGeoMap(GeoLayerID="IrrigatedLands1997Layer",GeoLayerViewID="IrrigatedLands1997LayerView",Name="District 3 Irrigated Lands (1997)",Description="Irrigated lands (1997) from CDSS",InsertPosition="Top",Properties="docPath:layers/irrigated-lands.md,selectedInitial:true")
+AddGeoLayerViewToGeoMap(GeoLayerID="IrrigatedLands1997Layer",GeoLayerViewID="IrrigatedLands1997LayerView",Name="District 3 Irrigated Lands (1997)",Description="Irrigated lands (1997) from CDSS",InsertPosition="Top",Properties="docPath:layers/irrigated-lands.md,selectedInitial:false")
 SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="IrrigatedLands1997LayerView",Name="Colorize irrigated lands by crop type",Description="Show each irrigated parcel colored by crop type.",ClassificationAttribute="CROP_TYPE",Properties="classificationType:'categorized',classificationFile:'layers/irrigated-lands-classify-croptype.csv'")
 SetGeoLayerViewEventHandler(GeoLayerViewID="IrrigatedLands1997LayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/irrigated-lands-1997-event-config.json")
 SetGeoLayerViewEventHandler(GeoLayerViewID="IrrigatedLands1997LayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/irrigated-lands-1997-event-config.json")
@@ -117,7 +117,7 @@ SetGeoLayerViewEventHandler(GeoLayerViewID="IrrigatedLands1997LayerView",EventTy
 # Irrigated lands (2001):  read layer and add to a layer view group.
 # GeoLayerViewGroupID: IrrigatedLandsGroup
 ReadGeoLayerFromGeoJSON(InputFile="layers/irrigated-lands-2001.geojson",GeoLayerID="IrrigatedLands2001Layer",Name="District 3 Irrigated Lands",Description="Irrigated lands (2001) for District 3 from Colorado's Decision Support Systems.")
-AddGeoLayerViewToGeoMap(GeoLayerID="IrrigatedLands2001Layer",GeoLayerViewID="IrrigatedLands2001LayerView",Name="District 3 Irrigated Lands (2001)",Description="Irrigated lands (2001) from CDSS",InsertPosition="Top",Properties="docPath:layers/irrigated-lands.md,selectedInitial:true")
+AddGeoLayerViewToGeoMap(GeoLayerID="IrrigatedLands2001Layer",GeoLayerViewID="IrrigatedLands2001LayerView",Name="District 3 Irrigated Lands (2001)",Description="Irrigated lands (2001) from CDSS",InsertPosition="Top",Properties="docPath:layers/irrigated-lands.md,selectedInitial:false")
 SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="IrrigatedLands2001LayerView",Name="Colorize irrigated lands by crop type",Description="Show each irrigated parcel colored by crop type.",ClassificationAttribute="CROP_TYPE",Properties="classificationType:'categorized',classificationFile:'layers/irrigated-lands-classify-croptype.csv'")
 SetGeoLayerViewEventHandler(GeoLayerViewID="IrrigatedLands2001LayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/irrigated-lands-2001-event-config.json")
 SetGeoLayerViewEventHandler(GeoLayerViewID="IrrigatedLands2001LayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/irrigated-lands-2001-event-config.json")
@@ -125,7 +125,7 @@ SetGeoLayerViewEventHandler(GeoLayerViewID="IrrigatedLands2001LayerView",EventTy
 # Irrigated lands (2005):  read layer and add to a layer view group.
 # GeoLayerViewGroupID: IrrigatedLandsGroup
 ReadGeoLayerFromGeoJSON(InputFile="layers/irrigated-lands-2005.geojson",GeoLayerID="IrrigatedLands2005Layer",Name="District 3 Irrigated Lands",Description="Irrigated lands (2005) for District 3 from Colorado's Decision Support Systems.")
-AddGeoLayerViewToGeoMap(GeoLayerID="IrrigatedLands2005Layer",GeoLayerViewID="IrrigatedLands2005LayerView",Name="District 3 Irrigated Lands (2005)",Description="Irrigated lands (2005) from CDSS",InsertPosition="Top",Properties="docPath:layers/irrigated-lands.md,selectedInitial:true")
+AddGeoLayerViewToGeoMap(GeoLayerID="IrrigatedLands2005Layer",GeoLayerViewID="IrrigatedLands2005LayerView",Name="District 3 Irrigated Lands (2005)",Description="Irrigated lands (2005) from CDSS",InsertPosition="Top",Properties="docPath:layers/irrigated-lands.md,selectedInitial:false")
 SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="IrrigatedLands2005LayerView",Name="Colorize irrigated lands by crop type",Description="Show each irrigated parcel colored by crop type.",ClassificationAttribute="CROP_TYPE",Properties="classificationType:'categorized',classificationFile:'layers/irrigated-lands-classify-croptype.csv'")
 SetGeoLayerViewEventHandler(GeoLayerViewID="IrrigatedLands2005LayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/irrigated-lands-2005-event-config.json")
 SetGeoLayerViewEventHandler(GeoLayerViewID="IrrigatedLands2005LayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/irrigated-lands-2005-event-config.json")
@@ -133,7 +133,7 @@ SetGeoLayerViewEventHandler(GeoLayerViewID="IrrigatedLands2005LayerView",EventTy
 # Irrigated lands (2010):  read layer and add to a layer view group.
 # GeoLayerViewGroupID: IrrigatedLandsGroup
 ReadGeoLayerFromGeoJSON(InputFile="layers/irrigated-lands-2010.geojson",GeoLayerID="IrrigatedLands2010Layer",Name="District 3 Irrigated Lands",Description="Irrigated lands (2010) for District 3 from Colorado's Decision Support Systems.")
-AddGeoLayerViewToGeoMap(GeoLayerID="IrrigatedLands2010Layer",GeoLayerViewID="IrrigatedLands2010LayerView",Name="District 3 Irrigated Lands (2010)",Description="Irrigated lands (2010) from CDSS",InsertPosition="Top",Properties="docPath:layers/irrigated-lands.md,selectedInitial:true")
+AddGeoLayerViewToGeoMap(GeoLayerID="IrrigatedLands2010Layer",GeoLayerViewID="IrrigatedLands2010LayerView",Name="District 3 Irrigated Lands (2010)",Description="Irrigated lands (2010) from CDSS",InsertPosition="Top",Properties="docPath:layers/irrigated-lands.md,selectedInitial:false")
 SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="IrrigatedLands2010LayerView",Name="Colorize irrigated lands by crop type",Description="Show each irrigated parcel colored by crop type.",ClassificationAttribute="CROP_TYPE",Properties="classificationType:'categorized',classificationFile:'layers/irrigated-lands-classify-croptype.csv'")
 SetGeoLayerViewEventHandler(GeoLayerViewID="IrrigatedLands2010LayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/irrigated-lands-2010-event-config.json")
 SetGeoLayerViewEventHandler(GeoLayerViewID="IrrigatedLands2010LayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/irrigated-lands-2010-event-config.json")

@@ -4,6 +4,7 @@ The following release notes document changes to the Poudre Basin Information web
 
 | **Release** | **Description** |
 | -- | -- |
+| 1.0.0 | First official release due to InfoMapper feature maturity. |
 | 0.7.0 | Update all layers to limit the attributes shown in popup dialogs. |
 | 0.6.0 | Add data tables for map layers and search feature for layers. |
 | 0.5.0 | Update to Angular 10. |
@@ -14,9 +15,19 @@ The following release notes document changes to the Poudre Basin Information web
 
 ------------
 
+## 1.0.0
+
+* [1.0.0] Update based on InfoMapper 1.3.0 release.
+* [1.0.0] Kebab menus are used for layer groups and layers to access information and data.
+* [1.0.0] Some layer groups are now configured so that only one layer in a group can be selected,
+which increases load speed and avoids overlapping layers.
+* [1.0.0] Update DOLA county population data.  Historical estimates include 2019, forecast starts in 2020.
+
 ## 0.7.0
 
-* [0.7.0] Update all the layer event configurations to limit attributes that are shown.
+* [0.7.0] Enable documentation for all layers.
+* [0.7.0] Update all the layer event configurations to limit attributes that are shown,
+with most important attributes first.
 * [0.7.0] Update population time series data and enable graphs for municipalities.
 * [0.7.0] Add initial page for ***Current Conditions / Water Supply - Snowpack***.  Integrated maps will be added in the future.
 
