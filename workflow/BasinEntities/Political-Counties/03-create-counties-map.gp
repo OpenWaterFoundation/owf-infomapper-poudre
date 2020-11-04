@@ -149,3 +149,9 @@ CopyFile(SourceFile="../../SupportingData/Political-ColoradoStateBoundary/layers
 # Graphs
 CreateFolder(Folder="${MapFolder}/graphs",CreateParentFolders="True",IfFolderExists="Ignore")
 CopyFile(SourceFile="graphs/county-population-graph-config.json",DestinationFile="${MapFolder}/graphs/county-population-graph-config.json")
+# -------
+# downloads - save a copy to the cloud since not saved in the repo
+CreateFolder(Folder="${MapFolder}/downloads",CreateParentFolders="True",IfFolderExists="Ignore")
+CopyFile(SourceFile="downloads/county-data-owf.csv",DestinationFile="${MapFolder}/downloads/county-data-owf.csv")
+CopyFile(SourceFile="downloads/county-muni-population-timeseries-dola.csv",DestinationFile="${MapFolder}/downloads/county-muni-population-timeseries-dola.csv")
+CopyFile(SourceFile="downloads/county-population-forecast-dola.xls",DestinationFile="${MapFolder}/downloads/county-population-forecast-dola.xls")

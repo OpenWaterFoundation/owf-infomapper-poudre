@@ -39,9 +39,12 @@ NewSQLiteDatabase(DataStore="CountyDatabase",DatabaseFile="Memory")
 # - need to adjust some strings to deal with inconsistencies
 # - "City Of Castle Pines" replaced with "City of Castle Pines" because mixture causes problems sorting
 # - replace '(Part)' with '(part)' to be consistent so sorting does not cause issues
+# - also adjust municipalities that have different spellings
 ReadTableFromDelimitedFile(TableID="CountyPopulationEstimates_DOLA_Table",InputFile="downloads/county-muni-population-timeseries-dola.csv",HeaderLines="1",IntegerColumns="id,countyfips,placefips,year,totalpopulation,countyplace")
 ManipulateTableString(TableID="CountyPopulationEstimates_DOLA_Table",InputColumn1="municipalityname",Operator="Replace",InputValue2="City Of Castle Pines",InputValue3="City of Castle Pines",OutputColumn="municipalityname")
 ManipulateTableString(TableID="CountyPopulationEstimates_DOLA_Table",InputColumn1="municipalityname",Operator="Replace",InputValue2="(Part)",InputValue3="(part)",OutputColumn="municipalityname")
+ManipulateTableString(TableID="CountyPopulationEstimates_DOLA_Table",InputColumn1="municipalityname",Operator="Replace",InputValue2="Idaho Sprgs",InputValue3="Idaho Springs",OutputColumn="municipalityname")
+ManipulateTableString(TableID="CountyPopulationEstimates_DOLA_Table",InputColumn1="municipalityname",Operator="Replace",InputValue2="Mount Crested Butte/G",InputValue3="Mount Crested Butte",OutputColumn="municipalityname")
 SortTable(TableID="CountyPopulationEstimates_DOLA_Table",SortColumns="municipalityname,year")
 #
 # Write the data from the file to the database
