@@ -144,3 +144,7 @@ CopyFile(SourceFile="../../SupportingData/Political-ColoradoStateBoundary/layers
 # Graphs
 CreateFolder(Folder="${MapFolder}/graphs",CreateParentFolders="True",IfFolderExists="Ignore")
 CopyFile(SourceFile="graphs/municipality-population-graph-config.json",DestinationFile="${MapFolder}/graphs/municipality-population-graph-config.json")
+# -------
+# downloads - save to the cloud since not in the repo
+CreateFolder(Folder="${MapFolder}/downloads",CreateParentFolders="True",IfFolderExists="Ignore")
+CopyFile(SourceFile="downloads/municipalities-owf.csv",DestinationFile="${MapFolder}/downloads/municipalities-owf.csv")

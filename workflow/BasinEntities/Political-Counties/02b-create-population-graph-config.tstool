@@ -41,7 +41,7 @@ SetProperty(PropertyName="MunicipalitiesTsFolder",PropertyType=String,PropertyVa
 SetProperty(PropertyName="HistStartYear",PropertyType=DateTime,PropertyValue="1980")
 SetProperty(PropertyName="HistEndYear",PropertyType=DateTime,PropertyValue="2019")
 SetProperty(PropertyName="ForecastStartYear",PropertyType=DateTime,PropertyValue="2020")
-SetProperty(PropertyName="ForecasatEndYear",PropertyType=DateTime,PropertyValue="2050")
+SetProperty(PropertyName="ForecastEndYear",PropertyType=DateTime,PropertyValue="2050")
 #
 # Set the following to true to write files, false to not write files
 # - useful for troubleshooting
@@ -70,7 +70,7 @@ For(Name="For_Counties_Population_Total",IteratorProperty="County",TableID="Coun
 # First get the data records from the database.
 ReadTableFromDataStore(DataStore="CountyDatabase",Sql="SELECT * FROM county_pop_estimate_dola WHERE municipalityname = '${county_upper} COUNTY' ORDER BY year",TableID="${county_no_space}_County_Population_Total_Table")
 # Convert the data records to a time series.
-TableToTimeSeries(TableID="${county_no_space}_County_Population_Total_Table",DateColumn="year",LocationID="${county_no_space}",LocationType="County",ValueColumn="totalpopulation",DataSource="DOLA",DataType="Population-Total",Interval=Year,Units="persons",Alias="%L-County-%T",InputStart="${HistStartYear}",InputEnd="${ForecasatEndYear}")
+TableToTimeSeries(TableID="${county_no_space}_County_Population_Total_Table",DateColumn="year",LocationID="${county_no_space}",LocationType="County",ValueColumn="totalpopulation",DataSource="DOLA",DataType="Population-Total",Interval=Year,Units="persons",Alias="%L-County-%T",InputStart="${HistStartYear}",InputEnd="${ForecastEndYear}")
 # Write the time series files
 # - actually, this time series is modified later when forecasts are added so don't write here
 # WriteDelimitedFile(TSList=AllMatchingTSID,TSID="${county_no_space}-County-Population-Total",OutputFile="${CountiesTsFolder}/County_${county_no_space}.DOLA.Population-Total.Year.csv",DateTimeColumn="year",ValueColumns="population",Precision=0)
@@ -128,8 +128,8 @@ For(Name="For_Counties_Forecast",IteratorProperty="County",TableID="CountyListTa
 # First get the data records from the database.
 ReadTableFromDataStore(DataStore="CountyDatabase",Sql="SELECT * FROM population_forecast_dola WHERE county = '${County}' ORDER BY year",TableID="${county_no_space}_County_Population_Forecast_Table")
 # Convert the data records to a time series.
-TableToTimeSeries(TableID="${county_no_space}_County_Population_Forecast_Table",DateColumn="year",LocationID="${county_no_space}",LocationType="County",ValueColumn="population_forecast",DataSource="DOLA",DataType="Population-Forecast",Interval=Year,Units="persons",Alias="%L-County-%T",InputStart="${ForecastStartYear}",InputEnd="${ForecasatEndYear}")
-SetFromTS(TSList=AllMatchingTSID,TSID="${county_no_space}-County-Population-Total",IndependentTSList=AllMatchingTSID,IndependentTSID="${county_no_space}-County-Population-Forecast",SetStart="${ForecastStartYear}",SetEnd="${ForecasatEndYear}",TransferHow=ByDateTime,SetFlag="F",SetFlagDesc="DOLA Forecast",RecalcLimits=True)
+TableToTimeSeries(TableID="${county_no_space}_County_Population_Forecast_Table",DateColumn="year",LocationID="${county_no_space}",LocationType="County",ValueColumn="population_forecast",DataSource="DOLA",DataType="Population-Forecast",Interval=Year,Units="persons",Alias="%L-County-%T",InputStart="${ForecastStartYear}",InputEnd="${ForecastEndYear}")
+SetFromTS(TSList=AllMatchingTSID,TSID="${county_no_space}-County-Population-Total",IndependentTSList=AllMatchingTSID,IndependentTSID="${county_no_space}-County-Population-Forecast",SetStart="${ForecastStartYear}",SetEnd="${ForecastEndYear}",TransferHow=ByDateTime,SetFlag="F",SetFlagDesc="DOLA Forecast",RecalcLimits=True)
 # Write the time series files
 WriteDelimitedFile(TSList=AllMatchingTSID,TSID="${county_no_space}-County-Population-Forecast",OutputFile="${CountiesTsFolder}/County_${county_no_space}.DOLA.Population-Forecast.Year.csv",DateTimeColumn="year",ValueColumns="population",Precision=0)
 WriteDateValue(TSList=AllMatchingTSID,TSID="${county_no_space}-County-Population-Forecast",OutputFile="${CountiesTsFolder}/County_${county_no_space}.DOLA.Population-Forecast.Year.dv",Precision=0)

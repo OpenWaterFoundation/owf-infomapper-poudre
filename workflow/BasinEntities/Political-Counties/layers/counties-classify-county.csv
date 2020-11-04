@@ -14,7 +14,7 @@ GRAND,#003cb3,1.0,#003cb3,0.3,2,"GRAND - Transbasin diversion to Poudre"
 # Counties that do transfers out of the basin via transbasin diversions
 # - yellow for planned
 # - reddish for actual #b30000
-ADAMS,#ffff00,1.0,#ffff00,0.3,2,"ADAMS - Transbasin diversion from Poudre - Thornton (future)"
+ADAMS,#ffff00,1.0,#ffff00,0.3,2,"ADAMS - Transbasin diversion from Poudre - Thornton"
 # Counties in Division 1
 # - light green, #b3ff66
 ARAPAHOE,#b3ff66,1.0,#b3ff66,0.3,2,"ARAPAHOE - South Platte (Division 1) Counties"
