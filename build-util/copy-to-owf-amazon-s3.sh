@@ -66,17 +66,32 @@ buildDist() {
     exit ${exitCode}
   fi
 
-  # Fix the distribution index.html file as per:  
-  #   Problem:   https://github.com/angular/angular/issues/30835
-  #   Solution:  https://stackoverflow.com/questions/56606789/angular-8-ng-build-throwing-mime-error-with-cordova
   indexFile="${infoMapperDistAppFolder}/index.html"
   logInfo "Updating mime type in: ${indexFile}"
   if [ -f "${indexFile}" ]; then
+    # Fix the distribution index.html file as per:  
+    #   Problem:   https://github.com/angular/angular/issues/30835
+    #   Solution:  https://stackoverflow.com/questions/56606789/angular-8-ng-build-throwing-mime-error-with-cordova
     # Replace "module" with "text/javascript" so that Amazon S3 works.
     sed -i 's/type="module"/type="text\/javascript"/g' ${indexFile}
     # Additionally need to insert "defer" at the end of the main-es2015*.js item so it looks like:
     #   <script src="main-es2015.afb0c8c9a69f82c651a0.js" type="text/javascript" defer>
     sed -i 's/main-es2015.*" type="text\/javascript"/& defer/' ${indexFile}
+
+    # Update the index.html to replace '${Google_Analytics_Tracking_id}' with the
+    # application configuration '${googleAnalyticsTrackingId}' property.
+    # The different property name is used in order to isolate the replacement.
+    logDebug "Checking application file:  ${appConfigFile}"
+    googleAnalyticsTrackingId=$(grep '"googleAnalyticsTrackingId"' ${appConfigFile} | cut -d ":" -f 2 | tr -d '"' | tr -d ' ' | tr -d ',')
+    logDebug "Google Analytics using tracking ID from application configuration:  ${googleAnalyticsTrackingId}"
+    if [ -n "${googleAnalyticsTrackingId}" ]; then
+      # Replace the Google Analytics tracking ID in the index.html file
+      logInfo "Configuring Google Analytics using tracking ID:  ${googleAnalyticsTrackingId}"
+      sed -i "s/id=\${Google_Analytics_Tracking_Id}/id=${googleAnalyticsTrackingId}/" ${indexFile}
+    else
+      logError "googleAnalyticsTrackingId application configuration property is not set."
+      logError "Not configuring Google Analytics."
+    fi
   else
     logError "index.html file does not exist: ${indexFile}"
     logError "Maybe the budget needs to be increased?"
@@ -153,21 +168,20 @@ getUserLogin() {
 # - the Info Mapper software version in 'assets/version.json' with format similar to above
 getVersion() {
   # Application version
-  versionFile="${webFolder}/app-config.json"
-  if [ ! -f "${versionFile}" ]; then
-    logError "Application version file does not exist: ${versionFile}"
+  if [ ! -f "${appConfigFile}" ]; then
+    logError "Application version file does not exist: ${appConfigFile}"
     logError "Exiting."
     exit 1
   fi
-  version=$(grep '"version":' ${versionFile} | cut -d ":" -f 2 | cut -d "(" -f 1 | tr -d '"' | tr -d ' ' | tr -d ',')
+  appVersion=$(grep '"version":' ${appConfigFile} | cut -d ":" -f 2 | cut -d "(" -f 1 | tr -d '"' | tr -d ' ' | tr -d ',')
   # InfoMapper version
-  versionFile="${infoMapperMainFolder}/src/assets/version.json"
-  if [ ! -f "${versionFile}" ]; then
-    logError "InfoMapper version file does not exist: ${versionFile}"
+  infoMapperVersionFile="${infoMapperMainFolder}/src/assets/version.json"
+  if [ ! -f "${infoMapperVersionFile}" ]; then
+    logError "InfoMapper version file does not exist: ${infoMapperVersionFile}"
     logError "Exiting."
     exit 1
   fi
-  infoMapperVersion=$(grep '"version":' ${versionFile} | cut -d ":" -f 2 | cut -d "(" -f 1 | tr -d '"' | tr -d ' ' | tr -d ',')
+  infoMapperVersion=$(grep '"version":' ${infoMapperVersionFile} | cut -d ":" -f 2 | cut -d "(" -f 1 | tr -d '"' | tr -d ' ' | tr -d ',')
 }
 
 # Print a DEBUG message, currently prints to stderr.
@@ -380,7 +394,7 @@ uploadDist() {
   echo "UploadTime = ${now}" >> ${uploadLogFile}
   echo "UploaderName = ${programName}" >> ${uploadLogFile}
   echo "UploaderVersion = ${programVersion} ${programVersionDate}" >> ${uploadLogFile}
-  echo "AppVersion = ${version}" >> ${uploadLogFile}
+  echo "AppVersion = ${appVersion}" >> ${uploadLogFile}
   echo "InfoMapperVersion = ${infoMapperVersion}" >> ${uploadLogFile}
 
   if [ "${uploadOnlyAssets}" = "yes" ]; then
@@ -401,17 +415,17 @@ uploadDist() {
   fi
 
   # First upload to the version folder
-  echo "Uploading (aws sync) application ${version} version"
+  echo "Uploading (aws sync) application ${appVersion} version"
   echo "  from: ${infoMapperDistAppFolder}"
   echo "    to: ${s3FolderVersionUrl}"
-  echo "Uploading application ${version} version."
+  echo "Uploading application ${appVersion} version."
   read -p "Continue [Y/n/q] (if 'n', will still be able to upload 'latest')? " answer
   if [ "${answer}" = "q" -o "${answer}" = "Q" ]; then
     exit 0
   elif [ -z "${answer}" -o "${answer}" = "y" -o "${answer}" = "Y" ]; then
-    logInfo "Starting aws sync of ${version} copy..."
+    logInfo "Starting aws sync of ${appVersion} copy..."
     syncFiles ${s3FolderVersionUrl}
-    logInfo "...done with aws sync of ${version} copy."
+    logInfo "...done with aws sync of ${appVersion} copy."
   fi
 
   # Next upload to the 'latest' folder
@@ -454,14 +468,17 @@ infoMapperDistFolder="${infoMapperMainFolder}/dist"
 # TODO smalers 2020-04-20 is the app folder redundant?
 # - it is not copied to S3
 infoMapperDistAppFolder="${infoMapperDistFolder}/infomapper"
+# Application configuration file used to extract application version and Google Analytics tracking ID.
+appConfigFile="${webFolder}/app-config.json"
 # ...end must match Info Mapper
 programName=$(basename $0)
-programVersion="1.4.0"
-programVersionDate="2020-08-17"
+programVersion="1.5.0"
+programVersionDate="2020-11-05"
 logInfo "scriptFolder:             ${scriptFolder}"
 logInfo "Program name:             ${programName}"
 logInfo "repoFolder:               ${repoFolder}"
 logInfo "webFolder:                ${webFolder}"
+logInfo "appConfigFile:            ${appConfigFile}"
 logInfo "gitReposFolder:           ${gitReposFolder}"
 logInfo "infoMapperRepoFolder:     ${infoMapperRepoFolder}"
 logInfo "infoMapperMainFolder:     ${infoMapperMainFolder}"
@@ -472,9 +489,9 @@ logInfo "infoMapperDistAppFolder:  ${infoMapperDistAppFolder}"
 # - put before parseCommandLine so can be used in print usage, etc.
 # - TODO smalers 2020-04-20 does this need an app folder at end like "/owf-app-poudre-dashboard"?
 getVersion
-logInfo "Application version:  ${version}"
+logInfo "Application version:  ${appVersion}"
 logInfo "InfoMapper version:   ${infoMapperVersion}"
-s3FolderVersionUrl="s3://poudre.openwaterfoundation.org/${version}"
+s3FolderVersionUrl="s3://poudre.openwaterfoundation.org/${appVersion}"
 s3FolderLatestUrl="s3://poudre.openwaterfoundation.org/latest"
 
 # Parse the command line.

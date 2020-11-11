@@ -3,7 +3,7 @@
   "name": "Roundtables event configuration",
   "description":  "List main attributes.",
   "layerAttributes" : {
-    "include" : [ "Name", "Label" ],
+    "include" : [ "Name", "Label", "BRT_Web", "CWCB_Web" ],
     "exclude" : [],
     "formats": []
   },
