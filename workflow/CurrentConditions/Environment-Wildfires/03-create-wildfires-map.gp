@@ -88,13 +88,6 @@ SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="WaterDistrictLayerView",Name="C
 SetGeoLayerViewEventHandler(GeoLayerViewID="WaterDistrictLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/co-dwr-water-district-3-event-config.json")
 SetGeoLayerViewEventHandler(GeoLayerViewID="WaterDistrictLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/co-dwr-water-district-3-event-config.json")
 # = = = = = = = = = =
-# Current fire imagery:  read layers and add a layer view group
-# GeoLayerViewGroupID: WildfiresGroup
-# - will show up in base layers
-# - TODO smalers 2020-08-14 does not seem to work.  Want image of heat or smoke.
-#ReadRasterGeoLayerFromTileMapService(InputUrl="https://fsapps.nwcg.gov/afm/cgi-bin/mapserv.exe?map=conus.map&",GeoLayerID="MODISFireDetectionsCurrentLayer",Name="MODIS Fire Detections (Current)",Description="1 km MODIS fire detections.",Properties="attribution: 'GTAC',isBackground: true")
-#AddGeoLayerViewToGeoMap(GeoLayerID="MODISFireDetectionsCurrentLayer",GeoLayerViewGroupID="BackgroundGroup",GeoLayerViewID="MODISFireDetectionsCurrentLayerView",Name="MODIS Fire Detections (Current)",Description="1 km MODIS fire detections.",Properties="selectedInitial: false")
-# = = = = = = = = = =
 # National parks:  read layer and add to a layer view group.
 # GeoLayerViewGroupID: NationalParksGroup
 AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="NationalParksGroup",Name="National Parks",Description="National parks",Properties="selectedInitial: true,docPath:'national-parks-group.md'",InsertPosition="Top")
@@ -119,7 +112,11 @@ AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="WildfiresGroup",Name="Wildfire
 #
 ReadGeoLayerFromGeoJSON(InputFile="https://services3.arcgis.com/T4QMspbfLg3qTGWY/arcgis/rest/services/Interagency_Fire_Perimeter_History_All_Years_Read_Only/FeatureServer/0/query?where=GIS_ACRES%20%3E%3D%20150%20AND%20FIRE_YEAR%20%3E%3D%202000&geometry=-110.6%2C35.86%2C-102.05%2C42.2&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelContains&outFields=*&geometryPrecision=5&f=geojson",GeoLayerID="WildfirePerimetersArchiveLayer",Name="Historical Wildfire Perimiters",Description="Wildfire perimeters web service")
 AddGeoLayerViewToGeoMap(GeoLayerID="WildfirePerimetersArchiveLayer",GeoLayerViewID="WildfirePerimetersArchiveLayerView",Name="Historical Wildfire Perimeters",Description="Historical wildfire perimeters (acres>= 150, year>=2000) from the National Interagency Fire Center",Properties="docPath:layers/wildfire-perimeters-archive.md",InsertPosition="Top")
-SetGeoLayerViewSingleSymbol(GeoLayerViewID="WildfirePerimetersArchiveLayerView",Name="WildfirePerimetersArchiveSymbol",Description="Wildfire Perimeters archive symbol",Properties="color:#cc9900,fillColor:#cc9900,fillOpacity:0.3")
+# Change from filled polygons to only outlines
+#SetGeoLayerViewSingleSymbol(GeoLayerViewID="WildfirePerimetersArchiveLayerView",Name="WildfirePerimetersArchiveSymbol",Description="Wildfire Perimeters archive symbol",Properties="color:#cc9900,fillColor:#cc9900,fillOpacity:0.3")
+SetGeoLayerViewSingleSymbol(GeoLayerViewID="WildfirePerimetersArchiveLayerView",Name="WildfirePerimetersArchiveSymbol",Description="Wildfire Perimeters archive symbol",Properties="color:#cc9900,fillColor:#cc9900,fillOpacity:0.2")
+# Outlines don't look good
+#SetGeoLayerViewSingleSymbol(GeoLayerViewID="WildfirePerimetersArchiveLayerView",Name="WildfirePerimetersArchiveSymbol",Description="Wildfire Perimeters archive symbol",Properties="color:#cc9900,fillColor:#000000,fillOpacity:0.0")
 SetGeoLayerViewEventHandler(GeoLayerViewID="WildfirePerimetersArchiveLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/wildfire-perimeters-archive-event-config.json")
 SetGeoLayerViewEventHandler(GeoLayerViewID="WildfirePerimetersArchiveLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/wildfire-perimeters-archive-event-config.json")
 # = = = = = = = = = =
@@ -176,12 +173,42 @@ If(Name="UseGeoJSONFromWFSIf",Condition="${PerimeterSource} == GeoJSONFromWFS")
     #ReadGeoLayerFromGeoJSON(InputFile="https://services3.arcgis.com/T4QMspbfLg3qTGWY/ArcGIS/rest/services/Public_Wildfire_Perimeters_View/FeatureServer/0/query?where=1%3D1&objectIds=&time=&geometry=-109.05%2C36.99%2C-102.05%2C41&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelContains&resultType=none&distance=0.0&units=esriSRUnit_Meter&returnGeodetic=false&outFields=*&returnGeometry=true&returnCentroid=false&featureEncoding=esriDefault&multipatchOption=xyFootprint&maxAllowableOffset=&geometryPrecision=&outSR=&datumTransformation=&applyVCSProjection=false&returnIdsOnly=false&returnUniqueIdsOnly=false&returnCountOnly=false&returnExtentOnly=false&returnQueryGeometry=false&returnDistinctValues=false&cacheHint=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&having=&resultOffset=&resultRecordCount=&returnZ=false&returnM=false&returnExceededLimitFeatures=true&quantizationParameters=&sqlFormat=none&f=pgeojson&token=",GeoLayerID="WildfirePerimetersLayer",Name="Colorado Wildfire Perimiters",Description="Colorado wildfire perimeters web service")
 EndIf(Name="UseGeoJSONFromWFSIf")
 AddGeoLayerViewToGeoMap(GeoLayerID="WildfirePerimetersLayer",GeoLayerViewID="WildfirePerimetersLayerView",Name="Active Wildfire Perimeters",Description="Active wildfire perimeters from the National Interagency Fire Center",Properties="docPath:layers/wildfire-perimeters.md",InsertPosition="Top")
-SetGeoLayerViewSingleSymbol(GeoLayerViewID="WildfirePerimetersLayerView",Name="WildfirePerimetersSymbol",Description="Wildfire Perimeters symbol",Properties="color:#ff0000,fillColor:#ff0000,fillOpacity:0.3")
+# Switch from solid fill to only outline
+#SetGeoLayerViewSingleSymbol(GeoLayerViewID="WildfirePerimetersLayerView",Name="WildfirePerimetersSymbol",Description="Wildfire Perimeters symbol",Properties="color:#ff0000,fillColor:#ff0000,fillOpacity:0.3")
+SetGeoLayerViewSingleSymbol(GeoLayerViewID="WildfirePerimetersLayerView",Name="WildfirePerimetersSymbol",Description="Wildfire Perimeters symbol",Properties="color:#ff0000,fillColor:#000000,fillOpacity:0.0")
 # TODO smalers 2020-08-14 need to classify on area or some other attribute
 #SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="WildfirePerimetersLayerView",Name="Colorize wildfire Perimeters",Description="Show each wildfire perimeter the same color",ClassificationAttribute="county",Properties="classificationType:'categorized',classificationFile:'layers/wildfire-perimeters-classify-county.csv'")
 # Same event handler configuration, since just limits features
 SetGeoLayerViewEventHandler(GeoLayerViewID="WildfirePerimetersLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/wildfire-perimeters-event-config.json")
 SetGeoLayerViewEventHandler(GeoLayerViewID="WildfirePerimetersLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/wildfire-perimeters-event-config.json")
+# = = = = = = = = = =
+# Soil Burn Severity:  read layer and add to a layer view group.
+# GeoLayerViewGroupID: SoilBurnSeverityGroup
+#
+AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="SoilBurnSeverityGroup",Name="Soil Burn Severity",Description="Soil burn severity",Properties="selectedInitial: true",InsertPosition="Top")
+# -------------------
+# Soil Burn Severity (raster):
+# GeoLayerViewGroupID: SoilBurnSeverityGroup
+# - raster is faster
+ReadRasterGeoLayerFromFile(InputFile="layers/cameron-peak-sbs.tif",GeoLayerID="SoilBurnSeverityRasterLayer",Name="Cameron Peak Fire Soil Burn Severity (raster)",Description="Cameron Peak Fire soil burn severity")
+AddGeoLayerViewToGeoMap(GeoLayerID="SoilBurnSeverityRasterLayer",GeoLayerViewID="SoilBurnSeverityRasterLayerView",Name="Cameron Peak Fire Soil Burn Severity (raster)",Description="Cameron Peak Fire soil burn severity from USFS BAER",Properties="docPath:layers/cameron-peak-sbs.md",InsertPosition="Top")
+SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="SoilBurnSeverityRasterLayerView",Name="Colorize soil burn severity",Description="Symbol for the soil burn severity",ClassificationAttribute="1",Properties="classificationFile:'layers/cameron-peak-sbs-classify-gridcode.csv',rasterResolution:'128'")
+SetGeoLayerViewEventHandler(GeoLayerViewID="SoilBurnSeverityRasterLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/cameron-peak-sbs-raster-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="SoilBurnSeverityRasterLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/cameron-peak-sbs-raster-event-config.json")
+#
+# -------------------
+# Soil Burn Severity:
+# GeoLayerViewGroupID: SoilBurnSeverityGroup
+# - polygon vector layer is slow to draw so rely on raster layer
+#
+SetProperty(PropertyName="IncludeBurnAreaVector",PropertyType="str",PropertyValue="no")
+If(Name="IncludeBurnAreaVector",Condition="${IncludeBurnAreaVector} == yes")
+    ReadGeoLayerFromGeoJSON(InputFile="layers/cameron-peak-sbs.geojson",GeoLayerID="SoilBurnSeverityLayer",Name="Cameron Peak Fire Soil Burn Severity",Description="Soil burn severity")
+    AddGeoLayerViewToGeoMap(GeoLayerID="SoilBurnSeverityLayer",GeoLayerViewID="SoilBurnSeverityLayerView",Name="Cameron Peak Fire Soil Burn Severity",Description="Cameron Peak Fire soil burn severity from USFS BAER",Properties="docPath:layers/cameron-peak-sbs.md",InsertPosition="Top")
+    SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="SoilBurnSeverityLayerView",Name="Colorize soil burn severity",Description="Symbol for the soil burn severity",ClassificationAttribute="gridcode",Properties="classificationFile:'layers/cameron-peak-sbs-classify-gridcode.csv'")
+    SetGeoLayerViewEventHandler(GeoLayerViewID="SoilBurnSeverityLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/cameron-peak-sbs-event-config.json")
+    SetGeoLayerViewEventHandler(GeoLayerViewID="SoilBurnSeverityLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/cameron-peak-sbs-event-config.json")
+EndIf(Name="IncludeBurnAreaVector")
 # = = = = = = = = = =
 # Stream reaches:  read layer and add to a layer view group.
 # - TODO smalers 2020-05-22 for now copy the stream reaches but want to use shared layer
@@ -215,6 +242,13 @@ CopyFile(SourceFile="../../BasinEntities/Administration-CoDwrWaterDistricts/laye
 CopyFile(SourceFile="national-parks-group.md",DestinationFile="${MapFolder}/national-parks-group.md")
 CopyFile(SourceFile="layers/national-parks-rmnp.md",DestinationFile="${MapFolder}/layers/national-parks-rmnp.md")
 CopyFile(SourceFile="layers/national-parks-rmnp-event-config.json",DestinationFile="${MapFolder}/layers/national-parks-rmnp-event-config.json")
+#
+CopyFile(SourceFile="layers/cameron-peak-sbs.geojson",DestinationFile="${MapFolder}/layers/cameron-peak-sbs.geojson")
+CopyFile(SourceFile="layers/cameron-peak-sbs.tif",DestinationFile="${MapFolder}/layers/cameron-peak-sbs.tif")
+CopyFile(SourceFile="layers/cameron-peak-sbs-classify-gridcode.csv",DestinationFile="${MapFolder}/layers/cameron-peak-sbs-classify-gridcode.csv")
+CopyFile(SourceFile="layers/cameron-peak-sbs.md",DestinationFile="${MapFolder}/layers/cameron-peak-sbs.md")
+CopyFile(SourceFile="layers/cameron-peak-sbs-event-config.json",DestinationFile="${MapFolder}/layers/cameron-peak-sbs-event-config.json")
+CopyFile(SourceFile="layers/cameron-peak-sbs-raster-event-config.json",DestinationFile="${MapFolder}/layers/cameron-peak-sbs-raster-event-config.json")
 #
 CopyFile(SourceFile="layers/wildfire-perimeters.geojson",DestinationFile="${MapFolder}/layers/wildfire-perimeters.geojson")
 #CopyFile(SourceFile="layers/wildfire-perimeters-classify-wildfire-perimeters.csv",DestinationFile="${MapFolder}/layers/wildfire-perimeters-classify-wildfire-perimeters.csv")

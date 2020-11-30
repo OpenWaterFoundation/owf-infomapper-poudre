@@ -22,6 +22,7 @@ The following release notes document changes to the Poudre Basin Information web
 * [1.0.0] Some layer groups are now configured so that only one layer in a group can be selected,
 which increases load speed and avoids overlapping layers.
 * [1.0.0] Update DOLA county population data.  Historical estimates include 2019, forecast starts in 2020.
+* [1.0.0, 2020-11-28] Add Soil Burn Severity (SBS) to ***Current Conditions / Environment - Wildfires*** map.
 
 ## 0.7.0
 
