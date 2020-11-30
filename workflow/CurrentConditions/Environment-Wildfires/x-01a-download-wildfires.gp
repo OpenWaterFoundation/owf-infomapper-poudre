@@ -1,4 +1,6 @@
 # Download active wildfire perimeters layer.
+# - this command file no longer needs to be used because the current and historical layers are directly
+#   accessed via web services
 # - need to run daily at least
 # - download from National Interagency Fire Center
 WebGet(URL="https://opendata.arcgis.com/datasets/5da472c6d27b4b67970acc7b5044c862_0.geojson",OutputFile="downloads/wildfire-perimeters.geojson",Timeout="10")

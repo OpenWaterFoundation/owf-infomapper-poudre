@@ -150,6 +150,12 @@
           "enabled": "false",
           "action": "displayMap",
           "mapProject": "data-maps/BasinEntities/WaterSupply-Transbasin/transbasin-map.json"
+        },
+        {
+          "id": "test1",
+          "name": "Test 1 for New Features",
+          "action": "displayMap",
+          "mapProject": "data-maps/BasinEntities/Z-Test1/test-map.json"
         }
       ]
     },

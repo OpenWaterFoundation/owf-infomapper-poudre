@@ -173,6 +173,13 @@ copy_BasinEntities_WaterSupply_WaterProviders() {
   cp -rv ${scriptFolder}/data-maps/BasinEntities/WaterSupply-WaterProviders ${folder}
 }
 
+copy_BasinEntities_Z_Test1() {
+  checkBasinEntitiesFolder
+
+  # Copy water supply map folder and files
+  cp -rv ${scriptFolder}/data-maps/BasinEntities/Z-Test1 ${folder}
+}
+
 copy_CurrentConditions_Environment_Wildfires() {
   checkCurrentConditionsFolder
 
@@ -252,6 +259,7 @@ runInteractive() {
     echo "                         etrails. Copy Recreation - Trails files."
     echo "                         ewq.     Copy WaterQuality - Monitoring files."
     echo "                         ewp.     Copy WaterSupply - WaterProviders files."
+    echo "                         etest1.  Copy Z - Test1 files."
     echo ""
     echo "Historical Data:         hl.      Copy IrrigatedLands map files."
     echo ""
@@ -285,6 +293,7 @@ runInteractive() {
       copy_BasinEntities_Recreation_Boating
       copy_BasinEntities_Recreation_Trails
       copy_BasinEntities_WaterSupply_WaterProviders
+      copy_BasinEntities_Z_Test1
       # Historical Data
       copy_HistoricalData_Agriculture_IrrigatedLands
       # Current Conditions
@@ -339,6 +348,8 @@ runInteractive() {
       copy_BasinEntities_WaterQuality_Monitoring
     elif [ "${answer}" = "ewp" ]; then
       copy_BasinEntities_WaterSupply_WaterProviders
+    elif [ "${answer}" = "etest1" ]; then
+      copy_BasinEntities_Z_Test1
 
     # Historical Data
 

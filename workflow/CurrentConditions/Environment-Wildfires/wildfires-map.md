@@ -49,6 +49,7 @@ The following layer groups are included in this map.
 | -- | -- |
 | Poudre Stream Reaches | Stream lines for named streams and rivers. |
 | Wildfires | Colorado wildfire burn areas. |
+| Soil Burn Severity | Burn severity assessment from Burn Area Emergency Response (BAER). |
 | National Parks | National parks impacted by wildfires. |
 | CO DWR Water Districts | Division of Water Resources water districts, to highlight the Poudre Basin (Water District 3).  See the ***Basin Entities / Administration - CO DWR Water Districts*** map for more information. |
 | Continental Divide | Continental divide, illustrating a geological boundary between basins. |
