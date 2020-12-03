@@ -76,6 +76,22 @@ SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="WaterDistrictLayerView",Name="C
 SetGeoLayerViewEventHandler(GeoLayerViewID="WaterDistrictLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/co-dwr-water-district-3-event-config.json")
 SetGeoLayerViewEventHandler(GeoLayerViewID="WaterDistrictLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/co-dwr-water-district-3-event-config.json")
 # = = = = = = = = = =
+# Water quality monitoring basins:  read layer and add to a layer view group.
+# GeoLayerViewGroupID: WaterQualityMonitoringBasinsGroup
+AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="WaterQualityMonitoringBasinsGroup",Name="Water Quality Monitoring Basins",Description="Water Quality Monitoring Basins",Properties="selectedInitial: true",InsertPosition="Top")
+#
+ReadGeoLayerFromGeoJSON(InputFile="layers/wq-monitoring-mainstem-basin.geojson",GeoLayerID="WaterQualityMainStemBasinLayer",Name="Main Stem Monitoring Basin",Description="Poudre main stem monitoring basin (Upper Poudre) from Fort Collins Utilities")
+AddGeoLayerViewToGeoMap(GeoLayerID="WaterQualityMainStemBasinLayer",GeoLayerViewID="WaterQualityMainStemBasinLayerView",Name="Main Stem Monitoring Basin",Description="Poudre main stem monitoring basin (Upper Poudre) from Fort Collins Utilities",Properties="docPath:'layers/wq-monitoring-mainstem-basin.md'",InsertPosition="Top")
+SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="WaterQualityMainStemBasinLayerView",Name="Colorize main stem",Description="",ClassificationAttribute="HU_12_NAME",Properties="classificationFile:layers/wq-monitoring-mainstem-basin-classify-hu12name.csv")
+SetGeoLayerViewEventHandler(GeoLayerViewID="WaterQualityMainStemBasinLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/wq-monitoring-mainstem-basin-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="WaterQualityMainStemBasinLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/wq-monitoring-mainstem-basin-event-config.json")
+#
+ReadGeoLayerFromGeoJSON(InputFile="layers/wq-monitoring-northfork-basin.geojson",GeoLayerID="WaterQualityNorthForkBasinLayer",Name="Poudre North Fork Monitoring Basin",Description="Poudre North Fork monitoring basin (Upper Poudre) from Fort Collins Utilities")
+AddGeoLayerViewToGeoMap(GeoLayerID="WaterQualityNorthForkBasinLayer",GeoLayerViewID="WaterQualityNorthForkBasinLayerView",Name="North Fork Monitoring Basin",Description="Poudre North Fork monitoring basin (Upper Poudre) from Fort Collins Utilities",Properties="docPath:'layers/wq-monitoring-northfork-basin.md'",InsertPosition="Top")
+SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="WaterQualityNorthForkBasinLayerView",Name="Colorize North Fork",Description="",ClassificationAttribute="HU_12_NAME",Properties="classificationFile:layers/wq-monitoring-northfork-basin-classify-hu12name.csv")
+SetGeoLayerViewEventHandler(GeoLayerViewID="WaterQualityNorthForkBasinLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/wq-monitoring-northfork-basin-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="WaterQualityNorthForkBasinLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/wq-monitoring-northfork-basin-event-config.json")
+# = = = = = = = = = =
 # Stream reaches:  read layer and add to a layer view group.
 # - TODO smalers 2020-05-22 evaluate whether to include this
 # - TODO smalers 2020-05-22 for now copy the stream reaches but want to use shared layer
@@ -89,22 +105,10 @@ SetGeoLayerViewSingleSymbol(GeoLayerViewID="StreamReachesLayerView",Name="Poudre
 SetGeoLayerViewEventHandler(GeoLayerViewID="StreamReachesLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/stream-reaches-event-config.json")
 SetGeoLayerViewEventHandler(GeoLayerViewID="StreamReachesLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/stream-reaches-event-config.json")
 # = = = = = = = = = =
-# Water quality monitoring:  read layer and add to a layer view group.
+# Water quality monitoring sites:  read layer and add to a layer view group.
 # - TODO smalers 2020-08-27 should basins be under streams?
-# GeoLayerViewGroupID: WaterQualityMonitoringGroup
-AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="WaterQualityMonitoringGroup",Name="Water Quality Monitoring",Description="Water Quality Monitoring",Properties="selectedInitial: true",InsertPosition="Top")
-#
-ReadGeoLayerFromGeoJSON(InputFile="layers/wq-monitoring-mainstem-basin.geojson",GeoLayerID="WaterQualityMainStemBasinLayer",Name="Main Stem Monitoring Basin",Description="Poudre main stem monitoring basin (Upper Poudre) from Fort Collins Utilities")
-AddGeoLayerViewToGeoMap(GeoLayerID="WaterQualityMainStemBasinLayer",GeoLayerViewID="WaterQualityMainStemBasinLayerView",Name="Main Stem Monitoring Basin",Description="Poudre main stem monitoring basin (Upper Poudre) from Fort Collins Utilities",Properties="docPath:'layers/wq-monitoring-mainstem-basin.md'",InsertPosition="Top")
-SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="WaterQualityMainStemBasinLayerView",Name="Colorize main stem",Description="",ClassificationAttribute="HU_12_NAME",Properties="classificationFile:layers/wq-monitoring-mainstem-basin-classify-hu12name.csv")
-SetGeoLayerViewEventHandler(GeoLayerViewID="WaterQualityMainStemBasinLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/wq-monitoring-mainstem-basin-event-config.json")
-SetGeoLayerViewEventHandler(GeoLayerViewID="WaterQualityMainStemBasinLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/wq-monitoring-mainstem-basin-event-config.json")
-#
-ReadGeoLayerFromGeoJSON(InputFile="layers/wq-monitoring-northfork-basin.geojson",GeoLayerID="WaterQualityNorthForkBasinLayer",Name="Poudre North Fork Monitoring Basin",Description="Poudre North Fork monitoring basin (Upper Poudre) from Fort Collins Utilities")
-AddGeoLayerViewToGeoMap(GeoLayerID="WaterQualityNorthForkBasinLayer",GeoLayerViewID="WaterQualityNorthForkBasinLayerView",Name="North Fork Monitoring Basin",Description="Poudre North Fork monitoring basin (Upper Poudre) from Fort Collins Utilities",Properties="docPath:'layers/wq-monitoring-northfork-basin.md'",InsertPosition="Top")
-SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="WaterQualityNorthForkBasinLayerView",Name="Colorize North Fork",Description="",ClassificationAttribute="HU_12_NAME",Properties="classificationFile:layers/wq-monitoring-northfork-basin-classify-hu12name.csv")
-SetGeoLayerViewEventHandler(GeoLayerViewID="WaterQualityNorthForkBasinLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/wq-monitoring-northfork-basin-event-config.json")
-SetGeoLayerViewEventHandler(GeoLayerViewID="WaterQualityNorthForkBasinLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/wq-monitoring-northfork-basin-event-config.json")
+# GeoLayerViewGroupID: WaterQualityMonitoringSitesGroup
+AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="WaterQualityMonitoringSitesGroup",Name="Water Quality Monitoring Sites",Description="Water Quality Monitoring Sites",Properties="selectedInitial: true",InsertPosition="Top")
 #
 ReadGeoLayerFromGeoJSON(InputFile="layers/wq-monitoring-sites.geojson",GeoLayerID="WaterQualitySitesLayer",Name="Poudre Water Quality Monitoring Sites",Description="Poudre Water Quality Monitoring Sites")
 AddGeoLayerViewToGeoMap(GeoLayerID="WaterQualitySitesLayer",GeoLayerViewID="WaterQualitySitesLayerView",Name="Poudre Water Quality Monitoring Sites",Description="Poudre water quality monitoring sites for upper and lower Poudre, from Fort Collins Utilities",Properties="docPath:'layers/wq-monitoring-sites.md'",InsertPosition="Top")
@@ -126,8 +130,8 @@ CopyFile(SourceFile="../Administration-CoDwrWaterDistricts/layers/co-dwr-water-d
 CopyFile(SourceFile="../Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3.md",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3.md")
 #
 CopyFile(SourceFile="layers/stream-reaches.geojson",DestinationFile="${MapFolder}/layers/stream-reaches.geojson")
-CopyFile(SourceFile="layers/stream-reaches-event-config.json",DestinationFile="${MapFolder}/layers/stream-reaches-event-config.json")
 CopyFile(SourceFile="../Physical-StreamReaches/layers/stream-reaches.md",DestinationFile="${MapFolder}/layers/stream-reaches.md")
+CopyFile(SourceFile="../Physical-StreamReaches/layers/stream-reaches-event-config.json",DestinationFile="${MapFolder}/layers/stream-reaches-event-config.json")
 #
 CopyFile(SourceFile="layers/wq-monitoring-mainstem-basin.geojson",DestinationFile="${MapFolder}/layers/wq-monitoring-mainstem-basin.geojson")
 CopyFile(SourceFile="layers/wq-monitoring-mainstem-basin.md",DestinationFile="${MapFolder}/layers/wq-monitoring-mainstem-basin.md")
