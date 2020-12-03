@@ -98,6 +98,15 @@ buildDist() {
     # This tends to cause major issues so exit
     exit 1
   fi
+
+  # Clean the InfoMapper distribution files to the bare minimum.
+  ${infoMapperRepoFolder}/build-util/clean-dist-for-deployment.sh
+  exitCode=$?
+  if [ $exitCode -ne 0 ]; then
+    logError "Error cleaning 'dist/' for deployment."
+    logError "Check script:  ${infoMapperRepoFolder}/build-util/clean-dist-for-deployment.sh."
+    exit 1
+  fi
 }
 
 # Check to make sure the Angular version is as expected
@@ -472,8 +481,8 @@ infoMapperDistAppFolder="${infoMapperDistFolder}/infomapper"
 appConfigFile="${webFolder}/app-config.json"
 # ...end must match Info Mapper
 programName=$(basename $0)
-programVersion="1.5.0"
-programVersionDate="2020-11-05"
+programVersion="1.6.0"
+programVersionDate="2020-12-02"
 logInfo "scriptFolder:             ${scriptFolder}"
 logInfo "Program name:             ${programName}"
 logInfo "repoFolder:               ${repoFolder}"
