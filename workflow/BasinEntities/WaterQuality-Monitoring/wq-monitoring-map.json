@@ -290,20 +290,6 @@
           ]
         },
         {
-          "geoLayerId": "StreamReachesLayer",
-          "name": "Poudre Stream Reaches",
-          "description": "Poudre Stream Reaches",
-          "crs": "EPSG:4326",
-          "geometryType": "WKT:LineString",
-          "layerType": "Vector",
-          "sourceFormat": "GeoJSON",
-          "sourcePath": "layers/stream-reaches.geojson",
-          "properties": {},
-          "history:": [
-            "Read GeoLayer from GeoJSON file:  'C:\\Users\\sam\\owf-dev\\InfoMapper-Poudre\\git-repos\\owf-infomapper-poudre\\workflow\\BasinEntities\\WaterQuality-Monitoring\\layers\\stream-reaches.geojson'"
-          ]
-        },
-        {
           "geoLayerId": "WaterQualityMainStemBasinLayer",
           "name": "Main Stem Monitoring Basin",
           "description": "Poudre main stem monitoring basin (Upper Poudre) from Fort Collins Utilities",
@@ -332,6 +318,20 @@
           ]
         },
         {
+          "geoLayerId": "StreamReachesLayer",
+          "name": "Poudre Stream Reaches",
+          "description": "Poudre Stream Reaches",
+          "crs": "EPSG:4326",
+          "geometryType": "WKT:LineString",
+          "layerType": "Vector",
+          "sourceFormat": "GeoJSON",
+          "sourcePath": "layers/stream-reaches.geojson",
+          "properties": {},
+          "history:": [
+            "Read GeoLayer from GeoJSON file:  'C:\\Users\\sam\\owf-dev\\InfoMapper-Poudre\\git-repos\\owf-infomapper-poudre\\workflow\\BasinEntities\\WaterQuality-Monitoring\\layers\\stream-reaches.geojson'"
+          ]
+        },
+        {
           "geoLayerId": "WaterQualitySitesLayer",
           "name": "Poudre Water Quality Monitoring Sites",
           "description": "Poudre Water Quality Monitoring Sites",
@@ -348,9 +348,9 @@
       ],
       "geoLayerViewGroups": [
         {
-          "geoLayerViewGroupId": "WaterQualityMonitoringGroup",
-          "name": "Water Quality Monitoring",
-          "description": "Water Quality Monitoring",
+          "geoLayerViewGroupId": "WaterQualityMonitoringSitesGroup",
+          "name": "Water Quality Monitoring Sites",
+          "description": "Water Quality Monitoring Sites",
           "properties": {
             "selectedInitial": "true"
           },
@@ -397,7 +397,64 @@
                   }
                 }
               ]
-            },
+            }
+          ]
+        },
+        {
+          "geoLayerViewGroupId": "StreamReachesGroup",
+          "name": "Poudre Stream Reaches",
+          "description": "Poudre Stream Reaches",
+          "properties": {
+            "selectedInitial": "true"
+          },
+          "geoLayerViews": [
+            {
+              "geoLayerViewId": "StreamReachesLayerView",
+              "name": "Poudre Stream Reaches",
+              "description": "Poudre Stream Reaches",
+              "geoLayerId": "StreamReachesLayer",
+              "properties": {
+                "docPath": "layers/stream-reaches.md",
+                "highlightEnabled": "true"
+              },
+              "geoLayerSymbol": {
+                "name": "Poudre Stream Reaches",
+                "description": "Poudre Stream Reaches",
+                "classificationType": "SingleSymbol",
+                "classificationAttribute": "",
+                "properties": {
+                  "color": "#6297f7"
+                }
+              },
+              "eventHandlers": [
+                {
+                  "eventType": "hover",
+                  "name": "Hover event",
+                  "description": "Hover event configuration",
+                  "properties": {
+                    "eventConfigPath": "layers/stream-reaches-event-config.json"
+                  }
+                },
+                {
+                  "eventType": "click",
+                  "name": "Click event",
+                  "description": "Click event configuration",
+                  "properties": {
+                    "eventConfigPath": "layers/stream-reaches-event-config.json"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "geoLayerViewGroupId": "WaterQualityMonitoringBasinsGroup",
+          "name": "Water Quality Monitoring Basins",
+          "description": "Water Quality Monitoring Basins",
+          "properties": {
+            "selectedInitial": "true"
+          },
+          "geoLayerViews": [
             {
               "geoLayerViewId": "WaterQualityNorthForkBasinLayerView",
               "name": "North Fork Monitoring Basin",
@@ -466,53 +523,6 @@
                   "description": "Click event configuration",
                   "properties": {
                     "eventConfigPath": "layers/wq-monitoring-mainstem-basin-event-config.json"
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "geoLayerViewGroupId": "StreamReachesGroup",
-          "name": "Poudre Stream Reaches",
-          "description": "Poudre Stream Reaches",
-          "properties": {
-            "selectedInitial": "true"
-          },
-          "geoLayerViews": [
-            {
-              "geoLayerViewId": "StreamReachesLayerView",
-              "name": "Poudre Stream Reaches",
-              "description": "Poudre Stream Reaches",
-              "geoLayerId": "StreamReachesLayer",
-              "properties": {
-                "docPath": "layers/stream-reaches.md",
-                "highlightEnabled": "true"
-              },
-              "geoLayerSymbol": {
-                "name": "Poudre Stream Reaches",
-                "description": "Poudre Stream Reaches",
-                "classificationType": "SingleSymbol",
-                "classificationAttribute": "",
-                "properties": {
-                  "color": "#6297f7"
-                }
-              },
-              "eventHandlers": [
-                {
-                  "eventType": "hover",
-                  "name": "Hover event",
-                  "description": "Hover event configuration",
-                  "properties": {
-                    "eventConfigPath": "layers/stream-reaches-event-config.json"
-                  }
-                },
-                {
-                  "eventType": "click",
-                  "name": "Click event",
-                  "description": "Click event configuration",
-                  "properties": {
-                    "eventConfigPath": "layers/stream-reaches-event-config.json"
                   }
                 }
               ]
