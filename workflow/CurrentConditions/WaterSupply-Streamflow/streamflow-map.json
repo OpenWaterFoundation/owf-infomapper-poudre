@@ -1,7 +1,7 @@
 {
   "geoMapProjectId": "StreamflowProject",
-  "name": "Poudre Streamflow",
-  "description": "Poudre Streamflow",
+  "name": "Streamflow",
+  "description": "Streamflow",
   "projectType": "SingleMap",
   "properties": {
     "author": "Open Water Foundation",
@@ -11,8 +11,8 @@
   "geoMaps": [
     {
       "geoMapId": "StreamflowMap",
-      "name": "Poudre Streamflow",
-      "description": "Poudre Streamflow",
+      "name": "Streamflow",
+      "description": "Streamflow",
       "dataPath": ".",
       "crs": "EPSG:4326",
       "properties": {
@@ -305,8 +305,8 @@
         },
         {
           "geoLayerId": "DiversionLayer",
-          "name": "Poudre Diversions",
-          "description": "Poudre Diversions",
+          "name": "Diversions",
+          "description": "Diversions",
           "crs": "EPSG:4326",
           "geometryType": "WKT:Point",
           "layerType": "Vector",
@@ -319,8 +319,8 @@
         },
         {
           "geoLayerId": "StreamflowLayer",
-          "name": "Poudre Streamflow",
-          "description": "Poudre Streamflow",
+          "name": "Streamflow",
+          "description": "Streamflow",
           "crs": "EPSG:4326",
           "geometryType": "WKT:Point",
           "layerType": "Vector",
@@ -335,23 +335,24 @@
       "geoLayerViewGroups": [
         {
           "geoLayerViewGroupId": "StreamflowGroup",
-          "name": "Poudre Streamflow",
-          "description": "Poudre Streamflow",
+          "name": "Streamflow Stations",
+          "description": "Streamflow stations from Colorado Division of Water Resources",
           "properties": {
             "selectedInitial": "true"
           },
           "geoLayerViews": [
             {
               "geoLayerViewId": "StreamflowLayerView",
-              "name": "Poudre Streamflow",
-              "description": "Poudre Streamflow",
+              "name": "Streamflow Stations",
+              "description": "Streamflow stations from Colorado Division of Water Resources and others",
               "geoLayerId": "StreamflowLayer",
               "properties": {
-                "docPath": "layers/streamgages.md"
+                "docPath": "layers/streamgages.md",
+                "hasVisualization": "true"
               },
               "geoLayerSymbol": {
-                "name": "Poudre Streamflow",
-                "description": "Poudre Streamflow",
+                "name": "Streamflow",
+                "description": "Streamflow",
                 "classificationType": "SingleSymbol",
                 "classificationAttribute": "",
                 "properties": {
@@ -370,6 +371,7 @@
                   "eventType": "hover",
                   "name": "Hover event",
                   "description": "Hover event configuration",
+                  "hasVisualization": false,
                   "properties": {
                     "eventConfigPath": "layers/streamgages-event-config.json"
                   }
@@ -378,6 +380,7 @@
                   "eventType": "click",
                   "name": "Click event",
                   "description": "Click event configuration",
+                  "hasVisualization": true,
                   "properties": {
                     "eventConfigPath": "layers/streamgages-event-config.json"
                   }
@@ -388,23 +391,24 @@
         },
         {
           "geoLayerViewGroupId": "DiversionGroup",
-          "name": "Poudre Diversions",
-          "description": "Poudre Diversions",
+          "name": "Diversion Structures",
+          "description": "Diversion structures from Colorado Division of Water Resources",
           "properties": {
             "selectedInitial": "true"
           },
           "geoLayerViews": [
             {
               "geoLayerViewId": "DiversionLayerView",
-              "name": "Poudre Diversions",
-              "description": "Poudre Diversions",
+              "name": "Diversion Structures",
+              "description": "Diversion structures from Colorado Division of Water Resources",
               "geoLayerId": "DiversionLayer",
               "properties": {
-                "docPath": "layers/diversions.md"
+                "docPath": "layers/diversions.md",
+                "hasVisualization": "true"
               },
               "geoLayerSymbol": {
-                "name": "Poudre Diversions",
-                "description": "Poudre Diversions",
+                "name": "Diversions",
+                "description": "Diversions",
                 "classificationType": "SingleSymbol",
                 "classificationAttribute": "",
                 "properties": {
@@ -423,6 +427,7 @@
                   "eventType": "hover",
                   "name": "Hover event",
                   "description": "Hover event configuration",
+                  "hasVisualization": false,
                   "properties": {
                     "eventConfigPath": "layers/diversions-event-config.json"
                   }
@@ -431,6 +436,7 @@
                   "eventType": "click",
                   "name": "Click event",
                   "description": "Click event configuration",
+                  "hasVisualization": true,
                   "properties": {
                     "eventConfigPath": "layers/diversions-event-config.json"
                   }
@@ -471,6 +477,7 @@
                   "eventType": "hover",
                   "name": "Hover event",
                   "description": "Hover event configuration",
+                  "hasVisualization": false,
                   "properties": {
                     "eventConfigPath": "layers/stream-reaches-event-config.json"
                   }
@@ -479,6 +486,7 @@
                   "eventType": "click",
                   "name": "Click event",
                   "description": "Click event configuration",
+                  "hasVisualization": false,
                   "properties": {
                     "eventConfigPath": "layers/stream-reaches-event-config.json"
                   }
@@ -517,6 +525,7 @@
                   "eventType": "hover",
                   "name": "Hover event",
                   "description": "Hover event configuration",
+                  "hasVisualization": false,
                   "properties": {
                     "eventConfigPath": "layers/co-dwr-water-district-3-event-config.json"
                   }
@@ -525,6 +534,7 @@
                   "eventType": "click",
                   "name": "Click event",
                   "description": "Click event configuration",
+                  "hasVisualization": false,
                   "properties": {
                     "eventConfigPath": "layers/co-dwr-water-district-3-event-config.json"
                   }
