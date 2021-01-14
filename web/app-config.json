@@ -4,7 +4,7 @@
   "favicon": "/img/owf-favicon-32x32.ico",
   "dataUnitsPath": "/system/DATAUNIT",
   "googleAnalyticsTrackingId": "UA-135465513-1",
-  "version": "1.0.0 (2020-10-30)",
+  "version": "1.1.0 (2021-01-14)",
   "mainMenu": [
     {
       "id": "SupportingData",
@@ -154,6 +154,8 @@
         {
           "id": "test1",
           "name": "Test 1 for New Features",
+          "enabled": false,
+          "visible": false,
           "action": "displayMap",
           "mapProject": "data-maps/BasinEntities/Z-Test1/test-map.json"
         }

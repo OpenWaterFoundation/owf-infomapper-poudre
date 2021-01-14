@@ -1,10 +1,11 @@
-# Layer: Poudre Diversions
+# Layer: Diversion Structures
 
-The Poudre Diversions layer shows diversion telemetry stations,
+The Diversion Structures layer shows diversion telemetry stations,
 which provide real-time diversion data.
-Some flow measured at diversion point is returned to the stream.
+Some flow measured at a diversion point is typically returned to the stream,
+either by immediately bypassing the diversion structure or delayed return flow.
 
-Popups are configured to display diversion graphs by linking to the State's online tools.
+Click on a diversion structure to access the State's online data tools.
 
 ## Data Sources
 
@@ -12,7 +13,7 @@ The following are data sources for this map:
 
 | **Resource** | **Source** |
 | -- | -- |
-| Poudre Diversions layer | Queried the HydroBase database using TSTool to create the diversions layer. |
+| Diversion Structures layer | Queried the HydroBase database using TSTool to create the diversions layer. |
 
 ## Map Creation Workflow
 

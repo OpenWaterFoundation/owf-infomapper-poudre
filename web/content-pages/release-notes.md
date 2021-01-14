@@ -4,6 +4,7 @@ The following release notes document changes to the Poudre Basin Information web
 
 | **Release** | **Description** |
 | -- | -- |
+| 1.1.0 | Update for InfoMapper 1.4.0. |
 | 1.0.0 | First official release due to InfoMapper feature maturity. |
 | 0.7.0 | Update all layers to limit the attributes shown in popup dialogs. |
 | 0.6.0 | Add data tables for map layers and search feature for layers. |
@@ -14,6 +15,12 @@ The following release notes document changes to the Poudre Basin Information web
 | 0.1.0 | Initial version as custom application. | 
 
 ------------
+
+## 1.1.0
+
+* [1.1.0] Update based on InfoMapper 1.4.0 release.
+* [1.1.0] Map layers with visualizations now show icon in legend.
+* [1.1.0] Raster layer legend and popups have been improved.
 
 ## 1.0.0
 

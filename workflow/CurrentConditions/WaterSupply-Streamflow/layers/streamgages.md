@@ -1,9 +1,9 @@
-# Layer: Poudre Streamflow
+# Layer: Streamflow Stations
 
-The Poudre Streamflow layer shows streamflow telemetry stations,
+The Streamflow Stations layer shows streamflow telemetry stations,
 which provide real-time streamflow data.
 
-Popups are configured to display streamflow graphs by linking to the State's online tools.
+Click on a station to access the State's online data tools.
 
 ## Data Sources
 
@@ -11,7 +11,7 @@ The following are data sources for this map:
 
 | **Resource** | **Source** |
 | -- | -- |
-| Poudre Streamflow layer | Queried the HydroBase database using TSTool to create the stream gage layer. |
+| Streamflow Stations layer | Queried the HydroBase database using TSTool to create the stream gage layer. |
 
 ## Map Creation Workflow
 
