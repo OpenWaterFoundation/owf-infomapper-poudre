@@ -564,6 +564,13 @@
           "markdownFile": "content-pages/credits.md"
         },
         {
+          "id": "funding-request",
+          "name": "Funding Request",
+          "action": "externalLink",
+          "url": "http://poudre.openwaterfoundation.org/latest/assets/app/content-pages/OWF-RiverBasinInfoWebsites-FundingRequest-2020-12-06.pdf",
+          "align": "right"
+        },
+        {
           "id": "license",
           "name": "License",
           "action": "contentPage",
