@@ -43,3 +43,8 @@ Additional maps and visualizations will be added based on feedback and available
 
 **This website is under development.  Menus that are disabled are an outline for features that will be phased in over
 time as funding is acquired for dataset and website development.**
+
+## Contributing to This Website ##
+
+The Open Water Foundation is actively seeking funding to develop and maintain this website.
+See the [River Basin Information Websites Funding Request](http://poudre.openwaterfoundation.org/latest/assets/app/content-pages/OWF-RiverBasinInfoWebsites-FundingRequest-2020-12-06.pdf).
