@@ -6,3 +6,6 @@
 WebGet(URL="https://raw.githubusercontent.com/OpenWaterFoundation/owf-data-co-municipal-water-providers/master/data/Colorado-Municipal-Water-Providers.geojson",OutputFile="downloads/water-providers.geojson")
 # Copy to the 'layers' folder.  If clipping to the Poudre is implemented, use a 02* command file.
 CopyFile(SourceFile="downloads/water-providers.geojson",DestinationFile="layers/water-providers.geojson")
+#
+# Also download the csv file so it can be used to filter DOLA district boundaries to water providers.
+WebGet(URL="https://raw.githubusercontent.com/OpenWaterFoundation/owf-data-co-municipal-water-providers/master/data/Colorado-Municipal-Water-Providers.csv",OutputFile="downloads/water-providers.csv")

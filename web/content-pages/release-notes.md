@@ -4,6 +4,7 @@ The following release notes document changes to the Poudre Basin Information web
 
 | **Release** | **Description** |
 | -- | -- |
+| 2.2.0 | Update for InfoMapper 2.0.0. Add water provider boundaries and geocode address search. |
 | 1.1.0 | Update for InfoMapper 1.4.0. |
 | 1.0.0 | First official release due to InfoMapper feature maturity. |
 | 0.7.0 | Update all layers to limit the attributes shown in popup dialogs. |
@@ -15,6 +16,12 @@ The following release notes document changes to the Poudre Basin Information web
 | 0.1.0 | Initial version as custom application. | 
 
 ------------
+
+## 2.0.0
+
+* [2.0.0] Update based on InfoMapper 2.0.0 release.
+* [2.0.0] Add water provider boundary layer.
+* [2.0.0] Data table for layers has address search feature.
 
 ## 1.1.0
 
