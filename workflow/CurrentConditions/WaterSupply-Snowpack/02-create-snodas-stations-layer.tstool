@@ -1,0 +1,7 @@
+# Create the layer for SNOTEL stations.
+#
+# Read stations Excel worksheet
+ReadTableFromExcel(TableID="SnotelStationsData",InputFile="data/snotel-stations.xlsx",Worksheet="Data",ExcelColumnNames=FirstRowInRange)
+#
+# Export table to GeoJSON format
+WriteTableToGeoJSON(TableID="SnotelStationsData",OutputFile="layers/snotel-stations.geojson",LongitudeColumn="Longitude",LatitudeColumn="Latitude")

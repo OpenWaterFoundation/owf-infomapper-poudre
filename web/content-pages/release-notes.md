@@ -4,7 +4,8 @@ The following release notes document changes to the Poudre Basin Information web
 
 | **Release** | **Description** |
 | -- | -- |
-| 2.2.0 | Update for InfoMapper 2.0.0. Add water provider boundaries and geocode address search. |
+| 2.1.0 | Add SNODAS snowpack to wildfires map and for water supply map. |
+| 2.0.0 | Update for InfoMapper 2.0.0. Add water provider boundaries and geocode address search. |
 | 1.1.0 | Update for InfoMapper 1.4.0. |
 | 1.0.0 | First official release due to InfoMapper feature maturity. |
 | 0.7.0 | Update all layers to limit the attributes shown in popup dialogs. |
@@ -16,6 +17,11 @@ The following release notes document changes to the Poudre Basin Information web
 | 0.1.0 | Initial version as custom application. | 
 
 ------------
+
+## 2.2.0
+
+* [2.1.0] Add SNODAS snowpack and SNOTEL stations layers to ***Current Conditions / Environment - Wildfires***
+* [2.1.0] Enable ***Current Conditions / Water Supply - Snowpack*** map, with snow data.
 
 ## 2.0.0
 
