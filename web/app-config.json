@@ -4,7 +4,7 @@
   "favicon": "/img/owf-favicon-32x32.ico",
   "dataUnitsPath": "/system/DATAUNIT",
   "googleAnalyticsTrackingId": "UA-135465513-1",
-  "version": "2.0.0 (2021-04-15)",
+  "version": "2.1.0 (2021-04-15)",
   "mainMenu": [
     {
       "id": "SupportingData",
@@ -351,11 +351,10 @@
           "mapProject": "theNameOfTheMapProjectFile"
         },
         {
-          "id": "current-snowpack-snodas",
+          "id": "current-snowpack",
           "name": "Water Supply - Snowpack",
-          "action": "contentPage",
-          "align": "right",
-          "markdownFile": "content-pages/current-snowpack.md"
+          "action": "displayMap",
+          "mapProject": "data-maps/CurrentConditions/WaterSupply-Snowpack/snowpack-map.json"
         },
         {
           "id": "current-streamflow",

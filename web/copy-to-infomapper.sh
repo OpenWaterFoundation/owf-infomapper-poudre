@@ -187,6 +187,13 @@ copy_CurrentConditions_Environment_Wildfires() {
   cp -rv ${scriptFolder}/data-maps/CurrentConditions/Environment-Wildfires ${folder}
 }
 
+copy_CurrentConditions_WaterSupply_Snowpack() {
+  checkCurrentConditionsFolder
+
+  # Copy current conditions snowpack folder and files
+  cp -rv ${scriptFolder}/data-maps/CurrentConditions/WaterSupply-Snowpack ${folder}
+}
+
 copy_CurrentConditions_WaterSupply_Streamflow() {
   checkCurrentConditionsFolder
 
@@ -265,6 +272,7 @@ runInteractive() {
     echo ""
     echo "Current Conditions:      cew.     Copy Environment - Wildfires files."
     echo "                         cws.     Copy WaterSupply - Streamflow files."
+    echo "                         cwsp.    Copy WaterSupply - Snowpack files."
     echo ""
     echo "                         a.       Run all copy commands from above."
     echo "                         q.       Quit"
@@ -362,6 +370,8 @@ runInteractive() {
       copy_CurrentConditions_Environment_Wildfires
     elif [ "${answer}" = "cws" ]; then
       copy_CurrentConditions_WaterSupply_Streamflow
+    elif [ "${answer}" = "cwsp" ]; then
+      copy_CurrentConditions_WaterSupply_Snowpack
 
     fi
   done

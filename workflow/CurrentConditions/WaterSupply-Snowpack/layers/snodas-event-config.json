@@ -1,0 +1,12 @@
+{
+  "id" : "snodas-event-config",
+  "name": "Hover and click event handlers for SNODAS basins",
+  "description":  "Display only important user-understandable attributes.",
+  "layerAttributes" : {
+    "include" : [ "LOCAL_ID", "LOCAL_NAME", "SNODAS_SWE_Mean_in", "SNODAS_SWE_Volume_acft", "SNODAS_SnowCover_percent" ],
+    "exclude" : [],
+    "formats": []
+  },
+  "actions": [
+  ]
+}
