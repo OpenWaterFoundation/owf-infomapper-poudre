@@ -84,6 +84,93 @@ getVersion() {
   infoMapperVersion=$(grep '"version":' ${infoMapperVersionFile} | cut -d ":" -f 2 | cut -d "(" -f 1 | tr -d '"' | tr -d ' ' | tr -d ',')
 }
 
+# Harvest the current US Drought Monitor layer.
+harvestDroughtMonitor() {
+  local droughtMonitorFile exitStatus s3DroughtMonitorFolder
+
+  s3DroughtMonitorFolder="${s3BucketUrl}/US/USDM"
+
+  gpCommandFiles=(
+    ${workflowFolder}/CurrentConditions/WaterSupply-Drought/01a-download-dm-current.gp
+  )
+
+  for gpCommandFile in ${gpCommandFiles}; do
+    logInfo "Running GeoProcessor command file: ${gpCommandFile}"
+    if [ ! -f "${gpCommandFile}" ]; then
+      logWarning "Command file does not exist (skipping):  ${gpCommandFile}"
+      continue
+    fi
+    # cmd //C ${gpExe} /h
+    cmd //C ${gpExe} //s3.10 --commands ${gpCommandFile}
+    exitStatus=$?
+    logInfo "Exit status from GeoProcessor cmd is ${exitStatus}."
+    if [ "${exitStatus}" -ne 0 ]; then
+      logError "Exiting."
+      exit ${exitStatus}
+    fi
+  done
+
+  # Copy the resulting layer file to OWF cloud data.
+
+  droughtMonitorFile="${workflowFolder}/CurrentConditions/WaterSupply-Drought/layers/USDM_current_M.geojson"
+  if [ ! -f "${droughtMonitorFile}" ]; then
+    logError "Drought monitor file does not exist: ${droughtMonitorFile}"
+  fi
+  logInfo "Copy US drought monitor file:"
+  logInfo "  from: ${droughtMonitorFile}"
+  logInfo "    to: ${s3DroughtMonitorFolder}/USDM_current_M.geojson"
+  ${awsScript} s3 cp ${droughtMonitorFile} ${s3DroughtMonitorFolder}/USDM_current_M.geojson ${dryrun} --profile ${awsProfile}
+}
+
+# Harvest the SNODAS layer.
+harvestSnodas() {
+  local exitStatus snodasFile s3DroughtMonitorFolder
+
+  s3CdssFolder="${s3BucketUrl}/CO/CDSS"
+  s3SnodasFolder="${s3CdssFolder}/SNODAS"
+
+  gpCommandFiles=(
+    ${workflowFolder}/CurrentConditions/WaterSupply-Snowpack/01a-download-snodas-latest.gp
+  )
+
+  for gpCommandFile in ${gpCommandFiles}; do
+    logInfo "Running GeoProcessor command file: ${gpCommandFile}"
+    if [ ! -f "${gpCommandFile}" ]; then
+      logWarning "Command file does not exist (skipping):  ${gpCommandFile}"
+      continue
+    fi
+    # cmd //C ${gpExe} /h
+    cmd //C ${gpExe} //s3.10 --commands ${gpCommandFile}
+    exitStatus=$?
+    logInfo "Exit status from GeoProcessor cmd is ${exitStatus}."
+    if [ "${exitStatus}" -ne 0 ]; then
+      logError "Exiting."
+      exit ${exitStatus}
+    fi
+  done
+
+  # Manually copy the resulting layer file to infomapper files.
+  # - copying only to src/assets does not result in upload because --nobuild does not recreate dist
+  # - have to copy to dist manually so that AWS sync will see the new file
+
+  #echo "Copy the snodas.geojson file to: ${srcCurrentConditionsFolder}/WaterSupply-Snowpack/layers/snodas.geojson"
+  #cp ${workflowFolder}/CurrentConditions/WaterSupply-Snowpack/layers/snodas.geojson ${srcCurrentConditionsFolder}/WaterSupply-Snowpack/layers/snodas.geojson
+  #echo "Copy the snodas.geojson file to: ${assetsCurrentConditionsFolder}/WaterSupply-Snowpack/layers/snodas.geojson"
+  #cp ${workflowFolder}/CurrentConditions/WaterSupply-Snowpack/layers/snodas.geojson ${distCurrentConditionsFolder}/WaterSupply-Snowpack/layers/snodas.geojson
+  #logInfo "Copy the SnowpackStatisticsByDate_LatestDate.geojson file to: ${s3SnodasFolder}/SnowpackStatisticsByDate_LatestDate.geojson"
+
+  # Copy the resulting layer file to OWF cloud data.
+
+  snodasFile="${workflowFolder}/CurrentConditions/WaterSupply-Snowpack/layers/SnowpackStatisticsByDate_LatestDate.geojson"
+  if [ ! -f "${snodasFile}" ]; then
+    logError "SNODAS file does not exist: ${snodasFile}"
+  fi
+  logInfo "Copy US SNODAS file:"
+  logInfo "  from: ${snodasFile}"
+  logInfo "    to: ${s3SnodasFolder}/SnowpackStatisticsByDate_LatestDate.geojson"
+  ${awsScript} s3 cp ${snodasFile} ${s3SnodasFolder}/SnowpackStatisticsByDate_LatestDate.geojson ${dryrun} --profile ${awsProfile}
+}
+
 # Print a DEBUG message, currently prints to stderr.
 logDebug() {
    echoStderr "[DEBUG] $@"
@@ -104,17 +191,111 @@ logWarning() {
    echoStderr "[WARNING] $@"
 }
 
+# Parse the command parameters
+# - use the getopt command line program so long options can be handled
+parseCommandLine() {
+  # Single character options
+  optstring="hv"
+  # Long options
+  optstringLong="aws-profile::,dryrun,help,version"
+  # Parse the options using getopt command
+  GETOPT_OUT=$(getopt --options ${optstring} --longoptions ${optstringLong} -- "$@")
+  exitCode=$?
+  if [ ${exitCode} -ne 0 ]; then
+    # Error parsing the parameters such as unrecognized parameter
+    echoStderr ""
+    printUsage
+    exit 1
+  fi
+  # The following constructs the command by concatenating arguments
+  eval set -- "${GETOPT_OUT}"
+  # Loop over the options
+  while true; do
+    #logDebug "Command line option is ${opt}"
+    case "$1" in
+      --aws-profile) # --aws-profile=profile  Specify the AWS profile (use default)
+        case "$2" in
+          "") # Nothing specified so error
+            logError "--aws-profile=profile is missing profile name"
+            exit 1
+            ;;
+          *) # profile has been specified
+            awsProfile=$2
+            shift 2
+            ;;
+        esac
+        ;;
+      --dryrun) # --dryrun  Indicate to AWS commands to do a dryrun but not actually upload.
+        logInfo "--dryrun detected - will not change files on S3"
+        dryrun="--dryrun"
+        shift 1
+        ;;
+      -h|--help) # -h or --help  Print the program usage
+        printUsage
+        exit 0
+        ;;
+      -v|--version) # -v or --version  Print the program version
+        printVersion
+        exit 0
+        ;;
+      --) # No more arguments
+        shift
+        break
+        ;;
+      *) # Unknown option
+        logError ""
+        logError "Invalid option $1." >&2
+        printUsage
+        exit 1
+        ;;
+    esac
+  done
+}
+
+# Print the program usage to stderr.
+# - calling code must exit with appropriate code
+printUsage() {
+  echoStderr ""
+  echoStderr "Usage:  ${programName} --aws-profile=profile"
+  echoStderr ""
+  echoStderr "Harvest data for the Poudre Information Portal application and save to the Amazon S3 static website folder(s),"
+  echoStderr "using the AWS S3 cp command."
+  echoStderr ""
+  echoStderr "--aws-profile=profile   Specify the Amazon profile to use for AWS credentials."
+  echoStderr "--dryrun                Do a dryrun but don't actually upload anything."
+  echoStderr "-h or --help            Print the usage."
+  echoStderr "-v or --version         Print the version and copyright/license notice."
+  echoStderr ""
+}
+
+# Print the script version and copyright/license notices to stderr.
+# - calling code must exit with appropriate code
+printVersion() {
+  echoStderr ""
+  echoStderr "${programName} version ${programVersion} ${programVersionDate}"
+  echoStderr ""
+  echoStderr "OWF Data Harvester"
+  echoStderr "Copyright 2017-2021 Open Water Foundation."
+  echoStderr ""
+  echoStderr "License GPLv3+:  GNU GPL version 3 or later"
+  echoStderr ""
+  echoStderr "There is ABSOLUTELY NO WARRANTY; for details see the"
+  echoStderr "'Disclaimer of Warranty' section of the GPLv3 license in the LICENSE file."
+  echoStderr "This is free software: you are free to change and redistribute it"
+  echoStderr "under the conditions of the GPLv3 license in the LICENSE file."
+  echoStderr ""
+}
+
 # Script entry point.
 
-awsProfile=$1
+awsProfile=""
 # Use the following to try a dry run
 #dryrun="--dryrun"
 dryrun=""
 
-if [ -z ${awsProfile} ]; then
-  echo "Specify AWS profile as first argument"
-  exit 1
-fi
+programName=$(basename $0)
+programVersion="1.0.0"
+programVersionDate="2021-04-25"
 
 # The script is in the Poudre Information Website folder.
 scriptFolder=$(cd $(dirname "$0") && pwd)
@@ -131,52 +312,43 @@ checkOperatingSystem
 tstoolExe="/C/CDSS/TSTool-13.03.00dev"
 gpExe="/C/Users/sam/owf-dev/GeoProcessor/git-repos/owf-app-geoprocessor-python/scripts/gpdev.bat"
 
-# Set the ${awsScript} to run
-checkAws
-
 # S3 folder for upload
 # - put before parseCommandLine so can be used in print usage, etc.
 # - TODO smalers 2020-04-20 does this need an app folder at end like "/owf-app-poudre-dashboard"?
 # - for now don't copy to assets folder in cloud
 #getVersion
-logInfo "Application version:  ${appVersion}"
-logInfo "InfoMapper version:   ${infoMapperVersion}"
-s3CdssFolder="s3://data.openwaterfoundation.org/CO/CDSS"
-s3SnodasFolder="s3://data.openwaterfoundation.org/CO/CDSS/SNODAS"
+#logInfo "Application version:  ${appVersion}"
+#logInfo "InfoMapper version:   ${infoMapperVersion}"
+s3BucketUrl="s3://data.openwaterfoundation.org"
 s3FolderVersionUrl="s3://poudre.openwaterfoundation.org/${appVersion}"
 s3FolderLatestUrl="s3://poudre.openwaterfoundation.org/latest"
 
-gpCommandFiles=(
-${workflowFolder}/CurrentConditions/WaterSupply-Snowpack/01a-download-snodas-latest.gp
-)
+# Parse the command line.
+parseCommandLine "$@"
 
-for gpCommandFile in ${gpCommandFiles}; do
-  echo "Running GeoProcessor command file: ${gpCommandFile}"
-  if [ ! -f "${gpCommandFile}" ]; then
-    echo "Command file does not exist (skipping):  ${gpCommandFile}"
-    continue
-  fi
-  # cmd //C ${gpExe} /h
-  cmd //C ${gpExe} //s3.10 --commands ${gpCommandFile}
-  echo "Exit status from GeoProcessor cmd is $?"
-done
-
-# Manually copy the resulting layer file to infomapper files.
-# - copying only to src/assets does not result in upload because --nobuild does not recreate dist
-# - have to copy to dist manually so that AWS sync will see the new file
-
-echo "CurrentConditions folder for deployed InfoMapper: ${srcCurrentConditionsFolder}"
-if [ ! -d "${srcCurrentConditionsFolder}" ]; then
-  echo "CurrentConditions folder does not exist:  ${srcCurrentConditionsFolder}"
+if [ -z ${awsProfile} ]; then
+  logError "The AWS profile must be specified with --aws-profile."
+  printUsage
   exit 1
 fi
-#echo "Copy the snodas.geojson file to: ${srcCurrentConditionsFolder}/WaterSupply-Snowpack/layers/snodas.geojson"
-#cp ${workflowFolder}/CurrentConditions/WaterSupply-Snowpack/layers/snodas.geojson ${srcCurrentConditionsFolder}/WaterSupply-Snowpack/layers/snodas.geojson
-#echo "Copy the snodas.geojson file to: ${assetsCurrentConditionsFolder}/WaterSupply-Snowpack/layers/snodas.geojson"
-#cp ${workflowFolder}/CurrentConditions/WaterSupply-Snowpack/layers/snodas.geojson ${distCurrentConditionsFolder}/WaterSupply-Snowpack/layers/snodas.geojson
-echo "Copy the SnowpackStatisticsByDate_LatestDate.geojson file to: ${s3SnodasFolder}/SnowpackStatisticsByDate_LatestDate.geojson"
-${awsScript} s3 cp ${workflowFolder}/CurrentConditions/WaterSupply-Snowpack/layers/SnowpackStatisticsByDate_LatestDate.geojson ${s3SnodasFolder}/SnowpackStatisticsByDate_LatestDate.geojson ${dryrun} --profile ${awsProfile}
 
+# Set the ${awsScript} to run
+checkAws
+
+# Check for input folder.
+logInfo "CurrentConditions folder for deployed InfoMapper: ${srcCurrentConditionsFolder}"
+if [ ! -d "${srcCurrentConditionsFolder}" ]; then
+  logError "CurrentConditions folder does not exist:  ${srcCurrentConditionsFolder}"
+  exit 1
+fi
+
+# Harvest the SNODAS GeoJSON
+harvestSnodas
+
+# Harvest the US Drought Monitor
+harvestDroughtMonitor
+
+# TODO smalers 2021-04-24 old code that can be removed if other harvest code works.
 #echo "Copy the snodas.geojson file to: ${srcCurrentConditionsFolder}/Environment-Wildfires/layers/snodas.geojson"
 #cp ${workflowFolder}/CurrentConditions/WaterSupply-Snowpack/layers/snodas.geojson ${srcCurrentConditionsFolder}/Environment-Wildfires/layers/snodas.geojson
 #echo "Copy the snodas.geojson file to: ${assetsCurrentConditionsFolder}/Environment-Wildfires/layers/snodas.geojson"

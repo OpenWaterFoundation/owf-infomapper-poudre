@@ -333,8 +333,8 @@
           "id": "current-drought",
           "name": "Water Supply - Drought",
           "separatorBefore" : true,
-          "action": "externalLink",
-          "url": "https://droughtmonitor.unl.edu/CurrentMap/StateDroughtMonitor.aspx?CO"
+          "action": "displayMap",
+          "mapProject": "data-maps/CurrentConditions/WaterSupply-Drought/drought-map.json"
         },
         {
           "id": "current-ops",

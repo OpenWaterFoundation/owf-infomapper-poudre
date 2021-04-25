@@ -187,6 +187,13 @@ copy_CurrentConditions_Environment_Wildfires() {
   cp -rv ${scriptFolder}/data-maps/CurrentConditions/Environment-Wildfires ${folder}
 }
 
+copy_CurrentConditions_WaterSupply_Drought() {
+  checkCurrentConditionsFolder
+
+  # Copy current conditions drought monitor folder and files
+  cp -rv ${scriptFolder}/data-maps/CurrentConditions/WaterSupply-Drought ${folder}
+}
+
 copy_CurrentConditions_WaterSupply_Snowpack() {
   checkCurrentConditionsFolder
 
@@ -271,6 +278,7 @@ runInteractive() {
     echo "Historical Data:         hl.      Copy IrrigatedLands map files."
     echo ""
     echo "Current Conditions:      cew.     Copy Environment - Wildfires files."
+    echo "                         cwd.     Copy WaterSupply - Drought files."
     echo "                         cwsp.    Copy WaterSupply - Snowpack files."
     echo "                         cws.     Copy WaterSupply - Streamflow files."
     echo ""
@@ -307,6 +315,8 @@ runInteractive() {
       # Current Conditions
       copy_CurrentConditions_Environment_Wildfires
       copy_CurrentConditions_WaterQuality_Monitoring
+      copy_CurrentConditions_WaterSupply_Drought
+      copy_CurrentConditions_WaterSupply_Snowpack
       copy_CurrentConditions_WaterSupply_Streamflow
     elif [ "${answer}" = "c" ]; then
       copyMainConfig
@@ -368,10 +378,12 @@ runInteractive() {
 
     elif [ "${answer}" = "cew" ]; then
       copy_CurrentConditions_Environment_Wildfires
-    elif [ "${answer}" = "cws" ]; then
-      copy_CurrentConditions_WaterSupply_Streamflow
+    elif [ "${answer}" = "cwd" ]; then
+      copy_CurrentConditions_WaterSupply_Drought
     elif [ "${answer}" = "cwsp" ]; then
       copy_CurrentConditions_WaterSupply_Snowpack
+    elif [ "${answer}" = "cws" ]; then
+      copy_CurrentConditions_WaterSupply_Streamflow
 
     fi
   done

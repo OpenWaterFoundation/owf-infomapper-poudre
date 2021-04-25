@@ -337,6 +337,18 @@ junk
 # - commit because such a fundamental file
 #/workflow/CurrentConditions/Environment-Wildfires/*.json
 
+# CurrentConditions/WaterSupply-Drought
+/workflow/CurrentConditions/WaterSupply-Drought/downloads/*
+!/workflow/CurrentConditions/WaterSupply-Drought/downloads/README.md
+/workflow/CurrentConditions/WaterSupply-Drought/layers/*
+!/workflow/CurrentConditions/WaterSupply-Drought/layers/README.md
+!/workflow/CurrentConditions/WaterSupply-Drought/layers/*.csv
+!/workflow/CurrentConditions/WaterSupply-Drought/layers/*.json
+!/workflow/CurrentConditions/WaterSupply-Drought/layers/*.md
+!/workflow/CurrentConditions/WaterSupply-Drought/layers/*doc
+# Dynamic map configurations
+#/workflow/CurrentConditions/WaterSupply-Drought/*.json
+
 # CurrentConditions/WaterSupply-Snowpack
 /workflow/CurrentConditions/WaterSupply-Snowpack/downloads/*
 !/workflow/CurrentConditions/WaterSupply-Snowpack/downloads/README.md

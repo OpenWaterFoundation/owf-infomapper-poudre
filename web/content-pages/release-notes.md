@@ -4,7 +4,7 @@ The following release notes document changes to the Poudre Basin Information web
 
 | **Release** | **Description** |
 | -- | -- |
-| 2.1.0 | Add SNODAS snowpack to wildfires map and for water supply map. |
+| 2.1.0 | Add SNODAS snowpack to wildfires map and for water supply map, add US Drought Monitor map. |
 | 2.0.0 | Update for InfoMapper 2.0.0. Add water provider boundaries and geocode address search. |
 | 1.1.0 | Update for InfoMapper 1.4.0. |
 | 1.0.0 | First official release due to InfoMapper feature maturity. |
@@ -21,6 +21,7 @@ The following release notes document changes to the Poudre Basin Information web
 ## 2.1.0
 
 * [2.1.0] Enable links from information pages to website pages to improve navigation.
+* [2.1.0] Add US Drought Monitor to [***Current Conditions / Water Supply - Drought***](#map/current-drought).
 * [2.1.0] Add SNODAS snowpack and SNOTEL stations layers to [***Current Conditions / Environment - Wildfires***](#map/current-wildfires).
 * [2.1.0] Enable [***Current Conditions / Water Supply - Snowpack***](#map/current-snowpack) map, with snow data.
 * [2.1.0] Rename the ***Basin Entities / Agriculture - Dairies***
