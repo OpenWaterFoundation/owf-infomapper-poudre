@@ -7,6 +7,8 @@ See snowpack in [***Current Conditions / Environment - Wildfires***](#/map/curre
 [***Current Conditions / Water Supply - Snowpack***](#/map/current-snowpack).
 See local farms and CSAs in
 [***Basin Entities / Agriculture - Food and Dairies***](#/map/entities-food-and-dairies).
+See drought information in
+[***Current Conditions / Water Supply - Drought***](#/map/current-drought).
 See also [***Release Notes***](#/content-page/release-notes).
 
 ## Overview ##

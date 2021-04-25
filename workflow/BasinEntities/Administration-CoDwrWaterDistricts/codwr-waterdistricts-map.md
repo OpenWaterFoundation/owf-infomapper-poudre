@@ -36,7 +36,8 @@ These differences can pose challenges when analyzing and visualizing data.
 Analysis that is related to water rights and related supply will typically be tied to water districts.
 Analysis that is related to hydrology and environment may use datasets that link to hydrologic basins.
 
-See the ***Basin Entities / Physical - Basins*** map for information about hydrologic basins.
+See the [***Basin Entities / Physical - Basins***](#map/entities-basins)
+map for information about hydrologic basins.
 
 ## Layer Groups
 

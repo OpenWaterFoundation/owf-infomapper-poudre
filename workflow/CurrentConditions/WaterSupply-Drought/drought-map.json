@@ -1,7 +1,7 @@
 {
-  "geoMapProjectId": "WaterDistrictsProject",
-  "name": "CO DWR Water Districts",
-  "description": "Colorado DWR water districts for water administration.",
+  "geoMapProjectId": "DroughtProject",
+  "name": "Current Drought",
+  "description": "Current drought",
   "projectType": "SingleMap",
   "properties": {
     "author": "Open Water Foundation",
@@ -10,14 +10,14 @@
   },
   "geoMaps": [
     {
-      "geoMapId": "WaterDistrictsMap",
-      "name": "CO DWR Water Districts",
-      "description": "Colorado DWR water districts for water administration.",
+      "geoMapId": "CurrentDroughtMap",
+      "name": "Current Drought",
+      "description": "Current drought",
       "dataPath": ".",
       "crs": "EPSG:4326",
       "properties": {
-        "extentInitial": "ZoomLevel:-105.385,40,8",
-        "docPath": "codwr-waterdistricts-map.md"
+        "extentInitial": "ZoomLevel:-105.5,40.7,10",
+        "docPath": "drought-map.md"
       },
       "geoLayers": [
         {
@@ -276,6 +276,34 @@
           "history:": []
         },
         {
+          "geoLayerId": "WaterDistrictLayer",
+          "name": "CO DWR Water District 3",
+          "description": "Water District 3 boundary from the Colorado Division of Water Resources.",
+          "crs": "EPSG:4326",
+          "geometryType": "WKT:Polygon",
+          "layerType": "Vector",
+          "sourceFormat": "GeoJSON",
+          "sourcePath": "layers/co-dwr-water-district-3.geojson",
+          "properties": {},
+          "history:": [
+            "Read GeoLayer from GeoJSON file:  'C:\\Users\\sam\\owf-dev\\InfoMapper-Poudre\\git-repos\\owf-infomapper-poudre\\workflow\\CurrentConditions\\WaterSupply-Drought\\layers\\co-dwr-water-district-3.geojson'"
+          ]
+        },
+        {
+          "geoLayerId": "StateBoundaryLayer",
+          "name": "Colorado State Boundary",
+          "description": "Colorado state boundary from CDPHE.",
+          "crs": "EPSG:4326",
+          "geometryType": "WKT:Polygon",
+          "layerType": "Vector",
+          "sourceFormat": "GeoJSON",
+          "sourcePath": "https://opendata.arcgis.com/datasets/4402a8e032ed49eb8b37fd729e4e8f03_9.geojson",
+          "properties": {},
+          "history:": [
+            "Read GeoLayer from GeoJSON file:  'https://opendata.arcgis.com/datasets/4402a8e032ed49eb8b37fd729e4e8f03_9.geojson'"
+          ]
+        },
+        {
           "geoLayerId": "ContinentalDivideLayer",
           "name": "Continental Divide",
           "description": "Continental divide based on Hydrologic Unit Code basins",
@@ -290,106 +318,60 @@
           ]
         },
         {
-          "geoLayerId": "WaterDivisionLayer",
-          "name": "CO DWR Division 1",
-          "description": "Water Division 1 boundary from the Colorado Division of Water Resources.",
+          "geoLayerId": "DroughtLayer",
+          "name": "US Drought Monitor",
+          "description": "US Drought Monitor",
           "crs": "EPSG:4326",
           "geometryType": "WKT:Polygon",
           "layerType": "Vector",
           "sourceFormat": "GeoJSON",
-          "sourcePath": "layers/co-dwr-water-division.geojson",
+          "sourcePath": "http://data.openwaterfoundation.org/US/USDM/USDM_current_M.geojson",
           "properties": {},
           "history:": [
-            "Read GeoLayer from GeoJSON file:  'C:\\Users\\sam\\owf-dev\\InfoMapper-Poudre\\git-repos\\owf-infomapper-poudre\\workflow\\BasinEntities\\Administration-CoDwrWaterDistricts\\layers\\co-dwr-water-division.geojson'"
+            "Read GeoLayer from GeoJSON file:  'http://data.openwaterfoundation.org/US/USDM/USDM_current_M.geojson'"
           ]
         },
         {
-          "geoLayerId": "WaterDistrictsLayer",
-          "name": "CO DWR Division 1 Water Districts",
-          "description": "Water District boundaries for Division 1 from the Colorado Division of Water Resources.",
+          "geoLayerId": "StreamReachesLayer",
+          "name": "Poudre Stream Reaches",
+          "description": "Poudre Stream Reaches",
           "crs": "EPSG:4326",
-          "geometryType": "WKT:Polygon",
+          "geometryType": "WKT:LineString",
           "layerType": "Vector",
           "sourceFormat": "GeoJSON",
-          "sourcePath": "layers/co-dwr-water-districts-division1.geojson",
+          "sourcePath": "layers/stream-reaches.geojson",
           "properties": {},
           "history:": [
-            "Read GeoLayer from GeoJSON file:  'C:\\Users\\sam\\owf-dev\\InfoMapper-Poudre\\git-repos\\owf-infomapper-poudre\\workflow\\BasinEntities\\Administration-CoDwrWaterDistricts\\layers\\co-dwr-water-districts-division1.geojson'"
-          ]
-        },
-        {
-          "geoLayerId": "WaterDistrictLayer",
-          "name": "CO DWR Water District 3",
-          "description": "Water District 3 boundary from the Colorado Division of Water Resources.",
-          "crs": "EPSG:4326",
-          "geometryType": "WKT:Polygon",
-          "layerType": "Vector",
-          "sourceFormat": "GeoJSON",
-          "sourcePath": "layers/co-dwr-water-district-3.geojson",
-          "properties": {},
-          "history:": [
-            "Read GeoLayer from GeoJSON file:  'C:\\Users\\sam\\owf-dev\\InfoMapper-Poudre\\git-repos\\owf-infomapper-poudre\\workflow\\BasinEntities\\Administration-CoDwrWaterDistricts\\layers\\co-dwr-water-district-3.geojson'"
-          ]
-        },
-        {
-          "geoLayerId": "DWROfficesLayer",
-          "name": "CO DWR Division 1 Offices",
-          "description": "DWR Offices for Division 1",
-          "crs": "EPSG:4326",
-          "geometryType": "WKT:Point",
-          "layerType": "Vector",
-          "sourceFormat": "GeoJSON",
-          "sourcePath": "layers/co-dwr-offices-division1.geojson",
-          "properties": {},
-          "history:": [
-            "Read GeoLayer from GeoJSON file:  'C:\\Users\\sam\\owf-dev\\InfoMapper-Poudre\\git-repos\\owf-infomapper-poudre\\workflow\\BasinEntities\\Administration-CoDwrWaterDistricts\\layers\\co-dwr-offices-division1.geojson'"
+            "Read GeoLayer from GeoJSON file:  'C:\\Users\\sam\\owf-dev\\InfoMapper-Poudre\\git-repos\\owf-infomapper-poudre\\workflow\\CurrentConditions\\WaterSupply-Drought\\layers\\stream-reaches.geojson'"
           ]
         }
       ],
       "geoLayerViewGroups": [
         {
-          "geoLayerViewGroupId": "WaterDistrictsGroup",
-          "name": "CO DWR Water Districts",
-          "description": "Water District boundaries from the Colorado Division of Water Resources.",
+          "geoLayerViewGroupId": "StreamReachesGroup",
+          "name": "Poudre Stream Reaches",
+          "description": "Poudre Stream Reaches",
           "properties": {
             "selectedInitial": "true"
           },
           "geoLayerViews": [
             {
-              "geoLayerViewId": "DWROfficesLayerView",
-              "name": "CO DWR Division 1 Offices",
-              "description": "Offices for Division 1",
-              "geoLayerId": "DWROfficesLayer",
+              "geoLayerViewId": "StreamReachesLayerView",
+              "name": "Poudre Stream Reaches",
+              "description": "Poudre Stream Reaches",
+              "geoLayerId": "StreamReachesLayer",
               "properties": {
-                "docPath": "layers/co-dwr-offices-division1.md"
+                "docPath": "layers/stream-reaches.md",
+                "highlightEnabled": "true"
               },
               "geoLayerSymbol": {
-                "name": "Use marker image for DWR offices",
-                "description": "Use marker image for DWR offices",
+                "name": "Poudre Stream Reaches",
+                "description": "Poudre Stream Reaches",
                 "classificationType": "SingleSymbol",
                 "classificationAttribute": "",
                 "properties": {
-                  "symbolImage": "/img/office-building-32x37.png",
-                  "imageAnchorPoint": "Bottom"
-                }
-              },
-              "eventHandlers": []
-            },
-            {
-              "geoLayerViewId": "WaterDistrictLayerView",
-              "name": "CO DWR Water District 3",
-              "description": "Water District 3 boundary from the Colorado Division of Water Resources",
-              "geoLayerId": "WaterDistrictLayer",
-              "properties": {
-                "docPath": "layers/co-dwr-water-district-3.md"
-              },
-              "geoLayerSymbol": {
-                "name": "Colorize district",
-                "description": "Show Water District 3 in black.",
-                "classificationType": "Categorized",
-                "classificationAttribute": "DISTRICT",
-                "properties": {
-                  "classificationFile": "layers/co-dwr-water-district-3-classify-district.csv"
+                  "color": "#6297f7",
+                  "width": "2"
                 }
               },
               "eventHandlers": [
@@ -399,7 +381,7 @@
                   "description": "Hover event configuration",
                   "hasVisualization": false,
                   "properties": {
-                    "eventConfigPath": "layers/co-dwr-water-district-3-event-config.json"
+                    "eventConfigPath": "layers/stream-reaches-event-config.json"
                   }
                 },
                 {
@@ -408,26 +390,34 @@
                   "description": "Click event configuration",
                   "hasVisualization": false,
                   "properties": {
-                    "eventConfigPath": "layers/co-dwr-water-district-3-event-config.json"
+                    "eventConfigPath": "layers/stream-reaches-event-config.json"
                   }
                 }
               ]
-            },
+            }
+          ]
+        },
+        {
+          "geoLayerViewGroupId": "DroughtGroup",
+          "name": "US Drought Monitor",
+          "description": "US Drought Monitor",
+          "properties": {},
+          "geoLayerViews": [
             {
-              "geoLayerViewId": "WaterDistrictsLayerView",
-              "name": "CO DWR Division 1 Water Districts",
-              "description": "Water District boundaries for Division 1 from the Colorado Division of Water Resources",
-              "geoLayerId": "WaterDistrictsLayer",
+              "geoLayerViewId": "DroughtLayerView",
+              "name": "US Drought Monitor",
+              "description": "US Drought Monitor",
+              "geoLayerId": "DroughtLayer",
               "properties": {
-                "docPath": "layers/co-dwr-water-districts-division1.md"
+                "docPath": "layers/drought-monitor.md"
               },
               "geoLayerSymbol": {
-                "name": "Colorize districts",
-                "description": "Show each water district in a different color.",
+                "name": "Colorize drought monitor",
+                "description": "Show US Drought Monitor using standard colors.",
                 "classificationType": "Categorized",
-                "classificationAttribute": "DISTRICT",
+                "classificationAttribute": "DM",
                 "properties": {
-                  "classificationFile": "layers/co-dwr-water-districts-division1-classify-district.csv"
+                  "classificationFile": "layers/drought-monitor-classify-dm.csv"
                 }
               },
               "eventHandlers": [
@@ -437,7 +427,7 @@
                   "description": "Hover event configuration",
                   "hasVisualization": false,
                   "properties": {
-                    "eventConfigPath": "layers/co-dwr-water-districts-division1-event-config.json"
+                    "eventConfigPath": "layers/drought-monitor-event-config.json"
                   }
                 },
                 {
@@ -446,45 +436,7 @@
                   "description": "Click event configuration",
                   "hasVisualization": false,
                   "properties": {
-                    "eventConfigPath": "layers/co-dwr-water-districts-division1-event-config.json"
-                  }
-                }
-              ]
-            },
-            {
-              "geoLayerViewId": "WaterDivisionLayerView",
-              "name": "CO DWR Division 1",
-              "description": "Boundary for Division 1 from the Colorado Division of Water Resources",
-              "geoLayerId": "WaterDivisionLayer",
-              "properties": {
-                "docPath": "layers/co-dwr-water-division.md"
-              },
-              "geoLayerSymbol": {
-                "name": "Colorize divisions",
-                "description": "Symbol for the division",
-                "classificationType": "Categorized",
-                "classificationAttribute": "DIV",
-                "properties": {
-                  "classificationFile": "layers/co-dwr-water-division-classify-division.csv"
-                }
-              },
-              "eventHandlers": [
-                {
-                  "eventType": "hover",
-                  "name": "Hover event",
-                  "description": "Hover event configuration",
-                  "hasVisualization": false,
-                  "properties": {
-                    "eventConfigPath": "layers/co-dwr-water-division-event-config.json"
-                  }
-                },
-                {
-                  "eventType": "click",
-                  "name": "Click event",
-                  "description": "Click event configuration",
-                  "hasVisualization": false,
-                  "properties": {
-                    "eventConfigPath": "layers/co-dwr-water-division-event-config.json"
+                    "eventConfigPath": "layers/drought-monitor-event-config.json"
                   }
                 }
               ]
@@ -537,6 +489,86 @@
                   "hasVisualization": false,
                   "properties": {
                     "eventConfigPath": "layers/continental-divide-co-event-config.json"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "geoLayerViewGroupId": "StateBoundaryGroup",
+          "name": "Colorado State Boundary",
+          "description": "Colorado state boundary from CDPHE.",
+          "properties": {
+            "selectedInitial": "true"
+          },
+          "geoLayerViews": [
+            {
+              "geoLayerViewId": "StateBoundaryLayerView",
+              "name": "Colorado State Boundary",
+              "description": "Colorado state boundary from CDPHE",
+              "geoLayerId": "StateBoundaryLayer",
+              "properties": {
+                "docPath": "layers/co-state-boundary.md"
+              },
+              "geoLayerSymbol": {
+                "name": "State boundary symbol",
+                "description": "State boundary in black.",
+                "classificationType": "SingleSymbol",
+                "classificationAttribute": "",
+                "properties": {
+                  "color": "#000000",
+                  "fillColor": "#000000",
+                  "fillOpacity": "0.0",
+                  "weight": "2"
+                }
+              },
+              "eventHandlers": []
+            }
+          ]
+        },
+        {
+          "geoLayerViewGroupId": "WaterDistrictsGroup",
+          "name": "CO DWR Water Districts",
+          "description": "Water District boundaries from the Colorado Division of Water Resources.",
+          "properties": {
+            "selectedInitial": "true"
+          },
+          "geoLayerViews": [
+            {
+              "geoLayerViewId": "WaterDistrictLayerView",
+              "name": "CO DWR Water District 3",
+              "description": "Water District 3 boundary from the Colorado Division of Water Resources",
+              "geoLayerId": "WaterDistrictLayer",
+              "properties": {
+                "docPath": "layers/co-dwr-water-district-3.md"
+              },
+              "geoLayerSymbol": {
+                "name": "Colorize district",
+                "description": "Show Water District 3 in black.",
+                "classificationType": "Categorized",
+                "classificationAttribute": "DISTRICT",
+                "properties": {
+                  "classificationFile": "layers/co-dwr-water-district-3-classify-district.csv"
+                }
+              },
+              "eventHandlers": [
+                {
+                  "eventType": "hover",
+                  "name": "Hover event",
+                  "description": "Hover event configuration",
+                  "hasVisualization": false,
+                  "properties": {
+                    "eventConfigPath": "layers/co-dwr-water-district-3-event-config.json"
+                  }
+                },
+                {
+                  "eventType": "click",
+                  "name": "Click event",
+                  "description": "Click event configuration",
+                  "hasVisualization": false,
+                  "properties": {
+                    "eventConfigPath": "layers/co-dwr-water-district-3-event-config.json"
                   }
                 }
               ]
