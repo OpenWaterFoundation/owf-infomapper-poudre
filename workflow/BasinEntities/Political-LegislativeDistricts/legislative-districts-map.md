@@ -22,6 +22,6 @@ The following layer groups are included in this map.
 | County Legislative Districts | Colorado county legislative districts. **Need to add.**|
 | State Legislative Districts | Colorado state legislative districts. |
 | Federal Legislative Districts | Colorado federal legislative districts. **Need to add.**|
-| CO DWR Water Districts | Division of Water Resources water districts and divisions, to highlight the Poudre Basin (Water District 3) and the larger South Platte Basin (Division 1).  See the ***Basin Entities / Administration - CO DWR Water Districts*** map for more information. |
+| CO DWR Water Districts | Division of Water Resources water districts and divisions, to highlight the Poudre Basin (Water District 3) and the larger South Platte Basin (Division 1).  See the [***Basin Entities / Administration - CO DWR Water Districts***](#map/entities-codwr-waterdistricts) map for more information. |
 | Continental Divide | Continental divide line, to help understand transbasin issues. |
 | Background Layers | Background layers that provide a frame of reference. |

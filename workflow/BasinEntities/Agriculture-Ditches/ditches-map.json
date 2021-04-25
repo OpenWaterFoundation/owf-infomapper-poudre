@@ -396,6 +396,7 @@
                   "eventType": "hover",
                   "name": "Hover event",
                   "description": "Hover event configuration",
+                  "hasVisualization": false,
                   "properties": {
                     "eventConfigPath": "layers/ditch-service-areas-2005-event-config.json"
                   }
@@ -404,6 +405,7 @@
                   "eventType": "click",
                   "name": "Click event",
                   "description": "Click event configuration",
+                  "hasVisualization": false,
                   "properties": {
                     "eventConfigPath": "layers/ditch-service-areas-2005-event-config.json"
                   }
@@ -437,6 +439,7 @@
                   "eventType": "hover",
                   "name": "Hover event",
                   "description": "Hover event configuration",
+                  "hasVisualization": false,
                   "properties": {
                     "eventConfigPath": "layers/ditch-service-areas-2001-event-config.json"
                   }
@@ -445,6 +448,7 @@
                   "eventType": "click",
                   "name": "Click event",
                   "description": "Click event configuration",
+                  "hasVisualization": false,
                   "properties": {
                     "eventConfigPath": "layers/ditch-service-areas-2001-event-config.json"
                   }
@@ -478,6 +482,7 @@
                   "eventType": "hover",
                   "name": "Hover event",
                   "description": "Hover event configuration",
+                  "hasVisualization": false,
                   "properties": {
                     "eventConfigPath": "layers/ditch-service-areas-1987-event-config.json"
                   }
@@ -486,6 +491,7 @@
                   "eventType": "click",
                   "name": "Click event",
                   "description": "Click event configuration",
+                  "hasVisualization": false,
                   "properties": {
                     "eventConfigPath": "layers/ditch-service-areas-1987-event-config.json"
                   }
@@ -519,6 +525,7 @@
                   "eventType": "hover",
                   "name": "Hover event",
                   "description": "Hover event configuration",
+                  "hasVisualization": false,
                   "properties": {
                     "eventConfigPath": "layers/ditch-service-areas-1976-event-config.json"
                   }
@@ -527,6 +534,7 @@
                   "eventType": "click",
                   "name": "Click event",
                   "description": "Click event configuration",
+                  "hasVisualization": false,
                   "properties": {
                     "eventConfigPath": "layers/ditch-service-areas-1976-event-config.json"
                   }
@@ -560,6 +568,7 @@
                   "eventType": "hover",
                   "name": "Hover event",
                   "description": "Hover event configuration",
+                  "hasVisualization": false,
                   "properties": {
                     "eventConfigPath": "layers/ditch-service-areas-1956-event-config.json"
                   }
@@ -568,6 +577,7 @@
                   "eventType": "click",
                   "name": "Click event",
                   "description": "Click event configuration",
+                  "hasVisualization": false,
                   "properties": {
                     "eventConfigPath": "layers/ditch-service-areas-1956-event-config.json"
                   }
@@ -606,6 +616,7 @@
                   "eventType": "hover",
                   "name": "Hover event",
                   "description": "Hover event configuration",
+                  "hasVisualization": false,
                   "properties": {
                     "eventConfigPath": "layers/co-dwr-water-district-3-event-config.json"
                   }
@@ -614,6 +625,7 @@
                   "eventType": "click",
                   "name": "Click event",
                   "description": "Click event configuration",
+                  "hasVisualization": false,
                   "properties": {
                     "eventConfigPath": "layers/co-dwr-water-district-3-event-config.json"
                   }

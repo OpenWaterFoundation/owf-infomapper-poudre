@@ -89,6 +89,7 @@ junk
 # Dynamic map configurations
 #/workflow/BasinEntities/Administration-Roundtables/*.json
 
+# TODO smalers 2021-04-21 Leave this in for now but has been renamed to Agriculture-FoodAndDairies so remove ASAP
 # BasinEntities/Agriculture-Dairies
 /workflow/BasinEntities/Agriculture-Dairies/downloads/*
 !/workflow/BasinEntities/Agriculture-Dairies/downloads/README.md
@@ -112,6 +113,18 @@ junk
 !/workflow/BasinEntities/Agriculture-Ditches/layers/*doc
 # Dynamic map configurations
 #/workflow/BasinEntities/Agriculture-Ditches/*.json
+#
+# BasinEntities/Agriculture-FoodAndDairies
+/workflow/BasinEntities/Agriculture-FoodAndDairies/downloads/*
+!/workflow/BasinEntities/Agriculture-FoodAndDairies/downloads/README.md
+/workflow/BasinEntities/Agriculture-FoodAndDairies/layers/*
+!/workflow/BasinEntities/Agriculture-FoodAndDairies/layers/README.md
+!/workflow/BasinEntities/Agriculture-FoodAndDairies/layers/*.csv
+!/workflow/BasinEntities/Agriculture-FoodAndDairies/layers/*.json
+!/workflow/BasinEntities/Agriculture-FoodAndDairies/layers/*.md
+!/workflow/BasinEntities/Agriculture-FoodAndDairies/layers/*doc
+# Dynamic map configurations
+#/workflow/BasinEntities/Agriculture-FoodAndDairies/*.json
 
 # BasinEntities/Education-Organizations
 /workflow/BasinEntities/Education-Organizations/downloads/*

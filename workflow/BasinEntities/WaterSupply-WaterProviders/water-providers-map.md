@@ -9,7 +9,8 @@
 
 The Colorado Water Providers map provides information about municipal water providers.
 Water providers include municipal utilities, [special districts](https://www.sdaco.org/),
-and other organizations.  See also the ***Basin Entities / Municipal - Municipalities*** map.
+and other organizations.  See also the
+[***Basin Entities / Municipal - Municipalities***](#map/entities-municipalities) map.
 Multiple water providers may serve a single municipality.
 Unincorporated areas in a county may also be served by a water provider.
 Each utility typically operates as an "enterprise fund",
@@ -52,5 +53,5 @@ The following layer groups are included in this map.
 | **Layer Group** | **Description** |
 | -- | -- |
 | Colorado Water Providers | Colorado water providers, which provide treated water to municipalities. |
-| CO DWR Water Districts | Division of Water Resources water districts, to highlight the Poudre Basin (Water District 3).  See the ***Basin Entities / Administration - CO DWR Water Districts*** map for more information. |
+| CO DWR Water Districts | Division of Water Resources water districts, to highlight the Poudre Basin (Water District 3).  See the [***Basin Entities / Administration - CO DWR Water Districts***](#map/entities-codwr-waterdistricts) map for more information. |
 | Background Layers | Background layers that provide a frame of reference. |

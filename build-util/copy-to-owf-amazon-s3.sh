@@ -29,15 +29,15 @@ buildDist() {
   # - "period" works locally in "dist" but not when pushed to the cloud
   # - "path" 
   hrefMode="period"
-  if [ "$hrefMode" = "period" ]; then
+  if [ "${hrefMode}" = "period" ]; then
     # Results in the following in output:
     # <head>...<base href=".">
     ngBuildHrefOpt="."
-  elif [ "$hrefMode" = "path" ]; then
+  elif [ "${hrefMode}" = "path" ]; then
     ngBuildHrefOpt="/infomapper/"
   else
     logError ""
-    logError "Unknown hrefMode=$hrefMode"
+    logError "Unknown hrefMode=${hrefMode}"
     exit 1
   fi
 
@@ -47,7 +47,7 @@ buildDist() {
   cd ${infoMapperMainFolder}
 
   optimizationArg=""
-  if [ "$doOptimization" = "no" ]; then
+  if [ "${doOptimization}" = "no" ]; then
     # Turn off optimization
     optimizationArg="--optimization=false"
   fi
@@ -102,7 +102,7 @@ buildDist() {
   # Clean the InfoMapper distribution files to the bare minimum.
   ${infoMapperRepoFolder}/build-util/clean-dist-for-deployment.sh
   exitCode=$?
-  if [ $exitCode -ne 0 ]; then
+  if [ ${exitCode} -ne 0 ]; then
     logError "Error cleaning 'dist/' for deployment."
     logError "Check script:  ${infoMapperRepoFolder}/build-util/clean-dist-for-deployment.sh."
     exit 1
@@ -119,7 +119,7 @@ checkAngularVersion() {
 # - make sure that the Amazon profile was specified
 # - call this before doing the upload but don't need before then
 checkInput() {
-  if [ -z "$awsProfile" ]; then
+  if [ -z "${awsProfile}" ]; then
     logError ""
     logError "Amazon profile to use for upload was not specified with --aws-profile option.  Exiting."
     printUsage
@@ -161,12 +161,12 @@ echoStderr() {
 # - Set USER as script variable only if environment variable is not already set
 # - See: https://unix.stackexchange.com/questions/76354/who-sets-user-and-username-environment-variables
 getUserLogin() {
-  if [ -z "$USER" ]; then
-    if [ ! -z "$LOGNAME" ]; then
-      USER=$LOGNAME
+  if [ -z "${USER}" ]; then
+    if [ ! -z "${LOGNAME}" ]; then
+      USER=${LOGNAME}
     fi
   fi
-  if [ -z "$USER" ]; then
+  if [ -z "${USER}" ]; then
     USER=$(logname)
   fi
   # Else - not critical since used for temporary files
@@ -221,16 +221,16 @@ parseCommandLine() {
   # Long options
   optstringLong="aws-profile::,dryrun,help,nobuild,noupload,nooptimization,upload-assets,upload-datamaps,version"
   # Parse the options using getopt command
-  GETOPT_OUT=$(getopt --options $optstring --longoptions $optstringLong -- "$@")
+  GETOPT_OUT=$(getopt --options ${optstring} --longoptions ${optstringLong} -- "$@")
   exitCode=$?
-  if [ $exitCode -ne 0 ]; then
+  if [ ${exitCode} -ne 0 ]; then
     # Error parsing the parameters such as unrecognized parameter
     echoStderr ""
     printUsage
     exit 1
   fi
   # The following constructs the command by concatenating arguments
-  eval set -- "$GETOPT_OUT"
+  eval set -- "${GETOPT_OUT}"
   # Loop over the options
   while true; do
     #logDebug "Command line option is ${opt}"
@@ -303,7 +303,7 @@ parseCommandLine() {
 # - calling code must exit with appropriate code
 printUsage() {
   echoStderr ""
-  echoStderr "Usage:  $programName --aws-profile=profile"
+  echoStderr "Usage:  ${programName} --aws-profile=profile"
   echoStderr ""
   echoStderr "Copy the Poudre Information Portal application files to the Amazon S3 static website folder(s),"
   echoStderr "using the AWS S3 sync capabilities."
@@ -330,7 +330,7 @@ printVersion() {
   echoStderr "${programName} version ${programVersion} ${programVersionDate}"
   echoStderr ""
   echoStderr "Poudre Information Portal"
-  echoStderr "Copyright 2017-2020 Open Water Foundation."
+  echoStderr "Copyright 2017-2021 Open Water Foundation."
   echoStderr ""
   echoStderr "License GPLv3+:  GNU GPL version 3 or later"
   echoStderr ""
@@ -348,25 +348,25 @@ syncFiles() {
 
   s3FolderUrl=$1
 
-  if [ "$operatingSystem" = "cygwin" -o "$operatingSystem" = "linux" ]; then
+  if [ "${operatingSystem}" = "cygwin" -o "${operatingSystem}" = "linux" ]; then
     # aws is in a standard location such as /usr/bin/aws
-    aws s3 sync ${infoMapperDistAppFolder} ${s3FolderUrl} ${dryrun} --delete --profile "$awsProfile"
+    aws s3 sync ${infoMapperDistAppFolder} ${s3FolderUrl} ${dryrun} --delete --profile "${awsProfile}"
     errorCode=$?
-    if [ $errorCode -ne 0 ]; then
-      logError "Error code $errorCode from 'aws' command.  Exiting."
+    if [ ${errorCode} -ne 0 ]; then
+      logError "Error code ${errorCode} from 'aws' command.  Exiting."
       exit 1
     fi
-  elif [ "$operatingSystem" = "mingw" ]; then
+  elif [ "${operatingSystem}" = "mingw" ]; then
     # For Windows Python 3.7, aws may be installed in Windows %USERPROFILE%\AppData\Local\Programs\Python\Python37\scripts
     # - use Linux-like path to avoid backslash issues
     # - TODO smalers 2019-01-04 could try to find if the script is in the PATH
     # - TODO smalers 2019-01-04 could try to find where py thinks Python is installed but not sure how
-    awsScript="$HOME/AppData/Local/Programs/Python/Python37/scripts/aws"
+    awsScript="${HOME}/AppData/Local/Programs/Python/Python37/scripts/aws"
     if [ -f "${awsScript}" ]; then
-      ${awsScript} s3 sync ${infoMapperDistAppFolder} ${s3FolderUrl} ${dryrun} --delete --profile "$awsProfile"
+      ${awsScript} s3 sync ${infoMapperDistAppFolder} ${s3FolderUrl} ${dryrun} --delete --profile "${awsProfile}"
       errorCode=$?
-      if [ $errorCode -ne 0 ]; then
-        logError "Error code $errorCode from 'aws' command.  Exiting."
+      if [ ${errorCode} -ne 0 ]; then
+        logError "Error code ${errorCode} from 'aws' command.  Exiting."
         exit 1
       fi
     else

@@ -1,7 +1,7 @@
 # Map: Current Wildfires
 
 * Overview
-	+ Active Fires
+	+ Active and Recent Fires
 * Protection and Restoration
 * Layer Groups
 
@@ -9,9 +9,10 @@
 
 ## Overview
 
-The Current Wildfires map provides information about current wildfires in the Poudre Basin.
+The Current Wildfires map provides information about current wildfires in the Poudre Basin,
+including active fires and areas that are being restored.
 
-### Active Fires
+### Active and Recent Fires
 
 The following are specific links for Cameron Peak fire:
 
@@ -33,13 +34,14 @@ Other resources including national scale (alphabetical):
 
 ## Protection and Restoration
 
-The following are information resources about wildfire restoration:
+The following are information resources about watershed protection and wildfire restoration:
 
 | **Organization/Entity** | **Description** |
 | -- | -- |
 | [Coalition for the Poudre River Watershed](https://www.poudrewatershed.org/) | Protect and restore the Poudre River Basin in response to fire and other impacts. |
 | [Colorado Forest Restoration Institute](https://cfri.colostate.edu/) | Leads collaborations between researchers, managers, and stakeholders to restore and enhance the resilience of forest ecosystems to wildfires in Colorado. |
 | [Front Range Roundtable](https://frontrangeroundtable.org/) | Coalition committed to forest health and fire risk management along Colorado's Front Range, including Larimer County. |
+| [Northern Colorado Fireshed Collaborative](https://nocofireshed.org/) | Partnering for more resilient forests. |
 
 ## Layer Groups
 
@@ -51,6 +53,6 @@ The following layer groups are included in this map.
 | Wildfires | Colorado wildfire burn areas. |
 | Soil Burn Severity | Burn severity assessment from Burn Area Emergency Response (BAER). |
 | National Parks | National parks impacted by wildfires. |
-| CO DWR Water Districts | Division of Water Resources water districts, to highlight the Poudre Basin (Water District 3).  See the ***Basin Entities / Administration - CO DWR Water Districts*** map for more information. |
+| CO DWR Water Districts | Division of Water Resources water districts, to highlight the Poudre Basin (Water District 3).  See the [***Basin Entities / Administration - CO DWR Water Districts***](#map/entities-codwr-waterdistricts) map for more information. |
 | Continental Divide | Continental divide, illustrating a geological boundary between basins. |
 | Background Layers | Background layers that provide a frame of reference. |

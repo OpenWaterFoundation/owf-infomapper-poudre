@@ -8,7 +8,8 @@
 ## Overview
 
 The Poudre Ditch Service Areas map shows the areal extent of water deliveries for ditches.
-See also the ***Historical Data / Agriculture - Irrigated Lands*** map for detailed information about irrigated parcels.
+See also the [***Historical Data / Agriculture - Irrigated Lands***](#map/hist-ag-irrigated)
+map for detailed information about irrigated parcels.
 Although the overall service area may not have changed much over time,
 the area being irrigated for agriculture has decreased as agricultural land has been converted
 to other uses, such as urban areas.
@@ -53,5 +54,5 @@ The following layer groups are included in this map.
 | **Layer Group** | **Description** |
 | -- | -- |
 | Poudre Ditch Service Areas | Service areas for ditches in the Poudre Basin. |
-| CO DWR Water Districts | Division of Water Resources water districts, to highlight the Poudre Basin (Water District 3).  See the ***Basin Entities / Administration - CO DWR Water Districts*** map for more information. |
+| CO DWR Water Districts | Division of Water Resources water districts, to highlight the Poudre Basin (Water District 3).  See the [***Basin Entities / Administration - CO DWR Water Districts***](#map/entities-codwr-waterdistricts) map for more information. |
 | Background Layers | Background layers that provide a frame of reference. |

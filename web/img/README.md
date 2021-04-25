@@ -9,6 +9,7 @@ Image files used in the application.
 | `brewery-32x37.png` | Map marker for breweries. | Downloaded from [Map Icons Collection](https://mapicons.mapsmarker.com/markers/restaurants-bars/bars/bar/). |
 | `brewery2-32x37.png` | Alternative map marker for breweries. | Downloaded from [brewery map icons](https://mapicons.mapsmarker.com/markers/industry/brewery/). |
 | `drinkingwater-32x37.png` | Drinking water, for water providers. | Downloaded from [drinking water icons](https://mapicons.mapsmarker.com/markers/nature/natural-marvels/drinking-water/?custom_color=0000ff). |
+| `farm2-32x37.png` | Farm marker. | Downloaded from [farm markers](https://mapicons.mapsmarker.com/markers/nature/agriculture/farm/). |
 | `group-2-32x37.png` | Map marker for municipalities. | Downloaded from [group icons](https://mapicons.mapsmarker.com/markers/offices/group/?custom_color=ff5100). |
 | `kayaking-32x37.png` | Boating marker, with kayaker. | Downloaded from [Water sports map markers](https://mapicons.mapsmarker.com/markers/sports/water-sports/). |
 | `milk-bottle-32x37.png` | Milk bottle for dairies. | Downloaded from [milk bottle map icons](https://mapicons.mapsmarker.com/markers/stores/food-drink/milk-bottle/). |
