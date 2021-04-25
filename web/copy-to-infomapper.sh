@@ -68,11 +68,11 @@ copy_BasinEntities_Administration_WaterDistricts() {
   cp -rv ${scriptFolder}/data-maps/BasinEntities/Administration-CoDwrWaterDistricts ${folder}
 }
 
-copy_BasinEntities_Agriculture_Dairies() {
+copy_BasinEntities_Agriculture_FoodAndDairies() {
   checkBasinEntitiesFolder
 
   # Copy dairies map folder and files
-  cp -rv ${scriptFolder}/data-maps/BasinEntities/Agriculture-Dairies ${folder}
+  cp -rv ${scriptFolder}/data-maps/BasinEntities/Agriculture-FoodAndDairies ${folder}
 }
 
 copy_BasinEntities_Agriculture_Ditches() {
@@ -255,8 +255,8 @@ runInteractive() {
     echo "                         el.      Copy Political - LegislativeDistricts files."
     echo "                         eb.      Copy Physical - Basins files."
     echo "                         es.      Copy Physical - StreamReaches files."
-    echo "                         eda.     Copy Agriculture - Dairies files."
     echo "                         edi.     Copy Agriculture - Ditches files."
+    echo "                         eaf.     Copy Agriculture - Food and Dairies files."
     echo "                         edu.     Copy Education - Organizations files."
     echo "                         ei.      Copy Environment - InstreamFlowReaches files."
     echo "                         eeo.     Copy Environment - Organizations files."
@@ -271,8 +271,8 @@ runInteractive() {
     echo "Historical Data:         hl.      Copy IrrigatedLands map files."
     echo ""
     echo "Current Conditions:      cew.     Copy Environment - Wildfires files."
-    echo "                         cws.     Copy WaterSupply - Streamflow files."
     echo "                         cwsp.    Copy WaterSupply - Snowpack files."
+    echo "                         cws.     Copy WaterSupply - Streamflow files."
     echo ""
     echo "                         a.       Run all copy commands from above."
     echo "                         q.       Quit"
@@ -334,8 +334,8 @@ runInteractive() {
       copy_BasinEntities_Physical_Basins
     elif [ "${answer}" = "es" ]; then
       copy_BasinEntities_Physical_StreamReaches
-    elif [ "${answer}" = "eda" ]; then
-      copy_BasinEntities_Agriculture_Dairies
+    elif [ "${answer}" = "eaf" ]; then
+      copy_BasinEntities_Agriculture_FoodAndDairies
     elif [ "${answer}" = "edi" ]; then
       copy_BasinEntities_Agriculture_Ditches
     elif [ "${answer}" = "edu" ]; then

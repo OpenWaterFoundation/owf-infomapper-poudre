@@ -349,6 +349,7 @@
                   "eventType": "hover",
                   "name": "Hover event",
                   "description": "Hover event configuration",
+                  "hasVisualization": false,
                   "properties": {
                     "eventConfigPath": "layers/instream-reaches-event-config.json"
                   }
@@ -357,6 +358,7 @@
                   "eventType": "click",
                   "name": "Click event",
                   "description": "Click event configuration",
+                  "hasVisualization": false,
                   "properties": {
                     "eventConfigPath": "layers/instream-reaches-event-config.json"
                   }
@@ -393,6 +395,7 @@
                   "eventType": "hover",
                   "name": "Hover event",
                   "description": "Hover event configuration",
+                  "hasVisualization": false,
                   "properties": {
                     "eventConfigPath": "layers/instream-termini-event-config.json"
                   }
@@ -401,6 +404,7 @@
                   "eventType": "click",
                   "name": "Click event",
                   "description": "Click event configuration",
+                  "hasVisualization": false,
                   "properties": {
                     "eventConfigPath": "layers/instream-termini-event-config.json"
                   }
@@ -439,6 +443,7 @@
                   "eventType": "hover",
                   "name": "Hover event",
                   "description": "Hover event configuration",
+                  "hasVisualization": false,
                   "properties": {
                     "eventConfigPath": "layers/co-dwr-water-district-3-event-config.json"
                   }
@@ -447,6 +452,7 @@
                   "eventType": "click",
                   "name": "Click event",
                   "description": "Click event configuration",
+                  "hasVisualization": false,
                   "properties": {
                     "eventConfigPath": "layers/co-dwr-water-district-3-event-config.json"
                   }

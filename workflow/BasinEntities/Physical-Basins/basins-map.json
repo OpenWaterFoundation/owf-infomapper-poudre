@@ -435,6 +435,7 @@
                   "eventType": "hover",
                   "name": "Hover event",
                   "description": "Hover event configuration",
+                  "hasVisualization": false,
                   "properties": {
                     "eventConfigPath": "layers/stream-reaches-event-config.json"
                   }
@@ -443,6 +444,7 @@
                   "eventType": "click",
                   "name": "Click event",
                   "description": "Click event configuration",
+                  "hasVisualization": false,
                   "properties": {
                     "eventConfigPath": "layers/stream-reaches-event-config.json"
                   }
@@ -481,6 +483,7 @@
                   "eventType": "hover",
                   "name": "Hover event",
                   "description": "Hover event configuration",
+                  "hasVisualization": false,
                   "properties": {
                     "eventConfigPath": "layers/huc12-event-config.json"
                   }
@@ -489,6 +492,7 @@
                   "eventType": "click",
                   "name": "Click event",
                   "description": "Click event configuration",
+                  "hasVisualization": false,
                   "properties": {
                     "eventConfigPath": "layers/huc12-event-config.json"
                   }
@@ -517,6 +521,7 @@
                   "eventType": "hover",
                   "name": "Hover event",
                   "description": "Hover event configuration",
+                  "hasVisualization": false,
                   "properties": {
                     "eventConfigPath": "layers/huc10-event-config.json"
                   }
@@ -525,6 +530,7 @@
                   "eventType": "click",
                   "name": "Click event",
                   "description": "Click event configuration",
+                  "hasVisualization": false,
                   "properties": {
                     "eventConfigPath": "layers/huc10-event-config.json"
                   }
@@ -553,6 +559,7 @@
                   "eventType": "hover",
                   "name": "Hover event",
                   "description": "Hover event configuration",
+                  "hasVisualization": false,
                   "properties": {
                     "eventConfigPath": "layers/huc8-event-config.json"
                   }
@@ -561,6 +568,7 @@
                   "eventType": "click",
                   "name": "Click event",
                   "description": "Click event configuration",
+                  "hasVisualization": false,
                   "properties": {
                     "eventConfigPath": "layers/huc8-event-config.json"
                   }
@@ -589,6 +597,7 @@
                   "eventType": "hover",
                   "name": "Hover event",
                   "description": "Hover event configuration",
+                  "hasVisualization": false,
                   "properties": {
                     "eventConfigPath": "layers/huc4-event-config.json"
                   }
@@ -597,6 +606,7 @@
                   "eventType": "click",
                   "name": "Click event",
                   "description": "Click event configuration",
+                  "hasVisualization": false,
                   "properties": {
                     "eventConfigPath": "layers/huc4-event-config.json"
                   }
@@ -625,6 +635,7 @@
                   "eventType": "hover",
                   "name": "Hover event",
                   "description": "Hover event configuration",
+                  "hasVisualization": false,
                   "properties": {
                     "eventConfigPath": "layers/huc2-event-config.json"
                   }
@@ -633,6 +644,7 @@
                   "eventType": "click",
                   "name": "Click event",
                   "description": "Click event configuration",
+                  "hasVisualization": false,
                   "properties": {
                     "eventConfigPath": "layers/huc2-event-config.json"
                   }
@@ -671,6 +683,7 @@
                   "eventType": "hover",
                   "name": "Hover event",
                   "description": "Hover event configuration",
+                  "hasVisualization": false,
                   "properties": {
                     "eventConfigPath": "layers/co-dwr-water-district-3-event-config.json"
                   }
@@ -679,6 +692,7 @@
                   "eventType": "click",
                   "name": "Click event",
                   "description": "Click event configuration",
+                  "hasVisualization": false,
                   "properties": {
                     "eventConfigPath": "layers/co-dwr-water-district-3-event-config.json"
                   }
@@ -721,6 +735,7 @@
                   "eventType": "hover",
                   "name": "Hover event",
                   "description": "Hover event configuration",
+                  "hasVisualization": false,
                   "properties": {
                     "eventConfigPath": "layers/continental-divide-co-event-config.json"
                   }
@@ -729,6 +744,7 @@
                   "eventType": "click",
                   "name": "Click event",
                   "description": "Click event configuration",
+                  "hasVisualization": false,
                   "properties": {
                     "eventConfigPath": "layers/continental-divide-co-event-config.json"
                   }

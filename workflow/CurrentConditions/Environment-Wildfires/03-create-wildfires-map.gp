@@ -82,17 +82,23 @@ SetGeoLayerViewEventHandler(GeoLayerViewID="WaterDistrictLayerView",EventType="c
 # GeoLayerViewGroupID: SnowpackBasinsGroup
 AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="SnowpackBasinsGroup",Name="Snowpack Basins",Description="Snowpack for basins",InsertPosition="Top")
 #
+CopyFile(SourceFile="../WaterSupply-SnowPack/layers/snodas-event-config.json",DestinationFile="layers/snodas-event-config.json")
+#
 # Use the current GeoJSON file from the SNODAS tools website
 # - TODO smalers 2021-04-20 this is old GeoJSON which causes problems for InfoMapper
-# - for now use the local copy that has been processed into the new format,
-#   which is processed by the daily harvester process
+# - initial workaround is to use the local copy that has been processed into the new format
+# - after that attempt, use the file from the data harvester
 #ReadGeoLayerFromGeoJSON(InputFile="https://snodas.cdss.state.co.us/app/SnowpackStatisticsByDate/SnowpackStatisticsByDate_LatestDate.geojson",GeoLayerID="SnodasLayer",Name="Snowpack (SNODAS)",Description="Snowpack from SNODAS")
-ReadGeoLayerFromGeoJSON(InputFile="layers/snodas.geojson",GeoLayerID="SnodasLayer",Name="Snowpack (SNODAS)",Description="Snowpack from SNODAS")
+#ReadGeoLayerFromGeoJSON(InputFile="layers/snodas.geojson",GeoLayerID="SnodasLayer",Name="Snowpack (SNODAS)",Description="Snowpack from SNODAS")
+ReadGeoLayerFromGeoJSON(InputFile="http://data.openwaterfoundation.org/CO/CDSS/SNODAS/SnowpackStatisticsByDate_LatestDate.geojson",GeoLayerID="SnodasLayer",Name="Snowpack (SNODAS)",Description="Snowpack from SNODAS")
 AddGeoLayerViewToGeoMap(GeoLayerID="SnodasLayer",GeoLayerViewID="SnodasLayerView",Name="Snowpack (SNODAS)",Description="Snowpack from SNODAS as basin mean SWE (in)",Properties="docPath:layers/snodas.md,selectedInitial:false")
 # Use graduated symbol the same as the SNODAS website
 SetGeoLayerViewEventHandler(GeoLayerViewID="SnodasLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/snodas-event-config.json")
 SetGeoLayerViewEventHandler(GeoLayerViewID="SnodasLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/snodas-event-config.json")
-SetGeoLayerViewGraduatedSymbol(GeoLayerViewID="SnodasLayerView",Name="Colorize SWE",Description="Show SWE using SNODAS tools colors.",ClassificationAttribute="SNODAS_SWE_Mean_in",Properties="classificationFile:layers/snodas-classify-swe-in.csv")
+# The following is for the downloaded GeoJSON
+#SetGeoLayerViewGraduatedSymbol(GeoLayerViewID="SnodasLayerView",Name="Colorize SWE",Description="Show SWE using SNODAS tools colors.",ClassificationAttribute="SNODAS_SWE_Mean_in",Properties="classificationFile:layers/snodas-classify-swe-in.csv")
+# The following is for the downloaded shapefile saved as GeoJSON
+SetGeoLayerViewGraduatedSymbol(GeoLayerViewID="SnodasLayerView",Name="Colorize SWE",Description="Show SWE using SNODAS tools colors.",ClassificationAttribute="SWEMean_in",Properties="classificationFile:layers/snodas-classify-swe-in.csv")
 # = = = = = = = = = =
 # Continental divide in Colorado:  read layer and add to layer view group.
 # LayerViewGroupID: ContinentalDivideGroup
@@ -235,7 +241,6 @@ EndIf(Name="IncludeBurnAreaVector")
 AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="StreamReachesGroup",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches",Properties="selectedInitial:true",InsertPosition="Top")
 #
 CopyFile(SourceFile="../../BasinEntities/Physical-StreamReaches/layers/stream-reaches.geojson",DestinationFile="layers/stream-reaches.geojson")
-CopyFile(SourceFile="../../BasinEntities/Physical-StreamReaches/layers/stream-reaches.md",DestinationFile="${MapFolder}/layers/stream-reaches.md")
 CopyFile(SourceFile="../../BasinEntities/Physical-StreamReaches/layers/stream-reaches.geojson",DestinationFile="layers/stream-reaches-event-config.json")
 ReadGeoLayerFromGeoJSON(InputFile="layers/stream-reaches.geojson",GeoLayerID="StreamReachesLayer",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches")
 AddGeoLayerViewToGeoMap(GeoLayerID="StreamReachesLayer",GeoLayerViewID="StreamReachesLayerView",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches",Properties="docPath:layers/stream-reaches.md,highlightEnabled:true")
@@ -273,8 +278,8 @@ CopyFile(SourceFile="layers/snotel-stations.geojson",DestinationFile="${MapFolde
 CopyFile(SourceFile="layers/snotel-stations.md",DestinationFile="${MapFolder}/layers/snotel-stations.md")
 CopyFile(SourceFile="layers/snotel-stations-event-config.json",DestinationFile="${MapFolder}/layers/snotel-stations-event-config.json")
 # Stream reaches.
+CopyFile(SourceFile="../../BasinEntities/Physical-StreamReaches/layers/stream-reaches.md",DestinationFile="${MapFolder}/layers/stream-reaches.md")
 CopyFile(SourceFile="layers/stream-reaches.geojson",DestinationFile="${MapFolder}/layers/stream-reaches.geojson")
-CopyFile(SourceFile="layers/stream-reaches.md",DestinationFile="${MapFolder}/layers/stream-reaches.md")
 CopyFile(SourceFile="layers/stream-reaches-event-config.json",DestinationFile="${MapFolder}/layers/stream-reaches-event-config.json")
 # Cameron peak burn severity.
 CopyFile(SourceFile="layers/cameron-peak-sbs.geojson",DestinationFile="${MapFolder}/layers/cameron-peak-sbs.geojson")
@@ -306,7 +311,7 @@ CopyFile(SourceFile="layers/continental-divide-co-event-config.json",Destination
 CopyFile(SourceFile="../../SupportingData/Physical-ContinentalDivide/layers/continental-divide.md",DestinationFile="${MapFolder}/layers/continental-divide.md")
 # SNODAS snowpack.
 # - no need to copy layer because read from URL
-CopyFile(SourceFile="layers/snodas.geojson",DestinationFile="${MapFolder}/layers/snodas.geojson")
+#CopyFile(SourceFile="layers/snodas.geojson",DestinationFile="${MapFolder}/layers/snodas.geojson")
 CopyFile(SourceFile="layers/snodas.md",DestinationFile="${MapFolder}/layers/snodas.md")
 CopyFile(SourceFile="layers/snodas-event-config.json",DestinationFile="${MapFolder}/layers/snodas-event-config.json")
 CopyFile(SourceFile="layers/snodas-classify-swe-in.csv",DestinationFile="${MapFolder}/layers/snodas-classify-swe-in.csv")

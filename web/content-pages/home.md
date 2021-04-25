@@ -1,5 +1,14 @@
 # Poudre Basin Information #
 
+## New ##
+
+See snowpack in [***Current Conditions / Environment - Wildfires***](#/map/current-wildfires)
+(you must turn on the layer) and
+[***Current Conditions / Water Supply - Snowpack***](#/map/current-snowpack).
+See local farms and CSAs in
+[***Basin Entities / Agriculture - Food and Dairies***](#/map/entities-food-and-dairies).
+See also [***Release Notes***](#/content-page/release-notes).
+
 ## Overview ##
 
 The Poudre Basin Information website provides access to cross-jurisdictional

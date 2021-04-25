@@ -1,6 +1,6 @@
-# Industry-Dairies/doc #
+# Agriculture-FoodAndDairies/doc #
 
-This folder contains files for the ***Industry - Dairies*** product.
+This folder contains files for the ***Agriculture - Food and Dairies*** map.
 
 * [Introduction](#introduction)
 * [Update Frequency](#update-frequency)
@@ -12,7 +12,8 @@ This folder contains files for the ***Industry - Dairies*** product.
 
 ## Introduction ##
 
-The ***Industry - Dairies*** map indicates the locations of dairies in the Poudre Basin.
+The ***Agriculture - Food and Dairies*** map indicates the locations of local food production and dairies in the Poudre Basin,
+not large-scale farms.
 
 ## Update Frequency ##
 
@@ -35,11 +36,11 @@ The following files and folders are used.
 | -- | -- | -- |
 | `.gitignore` | Indicates which files should be ignored in the repository. | |
 | `01-download-dairies.gp` | GeoProcessor command file to download data. | |
-| `03-create-dairies-map.gp` | GeoProcessor command file to create map. |
+| `03-create-food-and-dairies-map.gp` | GeoProcessor command file to create map. |
 | `doc/` | This `README.md` and related files. | |
 | `downloads/` | Downloaded files. | Yes - for downloaded files. |
 | `layers/` | Layers and supporting files used in the map. | Yes - for generated files. |
-| `dairies.json` | Map configuration file. | Yes |
+| `food-and-dairies.json` | Map configuration file. | Yes |
 
 ## Workflow ##
 
@@ -48,4 +49,4 @@ The following describes the workflow steps, which should be run in the order sho
 | **Command File/Script** | **Software** | **Description** |
 | -- | -- | -- |
 | `01-download-basins.gp` | GeoProcessor | Download the basins from OWF GitHub repository and rewrite to ensure latest GeoJSON format. |
-| `03-create-dairies-map.gp` | GeoProcessor | Create the map configuration file and copy map and layer files to the distribution folder. |
+| `03-create-food-and-dairies-map.gp` | GeoProcessor | Create the map configuration file and copy map and layer files to the distribution folder. |

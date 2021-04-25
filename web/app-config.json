@@ -71,17 +71,17 @@
           "mapProject" : "data-maps/BasinEntities/Physical-StreamReaches/stream-reaches-map.json"
         },
         {
-          "id": "entities-dairies",
-          "name":  "Agriculture - Dairies",
-          "action": "displayMap",
-          "mapProject" : "data-maps/BasinEntities/Agriculture-Dairies/dairies-map.json",
-          "separatorBefore" : true
-        },
-        {
           "id": "entities-ditches",
           "name":  "Agriculture - Ditches",
           "action": "displayMap",
-          "mapProject" : "data-maps/BasinEntities/Agriculture-Ditches/ditches-map.json"
+          "mapProject" : "data-maps/BasinEntities/Agriculture-Ditches/ditches-map.json",
+          "separatorBefore" : true
+        },
+        {
+          "id": "entities-food-and-dairies",
+          "name":  "Agriculture - Food and Dairies",
+          "action": "displayMap",
+          "mapProject" : "data-maps/BasinEntities/Agriculture-FoodAndDairies/food-and-dairies-map.json"
         },
         {
           "id": "entities-education",

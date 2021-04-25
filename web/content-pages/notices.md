@@ -1,8 +1,9 @@
 # Important Notices
 
 The following are important notices about the Poudre Basin.
-This is not a comprehensive list.  Only information about major events is posted here.
+This is not a comprehensive list.
+Only information about major events that intersect with information on this website are posted here.
 
 | **Event** | **Dates** | **Information** |
 | -- | -- | -- |
-| Cameron Peak Fire | Ongoing | The Cameron Peak wildfire has been stopped by winter weather events.  Mitigation of impacts is now the focus.  See the ***Current Conditions / Environment - Wildfires*** map - click on the information icon for the map for more links. |
+| Cameron Peak Fire | | The Cameron Peak wildfire efforts are focusing on recovery.  See the [***Current Conditions / Environment - Wildfires***](#/map/current-wildfires) map - click on the information icon for the map for more links. |

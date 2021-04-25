@@ -18,10 +18,14 @@ The following release notes document changes to the Poudre Basin Information web
 
 ------------
 
-## 2.2.0
+## 2.1.0
 
-* [2.1.0] Add SNODAS snowpack and SNOTEL stations layers to ***Current Conditions / Environment - Wildfires***
-* [2.1.0] Enable ***Current Conditions / Water Supply - Snowpack*** map, with snow data.
+* [2.1.0] Enable links from information pages to website pages to improve navigation.
+* [2.1.0] Add SNODAS snowpack and SNOTEL stations layers to [***Current Conditions / Environment - Wildfires***](#map/current-wildfires).
+* [2.1.0] Enable [***Current Conditions / Water Supply - Snowpack***](#map/current-snowpack) map, with snow data.
+* [2.1.0] Rename the ***Basin Entities / Agriculture - Dairies***
+map to [***Basin Entities / Agriculture - Food and Dairies***](#map/entities-food-and-dairies)
+and add initial local food layer.
 
 ## 2.0.0
 
@@ -42,7 +46,8 @@ The following release notes document changes to the Poudre Basin Information web
 * [1.0.0] Some layer groups are now configured so that only one layer in a group can be selected,
 which increases load speed and avoids overlapping layers.
 * [1.0.0] Update DOLA county population data.  Historical estimates include 2019, forecast starts in 2020.
-* [1.0.0, 2020-11-28] Add Soil Burn Severity (SBS) to ***Current Conditions / Environment - Wildfires*** map.
+* [1.0.0, 2020-11-28] Add Soil Burn Severity (SBS) to
+[***Current Conditions / Environment - Wildfires***](#map/current-wildfires) map.
 
 ## 0.7.0
 
@@ -50,7 +55,9 @@ which increases load speed and avoids overlapping layers.
 * [0.7.0] Update all the layer event configurations to limit attributes that are shown,
 with most important attributes first.
 * [0.7.0] Update population time series data and enable graphs for municipalities.
-* [0.7.0] Add initial page for ***Current Conditions / Water Supply - Snowpack***.  Integrated maps will be added in the future.
+* [0.7.0] Add initial page for
+[***Current Conditions / Water Supply - Snowpack***](#map/current-snowpack).
+Integrated maps will be added in the future.
 
 ## 0.6.0
 
@@ -80,18 +87,18 @@ image pointer location.
 
 * [0.3.0] Update GeoProcessor workflow command files to default many identifier parameters,
 which streamlines creating and maintaining maps.
-* [0.3.0] Add ***Basin Entities / Water Quality - Monitoring*** map.
+* [0.3.0] Add [***Basin Entities / Water Quality - Monitoring***](#map/entities-wq) map.
 * [0.3.0] Wide attribute values are now truncated so that hover dialog is not too wide.
 Date/time attributes shown as integers will cause an auto-generated date/time string to be displayed.
 * [0.3.0] Fix bug where zooming and panning sometimes caused polygon layers to not draw completely.
-* [0.3.0] Add ***Basin Entities / Physical - Basins*** map with initial HUC basin maps.
-* [0.3.0] Add ***Current Conditions / System - Important Notices*** page for important
+* [0.3.0] Add [***Basin Entities / Physical - Basins***](#map/entities-basins) map with initial HUC basin maps.
+* [0.3.0] Add [***Current Conditions / System - Important Notices***](#content-page/current-notices) page for important
 system information.
 * [0.3.0] Add additional background map layers, from Esri, Google, and USGS,
 and set the background layer for each map to emphasize the map layers.
 * [0.3.0] Add popup documentation for all maps and layers
 in order to provide context to users and provide links to data sources.
-* [0.3.0] Add initial ***Current Conditions / Environment - Wildfires*** map.
+* [0.3.0] Add initial [***Current Conditions / Environment - Wildfires***](#map/current-wildfires) map.
 * [0.3.0] Uses InfoMapper software version 1.0.0.
 
 ## 0.2.0 - 0.2.3

@@ -40,7 +40,7 @@ The following are useful snowpack data resources.
 		- [Hourglass Lake (1122) SNOTEL Station (Larimer County)](https://wcc.sc.egov.usda.gov/nwcc/site?sitenum=1122) | [Graph](https://www.nrcs.usda.gov/Internet/WCIS/AWS_PLOTS/siteCharts/POR/WTEQ/CO//Hourglass%20Lake.html)
 		- [Joe Wright (551) SNOTEL Station (Larimer County)](https://wcc.sc.egov.usda.gov/nwcc/site?sitenum=551) | [Graph](https://www.nrcs.usda.gov/Internet/WCIS/AWS_PLOTS/siteCharts/POR/WTEQ/CO//Joe%20Wright.html)
 		- [Long Draw Reservoir (1123) SNOTEL Station (Larimer County)](https://wcc.sc.egov.usda.gov/nwcc/site?sitenum=1123) | [Graph](https://www.nrcs.usda.gov/Internet/WCIS/AWS_PLOTS/siteCharts/POR/WTEQ/CO//Long%20Draw%20Resv.html)
-	+ Other Nearby SNOTEL Locations:
+	+ Other nearby SNOTEL Locations:
 		- [Lake Irene (565) SNOTEL Station (Grand County)](https://wcc.sc.egov.usda.gov/nwcc/site?sitenum=565) | [Graph](https://www.nrcs.usda.gov/Internet/WCIS/AWS_PLOTS/siteCharts/POR/WTEQ/CO//Lake%20Irene.html)
 		- [Willow Park (870) SNOTEL Station (Larimer County)](https://wcc.sc.egov.usda.gov/nwcc/site?sitenum=870) | [Graph](https://www.nrcs.usda.gov/Internet/WCIS/AWS_PLOTS/siteCharts/POR/WTEQ/CO//Willow%20Park.html)
 	+ [Colorado Basin-Wide Interactive SNOTEL Graphs](https://www.nrcs.usda.gov/wps/portal/nrcs/detail/co/snow/products/?cid=nrcseprd1432263) - user-created graphs
@@ -51,7 +51,7 @@ The following are useful snowpack data resources.
 The following are useful documentation resources:
 
 * [CWCB Water Availability and Flood Task Forces](https://cwcb.colorado.gov/water-availability-flood-task-forces) - includes snowpack and other information
-* [Western Water Assessment: Snowpack Monitoring in the Rocky Mountain West (PDF)](https://wwa.colorado.edu/publications/reports/Snowpack_User_Guide_February_2021.pdf)
+* [Snowpack Monitoring in the Rocky Mountain West - A User Guide (PDF) (Western Water Assessment)](https://wwa.colorado.edu/publications/reports/Snowpack_User_Guide_February_2021.pdf)
 
 ## Avalanches ##
 
@@ -79,7 +79,7 @@ See the following resources:
 Wildfires impact snowpack accumulation and melt.  For example, less forest canopy allows sunlight to more directly shine on snowpack.
 More information will be added here in the future.  See the following resources:
 
-* ***Current Conditions / Environment - Wildfires***
+* [***Current Conditions / Environment - Wildfires***](#map/current-wildfires)
 
 ## Layer Groups
 
@@ -90,6 +90,6 @@ The following layer groups are included in this map.
 | Poudre Stream Reaches | Stream lines for named streams and rivers. |
 | Station Snowpack | Current snowpack conditions at snow stations. |
 | Basin Snowpack | Current snowpack conditions for basins. |
-| CO DWR Water Districts | Division of Water Resources water districts, to highlight the Poudre Basin (Water District 3).  See the ***Basin Entities / Administration - CO DWR Water Districts*** map for more information. |
+| CO DWR Water Districts | Division of Water Resources water districts, to highlight the Poudre Basin (Water District 3).  See the [***Basin Entities / Administration - CO DWR Water Districts***](#map/entities-codwr-waterdistricts) map for more information. |
 | Continental Divide | Continental divide, illustrating a geological boundary between basins. |
 | Background Layers | Background layers that provide a frame of reference. |
