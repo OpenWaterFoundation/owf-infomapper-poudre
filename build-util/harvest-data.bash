@@ -105,8 +105,7 @@ harvestDroughtMonitor() {
     exitStatus=$?
     logInfo "Exit status from GeoProcessor cmd is ${exitStatus}."
     if [ "${exitStatus}" -ne 0 ]; then
-      logError "Exiting."
-      exit ${exitStatus}
+      return ${exitStatus}
     fi
   done
 
@@ -120,6 +119,11 @@ harvestDroughtMonitor() {
   logInfo "  from: ${droughtMonitorFile}"
   logInfo "    to: ${s3DroughtMonitorFolder}/USDM_current_M.geojson"
   ${awsScript} s3 cp ${droughtMonitorFile} ${s3DroughtMonitorFolder}/USDM_current_M.geojson ${dryrun} --profile ${awsProfile}
+  if [ $? -eq 0 ]; then
+    return 0
+  else
+    return 1
+  fi
 }
 
 # Harvest the SNODAS layer.
@@ -144,8 +148,7 @@ harvestSnodas() {
     exitStatus=$?
     logInfo "Exit status from GeoProcessor cmd is ${exitStatus}."
     if [ "${exitStatus}" -ne 0 ]; then
-      logError "Exiting."
-      exit ${exitStatus}
+      return ${exitStatus}
     fi
   done
 
@@ -169,6 +172,11 @@ harvestSnodas() {
   logInfo "  from: ${snodasFile}"
   logInfo "    to: ${s3SnodasFolder}/SnowpackStatisticsByDate_LatestDate.geojson"
   ${awsScript} s3 cp ${snodasFile} ${s3SnodasFolder}/SnowpackStatisticsByDate_LatestDate.geojson ${dryrun} --profile ${awsProfile}
+  if [ $? -eq 0 ]; then
+    return 0
+  else
+    return 1
+  fi
 }
 
 # Print a DEBUG message, currently prints to stderr.
@@ -297,6 +305,9 @@ programName=$(basename $0)
 programVersion="1.0.0"
 programVersionDate="2021-04-25"
 
+# Count of errors for the script.
+errorCountTotal=0
+
 # The script is in the Poudre Information Website folder.
 scriptFolder=$(cd $(dirname "$0") && pwd)
 repoFolder=$(dirname ${scriptFolder})
@@ -344,9 +355,11 @@ fi
 
 # Harvest the SNODAS GeoJSON
 harvestSnodas
+errorCountTotal=$((${errorCountTotal} + $?))
 
 # Harvest the US Drought Monitor
 harvestDroughtMonitor
+errorCountTotal=$((${errorCountTotal} + $?))
 
 # TODO smalers 2021-04-24 old code that can be removed if other harvest code works.
 #echo "Copy the snodas.geojson file to: ${srcCurrentConditionsFolder}/Environment-Wildfires/layers/snodas.geojson"
@@ -363,4 +376,9 @@ harvestDroughtMonitor
 # echo "Sync files to AWS S3"
 #./copy-to-owf-amazon-s3.sh --nobuild --aws-profile=${awsProfile} ${dryrun}
 
-exit 0
+if [ ${errorCountTotal} -eq 0 ]; then
+  logInfo "Exiting with status 0."
+else
+  logInfo "Exiting with status ${errorCountTotal} (error)."
+fi
+exit ${errorCountTotal}
