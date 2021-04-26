@@ -1,7 +1,7 @@
 # Map: Current Drought
 
 * Overview
-* Data Resources
+* Drought Resources
 * Climate Change
 * Layer Groups
 
@@ -11,8 +11,10 @@
 
 The Current Drought map provides information about current drought conditions in the Poudre Basin.
 
-## Data Resources ##
+## Drought Resources ##
 
+* [Colorado Climate Center / Drought Information and Resources](https://climate.colostate.edu/drought_info.html)
+* [Colorado Water Conservation Board / Drought](https://cwcb.colorado.gov/drought)
 * [US Drought Monitor for Colorado](https://droughtmonitor.unl.edu/CurrentMap/StateDroughtMonitor.aspx?CO)
 
 ## Climate Change ##

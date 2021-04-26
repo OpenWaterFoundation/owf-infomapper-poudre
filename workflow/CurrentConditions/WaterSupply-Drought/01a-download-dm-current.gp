@@ -7,8 +7,10 @@ WebGet(URL="https://droughtmonitor.unl.edu/data/shapefiles_m/USDM_current_M.zip"
 # Process the shapefile.
 # Unzip the shapefile.
 UnzipFile(File="downloads/USDM_current_M.zip",OutputFolder="downloads/USDM_current",IfFolderDoesNotExist="Create")
+# List the files in order to get the latest filename
+ListFiles(Folder="downloads/USDM_current",IncludePatterns="*.shp",ListCount="-1",ListProperty1="USDM_current_shp")
 # Read the file from 'downloads/' and then write to 'layers/' to make sure the latest GeoJSON spec is used.
-ReadGeoLayerFromShapefile(InputFile="downloads/USDM_current/USDM_20210420.shp",GeoLayerID="USDM_current",Name="US Drought Monitor",Description="US Drought Monitor")
+ReadGeoLayerFromShapefile(InputFile="downloads/USDM_current/${USDM_current_shp}",GeoLayerID="USDM_current",Name="US Drought Monitor",Description="US Drought Monitor")
 # Write the file as GeoJSON
 WriteGeoLayerToGeoJSON(GeoLayerID="USDM_current",OutputFile="layers/USDM_current_M.geojson")
 # The resulting file will be uploaded to data.openwaterfoundation.org by build-util/harvest-data.bash
