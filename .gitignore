@@ -381,6 +381,18 @@ junk
 # Future Planning menu
 # ======================================================
 
+# FuturePlanning/Municipal-MajorProjects
+/workflow/FuturePlanning/Municipal-MajorProjects/downloads/*
+!/workflow/FuturePlanning/Municipal-MajorProjects/downloads/README.md
+/workflow/FuturePlanning/Municipal-MajorProjects/layers/*
+!/workflow/FuturePlanning/Municipal-MajorProjects/layers/README.md
+!/workflow/FuturePlanning/Municipal-MajorProjects/layers/*.csv
+!/workflow/FuturePlanning/Municipal-MajorProjects/layers/*.json
+!/workflow/FuturePlanning/Municipal-MajorProjects/layers/*.md
+!/workflow/FuturePlanning/Municipal-MajorProjects/layers/*doc
+# Dynamic map configurations
+#/workflow/FuturePlanning/Municipal-MajorProjects/*.json
+
 # ======================================================
 # Resources menu
 # ======================================================

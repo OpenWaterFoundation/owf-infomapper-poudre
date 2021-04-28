@@ -9,15 +9,7 @@
 
 # Supporting functions, alphabetized.
 
-checkHistoricalSimulationFolder() {
-  # Make sure that the receiving folder exists
-  folder=${appFolder}/data-maps/HistoricalSimulation
-  if [ ! -d "${folder}" ]; then
-    echo "Creating folder ${folder}"
-    mkdir -p ${folder}
-  fi
-}
-
+# The variable ${folder} is set to the receiving folder used in calling code.
 checkBasinEntitiesFolder() {
   # Make sure that the receiving folder exists
   folder=${appFolder}/data-maps/BasinEntities
@@ -27,6 +19,7 @@ checkBasinEntitiesFolder() {
   fi
 }
 
+# The variable ${folder} is set to the receiving folder used in calling code.
 checkCurrentConditionsFolder() {
   # Make sure that the receiving folder exists
   folder=${appFolder}/data-maps/CurrentConditions
@@ -36,6 +29,17 @@ checkCurrentConditionsFolder() {
   fi
 }
 
+# The variable ${folder} is set to the receiving folder used in calling code.
+checkFuturePlanningFolder() {
+  # Make sure that the receiving folder exists
+  folder=${appFolder}/data-maps/FuturePlanning
+  if [ ! -d "${folder}" ]; then
+    echo "Creating folder ${folder}"
+    mkdir -p ${folder}
+  fi
+}
+
+# The variable ${folder} is set to the receiving folder used in calling code.
 checkHistoricalDataFolder() {
   # Make sure that the receiving folder exists
   folder=${appFolder}/data-maps/HistoricalData
@@ -45,6 +49,7 @@ checkHistoricalDataFolder() {
   fi
 }
 
+# The variable ${folder} is set to the receiving folder used in calling code.
 checkSupportingDataFolder() {
   # Make sure that the receiving folder exists
   folder=${appFolder}/data-maps/SupportingData
@@ -54,195 +59,177 @@ checkSupportingDataFolder() {
   fi
 }
 
+# Copy roundtables map folder and files.
 copy_BasinEntities_Administration_Roundtables() {
   checkBasinEntitiesFolder
-
-  # Copy roundtables map folder and files
   cp -rv ${scriptFolder}/data-maps/BasinEntities/Administration-Roundtables ${folder}
 }
 
+# Copy CO water districts folder and files.
 copy_BasinEntities_Administration_WaterDistricts() {
   checkBasinEntitiesFolder
-
-  # Copy CO water districts folder and files
   cp -rv ${scriptFolder}/data-maps/BasinEntities/Administration-CoDwrWaterDistricts ${folder}
 }
 
+# Copy dairies map folder and files.
 copy_BasinEntities_Agriculture_FoodAndDairies() {
   checkBasinEntitiesFolder
-
-  # Copy dairies map folder and files
   cp -rv ${scriptFolder}/data-maps/BasinEntities/Agriculture-FoodAndDairies ${folder}
 }
 
+# Copy ditches map folder and files.
 copy_BasinEntities_Agriculture_Ditches() {
   checkBasinEntitiesFolder
-
-  # Copy ditches map folder and files
   cp -rv ${scriptFolder}/data-maps/BasinEntities/Agriculture-Ditches ${folder}
 }
 
+# Copy education organizations map folder and files.
 copy_BasinEntities_Education_Organizations() {
   checkBasinEntitiesFolder
-
-  # Copy education organizations map folder and files
   cp -rv ${scriptFolder}/data-maps/BasinEntities/Education-Organizations ${folder}
 }
 
+# Copy instream flow reaches map folder and files.
 copy_BasinEntities_Environment_InstreamFlowReaches() {
   checkBasinEntitiesFolder
-
-  # Copy instream flow reaches map folder and files
   cp -rv ${scriptFolder}/data-maps/BasinEntities/Environment-InstreamFlowReaches ${folder}
 }
 
+# Copy environment organizations map folder and files.
 copy_BasinEntities_Environment_Organizations() {
   checkBasinEntitiesFolder
-
-  # Copy environment organizations map folder and files
   cp -rv ${scriptFolder}/data-maps/BasinEntities/Environment-Organizations ${folder}
 }
 
+# Copy breweries map folder and files.
 copy_BasinEntities_Industry_Breweries() {
   checkBasinEntitiesFolder
-
-  # Copy breweries map folder and files
   cp -rv ${scriptFolder}/data-maps/BasinEntities/Industry-Breweries ${folder}
 }
 
+# Copy breweries map folder and files.
 copy_BasinEntities_Municipal_Municipalities() {
   checkBasinEntitiesFolder
-
-  # Copy breweries map folder and files
   cp -rv ${scriptFolder}/data-maps/BasinEntities/Municipal-Municipalities ${folder}
 }
 
+# Copy counties map folder and files.
 copy_BasinEntities_Political_Counties() {
   checkBasinEntitiesFolder
-
-  # Copy counties map folder and files
   cp -rv ${scriptFolder}/data-maps/BasinEntities/Political-Counties ${folder}
 }
 
+# Copy counties map folder and files.
 copy_BasinEntities_Political_LegislativeDistricts() {
   checkBasinEntitiesFolder
-
-  # Copy counties map folder and files
   cp -rv ${scriptFolder}/data-maps/BasinEntities/Political-LegislativeDistricts ${folder}
 }
 
+# Copy basins map folder and files.
 copy_BasinEntities_Physical_Basins() {
   checkBasinEntitiesFolder
-
-  # Copy basins map folder and files
   cp -rv ${scriptFolder}/data-maps/BasinEntities/Physical-Basins ${folder}
 }
 
+# Copy stream reaches map folder and files.
 copy_BasinEntities_Physical_StreamReaches() {
   checkBasinEntitiesFolder
-
-  # Copy stream reaches map folder and files
   cp -rv ${scriptFolder}/data-maps/BasinEntities/Physical-StreamReaches ${folder}
 }
 
+# Copy boating organizations map folder and files.
 copy_BasinEntities_Recreation_BoatingOrganizations() {
   checkBasinEntitiesFolder
-
-  # Copy boating organizations map folder and files
   cp -rv ${scriptFolder}/data-maps/BasinEntities/Recreation-BoatingOrganizations ${folder}
 }
 
+# Copy trails map folder and files.
 copy_BasinEntities_Recreation_Trails() {
   checkBasinEntitiesFolder
-
-  # Copy trails map folder and files
   cp -rv ${scriptFolder}/data-maps/BasinEntities/Recreation-Trails ${folder}
 }
 
+# Copy water quality monitoring map folder and files.
 copy_BasinEntities_WaterQuality_Monitoring() {
   checkBasinEntitiesFolder
-
-  # Copy water quality monitoring map folder and files
   cp -rv ${scriptFolder}/data-maps/BasinEntities/WaterQuality-Monitoring ${folder}
 }
 
+# Copy water supply map folder and files.
 copy_BasinEntities_WaterSupply_WaterProviders() {
   checkBasinEntitiesFolder
-
-  # Copy water supply map folder and files
   cp -rv ${scriptFolder}/data-maps/BasinEntities/WaterSupply-WaterProviders ${folder}
 }
 
+# Copy water supply map folder and files.
 copy_BasinEntities_Z_Test1() {
   checkBasinEntitiesFolder
-
-  # Copy water supply map folder and files
   cp -rv ${scriptFolder}/data-maps/BasinEntities/Z-Test1 ${folder}
 }
 
+# Copy current conditions wildfires folder and files.
 copy_CurrentConditions_Environment_Wildfires() {
   checkCurrentConditionsFolder
-
-  # Copy current conditions wildfires folder and files
   cp -rv ${scriptFolder}/data-maps/CurrentConditions/Environment-Wildfires ${folder}
 }
 
+# Copy current conditions drought monitor folder and files.
 copy_CurrentConditions_WaterSupply_Drought() {
   checkCurrentConditionsFolder
-
-  # Copy current conditions drought monitor folder and files
   cp -rv ${scriptFolder}/data-maps/CurrentConditions/WaterSupply-Drought ${folder}
 }
 
+# Copy current conditions snowpack folder and files.
 copy_CurrentConditions_WaterSupply_Snowpack() {
   checkCurrentConditionsFolder
-
-  # Copy current conditions snowpack folder and files
   cp -rv ${scriptFolder}/data-maps/CurrentConditions/WaterSupply-Snowpack ${folder}
 }
 
+# Copy current conditions streamflow folder and files.
 copy_CurrentConditions_WaterSupply_Streamflow() {
   checkCurrentConditionsFolder
-
-  # Copy current conditions streamflow folder and files
   cp -rv ${scriptFolder}/data-maps/CurrentConditions/WaterSupply-Streamflow ${folder}
 }
 
+# Copy future planning municipal major projects folder  and files.
+copy_FuturePlanning_Municipal_MajorProjects() {
+  checkFuturePlanningFolder
+  cp -rv ${scriptFolder}/data-maps/FuturePlanning/Municipal-MajorProjects ${folder}
+}
+
+# Copy irrigated lands map folder and files.
 copy_HistoricalData_Agriculture_IrrigatedLands() {
   checkHistoricalDataFolder
-
-  # Copy irrigated lands map folder and files
   cp -rv ${scriptFolder}/data-maps/HistoricalData/Agriculture-IrrigatedLands ${folder}
 }
 
+# Copy main configuration folder files.
 copyMainConfig() {
-  # Make sure that folders exist
+  # Make sure that folders exist.
   if [ ! -d "${appFolder}" ]; then
     echo "Creating folder ${appFolder}"
     mkdir -p ${appFolder}
   fi
 
-  # Main application configuration file
+  # Main application configuration file.
   cp -v ${scriptFolder}/app-config.json ${appFolder}
-  # Content pages
+  # Content pages.
   cp -rv ${scriptFolder}/content-pages ${appFolder}
-  # Images
+  # Images.
   cp -rv ${scriptFolder}/img ${appFolder}
-  # System
+  # System.
   cp -rv ${scriptFolder}/system ${appFolder}
 }
 
+# Copy continental divide folder and files.
 copy_SupportingData_Physical_ContinentalDivide() {
   checkSupportingDataFolder
-
-  # Copy continental divide folder and files
   cp -rv ${scriptFolder}/data-maps/SupportingData/Physical-ContinentalDivide ${folder}
 }
 
+# Copy continental divide folder and files.
 copy_SupportingData_Political_ColoradoStateBoundary() {
   checkSupportingDataFolder
-
-  # Copy continental divide folder and files
   cp -rv ${scriptFolder}/data-maps/SupportingData/Political-ColoradoStateBoundary ${folder}
 }
 
@@ -270,7 +257,7 @@ runInteractive() {
     echo "                         ebrew.   Copy Industry - Breweries files."
     echo "                         emuni.   Copy Municipal - Municipalities files."
     echo "                         eboat.   Copy Recreation - BoatingOrganizations files."
-    echo "                         etrails. Copy Recreation - Trails files."
+    echo "                         etrail.  Copy Recreation - Trails files."
     echo "                         ewq.     Copy WaterQuality - Monitoring files."
     echo "                         ewp.     Copy WaterSupply - WaterProviders files."
     echo "                         etest1.  Copy Z - Test1 files."
@@ -282,15 +269,17 @@ runInteractive() {
     echo "                         cwsp.    Copy WaterSupply - Snowpack files."
     echo "                         cws.     Copy WaterSupply - Streamflow files."
     echo ""
+    echo "Future Planning:         fmp.     Copy Municipal - Major Projects."
+    echo ""
     echo "                         a.       Run all copy commands from above."
     echo "                         q.       Quit"
     echo ""
     read -p "Enter command: " answer
 
-    # Organize the following by menu item
+    # Organize the following by menu item.
 
     if [ "${answer}" = "a" ]; then
-      # Supporting Data 
+      # Supporting Data
       copy_SupportingData_Political_ColoradoStateBoundary
       copy_SupportingData_Physical_ContinentalDivide
       # Basin Entities
@@ -318,6 +307,8 @@ runInteractive() {
       copy_CurrentConditions_WaterSupply_Drought
       copy_CurrentConditions_WaterSupply_Snowpack
       copy_CurrentConditions_WaterSupply_Streamflow
+      # Future Planning
+      copy_FuturePlanning_Municipal_MajorProjects
     elif [ "${answer}" = "c" ]; then
       copyMainConfig
     elif [ "${answer}" = "q" ]; then
@@ -360,7 +351,7 @@ runInteractive() {
       copy_BasinEntities_Municipal_Municipalities
     elif [ "${answer}" = "eboat" ]; then
       copy_BasinEntities_Recreation_BoatingOrganizations
-    elif [ "${answer}" = "etrails" ]; then
+    elif [ "${answer}" = "etrail" ]; then
       copy_BasinEntities_Recreation_Trails
     elif [ "${answer}" = "ewq" ]; then
       copy_BasinEntities_WaterQuality_Monitoring
@@ -385,6 +376,13 @@ runInteractive() {
     elif [ "${answer}" = "cws" ]; then
       copy_CurrentConditions_WaterSupply_Streamflow
 
+    # Future planning
+
+    elif [ "${answer}" = "fmp" ]; then
+      copy_FuturePlanning_Municipal_MajorProjects
+
+    else
+      echo "[WARNING] Don't know how to handle menu: ${answer}"
     fi
   done
   return 0

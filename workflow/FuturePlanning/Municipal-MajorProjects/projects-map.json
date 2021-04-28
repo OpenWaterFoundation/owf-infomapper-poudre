@@ -1,7 +1,7 @@
 {
-  "geoMapProjectId": "EnvironmentOrgProject",
-  "name": "Environmental Organizations",
-  "description": "Poudre Environmental Organizations",
+  "geoMapProjectId": "MunicipalProjectsProject",
+  "name": "Major Projects",
+  "description": "Major Projects",
   "projectType": "SingleMap",
   "properties": {
     "author": "Open Water Foundation",
@@ -10,14 +10,14 @@
   },
   "geoMaps": [
     {
-      "geoMapId": "EnvironmentOrgMap",
-      "name": "Environmental Organizations",
-      "description": "Poudre Environmental Organizations",
+      "geoMapId": "MunicipalitiesMap",
+      "name": "Major Projects",
+      "description": "Major Projects",
       "dataPath": ".",
       "crs": "EPSG:4326",
       "properties": {
         "extentInitial": "ZoomLevel:-105.5,40.7,10",
-        "docPath": "environment-orgs-map.md"
+        "docPath": "projects-map.md"
       },
       "geoLayers": [
         {
@@ -276,6 +276,20 @@
           "history:": []
         },
         {
+          "geoLayerId": "StateBoundaryLayer",
+          "name": "Colorado State Boundary",
+          "description": "Colorado state boundary from CDPHE.",
+          "crs": "EPSG:4326",
+          "geometryType": "WKT:Polygon",
+          "layerType": "Vector",
+          "sourceFormat": "GeoJSON",
+          "sourcePath": "https://opendata.arcgis.com/datasets/4402a8e032ed49eb8b37fd729e4e8f03_9.geojson",
+          "properties": {},
+          "history:": [
+            "Read GeoLayer from GeoJSON file:  'https://opendata.arcgis.com/datasets/4402a8e032ed49eb8b37fd729e4e8f03_9.geojson'"
+          ]
+        },
+        {
           "geoLayerId": "WaterDistrictLayer",
           "name": "CO DWR Water District 3",
           "description": "Water District 3 boundary from the Colorado Division of Water Resources.",
@@ -286,48 +300,62 @@
           "sourcePath": "layers/co-dwr-water-district-3.geojson",
           "properties": {},
           "history:": [
-            "Read GeoLayer from GeoJSON file:  'C:\\Users\\sam\\owf-dev\\InfoMapper-Poudre\\git-repos\\owf-infomapper-poudre\\workflow\\BasinEntities\\Environment-Organizations\\layers\\co-dwr-water-district-3.geojson'"
+            "Read GeoLayer from GeoJSON file:  'C:\\Users\\sam\\owf-dev\\InfoMapper-Poudre\\git-repos\\owf-infomapper-poudre\\workflow\\FuturePlanning\\Municipal-MajorProjects\\layers\\co-dwr-water-district-3.geojson'"
           ]
         },
         {
-          "geoLayerId": "EnvironmentLayer",
-          "name": "Environmental Organizations",
-          "description": "Poudre environmental organizations",
+          "geoLayerId": "StreamReachesLayer",
+          "name": "Poudre Stream Reaches",
+          "description": "Poudre stream reaches",
+          "crs": "EPSG:4326",
+          "geometryType": "WKT:LineString",
+          "layerType": "Vector",
+          "sourceFormat": "GeoJSON",
+          "sourcePath": "layers/stream-reaches.geojson",
+          "properties": {},
+          "history:": [
+            "Read GeoLayer from GeoJSON file:  'C:\\Users\\sam\\owf-dev\\InfoMapper-Poudre\\git-repos\\owf-infomapper-poudre\\workflow\\FuturePlanning\\Municipal-MajorProjects\\layers\\stream-reaches.geojson'"
+          ]
+        },
+        {
+          "geoLayerId": "ProjectsLayer",
+          "name": "Major Water Projects",
+          "description": "Major projects",
           "crs": "EPSG:4326",
           "geometryType": "WKT:Point",
           "layerType": "Vector",
           "sourceFormat": "GeoJSON",
-          "sourcePath": "layers/environment-orgs.geojson",
+          "sourcePath": "layers/projects.geojson",
           "properties": {},
           "history:": [
-            "Read GeoLayer from GeoJSON file:  'C:\\Users\\sam\\owf-dev\\InfoMapper-Poudre\\git-repos\\owf-infomapper-poudre\\workflow\\BasinEntities\\Environment-Organizations\\layers\\environment-orgs.geojson'"
+            "Read GeoLayer from GeoJSON file:  'C:\\Users\\sam\\owf-dev\\InfoMapper-Poudre\\git-repos\\owf-infomapper-poudre\\workflow\\FuturePlanning\\Municipal-MajorProjects\\layers\\projects.geojson'"
           ]
         }
       ],
       "geoLayerViewGroups": [
         {
-          "geoLayerViewGroupId": "EnvironmentGroup",
-          "name": "Poudre Environmental Organizations",
-          "description": "Poudre environmental organizations",
+          "geoLayerViewGroupId": "ProjectsGroup",
+          "name": "Major Water Projects",
+          "description": "Major water projects",
           "properties": {
             "selectedInitial": "true"
           },
           "geoLayerViews": [
             {
-              "geoLayerViewId": "EnvironmentLayerView",
-              "name": "Poudre Environmental Organizations",
-              "description": "Poudre environmental organizations",
-              "geoLayerId": "EnvironmentLayer",
+              "geoLayerViewId": "ProjectsLayerView",
+              "name": "Major Water Projects",
+              "description": "Major water projects",
+              "geoLayerId": "ProjectsLayer",
               "properties": {
-                "docPath": "layers/environment-orgs.md"
+                "docPath": "layers/projects.md"
               },
               "geoLayerSymbol": {
-                "name": "Poudre Environmental Organizations",
-                "description": "Poudre environmental organizations",
+                "name": "Major Water Projects",
+                "description": "Major water projects",
                 "classificationType": "SingleSymbol",
                 "classificationAttribute": "",
                 "properties": {
-                  "symbolImage": "/img/wetlands-32x37.png",
+                  "symbolImage": "/img/mastcrane1-32x37.png",
                   "imageAnchorPoint": "Bottom"
                 }
               },
@@ -338,7 +366,7 @@
                   "description": "Hover event configuration",
                   "hasVisualization": false,
                   "properties": {
-                    "eventConfigPath": "layers/environment-orgs-event-config.json"
+                    "eventConfigPath": "layers/projects-event-config.json"
                   }
                 },
                 {
@@ -347,7 +375,57 @@
                   "description": "Click event configuration",
                   "hasVisualization": false,
                   "properties": {
-                    "eventConfigPath": "layers/environment-orgs-event-config.json"
+                    "eventConfigPath": "layers/projects-event-config.json"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "geoLayerViewGroupId": "StreamReachesGroup",
+          "name": "Poudre Stream Reaches",
+          "description": "Poudre stream reaches",
+          "properties": {
+            "selectedInitial": "true"
+          },
+          "geoLayerViews": [
+            {
+              "geoLayerViewId": "StreamReachesLayerView",
+              "name": "Poudre Stream Reaches",
+              "description": "Poudre stream reaches, from the Colorado Division of Water Resources",
+              "geoLayerId": "StreamReachesLayer",
+              "properties": {
+                "docPath": "layers/stream-reaches.md",
+                "highlightEnabled": "true"
+              },
+              "geoLayerSymbol": {
+                "name": "Poudre Stream Reaches",
+                "description": "Poudre stream reaches",
+                "classificationType": "SingleSymbol",
+                "classificationAttribute": "",
+                "properties": {
+                  "color": "#6297f7",
+                  "width": "2"
+                }
+              },
+              "eventHandlers": [
+                {
+                  "eventType": "hover",
+                  "name": "Hover event",
+                  "description": "Hover event configuration",
+                  "hasVisualization": false,
+                  "properties": {
+                    "eventConfigPath": "layers/stream-reaches-event-config.json"
+                  }
+                },
+                {
+                  "eventType": "click",
+                  "name": "Click event",
+                  "description": "Click event configuration",
+                  "hasVisualization": false,
+                  "properties": {
+                    "eventConfigPath": "layers/stream-reaches-event-config.json"
                   }
                 }
               ]
@@ -399,6 +477,38 @@
                   }
                 }
               ]
+            }
+          ]
+        },
+        {
+          "geoLayerViewGroupId": "StateBoundaryGroup",
+          "name": "Colorado State Boundary",
+          "description": "Colorado state boundary from CDPHE.",
+          "properties": {
+            "selectedInitial": "true"
+          },
+          "geoLayerViews": [
+            {
+              "geoLayerViewId": "StateBoundaryLayerView",
+              "name": "Colorado State Boundary",
+              "description": "Colorado state boundary from CDPHE",
+              "geoLayerId": "StateBoundaryLayer",
+              "properties": {
+                "docPath": "layers/co-state-boundary.md"
+              },
+              "geoLayerSymbol": {
+                "name": "State boundary symbol",
+                "description": "State boundary in black.",
+                "classificationType": "SingleSymbol",
+                "classificationAttribute": "",
+                "properties": {
+                  "color": "#000000",
+                  "fillColor": "#000000",
+                  "fillOpacity": "0.0",
+                  "weight": "2"
+                }
+              },
+              "eventHandlers": []
             }
           ]
         },
@@ -562,7 +672,7 @@
               "description": "Streets background map from Google.",
               "geoLayerId": "GoogleStreets",
               "properties": {
-                "selectedInitial": "true"
+                "selectedInitial": "false"
               },
               "geoLayerSymbol": null,
               "eventHandlers": []
@@ -595,7 +705,7 @@
               "description": "USGS Topo background map from USGS.",
               "geoLayerId": "USGSTopo",
               "properties": {
-                "selectedInitial": "false",
+                "selectedInitial": "true",
                 "separatorBefore": "true"
               },
               "geoLayerSymbol": null,

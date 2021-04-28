@@ -1,21 +1,22 @@
-# Create a GeoMapProject file for trails for the Poudre Basin
+# Create a GeoMapProject file for municipal major projects
 # - read the previously downloaded layer file
 # - output to the web folder for use by the InfoMapper
 # - layer view groups are added from 1st drawn (bottom) to last drawn (top)
+# - time series files are processed and copied by a previous step (graph configuration files are handled here)
 #
 # Define properties to control processing.
 # - use relative paths so that the command file is portable
 # - AssetsFolder is where map files exist for the InfoMapper tool
 SetProperty(PropertyName="AppFolder",PropertyType="str",PropertyValue="../../../web")
 SetProperty(PropertyName="MapsFolder",PropertyType="str",PropertyValue="${AppFolder}/data-maps")
-SetProperty(PropertyName="MapFolder",PropertyType="str",PropertyValue="${MapsFolder}/BasinEntities/Recreation-Trails")
+SetProperty(PropertyName="MapFolder",PropertyType="str",PropertyValue="${MapsFolder}/FuturePlanning/Municipal-MajorProjects")
 #
 # Create a single map project and map for that project.
-# - GeoMapProjectID:  TrailsProject
-# - GeoMapID:  TrailsMap
-CreateGeoMapProject(NewGeoMapProjectID="TrailsProject",ProjectType="SingleMap",Name="Poudre Trails",Description="Poudre Trails",Properties="author:'Open Water Foundation',specificationFlavor:'',specificationVersion:'1.0.0'")
-CreateGeoMap(NewGeoMapID="TrailsMap",Name="Poudre Trails",Description="Poudre Trails",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.5,40.7,10',docPath:trails-map.md")
-AddGeoMapToGeoMapProject(GeoMapProjectID="TrailsProject",GeoMapID="TrailsMap")
+# - GeoMapProjectID:  MunicipalProjectsProject
+# - GeoMapID:  MunicipalitiesMap
+CreateGeoMapProject(NewGeoMapProjectID="MunicipalProjectsProject",ProjectType="SingleMap",Name="Major Projects",Description="Major Projects",Properties="author:'Open Water Foundation',specificationFlavor:'',specificationVersion:'1.0.0'")
+CreateGeoMap(NewGeoMapID="MunicipalitiesMap",Name="Major Projects",Description="Major Projects",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.5,40.7,10',docPath:'projects-map.md'")
+AddGeoMapToGeoMapProject(GeoMapProjectID="MunicipalProjectsProject",GeoMapID="MunicipalitiesMap")
 # = = = = = = = = = =
 # Background layers:  read layers and add a layer view group
 # GeoLayerViewGroupID: BackgroundGroup
@@ -35,7 +36,7 @@ AddGeoLayerViewToGeoMap(GeoLayerID="MapBoxTopographicLayer",GeoLayerViewID="MapB
 #
 # Esri background layers
 ReadRasterGeoLayerFromTileMapService(InputUrl="https://services.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}",GeoLayerID="EsriDarkGray",Name="Dark Gray (Esri)",Description="Dark Gray background map from Esri.",Properties="attribution: 'Esri',isBackground: true")
-AddGeoLayerViewToGeoMap(GeoLayerID="EsriDarkGray",GeoLayerViewID="EsriDarkGrayView",Name="Dark Gray (Esri)",Description="Dark Gray background map from Esri.",Properties="selectedInitial: false",separatorBefore:true)
+AddGeoLayerViewToGeoMap(GeoLayerID="EsriDarkGray",GeoLayerViewID="EsriDarkGrayView",Name="Dark Gray (Esri)",Description="Dark Gray background map from Esri.",Properties="selectedInitial: false,separatorBefore:true")
 ReadRasterGeoLayerFromTileMapService(InputUrl="https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",GeoLayerID="EsriImagery",Name="Imagery (Esri)",Description="Imagery background map from Esri.",Properties="attribution: 'Esri',isBackground: true")
 AddGeoLayerViewToGeoMap(GeoLayerID="EsriImagery",GeoLayerViewID="EsriImageryView",Name="Imagery (Esri)",Description="Imagery background map from Esri.",Properties="selectedInitial: false")
 ReadRasterGeoLayerFromTileMapService(InputUrl="https://services.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}",GeoLayerID="EsriLightGray",Name="Light Gray (Esri)",Description="Light Gray background map from Esri.",Properties="attribution: 'Esri',isBackground: true")
@@ -64,17 +65,49 @@ AddGeoLayerViewToGeoMap(GeoLayerID="GoogleTerrain",GeoLayerViewID="GoogleTerrain
 ReadRasterGeoLayerFromTileMapService(InputUrl="https://basemap.nationalmap.gov/ArcGIS/rest/services/USGSTopo/MapServer/tile/{z}/{y}/{x}",GeoLayerID="USGSTopo",Name="USGS Topo (USGS)",Description="Topo background map from USGS.",Properties="attribution: 'USGS',isBackground: true")
 AddGeoLayerViewToGeoMap(GeoLayerID="USGSTopo",GeoLayerViewID="USGSTopoView",Name="USGS Topo (USGS)",Description="USGS Topo background map from USGS.",Properties="selectedInitial: true,separatorBefore:true")
 # = = = = = = = = = =
+# Colorado state boundary:  read layer and add to layer view group.
+# StateBoundaryGroupID: StateBoundaryGroup
+AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="StateBoundaryGroup",Name="Colorado State Boundary",Description="Colorado state boundary from CDPHE.",Properties="selectedInitial: true",InsertPosition="Top")
+#
+ReadGeoLayerFromGeoJSON(InputFile="https://opendata.arcgis.com/datasets/4402a8e032ed49eb8b37fd729e4e8f03_9.geojson",GeoLayerID="StateBoundaryLayer",Name="Colorado State Boundary",Description="Colorado state boundary from CDPHE.")
+AddGeoLayerViewToGeoMap(GeoLayerID="StateBoundaryLayer",GeoLayerViewID="StateBoundaryLayerView",Name="Colorado State Boundary",Description="Colorado state boundary from CDPHE",InsertPosition="Top",Properties="docPath:layers/co-state-boundary.md")
+SetGeoLayerViewSingleSymbol(GeoLayerViewID="StateBoundaryLayerView",Name="State boundary symbol",Description="State boundary in black.",Properties="color:#000000,fillColor:#000000,fillOpacity:0.0,weight:2")
+# = = = = = = = = = =
 # Water district 3:  read layer and add to layer view group.
 # GeoLayerViewGroupID: WaterDistrictsGroup
 AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="WaterDistrictsGroup",Name="CO DWR Water Districts",Description="Water District boundaries, from the Colorado Division of Water Resources.",Properties="selectedInitial: true",InsertPosition="Top")
 #
-CopyFile(SourceFile="../Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3.geojson",DestinationFile="layers/co-dwr-water-district-3.geojson")
-CopyFile(SourceFile="../Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3-classify-district.csv",DestinationFile="layers/co-dwr-water-district-3-classify-district.csv")
+CopyFile(SourceFile="../../BasinEntities/Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3.geojson",DestinationFile="layers/co-dwr-water-district-3.geojson")
+CopyFile(SourceFile="../../BasinEntities/Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3-classify-district.csv",DestinationFile="layers/co-dwr-water-district-3-classify-district.csv")
+CopyFile(SourceFile="../../BasinEntities/Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3-event-config.json",DestinationFile="layers/co-dwr-water-district-3-event-config.json")
 ReadGeoLayerFromGeoJSON(InputFile="layers/co-dwr-water-district-3.geojson",GeoLayerID="WaterDistrictLayer",Name="CO DWR Water District 3",Description="Water District 3 boundary, from the Colorado Division of Water Resources.")
 AddGeoLayerViewToGeoMap(GeoLayerID="WaterDistrictLayer",GeoLayerViewID="WaterDistrictLayerView",Name="CO DWR Water District 3",Description="Water District 3 boundary, from the Colorado Division of Water Resources",InsertPosition="Top",Properties="docPath:layers/co-dwr-water-district-3.md")
 SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="WaterDistrictLayerView",Name="Colorize district",Description="Show Water District 3 in black.",ClassificationAttribute="DISTRICT",Properties="classificationFile:layers/co-dwr-water-district-3-classify-district.csv")
 SetGeoLayerViewEventHandler(GeoLayerViewID="WaterDistrictLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/co-dwr-water-district-3-event-config.json")
 SetGeoLayerViewEventHandler(GeoLayerViewID="WaterDistrictLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/co-dwr-water-district-3-event-config.json")
+# = = = = = = = = = =
+# Municipal boundaries:  read layer and add to a layer view group.
+# - from Adam Jokerst of Greeley
+# GeoLayerViewGroupID: MunicipalBoundariesGroup
+#AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="TerryRanchGroup",Name="Terry Ranch (Greeley)",Description="Terry Ranch Aquifer Storage and Recovery for Greeley",InsertPosition="Top")
+#
+#ReadGeoLayerFromGeoJSON(InputFile="layers/municipal-boundaries.geojson",GeoLayerID="MunicipalBoundariesLayer",Name="Colorado Municipal Boundaries",Description="Colorado Municipal Boundaries")
+#AddGeoLayerViewToGeoMap(GeoLayerID="MunicipalBoundariesLayer",GeoLayerViewID="MunicipalBoundariesLayerView",Name="Colorado Municipal Boundaries",Description="Colorado Municipal Boundaries",Properties="docPath:'layers/municipal-boundaries.md'")
+# For now use single symbol
+# - grey
+#SetGeoLayerViewSingleSymbol(GeoLayerViewID="MunicipalBoundariesLayerView",Name="Colorado Municipal Boundaries",Description="Colorado Municipal Boundaries",Properties="color:#595959,opacity:1.0,fillColor:#595959,fillOpacity:0.3,weight:2")
+#SetGeoLayerViewEventHandler(GeoLayerViewID="MunicipalBoundariesLayerView",EventType="click",Properties="eventConfigPath:layers/municipal-boundaries-event-config.json")
+#SetGeoLayerViewEventHandler(GeoLayerViewID="MunicipalBoundariesLayerView",EventType="hover",Properties="eventConfigPath:layers/municipal-boundaries-event-config.json")
+# = = = = = = = = = =
+# Municipalities:  read layer and add to a layer view group.
+# GeoLayerViewGroupID: TerryRanchGroup
+#ReadGeoLayerFromGeoJSON(InputFile="layers/municipalities.geojson",GeoLayerID="MunicipalitiesLayer",Name="Major Projects",Description="Major Projects")
+#AddGeoLayerViewToGeoMap(GeoLayerID="MunicipalitiesLayer",GeoLayerViewID="MunicipalitiesLayerView",Name="Major Projects",Description="Major Projects",InsertPosition="Top",Properties="docPath:'layers/municipalities.md'")
+# For now use single symbol
+# - TODO smalers 2020-05-22 need to enable a graduated symbol based on flow value
+#SetGeoLayerViewSingleSymbol(GeoLayerViewID="MunicipalitiesLayerView",Name="Major Projects",Description="Major Projects",Properties="symbolImage:/img/group-2-32x37.png,imageAnchorPoint:Bottom")
+#SetGeoLayerViewEventHandler(GeoLayerViewID="MunicipalitiesLayerView",EventType="click",Properties="eventConfigPath:layers/municipalities-event-config.json")
+#SetGeoLayerViewEventHandler(GeoLayerViewID="MunicipalitiesLayerView",EventType="hover",Properties="eventConfigPath:layers/municipalities-event-config.json")
 # = = = = = = = = = =
 # Stream reaches:  read layer and add to a layer view group.
 # - TODO smalers 2020-05-22 for now copy the stream reaches but want to use shared layer
@@ -90,46 +123,49 @@ SetGeoLayerViewSingleSymbol(GeoLayerViewID="StreamReachesLayerView",Name="Poudre
 SetGeoLayerViewEventHandler(GeoLayerViewID="StreamReachesLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/stream-reaches-event-config.json")
 SetGeoLayerViewEventHandler(GeoLayerViewID="StreamReachesLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/stream-reaches-event-config.json")
 # = = = = = = = = = =
-# Trails:  read layer and add to a layer view group.
-# GeoLayerViewGroupID: TrailsGroup
-AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="TrailsGroup",Name="Poudre Trails",Description="Poudre Trails",Properties="selectedInitial: true",InsertPosition="Top")
-#
-ReadGeoLayerFromGeoJSON(InputFile="layers/trails-fortcollins.geojson",GeoLayerID="TrailsLayer",Name="Poudre Trails",Description="Poudre Trails")
-AddGeoLayerViewToGeoMap(GeoLayerID="TrailsLayer",GeoLayerViewID="TrailsLayerView",Name="Poudre Trails",Description="Poudre trails, from Fort Collins",InsertPosition="Top",Properties="docPath:'layers/trails-fortcollins-doc/trails-fortcollins.md',highlightEnabled:true")
-SetGeoLayerViewSingleSymbol(GeoLayerViewID="TrailsLayerView",Name="Poudre Trails",Description="Poudre Trails",Properties="color:#ff9900,weight:3")
-SetGeoLayerViewEventHandler(GeoLayerViewID="TrailsLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/trails-fortcollins-event-config.json")
-SetGeoLayerViewEventHandler(GeoLayerViewID="TrailsLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/trails-fortcollins-event-config.json")
+# Projects:  read layer and add to a layer view group.
+# GeoLayerViewGroupID: ProjectsGroup
+AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="ProjectsGroup",Name="Major Water Projects",Description="Major water projects",Properties="selectedInitial: true",InsertPosition="Top")
 # = = = = = = = = = =
-# Trail Organizations:  read layer and add to a layer view group.
-# GeoLayerViewGroupID: TrailsGroup
-ReadGeoLayerFromGeoJSON(InputFile="layers/trail-orgs.geojson",GeoLayerID="TrailOrganizationsLayer",Name="Trail Organizations",Description="Trail Organizations")
-AddGeoLayerViewToGeoMap(GeoLayerID="TrailOrganizationsLayer",GeoLayerViewID="TrailOrganizationsLayerView",Name="Trail Organizations",Description="Trail organizations",InsertPosition="Top",Properties="docPath:'layers/trail-orgs.md")
-SetGeoLayerViewSingleSymbol(GeoLayerViewID="TrailOrganizationsLayerView",Name="Trail Organizations",Description="Trail organizations",Properties="symbolImage:/img/hiking2-32x37.png,imageAnchorPoint:Bottom")
-SetGeoLayerViewEventHandler(GeoLayerViewID="TrailOrganizationsLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/trail-orgs-event-config.json")
-SetGeoLayerViewEventHandler(GeoLayerViewID="TrailOrganizationsLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/trail-orgs-event-config.json")
+# Project markers:  read layer and add to a layer view group.
+# GeoLayerViewGroupID: ProjectsGroup
+ReadGeoLayerFromGeoJSON(InputFile="layers/projects.geojson",GeoLayerID="ProjectsLayer",Name="Major Water Projects",Description="Major projects")
+AddGeoLayerViewToGeoMap(GeoLayerID="ProjectsLayer",GeoLayerViewID="ProjectsLayerView",Name="Major Water Projects",Description="Major water projects",InsertPosition="Top",Properties="docPath:'layers/projects.md")
+SetGeoLayerViewSingleSymbol(GeoLayerViewID="ProjectsLayerView",Name="Major Water Projects",Description="Major water projects",Properties="symbolImage:/img/mastcrane1-32x37.png,imageAnchorPoint:Bottom")
+SetGeoLayerViewEventHandler(GeoLayerViewID="ProjectsLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/projects-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="ProjectsLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/projects-event-config.json")
 # = = = = = = = = = =
 # Write the map project file and copy layers to the location needed by the web application.
 # - follow InfoMapper conventions
-WriteGeoMapProjectToJSON(GeoMapProjectID="TrailsProject",Indent="2",OutputFile="trails-map.json")
+WriteGeoMapProjectToJSON(GeoMapProjectID="MunicipalProjectsProject",Indent="2",OutputFile="projects-map.json")
 CreateFolder(Folder="${MapFolder}/layers",CreateParentFolders="True",IfFolderExists="Ignore")
-CopyFile(SourceFile="trails-map.json",DestinationFile="${MapFolder}/trails-map.json")
-CopyFile(SourceFile="trails-map.md",DestinationFile="${MapFolder}/trails-map.md")
-# Disrict 3
+# --------
+# Map
+CopyFile(SourceFile="projects-map.json",DestinationFile="${MapFolder}/projects-map.json")
+CopyFile(SourceFile="projects-map.md",DestinationFile="${MapFolder}/projects-map.md")
+# --------
+# Layers
+# Water district
 CopyFile(SourceFile="layers/co-dwr-water-district-3.geojson",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3.geojson")
 CopyFile(SourceFile="layers/co-dwr-water-district-3-classify-district.csv",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3-classify-district.csv")
-CopyFile(SourceFile="../Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3-event-config.json",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3-event-config.json")
-CopyFile(SourceFile="../Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3.md",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3.md")
+CopyFile(SourceFile="layers/co-dwr-water-district-3-event-config.json",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3-event-config.json")
+CopyFile(SourceFile="../../BasinEntities/Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3.md",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3.md")
 # Stream reaches
 CopyFile(SourceFile="layers/stream-reaches.geojson",DestinationFile="${MapFolder}/layers/stream-reaches.geojson")
-CopyFile(SourceFile="../Physical-StreamReaches/layers/stream-reaches-event-config.json",DestinationFile="${MapFolder}/layers/stream-reaches-event-config.json")
-CopyFile(SourceFile="../Physical-StreamReaches/layers/stream-reaches.md",DestinationFile="${MapFolder}/layers/stream-reaches.md")
-# Fort Collins trails
-CreateFolder(Folder="${MapFolder}/layers/trails-fortcollins-doc",CreateParentFolders="True",IfFolderExists="Ignore")
-CopyFile(SourceFile="layers/trails-fortcollins.geojson",DestinationFile="${MapFolder}/layers/trails-fortcollins.geojson")
-CopyFile(SourceFile="layers/trails-fortcollins-doc/trails-fortcollins.md",DestinationFile="${MapFolder}/layers/trails-fortcollins-doc/trails-fortcollins.md")
-CopyFile(SourceFile="layers/trails-fortcollins-doc/boxelder-creek.jpg",DestinationFile="${MapFolder}/layers/trails-fortcollins-doc/boxelder-creek.jpg")
-CopyFile(SourceFile="layers/trails-fortcollins-event-config.json",DestinationFile="${MapFolder}/layers/trails-fortcollins-event-config.json")
+CopyFile(SourceFile="../../BasinEntities/Physical-StreamReaches/layers/stream-reaches-event-config.json",DestinationFile="${MapFolder}/layers/stream-reaches-event-config.json")
+CopyFile(SourceFile="../../BasinEntities/Physical-StreamReaches/layers/stream-reaches.md",DestinationFile="${MapFolder}/layers/stream-reaches.md")
+# Municipal boundaries
+## TODO smalers 2020-06-13 enable when it does not hang the app
+#CopyFile(SourceFile="layers/municipal-boundaries.geojson",DestinationFile="${MapFolder}/layers/municipal-boundaries.geojson")
+#CopyFile(SourceFile="layers/municipal-boundaries.md",DestinationFile="${MapFolder}/layers/municipal-boundaries.md")
+#CopyFile(SourceFile="layers/municipal-boundaries-event-config.json",DestinationFile="${MapFolder}/layers/municipal-boundaries-event-config.json")
+# Municipalities
+#CopyFile(SourceFile="layers/municipalities.geojson",DestinationFile="${MapFolder}/layers/municipalities.geojson")
+#CopyFile(SourceFile="layers/municipalities.md",DestinationFile="${MapFolder}/layers/municipalities.md")
+#CopyFile(SourceFile="layers/municipalities-event-config.json",DestinationFile="${MapFolder}/layers/municipalities-event-config.json")
 # Trail organizations
-CopyFile(SourceFile="layers/trail-orgs.geojson",DestinationFile="${MapFolder}/layers/trail-orgs.geojson")
-CopyFile(SourceFile="layers/trail-orgs.md",DestinationFile="${MapFolder}/layers/trail-orgs.md")
-CopyFile(SourceFile="layers/trail-orgs-event-config.json",DestinationFile="${MapFolder}/layers/trail-orgs-event-config.json")
+CopyFile(SourceFile="layers/projects.geojson",DestinationFile="${MapFolder}/layers/projects.geojson")
+CopyFile(SourceFile="layers/projects.md",DestinationFile="${MapFolder}/layers/projects.md")
+CopyFile(SourceFile="layers/projects-event-config.json",DestinationFile="${MapFolder}/layers/projects-event-config.json")
+# State boundary.
+CopyFile(SourceFile="../../SupportingData/Political-ColoradoStateBoundary/layers/co-state-boundary.md",DestinationFile="${MapFolder}/layers/co-state-boundary.md")

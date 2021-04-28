@@ -75,7 +75,7 @@
           "name":  "Agriculture - Ditches",
           "action": "displayMap",
           "mapProject" : "data-maps/BasinEntities/Agriculture-Ditches/ditches-map.json",
-          "separatorBefore" : true
+          "doubleSeparatorBefore" : true
         },
         {
           "id": "entities-food-and-dairies",
@@ -506,11 +506,10 @@
           "separatorBefore" : true
         },
         {
-          "id": "planning-projects",
+          "id": "planning-muni-projects",
           "name": "Municipal - Major Projects",
-          "enabled": "false",
           "action": "displayMap",
-          "mapProject": "theNameOfTheMapProjectFile"
+          "mapProject": "data-maps/FuturePlanning/Municipal-MajorProjects/projects-map.json"
         },
         {
           "id": "planning-floodplains",

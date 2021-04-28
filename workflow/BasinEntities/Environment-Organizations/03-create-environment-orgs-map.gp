@@ -88,10 +88,10 @@ SetGeoLayerViewEventHandler(GeoLayerViewID="WaterDistrictLayerView",EventType="c
 # = = = = = = = = = =
 # Environmental Organizations:  read layer and add to a layer view group.
 # GeoLayerViewGroupID: EnvironmentGroup
-ReadGeoLayerFromGeoJSON(InputFile="layers/environment-orgs.geojson",GeoLayerID="EnvironmentLayer",Name="Environmental Organizations",Description="Poudre Environmental Organizations")
-AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="EnvironmentGroup",Name="Poudre Environmental Organizations",Description="Poudre Environmental Organizations",Properties="selectedInitial: true",InsertPosition="Top")
-AddGeoLayerViewToGeoMap(GeoLayerID="EnvironmentLayer",GeoLayerViewID="EnvironmentLayerView",Name="Poudre Environmental Organizations",Description="Poudre Environmental Organizations",Properties="docPath:'layers/environment-orgs.md")
-SetGeoLayerViewSingleSymbol(GeoLayerViewID="EnvironmentLayerView",Name="Poudre Environmental Organizations",Description="Poudre Environmental Organizations",Properties="symbolImage:/img/wetlands-32x37.png,imageAnchorPoint:Bottom")
+ReadGeoLayerFromGeoJSON(InputFile="layers/environment-orgs.geojson",GeoLayerID="EnvironmentLayer",Name="Environmental Organizations",Description="Poudre environmental organizations")
+AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="EnvironmentGroup",Name="Poudre Environmental Organizations",Description="Poudre environmental organizations",Properties="selectedInitial: true",InsertPosition="Top")
+AddGeoLayerViewToGeoMap(GeoLayerID="EnvironmentLayer",GeoLayerViewID="EnvironmentLayerView",Name="Poudre Environmental Organizations",Description="Poudre environmental organizations",Properties="docPath:'layers/environment-orgs.md")
+SetGeoLayerViewSingleSymbol(GeoLayerViewID="EnvironmentLayerView",Name="Poudre Environmental Organizations",Description="Poudre environmental organizations",Properties="symbolImage:/img/wetlands-32x37.png,imageAnchorPoint:Bottom")
 SetGeoLayerViewEventHandler(GeoLayerViewID="EnvironmentLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/environment-orgs-event-config.json")
 SetGeoLayerViewEventHandler(GeoLayerViewID="EnvironmentLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/environment-orgs-event-config.json")
 # = = = = = = = = = =
@@ -101,14 +101,14 @@ WriteGeoMapProjectToJSON(GeoMapProjectID="EnvironmentOrgProject",Indent="2",Outp
 CreateFolder(Folder="${MapFolder}/layers",CreateParentFolders="True",IfFolderExists="Ignore")
 CopyFile(SourceFile="environment-orgs-map.json",DestinationFile="${MapFolder}/environment-orgs-map.json")
 CopyFile(SourceFile="environment-orgs-map.md",DestinationFile="${MapFolder}/environment-orgs-map.md")
-#
+# Division 3 water district
 CopyFile(SourceFile="layers/co-dwr-water-district-3.geojson",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3.geojson")
 CopyFile(SourceFile="layers/co-dwr-water-district-3-classify-district.csv",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3-classify-district.csv")
 CopyFile(SourceFile="../Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3-event-config.json",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3-event-config.json")
 CopyFile(SourceFile="../Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3.md",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3.md")
 #
 #CopyFile(SourceFile="layers/stream-reaches.geojson",DestinationFile="${MapFolder}/layers/stream-reaches.geojson")
-#
+# Environment organizations
 CopyFile(SourceFile="layers/environment-orgs.geojson",DestinationFile="${MapFolder}/layers/environment-orgs.geojson")
 CopyFile(SourceFile="layers/environment-orgs.md",DestinationFile="${MapFolder}/layers/environment-orgs.md")
 CopyFile(SourceFile="layers/environment-orgs-event-config.json",DestinationFile="${MapFolder}/layers/environment-orgs-event-config.json")

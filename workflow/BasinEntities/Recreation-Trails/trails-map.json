@@ -278,7 +278,7 @@
         {
           "geoLayerId": "WaterDistrictLayer",
           "name": "CO DWR Water District 3",
-          "description": "Water District 3 boundary from the Colorado Division of Water Resources.",
+          "description": "Water District 3 boundary, from the Colorado Division of Water Resources.",
           "crs": "EPSG:4326",
           "geometryType": "WKT:Polygon",
           "layerType": "Vector",
@@ -292,7 +292,7 @@
         {
           "geoLayerId": "StreamReachesLayer",
           "name": "Poudre Stream Reaches",
-          "description": "Poudre Stream Reaches",
+          "description": "Poudre stream reaches",
           "crs": "EPSG:4326",
           "geometryType": "WKT:LineString",
           "layerType": "Vector",
@@ -316,6 +316,20 @@
           "history:": [
             "Read GeoLayer from GeoJSON file:  'C:\\Users\\sam\\owf-dev\\InfoMapper-Poudre\\git-repos\\owf-infomapper-poudre\\workflow\\BasinEntities\\Recreation-Trails\\layers\\trails-fortcollins.geojson'"
           ]
+        },
+        {
+          "geoLayerId": "TrailOrganizationsLayer",
+          "name": "Trail Organizations",
+          "description": "Trail Organizations",
+          "crs": "EPSG:4326",
+          "geometryType": "WKT:Point",
+          "layerType": "Vector",
+          "sourceFormat": "GeoJSON",
+          "sourcePath": "layers/trail-orgs.geojson",
+          "properties": {},
+          "history:": [
+            "Read GeoLayer from GeoJSON file:  'C:\\Users\\sam\\owf-dev\\InfoMapper-Poudre\\git-repos\\owf-infomapper-poudre\\workflow\\BasinEntities\\Recreation-Trails\\layers\\trail-orgs.geojson'"
+          ]
         }
       ],
       "geoLayerViewGroups": [
@@ -328,9 +342,48 @@
           },
           "geoLayerViews": [
             {
+              "geoLayerViewId": "TrailOrganizationsLayerView",
+              "name": "Trail Organizations",
+              "description": "Trail organizations",
+              "geoLayerId": "TrailOrganizationsLayer",
+              "properties": {
+                "docPath": "layers/trail-orgs.md"
+              },
+              "geoLayerSymbol": {
+                "name": "Trail Organizations",
+                "description": "Trail organizations",
+                "classificationType": "SingleSymbol",
+                "classificationAttribute": "",
+                "properties": {
+                  "symbolImage": "/img/hiking2-32x37.png",
+                  "imageAnchorPoint": "Bottom"
+                }
+              },
+              "eventHandlers": [
+                {
+                  "eventType": "hover",
+                  "name": "Hover event",
+                  "description": "Hover event configuration",
+                  "hasVisualization": false,
+                  "properties": {
+                    "eventConfigPath": "layers/trail-orgs-event-config.json"
+                  }
+                },
+                {
+                  "eventType": "click",
+                  "name": "Click event",
+                  "description": "Click event configuration",
+                  "hasVisualization": false,
+                  "properties": {
+                    "eventConfigPath": "layers/trail-orgs-event-config.json"
+                  }
+                }
+              ]
+            },
+            {
               "geoLayerViewId": "TrailsLayerView",
               "name": "Poudre Trails",
-              "description": "Poudre Trails",
+              "description": "Poudre trails, from Fort Collins",
               "geoLayerId": "TrailsLayer",
               "properties": {
                 "docPath": "layers/trails-fortcollins-doc/trails-fortcollins.md",
@@ -372,7 +425,7 @@
         {
           "geoLayerViewGroupId": "StreamReachesGroup",
           "name": "Poudre Stream Reaches",
-          "description": "Poudre Stream Reaches",
+          "description": "Poudre stream reaches",
           "properties": {
             "selectedInitial": "true"
           },
@@ -380,7 +433,7 @@
             {
               "geoLayerViewId": "StreamReachesLayerView",
               "name": "Poudre Stream Reaches",
-              "description": "Poudre Stream Reaches",
+              "description": "Poudre stream reaches, from the Colorado Division of Water Resources",
               "geoLayerId": "StreamReachesLayer",
               "properties": {
                 "docPath": "layers/stream-reaches.md",
@@ -388,7 +441,7 @@
               },
               "geoLayerSymbol": {
                 "name": "Poudre Stream Reaches",
-                "description": "Poudre Stream Reaches",
+                "description": "Poudre stream reaches",
                 "classificationType": "SingleSymbol",
                 "classificationAttribute": "",
                 "properties": {
@@ -422,7 +475,7 @@
         {
           "geoLayerViewGroupId": "WaterDistrictsGroup",
           "name": "CO DWR Water Districts",
-          "description": "Water District boundaries from the Colorado Division of Water Resources.",
+          "description": "Water District boundaries, from the Colorado Division of Water Resources.",
           "properties": {
             "selectedInitial": "true"
           },
@@ -430,7 +483,7 @@
             {
               "geoLayerViewId": "WaterDistrictLayerView",
               "name": "CO DWR Water District 3",
-              "description": "Water District 3 boundary from the Colorado Division of Water Resources",
+              "description": "Water District 3 boundary, from the Colorado Division of Water Resources",
               "geoLayerId": "WaterDistrictLayer",
               "properties": {
                 "docPath": "layers/co-dwr-water-district-3.md"
