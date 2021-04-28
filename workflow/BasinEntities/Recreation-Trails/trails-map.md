@@ -15,6 +15,12 @@ This map will be updated in the future to:
 * highlight trails next to the river
 * highlight educational opportunities such self-guided tours
 
+See also:
+
+* [Colorado Trail Explorer (COTREX)](https://trails.colorado.gov/):
+	+ [Larimer County](https://trails.colorado.gov/places/na~1931563)
+	+ [Weld County](https://trails.colorado.gov/places/na~1931512)
+
 ## Layer Groups
 
 The following layer groups are included in this map.

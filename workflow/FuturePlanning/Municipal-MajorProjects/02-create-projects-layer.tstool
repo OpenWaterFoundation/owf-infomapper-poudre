@@ -1,0 +1,5 @@
+# Read projects from Excel worksheet
+ReadTableFromExcel(TableID="ProjectsData",InputFile="data/project-data.xlsx",Worksheet="Data",ExcelColumnNames=FirstRowInRange)
+#
+# Export table to GeoJSON format
+WriteTableToGeoJSON(TableID="ProjectsData",OutputFile="layers/projects.geojson",LongitudeColumn="Longitude",LatitudeColumn="Latitude")

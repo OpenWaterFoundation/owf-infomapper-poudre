@@ -17,7 +17,7 @@ Trails are often located near water because streams and rivers have done the wor
 water supports interesting ecosystems near trails, and of course, water is needed for humans that use the trails.
 The trails map illustrates opportunities to learn about water, as described in the following sections.
 
-## Flooding ##
+### Flooding ###
 
 The [Red Mountain Open Space](https://www.larimer.org/naturalresources/parks/red-mountain) near the Wyoming Boarder
 has trails through the Boxelder Creek drainage.

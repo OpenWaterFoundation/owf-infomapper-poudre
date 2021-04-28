@@ -27,6 +27,7 @@ The following release notes document changes to the Poudre Basin Information web
 * [2.1.0] Rename the ***Basin Entities / Agriculture - Dairies***
 map to [***Basin Entities / Agriculture - Food and Dairies***](#map/entities-food-and-dairies)
 and add initial local food layer.
+* [2.1.0] Add initial [***Future Planning / Municipal - Major Projects***](#map/planning-muni-projects).
 
 ## 2.0.0
 

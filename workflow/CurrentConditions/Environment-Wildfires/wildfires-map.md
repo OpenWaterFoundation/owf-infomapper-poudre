@@ -42,6 +42,7 @@ The following are information resources about watershed protection and wildfire 
 | [Colorado Forest Restoration Institute](https://cfri.colostate.edu/) | Leads collaborations between researchers, managers, and stakeholders to restore and enhance the resilience of forest ecosystems to wildfires in Colorado. |
 | [Front Range Roundtable](https://frontrangeroundtable.org/) | Coalition committed to forest health and fire risk management along Colorado's Front Range, including Larimer County. |
 | [Northern Colorado Fireshed Collaborative](https://nocofireshed.org/) | Partnering for more resilient forests. |
+| [Poudre Wilderness Volunteers](https://www.pwv.org/) | Caring for Northern Colorado Wilderness. |
 
 ## Layer Groups
 

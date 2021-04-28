@@ -12,6 +12,8 @@ Image files used in the application.
 | `farm2-32x37.png` | Farm marker. | Downloaded from [farm markers](https://mapicons.mapsmarker.com/markers/nature/agriculture/farm/). |
 | `group-2-32x37.png` | Map marker for municipalities. | Downloaded from [group icons](https://mapicons.mapsmarker.com/markers/offices/group/?custom_color=ff5100). |
 | `kayaking-32x37.png` | Boating marker, with kayaker. | Downloaded from [Water sports map markers](https://mapicons.mapsmarker.com/markers/sports/water-sports/). |
+| `hiking2-32x37.png` | Hiking marker. | Downloaded from [hiking markers](https://mapicons.mapsmarker.com/markers/sports/nature-sports/hiking/). |
+| `mastcrane1-32x37.png` | Crane (construction) marker. | Downloaded from [mast crane marker](https://mapicons.mapsmarker.com/markers/industry/mast-crane/). |
 | `milk-bottle-32x37.png` | Milk bottle for dairies. | Downloaded from [milk bottle map icons](https://mapicons.mapsmarker.com/markers/stores/food-drink/milk-bottle/). |
 | `office-building-32x37.png` | Office building. | Downloaded from [office building map icons](https://mapicons.mapsmarker.com/markers/offices/real-estate/office-building/). |
 | `river-2-32x37.png` | Water ripples. | Downloaded from [nature map icons](https://mapicons.mapsmarker.com/markers/health-education/education/river-2/). |
