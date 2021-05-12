@@ -1,0 +1,23 @@
+StartLog(LogFile="02b-create-snotel-stations-layer.tstool.log")
+# Command file to create statewide SNOTEL station layer as GeoJSON
+# - used for InfoMapper
+# - attribute contains link to typical SNOTEL station graph
+# - NRCS does not provide a GeoJSON layer so have to create from web service
+#
+# Download a couple of months of data, which should ensure that the station list is pretty complete.
+# - this is a little slow, but only need to run periodically
+# - set the alaias to station ID followed by '-SNOTEL', which is used in iteration to process time series
+ReadNrcsAwdb(DataStore="NrcsAwdb",Interval=Hour,States="CO",Networks="SNTL",Elements="WTEQ",InputStart="2021-01-01",InputEnd="2021-02-28",Alias="%L-SNOTEL")
+#
+# Loop through the time series and add properties for NRCS websites.
+# - the time series alias is used to set new properties for URLs used in the website links
+SetDebugLevel(LogFileLevel=1)
+For(Name="For_stations",IteratorProperty="tsalias",IteratorValueProperty="${ts:alias}",TSList=AllTS,TimeSeriesPropertyMap="name:StationName,stationId:StationId")
+Message(Message="Processing station=${StationName} tsalias=${tsalias}")
+SetTimeSeriesProperty(TSList=AllMatchingTSID,TSID="${tsalias}",PropertyName="StationUrl",PropertyType=String,PropertyValue="https://wcc.sc.egov.usda.gov/nwcc/site?sitenum=${StationId}")
+SetTimeSeriesProperty(TSList=AllMatchingTSID,TSID="${tsalias}",PropertyName="GraphUrl",PropertyType=String,PropertyValue="https://www.nrcs.usda.gov/Internet/WCIS/AWS_PLOTS/siteCharts/POR/WTEQ/CO//${StationName}.html")
+EndFor(Name="For_stations")
+SetDebugLevel(ScreenLevel=0,LogFileLevel=0)
+#
+# Create the GeoJSON file with properties that are useful.
+WriteTimeSeriesToGeoJSON(OutputFile="layers/snotel-stations.geojson",LongitudeProperty="longitude",LatitudeProperty="latitude",CoordinatePrecision=5,ExcludeProperties="actonId,endDate,fipsCountyCd,fipsStateNumber,fipsCountyCd,fipsCountryCd,hud,dataPrecision,dataSource,ordinal,heightDepthValue,heightDepthUnitCd,stationDataTimeZone,stationTimeZone")

@@ -3,7 +3,7 @@
   "name": "SNOTEL stations event configuration",
   "description":  "List main attributes.",
   "layerAttributes" : {
-    "include" : [ "*" ],
+    "include" : [ "name", "stationId", "countyName", "elevation", "shefId", "StationUrl", "GraphUrl" ],
     "exclude" : [],
     "formats": []
   },

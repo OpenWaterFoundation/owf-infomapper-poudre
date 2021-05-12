@@ -1,5 +1,13 @@
 # Layer: Local Food
 
+* Overview
+* Data Sources
+* Workflow
+
+--------
+
+## Overview
+
 The Local Food layer contains organizations that produce local food and other agricultural products.
 
 ## Data Sources
