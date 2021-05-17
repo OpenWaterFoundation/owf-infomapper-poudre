@@ -304,17 +304,17 @@
           ]
         },
         {
-          "geoLayerId": "DenverWaterBoundaryLayer",
-          "name": "Denver Water Boundary",
-          "description": "Denver Water Boundary from Denver Water",
+          "geoLayerId": "WaterProviderBoundariesDolaLayer",
+          "name": "Colorado Water Provider Boundaries",
+          "description": "Colorado Water Provider Boundaries",
           "crs": "EPSG:4326",
           "geometryType": "WKT:Polygon",
           "layerType": "Vector",
           "sourceFormat": "GeoJSON",
-          "sourcePath": "layers/denver-water-boundary.geojson",
+          "sourcePath": "layers/water-provider-boundaries-dola.geojson",
           "properties": {},
           "history:": [
-            "Read GeoLayer from GeoJSON file:  'C:\\Users\\sam\\owf-dev\\InfoMapper-Poudre\\git-repos\\owf-infomapper-poudre\\workflow\\BasinEntities\\WaterSupply-WaterProviders\\layers\\denver-water-boundary.geojson'"
+            "Read GeoLayer from GeoJSON file:  'C:\\Users\\sam\\owf-dev\\InfoMapper-Poudre\\git-repos\\owf-infomapper-poudre\\workflow\\BasinEntities\\WaterSupply-WaterProviders\\layers\\water-provider-boundaries-dola.geojson'"
           ]
         },
         {
@@ -394,8 +394,8 @@
             },
             {
               "geoLayerViewId": "WaterProviderBoundariesLayerView",
-              "name": "Water Provider Boundaries (Districts)",
-              "description": "Water Provider Boundaries from DOLA special and metro districts",
+              "name": "Water Provider Boundaries (Districts & Utilities)",
+              "description": "Water Provider Boundaries, merged from multiple sources",
               "geoLayerId": "WaterProviderBoundariesLayer",
               "properties": {
                 "docPath": "layers/water-provider-boundaries.md"
@@ -435,22 +435,23 @@
               ]
             },
             {
-              "geoLayerViewId": "DenverWaterBoundaryLayerView",
-              "name": "Denver Water Boundary",
-              "description": "Denver Water Boundary",
-              "geoLayerId": "DenverWaterBoundaryLayer",
+              "geoLayerViewId": "WaterProviderBoundariesDolaLayerView",
+              "name": "Water Provider Boundaries (Districts)",
+              "description": "Water Provider Boundaries from DOLA water and sanitation districts, input to the above layer",
+              "geoLayerId": "WaterProviderBoundariesDolaLayer",
               "properties": {
-                "docPath": "layers/denver-water-boundary.md"
+                "docPath": "layers/water-provider-boundaries-dola.md",
+                "selectedInitial": "false"
               },
               "geoLayerSymbol": {
-                "name": "Denver Water Boundary",
-                "description": "Denver Water Boundary",
+                "name": "Colorado Water Provider Boundaries",
+                "description": "Colorado Water Provider Boundaries",
                 "classificationType": "SingleSymbol",
                 "classificationAttribute": "",
                 "properties": {
-                  "color": "#cc7a00",
+                  "color": "#595959",
                   "opacity": "1.0",
-                  "fillColor": "#cc7a00",
+                  "fillColor": "#595959",
                   "fillOpacity": "0.3",
                   "weight": "2"
                 }
@@ -462,7 +463,7 @@
                   "description": "",
                   "hasVisualization": false,
                   "properties": {
-                    "eventConfigPath": "layers/denver-water-boundary-event-config.json"
+                    "eventConfigPath": "layers/water-provider-boundaries-dola-event-config.json"
                   }
                 },
                 {
@@ -471,7 +472,7 @@
                   "description": "",
                   "hasVisualization": false,
                   "properties": {
-                    "eventConfigPath": "layers/denver-water-boundary-event-config.json"
+                    "eventConfigPath": "layers/water-provider-boundaries-dola-event-config.json"
                   }
                 }
               ]
