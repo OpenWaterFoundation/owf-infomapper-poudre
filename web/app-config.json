@@ -4,7 +4,7 @@
   "favicon": "/img/owf-favicon-32x32.ico",
   "dataUnitsPath": "/system/DATAUNIT",
   "googleAnalyticsTrackingId": "UA-135465513-1",
-  "version": "2.1.0 (2021-04-15)",
+  "version": "2.2.0 (2021-05-16)",
   "mainMenu": [
     {
       "id": "SupportingData",

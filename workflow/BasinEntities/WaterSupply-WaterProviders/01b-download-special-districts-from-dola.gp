@@ -40,7 +40,7 @@ RemoveGeoLayerFeatures(GeoLayerID="SpecialDistrictsLayer",MatchAttribute="lgid",
 # Copy to the 'layers' folder.
 WriteGeoLayerToGeoJSON(GeoLayerID="SpecialDistrictsLayer",OutputFile="downloads/special-district-boundaries.geojson")
 #WriteGeoLayerToGeoJSON(GeoLayerID="WaterAndSanitationDistrictsLayer",OutputFile="downloads/water-and-sanitation-district-boundaries.geojson")
-#WriteGeoLayerToGeoJSON(GeoLayerID="WaterProvidersLayer",OutputFile="downloads/water-provider-boundaries.geojson")
+#WriteGeoLayerToGeoJSON(GeoLayerID="WaterProvidersLayer",OutputFile="downloads/water-provider-boundaries-dola.geojson")
 CopyFile(SourceFile="downloads/special-district-boundaries.geojson",DestinationFile="layers/special-district-boundaries.geojson")
 #
 # Read in the Arapahoe County Water and Wastewater Authority's boundary from KML file hosted on their website.
@@ -67,4 +67,4 @@ AddGeoLayerAttribute(GeoLayerID="ACWWALayer",AttributeName="PREV_NAME",Attribute
 ChangeGeoLayerGeometry(InputGeoLayerID="ACWWALayer",OutputGeometry="Polygon",OutputGeoLayerID="ACWWAPolygonLayer")
 MergeGeoLayers(GeoLayerIDs="SpecialDistrictsLayer,ACWWAPolygonLayer",OutputGeoLayerID="WaterProvidersLayer",Name="Water Providers",Description="Water Providers (DOLA districts and ACWWA)")
 RemoveGeoLayerAttributes(GeoLayerID="WaterProvidersLayer",AttributeNames="layer,path")
-WriteGeoLayerToGeoJSON(GeoLayerID="WaterProvidersLayer",OutputFile="layers/water-provider-boundaries.geojson")
+WriteGeoLayerToGeoJSON(GeoLayerID="WaterProvidersLayer",OutputFile="layers/water-provider-boundaries-dola.geojson")

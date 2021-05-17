@@ -4,6 +4,7 @@ The following release notes document changes to the Poudre Basin Information web
 
 | **Release** | **Description** |
 | -- | -- |
+| 2.2.0 | Functional data table search tool for points and polygons. |
 | 2.1.0 | Add SNODAS snowpack to wildfires map and for water supply map, add US Drought Monitor map. |
 | 2.0.0 | Update for InfoMapper 2.0.0. Add water provider boundaries and geocode address search. |
 | 1.1.0 | Update for InfoMapper 1.4.0. |
@@ -17,6 +18,13 @@ The following release notes document changes to the Poudre Basin Information web
 | 0.1.0 | Initial version as custom application. | 
 
 ------------
+
+## 2.2.0
+
+* [2.2.0] Used with Go Code Colorado Business Solutions Challenge final.
+* [2.2.0] Functional data table search tool for feature data and address,
+with zoom to and clear selection functionality.
+* [2.2.0] InfoMapper improvements to streamline selected features.
 
 ## 2.1.0
 
@@ -32,6 +40,7 @@ and add initial local food layer.
 ## 2.0.0
 
 * [2.0.0] Update based on InfoMapper 2.0.0 release.
+* [2.0.0] Used with Go Code Colorado Business Solutions Challenge semi-final.
 * [2.0.0] Add water provider boundary layer.
 * [2.0.0] Data table for layers has address search feature.
 
