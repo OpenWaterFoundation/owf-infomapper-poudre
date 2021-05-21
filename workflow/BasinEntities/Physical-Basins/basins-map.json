@@ -467,7 +467,8 @@
               "description": "HUC12 Basin boundaries from the USGS",
               "geoLayerId": "HUC12BasinLayer",
               "properties": {
-                "docPath": "layers/huc12.md"
+                "docPath": "layers/huc12.md",
+                "highlightEnabled": "true"
               },
               "geoLayerSymbol": {
                 "name": "Colorize HUC12",
@@ -505,7 +506,8 @@
               "description": "HUC10 Basin boundaries from the USGS",
               "geoLayerId": "HUC10BasinLayer",
               "properties": {
-                "docPath": "layers/huc10.md"
+                "docPath": "layers/huc10.md",
+                "highlightEnabled": "true"
               },
               "geoLayerSymbol": {
                 "name": "Colorize HUC10",

@@ -13,7 +13,9 @@ ReadGeoLayerFromGeoJSON(InputFile="layers/denver-water-boundary.geojson",GeoLaye
 ReadGeoLayerFromGeoJSON(InputFile="layers/fort-collins-boundary.geojson",GeoLayerID="FortCollinsBoundaryLayer",Name="Fort Collins Utilities Service Area",Description="Fort Collins Utilities (Water) service area, from Fort Collins")
 #
 # Merge the layers
-MergeGeoLayers(GeoLayerIDs="WaterDistrictsDolaLayer,DenverWaterBoundaryLayer,FortCollinsBoundaryLayer",OutputGeoLayerID="WaterProvidersBoundaryLayer",Name="Water Provider Boundaries",Description="Water providers boundary layer (merged)",AttributeMap="LGNAME:Name,URL:Website")
+# - put Denver Water first because its overall boundary includes other districts
+# - put Fort Collins next because its overall boundary includes other districts
+MergeGeoLayers(GeoLayerIDs="DenverWaterBoundaryLayer,FortCollinsBoundaryLayer,WaterDistrictsDolaLayer",OutputGeoLayerID="WaterProvidersBoundaryLayer",Name="Water Provider Boundaries",Description="Water providers boundary layer (merged)",AttributeMap="LGNAME:Name,URL:Website")
 #
 # Write the merged file using the general layer file name.
 WriteGeoLayerToGeoJSON(GeoLayerID="WaterProvidersBoundaryLayer",OutputFile="layers/water-provider-boundaries.geojson")

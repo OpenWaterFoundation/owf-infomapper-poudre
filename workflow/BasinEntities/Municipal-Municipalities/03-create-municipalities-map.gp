@@ -10,8 +10,6 @@
 SetProperty(PropertyName="AppFolder",PropertyType="str",PropertyValue="../../../web")
 SetProperty(PropertyName="MapsFolder",PropertyType="str",PropertyValue="${AppFolder}/data-maps")
 SetProperty(PropertyName="MapFolder",PropertyType="str",PropertyValue="${MapsFolder}/BasinEntities/Municipal-Municipalities")
-# Municipal boundaries causes the app to freeze.  Only include for testing.
-SetProperty(PropertyName="IncludeBoundaries",PropertyType="str",PropertyValue="true")
 #
 # Create a single map project and map for that project.
 # - GeoMapProjectID:  MunicipalitiesProject
@@ -94,12 +92,10 @@ SetGeoLayerViewEventHandler(GeoLayerViewID="WaterDistrictLayerView",EventType="c
 AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="MunicipalitiesGroup",Name="Colorado Municipalities",Description="Colorado Municipalities",InsertPosition="Top")
 #
 ReadGeoLayerFromGeoJSON(InputFile="layers/municipal-boundaries.geojson",GeoLayerID="MunicipalBoundariesLayer",Name="Colorado Municipal Boundaries",Description="Colorado Municipal Boundaries")
-If(Name="IncludeBoundaries",Condition="${IncludeBoundaries} == true")
-    AddGeoLayerViewToGeoMap(GeoLayerID="MunicipalBoundariesLayer",GeoLayerViewID="MunicipalBoundariesLayerView",Name="Colorado Municipal Boundaries",Description="Colorado Municipal Boundaries",Properties="docPath:'layers/municipal-boundaries.md'")
-    # For now use single symbol
-    # - grey
-    SetGeoLayerViewSingleSymbol(GeoLayerViewID="MunicipalBoundariesLayerView",Name="Colorado Municipal Boundaries",Description="Colorado Municipal Boundaries",Properties="color:#595959,opacity:1.0,fillColor:#595959,fillOpacity:0.3,weight:2")
-EndIf(Name="IncludeBoundaries")
+AddGeoLayerViewToGeoMap(GeoLayerID="MunicipalBoundariesLayer",GeoLayerViewID="MunicipalBoundariesLayerView",Name="Colorado Municipal Boundaries",Description="Colorado Municipal Boundaries",Properties="docPath:'layers/municipal-boundaries.md',highlightEnabled:true")
+# For now use single symbol
+# - grey
+SetGeoLayerViewSingleSymbol(GeoLayerViewID="MunicipalBoundariesLayerView",Name="Colorado Municipal Boundaries",Description="Colorado Municipal Boundaries",Properties="color:#595959,opacity:1.0,fillColor:#595959,fillOpacity:0.3,weight:2")
 SetGeoLayerViewEventHandler(GeoLayerViewID="MunicipalBoundariesLayerView",EventType="click",Properties="eventConfigPath:layers/municipal-boundaries-event-config.json")
 SetGeoLayerViewEventHandler(GeoLayerViewID="MunicipalBoundariesLayerView",EventType="hover",Properties="eventConfigPath:layers/municipal-boundaries-event-config.json")
 # = = = = = = = = = =

@@ -3,7 +3,7 @@
   "name": "Major water projects event configuration",
   "description":  "List main attributes.",
   "layerAttributes" : {
-    "include" : [ "ProjectName", "ProjectType", "LeadOrganization", "OrganizationType", "Description", "Website" ],
+    "include" : [ "ProjectName", "ProjectType", "LeadOrganization", "OrganizationType", "Description", "Website", "StoryMap" ],
     "exclude" : [],
     "formats": []
   },

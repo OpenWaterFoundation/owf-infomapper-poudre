@@ -113,7 +113,7 @@ SetGeoLayerViewEventHandler(GeoLayerViewID="WaterProviderBoundariesDolaLayerView
 # GeoLayerViewGroupID: WaterProvidersGroup
 #
 ReadGeoLayerFromGeoJSON(InputFile="layers/water-provider-boundaries.geojson",GeoLayerID="WaterProviderBoundariesLayer",Name="Colorado Water Provider Boundaries",Description="Colorado Water Provider Boundaries")
-AddGeoLayerViewToGeoMap(GeoLayerID="WaterProviderBoundariesLayer",GeoLayerViewID="WaterProviderBoundariesLayerView",Name="Water Provider Boundaries (Districts & Utilities)",Description="Water Provider Boundaries, merged from multiple sources",InsertPosition="Top",Properties="docPath:'layers/water-provider-boundaries.md'")
+AddGeoLayerViewToGeoMap(GeoLayerID="WaterProviderBoundariesLayer",GeoLayerViewID="WaterProviderBoundariesLayerView",Name="Water Provider Boundaries (Districts & Utilities)",Description="Water Provider Boundaries, merged from multiple sources",InsertPosition="Top",Properties="docPath:'layers/water-provider-boundaries.md',highlightEnabled:true")
 # For now use single symbol, could categorize based on entity type
 # - grey
 SetGeoLayerViewSingleSymbol(GeoLayerViewID="WaterProviderBoundariesLayerView",Name="Colorado Water Provider Boundaries",Description="Colorado Water Provider Boundaries",Properties="color:#595959,opacity:1.0,fillColor:#595959,fillOpacity:0.3,weight:2")

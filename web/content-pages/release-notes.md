@@ -4,6 +4,7 @@ The following release notes document changes to the Poudre Basin Information web
 
 | **Release** | **Description** |
 | -- | -- |
+| 2.3.0 | Add East Troublesome soil burn severity, various other data additions. |
 | 2.2.0 | Functional data table search tool for points and polygons. |
 | 2.1.0 | Add SNODAS snowpack to wildfires map and for water supply map, add US Drought Monitor map. |
 | 2.0.0 | Update for InfoMapper 2.0.0. Add water provider boundaries and geocode address search. |
@@ -19,10 +20,19 @@ The following release notes document changes to the Poudre Basin Information web
 
 ------------
 
+## 2.3.0
+
+* [2.3.0] Add East Troublesome soil burn severity map layer.
+Update soil burn severity to use data from USGS download site.
+* [2.3.0] Add Thornton Pipeline and Chimney Hollow to projects map.
+* [2.3.0] Add CSU Water Archives, Fort Collins Water Works, and The Water Desk to educational organizations map.
+* [2.3.0] Configure so that polygon features highlight for mouse over for some layers.
+This makes it easier to visually understand polygon boundaries.
+
 ## 2.2.0
 
 * [2.2.0] Used with Go Code Colorado Business Solutions Challenge final.
-* [2.2.0] Functional data table search tool for feature data and address,
+* [2.2.0] Functional data table search tool for feature data and address for polygons,
 with zoom to and clear selection functionality.
 * [2.2.0] InfoMapper improvements to streamline selected features.
 

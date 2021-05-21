@@ -38,7 +38,9 @@ The following are information resources about watershed protection and wildfire 
 
 | **Organization/Entity** | **Description** |
 | -- | -- |
+| [After the Flames](https://aftertheflames.com/) | Actionable best practices for communities and agencies impacted by wildfires. |
 | [Coalition for the Poudre River Watershed](https://www.poudrewatershed.org/) | Protect and restore the Poudre River Basin in response to fire and other impacts. |
+| [Coalitions and Collaboratives, Inc.](https://co-co.org/) | "People working together, for the people and the planet" |
 | [Colorado Forest Restoration Institute](https://cfri.colostate.edu/) | Leads collaborations between researchers, managers, and stakeholders to restore and enhance the resilience of forest ecosystems to wildfires in Colorado. |
 | [Front Range Roundtable](https://frontrangeroundtable.org/) | Coalition committed to forest health and fire risk management along Colorado's Front Range, including Larimer County. |
 | [Northern Colorado Fireshed Collaborative](https://nocofireshed.org/) | Partnering for more resilient forests. |

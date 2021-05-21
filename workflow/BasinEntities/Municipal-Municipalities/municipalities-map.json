@@ -384,7 +384,8 @@
               "description": "Colorado Municipal Boundaries",
               "geoLayerId": "MunicipalBoundariesLayer",
               "properties": {
-                "docPath": "layers/municipal-boundaries.md"
+                "docPath": "layers/municipal-boundaries.md",
+                "highlightEnabled": "true"
               },
               "geoLayerSymbol": {
                 "name": "Colorado Municipal Boundaries",

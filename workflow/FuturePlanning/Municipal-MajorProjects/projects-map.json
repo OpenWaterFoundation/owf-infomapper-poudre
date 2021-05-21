@@ -292,7 +292,7 @@
         {
           "geoLayerId": "WaterDistrictLayer",
           "name": "CO DWR Water District 3",
-          "description": "Water District 3 boundary from the Colorado Division of Water Resources.",
+          "description": "Water District 3 boundary, from the Colorado Division of Water Resources.",
           "crs": "EPSG:4326",
           "geometryType": "WKT:Polygon",
           "layerType": "Vector",
@@ -435,7 +435,7 @@
         {
           "geoLayerViewGroupId": "WaterDistrictsGroup",
           "name": "CO DWR Water Districts",
-          "description": "Water District boundaries from the Colorado Division of Water Resources.",
+          "description": "Water District boundaries, from the Colorado Division of Water Resources.",
           "properties": {
             "selectedInitial": "true"
           },
@@ -443,7 +443,7 @@
             {
               "geoLayerViewId": "WaterDistrictLayerView",
               "name": "CO DWR Water District 3",
-              "description": "Water District 3 boundary from the Colorado Division of Water Resources",
+              "description": "Water District 3 boundary, from the Colorado Division of Water Resources",
               "geoLayerId": "WaterDistrictLayer",
               "properties": {
                 "docPath": "layers/co-dwr-water-district-3.md"

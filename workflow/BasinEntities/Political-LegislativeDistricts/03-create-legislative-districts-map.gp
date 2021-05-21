@@ -114,7 +114,7 @@ SetGeoLayerViewEventHandler(GeoLayerViewID="WaterDistrictLayerView",EventType="c
 AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="StateLegislativeDistrictsGroup",Name="State Legislative Districts",Description="Colorado State legislative districts",Properties="selectBehavior:Single",InsertPosition="Top")
 #
 ReadGeoLayerFromGeoJSON(InputFile="layers/co-state-house-districts-2011.geojson",GeoLayerID="StateHouseLegislativeDistrictsLayer",Name="State House Districts (2011)",Description="Colorado State House districts (2011)")
-AddGeoLayerViewToGeoMap(GeoLayerID="StateHouseLegislativeDistrictsLayer",GeoLayerViewID="StateHouseDistrictsLayerView",Name="State House Districts (2011)",Description="Colorado State House districts from 2011 redistricting",Properties="docPath:layers/co-state-house-districts-2011.md,highlightEnabled:true")
+AddGeoLayerViewToGeoMap(GeoLayerID="StateHouseLegislativeDistrictsLayer",GeoLayerViewID="StateHouseDistrictsLayerView",Name="State House Districts (2011)",Description="Colorado State House districts from 2011 redistricting",Properties="docPath:layers/co-state-house-districts-2011.md,highlightEnabled:true,highlightEnabled:true")
 SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="StateHouseDistrictsLayerView",Name="Colorize state house districts",Description="Show each district the same color except those that overlap the Poudre",ClassificationAttribute="District_N",Properties="classificationType:'categorized',classificationFile:'layers/co-state-house-districts-classify-district.csv'")
 # Currently no graphs
 #SetGeoLayerViewEventHandler(GeoLayerViewID="StateHouseDistrictsLayerView",EventType="click",Properties="popupConfigPath:graphs/county-popup-config.json")
@@ -125,7 +125,7 @@ SetGeoLayerViewEventHandler(GeoLayerViewID="StateHouseDistrictsLayerView",EventT
 # GeoLayerViewGroupID: StateLegislativeDistrictsGroup
 # - group added above
 ReadGeoLayerFromGeoJSON(InputFile="layers/co-state-senate-districts-2011.geojson",GeoLayerID="StateSenateLegislativeDistrictsLayer",Name="State Senate Districts (2011)",Description="Colorado State Senate districts (2011)")
-AddGeoLayerViewToGeoMap(GeoLayerID="StateSenateLegislativeDistrictsLayer",GeoLayerViewID="StateSenateDistrictsLayerView",Name="State Senate Districts (2011)",Description="Colorado State Senate districts from 2011 redistricting",Properties="docPath:layers/co-state-senate-districts-2011.md,highlightEnabled:true")
+AddGeoLayerViewToGeoMap(GeoLayerID="StateSenateLegislativeDistrictsLayer",GeoLayerViewID="StateSenateDistrictsLayerView",Name="State Senate Districts (2011)",Description="Colorado State Senate districts from 2011 redistricting",Properties="docPath:layers/co-state-senate-districts-2011.md,highlightEnabled:true,highlightEnabled:true")
 SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="StateSenateDistrictsLayerView",Name="Colorize state senate districts",Description="Show each district the same color except those that overlap the Poudre",ClassificationAttribute="District_N",Properties="classificationType:'categorized',classificationFile:'layers/co-state-senate-districts-classify-district.csv'")
 # Currently no graphs
 SetGeoLayerViewEventHandler(GeoLayerViewID="StateSenateDistrictsLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/co-state-senate-districts-2011-event-config.json")

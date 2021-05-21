@@ -2,6 +2,7 @@
 
 * Overview
 * Comparison with Administrative and Other Basins
+    + Joe Wright Creek Omitted from Water District 3
 * Layer Groups
 
 -------------------
@@ -61,6 +62,13 @@ is within the context of a discussion.
 For example, the general term "Poudre River Basin", "upper basin", "lower basin", etc. may be clear from the context,
 or may need to be clarified by using more specific basin terminology such as
 "DWR Water District 3", or "HUC 8 basin".
+
+### Joe Wright Creek Omitted from Water District 3
+
+DWR Water District 3 does not contain Joe Wright Creek, whereas HUC 8 Basin does contain Joe Wright Creek.
+The District 3 Water Commissioner indicated that "Joe Wright was tributary to the Laramie River before the
+landslide created [Chambers Lake](https://en.wikipedia.org/wiki/Chambers_Lake_(Colorado))
+and pushed Joe Wright Creek south to the Poudre."
 
 ## Layer Groups
 
