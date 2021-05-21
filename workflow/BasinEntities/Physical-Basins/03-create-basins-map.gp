@@ -121,13 +121,13 @@ SetGeoLayerViewEventHandler(GeoLayerViewID="HUC8BasinsLayerView",EventType="hove
 SetGeoLayerViewEventHandler(GeoLayerViewID="HUC8BasinsLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/huc8-event-config.json")
 # HUC 10 next on top
 ReadGeoLayerFromGeoJSON(InputFile="layers/huc10.geojson",GeoLayerID="HUC10BasinLayer",Name="Cache la Poudre HUC10 Basins",Description="HUC10 Basin boundaries from the USGS")
-AddGeoLayerViewToGeoMap(GeoLayerID="HUC10BasinLayer",GeoLayerViewID="HUC10BasinsLayerView",Name="Cache la Poudre HUC10 Basins",Description="HUC10 Basin boundaries from the USGS",InsertPosition="Top",Properties="docPath:layers/huc10.md")
+AddGeoLayerViewToGeoMap(GeoLayerID="HUC10BasinLayer",GeoLayerViewID="HUC10BasinsLayerView",Name="Cache la Poudre HUC10 Basins",Description="HUC10 Basin boundaries from the USGS",InsertPosition="Top",Properties="docPath:layers/huc10.md,highlightEnabled:true")
 SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="HUC10BasinsLayerView",Name="Colorize HUC10",Description="Transparent polygon.",ClassificationAttribute="HUC10",Properties="classificationFile:layers/huc10-classify-huc10.csv")
 SetGeoLayerViewEventHandler(GeoLayerViewID="HUC10BasinsLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/huc10-event-config.json")
 SetGeoLayerViewEventHandler(GeoLayerViewID="HUC10BasinsLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/huc10-event-config.json")
 # HUC 12 next on top
 ReadGeoLayerFromGeoJSON(InputFile="layers/huc12.geojson",GeoLayerID="HUC12BasinLayer",Name="Cache la Poudre HUC12 Basins",Description="HUC12 Basin boundaries from the USGS")
-AddGeoLayerViewToGeoMap(GeoLayerID="HUC12BasinLayer",GeoLayerViewID="HUC12BasinsLayerView",Name="Cache la Poudre HUC 12 Basins",Description="HUC12 Basin boundaries from the USGS",InsertPosition="Top",Properties="docPath:layers/huc12.md")
+AddGeoLayerViewToGeoMap(GeoLayerID="HUC12BasinLayer",GeoLayerViewID="HUC12BasinsLayerView",Name="Cache la Poudre HUC 12 Basins",Description="HUC12 Basin boundaries from the USGS",InsertPosition="Top",Properties="docPath:layers/huc12.md,highlightEnabled:true")
 SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="HUC12BasinsLayerView",Name="Colorize HUC12",Description="Transparent polygon.",ClassificationAttribute="HUC12",Properties="classificationFile:layers/huc12-classify-huc12.csv")
 SetGeoLayerViewEventHandler(GeoLayerViewID="HUC12BasinsLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/huc12-event-config.json")
 SetGeoLayerViewEventHandler(GeoLayerViewID="HUC12BasinsLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/huc12-event-config.json")

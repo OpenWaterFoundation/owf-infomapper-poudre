@@ -376,7 +376,8 @@
               "geoLayerId": "DitchServiceAreas2005Layer",
               "properties": {
                 "docPath": "layers/ditch-service-areas.md",
-                "selectedInitial": "true"
+                "selectedInitial": "true",
+                "highlightEnabled": "true"
               },
               "geoLayerSymbol": {
                 "name": "Poudre Stream Reaches",
@@ -419,7 +420,8 @@
               "geoLayerId": "DitchServiceAreas2001Layer",
               "properties": {
                 "docPath": "layers/ditch-service-areas.md",
-                "selectedInitial": "false"
+                "selectedInitial": "false",
+                "highlightEnabled": "true"
               },
               "geoLayerSymbol": {
                 "name": "Poudre Stream Reaches",
@@ -462,7 +464,8 @@
               "geoLayerId": "DitchServiceAreas1987Layer",
               "properties": {
                 "docPath": "layers/ditch-service-areas.md",
-                "selectedInitial": "false"
+                "selectedInitial": "false",
+                "highlightEnabled": "true"
               },
               "geoLayerSymbol": {
                 "name": "Poudre Stream Reaches",
@@ -505,7 +508,8 @@
               "geoLayerId": "DitchServiceAreas1976Layer",
               "properties": {
                 "docPath": "layers/ditch-service-areas.md",
-                "selectedInitial": "false"
+                "selectedInitial": "false",
+                "highlightEnabled": "true"
               },
               "geoLayerSymbol": {
                 "name": "Poudre Stream Reaches",
@@ -548,7 +552,8 @@
               "geoLayerId": "DitchServiceAreas1956Layer",
               "properties": {
                 "docPath": "layers/ditch-service-areas.md",
-                "selectedInitial": "false"
+                "selectedInitial": "false",
+                "highlightEnabled": "true"
               },
               "geoLayerSymbol": {
                 "name": "Poudre Stream Reaches",

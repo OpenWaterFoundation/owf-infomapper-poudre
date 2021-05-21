@@ -1,8 +1,8 @@
-# Layer: Cameron Peak Fire Soil Burn Severity 
+# Layer: East Troublesome Fire Soil Burn Severity 
 
-The Cameron Peak Fire Soil Burn Severity layer contains results of the
+The East Troublesome Fire Soil Burn Severity layer contains results of the
 Soil Burn Severity (SBS) assessment from the
-[Burned Area Emergency Response (BAER) evaluation](https://inciweb.nwcg.gov/photos/COARF/2020-09-20-1235-Cameron-Peak-PostFire-BAER/related_files/pict20201117-152815-0.pdf).
+[Burned Area Emergency Response (BAER) evaluation](https://inciweb.nwcg.gov/photos/COARF/2020-11-12-1436-East-Troublesome-PostFire-BAER/related_files/pict20201117-154930-0.pdf).
 This information is used to evaluate recovery actions such as treatments to prevent erosion.
 Burn area severity categories are as follows (for more information, see the [Field Guide for Mapping Post-fire Soil Burn Severity](http://www.fs.fed.us/rm/pubs/rmrs_gtr243.pdf)):
 
@@ -19,7 +19,7 @@ The following are data sources for this map:
 
 | **Resource** | **Source** |
 | -- | -- |
-| Cameron Peak SBS (raster) layer. | [USFS BAER imagery support data download](https://fsapps.nwcg.gov/baer/baer-imagery-support-data-download), 2020 archive. |
+| East Troublesome SBS (raster) layer. | [USFS BAER imagery support data download](https://fsapps.nwcg.gov/baer/baer-imagery-support-data-download), 2020 archive. |
 
 ## Workflow
 

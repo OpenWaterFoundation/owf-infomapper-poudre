@@ -398,7 +398,8 @@
               "description": "Water Provider Boundaries, merged from multiple sources",
               "geoLayerId": "WaterProviderBoundariesLayer",
               "properties": {
-                "docPath": "layers/water-provider-boundaries.md"
+                "docPath": "layers/water-provider-boundaries.md",
+                "highlightEnabled": "true"
               },
               "geoLayerSymbol": {
                 "name": "Colorado Water Provider Boundaries",

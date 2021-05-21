@@ -4,12 +4,12 @@
   "favicon": "/img/owf-favicon-32x32.ico",
   "dataUnitsPath": "/system/DATAUNIT",
   "googleAnalyticsTrackingId": "UA-135465513-1",
-  "version": "2.2.0 (2021-05-16)",
+  "version": "2.3.0 (2021-05-18)",
   "mainMenu": [
     {
       "id": "SupportingData",
       "name": "Supporting Data",
-      "description" : "This menu is used for supporing data that is used in other maps.  Set to visible to test but should not be visible in production.",
+      "description" : "This menu is used for supporting data that is used in other maps.  Set to visible to test but should not be visible in production.",
       "align": "left",
       "visible": "false",
       "menus": [
@@ -410,8 +410,9 @@
           "id": "season-wildfires",
           "name": "Environment - Wildfires",
           "separatorBefore" : true,
-          "action": "externalLink",
-          "url": "https://gacc.nifc.gov/rmcc/outlooks1.php"
+          "action": "contentPage",
+          "align": "right",
+          "markdownFile": "content-pages/season-wildfires.md"
         },
         {
           "id": "season-cbt",
@@ -560,6 +561,13 @@
           "action": "contentPage",
           "align": "right",
           "markdownFile": "content-pages/credits.md"
+        },
+        {
+          "id": "data-resources",
+          "name": "Data Resources",
+          "action": "contentPage",
+          "align": "right",
+          "markdownFile": "content-pages/data-resources.md"
         },
         {
           "id": "funding-request",

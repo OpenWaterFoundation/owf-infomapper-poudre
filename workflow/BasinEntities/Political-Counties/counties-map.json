@@ -361,7 +361,8 @@
               "description": "Colorado Counties",
               "geoLayerId": "CountiesLayer",
               "properties": {
-                "docPath": "layers/counties.md"
+                "docPath": "layers/counties.md",
+                "highlightEnabled": "true"
               },
               "geoLayerSymbol": {
                 "name": "Colorize counties",

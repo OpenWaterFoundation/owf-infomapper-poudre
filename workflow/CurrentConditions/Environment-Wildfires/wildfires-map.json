@@ -16,7 +16,7 @@
       "dataPath": ".",
       "crs": "EPSG:4326",
       "properties": {
-        "extentInitial": "ZoomLevel:-105.5,40.7,10",
+        "extentInitial": "ZoomLevel:-105.798,40.591,10",
         "docPath": "wildfires-map.md"
       },
       "geoLayers": [
@@ -360,7 +360,19 @@
           ]
         },
         {
-          "geoLayerId": "SoilBurnSeverityRasterLayer",
+          "geoLayerId": "EastTroublesomeSoilBurnSeverityRasterLayer",
+          "name": "East Troublesome Fire Soil Burn Severity (raster)",
+          "description": "East Troublesome Fire soil burn severity",
+          "crs": "EPSG:4326",
+          "geometryType": "Raster",
+          "layerType": "Raster",
+          "sourceFormat": null,
+          "sourcePath": "layers/east-troublesome-sbs.tif",
+          "properties": {},
+          "history:": []
+        },
+        {
+          "geoLayerId": "CameronPeakSoilBurnSeverityRasterLayer",
           "name": "Cameron Peak Fire Soil Burn Severity (raster)",
           "description": "Cameron Peak Fire soil burn severity",
           "crs": "EPSG:4326",
@@ -515,10 +527,10 @@
           },
           "geoLayerViews": [
             {
-              "geoLayerViewId": "SoilBurnSeverityRasterLayerView",
+              "geoLayerViewId": "CameronPeakSoilBurnSeverityRasterLayerView",
               "name": "Cameron Peak Fire Soil Burn Severity (raster)",
               "description": "Cameron Peak Fire soil burn severity from USFS BAER",
-              "geoLayerId": "SoilBurnSeverityRasterLayer",
+              "geoLayerId": "CameronPeakSoilBurnSeverityRasterLayer",
               "properties": {
                 "docPath": "layers/cameron-peak-sbs.md"
               },
@@ -549,6 +561,45 @@
                   "hasVisualization": false,
                   "properties": {
                     "eventConfigPath": "layers/cameron-peak-sbs-raster-event-config.json"
+                  }
+                }
+              ]
+            },
+            {
+              "geoLayerViewId": "EastTroublesomeSoilBurnSeverityRasterLayerView",
+              "name": "East Troublesome Fire Soil Burn Severity (raster)",
+              "description": "East Troublesome Fire soil burn severity from USFS BAER",
+              "geoLayerId": "EastTroublesomeSoilBurnSeverityRasterLayer",
+              "properties": {
+                "docPath": "layers/east-troublesome-sbs.md"
+              },
+              "geoLayerSymbol": {
+                "name": "Colorize soil burn severity",
+                "description": "Symbol for the soil burn severity",
+                "classificationType": "Categorized",
+                "classificationAttribute": "1",
+                "properties": {
+                  "classificationFile": "layers/east-troublesome-sbs-classify-gridcode.csv",
+                  "rasterResolution": "128"
+                }
+              },
+              "eventHandlers": [
+                {
+                  "eventType": "hover",
+                  "name": "Hover event",
+                  "description": "Hover event configuration",
+                  "hasVisualization": false,
+                  "properties": {
+                    "eventConfigPath": "layers/east-troublesome-sbs-raster-event-config.json"
+                  }
+                },
+                {
+                  "eventType": "click",
+                  "name": "Click event",
+                  "description": "Click event configuration",
+                  "hasVisualization": false,
+                  "properties": {
+                    "eventConfigPath": "layers/east-troublesome-sbs-raster-event-config.json"
                   }
                 }
               ]
