@@ -4,6 +4,7 @@ The following release notes document changes to the Poudre Basin Information web
 
 | **Release** | **Description** |
 | -- | -- |
+| 2.4.0 | Add initial ***Current Conditions / Flood Monitoring*** map. |
 | 2.3.0 | Add East Troublesome soil burn severity, various other data additions. |
 | 2.2.0 | Functional data table search tool for points and polygons. |
 | 2.1.0 | Add SNODAS snowpack to wildfires map and for water supply map, add US Drought Monitor map. |
@@ -22,6 +23,7 @@ The following release notes document changes to the Poudre Basin Information web
 
 ## 2.3.0
 
+* [2.3.0] Update CO DWR water division offices layers to include all division offices.
 * [2.3.0] Add East Troublesome soil burn severity map layer.
 Update soil burn severity to use data from USGS download site.
 * [2.3.0] Add Thornton Pipeline and Chimney Hollow to projects map.

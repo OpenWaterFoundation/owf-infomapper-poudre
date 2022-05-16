@@ -101,7 +101,9 @@ harvestDroughtMonitor() {
       continue
     fi
     # cmd //C ${gpExe} /h
-    cmd //C ${gpExe} //s3.10 --commands ${gpCommandFile}
+    # TODO smalers 2021-10-15 For some reason cmd is no longer found in the path.
+    #cmd //C ${gpExe} //s3.10 --commands ${gpCommandFile}
+    /C/Windows/System32/cmd //C ${gpExe} //s3.10 --commands ${gpCommandFile}
     exitStatus=$?
     logInfo "Exit status from GeoProcessor cmd is ${exitStatus}."
     if [ "${exitStatus}" -ne 0 ]; then
@@ -144,7 +146,9 @@ harvestSnodas() {
       continue
     fi
     # cmd //C ${gpExe} /h
-    cmd //C ${gpExe} //s3.10 --commands ${gpCommandFile}
+    # TODO smalers 2021-10-15 For some reason cmd is no longer found in the path.
+    #cmd //C ${gpExe} //s3.10 --commands ${gpCommandFile}
+    /C/Windows/System32/cmd //C ${gpExe} //s3.10 --commands ${gpCommandFile}
     exitStatus=$?
     logInfo "Exit status from GeoProcessor cmd is ${exitStatus}."
     if [ "${exitStatus}" -ne 0 ]; then
@@ -376,6 +380,7 @@ errorCountTotal=$((${errorCountTotal} + $?))
 # echo "Sync files to AWS S3"
 #./copy-to-owf-amazon-s3.sh --nobuild --aws-profile=${awsProfile} ${dryrun}
 
+logInfo "Finished running at $(date)"
 if [ ${errorCountTotal} -eq 0 ]; then
   logInfo "Exiting with status 0."
 else

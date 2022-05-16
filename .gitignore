@@ -39,7 +39,9 @@ junk
 
 # ======================================================
 # Dashboards menu:
-# - for now files are kept in place rather than putting in workflow/ folder
+# - for now files are kept in place in web/dashboards
+#   rather than putting in workflow/ folder and copying to web/...
+# - later may treat similar to /workflow files
 # ======================================================
 
 /web/dashboards/water-affordability/downloads/*

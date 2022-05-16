@@ -333,7 +333,7 @@
         },
         {
           "geoLayerId": "WildfirePerimetersArchiveLayer",
-          "name": "Historical Wildfire Perimiters",
+          "name": "Historical Wildfire Perimeters",
           "description": "Wildfire perimeters web service",
           "crs": "EPSG:4326",
           "geometryType": "WKT:Polygon",
@@ -347,16 +347,16 @@
         },
         {
           "geoLayerId": "WildfirePerimetersLayer",
-          "name": "Colorado Wildfire Perimiters",
+          "name": "Colorado Wildfire Perimeters",
           "description": "Colorado wildfire perimeters web service",
           "crs": "EPSG:4326",
           "geometryType": "WKT:Polygon",
           "layerType": "Vector",
           "sourceFormat": "GeoJSON",
-          "sourcePath": "https://services3.arcgis.com/T4QMspbfLg3qTGWY/ArcGIS/rest/services/Public_Wildfire_Perimeters_View/FeatureServer/0/query?geometry=-110.6%2C35.86%2C-102.05%2C42.2&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelContains&outFields=*&geometryPrecision=5&f=geojson",
+          "sourcePath": "https://services3.arcgis.com/T4QMspbfLg3qTGWY/arcgis/rest/services/CY_WildlandFire_Perimeters_ToDate/FeatureServer/0/query?geometry=-110.6%2C35.86%2C-102.05%2C42.2&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelContains&outFields=*&geometryPrecision=5&f=geojson",
           "properties": {},
           "history:": [
-            "Read GeoLayer from GeoJSON file:  'https://services3.arcgis.com/T4QMspbfLg3qTGWY/ArcGIS/rest/services/Public_Wildfire_Perimeters_View/FeatureServer/0/query?geometry=-110.6%2C35.86%2C-102.05%2C42.2&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelContains&outFields=*&geometryPrecision=5&f=geojson'"
+            "Read GeoLayer from GeoJSON file:  'https://services3.arcgis.com/T4QMspbfLg3qTGWY/arcgis/rest/services/CY_WildlandFire_Perimeters_ToDate/FeatureServer/0/query?geometry=-110.6%2C35.86%2C-102.05%2C42.2&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelContains&outFields=*&geometryPrecision=5&f=geojson'"
           ]
         },
         {
@@ -616,8 +616,8 @@
           "geoLayerViews": [
             {
               "geoLayerViewId": "WildfirePerimetersLayerView",
-              "name": "Active Wildfire Perimeters",
-              "description": "Active wildfire perimeters from the National Interagency Fire Center",
+              "name": "Current Year Wildfire Perimeters",
+              "description": "Current year wildfire perimeters from the National Interagency Fire Center",
               "geoLayerId": "WildfirePerimetersLayer",
               "properties": {
                 "docPath": "layers/wildfire-perimeters.md"

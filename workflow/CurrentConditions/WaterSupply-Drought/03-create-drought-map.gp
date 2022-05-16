@@ -52,13 +52,13 @@ ReadRasterGeoLayerFromTileMapService(InputUrl="https://services.arcgisonline.com
 AddGeoLayerViewToGeoMap(GeoLayerID="EsriTopographic",GeoLayerViewID="EsriTopographicView",Name="Topographic (Esri)",Description="Topographic background map from Esri.",Properties="selectedInitial:false")
 #
 # Google background layers
-ReadRasterGeoLayerFromTileMapService(InputUrl="http://mt0.google.com/vt/lyrs=s&x={x}&y={y}&z={z}",GeoLayerID="GoogleSatellite",Name="Satellite (Google)",Description="Satellite background map from Google.",Properties="attribution: 'Google',isBackground: true")
+ReadRasterGeoLayerFromTileMapService(InputUrl="https://mt0.google.com/vt/lyrs=s&x={x}&y={y}&z={z}",GeoLayerID="GoogleSatellite",Name="Satellite (Google)",Description="Satellite background map from Google.",Properties="attribution: 'Google',isBackground: true")
 AddGeoLayerViewToGeoMap(GeoLayerID="GoogleSatellite",GeoLayerViewID="GoogleSatelliteView",Name="Satellite (Google)",Description="Satellite background map from Google.",Properties="selectedInitial:false,separatorBefore:true")
-ReadRasterGeoLayerFromTileMapService(InputUrl="http://mt0.google.com/vt/lyrs=m&x={x}&y={y}&z={z}",GeoLayerID="GoogleStreets",Name="Streets (Google)",Description="Streets background map from Google.",Properties="attribution: 'Google',isBackground: true")
+ReadRasterGeoLayerFromTileMapService(InputUrl="https://mt0.google.com/vt/lyrs=m&x={x}&y={y}&z={z}",GeoLayerID="GoogleStreets",Name="Streets (Google)",Description="Streets background map from Google.",Properties="attribution: 'Google',isBackground: true")
 AddGeoLayerViewToGeoMap(GeoLayerID="GoogleStreets",GeoLayerViewID="GoogleStreetsView",Name="Streets (Google)",Description="Streets background map from Google.",Properties="selectedInitial:false")
-ReadRasterGeoLayerFromTileMapService(InputUrl="http://mt0.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}",GeoLayerID="GoogleHybrid",Name="Streets & Satellite (Google)",Description="Streets & satellite background map from Google.",Properties="attribution: 'Google',isBackground: true")
+ReadRasterGeoLayerFromTileMapService(InputUrl="https://mt0.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}",GeoLayerID="GoogleHybrid",Name="Streets & Satellite (Google)",Description="Streets & satellite background map from Google.",Properties="attribution: 'Google',isBackground: true")
 AddGeoLayerViewToGeoMap(GeoLayerID="GoogleHybrid",GeoLayerViewID="GoogleHybridView",Name="Streets & Satellite (Google)",Description="Streets & satellite background map from Google.",Properties="selectedInitial:false")
-ReadRasterGeoLayerFromTileMapService(InputUrl="http://mt0.google.com/vt/lyrs=p&x={x}&y={y}&z={z}",GeoLayerID="GoogleTerrain",Name="Terrain (Google)",Description="Terrain background map from Google.",Properties="attribution: 'Google',isBackground: true")
+ReadRasterGeoLayerFromTileMapService(InputUrl="https://mt0.google.com/vt/lyrs=p&x={x}&y={y}&z={z}",GeoLayerID="GoogleTerrain",Name="Terrain (Google)",Description="Terrain background map from Google.",Properties="attribution: 'Google',isBackground: true")
 AddGeoLayerViewToGeoMap(GeoLayerID="GoogleTerrain",GeoLayerViewID="GoogleTerrainView",Name="Terrain (Google)",Description="Terrain background map from Google.",Properties="selectedInitial:false")
 # Other
 ReadRasterGeoLayerFromTileMapService(InputUrl="https://basemap.nationalmap.gov/ArcGIS/rest/services/USGSTopo/MapServer/tile/{z}/{y}/{x}",GeoLayerID="USGSTopo",Name="USGS Topo (USGS)",Description="Topo background map from USGS.",Properties="attribution: 'USGS',isBackground: true")
@@ -102,7 +102,7 @@ SetGeoLayerViewEventHandler(GeoLayerViewID="ContinentalDivideLayerView",EventTyp
 AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="DroughtGroup",Name="US Drought Monitor",Description="US Drought Monitor",InsertPosition="Top")
 #
 # Use the current GeoJSON file from the OWF cloud
-ReadGeoLayerFromGeoJSON(InputFile="http://data.openwaterfoundation.org/US/USDM/USDM_current_M.geojson",GeoLayerID="DroughtLayer",Name="US Drought Monitor",Description="US Drought Monitor")
+ReadGeoLayerFromGeoJSON(InputFile="https://data.openwaterfoundation.org/US/USDM/USDM_current_M.geojson",GeoLayerID="DroughtLayer",Name="US Drought Monitor",Description="US Drought Monitor")
 AddGeoLayerViewToGeoMap(GeoLayerID="DroughtLayer",GeoLayerViewID="DroughtLayerView",Name="US Drought Monitor",Description="US Drought Monitor",Properties="docPath:layers/drought-monitor.md")
 # Use graduated symbol the same as the US Drought Monitor website
 SetGeoLayerViewEventHandler(GeoLayerViewID="DroughtLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/drought-monitor-event-config.json")

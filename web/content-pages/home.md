@@ -2,14 +2,7 @@
 
 ## New ##
 
-See snowpack in [***Current Conditions / Environment - Wildfires***](#/map/current-wildfires)
-(you must turn on the layer) and
-[***Current Conditions / Water Supply - Snowpack***](#/map/current-snowpack).
-See local farms and CSAs in
-[***Basin Entities / Agriculture - Food and Dairies***](#/map/entities-food-and-dairies).
-See drought information in
-[***Current Conditions / Water Supply - Drought***](#/map/current-drought).
-See major projects in [***Future Planning / Municipal - Major Projects***](#map/planning-muni-projects).
+See flood monitoring in [***Current Conditions / Environment - Floods***](#/map/current-floods).
 See also [***Release Notes***](#/content-page/release-notes).
 
 ## Overview ##
@@ -56,7 +49,20 @@ Additional maps and visualizations will be added based on feedback and available
 **This website is under development.  Menus that are disabled are an outline for features that will be phased in over
 time as funding is acquired for dataset and website development.**
 
+## Website Versions and Bookmarking Web Pages
+
+The Poudre Basin Information website is published using a version that matches the version in release notes.
+This allows review of a version before release using a URL that includes the version,
+for example [http://poudre.openwaterfoundation.org/2.3.0](http://poudre.openwaterfoundation.org/2.3.0).
+A historical archive of some versions is retained for use by software developers and is culled over time.
+To see the latest version, use [http://poudre.openwaterfoundation.org](http://poudre.openwaterfoundation.org).
+
+Each map in this website can be shared and bookmarked.
+Bookmarking the URL that includes "latest" will ensure that latest available content is used.
+
 ## Contributing to This Website ##
+
+See the list of funding contributors under [***Resources / Funding Contributors***](#content-page/funders.md).
 
 The Open Water Foundation is actively seeking funding to develop and maintain this website.
 See the [River Basin Information Websites Funding Request](http://poudre.openwaterfoundation.org/latest/assets/app/content-pages/OWF-RiverBasinInfoWebsites-FundingRequest-2020-12-06.pdf).

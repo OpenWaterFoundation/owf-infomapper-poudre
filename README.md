@@ -174,7 +174,8 @@ as per the [Repository Contents](#repository-contents) section above.
 8. Publish the application to the web:
 	1. Run the `build-util/copy-to-owf-amazon-s3.sh` script to copy the
 	InfoMapper `assets/app/` folder to the cloud.  A versioned and `latest` folder can be updated.
-	See the deployed [latest Poudre Basin Information website](http://poudre.openwaterfoundation.org/latest/#/content-page/home).
+	See the deployed [latest Poudre Basin Information website](https://poudre.openwaterfoundation.org),
+	which will redirect to the latest version.
 
 ### Development Tools ###
 

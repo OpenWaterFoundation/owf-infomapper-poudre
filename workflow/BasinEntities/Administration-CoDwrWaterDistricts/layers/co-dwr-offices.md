@@ -1,6 +1,7 @@
-# Layer: Colorado DWR Division 1 Offices
+# Layer: Colorado DWR Division Offices
 
-The Colorado Division of Water Resources (DWR) office for Division 1 is located in Greeley.
+The Colorado Division of Water Resources (DWR) office for Division 1 is located in Greeley
+and there is a satellite office in Sterling.
 
 Water Commissioners and other staff that administer Water Districts within the Water Division
 may work out of other physical locations, especially during the irrigation season.
@@ -13,7 +14,7 @@ The following are data sources for this map:
 
 | **Resource** | **Source** |
 | -- | -- |
-| Division 1 Office locations layer | [Division 1 Offices dataset](https://github.com/OpenWaterFoundation/owf-infomapper-poudre/tree/master/workflow/BasinEntities/Administration-CoDwrWaterDistricts/data) created by the Open Water Foundation. |
+| CO DWR Division Offices layer | [Division Offices dataset](https://github.com/OpenWaterFoundation/owf-infomapper-poudre/tree/master/workflow/BasinEntities/Administration-CoDwrWaterDistricts/data) created by the Open Water Foundation. |
 
 ## Map Creation Workflow
 

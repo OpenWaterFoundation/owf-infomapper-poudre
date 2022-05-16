@@ -208,7 +208,7 @@
           "geometryType": "Raster",
           "layerType": "Raster",
           "sourceFormat": "WMTS",
-          "sourcePath": "http://mt0.google.com/vt/lyrs=s&x={x}&y={y}&z={z}",
+          "sourcePath": "https://mt0.google.com/vt/lyrs=s&x={x}&y={y}&z={z}",
           "properties": {
             "attribution": "Google",
             "isBackground": "true"
@@ -223,7 +223,7 @@
           "geometryType": "Raster",
           "layerType": "Raster",
           "sourceFormat": "WMTS",
-          "sourcePath": "http://mt0.google.com/vt/lyrs=m&x={x}&y={y}&z={z}",
+          "sourcePath": "https://mt0.google.com/vt/lyrs=m&x={x}&y={y}&z={z}",
           "properties": {
             "attribution": "Google",
             "isBackground": "true"
@@ -238,7 +238,7 @@
           "geometryType": "Raster",
           "layerType": "Raster",
           "sourceFormat": "WMTS",
-          "sourcePath": "http://mt0.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}",
+          "sourcePath": "https://mt0.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}",
           "properties": {
             "attribution": "Google",
             "isBackground": "true"
@@ -253,7 +253,7 @@
           "geometryType": "Raster",
           "layerType": "Raster",
           "sourceFormat": "WMTS",
-          "sourcePath": "http://mt0.google.com/vt/lyrs=p&x={x}&y={y}&z={z}",
+          "sourcePath": "https://mt0.google.com/vt/lyrs=p&x={x}&y={y}&z={z}",
           "properties": {
             "attribution": "Google",
             "isBackground": "true"
@@ -325,10 +325,10 @@
           "geometryType": "WKT:Polygon",
           "layerType": "Vector",
           "sourceFormat": "GeoJSON",
-          "sourcePath": "http://data.openwaterfoundation.org/US/USDM/USDM_current_M.geojson",
+          "sourcePath": "https://data.openwaterfoundation.org/US/USDM/USDM_current_M.geojson",
           "properties": {},
           "history:": [
-            "Read GeoLayer from GeoJSON file:  'http://data.openwaterfoundation.org/US/USDM/USDM_current_M.geojson'"
+            "Read GeoLayer from GeoJSON file:  'https://data.openwaterfoundation.org/US/USDM/USDM_current_M.geojson'"
           ]
         },
         {
