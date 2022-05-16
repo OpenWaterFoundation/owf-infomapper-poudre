@@ -106,9 +106,11 @@ SetGeoLayerViewEventHandler(GeoLayerViewID="WaterDistrictLayerView",EventType="c
 # DWR offices:  read layer and add to the same layer group
 # GeoLayerViewGroupID: WaterDistrictsGroup
 # - group was added above
-ReadGeoLayerFromGeoJSON(InputFile="layers/co-dwr-offices-division1.geojson",GeoLayerID="DWROfficesLayer",Name="CO DWR Division 1 Offices",Description="DWR Offices for Division 1")
-AddGeoLayerViewToGeoMap(GeoLayerID="DWROfficesLayer",GeoLayerViewID="DWROfficesLayerView",Name="CO DWR Division 1 Offices",Description="Offices for Division 1",Properties="docPath:layers/co-dwr-offices-division1.md",InsertPosition="Top")
+ReadGeoLayerFromGeoJSON(InputFile="layers/co-dwr-offices.geojson",GeoLayerID="DWROfficesLayer",Name="CO DWR Division Offices",Description="DWR Offices")
+AddGeoLayerViewToGeoMap(GeoLayerID="DWROfficesLayer",GeoLayerViewID="DWROfficesLayerView",Name="CO DWR Division Offices",Description="CO DWR Division Offices",Properties="docPath:layers/co-dwr-offices.md",InsertPosition="Top")
 SetGeoLayerViewSingleSymbol(GeoLayerViewID="DWROfficesLayerView",Name="Use marker image for DWR offices",Description="Use marker image for DWR offices",Properties="symbolImage:/img/office-building-32x37.png,imageAnchorPoint:Bottom")
+SetGeoLayerViewEventHandler(GeoLayerViewID="DWROfficesLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/co-dwr-offices-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="DWROfficesLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/co-dwr-offices-event-config.json")
 # = = = = = = = = = =
 # Write the map project file and copy layers to the location needed by the web application.
 # - follow InfoMapper conventions
@@ -132,8 +134,9 @@ CopyFile(SourceFile="layers/co-dwr-water-district-3.md",DestinationFile="${MapFo
 CopyFile(SourceFile="layers/co-dwr-water-district-3-classify-district.csv",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3-classify-district.csv")
 CopyFile(SourceFile="layers/co-dwr-water-district-3-event-config.json",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3-event-config.json")
 #
-CopyFile(SourceFile="layers/co-dwr-offices-division1.geojson",DestinationFile="${MapFolder}/layers/co-dwr-offices-division1.geojson")
-CopyFile(SourceFile="layers/co-dwr-offices-division1.md",DestinationFile="${MapFolder}/layers/co-dwr-offices-division1.md")
+CopyFile(SourceFile="layers/co-dwr-offices.geojson",DestinationFile="${MapFolder}/layers/co-dwr-offices.geojson")
+CopyFile(SourceFile="layers/co-dwr-offices.md",DestinationFile="${MapFolder}/layers/co-dwr-offices.md")
+CopyFile(SourceFile="layers/co-dwr-offices-event-config.json",DestinationFile="${MapFolder}/layers/co-dwr-offices-event-config.json")
 #
 CopyFile(SourceFile="../../SupportingData/Physical-ContinentalDivide/layers/continental-divide-co-event-config.json",DestinationFile="${MapFolder}/layers/continental-divide-co-event-config.json")
 CopyFile(SourceFile="../../SupportingData/Physical-ContinentalDivide/layers/continental-divide.md",DestinationFile="${MapFolder}/layers/continental-divide.md")

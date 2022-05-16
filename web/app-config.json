@@ -4,8 +4,101 @@
   "favicon": "/img/owf-favicon-32x32.ico",
   "dataUnitsPath": "/system/DATAUNIT",
   "googleAnalyticsTrackingId": "UA-135465513-1",
-  "version": "2.3.0 (2021-05-18)",
+  "version": "2.4.0 (2021-08-13)",
+  "datastores": [
+     {
+        "name": "SateModGitHub",
+        "type": "owf.datstore.statemod",
+        "rootUrl": "https://raw.githubusercontent/path" 
+     }
+  ],
   "mainMenu": [
+    {
+      "id": "Dashboards",
+      "name": "Dashboards",
+      "description" : "Menu for dashboards",
+      "menus": [
+        {
+          "id": "poudre-main-dashboard",
+          "name": "Main Dashboard",
+          "description": "Main Test dashboard.",
+          "action": "dashboard",
+          "dashboardFile": "/dashboards/main/main-dashboard.json",
+          "tooltip": "Poudre Basin main dashboard"
+        },
+        {
+          "id": "poudre-water-affordability-dashboard",
+          "name": "Water Affordability Dashboard",
+          "description": "Water affordability indicators.",
+          "action": "dashboard",
+          "dashboardFile": "/dashboards/water-affordability/water-affordability-dashboard.json",
+          "tooltip": "Poudre Basin water affordability indicators"
+        },
+        {
+          "id": "poudre-basin-water-supply-dashboard",
+          "name": "Water Supply (for Basin) Dashboard",
+          "description": "Water supply for basin indicators.",
+          "action": "dashboard",
+          "dashboardFile": "/dashboards/water-supply-basin/water-supply-basin-dashboard.json",
+          "tooltip": "Poudre Basin water supply indicators",
+          "enabled": "false"
+        },
+        {
+          "id": "poudre-providers-water-supply-dashboard",
+          "name": "Water Supply (for Providers) Dashboard",
+          "description": "Water supply for providers indicators.",
+          "action": "dashboard",
+          "dashboardFile": "/dashboards/water-supply-providers/water-supply-providers-dashboard.json",
+          "tooltip": "Poudre Basin providers water supply indicators",
+          "enabled": "false"
+        },
+        {
+          "id": "poudre-water-security-dashboard",
+          "name": "Water Security Dashboard",
+          "description": "Water security indicators.",
+          "action": "dashboard",
+          "dashboardFile": "/dashboards/water-security/water-security-dashboard.json",
+          "tooltip": "Poudre Basin water security indicators",
+          "enabled": "false"
+        },
+        {
+          "id": "poudre-environmental-health-dashboard",
+          "name": "Environmental Health Dashboard",
+          "description": "Environmental health indicators.",
+          "action": "dashboard",
+          "dashboardFile": "/dashboards/environmental-health/environmental-health-dashboard.json",
+          "tooltip": "Poudre Basin environmental health indicators",
+          "enabled": "false"
+        },
+        {
+          "id": "poudre-local-agriculture-dashboard",
+          "name": "Local Agriculture Dashboard",
+          "description": "Local agriculture indicators.",
+          "action": "dashboard",
+          "dashboardFile": "/dashboards/local-agriculture/local-agriculture-dashboard.json",
+          "tooltip": "Poudre Basin local agriculture indicators",
+          "enabled": "false"
+        },
+        {
+          "id": "poudre-recreation-dashboard",
+          "name": "Recreation Dashboard",
+          "description": "Recreation indicators.",
+          "action": "dashboard",
+          "dashboardFile": "/dashboards/recreation/recreation-dashboard.json",
+          "tooltip": "Poudre Basin recreation indicators",
+          "enabled": "false"
+        },
+        {
+          "id": "poudre-long-view-dashboard",
+          "name": "Long View Dashboard",
+          "description": "Long view indicators.",
+          "action": "dashboard",
+          "dashboardFile": "/dashboards/long-view/long-view-dashboard.json",
+          "tooltip": "Poudre Basin long view indicators",
+          "enabled": "false"
+        }
+      ]
+    },
     {
       "id": "SupportingData",
       "name": "Supporting Data",
@@ -301,9 +394,15 @@
           "url": "https://dwr.state.co.us/Tools/AdministrativeCalls/Active?submitButton=Submit&SelectedWaterDivisionId=1"
         },
         {
+          "id": "current-floods",
+          "name": "Environment - Floods",
+          "separatorBefore" : true,
+          "action": "displayMap",
+          "mapProject": "data-maps/CurrentConditions/Environment-Floods/floods-map.json"
+        },
+        {
           "id": "current-wq",
           "name": "Environment - Water Quality",
-          "separatorBefore" : true,
           "enabled": false,
           "action": "displayMap",
           "mapProject": "theNameOfTheMap"
@@ -456,11 +555,20 @@
       "align": "left",
       "menus" : [
         {
+          "id": "planning-overview",
+          "name": "Overview",
+          "action": "externalLink",
+          "action": "contentPage",
+          "align": "right",
+          "markdownFile": "content-pages/planning-overview.md"
+        },
+        {
           "id": "planning-ag-transfers",
           "name": "Agriculture - Land Transfer",
           "enabled": "false",
           "action": "displayMap",
-          "mapProject": "theNameOfTheMapProjectFile"
+          "mapProject": "theNameOfTheMapProjectFile",
+          "separatorBefore" : true
         },
         {
           "id": "planning-ag-food",
@@ -568,6 +676,13 @@
           "action": "contentPage",
           "align": "right",
           "markdownFile": "content-pages/data-resources.md"
+        },
+        {
+          "id": "funders",
+          "name": "Funding Contributors",
+          "action": "contentPage",
+          "align": "right",
+          "markdownFile": "content-pages/funders.md"
         },
         {
           "id": "funding-request",

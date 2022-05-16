@@ -1,0 +1,13 @@
+{
+  "id" : "fws-stations-event-config",
+  "name": "Flood warning stations event configuration",
+  "description":  "List main attributes.",
+  "layerAttributes" : {
+    "xinclude" : [ "*" ],
+    "include" : [ "numId", "name", "outOfService", "stationTypeProtocol", "dashboadUrl", "Precip.1Day" ],
+    "exclude" : [],
+    "formats": []
+  },
+  "actions": [
+  ]
+}

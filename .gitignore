@@ -38,6 +38,28 @@ junk
 /web/data-ts/*
 
 # ======================================================
+# Dashboards menu:
+# - for now files are kept in place in web/dashboards
+#   rather than putting in workflow/ folder and copying to web/...
+# - later may treat similar to /workflow files
+# ======================================================
+
+/web/dashboards/water-affordability/downloads/*
+!/web/dashboards/water-affordability/downloads/README.md
+/web/dashboards/water-affordability/results/*
+!/web/dashboards/water-affordability/results/README.md
+
+/web/dashboards/water-supply-basin/downloads/*
+!/web/dashboards/water-supply-basin/downloads/README.md
+/web/dashboards/water-supply-basin/results/*
+!/web/dashboards/water-supply-basin/results/README.md
+
+/web/dashboards/water-supply-providers/downloads/*
+!/web/dashboards/water-supply-providers/downloads/README.md
+/web/dashboards/water-supply-providers/results/*
+!/web/dashboards/water-supply-providers/results/README.md
+
+# ======================================================
 # Supporting Data menu
 # ======================================================
 
@@ -323,7 +345,20 @@ junk
 # ======================================================
 # Current Conditions menu
 # ======================================================
-#
+
+# CurrentConditions/Environment-Floods
+/workflow/CurrentConditions/Environment-Floods/downloads/*
+!/workflow/CurrentConditions/Environment-Floods/downloads/README.md
+/workflow/CurrentConditions/Environment-Floods/layers/*
+!/workflow/CurrentConditions/Environment-Floods/layers/README.md
+!/workflow/CurrentConditions/Environment-Floods/layers/*.csv
+!/workflow/CurrentConditions/Environment-Floods/layers/*.json
+!/workflow/CurrentConditions/Environment-Floods/layers/*.md
+!/workflow/CurrentConditions/Environment-Floods/layers/*doc
+# Dynamic map configurations
+# - commit because such a fundamental file
+#/workflow/CurrentConditions/Environment-Floods/*.json
+
 # CurrentConditions/Environment-Wildfires
 /workflow/CurrentConditions/Environment-Wildfires/downloads/*
 !/workflow/CurrentConditions/Environment-Wildfires/downloads/README.md

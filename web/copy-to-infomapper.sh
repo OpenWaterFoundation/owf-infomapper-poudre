@@ -30,6 +30,16 @@ checkCurrentConditionsFolder() {
 }
 
 # The variable ${folder} is set to the receiving folder used in calling code.
+checkDashboardsFolder() {
+  # Make sure that the receiving folder exists.
+  folder=${appFolder}/dashboards
+  if [ ! -d "${folder}" ]; then
+    echo "Creating folder ${folder}"
+    mkdir -p ${folder}
+  fi
+}
+
+# The variable ${folder} is set to the receiving folder used in calling code.
 checkFuturePlanningFolder() {
   # Make sure that the receiving folder exists
   folder=${appFolder}/data-maps/FuturePlanning
@@ -167,6 +177,12 @@ copy_BasinEntities_Z_Test1() {
   cp -rv ${scriptFolder}/data-maps/BasinEntities/Z-Test1 ${folder}
 }
 
+# Copy current conditions floods folder and files.
+copy_CurrentConditions_Environment_Floods() {
+  checkCurrentConditionsFolder
+  cp -rv ${scriptFolder}/data-maps/CurrentConditions/Environment-Floods ${folder}
+}
+
 # Copy current conditions wildfires folder and files.
 copy_CurrentConditions_Environment_Wildfires() {
   checkCurrentConditionsFolder
@@ -195,6 +211,12 @@ copy_CurrentConditions_WaterSupply_Streamflow() {
 copy_FuturePlanning_Municipal_MajorProjects() {
   checkFuturePlanningFolder
   cp -rv ${scriptFolder}/data-maps/FuturePlanning/Municipal-MajorProjects ${folder}
+}
+
+# Copy dashboard files.
+copy_Dashboards() {
+  checkDashboardsFolder
+  cp -rv ${scriptFolder}/dashboards ${appFolder}
 }
 
 # Copy irrigated lands map folder and files.
@@ -243,6 +265,8 @@ runInteractive() {
     echo "Supporting Data:         sc.      Copy Physical - Continental Divide files."
     echo "                         sb.      Copy Political - Colorado State Boundary files."
     echo ""
+    echo "Dashboards:              d.       Copy Dashboards - All dashboard files."
+    echo ""
     echo "Basin Entities:          ea.      Copy Administration - CoDwrWaterDistricts files."
     echo "                         er.      Copy Administration - Roundtables files."
     echo "                         ec.      Copy Political - Counties files."
@@ -264,7 +288,8 @@ runInteractive() {
     echo ""
     echo "Historical Data:         hl.      Copy IrrigatedLands map files."
     echo ""
-    echo "Current Conditions:      cew.     Copy Environment - Wildfires files."
+    echo "Current Conditions:      cef.     Copy Environment - Floods files."
+    echo "                         cew.     Copy Environment - Wildfires files."
     echo "                         cwd.     Copy WaterSupply - Drought files."
     echo "                         cwsp.    Copy WaterSupply - Snowpack files."
     echo "                         cws.     Copy WaterSupply - Streamflow files."
@@ -279,6 +304,8 @@ runInteractive() {
     # Organize the following by menu item.
 
     if [ "${answer}" = "a" ]; then
+      # Dashboards
+      copy_Dashboards
       # Supporting Data
       copy_SupportingData_Political_ColoradoStateBoundary
       copy_SupportingData_Physical_ContinentalDivide
@@ -302,6 +329,7 @@ runInteractive() {
       # Historical Data
       copy_HistoricalData_Agriculture_IrrigatedLands
       # Current Conditions
+      copy_CurrentConditions_Environment_Floods
       copy_CurrentConditions_Environment_Wildfires
       copy_CurrentConditions_WaterQuality_Monitoring
       copy_CurrentConditions_WaterSupply_Drought
@@ -309,10 +337,16 @@ runInteractive() {
       copy_CurrentConditions_WaterSupply_Streamflow
       # Future Planning
       copy_FuturePlanning_Municipal_MajorProjects
+
+    # Main configuration.
+
     elif [ "${answer}" = "c" ]; then
       copyMainConfig
-    elif [ "${answer}" = "q" ]; then
-      break
+
+    # Dashboards
+
+    elif [ "${answer}" = "d" ]; then
+      copy_Dashboards
 
     # Supporting Data
 
@@ -367,6 +401,8 @@ runInteractive() {
 
     # Current Conditions
 
+    elif [ "${answer}" = "cef" ]; then
+      copy_CurrentConditions_Environment_Floods
     elif [ "${answer}" = "cew" ]; then
       copy_CurrentConditions_Environment_Wildfires
     elif [ "${answer}" = "cwd" ]; then
@@ -380,6 +416,11 @@ runInteractive() {
 
     elif [ "${answer}" = "fmp" ]; then
       copy_FuturePlanning_Municipal_MajorProjects
+
+    # Menu general options.
+
+    elif [ "${answer}" = "q" ]; then
+      break
 
     else
       echo "[WARNING] Don't know how to handle menu: ${answer}"

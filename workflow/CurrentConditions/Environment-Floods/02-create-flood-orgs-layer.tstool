@@ -1,0 +1,6 @@
+# Read flood organizations from Excel worksheet
+# - TODO smalers 2020-08-12 maybe show different icons for stormwater/planning and emergency management?
+ReadTableFromExcel(TableID="FloodOrgsData",InputFile="data/flood-orgs.xlsx",Worksheet="Data",ExcelColumnNames=FirstRowInRange)
+#
+# Export table to GeoJSON format
+WriteTableToGeoJSON(TableID="FloodOrgsData",OutputFile="layers/flood-orgs.geojson",LongitudeColumn="Longitude",LatitudeColumn="Latitude")
