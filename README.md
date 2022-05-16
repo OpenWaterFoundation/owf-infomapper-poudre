@@ -14,9 +14,9 @@ The following sections are included in this documentation:
 * [Repository Contents](#repository-contents)
 * [Application Menus and Corresponding Workflow](#application-menus-and-corresponding-workflows)
 * [Development Environment](#development-environment)
-	+ [Quick Start](#quick-start)
-	+ [Development Tools](#development-tools)
-	+ [InfoMapper Configuration](#infomapper-configuration)
+    + [Quick Start](#quick-start)
+    + [Development Tools](#development-tools)
+    + [InfoMapper Configuration](#infomapper-configuration)
 * [Maintainers](#maintainers)
 
 --------------
@@ -63,6 +63,10 @@ owf-infomapper-poudre/                 Workflow files to process input for web a
                                        This is being evaluated.
   web/                                 Location of assembled website files created by workflow steps.
                                        Will be copied to InfoMapper 'assets/app' folder.
+    content-pages/                     Content pages displayed in the website.
+    dashboards/                        Dashboard configurations.
+    img/                               Shared image files.
+    system/                            Shared system files such as data units.
   workflow/                            Command files and scripts to download and process data into maps
                                        and other information products.  Folders match menu organization.
 ```

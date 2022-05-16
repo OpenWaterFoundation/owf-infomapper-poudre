@@ -28,7 +28,11 @@
        "type": "statusIndicator",
        "name": "CostPerAcreFoot",
        "title": "Water cost per Acre Foot",
-       "description": "Water cost per acre foot."
+       "description": "Water cost per acre foot.",
+       "dataPath": "indicator-default.csv",
+       "dataFormat": "csv",
+       "columnName": "indicator",
+       "classificationFile": "indicator-default-classification.csv"
      },
      {
        "columns": 1,
@@ -36,7 +40,11 @@
        "type": "statusIndicator",
        "name": "NewHouseWaterCost",
        "title": "New House Water Cost",
-       "description": "Water cost for new house (tap + PIF)."
+       "description": "Water cost for new house (tap + PIF).",
+       "dataPath": "indicator-default.csv",
+       "dataFormat": "csv",
+       "columnName": "indicator",
+       "classificationFile": "indicator-default-classification.csv"
      },
      {
        "columns": 1,
@@ -44,7 +52,11 @@
        "type": "statusIndicator",
        "name": "WaterUtilityCost",
        "title": "Water Utility Cost",
-       "description": "Water utility cost per month."
+       "description": "Water utility cost per month.",
+       "dataPath": "indicator-default.csv",
+       "dataFormat": "csv",
+       "columnName": "indicator",
+       "classificationFile": "indicator-default-classification.csv"
      },
      {
        "columns": 1,
@@ -74,33 +86,49 @@
        "columns": 1,
        "rows": 1,
        "type": "statusIndicator",
-       "name": "Snowpack",
-       "title": "Snowpack",
-       "description": "Snowpack historical nonexceedance percentile."
+       "name": "SWSI_Main",
+       "title": "Surface Water Supply Index",
+       "description": "Surface Water Supply Index.",
+       "dataPath": "/dashboards/water-supply-basin/results/10190007-swsi.csv",
+       "dataFormat": "csv",
+       "columnName": "10190007_swsi",
+       "classificationFile": "/dashboards/water-supply-basin/swsi-huc-classification.csv"
      },
      {
        "columns": 1,
        "rows": 1,
        "type": "statusIndicator",
        "name": "ReservoirStorage",
-       "title": "Reservoir Storage",
-       "description": "Storage as percent of historical median."
+       "title": "Reservoir Storage (% of median)",
+       "description": "Storage as percent of historical median.",
+       "dataPath": "/dashboards/water-supply-basin/results/10190007-reservoir-storage-indicator.csv",
+       "dataFormat": "csv",
+       "columnName": "ReservoirStorage_PercentOfMedian",
+       "classificationFile": "/dashboards/water-supply-basin/reservoir-storage-indicator-classification.csv"
      },
      {
        "columns": 1,
        "rows": 1,
        "type": "statusIndicator",
-       "name": "StreamflowCanyon",
-       "title": "Streamflow",
-       "description": "Streamflow at the mouth of the canyon."
+       "name": "StreamflowIndicator",
+       "title": "Streamflow (% of median)",
+       "description": "Streamflow at the mouth of the canyon.",
+       "dataPath": "/dashboards/water-supply-basin/results/10190007-streamflow-indicator.csv",
+       "dataFormat": "csv",
+       "columnName": "Minimum_PercentOfMedian",
+       "classificationFile": "/dashboards/water-supply-basin/streamflow-indicator-classification.csv"
      },
      {
        "columns": 1,
        "rows": 1,
        "type": "statusIndicator",
-       "name": "DroughtRestrictions",
-       "title": "Drought Restrictions",
-       "description": "Entities with drought restrictions."
+       "name": "DroughtMonitor_Main",
+       "title": "US Drought Monitor",
+       "description": "US Drought Monitor.",
+       "dataPath": "/dashboards/water-supply-basin/results/10190007-USDM-Indicator.csv",
+       "dataFormat": "csv",
+       "columnName": "10190007_Indicator",
+       "classificationFile": "/dashboards/water-supply-basin/drought-monitor-huc-area-percent-classification.csv"
      },
      {
        "columns": 1,
@@ -121,7 +149,11 @@
        "type": "statusIndicator",
        "name": "LocalWaterOwnership",
        "title": "Local Water Ownership",
-       "description": "Percent of water rights locally owned."
+       "description": "Percent of water rights locally owned.",
+       "dataPath": "indicator-default.csv",
+       "dataFormat": "csv",
+       "columnName": "indicator",
+       "classificationFile": "indicator-default-classification.csv"
      },
      {
        "columns": 1,
@@ -129,7 +161,11 @@
        "type": "statusIndicator",
        "name": "ReservoirCapacity",
        "title": "Reservoir Capacity",
-       "description": "Reservoir capacity of local use."
+       "description": "Reservoir capacity of local use.",
+       "dataPath": "indicator-default.csv",
+       "dataFormat": "csv",
+       "columnName": "indicator",
+       "classificationFile": "indicator-default-classification.csv"
      },
      {
        "columns": 1,
@@ -137,7 +173,11 @@
        "type": "statusIndicator",
        "name": "NetBasinExport",
        "title": "Net Basin Export",
-       "description": "Net basin export."
+       "description": "Net basin export.",
+       "dataPath": "indicator-default.csv",
+       "dataFormat": "csv",
+       "columnName": "indicator",
+       "classificationFile": "indicator-default-classification.csv"
      },
      {
        "columns": 1,
@@ -145,7 +185,11 @@
        "type": "statusIndicator",
        "name": "SupplyRedundancy",
        "title": "Supply Redundancy",
-       "description": "Percent of supply with redundancy."
+       "description": "Percent of supply with redundancy.",
+       "dataPath": "indicator-default.csv",
+       "dataFormat": "csv",
+       "columnName": "indicator",
+       "classificationFile": "indicator-default-classification.csv"
      },
      {
        "columns": 1,
@@ -165,7 +209,11 @@
        "type": "statusIndicator",
        "name": "WaterQuality",
        "title": "Water Quality",
-       "description": "Water quality."
+       "description": "Water quality.",
+       "dataPath": "indicator-default.csv",
+       "dataFormat": "csv",
+       "columnName": "indicator",
+       "classificationFile": "indicator-default-classification.csv"
      },
      {
        "columns": 1,
@@ -173,7 +221,11 @@
        "type": "statusIndicator",
        "name": "StreamflowLevel",
        "title": "Environmental Flows",
-       "description": "Environmental flows."
+       "description": "Environmental flows.",
+       "dataPath": "indicator-default.csv",
+       "dataFormat": "csv",
+       "columnName": "indicator",
+       "classificationFile": "indicator-default-classification.csv"
      },
      {
        "columns": 1,
@@ -181,7 +233,11 @@
        "type": "statusIndicator",
        "name": "ForestHealth",
        "title": "Forest Health",
-       "description": "Forest health (fire, beetle, etc.)."
+       "description": "Forest health (fire, beetle, etc.).",
+       "dataPath": "indicator-default.csv",
+       "dataFormat": "csv",
+       "columnName": "indicator",
+       "classificationFile": "indicator-default-classification.csv"
      },
      {
        "columns": 1,
@@ -189,7 +245,11 @@
        "type": "statusIndicator",
        "name": "LegalProtections",
        "title": "Legal Protections",
-       "description": "Legal protections for water bodies."
+       "description": "Legal protections for water bodies.",
+       "dataPath": "indicator-default.csv",
+       "dataFormat": "csv",
+       "columnName": "indicator",
+       "classificationFile": "indicator-default-classification.csv"
      },
      {
        "columns": 1,
@@ -209,7 +269,11 @@
        "type": "statusIndicator",
        "name": "IrrigatedLands",
        "title": "Irrigated Lands",
-       "description": "Amount of irrigated lands."
+       "description": "Amount of irrigated lands.",
+       "dataPath": "indicator-default.csv",
+       "dataFormat": "csv",
+       "columnName": "indicator",
+       "classificationFile": "indicator-default-classification.csv"
      },
      {
        "columns": 1,
@@ -217,7 +281,11 @@
        "type": "statusIndicator",
        "name": "AgriculturalEconomy",
        "title": "Agricultural Economy",
-       "description": "Agricultural economy amount and trends."
+       "description": "Agricultural economy amount and trends.",
+       "dataPath": "indicator-default.csv",
+       "dataFormat": "csv",
+       "columnName": "indicator",
+       "classificationFile": "indicator-default-classification.csv"
      },
      {
        "columns": 1,
@@ -225,7 +293,11 @@
        "type": "statusIndicator",
        "name": "ConservedLands",
        "title": "Conserved Lands",
-       "description": "Amount of land with conservation easements."
+       "description": "Amount of land with conservation easements.",
+       "dataPath": "indicator-default.csv",
+       "dataFormat": "csv",
+       "columnName": "indicator",
+       "classificationFile": "indicator-default-classification.csv"
      },
      {
        "columns": 1,
@@ -233,7 +305,11 @@
        "type": "statusIndicator",
        "name": "WaterRentals",
        "title": "Water Rentals & Agreements",
-       "description": "Municipal water rentals to agriculture, water sharing agreements."
+       "description": "Municipal water rentals to agriculture, water sharing agreements.",
+       "dataPath": "indicator-default.csv",
+       "dataFormat": "csv",
+       "columnName": "indicator",
+       "classificationFile": "indicator-default-classification.csv"
      },
      {
        "columns": 1,
@@ -253,7 +329,11 @@
        "type": "statusIndicator",
        "name": "BoatingConditions",
        "title": "Boating Conditions",
-       "description": "Conditions at boating locations."
+       "description": "Conditions at boating locations.",
+       "dataPath": "indicator-default.csv",
+       "dataFormat": "csv",
+       "columnName": "indicator",
+       "classificationFile": "indicator-default-classification.csv"
      },
      {
        "columns": 1,
@@ -261,7 +341,11 @@
        "type": "statusIndicator",
        "name": "FishingConditions",
        "title": "Fishing Conditions",
-       "description": "Conditions at fishing locations."
+       "description": "Conditions at fishing locations.",
+       "dataPath": "indicator-default.csv",
+       "dataFormat": "csv",
+       "columnName": "indicator",
+       "classificationFile": "indicator-default-classification.csv"
      },
      {
        "columns": 1,
@@ -269,7 +353,11 @@
        "type": "statusIndicator",
        "name": "WaterParks",
        "title": "Water Parks",
-       "description": "Conditions at water parks."
+       "description": "Conditions at water parks.",
+       "dataPath": "indicator-default.csv",
+       "dataFormat": "csv",
+       "columnName": "indicator",
+       "classificationFile": "indicator-default-classification.csv"
      },
      {
        "columns": 1,
@@ -301,7 +389,11 @@
        "type": "statusIndicator",
        "name": "ClimateChange",
        "title": "Climate Change",
-       "description": "Climate change trends."
+       "description": "Climate change trends.",
+       "dataPath": "indicator-default.csv",
+       "dataFormat": "csv",
+       "columnName": "indicator",
+       "classificationFile": "indicator-default-classification.csv"
      },
      {
        "columns": 1,
@@ -309,7 +401,11 @@
        "type": "statusIndicator",
        "name": "PopulationGrowth",
        "title": "Population Growth",
-       "description": "Population growth."
+       "description": "Population growth.",
+       "dataPath": "indicator-default.csv",
+       "dataFormat": "csv",
+       "columnName": "indicator",
+       "classificationFile": "indicator-default-classification.csv"
      },
      {
        "columns": 1,
@@ -317,7 +413,11 @@
        "type": "statusIndicator",
        "name": "Planning",
        "title": "Planning",
-       "description": "Level of planning."
+       "description": "Level of planning.",
+       "dataPath": "indicator-default.csv",
+       "dataFormat": "csv",
+       "columnName": "indicator",
+       "classificationFile": "indicator-default-classification.csv"
      },
      {
        "columns": 1,
@@ -325,7 +425,38 @@
        "type": "statusIndicator",
        "name": "Education",
        "title": "Education",
-       "description": "Level of education."
+       "description": "Level of education.",
+       "dataPath": "indicator-default.csv",
+       "dataFormat": "csv",
+       "columnName": "indicator",
+       "classificationFile": "indicator-default-classification.csv"
      }
-  ]
+  ],
+  "disabled" : [
+     {
+       "columns": 1,
+       "rows": 1,
+       "type": "statusIndicator",
+       "name": "Snowpack",
+       "title": "Snowpack",
+       "description": "Snowpack historical nonexceedance percentile.",
+       "dataPath": "indicator-default.csv",
+       "dataFormat": "csv",
+       "columnName": "indicator",
+       "classificationFile": "indicator-default-classification.csv",
+       "enabled" : false
+     },
+     {
+       "columns": 1,
+       "rows": 1,
+       "type": "statusIndicator",
+       "name": "DroughtRestrictions",
+       "title": "Drought Restrictions",
+       "description": "Entities with drought restrictions.",
+       "dataPath": "indicator-default.csv",
+       "dataFormat": "csv",
+       "columnName": "indicator",
+       "classificationFile": "indicator-default-classification.csv"
+     }
+   ]
 }

@@ -1,8 +1,9 @@
 # web #
 
-This folder contains files to publish the Poudre Basin Information web application.
+This folder contains files to create and publish the Poudre Basin Information webite.
 The website is implemented using the general OWF InfoMapper application,
-which is a web application that provides access to maps and other content.
+which is a web application that provides access to maps, charts, content pages,
+dashboards, and other content.
 
 ```
 git-repos/
@@ -16,8 +17,10 @@ git-repos/
       app-config.json             Application configuration file.
       content-pages/              Content pages that are referenced in the app-config.json.
       copy-to-infomapper.sh       Script to copy 'web' files to InfoMapper infomapper/src/assets.
+      dashboards/                 Configurations for dashboards.
       data-maps/                  Map configurations and supporting layers and time series files.
       img/                        Images for the application, such as used for map markers.
+      system/                     Files needed by the entire system.
 ```
 
 An attempt was made to use symbolic links to/from InfoMapper, but did not work on Windows.
@@ -33,4 +36,4 @@ using the `version` defined in the `app-config.json` file.
 For example, published websites on Amazon S3 have a complete list of data files.
 
 **Because published content in the `dist` folder exist in the InfoMapper repository,
-appropriate `.gitignore` settings must be are defined in both repositories to avoid committing dynamic content.**
+appropriate `.gitignore` settings are defined in both repositories to avoid committing dynamic content.**
