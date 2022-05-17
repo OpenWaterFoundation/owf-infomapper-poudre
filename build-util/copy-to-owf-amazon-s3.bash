@@ -1,19 +1,18 @@
-#!/bin/sh
-(set -o igncr) 2>/dev/null && set -o igncr; # this comment is required
-# The above line ensures that the script can be run on Cygwin/Linux even with Windows CRNL
+#!/bin/bash
+(set -o igncr) 2>/dev/null && set -o igncr; # This comment is required.
+# The above line ensures that the script can be run on Cygwin/Linux even with Windows CRNL.
 #
-# Copy the staged Info Mapper website to the poudre.openwaterfoundation.org website
+# Copy the staged Info Mapper website to the poudre.openwaterfoundation.org website:
 # - replace all the files on the web with local files
 # - must specify Amazon profile as argument to the script
 # - the script determines the version from the code and optionally uploads to "latest" version
 # - tested with Git Bash
 
-# Supporting functions, alphabetized
+# Supporting functions, alphabetized.
 
-# Build the distribution in the staging area
+# Build the distribution in the staging area.
 buildDist() {
-  # First build the site so that the "dist" folder contains current content.
-  #
+  # First build the site so that the "dist" folder contains current content:
   # - see:  https://medium.com/@tomastrajan/6-best-practices-pro-tips-for-angular-cli-better-developer-experience-7b328bc9db81
   # - Put on the command line rather than in project configuration file
   # - enable ahead of time compilation:  --aot
@@ -24,7 +23,7 @@ buildDist() {
   #
   # See options:  https://angular.io/cli/build
 
-  # Ways to handle the href path
+  # Ways to handle the href path:
   # - TODO smalers 2020-04-20 can add this to command line parameters if necessary
   # - "period" works locally in "dist" but not when pushed to the cloud
   # - "path" 
@@ -48,15 +47,17 @@ buildDist() {
 
   optimizationArg=""
   if [ "${doOptimization}" = "no" ]; then
-    # Turn off optimization
+    # Turn off optimization.
     optimizationArg="--optimization=false"
   fi
 
-  # Run the ng build
+  # Run the ng build:
   # - use the command line from 'copy-to-owf-amazon-s3.bat', which was used more recently
   # - this should be found in the Windows PATH, for example C:\Users\user\AppData\Roaming\npm\ng
-  logInfo "Start running:  ng build --prod=true --aot=true --baseHref=${ngBuildHrefOpt} --extractCss=true --namedChunks=false --outputHashing=all --sourceMap=false ${optimizationArg}"
-  ng build --prod=true --aot=true --baseHref=${ngBuildHrefOpt} --extractCss=true --namedChunks=false --outputHashing=all --sourceMap=false ${optimizationArg}
+  # - 2022-05-16 changed --prod=true to --configuration production
+  # - 2022-05-16 removed --extractCss=true, which is now the default behavior
+  logInfo "Start running:  ng build --configuration production --aot=true --baseHref=${ngBuildHrefOpt} --namedChunks=false --outputHashing=all --sourceMap=false ${optimizationArg}"
+  ng build --configuration production --aot=true --baseHref=${ngBuildHrefOpt} --namedChunks=false --outputHashing=all --sourceMap=false ${optimizationArg}
   exitCode=$?
   logInfo "...done running 'ng build... (exit code ${exitCode})'"
   if [ "${exitCode}" -ne 0 ]; then
@@ -76,7 +77,9 @@ buildDist() {
     sed -i 's/type="module"/type="text\/javascript"/g' ${indexFile}
     # Additionally need to insert "defer" at the end of the main-es2015*.js item so it looks like:
     #   <script src="main-es2015.afb0c8c9a69f82c651a0.js" type="text/javascript" defer>
-    sed -i 's/main-es2015.*" type="text\/javascript"/& defer/' ${indexFile}
+    # TODO smalers 2022-05-16 newer Angular does not have "es2015" in the filename.
+    #sed -i 's/main-es2015.*" type="text\/javascript"/& defer/' ${indexFile}
+    sed -i 's/main.*js" type="text\/javascript"/& defer/' ${indexFile}
 
     # Update the index.html to replace '${Google_Analytics_Tracking_id}' with the
     # application configuration '${googleAnalyticsTrackingId}' property.
@@ -85,7 +88,7 @@ buildDist() {
     googleAnalyticsTrackingId=$(grep '"googleAnalyticsTrackingId"' ${appConfigFile} | cut -d ":" -f 2 | tr -d '"' | tr -d ' ' | tr -d ',')
     logDebug "Google Analytics using tracking ID from application configuration:  ${googleAnalyticsTrackingId}"
     if [ -n "${googleAnalyticsTrackingId}" ]; then
-      # Replace the Google Analytics tracking ID in the index.html file
+      # Replace the Google Analytics tracking ID in the index.html file.
       logInfo "Configuring Google Analytics using tracking ID:  ${googleAnalyticsTrackingId}"
       sed -i "s/id=\${Google_Analytics_Tracking_Id}/id=${googleAnalyticsTrackingId}/" ${indexFile}
     else
@@ -95,7 +98,7 @@ buildDist() {
   else
     logError "index.html file does not exist: ${indexFile}"
     logError "Maybe the budget needs to be increased?"
-    # This tends to cause major issues so exit
+    # This tends to cause major issues so exit.
     exit 1
   fi
 
@@ -109,13 +112,13 @@ buildDist() {
   fi
 }
 
-# Check to make sure the Angular version is as expected
+# Check to make sure the Angular version is as expected:
 # - TODO smalers 2020-04-20 Need to implement
 checkAngularVersion() {
   logWarning "Checking Angular version is not implemented.  Continuing."
 }
 
-# Check input
+# Check input:
 # - make sure that the Amazon profile was specified
 # - call this before doing the upload but don't need before then
 checkInput() {
@@ -127,11 +130,11 @@ checkInput() {
   fi
 }
 
-# Determine the operating system that is running the script
+# Determine the operating system that is running the script:
 # - mainly care whether Cygwin or MINGW (Git Bash)
 checkOperatingSystem() {
   if [ ! -z "${operatingSystem}" ]; then
-    # Have already checked operating system so return
+    # Have already checked operating system so return.
     return
   fi
   operatingSystem="unknown"
@@ -149,14 +152,14 @@ checkOperatingSystem() {
   esac
 }
 
-# Echo to stderr
+# Echo to stderr:
 # - if necessary, quote the string to be printed
 # - this function is called to print various message types
 echoStderr() {
   echo "$@" 1>&2
 }
 
-# Get the user's login.
+# Get the user's login:
 # - Git Bash apparently does not set $USER environment variable, not an issue on Cygwin
 # - Set USER as script variable only if environment variable is not already set
 # - See: https://unix.stackexchange.com/questions/76354/who-sets-user-and-username-environment-variables
@@ -169,21 +172,21 @@ getUserLogin() {
   if [ -z "${USER}" ]; then
     USER=$(logname)
   fi
-  # Else - not critical since used for temporary files
+  # Else - not critical since used for temporary files.
 }
 
 # Get the InfoMapper version and Poudre Information Portal version.
 # - the version is in the 'web/app-config.json' file in format:  "version": "0.7.0.dev (2020-04-24)"
 # - the Info Mapper software version in 'assets/version.json' with format similar to above
 getVersion() {
-  # Application version
+  # Application version.
   if [ ! -f "${appConfigFile}" ]; then
     logError "Application version file does not exist: ${appConfigFile}"
     logError "Exiting."
     exit 1
   fi
   appVersion=$(grep '"version":' ${appConfigFile} | cut -d ":" -f 2 | cut -d "(" -f 1 | tr -d '"' | tr -d ' ' | tr -d ',')
-  # InfoMapper version
+  # InfoMapper version.
   infoMapperVersionFile="${infoMapperMainFolder}/src/assets/version.json"
   if [ ! -f "${infoMapperVersionFile}" ]; then
     logError "InfoMapper version file does not exist: ${infoMapperVersionFile}"
@@ -213,35 +216,35 @@ logWarning() {
    echoStderr "[WARNING] $@"
 }
 
-# Parse the command parameters
+# Parse the command parameters:
 # - use the getopt command line program so long options can be handled
 parseCommandLine() {
-  # Single character options
+  # Single character options.
   optstring="hv"
-  # Long options
+  # Long options.
   optstringLong="aws-profile::,dryrun,help,nobuild,noupload,nooptimization,upload-assets,upload-datamaps,version"
-  # Parse the options using getopt command
+  # Parse the options using getopt command.
   GETOPT_OUT=$(getopt --options ${optstring} --longoptions ${optstringLong} -- "$@")
   exitCode=$?
   if [ ${exitCode} -ne 0 ]; then
-    # Error parsing the parameters such as unrecognized parameter
+    # Error parsing the parameters such as unrecognized parameter.
     echoStderr ""
     printUsage
     exit 1
   fi
-  # The following constructs the command by concatenating arguments
+  # The following constructs the command by concatenating arguments.
   eval set -- "${GETOPT_OUT}"
-  # Loop over the options
+  # Loop over the options.
   while true; do
     #logDebug "Command line option is ${opt}"
     case "$1" in
-      --aws-profile) # --aws-profile=profile  Specify the AWS profile (use default)
+      --aws-profile) # --aws-profile=profile  Specify the AWS profile (use default).
         case "$2" in
-          "") # Nothing specified so error
+          "") # Nothing specified so error.
             logError "--aws-profile=profile is missing profile name"
             exit 1
             ;;
-          *) # profile has been specified
+          *) # profile has been specified.
             awsProfile=$2
             shift 2
             ;;
@@ -252,44 +255,44 @@ parseCommandLine() {
         dryrun="--dryrun"
         shift 1
         ;;
-      -h|--help) # -h or --help  Print the program usage
+      -h|--help) # -h or --help  Print the program usage.
         printUsage
         exit 0
         ;;
-      --nobuild) # --nobuild  Indicate to not build to staging area
+      --nobuild) # --nobuild  Indicate to not build to staging area.
         logInfo "--nobuild detected - will not build to 'dist' folder"
         doBuild="no"
         shift 1
         ;;
-      --nooptimization) # --nooptimization  Control 'ng build --optimization'
+      --nooptimization) # --nooptimization  Control 'ng build --optimization'.
         logInfo "--nooptimization detected - will set 'ng build --optimization=false"
         doOptimization="no"
         shift 1
         ;;
-      --noupload) # --noupload  Indicate to create staging area dist but not upload
+      --noupload) # --noupload  Indicate to create staging area dist but not upload.
         logInfo "--noupload detected - will not upload 'dist' folder"
         doUpload="no"
         shift 1
         ;;
-      --upload-assets) # --upload-assets  Indicate to only upload assets
+      --upload-assets) # --upload-assets  Indicate to only upload assets.
         logInfo "--upload-assets detected - will upload only 'assets' folder"
         uploadOnlyAssets="yes"
         shift 1
         ;;
-      --upload-datamaps) # --upload-datamaps  Indicate to only upload data-maps
+      --upload-datamaps) # --upload-datamaps  Indicate to only upload data-maps.
         logInfo "--upload-datamaps detected - will upload only 'assets/app/data-maps' folder"
         uploadOnlyDataMaps="yes"
         shift 1
         ;;
-      -v|--version) # -v or --version  Print the program version
+      -v|--version) # -v or --version  Print the program version.
         printVersion
         exit 0
         ;;
-      --) # No more arguments
+      --) # No more arguments.
         shift
         break
         ;;
-      *) # Unknown option
+      *) # Unknown option.
         logError ""
         logError "Invalid option $1." >&2
         printUsage
@@ -299,7 +302,7 @@ parseCommandLine() {
   done
 }
 
-# Print the program usage to stderr.
+# Print the program usage to stderr:
 # - calling code must exit with appropriate code
 printUsage() {
   echoStderr ""
@@ -323,7 +326,7 @@ printUsage() {
   echoStderr ""
 }
 
-# Print the script version and copyright/license notices to stderr.
+# Print the script version and copyright/license notices to stderr:
 # - calling code must exit with appropriate code
 printVersion() {
   echoStderr ""
@@ -341,44 +344,90 @@ printVersion() {
   echoStderr ""
 }
 
-# Sync the Angular application files to S3
-# - figures out the location of the 'aws' script for Cygwin and MinGW (Git Bash)
-syncFiles() {
-  local s3FolderUrl
-
-  s3FolderUrl=$1
-
-  if [ "${operatingSystem}" = "cygwin" -o "${operatingSystem}" = "linux" ]; then
-    # aws is in a standard location such as /usr/bin/aws
-    aws s3 sync ${infoMapperDistAppFolder} ${s3FolderUrl} ${dryrun} --delete --profile "${awsProfile}"
-    errorCode=$?
-    if [ ${errorCode} -ne 0 ]; then
-      logError "Error code ${errorCode} from 'aws' command.  Exiting."
-      exit 1
-    fi
+# Set the 'aws' executable based on the operating system.
+# This allows the rest of the script to call the program without issue.
+setAwsExe () {
+  awsExe=""
+  if [ -z "${operatingSystem}" ]; then
+    logError "The opererating system is unknown.  Cannot determine 'aws' program.  Exiting."
+    exit 1
+  elif [ "${operatingSystem}" = "cygwin" -o "${operatingSystem}" = "linux" ]; then
+    # aws is in a standard location such as /usr/bin/aws and is found via the PATH.
+    awsExe="aws"
   elif [ "${operatingSystem}" = "mingw" ]; then
     # For Windows Python 3.7, aws may be installed in Windows %USERPROFILE%\AppData\Local\Programs\Python\Python37\scripts
     # - use Linux-like path to avoid backslash issues
-    # - TODO smalers 2019-01-04 could try to find if the script is in the PATH
     # - TODO smalers 2019-01-04 could try to find where py thinks Python is installed but not sure how
-    awsScript="${HOME}/AppData/Local/Programs/Python/Python37/scripts/aws"
-    if [ -f "${awsScript}" ]; then
-      ${awsScript} s3 sync ${infoMapperDistAppFolder} ${s3FolderUrl} ${dryrun} --delete --profile "${awsProfile}"
-      errorCode=$?
-      if [ ${errorCode} -ne 0 ]; then
-        logError "Error code ${errorCode} from 'aws' command.  Exiting."
-        exit 1
-      fi
-    else
-      logError ""
-      logError "Can't find 'aws' script"
-      exit 1
-    fi
+    awsExe="${HOME}/AppData/Local/Programs/Python/Python37/scripts/aws"
   else
     logError ""
     logError "Don't know how to run on operating system ${operatingSystem}"
     exit 1
   fi
+  # Make sure that the command is found.
+  if [ -z "${awsExe}" ]; then
+    logError "The opererating system is unknown.  Cannot determine 'aws' program.  Exiting."
+  elif ! command -v "${awsExe}"; then
+    logError "Could not find 'aws' program: ${awsExe}"
+    exit 1
+  else
+    logInfo "Found 'aws': ${awsExe}"
+    return 0
+  fi
+}
+
+# Synchronize the Angular application files to S3:
+# - also invalidate the CloudFront distribution 
+syncFiles() {
+  local cloudFrontDistributionId doSync s3FolderUrl subdomain
+
+  s3FolderUrl=$1
+  deployedVersion=$2
+
+  if [ -z "${s3FolderUrl}" ]; then
+    logError "S3 folder is not specified for the S3 files."
+    exit 1
+  fi
+  if [ -z "${deployedVersion}" ]; then
+    logError "Deployed version is not specified for the S3 files."
+    exit 1
+  fi
+
+  # First synchronie the files to S3.
+  doSync="true"
+  if [ "${doSync}" = "true" ]; then
+    ${awsExe} s3 sync ${infoMapperDistAppFolder} ${s3FolderUrl} ${dryrun} --delete --profile "${awsProfile}"
+    errorCode=$?
+    if [ ${errorCode} -ne 0 ]; then
+      logError "Error code ${errorCode} from 'aws' command.  Exiting."
+      exit 1
+    fi
+  fi
+
+  # Also invalidate the CloudFront distribution so that new version will be displayed:
+  # - see:  https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Invalidation.html
+  # Determine the distribution ID:
+  # The distribution list contains a line like the following (the actual distribution ID is not included here):
+  # ITEMS   arn:aws:cloudfront::132345689123:distribution/E1234567891234    poudre.openwaterfoundation.org  something.cloudfront.net    True    HTTP2   E1234567891334  True    2022-01-06T19:02:50.640Z        PriceClass_100Deployed
+  subdomain="poudre.openwaterfoundation.org"
+  cloudFrontDistributionId=$(${awsExe} cloudfront list-distributions --profile "${awsProfile}" | grep ${subdomain} | grep "arn" | awk '{print $2}' | cut -d ':' -f 6 | cut -d '/' -f 2)
+  if [ -z "${cloudFrontDistributionId}" ]; then
+    logError "Unable to find CloudFront distribution ID."
+    exit 1
+  else
+    logInfo "Found CloudFront distribution ID: ${distributionId}"
+  fi
+  logInfo "Invalidating files so that CloudFront will make new files available..."
+  ${awsExe} cloudfront create-invalidation --distribution-id ${cloudFrontDistributionId} --paths "/${deployedVersion}/*" --profile "${awsProfile}"
+  errorCode=$?
+  if [ $errorCode -ne 0 ]; then
+    logError " "
+    logError "Error invalidating CloudFront file(s)."
+    exit 1
+  else
+    logInfo "Success invalidating CloudFront file(s)."
+  fi
+  return 0
 }
 
 # Upload the staging area 'dist' files to S3.
@@ -407,14 +456,14 @@ uploadDist() {
   echo "InfoMapperVersion = ${infoMapperVersion}" >> ${uploadLogFile}
 
   if [ "${uploadOnlyAssets}" = "yes" ]; then
-    # Only updating assets
+    # Only updating assets:
     # - adjust the source folder and URL to be more specific
     echo "Only uploading 'assets' files."
     infoMapperDistAppFolder="${infoMapperDistAppFolder}/assets"
     s3FolderVersionUrl="${s3FolderVersionUrl}/assets"
     s3FolderLatestUrl="${s3FolderLatestUrl}/assets"
   elif [ "${uploadOnlyDataMaps}" = "yes" ]; then
-    # Only updating data-maps
+    # Only updating data-maps:
     # - adjust the source folder and URL to be more specific
     # - put this after so the most specific folder is used
     echo "Only uploading 'assets/app/data-maps' files."
@@ -433,7 +482,7 @@ uploadDist() {
     exit 0
   elif [ -z "${answer}" -o "${answer}" = "y" -o "${answer}" = "Y" ]; then
     logInfo "Starting aws sync of ${appVersion} copy..."
-    syncFiles ${s3FolderVersionUrl}
+    syncFiles "${s3FolderVersionUrl}" "${appVersion}"
     logInfo "...done with aws sync of ${appVersion} copy."
   fi
 
@@ -447,15 +496,19 @@ uploadDist() {
     exit 0
   elif [ -z "${answer}" -o "${answer}" = "y" -o "${answer}" = "Y" ]; then
     logInfo "Starting aws sync of 'latest' copy..."
-    syncFiles ${s3FolderLatestUrl}
+    syncFiles "${s3FolderLatestUrl}" "latest"
     logInfo "...done with aws sync of 'latest' copy."
   fi
 }
 
-# Entry point into the script
+# Entry point into the script.
 
-# Check the operating system
+# Check the operating system.
 checkOperatingSystem
+
+# Set the 'aws' program to use:
+# - must set after the operating system is set
+setAwsExe
 
 # Make sure the Angular version is OK
 checkAngularVersion
