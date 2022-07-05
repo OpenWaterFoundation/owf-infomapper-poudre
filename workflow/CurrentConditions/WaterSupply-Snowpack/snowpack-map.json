@@ -321,14 +321,14 @@
           "geoLayerId": "SnodasLayer",
           "name": "Snowpack (SNODAS)",
           "description": "Snowpack from SNODAS",
-          "crs": "EPSG:4326",
+          "crs": "EPSG:26913",
           "geometryType": "WKT:Polygon",
           "layerType": "Vector",
           "sourceFormat": "GeoJSON",
-          "sourcePath": "http://data.openwaterfoundation.org/CO/CDSS/SNODAS/SnowpackStatisticsByDate_LatestDate.geojson",
+          "sourcePath": "https://snodas.cdss.state.co.us/app/SnowpackStatisticsByDate/SnowpackStatisticsByDate_LatestDate.geojson",
           "properties": {},
           "history:": [
-            "Read GeoLayer from GeoJSON file:  'http://data.openwaterfoundation.org/CO/CDSS/SNODAS/SnowpackStatisticsByDate_LatestDate.geojson'"
+            "Read GeoLayer from GeoJSON file:  'https://snodas.cdss.state.co.us/app/SnowpackStatisticsByDate/SnowpackStatisticsByDate_LatestDate.geojson'"
           ]
         },
         {
