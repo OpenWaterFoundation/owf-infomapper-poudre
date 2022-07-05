@@ -283,10 +283,10 @@
           "geometryType": "WKT:LineString",
           "layerType": "Vector",
           "sourceFormat": "GeoJSON",
-          "sourcePath": "https://raw.githubusercontent.com/OpenWaterFoundation/owf-data-us-continental-divide/master/data/continental-divide-co.geojson",
+          "sourcePath": "https://data.openwaterfoundation.org/country/us/usgs/continental-divide/continental-divide-co.geojson",
           "properties": {},
           "history:": [
-            "Read GeoLayer from GeoJSON file:  'https://raw.githubusercontent.com/OpenWaterFoundation/owf-data-us-continental-divide/master/data/continental-divide-co.geojson'"
+            "Read GeoLayer from GeoJSON file:  'https://data.openwaterfoundation.org/country/us/usgs/continental-divide/continental-divide-co.geojson'"
           ]
         }
       ],
@@ -325,6 +325,7 @@
                   "eventType": "hover",
                   "name": "Hover event",
                   "description": "Hover event configuration",
+                  "hasVisualization": false,
                   "properties": {
                     "eventConfigPath": "layers/continental-divide-co-event-config.json"
                   }
@@ -333,6 +334,7 @@
                   "eventType": "click",
                   "name": "Click event",
                   "description": "Click event configuration",
+                  "hasVisualization": false,
                   "properties": {
                     "eventConfigPath": "layers/continental-divide-co-event-config.json"
                   }

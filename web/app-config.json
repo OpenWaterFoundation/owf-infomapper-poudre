@@ -32,7 +32,8 @@
           "description": "Water affordability indicators.",
           "action": "dashboard",
           "dashboardFile": "/dashboards/water-affordability/water-affordability-dashboard.json",
-          "tooltip": "Poudre Basin water affordability indicators"
+          "tooltip": "Poudre Basin water affordability indicators",
+          "enabled": "false"
         },
         {
           "id": "poudre-basin-water-supply-dashboard",
@@ -40,8 +41,7 @@
           "description": "Water supply for basin indicators.",
           "action": "dashboard",
           "dashboardFile": "/dashboards/water-supply-basin/water-supply-basin-dashboard.json",
-          "tooltip": "Poudre Basin water supply indicators",
-          "enabled": "false"
+          "tooltip": "Poudre Basin water supply indicators"
         },
         {
           "id": "poudre-providers-water-supply-dashboard",

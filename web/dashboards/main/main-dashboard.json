@@ -11,20 +11,34 @@
   },
   "widgets": [
      {
-       "columns": 1,
+       "columns": 5,
        "rows": 1,
-       "type": "image",
-       "imagePath": "/img/house-photo.jpg",
-       "name": "Blank1-1",
-       "title": "Blank1-1",
-       "description": "Blank1-1",
+       "type": "title",
+       "name": "MainTitle",
+       "title": "Poudre Basin Water Indicators Summary Dashboard",
+       "description": "Poudre Basin indicators summary Dashboard.",
        "style": {
-          "backgroundColor": "black"
+          "backgroundColor": "black",
+          "textColor": "#ffffff",
+          "fontSize": "x-large"
        }
      },
      {
        "columns": 1,
-       "rows": 1,
+       "rows": 3,
+       "type": "image",
+       "imagePath": "/img/house-photo.jpg",
+       "name": "WaterAffordability",
+       "title": "Water Affordability",
+       "description": "Blank1-1",
+       "style": {
+          "backgroundColor": "black",
+          "textColor": "#ffffff"
+       }
+     },
+     {
+       "columns": 1,
+       "rows": 3,
        "type": "statusIndicator",
        "name": "CostPerAcreFoot",
        "title": "Water cost per Acre Foot",
@@ -36,7 +50,7 @@
      },
      {
        "columns": 1,
-       "rows": 1,
+       "rows": 3,
        "type": "statusIndicator",
        "name": "NewHouseWaterCost",
        "title": "New House Water Cost",
@@ -48,7 +62,7 @@
      },
      {
        "columns": 1,
-       "rows": 1,
+       "rows": 3,
        "type": "statusIndicator",
        "name": "WaterUtilityCost",
        "title": "Water Utility Cost",
@@ -60,7 +74,7 @@
      },
      {
        "columns": 1,
-       "rows": 1,
+       "rows": 3,
        "type": "image",
        "imagePath": "/img/black.png",
        "name": "Blank1-5",
@@ -72,19 +86,20 @@
      },
      {
        "columns": 1,
-       "rows": 1,
+       "rows": 3,
        "type": "image",
        "imagePath": "/img/snodas.png",
-       "name": "Blank2-1",
-       "title": "Blank2-1",
-       "description": "Blank2-1",
+       "name": "WaterSupply",
+       "title": "Water Supply",
+       "description": "Water Supply",
        "style": {
-          "backgroundColor": "black"
+          "backgroundColor": "black",
+          "textColor": "#ffffff"
        }
      },
      {
        "columns": 1,
-       "rows": 1,
+       "rows": 3,
        "type": "statusIndicator",
        "name": "SWSI_Main",
        "title": "Surface Water Supply Index",
@@ -96,7 +111,7 @@
      },
      {
        "columns": 1,
-       "rows": 1,
+       "rows": 3,
        "type": "statusIndicator",
        "name": "ReservoirStorage",
        "title": "Reservoir Storage (% of median)",
@@ -108,7 +123,7 @@
      },
      {
        "columns": 1,
-       "rows": 1,
+       "rows": 3,
        "type": "statusIndicator",
        "name": "StreamflowIndicator",
        "title": "Streamflow (% of median)",
@@ -120,7 +135,7 @@
      },
      {
        "columns": 1,
-       "rows": 1,
+       "rows": 3,
        "type": "statusIndicator",
        "name": "DroughtMonitor_Main",
        "title": "US Drought Monitor",
@@ -132,20 +147,21 @@
      },
      {
        "columns": 1,
-       "rows": 1,
+       "rows": 3,
        "type": "image",
        "imagePath": "/img/pipeline-photo.jpg",
        "attribution": "CBS Denver",
-       "name": "Blank3-1",
-       "title": "Blank3-1",
-       "description": "Blank3-1",
+       "name": "WaterSecurity",
+       "title": "Water Security",
+       "description": "Water Security",
        "style": {
-          "backgroundColor": "black"
+          "backgroundColor": "black",
+          "textColor": "#ffffff"
        }
      },
      {
        "columns": 1,
-       "rows": 1,
+       "rows": 3,
        "type": "statusIndicator",
        "name": "LocalWaterOwnership",
        "title": "Local Water Ownership",
@@ -157,7 +173,7 @@
      },
      {
        "columns": 1,
-       "rows": 1,
+       "rows": 3,
        "type": "statusIndicator",
        "name": "ReservoirCapacity",
        "title": "Reservoir Capacity",
@@ -169,7 +185,7 @@
      },
      {
        "columns": 1,
-       "rows": 1,
+       "rows": 3,
        "type": "statusIndicator",
        "name": "NetBasinExport",
        "title": "Net Basin Export",
@@ -181,7 +197,7 @@
      },
      {
        "columns": 1,
-       "rows": 1,
+       "rows": 3,
        "type": "statusIndicator",
        "name": "SupplyRedundancy",
        "title": "Supply Redundancy",
@@ -193,19 +209,20 @@
      },
      {
        "columns": 1,
-       "rows": 1,
+       "rows": 3,
        "type": "image",
        "imagePath": "/img/wildfire-photo.jpg",
-       "name": "Blank4-1",
-       "title": "Blank4-1",
-       "description": "Blank4-1",
+       "name": "EnvironmentalHealth",
+       "title": "Environmental Health",
+       "description": "EnvironmentalHealth",
        "style": {
-          "backgroundColor": "black"
+          "backgroundColor": "black",
+          "textColor": "#ffffff"
        }
      },
      {
        "columns": 1,
-       "rows": 1,
+       "rows": 3,
        "type": "statusIndicator",
        "name": "WaterQuality",
        "title": "Water Quality",
@@ -217,7 +234,7 @@
      },
      {
        "columns": 1,
-       "rows": 1,
+       "rows": 3,
        "type": "statusIndicator",
        "name": "StreamflowLevel",
        "title": "Environmental Flows",
@@ -229,7 +246,7 @@
      },
      {
        "columns": 1,
-       "rows": 1,
+       "rows": 3,
        "type": "statusIndicator",
        "name": "ForestHealth",
        "title": "Forest Health",
@@ -241,7 +258,7 @@
      },
      {
        "columns": 1,
-       "rows": 1,
+       "rows": 3,
        "type": "statusIndicator",
        "name": "LegalProtections",
        "title": "Legal Protections",
@@ -253,19 +270,20 @@
      },
      {
        "columns": 1,
-       "rows": 1,
+       "rows": 3,
        "type": "image",
        "imagePath": "/img/agriculture-map.jpg",
-       "name": "Blank5-1",
-       "title": "Blank5-1",
-       "description": "Blank5-1",
+       "name": "LocalAgriculture",
+       "title": "Local Agriculture",
+       "description": "Local Agriculture",
        "style": {
-          "backgroundColor": "black"
+          "backgroundColor": "black",
+          "textColor": "#ffffff"
        }
      },
      {
        "columns": 1,
-       "rows": 1,
+       "rows": 3,
        "type": "statusIndicator",
        "name": "IrrigatedLands",
        "title": "Irrigated Lands",
@@ -277,7 +295,7 @@
      },
      {
        "columns": 1,
-       "rows": 1,
+       "rows": 3,
        "type": "statusIndicator",
        "name": "AgriculturalEconomy",
        "title": "Agricultural Economy",
@@ -289,7 +307,7 @@
      },
      {
        "columns": 1,
-       "rows": 1,
+       "rows": 3,
        "type": "statusIndicator",
        "name": "ConservedLands",
        "title": "Conserved Lands",
@@ -301,7 +319,7 @@
      },
      {
        "columns": 1,
-       "rows": 1,
+       "rows": 3,
        "type": "statusIndicator",
        "name": "WaterRentals",
        "title": "Water Rentals & Agreements",
@@ -313,19 +331,20 @@
      },
      {
        "columns": 1,
-       "rows": 1,
+       "rows": 3,
        "type": "image",
        "imagePath": "/img/rafting-photo.jpg",
-       "name": "Blank6-1",
-       "title": "Blank6-1",
-       "description": "Blank6-1",
+       "name": "Recreation",
+       "title": "Recreation",
+       "description": "Recreation",
        "style": {
-          "backgroundColor": "black"
+          "backgroundColor": "black",
+          "textColor": "#ffffff"
        }
      },
      {
        "columns": 1,
-       "rows": 1,
+       "rows": 3,
        "type": "statusIndicator",
        "name": "BoatingConditions",
        "title": "Boating Conditions",
@@ -337,7 +356,7 @@
      },
      {
        "columns": 1,
-       "rows": 1,
+       "rows": 3,
        "type": "statusIndicator",
        "name": "FishingConditions",
        "title": "Fishing Conditions",
@@ -349,7 +368,7 @@
      },
      {
        "columns": 1,
-       "rows": 1,
+       "rows": 3,
        "type": "statusIndicator",
        "name": "WaterParks",
        "title": "Water Parks",
@@ -361,7 +380,7 @@
      },
      {
        "columns": 1,
-       "rows": 1,
+       "rows": 3,
        "type": "image",
        "imagePath": "/img/black.png",
        "name": "Blank6-5",
@@ -373,19 +392,20 @@
      },
      {
        "columns": 1,
-       "rows": 1,
+       "rows": 3,
        "type": "image",
        "imagePath": "/img/drought-map.jpg",
-       "name": "Blank7-1",
-       "title": "Blank7-1",
-       "description": "Blank7-1",
+       "name": "LongView",
+       "title": "Long View",
+       "description": "Long View",
        "style": {
-          "backgroundColor": "black"
+          "backgroundColor": "black",
+          "textColor": "#ffffff"
        }
      },
      {
        "columns": 1,
-       "rows": 1,
+       "rows": 3,
        "type": "statusIndicator",
        "name": "ClimateChange",
        "title": "Climate Change",
@@ -397,7 +417,7 @@
      },
      {
        "columns": 1,
-       "rows": 1,
+       "rows": 3,
        "type": "statusIndicator",
        "name": "PopulationGrowth",
        "title": "Population Growth",
@@ -409,7 +429,7 @@
      },
      {
        "columns": 1,
-       "rows": 1,
+       "rows": 3,
        "type": "statusIndicator",
        "name": "Planning",
        "title": "Planning",
@@ -421,7 +441,7 @@
      },
      {
        "columns": 1,
-       "rows": 1,
+       "rows": 3,
        "type": "statusIndicator",
        "name": "Education",
        "title": "Education",
@@ -435,7 +455,7 @@
   "disabled" : [
      {
        "columns": 1,
-       "rows": 1,
+       "rows": 3,
        "type": "statusIndicator",
        "name": "Snowpack",
        "title": "Snowpack",
@@ -448,7 +468,7 @@
      },
      {
        "columns": 1,
-       "rows": 1,
+       "rows": 3,
        "type": "statusIndicator",
        "name": "DroughtRestrictions",
        "title": "Drought Restrictions",

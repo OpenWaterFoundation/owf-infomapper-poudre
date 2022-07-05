@@ -48,7 +48,6 @@ SetTimeSeriesProperty(TSList=AllMatchingTSID,TSID="10190007-Storage-PercentOfMed
 # - currently the candidate is only for the Poudre so the candidate and final templates are the same
 # - if the workflow is scaled to more basins the template can be updated to use ${Property}
 ProcessTSProduct(TSProductFile="reservoir-storage-graph-template.tsp",OutputFile="results/reservoir-storage.png",VisibleStart="2021-01-01",VisibleEnd="2022-05-13",OutputProductFile="results/reservoir-storage-graph-template-candidate.json")
-ProcessTSProduct(TSProductFile="junk.tsp",VisibleStart="2021-01-01",VisibleEnd="2022-05-13")
 # Don't copy once manually edited.
 # CopyFile(InputFile="results/reservoir-storage-graph-template-candidate.json",OutputFile="results/reservoir-storage-graph-template.json")
 #

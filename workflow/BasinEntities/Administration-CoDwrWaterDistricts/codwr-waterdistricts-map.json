@@ -283,10 +283,10 @@
           "geometryType": "WKT:LineString",
           "layerType": "Vector",
           "sourceFormat": "GeoJSON",
-          "sourcePath": "https://raw.githubusercontent.com/OpenWaterFoundation/owf-data-us-continental-divide/master/data/continental-divide-co.geojson",
+          "sourcePath": "https://data.openwaterfoundation.org/country/us/usgs/continental-divide/continental-divide-co.geojson",
           "properties": {},
           "history:": [
-            "Read GeoLayer from GeoJSON file:  'https://raw.githubusercontent.com/OpenWaterFoundation/owf-data-us-continental-divide/master/data/continental-divide-co.geojson'"
+            "Read GeoLayer from GeoJSON file:  'https://data.openwaterfoundation.org/country/us/usgs/continental-divide/continental-divide-co.geojson'"
           ]
         },
         {
@@ -358,7 +358,7 @@
             {
               "geoLayerViewId": "DWROfficesLayerView",
               "name": "CO DWR Division Offices",
-              "description": "CO DWR Offices",
+              "description": "CO DWR Division Offices",
               "geoLayerId": "DWROfficesLayer",
               "properties": {
                 "docPath": "layers/co-dwr-offices.md"
@@ -524,7 +524,7 @@
               "description": "Continental divide based on Hydrologic Unit Code basins",
               "geoLayerId": "ContinentalDivideLayer",
               "properties": {
-                "docPath": "layers/continental-divide.md"
+                "docPath": "../../SupportingData/Physical-ContinentalDivide/layers/continental-divide.md"
               },
               "geoLayerSymbol": {
                 "name": "Continental divide symbol",
@@ -546,7 +546,7 @@
                   "description": "Hover event configuration",
                   "hasVisualization": false,
                   "properties": {
-                    "eventConfigPath": "layers/continental-divide-co-event-config.json"
+                    "eventConfigPath": "../../SupportingData/Physical-ContinentalDivide/layers/continental-divide-co-event-config.json"
                   }
                 },
                 {
@@ -555,7 +555,7 @@
                   "description": "Click event configuration",
                   "hasVisualization": false,
                   "properties": {
-                    "eventConfigPath": "layers/continental-divide-co-event-config.json"
+                    "eventConfigPath": "../../SupportingData/Physical-ContinentalDivide/layers/continental-divide-co-event-config.json"
                   }
                 }
               ]
