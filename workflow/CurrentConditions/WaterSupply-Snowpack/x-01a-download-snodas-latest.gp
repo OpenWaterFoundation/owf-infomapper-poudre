@@ -1,4 +1,6 @@
 # Download the latest SNODAS GeoJSON
+# - this command file is no longer needed because the GeoJSON file on the State's server is the correct format
+#   (keep the file around in case it is needed again in the future)
 # - this needs to be done daily and processed until the SNODAS server-side code is updated to
 #   output the current GeoJSON specification file
 # - save the file locally and then read and write to make sure GeoJSON file is saved as latest spec

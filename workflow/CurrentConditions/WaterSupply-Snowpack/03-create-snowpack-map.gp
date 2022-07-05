@@ -101,11 +101,13 @@ AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="SnowpackBasinsGroup",Name="Sno
 #
 # Use the current GeoJSON file from the SNODAS tools website
 # - TODO smalers 2021-04-20 this is old GeoJSON which causes problems for InfoMapper
-# - initial workaround is to use the local copy that has been processed into the new format
-# - after that attempt, use the file from the data harvester
-#ReadGeoLayerFromGeoJSON(InputFile="https://snodas.cdss.state.co.us/app/SnowpackStatisticsByDate/SnowpackStatisticsByDate_LatestDate.geojson",GeoLayerID="SnodasLayer",Name="Snowpack (SNODAS)",Description="Snowpack from SNODAS")
+ReadGeoLayerFromGeoJSON(InputFile="https://snodas.cdss.state.co.us/app/SnowpackStatisticsByDate/SnowpackStatisticsByDate_LatestDate.geojson",GeoLayerID="SnodasLayer",Name="Snowpack (SNODAS)",Description="Snowpack from SNODAS")
+# TODO smalers 2022-07-05 remove the following when the above tests out in 2022/2023
+# The following was used when SNODAS layer was processed in this folder (now can use web GeoJSON file).
 #ReadGeoLayerFromGeoJSON(InputFile="layers/snodas.geojson",GeoLayerID="SnodasLayer",Name="Snowpack (SNODAS)",Description="Snowpack from SNODAS")
-ReadGeoLayerFromGeoJSON(InputFile="http://data.openwaterfoundation.org/CO/CDSS/SNODAS/SnowpackStatisticsByDate_LatestDate.geojson",GeoLayerID="SnodasLayer",Name="Snowpack (SNODAS)",Description="Snowpack from SNODAS")
+# The following was implemented because the SNODAS website was not using GeoJSON 2 format (latest SNODAS tools uses the correct format):
+# - uses the build-util/harvest-data.bash script
+#ReadGeoLayerFromGeoJSON(InputFile="http://data.openwaterfoundation.org/CO/CDSS/SNODAS/SnowpackStatisticsByDate_LatestDate.geojson",GeoLayerID="SnodasLayer",Name="Snowpack (SNODAS)",Description="Snowpack from SNODAS")
 AddGeoLayerViewToGeoMap(GeoLayerID="SnodasLayer",GeoLayerViewID="SnodasLayerView",Name="Snowpack (SNODAS)",Description="Snowpack from SNODAS as basin mean SWE (in)",Properties="docPath:layers/snodas.md")
 # Use graduated symbol the same as the SNODAS website
 SetGeoLayerViewEventHandler(GeoLayerViewID="SnodasLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/snodas-event-config.json")
