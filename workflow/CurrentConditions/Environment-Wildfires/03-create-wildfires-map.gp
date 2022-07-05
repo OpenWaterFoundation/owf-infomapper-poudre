@@ -103,15 +103,13 @@ SetGeoLayerViewGraduatedSymbol(GeoLayerViewID="SnodasLayerView",Name="Colorize S
 # = = = = = = = = = =
 # Continental divide in Colorado:  read layer and add to layer view group.
 # LayerViewGroupID: ContinentalDivideGroup
-CopyFile(SourceFile="../../SupportingData/Physical-ContinentalDivide/layers/continental-divide-co-event-config.json",DestinationFile="layers/continental-divide-co-event-config.json")
-#
 AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="ContinentalDivideGroup",Name="Continental Divide",Description="Continental Divide based on Hydrologic Unit Code basins.",Properties="selectedInitial:true",InsertPosition="Top")
 #
-ReadGeoLayerFromGeoJSON(InputFile="https://raw.githubusercontent.com/OpenWaterFoundation/owf-data-us-continental-divide/master/data/continental-divide-co.geojson",GeoLayerID="ContinentalDivideLayer",Name="Continental Divide",Description="Continental divide based on Hydrologic Unit Code basins")
-AddGeoLayerViewToGeoMap(GeoLayerID="ContinentalDivideLayer",GeoLayerViewID="ContinentalDivideLayerView",Name="Continental Divide",Description="Continental divide based on Hydrologic Unit Code basins",InsertPosition="Top",Properties="docPath:layers/continental-divide.md")
+ReadGeoLayerFromGeoJSON(InputFile="https://data.openwaterfoundation.org/country/us/usgs/continental-divide/continental-divide-co.geojson",GeoLayerID="ContinentalDivideLayer",Name="Continental Divide",Description="Continental divide based on Hydrologic Unit Code basins")
+AddGeoLayerViewToGeoMap(GeoLayerID="ContinentalDivideLayer",GeoLayerViewID="ContinentalDivideLayerView",Name="Continental Divide",Description="Continental divide based on Hydrologic Unit Code basins",InsertPosition="Top",Properties="docPath:../../SupportingData/Physical-ContinentalDivide/layers/continental-divide.md")
 SetGeoLayerViewSingleSymbol(GeoLayerViewID="ContinentalDivideLayerView",Name="Continental divide symbol",Description="Continental divide line in wide dark grey.",Properties="color:#663300,opacity:0.5,fillColor:#663300,fillOpacity:0.5,weight:10")
-SetGeoLayerViewEventHandler(GeoLayerViewID="ContinentalDivideLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/continental-divide-co-event-config.json")
-SetGeoLayerViewEventHandler(GeoLayerViewID="ContinentalDivideLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/continental-divide-co-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="ContinentalDivideLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:../../SupportingData/Physical-ContinentalDivide/layers/continental-divide-co-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="ContinentalDivideLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:../../SupportingData/Physical-ContinentalDivide/layers/continental-divide-co-event-config.json")
 # = = = = = = = = = =
 # National parks:  read layer and add to a layer view group.
 # GeoLayerViewGroupID: NationalParksGroup
@@ -136,7 +134,9 @@ SetGeoLayerViewEventHandler(GeoLayerViewID="RMNPBoundaryLayerView",EventType="cl
 #
 AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="WildfiresGroup",Name="Wildfires",Description="Wildfires",Properties="selectedInitial:true",InsertPosition="Top")
 #
-ReadGeoLayerFromGeoJSON(InputFile="https://services3.arcgis.com/T4QMspbfLg3qTGWY/arcgis/rest/services/Interagency_Fire_Perimeter_History_All_Years_Read_Only/FeatureServer/0/query?where=GIS_ACRES%20%3E%3D%20150%20AND%20FIRE_YEAR%20%3E%3D%202000&geometry=-110.6%2C35.86%2C-102.05%2C42.2&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelContains&outFields=*&geometryPrecision=5&f=geojson",GeoLayerID="WildfirePerimetersArchiveLayer",Name="Historical Wildfire Perimeters",Description="Wildfire perimeters web service")
+# The following worked until June 17, 2022?
+#ReadGeoLayerFromGeoJSON(InputFile="https://services3.arcgis.com/T4QMspbfLg3qTGWY/arcgis/rest/services/Interagency_Fire_Perimeter_History_All_Years_Read_Only/FeatureServer/0/query?where=GIS_ACRES%20%3E%3D%20150%20AND%20FIRE_YEAR%20%3E%3D%202000&geometry=-110.6%2C35.86%2C-102.05%2C42.2&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelContains&outFields=*&geometryPrecision=5&f=geojson",GeoLayerID="WildfirePerimetersArchiveLayer",Name="Historical Wildfire Perimeters",Description="Wildfire perimeters web service")
+ReadGeoLayerFromGeoJSON(InputFile="https://services3.arcgis.com/T4QMspbfLg3qTGWY/arcgis/rest/services/InteragencyFirePerimeterHistory_All_Years_View/FeatureServer/0/query?where=GIS_ACRES%20%3E%3D%20150%20AND%20FIRE_YEAR%20%3E%3D%202000&geometry=-110.6%2C35.86%2C-102.05%2C42.2&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelContains&outFields=*&geometryPrecision=5&f=geojson",GeoLayerID="WildfirePerimetersArchiveLayer",Name="Historical Wildfire Perimeters",Description="Wildfire perimeters web service")
 AddGeoLayerViewToGeoMap(GeoLayerID="WildfirePerimetersArchiveLayer",GeoLayerViewID="WildfirePerimetersArchiveLayerView",Name="Historical Wildfire Perimeters",Description="Historical wildfire perimeters (acres>= 150, year>=2000) from the National Interagency Fire Center",Properties="docPath:layers/wildfire-perimeters-archive.md",InsertPosition="Top")
 # Change from filled polygons to only outlines
 #SetGeoLayerViewSingleSymbol(GeoLayerViewID="WildfirePerimetersArchiveLayerView",Name="WildfirePerimetersArchiveSymbol",Description="Wildfire Perimeters archive symbol",Properties="color:#cc9900,fillColor:#cc9900,fillOpacity:0.3")
