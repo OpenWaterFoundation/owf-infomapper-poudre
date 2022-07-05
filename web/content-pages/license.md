@@ -8,12 +8,12 @@
 ## InfoMapper Software ##
 
 The InfoMapper software is developed and maintained by the
-[Open Water Foundation](http://openwaterfoundation.org).
+[Open Water Foundation](https://openwaterfoundation.org).
 
 
 ```
 InfoMapper
-Copyright (C) 2018-2020 Open Water Foundation
+Copyright (C) 2018-2022 Open Water Foundation
 
 InfoMapper is free software:  you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
