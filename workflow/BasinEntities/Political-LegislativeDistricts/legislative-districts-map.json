@@ -333,30 +333,30 @@
         },
         {
           "geoLayerId": "StateHouseLegislativeDistrictsLayer",
-          "name": "State House Districts (2011)",
-          "description": "Colorado State House districts (2011)",
+          "name": "State House Districts (2021)",
+          "description": "Colorado State House districts (2021)",
           "crs": "EPSG:4326",
           "geometryType": "WKT:Polygon",
           "layerType": "Vector",
           "sourceFormat": "GeoJSON",
-          "sourcePath": "layers/co-state-house-districts-2011.geojson",
+          "sourcePath": "layers/co-state-house-districts-2021.geojson",
           "properties": {},
           "history:": [
-            "Read GeoLayer from GeoJSON file:  'C:\\Users\\sam\\owf-dev\\InfoMapper-Poudre\\git-repos\\owf-infomapper-poudre\\workflow\\BasinEntities\\Political-LegislativeDistricts\\layers\\co-state-house-districts-2011.geojson'"
+            "Read GeoLayer from GeoJSON file:  'C:\\Users\\sam\\owf-dev\\InfoMapper-Poudre\\git-repos\\owf-infomapper-poudre\\workflow\\BasinEntities\\Political-LegislativeDistricts\\layers\\co-state-house-districts-2021.geojson'"
           ]
         },
         {
           "geoLayerId": "StateSenateLegislativeDistrictsLayer",
-          "name": "State Senate Districts (2011)",
-          "description": "Colorado State Senate districts (2011)",
+          "name": "State Senate Districts (2021)",
+          "description": "Colorado State Senate districts (2021)",
           "crs": "EPSG:4326",
           "geometryType": "WKT:Polygon",
           "layerType": "Vector",
           "sourceFormat": "GeoJSON",
-          "sourcePath": "layers/co-state-senate-districts-2011.geojson",
+          "sourcePath": "layers/co-state-senate-districts-2021.geojson",
           "properties": {},
           "history:": [
-            "Read GeoLayer from GeoJSON file:  'C:\\Users\\sam\\owf-dev\\InfoMapper-Poudre\\git-repos\\owf-infomapper-poudre\\workflow\\BasinEntities\\Political-LegislativeDistricts\\layers\\co-state-senate-districts-2011.geojson'"
+            "Read GeoLayer from GeoJSON file:  'C:\\Users\\sam\\owf-dev\\InfoMapper-Poudre\\git-repos\\owf-infomapper-poudre\\workflow\\BasinEntities\\Political-LegislativeDistricts\\layers\\co-state-senate-districts-2021.geojson'"
           ]
         }
       ],
@@ -371,21 +371,21 @@
           "geoLayerViews": [
             {
               "geoLayerViewId": "StateHouseDistrictsLayerView",
-              "name": "State House Districts (2011)",
-              "description": "Colorado State House districts from 2011 redistricting",
+              "name": "State House Districts (2021)",
+              "description": "Colorado State House districts from 2021 redistricting",
               "geoLayerId": "StateHouseLegislativeDistrictsLayer",
               "properties": {
-                "docPath": "layers/co-state-house-districts-2011.md",
+                "docPath": "layers/co-state-house-districts-2021.md",
                 "highlightEnabled": "true"
               },
               "geoLayerSymbol": {
                 "name": "Colorize state house districts",
                 "description": "Show each district the same color except those that overlap the Poudre",
                 "classificationType": "Categorized",
-                "classificationAttribute": "District_N",
+                "classificationAttribute": "District",
                 "properties": {
                   "classificationType": "categorized",
-                  "classificationFile": "layers/co-state-house-districts-classify-district.csv"
+                  "classificationFile": "layers/co-state-house-districts-2021-classify-district.csv"
                 }
               },
               "eventHandlers": [
@@ -395,7 +395,7 @@
                   "description": "Hover event configuration",
                   "hasVisualization": false,
                   "properties": {
-                    "eventConfigPath": "layers/co-state-house-districts-2011-event-config.json"
+                    "eventConfigPath": "layers/co-state-house-districts-2021-event-config.json"
                   }
                 },
                 {
@@ -404,28 +404,28 @@
                   "description": "Click event configuration",
                   "hasVisualization": false,
                   "properties": {
-                    "eventConfigPath": "layers/co-state-house-districts-2011-event-config.json"
+                    "eventConfigPath": "layers/co-state-house-districts-2021-event-config.json"
                   }
                 }
               ]
             },
             {
               "geoLayerViewId": "StateSenateDistrictsLayerView",
-              "name": "State Senate Districts (2011)",
-              "description": "Colorado State Senate districts from 2011 redistricting",
+              "name": "State Senate Districts (2021)",
+              "description": "Colorado State Senate districts from 2021 redistricting",
               "geoLayerId": "StateSenateLegislativeDistrictsLayer",
               "properties": {
-                "docPath": "layers/co-state-senate-districts-2011.md",
+                "docPath": "layers/co-state-senate-districts-2021.md",
                 "highlightEnabled": "true"
               },
               "geoLayerSymbol": {
                 "name": "Colorize state senate districts",
                 "description": "Show each district the same color except those that overlap the Poudre",
                 "classificationType": "Categorized",
-                "classificationAttribute": "District_N",
+                "classificationAttribute": "District",
                 "properties": {
                   "classificationType": "categorized",
-                  "classificationFile": "layers/co-state-senate-districts-classify-district.csv"
+                  "classificationFile": "layers/co-state-senate-districts-2021-classify-district.csv"
                 }
               },
               "eventHandlers": [
@@ -435,7 +435,7 @@
                   "description": "Hover event configuration",
                   "hasVisualization": false,
                   "properties": {
-                    "eventConfigPath": "layers/co-state-senate-districts-2011-event-config.json"
+                    "eventConfigPath": "layers/co-state-senate-districts-2021-event-config.json"
                   }
                 },
                 {
@@ -444,7 +444,7 @@
                   "description": "Click event configuration",
                   "hasVisualization": false,
                   "properties": {
-                    "eventConfigPath": "layers/co-state-senate-districts-2011-event-config.json"
+                    "eventConfigPath": "layers/co-state-senate-districts-2021-event-config.json"
                   }
                 }
               ]
