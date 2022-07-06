@@ -15,8 +15,8 @@ SetProperty(PropertyName="MapFolder",PropertyType="str",PropertyValue="${MapsFol
 # - GeoMapProjectID:  WildfiresProject
 # - GeoMapID:  CurrentWildfiresMap
 CreateGeoMapProject(NewGeoMapProjectID="WildfiresProject",ProjectType="SingleMap",Name="Wildfires",Description="Wildfires",Properties="author:'Open Water Foundation',specificationFlavor:'',specificationVersion:'1.0.0'")
-#CreateGeoMap(NewGeoMapID="CurrentWildfiresMap",Name="Current Wildfires",Description="Current wildfires",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.5,40.7,10',docPath:wildfires-map.md")
-CreateGeoMap(NewGeoMapID="CurrentWildfiresMap",Name="Current Wildfires",Description="Current wildfires",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.798,40.591,10',docPath:wildfires-map.md")
+CreateGeoMap(NewGeoMapID="CurrentWildfiresMap",Name="Current Wildfires",Description="Current wildfires",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.5,40.7,10',docPath:wildfires-map.md")
+#CreateGeoMap(NewGeoMapID="CurrentWildfiresMap",Name="Current Wildfires",Description="Current wildfires",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.798,40.591,10',docPath:wildfires-map.md")
 AddGeoMapToGeoMapProject(GeoMapProjectID="WildfiresProject",GeoMapID="CurrentWildfiresMap")
 # = = = = = = = = = =
 # Background layers:  read layers and add a layer view group
@@ -246,6 +246,18 @@ If(Name="IncludeBurnAreaVector",Condition="${IncludeBurnAreaVector} == yes")
     SetGeoLayerViewEventHandler(GeoLayerViewID="SoilBurnSeverityLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/cameron-peak-sbs-event-config.json")
     SetGeoLayerViewEventHandler(GeoLayerViewID="SoilBurnSeverityLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/cameron-peak-sbs-event-config.json")
 EndIf(Name="IncludeBurnAreaVector")
+# = = = = = = = = = =
+# HUC:  read layer and add to layer view group.
+# GeoLayerViewGroupID: HUCsGroup
+#
+AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="HUCBasinsGroup",Name="Hydrologic Unit Code (HUC) Basins",Description="HUC Basin boundaries from the USGS.",Properties="selectedInitial: true",InsertPosition="Top")
+# HUC 12 next on top
+ReadGeoLayerFromGeoJSON(InputFile="../../BasinEntities/Physical-Basins/layers/huc12.geojson",GeoLayerID="HUC12BasinLayer",Name="Cache la Poudre HUC12 Basins",Description="HUC12 Basin boundaries from the USGS")
+AddGeoLayerViewToGeoMap(GeoLayerID="HUC12BasinLayer",GeoLayerViewID="HUC12BasinsLayerView",Name="Cache la Poudre HUC 12 Basins",Description="HUC12 Basin boundaries from the USGS",InsertPosition="Top",Properties="docPath:../../BasinEntities/Physical-Basins/layers/huc12.md,highlightEnabled:true")
+# Width of 2 is a bit overwhelming.  Use the same color as the basins map.
+SetGeoLayerViewSingleSymbol(GeoLayerViewID="HUC12BasinsLayerView",Name="Colorize HUC12",Description="Transparent polygon",Properties="color:#ff3399,width:.5,fillOpacity:0.0")
+SetGeoLayerViewEventHandler(GeoLayerViewID="HUC12BasinsLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:../../BasinEntities/Physical-Basins/layers/huc12-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="HUC12BasinsLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:../../BasinEntities/Physical-Basins/layers/huc12-event-config.json")
 # = = = = = = = = = =
 # Stream reaches:  read layer and add to a layer view group.
 # - TODO smalers 2020-05-22 for now copy the stream reaches but want to use shared layer

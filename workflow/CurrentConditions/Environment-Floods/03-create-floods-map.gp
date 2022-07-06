@@ -13,8 +13,8 @@ SetProperty(PropertyName="MapFolder",PropertyType="str",PropertyValue="${MapsFol
 # - GeoMapProjectID:  FloodsProject
 # - GeoMapID:  CurrentFloodsMap
 CreateGeoMapProject(NewGeoMapProjectID="FloodsProject",ProjectType="SingleMap",Name="Floods",Description="Floods",Properties="author:'Open Water Foundation',specificationFlavor:'',specificationVersion:'1.0.0'")
-#CreateGeoMap(NewGeoMapID="CurrentFloodsMap",Name="Flood Monitoring",Description="Flood monitoring",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.5,40.7,10',docPath:floods-map.md")
-CreateGeoMap(NewGeoMapID="CurrentFloodsMap",Name="Flood Monitoring",Description="Flood monitoring",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.798,40.591,10',docPath:floods-map.md")
+CreateGeoMap(NewGeoMapID="CurrentFloodsMap",Name="Flood Conditions",Description="Flood conditions",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.5,40.7,10',docPath:floods-map.md")
+#CreateGeoMap(NewGeoMapID="CurrentFloodsMap",Name="Flood Conditions",Description="Flood conditions",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.798,40.591,10',docPath:floods-map.md")
 AddGeoMapToGeoMapProject(GeoMapProjectID="FloodsProject",GeoMapID="CurrentFloodsMap")
 # = = = = = = = = = =
 # Background layers:  read layers and add a layer view group
@@ -72,34 +72,10 @@ CopyFile(SourceFile="../../BasinEntities/Administration-CoDwrWaterDistricts/laye
 CopyFile(SourceFile="../../BasinEntities/Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3-event-config.json",DestinationFile="layers/co-dwr-water-district-3-event-config.json")
 CopyFile(SourceFile="../../BasinEntities/Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3-classify-district.csv",DestinationFile="layers/co-dwr-water-district-3-classify-district.csv")
 ReadGeoLayerFromGeoJSON(InputFile="layers/co-dwr-water-district-3.geojson",GeoLayerID="WaterDistrictLayer",Name="CO DWR Water District 3",Description="Water District 3 boundary from the Colorado Division of Water Resources.")
-AddGeoLayerViewToGeoMap(GeoLayerID="WaterDistrictLayer",GeoLayerViewID="WaterDistrictLayerView",Name="CO DWR Water District 3",Description="Water District 3 boundary from the Colorado Division of Water Resources",Properties="docPath:layers/co-dwr-water-district-3.md",InsertPosition="Top")
+AddGeoLayerViewToGeoMap(GeoLayerID="WaterDistrictLayer",GeoLayerViewID="WaterDistrictLayerView",Name="CO DWR Water District 3",Description="Water District 3 boundary from the Colorado Division of Water Resources",Properties="docPath:../../BasinEntities/Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3.md",InsertPosition="Top")
 SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="WaterDistrictLayerView",Name="Colorize district",Description="Show Water District 3 in black.",ClassificationAttribute="DISTRICT",Properties="classificationFile:layers/co-dwr-water-district-3-classify-district.csv")
-SetGeoLayerViewEventHandler(GeoLayerViewID="WaterDistrictLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/co-dwr-water-district-3-event-config.json")
-SetGeoLayerViewEventHandler(GeoLayerViewID="WaterDistrictLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/co-dwr-water-district-3-event-config.json")
-/*
-#   # = = = = = = = = = =
-#   # SNODAS snowpack:  read layer and add to a layer view group.
-#   # GeoLayerViewGroupID: SnowpackBasinsGroup
-#   AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="SnowpackBasinsGroup",Name="Snowpack Basins",Description="Snowpack for basins",InsertPosition="Top")
-#   #
-#   CopyFile(SourceFile="../WaterSupply-SnowPack/layers/snodas-event-config.json",DestinationFile="layers/snodas-event-config.json")
-#   #
-#   # Use the current GeoJSON file from the SNODAS tools website
-#   # - TODO smalers 2021-04-20 this is old GeoJSON which causes problems for InfoMapper
-#   # - initial workaround is to use the local copy that has been processed into the new format
-#   # - after that attempt, use the file from the data harvester
-#   #ReadGeoLayerFromGeoJSON(InputFile="https://snodas.cdss.state.co.us/app/SnowpackStatisticsByDate/SnowpackStatisticsByDate_LatestDate.geojson",GeoLayerID="SnodasLayer",Name="Snowpack (SNODAS)",Description="Snowpack from SNODAS")
-#   #ReadGeoLayerFromGeoJSON(InputFile="layers/snodas.geojson",GeoLayerID="SnodasLayer",Name="Snowpack (SNODAS)",Description="Snowpack from SNODAS")
-#   ReadGeoLayerFromGeoJSON(InputFile="http://data.openwaterfoundation.org/CO/CDSS/SNODAS/SnowpackStatisticsByDate_LatestDate.geojson",GeoLayerID="SnodasLayer",Name="Snowpack (SNODAS)",Description="Snowpack from SNODAS")
-#   AddGeoLayerViewToGeoMap(GeoLayerID="SnodasLayer",GeoLayerViewID="SnodasLayerView",Name="Snowpack (SNODAS)",Description="Snowpack from SNODAS as basin mean SWE (in)",Properties="docPath:layers/snodas.md,selectedInitial:false")
-#   # Use graduated symbol the same as the SNODAS website
-#   SetGeoLayerViewEventHandler(GeoLayerViewID="SnodasLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/snodas-event-config.json")
-#   SetGeoLayerViewEventHandler(GeoLayerViewID="SnodasLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/snodas-event-config.json")
-#   # The following is for the downloaded GeoJSON
-#   #SetGeoLayerViewGraduatedSymbol(GeoLayerViewID="SnodasLayerView",Name="Colorize SWE",Description="Show SWE using SNODAS tools colors.",ClassificationAttribute="SNODAS_SWE_Mean_in",Properties="classificationFile:layers/snodas-classify-swe-in.csv")
-#   # The following is for the downloaded shapefile saved as GeoJSON
-#   SetGeoLayerViewGraduatedSymbol(GeoLayerViewID="SnodasLayerView",Name="Colorize SWE",Description="Show SWE using SNODAS tools colors.",ClassificationAttribute="SWEMean_in",Properties="classificationFile:layers/snodas-classify-swe-in.csv")
-*/
+SetGeoLayerViewEventHandler(GeoLayerViewID="WaterDistrictLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:../../BasinEntities/Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="WaterDistrictLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:../../BasinEntities/Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3-event-config.json")
 # = = = = = = = = = =
 # Continental divide in Colorado:  read layer and add to layer view group.
 # LayerViewGroupID: ContinentalDivideGroup
@@ -119,11 +95,24 @@ AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="NationalParksGroup",Name="Nati
 # Use the GeoJSON dataset
 #ReadGeoLayerFromGeoJSON(InputFile="https://services1.arcgis.com/fBc8EJBxQRMcHlei/arcgis/rest/services/ROMO_BND_Boundary_py_NAD83_1/FeatureServer/0/query?geometry=-109.05%2C36.99%2C-102.05%2C41&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelContains&outFields=*&geometryPrecision=5&f=geojson",GeoLayerID="RMNPBoundaryLayer",Name="RMNP Boundary",Description="Rocky Mountain National Parck boundary web service")
 ReadGeoLayerFromGeoJSON(InputFile="https://opendata.arcgis.com/datasets/7cb5f22df8c44900a9f6632adb5f96a5_0.geojson",GeoLayerID="RMNPBoundaryLayer",Name="RMNP Boundary",Description="Rocky Mountain National Parck boundary web service")
-AddGeoLayerViewToGeoMap(GeoLayerID="RMNPBoundaryLayer",GeoLayerViewID="RMNPBoundaryLayerView",Name="RMNP Boundary",Description="Rocky Mountain National Park boundary from National Park Service",Properties="docPath:layers/national-parks-rmnp.md")
+AddGeoLayerViewToGeoMap(GeoLayerID="RMNPBoundaryLayer",GeoLayerViewID="RMNPBoundaryLayerView",Name="RMNP Boundary",Description="Rocky Mountain National Park boundary from National Park Service",Properties="docPath:../../CurrentConditions/Environment-WildFires/layers/national-parks-rmnp.md")
 # Use #339933 - dark green
 SetGeoLayerViewSingleSymbol(GeoLayerViewID="RMNPBoundaryLayerView",Name="RMNPBoundarySymbol",Description="RMNP boundaries symbol",Properties="color:#339933,fillColor:#339933,fillOpacity:0.3")
-SetGeoLayerViewEventHandler(GeoLayerViewID="RMNPBoundaryLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/national-parks-rmnp-event-config.json")
-SetGeoLayerViewEventHandler(GeoLayerViewID="RMNPBoundaryLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/national-parks-rmnp-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="RMNPBoundaryLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:../../CurrentConditions/Environment-Wildfires/layers/national-parks-rmnp-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="RMNPBoundaryLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:../../CurrentConditions/Environment-Wildfires/layers/national-parks-rmnp-event-config.json")
+# = = = = = = = = = =
+# SNODAS snow:  read layer and add to a layer view group.
+# GeoLayerViewGroupID: SnowpackBasinsGroup
+AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="SnowpackBasinsGroup",Name="Snowpack",Description="Snowpack conditions",InsertPosition="Top")
+#
+# Use the current GeoJSON file from the SNODAS tools website
+# - TODO smalers 2021-04-20 this is old GeoJSON which causes problems for InfoMapper
+ReadGeoLayerFromGeoJSON(InputFile="https://snodas.cdss.state.co.us/app/SnowpackStatisticsByDate/SnowpackStatisticsByDate_LatestDate.geojson",GeoLayerID="SnodasLayer",Name="Snowpack (SNODAS)",Description="Snowpack from SNODAS")
+AddGeoLayerViewToGeoMap(GeoLayerID="SnodasLayer",GeoLayerViewID="SnodasLayerView",Name="Snowpack (SNODAS)",Description="Snowpack from SNODAS as basin mean SWE (in)",Properties="docPath:../WaterSupply-Snowpack/layers/snodas.md")
+# Use graduated symbol the same as the SNODAS website
+SetGeoLayerViewEventHandler(GeoLayerViewID="SnodasLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:../WaterSupply-Snowpack/layers/snodas-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="SnodasLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:../WaterSupply-Snowpack/layers/snodas-event-config.json")
+SetGeoLayerViewGraduatedSymbol(GeoLayerViewID="SnodasLayerView",Name="Colorize SWE",Description="Show SWE using SNODAS tools colors.",ClassificationAttribute="SNODAS_SWE_Mean_in",Properties="classificationFile:../WaterSupply-Snowpack/layers/snodas-classify-swe-in.csv")
 # = = = = = = = = = =
 # Wildfire Perimeters (historical archive):  read layer and add to a layer view group.
 # GeoLayerViewGroupID: WildfiresGroup
@@ -132,19 +121,17 @@ SetGeoLayerViewEventHandler(GeoLayerViewID="RMNPBoundaryLayerView",EventType="cl
 # GIS_ACRES >= 150  (previously used 100 but when increased buffer to include more adjoining states had to increase)
 # Use a boundary that encloses enough of adjoining states to include fires in neighboring states.
 #
-/*
-#  AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="WildfiresGroup",Name="Wildfires",Description="Wildfires",Properties="selectedInitial:true",InsertPosition="Top")
-#  #
-#  ReadGeoLayerFromGeoJSON(InputFile="https://services3.arcgis.com/T4QMspbfLg3qTGWY/arcgis/rest/services/Interagency_Fire_Perimeter_History_All_Years_Read_Only/FeatureServer/0/query?where=GIS_ACRES%20%3E%3D%20150%20AND%20FIRE_YEAR%20%3E%3D%202000&geometry=-110.6%2C35.86%2C-102.05%2C42.2&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelContains&outFields=*&geometryPrecision=5&f=geojson",GeoLayerID="WildfirePerimetersArchiveLayer",Name="Historical Wildfire Perimeters",Description="Wildfire perimeters web service")
-#  AddGeoLayerViewToGeoMap(GeoLayerID="WildfirePerimetersArchiveLayer",GeoLayerViewID="WildfirePerimetersArchiveLayerView",Name="Historical Wildfire Perimeters",Description="Historical wildfire perimeters (acres>= 150, year>=2000) from the National Interagency Fire Center",Properties="docPath:layers/wildfire-perimeters-archive.md",InsertPosition="Top")
-#  # Change from filled polygons to only outlines
-#  #SetGeoLayerViewSingleSymbol(GeoLayerViewID="WildfirePerimetersArchiveLayerView",Name="WildfirePerimetersArchiveSymbol",Description="Wildfire Perimeters archive symbol",Properties="color:#cc9900,fillColor:#cc9900,fillOpacity:0.3")
-#  SetGeoLayerViewSingleSymbol(GeoLayerViewID="WildfirePerimetersArchiveLayerView",Name="WildfirePerimetersArchiveSymbol",Description="Wildfire Perimeters archive symbol",Properties="color:#cc9900,fillColor:#cc9900,fillOpacity:0.2")
-#  # Outlines don't look good
-#  #SetGeoLayerViewSingleSymbol(GeoLayerViewID="WildfirePerimetersArchiveLayerView",Name="WildfirePerimetersArchiveSymbol",Description="Wildfire Perimeters archive symbol",Properties="color:#cc9900,fillColor:#000000,fillOpacity:0.0")
-#  SetGeoLayerViewEventHandler(GeoLayerViewID="WildfirePerimetersArchiveLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/wildfire-perimeters-archive-event-config.json")
-#  SetGeoLayerViewEventHandler(GeoLayerViewID="WildfirePerimetersArchiveLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/wildfire-perimeters-archive-event-config.json")
-*/
+AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="WildfiresGroup",Name="Wildfires",Description="Wildfires",Properties="selectedInitial:true",InsertPosition="Top")
+#
+ReadGeoLayerFromGeoJSON(InputFile="https://services3.arcgis.com/T4QMspbfLg3qTGWY/arcgis/rest/services/InteragencyFirePerimeterHistory_All_Years_View/FeatureServer/0/query?where=GIS_ACRES%20%3E%3D%20150%20AND%20FIRE_YEAR%20%3E%3D%202000&geometry=-110.6%2C35.86%2C-102.05%2C42.2&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelContains&outFields=*&geometryPrecision=5&f=geojson",GeoLayerID="WildfirePerimetersArchiveLayer",Name="Historical Wildfire Perimeters",Description="Wildfire perimeters web service")
+AddGeoLayerViewToGeoMap(GeoLayerID="WildfirePerimetersArchiveLayer",GeoLayerViewID="WildfirePerimetersArchiveLayerView",Name="Historical Wildfire Perimeters",Description="Historical wildfire perimeters (acres>= 150, year>=2000) from the National Interagency Fire Center",Properties="docPath:../Environment-Wildfires/layers/wildfire-perimeters-archive.md",InsertPosition="Top")
+# Change from filled polygons to only outlines
+#SetGeoLayerViewSingleSymbol(GeoLayerViewID="WildfirePerimetersArchiveLayerView",Name="WildfirePerimetersArchiveSymbol",Description="Wildfire Perimeters archive symbol",Properties="color:#cc9900,fillColor:#cc9900,fillOpacity:0.3")
+SetGeoLayerViewSingleSymbol(GeoLayerViewID="WildfirePerimetersArchiveLayerView",Name="WildfirePerimetersArchiveSymbol",Description="Wildfire Perimeters archive symbol",Properties="color:#cc9900,fillColor:#cc9900,fillOpacity:0.2")
+# Outlines don't look good
+#SetGeoLayerViewSingleSymbol(GeoLayerViewID="WildfirePerimetersArchiveLayerView",Name="WildfirePerimetersArchiveSymbol",Description="Wildfire Perimeters archive symbol",Properties="color:#cc9900,fillColor:#000000,fillOpacity:0.0")
+SetGeoLayerViewEventHandler(GeoLayerViewID="WildfirePerimetersArchiveLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:../Environment-Wildfires/layers/wildfire-perimeters-archive-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="WildfirePerimetersArchiveLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:../Environment-Wildfires/layers/wildfire-perimeters-archive-event-config.json")
 # = = = = = = = = = =
 # Wildfire Perimeters (current fires):  read layer and add to a layer view group.
 # GeoLayerViewGroupID: WildfiresGroup
@@ -155,106 +142,100 @@ SetGeoLayerViewEventHandler(GeoLayerViewID="RMNPBoundaryLayerView",EventType="cl
 # - set to WFSGeoJSON to use WFS and return a GeoJSON
 # SetProperty(PropertyName="PerimeterSource",PropertyType="str",PropertyValue="LocalFile")
 #SetProperty(PropertyName="PerimeterSource",PropertyType="str",PropertyValue="WFSGeoJSON")
-/*
-#   SetProperty(PropertyName="PerimeterSource",PropertyType="str",PropertyValue="GeoJSONFromWFS")
-#   If(Name="UseFileIf",Condition="${PerimeterSource} == LocalFile")
-    #   # Reading from a local file...
-    #   ReadGeoLayerFromGeoJSON(InputFile="layers/wildfire-perimeters.geojson",GeoLayerID="WildfirePerimetersLayer",Name="Current Year Wildfire Perimeters",Description="Colorado wildfire Perimeters from the National Interagency Fire Center")
-#   EndIf(Name="UseFileIf")
-#   If(Name="UseGeoJSONServiceIf",Condition="${PerimeterSource} == GeoJSONService")
-    #   # If reading from the FWS...
-    #   ReadGeoLayerFromGeoJSON(InputFile="https://opendata.arcgis.com/datasets/5da472c6d27b4b67970acc7b5044c862_0.geojson",GeoLayerID="WildfirePerimetersLayer",Name="Colorado Wildfire Perimeters",Description="Colorado wildfire Perimeters from the National Interagency Fire Center",Properties="sourceFormat:WFS")
-#   EndIf(Name="UseGeoJSONServiceIf")
-#   If(Name="UseWFSGeoJSONIf",Condition="${PerimeterSource} == WFSGeoJSON")
-    #   # If reading from the WFS...
-    #   # Does not work...
-    #   # ReadGeoLayerFromWebFeatureService(InputUrl="https://services3.arcgis.com/T4QMspbfLg3qTGWY/arcgis/rest/services/Public_Wildfire_Perimeters_View/FeatureServer/0/query?outFields=*&where=1%3D1",GeoLayerID="WildfirePerimetersLayer",Name="Colorado Wildfire Perimeters",Description="Colorado wildfire perimeters web service")
-    #   # Works but URL is too long
-    #   # - TODO smalers 2020-08-19
-    #   # - Can return GeoJSON, but in this case just use ReadGeoLayerFromGeoJSON
-    #   # ReadGeoLayerFromWebFeatureService(InputUrl="https://services3.arcgis.com/T4QMspbfLg3qTGWY/ArcGIS/rest/services/Public_Wildfire_Perimeters_View/FeatureServer/0/query?where=1%3D1&objectIds=&time=&geometry=-109.05%2C36.99%2C-102.05%2C41&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelContains&resultType=none&distance=0.0&units=esriSRUnit_Meter&returnGeodetic=false&outFields=*&returnGeometry=true&returnCentroid=false&featureEncoding=esriDefault&multipatchOption=xyFootprint&maxAllowableOffset=&geometryPrecision=&outSR=&datumTransformation=&applyVCSProjection=false&returnIdsOnly=false&returnUniqueIdsOnly=false&returnCountOnly=false&returnExtentOnly=false&returnQueryGeometry=false&returnDistinctValues=false&cacheHint=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&having=&resultOffset=&resultRecordCount=&returnZ=false&returnM=false&returnExceededLimitFeatures=true&quantizationParameters=&sqlFormat=none&f=pgeojson&token=",GeoLayerID="WildfirePerimetersLayer",Name="Colorado Wildfire Perimeters",Description="Colorado wildfire perimeters web service")
-#   EndIf(Name="UseWFSGeoJSONIf")
-#   If(Name="UseGeoJSONFromWFSIf",Condition="${PerimeterSource} == GeoJSONFromWFS")
-    #   # If reading from the WFS...
-    #   # Does not work...
-    #   # ReadGeoLayerFromWebFeatureService(InputUrl="https://services3.arcgis.com/T4QMspbfLg3qTGWY/arcgis/rest/services/Public_Wildfire_Perimeters_View/FeatureServer/0/query?outFields=*&where=1%3D1",GeoLayerID="WildfirePerimetersLayer",Name="Colorado Wildfire Perimeters",Description="Colorado wildfire perimeters web service")
-    #   # Works but URL is too long
-    #   # - TODO smalers 2020-08-19
-    #   # - Can return GeoJSON, but in this case just use ReadGeoLayerFromGeoJSON
-    #   # The following uses a minimual number of parameters, shown without URL encoding:
-    #   # - where=1=1 (why needed?)
-    #   # - geometryType=esriGeometryEnvelope (used to specify rectangle for query)
-    #   # - geometry=xmin,xmax,ymin,ymax  (where x is longitude and y is latitude, must URL-encode commas using %2C)
-    #   # - inSR=4326 (input CRS, for the bounding box, default is that of the layer on the server)
-    #   # - returnGeometry=true (default, to return geometries)
-    #   # - f=pgeojson (pretty GeoJSON)
-    #   # - f=geojson (GeoJSON)
-    #   # - outfields=* (return all attributes)
-    #   # - geometryPrecision=5 (digits for coordinates)
-    #   # - outSR (seems to default to 4326 for GeoJSON output format)
-    #   # - multipatchOption (is this needed?)
-    #   # - spatialRel=esriSpatialRelContains (how the envelope is used to select features)
-    #   # TODO smalers 2021-07-12 the following no longer works.
-    #   #ReadGeoLayerFromGeoJSON(InputFile="https://services3.arcgis.com/T4QMspbfLg3qTGWY/ArcGIS/rest/services/Public_Wildfire_Perimeters_View/FeatureServer/0/query?geometry=-110.6%2C35.86%2C-102.05%2C42.2&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelContains&outFields=*&geometryPrecision=5&f=geojson",GeoLayerID="WildfirePerimetersLayer",Name="Colorado Wildfire Perimeters",Description="Colorado wildfire perimeters web service")
-    #   ReadGeoLayerFromGeoJSON(InputFile="https://services3.arcgis.com/T4QMspbfLg3qTGWY/arcgis/rest/services/CY_WildlandFire_Perimeters_ToDate/FeatureServer/0/query?geometry=-110.6%2C35.86%2C-102.05%2C42.2&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelContains&outFields=*&geometryPrecision=5&f=geojson",GeoLayerID="WildfirePerimetersLayer",Name="Colorado Wildfire Perimeters",Description="Colorado wildfire perimeters web service")
-    #   #
-    #   # The following uses too many parameters based on the Esri URL-builder, which are difficult for a user to deal with.
-    #   #ReadGeoLayerFromGeoJSON(InputFile="https://services3.arcgis.com/T4QMspbfLg3qTGWY/ArcGIS/rest/services/Public_Wildfire_Perimeters_View/FeatureServer/0/query?where=1%3D1&objectIds=&time=&geometry=-109.05%2C36.99%2C-102.05%2C41&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelContains&resultType=none&distance=0.0&units=esriSRUnit_Meter&returnGeodetic=false&outFields=*&returnGeometry=true&returnCentroid=false&featureEncoding=esriDefault&multipatchOption=xyFootprint&maxAllowableOffset=&geometryPrecision=&outSR=&datumTransformation=&applyVCSProjection=false&returnIdsOnly=false&returnUniqueIdsOnly=false&returnCountOnly=false&returnExtentOnly=false&returnQueryGeometry=false&returnDistinctValues=false&cacheHint=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&having=&resultOffset=&resultRecordCount=&returnZ=false&returnM=false&returnExceededLimitFeatures=true&quantizationParameters=&sqlFormat=none&f=pgeojson&token=",GeoLayerID="WildfirePerimetersLayer",Name="Colorado Wildfire Perimeters",Description="Colorado wildfire perimeters web service")
-#   EndIf(Name="UseGeoJSONFromWFSIf")
-#   AddGeoLayerViewToGeoMap(GeoLayerID="WildfirePerimetersLayer",GeoLayerViewID="WildfirePerimetersLayerView",Name="Current Year Wildfire Perimeters",Description="Current year wildfire perimeters from the National Interagency Fire Center",Properties="docPath:layers/wildfire-perimeters.md",InsertPosition="Top")
-#   # Switch from solid fill to only outline
-#   #SetGeoLayerViewSingleSymbol(GeoLayerViewID="WildfirePerimetersLayerView",Name="WildfirePerimetersSymbol",Description="Wildfire Perimeters symbol",Properties="color:#ff0000,fillColor:#ff0000,fillOpacity:0.3")
-#   SetGeoLayerViewSingleSymbol(GeoLayerViewID="WildfirePerimetersLayerView",Name="WildfirePerimetersSymbol",Description="Wildfire Perimeters symbol",Properties="color:#ff0000,fillColor:#000000,fillOpacity:0.0")
-#   # TODO smalers 2020-08-14 need to classify on area or some other attribute
-#   #SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="WildfirePerimetersLayerView",Name="Colorize wildfire Perimeters",Description="Show each wildfire perimeter the same color",ClassificationAttribute="county",Properties="classificationType:'categorized',classificationFile:'layers/wildfire-perimeters-classify-county.csv'")
-#   # Same event handler configuration, since just limits features
-#   SetGeoLayerViewEventHandler(GeoLayerViewID="WildfirePerimetersLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/wildfire-perimeters-event-config.json")
-#   SetGeoLayerViewEventHandler(GeoLayerViewID="WildfirePerimetersLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/wildfire-perimeters-event-config.json")
-*/
+SetProperty(PropertyName="PerimeterSource",PropertyType="str",PropertyValue="GeoJSONFromWFS")
+If(Name="UseFileIf",Condition="${PerimeterSource} == LocalFile")
+    # Reading from a local file...
+    ReadGeoLayerFromGeoJSON(InputFile="layers/wildfire-perimeters.geojson",GeoLayerID="WildfirePerimetersLayer",Name="Current Year Wildfire Perimeters",Description="Colorado wildfire Perimeters from the National Interagency Fire Center")
+EndIf(Name="UseFileIf")
+If(Name="UseGeoJSONServiceIf",Condition="${PerimeterSource} == GeoJSONService")
+    # If reading from the FWS...
+    ReadGeoLayerFromGeoJSON(InputFile="https://opendata.arcgis.com/datasets/5da472c6d27b4b67970acc7b5044c862_0.geojson",GeoLayerID="WildfirePerimetersLayer",Name="Colorado Wildfire Perimeters",Description="Colorado wildfire Perimeters from the National Interagency Fire Center",Properties="sourceFormat:WFS")
+EndIf(Name="UseGeoJSONServiceIf")
+If(Name="UseWFSGeoJSONIf",Condition="${PerimeterSource} == WFSGeoJSON")
+    # If reading from the WFS...
+    # Does not work...
+    # ReadGeoLayerFromWebFeatureService(InputUrl="https://services3.arcgis.com/T4QMspbfLg3qTGWY/arcgis/rest/services/Public_Wildfire_Perimeters_View/FeatureServer/0/query?outFields=*&where=1%3D1",GeoLayerID="WildfirePerimetersLayer",Name="Colorado Wildfire Perimeters",Description="Colorado wildfire perimeters web service")
+    # Works but URL is too long
+    # - TODO smalers 2020-08-19
+    # - Can return GeoJSON, but in this case just use ReadGeoLayerFromGeoJSON
+    # ReadGeoLayerFromWebFeatureService(InputUrl="https://services3.arcgis.com/T4QMspbfLg3qTGWY/ArcGIS/rest/services/Public_Wildfire_Perimeters_View/FeatureServer/0/query?where=1%3D1&objectIds=&time=&geometry=-109.05%2C36.99%2C-102.05%2C41&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelContains&resultType=none&distance=0.0&units=esriSRUnit_Meter&returnGeodetic=false&outFields=*&returnGeometry=true&returnCentroid=false&featureEncoding=esriDefault&multipatchOption=xyFootprint&maxAllowableOffset=&geometryPrecision=&outSR=&datumTransformation=&applyVCSProjection=false&returnIdsOnly=false&returnUniqueIdsOnly=false&returnCountOnly=false&returnExtentOnly=false&returnQueryGeometry=false&returnDistinctValues=false&cacheHint=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&having=&resultOffset=&resultRecordCount=&returnZ=false&returnM=false&returnExceededLimitFeatures=true&quantizationParameters=&sqlFormat=none&f=pgeojson&token=",GeoLayerID="WildfirePerimetersLayer",Name="Colorado Wildfire Perimeters",Description="Colorado wildfire perimeters web service")
+EndIf(Name="UseWFSGeoJSONIf")
+If(Name="UseGeoJSONFromWFSIf",Condition="${PerimeterSource} == GeoJSONFromWFS")
+    # If reading from the WFS...
+    # Does not work...
+    # ReadGeoLayerFromWebFeatureService(InputUrl="https://services3.arcgis.com/T4QMspbfLg3qTGWY/arcgis/rest/services/Public_Wildfire_Perimeters_View/FeatureServer/0/query?outFields=*&where=1%3D1",GeoLayerID="WildfirePerimetersLayer",Name="Colorado Wildfire Perimeters",Description="Colorado wildfire perimeters web service")
+    # Works but URL is too long
+    # - TODO smalers 2020-08-19
+    # - Can return GeoJSON, but in this case just use ReadGeoLayerFromGeoJSON
+    # The following uses a minimual number of parameters, shown without URL encoding:
+    # - where=1=1 (why needed?)
+    # - geometryType=esriGeometryEnvelope (used to specify rectangle for query)
+    # - geometry=xmin,xmax,ymin,ymax  (where x is longitude and y is latitude, must URL-encode commas using %2C)
+    # - inSR=4326 (input CRS, for the bounding box, default is that of the layer on the server)
+    # - returnGeometry=true (default, to return geometries)
+    # - f=pgeojson (pretty GeoJSON)
+    # - f=geojson (GeoJSON)
+    # - outfields=* (return all attributes)
+    # - geometryPrecision=5 (digits for coordinates)
+    # - outSR (seems to default to 4326 for GeoJSON output format)
+    # - multipatchOption (is this needed?)
+    # - spatialRel=esriSpatialRelContains (how the envelope is used to select features)
+    # TODO smalers 2021-07-12 the following no longer works.
+    #ReadGeoLayerFromGeoJSON(InputFile="https://services3.arcgis.com/T4QMspbfLg3qTGWY/ArcGIS/rest/services/Public_Wildfire_Perimeters_View/FeatureServer/0/query?geometry=-110.6%2C35.86%2C-102.05%2C42.2&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelContains&outFields=*&geometryPrecision=5&f=geojson",GeoLayerID="WildfirePerimetersLayer",Name="Colorado Wildfire Perimeters",Description="Colorado wildfire perimeters web service")
+    ReadGeoLayerFromGeoJSON(InputFile="https://services3.arcgis.com/T4QMspbfLg3qTGWY/arcgis/rest/services/CY_WildlandFire_Perimeters_ToDate/FeatureServer/0/query?geometry=-110.6%2C35.86%2C-102.05%2C42.2&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelContains&outFields=*&geometryPrecision=5&f=geojson",GeoLayerID="WildfirePerimetersLayer",Name="Colorado Wildfire Perimeters",Description="Colorado wildfire perimeters web service")
+    #
+    # The following uses too many parameters based on the Esri URL-builder, which are difficult for a user to deal with.
+    #ReadGeoLayerFromGeoJSON(InputFile="https://services3.arcgis.com/T4QMspbfLg3qTGWY/ArcGIS/rest/services/Public_Wildfire_Perimeters_View/FeatureServer/0/query?where=1%3D1&objectIds=&time=&geometry=-109.05%2C36.99%2C-102.05%2C41&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelContains&resultType=none&distance=0.0&units=esriSRUnit_Meter&returnGeodetic=false&outFields=*&returnGeometry=true&returnCentroid=false&featureEncoding=esriDefault&multipatchOption=xyFootprint&maxAllowableOffset=&geometryPrecision=&outSR=&datumTransformation=&applyVCSProjection=false&returnIdsOnly=false&returnUniqueIdsOnly=false&returnCountOnly=false&returnExtentOnly=false&returnQueryGeometry=false&returnDistinctValues=false&cacheHint=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&having=&resultOffset=&resultRecordCount=&returnZ=false&returnM=false&returnExceededLimitFeatures=true&quantizationParameters=&sqlFormat=none&f=pgeojson&token=",GeoLayerID="WildfirePerimetersLayer",Name="Colorado Wildfire Perimeters",Description="Colorado wildfire perimeters web service")
+EndIf(Name="UseGeoJSONFromWFSIf")
+AddGeoLayerViewToGeoMap(GeoLayerID="WildfirePerimetersLayer",GeoLayerViewID="WildfirePerimetersLayerView",Name="Current Year Wildfire Perimeters",Description="Current year wildfire perimeters from the National Interagency Fire Center",Properties="docPath:../Environment-Wildfires/layers/wildfire-perimeters.md",InsertPosition="Top")
+# Switch from solid fill to only outline
+#SetGeoLayerViewSingleSymbol(GeoLayerViewID="WildfirePerimetersLayerView",Name="WildfirePerimetersSymbol",Description="Wildfire Perimeters symbol",Properties="color:#ff0000,fillColor:#ff0000,fillOpacity:0.3")
+SetGeoLayerViewSingleSymbol(GeoLayerViewID="WildfirePerimetersLayerView",Name="WildfirePerimetersSymbol",Description="Wildfire Perimeters symbol",Properties="color:#ff0000,fillColor:#000000,fillOpacity:0.0")
+# TODO smalers 2020-08-14 need to classify on area or some other attribute
+#SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="WildfirePerimetersLayerView",Name="Colorize wildfire Perimeters",Description="Show each wildfire perimeter the same color",ClassificationAttribute="county",Properties="classificationType:'categorized',classificationFile:'layers/wildfire-perimeters-classify-county.csv'")
+# Same event handler configuration, since just limits features
+SetGeoLayerViewEventHandler(GeoLayerViewID="WildfirePerimetersLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:../Environment-Wildfires/layers/wildfire-perimeters-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="WildfirePerimetersLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:../Environment-Wildfires/layers/wildfire-perimeters-event-config.json")
 # = = = = = = = = = =
 # Soil Burn Severity:  read layer and add to a layer view group.
 # GeoLayerViewGroupID: SoilBurnSeverityGroup
 #
-/*
-#  AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="SoilBurnSeverityGroup",Name="Soil Burn Severity",Description="Soil burn severity",Properties="selectedInitial:true",InsertPosition="Top")
-#  # -------------------
-#  # Soil Burn Severity for East Troublesome (raster):
-#  # GeoLayerViewGroupID: SoilBurnSeverityGroup
-#  # - raster is faster
-#  ReadRasterGeoLayerFromFile(InputFile="layers/east-troublesome-sbs.tif",GeoLayerID="EastTroublesomeSoilBurnSeverityRasterLayer",Name="East Troublesome Fire Soil Burn Severity (raster)",Description="East Troublesome Fire soil burn severity")
-#  AddGeoLayerViewToGeoMap(GeoLayerID="EastTroublesomeSoilBurnSeverityRasterLayer",GeoLayerViewID="EastTroublesomeSoilBurnSeverityRasterLayerView",Name="East Troublesome Fire Soil Burn Severity (raster)",Description="East Troublesome Fire soil burn severity from USFS BAER",Properties="docPath:layers/east-troublesome-sbs.md",InsertPosition="Top")
-#  SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="EastTroublesomeSoilBurnSeverityRasterLayerView",Name="Colorize soil burn severity",Description="Symbol for the soil burn severity",ClassificationAttribute="1",Properties="classificationFile:'layers/east-troublesome-sbs-classify-gridcode.csv',rasterResolution:'128'")
-#  SetGeoLayerViewEventHandler(GeoLayerViewID="EastTroublesomeSoilBurnSeverityRasterLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/east-troublesome-sbs-raster-event-config.json")
-#  SetGeoLayerViewEventHandler(GeoLayerViewID="EastTroublesomeSoilBurnSeverityRasterLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/east-troublesome-sbs-raster-event-config.json")
-#  # -------------------
-#  # Soil Burn Severity for Cameron Peak (raster):
-#  # GeoLayerViewGroupID: SoilBurnSeverityGroup
-#  # - raster is faster
-#  ReadRasterGeoLayerFromFile(InputFile="layers/cameron-peak-sbs.tif",GeoLayerID="CameronPeakSoilBurnSeverityRasterLayer",Name="Cameron Peak Fire Soil Burn Severity (raster)",Description="Cameron Peak Fire soil burn severity")
-#  AddGeoLayerViewToGeoMap(GeoLayerID="CameronPeakSoilBurnSeverityRasterLayer",GeoLayerViewID="CameronPeakSoilBurnSeverityRasterLayerView",Name="Cameron Peak Fire Soil Burn Severity (raster)",Description="Cameron Peak Fire soil burn severity from USFS BAER",Properties="docPath:layers/cameron-peak-sbs.md",InsertPosition="Top")
-#  SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="CameronPeakSoilBurnSeverityRasterLayerView",Name="Colorize soil burn severity",Description="Symbol for the soil burn severity",ClassificationAttribute="1",Properties="classificationFile:'layers/cameron-peak-sbs-classify-gridcode.csv',rasterResolution:'128'")
-#  SetGeoLayerViewEventHandler(GeoLayerViewID="CameronPeakSoilBurnSeverityRasterLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/cameron-peak-sbs-raster-event-config.json")
-#  SetGeoLayerViewEventHandler(GeoLayerViewID="CameronPeakSoilBurnSeverityRasterLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/cameron-peak-sbs-raster-event-config.json")
-#  #
-#  # -------------------
-#  # Soil Burn Severity for Cameron Peak:
-#  # GeoLayerViewGroupID: SoilBurnSeverityGroup
-#  # - polygon vector layer is slow to draw so rely on raster layer
-#  #
-#  SetProperty(PropertyName="IncludeBurnAreaVector",PropertyType="str",PropertyValue="no")
-#  If(Name="IncludeBurnAreaVector",Condition="${IncludeBurnAreaVector} == yes")
-    #  ReadGeoLayerFromGeoJSON(InputFile="layers/cameron-peak-sbs.geojson",GeoLayerID="SoilBurnSeverityLayer",Name="Cameron Peak Fire Soil Burn Severity",Description="Soil burn severity")
-    #  AddGeoLayerViewToGeoMap(GeoLayerID="SoilBurnSeverityLayer",GeoLayerViewID="SoilBurnSeverityLayerView",Name="Cameron Peak Fire Soil Burn Severity",Description="Cameron Peak Fire soil burn severity from USFS BAER",Properties="docPath:layers/cameron-peak-sbs.md",InsertPosition="Top")
-    #  SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="SoilBurnSeverityLayerView",Name="Colorize soil burn severity",Description="Symbol for the soil burn severity",ClassificationAttribute="gridcode",Properties="classificationFile:'layers/cameron-peak-sbs-classify-gridcode.csv'")
-    #  SetGeoLayerViewEventHandler(GeoLayerViewID="SoilBurnSeverityLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/cameron-peak-sbs-event-config.json")
-    #  SetGeoLayerViewEventHandler(GeoLayerViewID="SoilBurnSeverityLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/cameron-peak-sbs-event-config.json")
-#  EndIf(Name="IncludeBurnAreaVector")
-*/
+AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="SoilBurnSeverityGroup",Name="Soil Burn Severity",Description="Soil burn severity",Properties="selectedInitial:true",InsertPosition="Top")
+# -------------------
+# Soil Burn Severity for East Troublesome (raster):
+# GeoLayerViewGroupID: SoilBurnSeverityGroup
+# - raster is faster
+ReadRasterGeoLayerFromFile(InputFile="../Environment-Wildfires/layers/east-troublesome-sbs.tif",GeoLayerID="EastTroublesomeSoilBurnSeverityRasterLayer",Name="East Troublesome Fire Soil Burn Severity (raster)",Description="East Troublesome Fire soil burn severity")
+AddGeoLayerViewToGeoMap(GeoLayerID="EastTroublesomeSoilBurnSeverityRasterLayer",GeoLayerViewID="EastTroublesomeSoilBurnSeverityRasterLayerView",Name="East Troublesome Fire Soil Burn Severity (raster)",Description="East Troublesome Fire soil burn severity from USFS BAER",Properties="docPath:layers/east-troublesome-sbs.md",InsertPosition="Top")
+SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="EastTroublesomeSoilBurnSeverityRasterLayerView",Name="Colorize soil burn severity",Description="Symbol for the soil burn severity",ClassificationAttribute="1",Properties="classificationFile:'../Environment-Wildfires/layers/east-troublesome-sbs-classify-gridcode.csv',rasterResolution:'128'")
+SetGeoLayerViewEventHandler(GeoLayerViewID="EastTroublesomeSoilBurnSeverityRasterLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:../Environment-Wildfires/layers/east-troublesome-sbs-raster-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="EastTroublesomeSoilBurnSeverityRasterLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:../Environment-Wildfires/layers/east-troublesome-sbs-raster-event-config.json")
+# -------------------
+# Soil Burn Severity for Cameron Peak (raster):
+# GeoLayerViewGroupID: SoilBurnSeverityGroup
+# - raster is faster
+ReadRasterGeoLayerFromFile(InputFile="../Environment-Wildfires/layers/cameron-peak-sbs.tif",GeoLayerID="CameronPeakSoilBurnSeverityRasterLayer",Name="Cameron Peak Fire Soil Burn Severity (raster)",Description="Cameron Peak Fire soil burn severity")
+AddGeoLayerViewToGeoMap(GeoLayerID="CameronPeakSoilBurnSeverityRasterLayer",GeoLayerViewID="CameronPeakSoilBurnSeverityRasterLayerView",Name="Cameron Peak Fire Soil Burn Severity (raster)",Description="Cameron Peak Fire soil burn severity from USFS BAER",Properties="docPath:layers/cameron-peak-sbs.md",InsertPosition="Top")
+SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="CameronPeakSoilBurnSeverityRasterLayerView",Name="Colorize soil burn severity",Description="Symbol for the soil burn severity",ClassificationAttribute="1",Properties="classificationFile:'../Environment-Wildfires/layers/cameron-peak-sbs-classify-gridcode.csv',rasterResolution:'128'")
+SetGeoLayerViewEventHandler(GeoLayerViewID="CameronPeakSoilBurnSeverityRasterLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:../Environment-Wildfires/layers/cameron-peak-sbs-raster-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="CameronPeakSoilBurnSeverityRasterLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:../Environment-Wildfires/layers/cameron-peak-sbs-raster-event-config.json")
+# = = = = = = = = = =
+# HUC:  read layer and add to layer view group.
+# GeoLayerViewGroupID: HUCsGroup
+#
+AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="HUCBasinsGroup",Name="Hydrologic Unit Code (HUC) Basins",Description="HUC Basin boundaries from the USGS.",Properties="selectedInitial: true",InsertPosition="Top")
+# HUC 12 next on top
+ReadGeoLayerFromGeoJSON(InputFile="../../BasinEntities/Physical-Basins/layers/huc12.geojson",GeoLayerID="HUC12BasinLayer",Name="Cache la Poudre HUC12 Basins",Description="HUC12 Basin boundaries from the USGS")
+AddGeoLayerViewToGeoMap(GeoLayerID="HUC12BasinLayer",GeoLayerViewID="HUC12BasinsLayerView",Name="Cache la Poudre HUC 12 Basins",Description="HUC12 Basin boundaries from the USGS",InsertPosition="Top",Properties="docPath:../../BasinEntities/Physical-Basins/layers/huc12.md,highlightEnabled:true")
+# Width of 2 is a bit overwhelming.  Use the same color as the basins map.
+SetGeoLayerViewSingleSymbol(GeoLayerViewID="HUC12BasinsLayerView",Name="Colorize HUC12",Description="Transparent polygon",Properties="color:#ff3399,width:.5,fillOpacity:0.0")
+SetGeoLayerViewEventHandler(GeoLayerViewID="HUC12BasinsLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:../../BasinEntities/Physical-Basins/layers/huc12-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="HUC12BasinsLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:../../BasinEntities/Physical-Basins/layers/huc12-event-config.json")
 # = = = = = = = = = =
 # Stream reaches:  read layer and add to a layer view group.
 # - TODO smalers 2020-05-22 for now copy the stream reaches but want to use shared layer
 # GeoLayerViewGroupID: StreamReachesGroup
-AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="StreamReachesGroup",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches",Properties="selectedInitial:true",InsertPosition="Top")
+AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="StreamReachesGroup",Name="Stream Reaches",Description="Stream reaches",Properties="selectedInitial:true",InsertPosition="Top")
 #
 CopyFile(SourceFile="../../BasinEntities/Physical-StreamReaches/layers/stream-reaches.geojson",DestinationFile="layers/stream-reaches.geojson")
 CopyFile(SourceFile="../../BasinEntities/Physical-StreamReaches/layers/stream-reaches.geojson",DestinationFile="layers/stream-reaches-event-config.json")
@@ -297,18 +278,38 @@ SetGeoLayerViewSingleSymbol(GeoLayerViewID="FloodOrganizationsLayerView",Name="U
 SetGeoLayerViewEventHandler(GeoLayerViewID="FloodOrganizationsLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/flood-orgs-event-config.json")
 SetGeoLayerViewEventHandler(GeoLayerViewID="FloodOrganizationsLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/flood-orgs-event-config.json")
 # = = = = = = = = = =
-# Flood warning system stations:  read layer and add to a layer view group.
+# Flood warning system stations:
+# - read layers and add to a layer view group
+# - multiple layers are shown based on data type statistic
 # GeoLayerViewGroupID: FloodWarningGroup
 AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="FloodWarningGroup",Name="Flood Warning",Description="Flood Warning System information",Properties="selectedInitial: true",InsertPosition="Top")
 #
-#ReadGeoLayerFromGeoJSON(InputFile="https://larimerco-ns5.trilynx-novastar.systems/novastar/data/api/v1/stationStatistics?dataType=Precip&statistic=Total&interval=1Day&format=geojson&statisticFormat=flat",GeoLayerID="FWSStationsLayer",Name="Flood Warning System Stations",Description="Flood Warning System stations from Larimer County FWS")
-ReadGeoLayerFromGeoJSON(InputFile="https://larimerco-ns5.trilynx-novastar.systems/novastar/data/api/v1/stationStatistics?dataType=Precip&statistic=Total&interval=1Day&format=geojson&statisticFormat=flat&statisticValueName=%24%7BdataType%7D.%24%7Binterval%7D",GeoLayerID="FloodWarningStationsLayer",Name="Flood Warning System Stations",Description="Flood Warning System stations from Larimer County FWS")
-AddGeoLayerViewToGeoMap(GeoLayerID="FloodWarningStationsLayer",GeoLayerViewID="FloodWarningStationsLayerView",Name="Flood Warning System Stations",Description="Flood Warning System stations from Larimer County FWS",Properties="docPath:'layers/fws-stations.md'")
+# Precipitation stations.
+# Read FWS stations from web services:
+# - the mouse events are configured to link to the NovaStar Operator station dashboard for each station
+ReadGeoLayerFromGeoJSON(InputFile="https://larimerco-ns5.trilynx-novastar.systems/novastar/data/api/v1/stationStatistics?dataType=Precip&statistic=Total&interval=1Day&format=geojson&statisticFormat=flat&statisticValueName=%24%7BdataType%7D.%24%7Binterval%7D",GeoLayerID="FloodWarningPrecipStationsLayer",Name="Flood Warning System Precipitation Stations",Description="Flood Warning System precipitation stations from Larimer County FWS")
+AddGeoLayerViewToGeoMap(GeoLayerID="FloodWarningPrecipStationsLayer",GeoLayerViewID="FloodWarningPrecipStationsLayerView",Name="Flood Warning System Precipitation Stations",Description="Flood Warning System precipitation stations from Larimer County FWS (using general precipitation levels for markers)",Properties="docPath:'layers/fws-precip-stations.md'")
 # For now use single symbol
 # - TODO smalers 2020-05-22 need to enable a symbol based on precipitation or NovaScore
-SetGeoLayerViewSingleSymbol(GeoLayerViewID="FloodWarningStationsLayerView",Name="Flood Warning Stations",Description="Flood Warning System stations from Larimer County FWS",Properties="symbolShape:Circle,color:#333333,fillColor:#333333,symbolSize:4,sizeUnits:pixels,opacity:1.0,fillOpacity:1.0,weight:1.5")
-SetGeoLayerViewEventHandler(GeoLayerViewID="FloodWarningStationsLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/fws-stations-event-config.json")
-SetGeoLayerViewEventHandler(GeoLayerViewID="FloodWarningStationsLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/fws-stations-event-config.json")
+#SetGeoLayerViewSingleSymbol(GeoLayerViewID="FloodWarningPrecipStationsLayerView",Name="Flood Warning Precipitation Stations",Description="Flood Warning System precipitation stations from Larimer County FWS",Properties="symbolShape:Circle,color:#333333,fillColor:#333333,symbolSize:4,sizeUnits:pixels,opacity:1.0,fillOpacity:1.0,weight:1.5")
+SetGeoLayerViewGraduatedSymbol(GeoLayerViewID="FloodWarningPrecipStationsLayerView",Name="Colorize daily precipitation",Description="Color daily precipitation.",ClassificationAttribute="Precip.1Day",Properties="symbolShape:Circle,symbolSize:4,sizeUnits:pixels,classificationFile:layers/fws-precip-stations-classify.csv")
+SetGeoLayerViewEventHandler(GeoLayerViewID="FloodWarningPrecipStationsLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/fws-precip-stations-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="FloodWarningPrecipStationsLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/fws-precip-stations-event-config.json")
+#
+# Water level stations:
+# - use a larger circle under precipitation
+# Read FWS stations from web services:
+# - the mouse events are configured to link to the NovaStar Operator station dashboard for each station
+# - TODO smalers 2022-07-06 need to enable WaterLevelRiver-NovaScore and other NovaScore time series
+#ReadGeoLayerFromGeoJSON(InputFile="https://larimerco-ns5.trilynx-novastar.systems/novastar/data/api/v1/stationStatistics?dataType=WaterLevelRiver%2CNovaScore&statistic=Last&interval=1Day&format=geojson&statisticFormat=flat&statisticValueName=%24%7BdataType%7D.%24%7Binterval%7D",GeoLayerID="FloodWarningLevelStationsLayer",Name="Flood Warning System Water Level Stations",Description="Flood Warning System water level stations from Larimer County FWS")
+ReadGeoLayerFromGeoJSON(InputFile="https://larimerco-ns5.trilynx-novastar.systems/novastar/data/api/v1/stationStatistics?dataType=WaterLevelRiver&statistic=Last&interval=1Day&format=geojson&statisticFormat=flat&statisticValueName=%24%7BdataType%7D.%24%7Binterval%7D",GeoLayerID="FloodWarningLevelStationsLayer",Name="Flood Warning System Water Level Stations",Description="Flood Warning System water level stations from Larimer County FWS")
+AddGeoLayerViewToGeoMap(GeoLayerID="FloodWarningLevelStationsLayer",GeoLayerViewID="FloodWarningLevelStationsLayerView",Name="Flood Warning System Water Level Stations",Description="Flood Warning System water level stations from Larimer County FWS",Properties="docPath:'layers/fws-level-stations.md'")
+# For now use single symbol
+# - TODO smalers 2020-05-22 need to enable a symbol based on water level or NovaScore
+SetGeoLayerViewSingleSymbol(GeoLayerViewID="FloodWarningLevelStationsLayerView",Name="Flood Warning Water Level Stations",Description="Flood Warning System water level stations from Larimer County FWS",Properties="symbolShape:Circle,color:#333333,fillColor:#333333,symbolSize:6,sizeUnits:pixels,opacity:1.0,fillOpacity:1.0,weight:1.5")
+#SetGeoLayerViewGraduatedSymbol(GeoLayerViewID="FloodWarningLevelStationsLayerView",Name="Colorize water level",Description="Color water level markers by NovaScore.",ClassificationAttribute="NovaScore-Last",Properties="symbolShape:Circle,symbolSize:6,sizeUnits:pixels,classificationFile:layers/fws-level-stations-classify.csv")
+SetGeoLayerViewEventHandler(GeoLayerViewID="FloodWarningLevelStationsLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/fws-level-stations-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="FloodWarningLevelStationsLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/fws-level-stations-event-config.json")
 # = = = = = = = = = =
 # Write the map project file and copy layers to the location needed by the web application.
 # - follow InfoMapper conventions
@@ -324,8 +325,12 @@ CopyFile(SourceFile="layers/flood-orgs.md",DestinationFile="${MapFolder}/layers/
 CopyFile(SourceFile="layers/flood-orgs-event-config.json",DestinationFile="${MapFolder}/layers/flood-orgs-event-config.json")
 #
 # Flood warning stations.
-CopyFile(SourceFile="layers/fws-stations.md",DestinationFile="${MapFolder}/layers/fws-stations.md")
-CopyFile(SourceFile="layers/fws-stations-event-config.json",DestinationFile="${MapFolder}/layers/fws-stations-event-config.json")
+CopyFile(SourceFile="layers/fws-precip-stations.md",DestinationFile="${MapFolder}/layers/fws-precip-stations.md")
+CopyFile(SourceFile="layers/fws-precip-stations-event-config.json",DestinationFile="${MapFolder}/layers/fws-precip-stations-event-config.json")
+CopyFile(SourceFile="layers/fws-precip-stations-classify.csv",DestinationFile="${MapFolder}/layers/fws-precip-stations-classify.csv")
+CopyFile(SourceFile="layers/fws-level-stations.md",DestinationFile="${MapFolder}/layers/fws-level-stations.md")
+CopyFile(SourceFile="layers/fws-level-stations-classify.csv",DestinationFile="${MapFolder}/layers/fws-level-stations-classify.csv")
+CopyFile(SourceFile="layers/fws-level-stations-event-config.json",DestinationFile="${MapFolder}/layers/fws-level-stations-event-config.json")
 #
 # SNOTEL stations.
 /*
@@ -359,19 +364,19 @@ CopyFile(SourceFile="layers/stream-reaches-event-config.json",DestinationFile="$
 #  CopyFile(SourceFile="layers/wildfire-perimeters-event-config.json",DestinationFile="${MapFolder}/layers/wildfire-perimeters-event-config.json")
 #  CopyFile(SourceFile="layers/wildfire-perimeters-archive-event-config.json",DestinationFile="${MapFolder}/layers/wildfire-perimeters-archive-event-config.json")
 */
-# RMNP boundary.
-# - no need to copy layer because read from URL
+# RMNP boundary:
+# - no need to copy layer because read from URL and local configuration files are with supporting data
 #  CopyFile(SourceFile="national-parks-group.md",DestinationFile="${MapFolder}/national-parks-group.md")
 #  CopyFile(SourceFile="layers/national-parks-rmnp.md",DestinationFile="${MapFolder}/layers/national-parks-rmnp.md")
 #  CopyFile(SourceFile="layers/national-parks-rmnp-event-config.json",DestinationFile="${MapFolder}/layers/national-parks-rmnp-event-config.json")
-# Water district 3.
-CopyFile(SourceFile="layers/co-dwr-water-district-3.geojson",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3.geojson")
-CopyFile(SourceFile="layers/co-dwr-water-district-3-classify-district.csv",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3-classify-district.csv")
-CopyFile(SourceFile="../../BasinEntities/Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3.md",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3.md")
-# Continental divide.
+# Water district 3:
+# - no need to copy layer because can use files from the other map
+# CopyFile(SourceFile="layers/co-dwr-water-district-3.geojson",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3.geojson")
+# CopyFile(SourceFile="layers/co-dwr-water-district-3-classify-district.csv",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3-classify-district.csv")
+# CopyFile(SourceFile="../../BasinEntities/Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3.md",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3.md")
+# Continental divide:
 # - no need to copy layer because read from URL
 CopyFile(SourceFile="layers/continental-divide-co-event-config.json",DestinationFile="${MapFolder}/layers/continental-divide-co-event-config.json")
-CopyFile(SourceFile="../../SupportingData/Physical-ContinentalDivide/layers/continental-divide.md",DestinationFile="${MapFolder}/layers/continental-divide.md")
 /*
 #  # SNODAS snowpack.
 #  # - no need to copy layer because read from URL
