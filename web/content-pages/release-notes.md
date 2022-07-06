@@ -34,16 +34,16 @@ The following release notes summarize changes to the Poudre Basin Information we
 
 * [2.4.0] Update the website from `http` to `https` protocol to adhere to web security requirements.
   Some `http` links broke and have been updated in this release.
-* [2.4.0] Add initial prototype dashboards with indicators.
-  See the ***Dashboards*** menu, for example the [***Main Dashboard***](#dashboard/poudre-main-dashboard).
-  Dashboards and indicators will be enabled as supporting data are identified and automated workflows are implemented.
+* [2.4.0] Add initial prototype dashboards with indicators:
+    + See the ***Dashboards*** menu, for example the [***Main Dashboard***](#dashboard/poudre-main-dashboard).
+    + Dashboards and indicators will be enabled as supporting data are identified and automated workflows are implemented.
 * [2.4.0] Add the initial [***Current Conditions / Environment - Floods***](#/map/current-floods) map.
-* [2.4.0] Begin phasing in datasets on [data.openwaterfoundation.org](https://data.openwaterfoundation.org) to streamline use of shared datasets.
-  OWF is implementing separate repositories, workflows, and dataset landing pages
-  for each dataset so that the datasets can more easily be used independent of this website.
-  Layer information pages provide links to dataset pages.
-* [2.4.0] Fix the historical wildfire perimeters layer in the [***Current Conditions / Environment - Wildfires***](#/map/current-wildfires) map,
-  due to a change in the dataset URL.
+* [2.4.0] Begin phasing in datasets on [data.openwaterfoundation.org](https://data.openwaterfoundation.org):
+    + Datasets are managed independent of software use and provide landing pages.
+    + InfoMapper workflows are streamlined because they focus on map configurations.
+* [2.4.0] Update the [***Current Conditions / Environment - Wildfires***](#/map/current-wildfires) map:
+    + Fix the historical wildfire perimeters layer due to a change in the dataset URL.
+    + Add the HUC 12 basins layer to the map.
 
 ## 2.3.0 ##
 

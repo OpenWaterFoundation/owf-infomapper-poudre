@@ -10,8 +10,9 @@
 The Colorado Legislative Districts map provides information about Colorado legislative districts,
 for County, State, and Federal representatives.
 
-**This map is under development.  Make sure to turn on only one of the House or Senate layers at the same time
-because they use the same colors for symbols and are transparent.**
+The map is configured to display either the House or Senate layer
+because they use the same colors for symbols and are transparent,
+and displaying on top of each other is confusing.
 
 ## Layer Groups
 
