@@ -672,7 +672,7 @@
         },
         {
           "id": "data-resources",
-          "name": "Data Resources",
+          "name": "Data & Information Resources",
           "action": "contentPage",
           "align": "right",
           "markdownFile": "content-pages/data-resources.md"

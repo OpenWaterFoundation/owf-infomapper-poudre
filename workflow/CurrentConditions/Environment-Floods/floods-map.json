@@ -11,12 +11,12 @@
   "geoMaps": [
     {
       "geoMapId": "CurrentFloodsMap",
-      "name": "Flood Monitoring",
-      "description": "Flood monitoring",
+      "name": "Flood Conditions",
+      "description": "Flood conditions",
       "dataPath": ".",
       "crs": "EPSG:4326",
       "properties": {
-        "extentInitial": "ZoomLevel:-105.798,40.591,10",
+        "extentInitial": "ZoomLevel:-105.5,40.7,10",
         "docPath": "floods-map.md"
       },
       "geoLayers": [
@@ -318,6 +318,86 @@
           ]
         },
         {
+          "geoLayerId": "SnodasLayer",
+          "name": "Snowpack (SNODAS)",
+          "description": "Snowpack from SNODAS",
+          "crs": "EPSG:26913",
+          "geometryType": "WKT:Polygon",
+          "layerType": "Vector",
+          "sourceFormat": "GeoJSON",
+          "sourcePath": "https://snodas.cdss.state.co.us/app/SnowpackStatisticsByDate/SnowpackStatisticsByDate_LatestDate.geojson",
+          "properties": {},
+          "history:": [
+            "Read GeoLayer from GeoJSON file:  'https://snodas.cdss.state.co.us/app/SnowpackStatisticsByDate/SnowpackStatisticsByDate_LatestDate.geojson'"
+          ]
+        },
+        {
+          "geoLayerId": "WildfirePerimetersArchiveLayer",
+          "name": "Historical Wildfire Perimeters",
+          "description": "Wildfire perimeters web service",
+          "crs": "EPSG:4326",
+          "geometryType": "WKT:Polygon",
+          "layerType": "Vector",
+          "sourceFormat": "GeoJSON",
+          "sourcePath": "https://services3.arcgis.com/T4QMspbfLg3qTGWY/arcgis/rest/services/InteragencyFirePerimeterHistory_All_Years_View/FeatureServer/0/query?where=GIS_ACRES%20%3E%3D%20150%20AND%20FIRE_YEAR%20%3E%3D%202000&geometry=-110.6%2C35.86%2C-102.05%2C42.2&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelContains&outFields=*&geometryPrecision=5&f=geojson",
+          "properties": {},
+          "history:": [
+            "Read GeoLayer from GeoJSON file:  'https://services3.arcgis.com/T4QMspbfLg3qTGWY/arcgis/rest/services/InteragencyFirePerimeterHistory_All_Years_View/FeatureServer/0/query?where=GIS_ACRES%20%3E%3D%20150%20AND%20FIRE_YEAR%20%3E%3D%202000&geometry=-110.6%2C35.86%2C-102.05%2C42.2&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelContains&outFields=*&geometryPrecision=5&f=geojson'"
+          ]
+        },
+        {
+          "geoLayerId": "WildfirePerimetersLayer",
+          "name": "Colorado Wildfire Perimeters",
+          "description": "Colorado wildfire perimeters web service",
+          "crs": "EPSG:4326",
+          "geometryType": "WKT:Polygon",
+          "layerType": "Vector",
+          "sourceFormat": "GeoJSON",
+          "sourcePath": "https://services3.arcgis.com/T4QMspbfLg3qTGWY/arcgis/rest/services/CY_WildlandFire_Perimeters_ToDate/FeatureServer/0/query?geometry=-110.6%2C35.86%2C-102.05%2C42.2&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelContains&outFields=*&geometryPrecision=5&f=geojson",
+          "properties": {},
+          "history:": [
+            "Read GeoLayer from GeoJSON file:  'https://services3.arcgis.com/T4QMspbfLg3qTGWY/arcgis/rest/services/CY_WildlandFire_Perimeters_ToDate/FeatureServer/0/query?geometry=-110.6%2C35.86%2C-102.05%2C42.2&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelContains&outFields=*&geometryPrecision=5&f=geojson'"
+          ]
+        },
+        {
+          "geoLayerId": "EastTroublesomeSoilBurnSeverityRasterLayer",
+          "name": "East Troublesome Fire Soil Burn Severity (raster)",
+          "description": "East Troublesome Fire soil burn severity",
+          "crs": "EPSG:4326",
+          "geometryType": "Raster",
+          "layerType": "Raster",
+          "sourceFormat": null,
+          "sourcePath": "../Environment-Wildfires/layers/east-troublesome-sbs.tif",
+          "properties": {},
+          "history:": []
+        },
+        {
+          "geoLayerId": "CameronPeakSoilBurnSeverityRasterLayer",
+          "name": "Cameron Peak Fire Soil Burn Severity (raster)",
+          "description": "Cameron Peak Fire soil burn severity",
+          "crs": "EPSG:4326",
+          "geometryType": "Raster",
+          "layerType": "Raster",
+          "sourceFormat": null,
+          "sourcePath": "../Environment-Wildfires/layers/cameron-peak-sbs.tif",
+          "properties": {},
+          "history:": []
+        },
+        {
+          "geoLayerId": "HUC12BasinLayer",
+          "name": "Cache la Poudre HUC12 Basins",
+          "description": "HUC12 Basin boundaries from the USGS",
+          "crs": "EPSG:4326",
+          "geometryType": "WKT:Polygon",
+          "layerType": "Vector",
+          "sourceFormat": "GeoJSON",
+          "sourcePath": "../../BasinEntities/Physical-Basins/layers/huc12.geojson",
+          "properties": {},
+          "history:": [
+            "Read GeoLayer from GeoJSON file:  'C:\\Users\\sam\\owf-dev\\InfoMapper-Poudre\\git-repos\\owf-infomapper-poudre\\workflow\\BasinEntities\\Physical-Basins\\layers\\huc12.geojson'"
+          ]
+        },
+        {
           "geoLayerId": "StreamReachesLayer",
           "name": "Poudre Stream Reaches",
           "description": "Poudre Stream Reaches",
@@ -346,9 +426,9 @@
           ]
         },
         {
-          "geoLayerId": "FloodWarningStationsLayer",
-          "name": "Flood Warning System Stations",
-          "description": "Flood Warning System stations from Larimer County FWS",
+          "geoLayerId": "FloodWarningPrecipStationsLayer",
+          "name": "Flood Warning System Precipitation Stations",
+          "description": "Flood Warning System precipitation stations from Larimer County FWS",
           "crs": "EPSG:4326",
           "geometryType": "WKT:Point",
           "layerType": "Vector",
@@ -357,6 +437,20 @@
           "properties": {},
           "history:": [
             "Read GeoLayer from GeoJSON file:  'https://larimerco-ns5.trilynx-novastar.systems/novastar/data/api/v1/stationStatistics?dataType=Precip&statistic=Total&interval=1Day&format=geojson&statisticFormat=flat&statisticValueName=%24%7BdataType%7D.%24%7Binterval%7D'"
+          ]
+        },
+        {
+          "geoLayerId": "FloodWarningLevelStationsLayer",
+          "name": "Flood Warning System Water Level Stations",
+          "description": "Flood Warning System water level stations from Larimer County FWS",
+          "crs": "EPSG:4326",
+          "geometryType": "WKT:Point",
+          "layerType": "Vector",
+          "sourceFormat": "GeoJSON",
+          "sourcePath": "https://larimerco-ns5.trilynx-novastar.systems/novastar/data/api/v1/stationStatistics?dataType=WaterLevelRiver&statistic=Last&interval=1Day&format=geojson&statisticFormat=flat&statisticValueName=%24%7BdataType%7D.%24%7Binterval%7D",
+          "properties": {},
+          "history:": [
+            "Read GeoLayer from GeoJSON file:  'https://larimerco-ns5.trilynx-novastar.systems/novastar/data/api/v1/stationStatistics?dataType=WaterLevelRiver&statistic=Last&interval=1Day&format=geojson&statisticFormat=flat&statisticValueName=%24%7BdataType%7D.%24%7Binterval%7D'"
           ]
         }
       ],
@@ -370,23 +464,64 @@
           },
           "geoLayerViews": [
             {
-              "geoLayerViewId": "FloodWarningStationsLayerView",
-              "name": "Flood Warning System Stations",
-              "description": "Flood Warning System stations from Larimer County FWS",
-              "geoLayerId": "FloodWarningStationsLayer",
+              "geoLayerViewId": "FloodWarningPrecipStationsLayerView",
+              "name": "Flood Warning System Precipitation Stations",
+              "description": "Flood Warning System precipitation stations from Larimer County FWS (using general precipitation levels for markers)",
+              "geoLayerId": "FloodWarningPrecipStationsLayer",
               "properties": {
-                "docPath": "layers/fws-stations.md"
+                "docPath": "layers/fws-precip-stations.md"
               },
               "geoLayerSymbol": {
-                "name": "Flood Warning Stations",
-                "description": "Flood Warning System stations from Larimer County FWS",
+                "name": "Colorize daily precipitation",
+                "description": "Color daily precipitation.",
+                "classificationType": "Graduated",
+                "classificationAttribute": "Precip.1Day",
+                "properties": {
+                  "symbolShape": "Circle",
+                  "symbolSize": "4",
+                  "sizeUnits": "pixels",
+                  "classificationFile": "layers/fws-precip-stations-classify.csv"
+                }
+              },
+              "eventHandlers": [
+                {
+                  "eventType": "hover",
+                  "name": "Hover event",
+                  "description": "Hover event configuration",
+                  "hasVisualization": false,
+                  "properties": {
+                    "eventConfigPath": "layers/fws-precip-stations-event-config.json"
+                  }
+                },
+                {
+                  "eventType": "click",
+                  "name": "Click event",
+                  "description": "Click event configuration",
+                  "hasVisualization": false,
+                  "properties": {
+                    "eventConfigPath": "layers/fws-precip-stations-event-config.json"
+                  }
+                }
+              ]
+            },
+            {
+              "geoLayerViewId": "FloodWarningLevelStationsLayerView",
+              "name": "Flood Warning System Water Level Stations",
+              "description": "Flood Warning System water level stations from Larimer County FWS",
+              "geoLayerId": "FloodWarningLevelStationsLayer",
+              "properties": {
+                "docPath": "layers/fws-level-stations.md"
+              },
+              "geoLayerSymbol": {
+                "name": "Flood Warning Water Level Stations",
+                "description": "Flood Warning System water level stations from Larimer County FWS",
                 "classificationType": "SingleSymbol",
                 "classificationAttribute": "",
                 "properties": {
                   "symbolShape": "Circle",
                   "color": "#333333",
                   "fillColor": "#333333",
-                  "symbolSize": "4",
+                  "symbolSize": "6",
                   "sizeUnits": "pixels",
                   "opacity": "1.0",
                   "fillOpacity": "1.0",
@@ -400,7 +535,7 @@
                   "description": "Hover event configuration",
                   "hasVisualization": false,
                   "properties": {
-                    "eventConfigPath": "layers/fws-stations-event-config.json"
+                    "eventConfigPath": "layers/fws-level-stations-event-config.json"
                   }
                 },
                 {
@@ -409,7 +544,7 @@
                   "description": "Click event configuration",
                   "hasVisualization": false,
                   "properties": {
-                    "eventConfigPath": "layers/fws-stations-event-config.json"
+                    "eventConfigPath": "layers/fws-level-stations-event-config.json"
                   }
                 }
               ]
@@ -467,8 +602,8 @@
         },
         {
           "geoLayerViewGroupId": "StreamReachesGroup",
-          "name": "Poudre Stream Reaches",
-          "description": "Poudre Stream Reaches",
+          "name": "Stream Reaches",
+          "description": "Stream reaches",
           "properties": {
             "selectedInitial": "true"
           },
@@ -516,6 +651,281 @@
           ]
         },
         {
+          "geoLayerViewGroupId": "HUCBasinsGroup",
+          "name": "Hydrologic Unit Code (HUC) Basins",
+          "description": "HUC Basin boundaries from the USGS.",
+          "properties": {
+            "selectedInitial": "true"
+          },
+          "geoLayerViews": [
+            {
+              "geoLayerViewId": "HUC12BasinsLayerView",
+              "name": "Cache la Poudre HUC 12 Basins",
+              "description": "HUC12 Basin boundaries from the USGS",
+              "geoLayerId": "HUC12BasinLayer",
+              "properties": {
+                "docPath": "../../BasinEntities/Physical-Basins/layers/huc12.md",
+                "highlightEnabled": "true"
+              },
+              "geoLayerSymbol": {
+                "name": "Colorize HUC12",
+                "description": "Transparent polygon",
+                "classificationType": "SingleSymbol",
+                "classificationAttribute": "",
+                "properties": {
+                  "color": "#ff3399",
+                  "width": ".5",
+                  "fillOpacity": "0.0"
+                }
+              },
+              "eventHandlers": [
+                {
+                  "eventType": "hover",
+                  "name": "Hover event",
+                  "description": "Hover event configuration",
+                  "hasVisualization": false,
+                  "properties": {
+                    "eventConfigPath": "../../BasinEntities/Physical-Basins/layers/huc12-event-config.json"
+                  }
+                },
+                {
+                  "eventType": "click",
+                  "name": "Click event",
+                  "description": "Click event configuration",
+                  "hasVisualization": false,
+                  "properties": {
+                    "eventConfigPath": "../../BasinEntities/Physical-Basins/layers/huc12-event-config.json"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "geoLayerViewGroupId": "SoilBurnSeverityGroup",
+          "name": "Soil Burn Severity",
+          "description": "Soil burn severity",
+          "properties": {
+            "selectedInitial": "true"
+          },
+          "geoLayerViews": [
+            {
+              "geoLayerViewId": "CameronPeakSoilBurnSeverityRasterLayerView",
+              "name": "Cameron Peak Fire Soil Burn Severity (raster)",
+              "description": "Cameron Peak Fire soil burn severity from USFS BAER",
+              "geoLayerId": "CameronPeakSoilBurnSeverityRasterLayer",
+              "properties": {
+                "docPath": "layers/cameron-peak-sbs.md"
+              },
+              "geoLayerSymbol": {
+                "name": "Colorize soil burn severity",
+                "description": "Symbol for the soil burn severity",
+                "classificationType": "Categorized",
+                "classificationAttribute": "1",
+                "properties": {
+                  "classificationFile": "../Environment-Wildfires/layers/cameron-peak-sbs-classify-gridcode.csv",
+                  "rasterResolution": "128"
+                }
+              },
+              "eventHandlers": [
+                {
+                  "eventType": "hover",
+                  "name": "Hover event",
+                  "description": "Hover event configuration",
+                  "hasVisualization": false,
+                  "properties": {
+                    "eventConfigPath": "../Environment-Wildfires/layers/cameron-peak-sbs-raster-event-config.json"
+                  }
+                },
+                {
+                  "eventType": "click",
+                  "name": "Click event",
+                  "description": "Click event configuration",
+                  "hasVisualization": false,
+                  "properties": {
+                    "eventConfigPath": "../Environment-Wildfires/layers/cameron-peak-sbs-raster-event-config.json"
+                  }
+                }
+              ]
+            },
+            {
+              "geoLayerViewId": "EastTroublesomeSoilBurnSeverityRasterLayerView",
+              "name": "East Troublesome Fire Soil Burn Severity (raster)",
+              "description": "East Troublesome Fire soil burn severity from USFS BAER",
+              "geoLayerId": "EastTroublesomeSoilBurnSeverityRasterLayer",
+              "properties": {
+                "docPath": "layers/east-troublesome-sbs.md"
+              },
+              "geoLayerSymbol": {
+                "name": "Colorize soil burn severity",
+                "description": "Symbol for the soil burn severity",
+                "classificationType": "Categorized",
+                "classificationAttribute": "1",
+                "properties": {
+                  "classificationFile": "../Environment-Wildfires/layers/east-troublesome-sbs-classify-gridcode.csv",
+                  "rasterResolution": "128"
+                }
+              },
+              "eventHandlers": [
+                {
+                  "eventType": "hover",
+                  "name": "Hover event",
+                  "description": "Hover event configuration",
+                  "hasVisualization": false,
+                  "properties": {
+                    "eventConfigPath": "../Environment-Wildfires/layers/east-troublesome-sbs-raster-event-config.json"
+                  }
+                },
+                {
+                  "eventType": "click",
+                  "name": "Click event",
+                  "description": "Click event configuration",
+                  "hasVisualization": false,
+                  "properties": {
+                    "eventConfigPath": "../Environment-Wildfires/layers/east-troublesome-sbs-raster-event-config.json"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "geoLayerViewGroupId": "WildfiresGroup",
+          "name": "Wildfires",
+          "description": "Wildfires",
+          "properties": {
+            "selectedInitial": "true"
+          },
+          "geoLayerViews": [
+            {
+              "geoLayerViewId": "WildfirePerimetersLayerView",
+              "name": "Current Year Wildfire Perimeters",
+              "description": "Current year wildfire perimeters from the National Interagency Fire Center",
+              "geoLayerId": "WildfirePerimetersLayer",
+              "properties": {
+                "docPath": "../Environment-Wildfires/layers/wildfire-perimeters.md"
+              },
+              "geoLayerSymbol": {
+                "name": "WildfirePerimetersSymbol",
+                "description": "Wildfire Perimeters symbol",
+                "classificationType": "SingleSymbol",
+                "classificationAttribute": "",
+                "properties": {
+                  "color": "#ff0000",
+                  "fillColor": "#000000",
+                  "fillOpacity": "0.0"
+                }
+              },
+              "eventHandlers": [
+                {
+                  "eventType": "hover",
+                  "name": "Hover event",
+                  "description": "Hover event configuration",
+                  "hasVisualization": false,
+                  "properties": {
+                    "eventConfigPath": "../Environment-Wildfires/layers/wildfire-perimeters-event-config.json"
+                  }
+                },
+                {
+                  "eventType": "click",
+                  "name": "Click event",
+                  "description": "Click event configuration",
+                  "hasVisualization": false,
+                  "properties": {
+                    "eventConfigPath": "../Environment-Wildfires/layers/wildfire-perimeters-event-config.json"
+                  }
+                }
+              ]
+            },
+            {
+              "geoLayerViewId": "WildfirePerimetersArchiveLayerView",
+              "name": "Historical Wildfire Perimeters",
+              "description": "Historical wildfire perimeters (acres>= 150, year>=2000) from the National Interagency Fire Center",
+              "geoLayerId": "WildfirePerimetersArchiveLayer",
+              "properties": {
+                "docPath": "../Environment-Wildfires/layers/wildfire-perimeters-archive.md"
+              },
+              "geoLayerSymbol": {
+                "name": "WildfirePerimetersArchiveSymbol",
+                "description": "Wildfire Perimeters archive symbol",
+                "classificationType": "SingleSymbol",
+                "classificationAttribute": "",
+                "properties": {
+                  "color": "#cc9900",
+                  "fillColor": "#cc9900",
+                  "fillOpacity": "0.2"
+                }
+              },
+              "eventHandlers": [
+                {
+                  "eventType": "hover",
+                  "name": "Hover event",
+                  "description": "Hover event configuration",
+                  "hasVisualization": false,
+                  "properties": {
+                    "eventConfigPath": "../Environment-Wildfires/layers/wildfire-perimeters-archive-event-config.json"
+                  }
+                },
+                {
+                  "eventType": "click",
+                  "name": "Click event",
+                  "description": "Click event configuration",
+                  "hasVisualization": false,
+                  "properties": {
+                    "eventConfigPath": "../Environment-Wildfires/layers/wildfire-perimeters-archive-event-config.json"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "geoLayerViewGroupId": "SnowpackBasinsGroup",
+          "name": "Snowpack",
+          "description": "Snowpack conditions",
+          "properties": {},
+          "geoLayerViews": [
+            {
+              "geoLayerViewId": "SnodasLayerView",
+              "name": "Snowpack (SNODAS)",
+              "description": "Snowpack from SNODAS as basin mean SWE (in)",
+              "geoLayerId": "SnodasLayer",
+              "properties": {
+                "docPath": "../WaterSupply-Snowpack/layers/snodas.md"
+              },
+              "geoLayerSymbol": {
+                "name": "Colorize SWE",
+                "description": "Show SWE using SNODAS tools colors.",
+                "classificationType": "Graduated",
+                "classificationAttribute": "SNODAS_SWE_Mean_in",
+                "properties": {
+                  "classificationFile": "../WaterSupply-Snowpack/layers/snodas-classify-swe-in.csv"
+                }
+              },
+              "eventHandlers": [
+                {
+                  "eventType": "hover",
+                  "name": "Hover event",
+                  "description": "Hover event configuration",
+                  "hasVisualization": false,
+                  "properties": {
+                    "eventConfigPath": "../WaterSupply-Snowpack/layers/snodas-event-config.json"
+                  }
+                },
+                {
+                  "eventType": "click",
+                  "name": "Click event",
+                  "description": "Click event configuration",
+                  "hasVisualization": false,
+                  "properties": {
+                    "eventConfigPath": "../WaterSupply-Snowpack/layers/snodas-event-config.json"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
           "geoLayerViewGroupId": "NationalParksGroup",
           "name": "National Parks",
           "description": "National parks",
@@ -530,7 +940,7 @@
               "description": "Rocky Mountain National Park boundary from National Park Service",
               "geoLayerId": "RMNPBoundaryLayer",
               "properties": {
-                "docPath": "layers/national-parks-rmnp.md"
+                "docPath": "../../CurrentConditions/Environment-WildFires/layers/national-parks-rmnp.md"
               },
               "geoLayerSymbol": {
                 "name": "RMNPBoundarySymbol",
@@ -550,7 +960,7 @@
                   "description": "Hover event configuration",
                   "hasVisualization": false,
                   "properties": {
-                    "eventConfigPath": "layers/national-parks-rmnp-event-config.json"
+                    "eventConfigPath": "../../CurrentConditions/Environment-Wildfires/layers/national-parks-rmnp-event-config.json"
                   }
                 },
                 {
@@ -559,7 +969,7 @@
                   "description": "Click event configuration",
                   "hasVisualization": false,
                   "properties": {
-                    "eventConfigPath": "layers/national-parks-rmnp-event-config.json"
+                    "eventConfigPath": "../../CurrentConditions/Environment-Wildfires/layers/national-parks-rmnp-event-config.json"
                   }
                 }
               ]
@@ -632,7 +1042,7 @@
               "description": "Water District 3 boundary from the Colorado Division of Water Resources",
               "geoLayerId": "WaterDistrictLayer",
               "properties": {
-                "docPath": "layers/co-dwr-water-district-3.md"
+                "docPath": "../../BasinEntities/Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3.md"
               },
               "geoLayerSymbol": {
                 "name": "Colorize district",
@@ -650,7 +1060,7 @@
                   "description": "Hover event configuration",
                   "hasVisualization": false,
                   "properties": {
-                    "eventConfigPath": "layers/co-dwr-water-district-3-event-config.json"
+                    "eventConfigPath": "../../BasinEntities/Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3-event-config.json"
                   }
                 },
                 {
@@ -659,7 +1069,7 @@
                   "description": "Click event configuration",
                   "hasVisualization": false,
                   "properties": {
-                    "eventConfigPath": "layers/co-dwr-water-district-3-event-config.json"
+                    "eventConfigPath": "../../BasinEntities/Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3-event-config.json"
                   }
                 }
               ]
