@@ -426,20 +426,6 @@
           ]
         },
         {
-          "geoLayerId": "FloodWarningPrecipStationsLayer",
-          "name": "Flood Warning System Precipitation Stations",
-          "description": "Flood Warning System precipitation stations from Larimer County FWS",
-          "crs": "EPSG:4326",
-          "geometryType": "WKT:Point",
-          "layerType": "Vector",
-          "sourceFormat": "GeoJSON",
-          "sourcePath": "https://larimerco-ns5.trilynx-novastar.systems/novastar/data/api/v1/stationStatistics?dataType=Precip&statistic=Total&interval=1Day&format=geojson&statisticFormat=flat&statisticValueName=%24%7BdataType%7D.%24%7Binterval%7D",
-          "properties": {},
-          "history:": [
-            "Read GeoLayer from GeoJSON file:  'https://larimerco-ns5.trilynx-novastar.systems/novastar/data/api/v1/stationStatistics?dataType=Precip&statistic=Total&interval=1Day&format=geojson&statisticFormat=flat&statisticValueName=%24%7BdataType%7D.%24%7Binterval%7D'"
-          ]
-        },
-        {
           "geoLayerId": "FloodWarningLevelStationsLayer",
           "name": "Flood Warning System Water Level Stations",
           "description": "Flood Warning System water level stations from Larimer County FWS",
@@ -452,35 +438,80 @@
           "history:": [
             "Read GeoLayer from GeoJSON file:  'https://larimerco-ns5.trilynx-novastar.systems/novastar/data/api/v1/stationStatistics?dataType=WaterLevelRiver&statistic=Last&interval=1Day&format=geojson&statisticFormat=flat&statisticValueName=%24%7BdataType%7D.%24%7Binterval%7D'"
           ]
+        },
+        {
+          "geoLayerId": "FloodWarningPrecipStations3HourLayer",
+          "name": "3-Hour Precipitation",
+          "description": "3-hour precipitation from Larimer County FWS",
+          "crs": "EPSG:4326",
+          "geometryType": "WKT:Point",
+          "layerType": "Vector",
+          "sourceFormat": "GeoJSON",
+          "sourcePath": "https://larimerco-ns5.trilynx-novastar.systems/novastar/data/api/v1/stationStatistics?dataType=Precip&statistic=Total&interval=3Hour&format=geojson&statisticFormat=flat&statisticValueName=%24%7BdataType%7D.%24%7Binterval%7D",
+          "properties": {},
+          "history:": [
+            "Read GeoLayer from GeoJSON file:  'https://larimerco-ns5.trilynx-novastar.systems/novastar/data/api/v1/stationStatistics?dataType=Precip&statistic=Total&interval=3Hour&format=geojson&statisticFormat=flat&statisticValueName=%24%7BdataType%7D.%24%7Binterval%7D'"
+          ]
+        },
+        {
+          "geoLayerId": "FloodWarningPrecipStations1DayLayer",
+          "name": "1-Day Precipitation",
+          "description": "1-day Precipitation from Larimer County FWS",
+          "crs": "EPSG:4326",
+          "geometryType": "WKT:Point",
+          "layerType": "Vector",
+          "sourceFormat": "GeoJSON",
+          "sourcePath": "https://larimerco-ns5.trilynx-novastar.systems/novastar/data/api/v1/stationStatistics?dataType=Precip&statistic=Total&interval=1Day&format=geojson&statisticFormat=flat&statisticValueName=%24%7BdataType%7D.%24%7Binterval%7D",
+          "properties": {},
+          "history:": [
+            "Read GeoLayer from GeoJSON file:  'https://larimerco-ns5.trilynx-novastar.systems/novastar/data/api/v1/stationStatistics?dataType=Precip&statistic=Total&interval=1Day&format=geojson&statisticFormat=flat&statisticValueName=%24%7BdataType%7D.%24%7Binterval%7D'"
+          ]
+        },
+        {
+          "geoLayerId": "FloodWarningPrecipStations7DayLayer",
+          "name": "7-Day Precipitation",
+          "description": "7-day Precipitation from Larimer County FWS",
+          "crs": "EPSG:4326",
+          "geometryType": "WKT:Point",
+          "layerType": "Vector",
+          "sourceFormat": "GeoJSON",
+          "sourcePath": "https://larimerco-ns5.trilynx-novastar.systems/novastar/data/api/v1/stationStatistics?dataType=Precip&statistic=Total&interval=7Day&format=geojson&statisticFormat=flat&statisticValueName=%24%7BdataType%7D.%24%7Binterval%7D",
+          "properties": {},
+          "history:": [
+            "Read GeoLayer from GeoJSON file:  'https://larimerco-ns5.trilynx-novastar.systems/novastar/data/api/v1/stationStatistics?dataType=Precip&statistic=Total&interval=7Day&format=geojson&statisticFormat=flat&statisticValueName=%24%7BdataType%7D.%24%7Binterval%7D'"
+          ]
         }
       ],
       "geoLayerViewGroups": [
         {
-          "geoLayerViewGroupId": "FloodWarningGroup",
-          "name": "Flood Warning",
-          "description": "Flood Warning System information",
+          "geoLayerViewGroupId": "FloodWarningPrecipGroup",
+          "name": "Flood Warning Precipitation Stations",
+          "description": "Flood Warning System precipitation stations",
           "properties": {
-            "selectedInitial": "true"
+            "selectedInitial": "true",
+            "selectBehavior": "single"
           },
           "geoLayerViews": [
             {
-              "geoLayerViewId": "FloodWarningPrecipStationsLayerView",
-              "name": "Flood Warning System Precipitation Stations",
-              "description": "Flood Warning System precipitation stations from Larimer County FWS (using general precipitation levels for markers)",
-              "geoLayerId": "FloodWarningPrecipStationsLayer",
+              "geoLayerViewId": "FloodWarningPrecipStations3HourLayerView",
+              "name": "3-Hour Precipitation",
+              "description": "3-hour precipitation from Larimer County FWS (using general precipitation levels for markers)",
+              "geoLayerId": "FloodWarningPrecipStations3HourLayer",
               "properties": {
-                "docPath": "layers/fws-precip-stations.md"
+                "docPath": "layers/fws-precip-stations.md",
+                "selectedInitial": "true",
+                "refreshInterval": "5Minute"
               },
               "geoLayerSymbol": {
                 "name": "Colorize daily precipitation",
                 "description": "Color daily precipitation.",
                 "classificationType": "Graduated",
-                "classificationAttribute": "Precip.1Day",
+                "classificationAttribute": "Precip.3Hour",
                 "properties": {
                   "symbolShape": "Circle",
                   "symbolSize": "4",
                   "sizeUnits": "pixels",
-                  "classificationFile": "layers/fws-precip-stations-classify.csv"
+                  "classificationFile": "layers/fws-precip-stations-classify-3hour.csv"
                 }
               },
               "eventHandlers": [
@@ -505,12 +536,109 @@
               ]
             },
             {
+              "geoLayerViewId": "FloodWarningPrecipStations1DayLayerView",
+              "name": "1-Day Precipitation",
+              "description": "1-day precipitation from Larimer County FWS (using general precipitation levels for markers)",
+              "geoLayerId": "FloodWarningPrecipStations1DayLayer",
+              "properties": {
+                "docPath": "layers/fws-precip-stations.md",
+                "selectedInitial": "false",
+                "refreshInterval": "5Minute"
+              },
+              "geoLayerSymbol": {
+                "name": "Colorize daily precipitation",
+                "description": "Color daily precipitation.",
+                "classificationType": "Graduated",
+                "classificationAttribute": "Precip.1Day",
+                "properties": {
+                  "symbolShape": "Circle",
+                  "symbolSize": "4",
+                  "sizeUnits": "pixels",
+                  "classificationFile": "layers/fws-precip-stations-classify-1day.csv"
+                }
+              },
+              "eventHandlers": [
+                {
+                  "eventType": "hover",
+                  "name": "Hover event",
+                  "description": "Hover event configuration",
+                  "hasVisualization": false,
+                  "properties": {
+                    "eventConfigPath": "layers/fws-precip-stations-event-config.json"
+                  }
+                },
+                {
+                  "eventType": "click",
+                  "name": "Click event",
+                  "description": "Click event configuration",
+                  "hasVisualization": false,
+                  "properties": {
+                    "eventConfigPath": "layers/fws-precip-stations-event-config.json"
+                  }
+                }
+              ]
+            },
+            {
+              "geoLayerViewId": "FloodWarningPrecipStations7DayLayerView",
+              "name": "7-Day Precipitation",
+              "description": "7-day precipitation from Larimer County FWS (using general precipitation levels for markers)",
+              "geoLayerId": "FloodWarningPrecipStations7DayLayer",
+              "properties": {
+                "docPath": "layers/fws-precip-stations.md",
+                "selectedInitial": "false",
+                "refreshInterval": "5Minute"
+              },
+              "geoLayerSymbol": {
+                "name": "Colorize daily precipitation",
+                "description": "Color daily precipitation.",
+                "classificationType": "Graduated",
+                "classificationAttribute": "Precip.7Day",
+                "properties": {
+                  "symbolShape": "Circle",
+                  "symbolSize": "4",
+                  "sizeUnits": "pixels",
+                  "classificationFile": "layers/fws-precip-stations-classify-7day.csv"
+                }
+              },
+              "eventHandlers": [
+                {
+                  "eventType": "hover",
+                  "name": "Hover event",
+                  "description": "Hover event configuration",
+                  "hasVisualization": false,
+                  "properties": {
+                    "eventConfigPath": "layers/fws-precip-stations-event-config.json"
+                  }
+                },
+                {
+                  "eventType": "click",
+                  "name": "Click event",
+                  "description": "Click event configuration",
+                  "hasVisualization": false,
+                  "properties": {
+                    "eventConfigPath": "layers/fws-precip-stations-event-config.json"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "geoLayerViewGroupId": "FloodWarningWaterLevelGroup",
+          "name": "Flood Warning Water Level Stations",
+          "description": "Flood Warning System water level information",
+          "properties": {
+            "selectedInitial": "true"
+          },
+          "geoLayerViews": [
+            {
               "geoLayerViewId": "FloodWarningLevelStationsLayerView",
               "name": "Flood Warning System Water Level Stations",
               "description": "Flood Warning System water level stations from Larimer County FWS",
               "geoLayerId": "FloodWarningLevelStationsLayer",
               "properties": {
-                "docPath": "layers/fws-level-stations.md"
+                "docPath": "layers/fws-level-stations.md",
+                "refreshInterval": "5Minute"
               },
               "geoLayerSymbol": {
                 "name": "Flood Warning Water Level Stations",

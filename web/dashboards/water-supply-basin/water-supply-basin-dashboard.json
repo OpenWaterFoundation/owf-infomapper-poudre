@@ -1,7 +1,7 @@
 {
   "metadata": {
      "author": "Steve Malers, Open Water Foundation",
-     "title": "Poudre Basin Water Supply Dashboard",
+     "title": "Poudre Basin Water Supply Dashboard (PROTOTYPE)",
      "version": "1.0.0"
   },
   "layout": {
@@ -15,7 +15,7 @@
        "rows": 1,
        "type": "title",
        "name": "WaterSupplyDashboardMainTitle",
-       "title": "Poudre Basin Water Supply Dashboard",
+       "title": "Poudre Basin Water Supply Dashboard (PROTOTYPE)",
        "description": "Poudre Basin Water Supply Dashboard.",
        "style": {
           "backgroundColor": "black",

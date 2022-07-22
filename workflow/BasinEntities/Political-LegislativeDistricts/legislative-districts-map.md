@@ -10,9 +10,16 @@
 The Colorado Legislative Districts map provides information about Colorado legislative districts,
 for County, State, and Federal representatives.
 
-The map is configured to display either the House or Senate layer
-because they use the same colors for symbols and are transparent,
+The map is configured to display either the House or Senate layer, but not both at the same time,
+because they use the same colors for polygon fill,
 and displaying on top of each other is confusing.
+
+The maps use the final 2021 districts based on 2020 census,
+from the [Colorado Independent Redistricting Commissions](https://redistricting.colorado.gov/).
+Use the following to access previous districts:
+
+* [data.openwaterfoundation.org](https://data.openwaterfoundation.org/state/co/circ/legislative-districts/) - dataset page
+* [Colorado Legislative Districts (2011)](https://poudre.openwaterfoundation.org/2.3.0/#/map/entities-legislative) - older Poudre Basin Information version (may be disabled in the future)
 
 ## Layer Groups
 

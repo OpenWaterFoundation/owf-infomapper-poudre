@@ -1,5 +1,8 @@
 # Map: Flood Conditions #
 
+| [Larimer County Emergency Alerts](https://nocoalert.org/) | [Larimer County Flood Warning System](https://larimerco-ns5.trilynx-novastar.systems/novastar/operator/) |
+| -- | -- |
+
 * Overview
 * Flood Warning Systems
 * Protection and Restoration

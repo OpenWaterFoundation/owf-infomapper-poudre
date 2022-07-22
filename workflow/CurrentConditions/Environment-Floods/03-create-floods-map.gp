@@ -278,23 +278,10 @@ SetGeoLayerViewSingleSymbol(GeoLayerViewID="FloodOrganizationsLayerView",Name="U
 SetGeoLayerViewEventHandler(GeoLayerViewID="FloodOrganizationsLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/flood-orgs-event-config.json")
 SetGeoLayerViewEventHandler(GeoLayerViewID="FloodOrganizationsLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/flood-orgs-event-config.json")
 # = = = = = = = = = =
-# Flood warning system stations:
+# Flood warning system water level stations:
 # - read layers and add to a layer view group
-# - multiple layers are shown based on data type statistic
-# GeoLayerViewGroupID: FloodWarningGroup
-AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="FloodWarningGroup",Name="Flood Warning",Description="Flood Warning System information",Properties="selectedInitial: true",InsertPosition="Top")
-#
-# Precipitation stations.
-# Read FWS stations from web services:
-# - the mouse events are configured to link to the NovaStar Operator station dashboard for each station
-ReadGeoLayerFromGeoJSON(InputFile="https://larimerco-ns5.trilynx-novastar.systems/novastar/data/api/v1/stationStatistics?dataType=Precip&statistic=Total&interval=1Day&format=geojson&statisticFormat=flat&statisticValueName=%24%7BdataType%7D.%24%7Binterval%7D",GeoLayerID="FloodWarningPrecipStationsLayer",Name="Flood Warning System Precipitation Stations",Description="Flood Warning System precipitation stations from Larimer County FWS")
-AddGeoLayerViewToGeoMap(GeoLayerID="FloodWarningPrecipStationsLayer",GeoLayerViewID="FloodWarningPrecipStationsLayerView",Name="Flood Warning System Precipitation Stations",Description="Flood Warning System precipitation stations from Larimer County FWS (using general precipitation levels for markers)",Properties="docPath:'layers/fws-precip-stations.md'")
-# For now use single symbol
-# - TODO smalers 2020-05-22 need to enable a symbol based on precipitation or NovaScore
-#SetGeoLayerViewSingleSymbol(GeoLayerViewID="FloodWarningPrecipStationsLayerView",Name="Flood Warning Precipitation Stations",Description="Flood Warning System precipitation stations from Larimer County FWS",Properties="symbolShape:Circle,color:#333333,fillColor:#333333,symbolSize:4,sizeUnits:pixels,opacity:1.0,fillOpacity:1.0,weight:1.5")
-SetGeoLayerViewGraduatedSymbol(GeoLayerViewID="FloodWarningPrecipStationsLayerView",Name="Colorize daily precipitation",Description="Color daily precipitation.",ClassificationAttribute="Precip.1Day",Properties="symbolShape:Circle,symbolSize:4,sizeUnits:pixels,classificationFile:layers/fws-precip-stations-classify.csv")
-SetGeoLayerViewEventHandler(GeoLayerViewID="FloodWarningPrecipStationsLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/fws-precip-stations-event-config.json")
-SetGeoLayerViewEventHandler(GeoLayerViewID="FloodWarningPrecipStationsLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/fws-precip-stations-event-config.json")
+# GeoLayerViewGroupID: FloodWarningWaterLevelGroup
+AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="FloodWarningWaterLevelGroup",Name="Flood Warning Water Level Stations",Description="Flood Warning System water level information",Properties="selectedInitial: true",InsertPosition="Top")
 #
 # Water level stations:
 # - use a larger circle under precipitation
@@ -303,13 +290,46 @@ SetGeoLayerViewEventHandler(GeoLayerViewID="FloodWarningPrecipStationsLayerView"
 # - TODO smalers 2022-07-06 need to enable WaterLevelRiver-NovaScore and other NovaScore time series
 #ReadGeoLayerFromGeoJSON(InputFile="https://larimerco-ns5.trilynx-novastar.systems/novastar/data/api/v1/stationStatistics?dataType=WaterLevelRiver%2CNovaScore&statistic=Last&interval=1Day&format=geojson&statisticFormat=flat&statisticValueName=%24%7BdataType%7D.%24%7Binterval%7D",GeoLayerID="FloodWarningLevelStationsLayer",Name="Flood Warning System Water Level Stations",Description="Flood Warning System water level stations from Larimer County FWS")
 ReadGeoLayerFromGeoJSON(InputFile="https://larimerco-ns5.trilynx-novastar.systems/novastar/data/api/v1/stationStatistics?dataType=WaterLevelRiver&statistic=Last&interval=1Day&format=geojson&statisticFormat=flat&statisticValueName=%24%7BdataType%7D.%24%7Binterval%7D",GeoLayerID="FloodWarningLevelStationsLayer",Name="Flood Warning System Water Level Stations",Description="Flood Warning System water level stations from Larimer County FWS")
-AddGeoLayerViewToGeoMap(GeoLayerID="FloodWarningLevelStationsLayer",GeoLayerViewID="FloodWarningLevelStationsLayerView",Name="Flood Warning System Water Level Stations",Description="Flood Warning System water level stations from Larimer County FWS",Properties="docPath:'layers/fws-level-stations.md'")
+AddGeoLayerViewToGeoMap(GeoLayerID="FloodWarningLevelStationsLayer",GeoLayerViewID="FloodWarningLevelStationsLayerView",Name="Flood Warning System Water Level Stations",Description="Flood Warning System water level stations from Larimer County FWS",Properties="docPath:'layers/fws-level-stations.md',refreshInterval:5Minute")
 # For now use single symbol
 # - TODO smalers 2020-05-22 need to enable a symbol based on water level or NovaScore
 SetGeoLayerViewSingleSymbol(GeoLayerViewID="FloodWarningLevelStationsLayerView",Name="Flood Warning Water Level Stations",Description="Flood Warning System water level stations from Larimer County FWS",Properties="symbolShape:Circle,color:#333333,fillColor:#333333,symbolSize:6,sizeUnits:pixels,opacity:1.0,fillOpacity:1.0,weight:1.5")
 #SetGeoLayerViewGraduatedSymbol(GeoLayerViewID="FloodWarningLevelStationsLayerView",Name="Colorize water level",Description="Color water level markers by NovaScore.",ClassificationAttribute="NovaScore-Last",Properties="symbolShape:Circle,symbolSize:6,sizeUnits:pixels,classificationFile:layers/fws-level-stations-classify.csv")
 SetGeoLayerViewEventHandler(GeoLayerViewID="FloodWarningLevelStationsLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/fws-level-stations-event-config.json")
 SetGeoLayerViewEventHandler(GeoLayerViewID="FloodWarningLevelStationsLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/fws-level-stations-event-config.json")
+# = = = = = = = = = =
+# Flood warning system precipitation stations:
+# - read layers and add to a layer view group
+# - multiple layers are shown based on data type statistic, toggle only one on
+# GeoLayerViewGroupID: FloodWarningPrecipGroup
+AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="FloodWarningPrecipGroup",Name="Flood Warning Precipitation Stations",Description="Flood Warning System precipitation stations",Properties="selectedInitial: true,selectBehavior: single",InsertPosition="Top")
+#
+# Precipitation stations (3Hour).
+# Read FWS stations from web services:
+# - the mouse events are configured to link to the NovaStar Operator station dashboard for each station
+ReadGeoLayerFromGeoJSON(InputFile="https://larimerco-ns5.trilynx-novastar.systems/novastar/data/api/v1/stationStatistics?dataType=Precip&statistic=Total&interval=3Hour&format=geojson&statisticFormat=flat&statisticValueName=%24%7BdataType%7D.%24%7Binterval%7D",GeoLayerID="FloodWarningPrecipStations3HourLayer",Name="3-Hour Precipitation",Description="3-hour precipitation from Larimer County FWS")
+AddGeoLayerViewToGeoMap(GeoLayerID="FloodWarningPrecipStations3HourLayer",GeoLayerViewID="FloodWarningPrecipStations3HourLayerView",Name="3-Hour Precipitation",Description="3-hour precipitation from Larimer County FWS (using general precipitation levels for markers)",Properties="docPath:'layers/fws-precip-stations.md',selectedInitial:true,refreshInterval:5Minute")
+SetGeoLayerViewGraduatedSymbol(GeoLayerViewID="FloodWarningPrecipStations3HourLayerView",Name="Colorize daily precipitation",Description="Color daily precipitation.",ClassificationAttribute="Precip.3Hour",Properties="symbolShape:Circle,symbolSize:4,sizeUnits:pixels,classificationFile:layers/fws-precip-stations-classify-3hour.csv")
+SetGeoLayerViewEventHandler(GeoLayerViewID="FloodWarningPrecipStations3HourLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/fws-precip-stations-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="FloodWarningPrecipStations3HourLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/fws-precip-stations-event-config.json")
+#
+# Precipitation stations (1Day).
+# Read FWS stations from web services:
+# - the mouse events are configured to link to the NovaStar Operator station dashboard for each station
+ReadGeoLayerFromGeoJSON(InputFile="https://larimerco-ns5.trilynx-novastar.systems/novastar/data/api/v1/stationStatistics?dataType=Precip&statistic=Total&interval=1Day&format=geojson&statisticFormat=flat&statisticValueName=%24%7BdataType%7D.%24%7Binterval%7D",GeoLayerID="FloodWarningPrecipStations1DayLayer",Name="1-Day Precipitation",Description="1-day Precipitation from Larimer County FWS")
+AddGeoLayerViewToGeoMap(GeoLayerID="FloodWarningPrecipStations1DayLayer",GeoLayerViewID="FloodWarningPrecipStations1DayLayerView",Name="1-Day Precipitation",Description="1-day precipitation from Larimer County FWS (using general precipitation levels for markers)",Properties="docPath:'layers/fws-precip-stations.md',selectedInitial:false,refreshInterval:5Minute")
+SetGeoLayerViewGraduatedSymbol(GeoLayerViewID="FloodWarningPrecipStations1DayLayerView",Name="Colorize daily precipitation",Description="Color daily precipitation.",ClassificationAttribute="Precip.1Day",Properties="symbolShape:Circle,symbolSize:4,sizeUnits:pixels,classificationFile:layers/fws-precip-stations-classify-1day.csv")
+SetGeoLayerViewEventHandler(GeoLayerViewID="FloodWarningPrecipStations1DayLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/fws-precip-stations-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="FloodWarningPrecipStations1DayLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/fws-precip-stations-event-config.json")
+#
+# Precipitation stations (7Day).
+# Read FWS stations from web services:
+# - the mouse events are configured to link to the NovaStar Operator station dashboard for each station
+ReadGeoLayerFromGeoJSON(InputFile="https://larimerco-ns5.trilynx-novastar.systems/novastar/data/api/v1/stationStatistics?dataType=Precip&statistic=Total&interval=7Day&format=geojson&statisticFormat=flat&statisticValueName=%24%7BdataType%7D.%24%7Binterval%7D",GeoLayerID="FloodWarningPrecipStations7DayLayer",Name="7-Day Precipitation",Description="7-day Precipitation from Larimer County FWS")
+AddGeoLayerViewToGeoMap(GeoLayerID="FloodWarningPrecipStations7DayLayer",GeoLayerViewID="FloodWarningPrecipStations7DayLayerView",Name="7-Day Precipitation",Description="7-day precipitation from Larimer County FWS (using general precipitation levels for markers)",Properties="docPath:'layers/fws-precip-stations.md',selectedInitial:false,refreshInterval:5Minute")
+SetGeoLayerViewGraduatedSymbol(GeoLayerViewID="FloodWarningPrecipStations7DayLayerView",Name="Colorize daily precipitation",Description="Color daily precipitation.",ClassificationAttribute="Precip.7Day",Properties="symbolShape:Circle,symbolSize:4,sizeUnits:pixels,classificationFile:layers/fws-precip-stations-classify-7day.csv")
+SetGeoLayerViewEventHandler(GeoLayerViewID="FloodWarningPrecipStations7DayLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/fws-precip-stations-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="FloodWarningPrecipStations7DayLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/fws-precip-stations-event-config.json")
 # = = = = = = = = = =
 # Write the map project file and copy layers to the location needed by the web application.
 # - follow InfoMapper conventions
@@ -327,7 +347,9 @@ CopyFile(SourceFile="layers/flood-orgs-event-config.json",DestinationFile="${Map
 # Flood warning stations.
 CopyFile(SourceFile="layers/fws-precip-stations.md",DestinationFile="${MapFolder}/layers/fws-precip-stations.md")
 CopyFile(SourceFile="layers/fws-precip-stations-event-config.json",DestinationFile="${MapFolder}/layers/fws-precip-stations-event-config.json")
-CopyFile(SourceFile="layers/fws-precip-stations-classify.csv",DestinationFile="${MapFolder}/layers/fws-precip-stations-classify.csv")
+CopyFile(SourceFile="layers/fws-precip-stations-classify-1day.csv",DestinationFile="${MapFolder}/layers/fws-precip-stations-classify-1day.csv")
+CopyFile(SourceFile="layers/fws-precip-stations-classify-7day.csv",DestinationFile="${MapFolder}/layers/fws-precip-stations-classify-7day.csv")
+CopyFile(SourceFile="layers/fws-precip-stations-classify-3hour.csv",DestinationFile="${MapFolder}/layers/fws-precip-stations-classify-3hour.csv")
 CopyFile(SourceFile="layers/fws-level-stations.md",DestinationFile="${MapFolder}/layers/fws-level-stations.md")
 CopyFile(SourceFile="layers/fws-level-stations-classify.csv",DestinationFile="${MapFolder}/layers/fws-level-stations-classify.csv")
 CopyFile(SourceFile="layers/fws-level-stations-event-config.json",DestinationFile="${MapFolder}/layers/fws-level-stations-event-config.json")
