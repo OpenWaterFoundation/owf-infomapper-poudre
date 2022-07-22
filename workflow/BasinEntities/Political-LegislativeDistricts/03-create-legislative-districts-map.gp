@@ -113,7 +113,7 @@ SetGeoLayerViewEventHandler(GeoLayerViewID="WaterDistrictLayerView",EventType="c
 # GeoLayerViewGroupID: StateLegislativeDistrictsGroup
 AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="StateLegislativeDistrictsGroup",Name="State Legislative Districts",Description="Colorado State legislative districts",Properties="selectBehavior:Single",InsertPosition="Top")
 #
-ReadGeoLayerFromGeoJSON(InputFile="layers/co-state-house-districts-2021.geojson",GeoLayerID="StateHouseLegislativeDistrictsLayer",Name="State House Districts (2021)",Description="Colorado State House districts (2021)")
+ReadGeoLayerFromGeoJSON(InputFile="https://data.openwaterfoundation.org/state/co/circ/legislative-districts/2021/co-state-house-districts-2021.geojson",GeoLayerID="StateHouseLegislativeDistrictsLayer",Name="State House Districts (2021)",Description="Colorado State House districts (2021)")
 AddGeoLayerViewToGeoMap(GeoLayerID="StateHouseLegislativeDistrictsLayer",GeoLayerViewID="StateHouseDistrictsLayerView",Name="State House Districts (2021)",Description="Colorado State House districts from 2021 redistricting",Properties="docPath:layers/co-state-house-districts-2021.md,highlightEnabled:true,highlightEnabled:true")
 SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="StateHouseDistrictsLayerView",Name="Colorize state house districts",Description="Show each district the same color except those that overlap the Poudre",ClassificationAttribute="District",Properties="classificationType:'categorized',classificationFile:'layers/co-state-house-districts-2021-classify-district.csv'")
 # Currently no graphs
@@ -124,7 +124,7 @@ SetGeoLayerViewEventHandler(GeoLayerViewID="StateHouseDistrictsLayerView",EventT
 # State senate districts:  read layer and add to a layer view group.
 # GeoLayerViewGroupID: StateLegislativeDistrictsGroup
 # - group added above
-ReadGeoLayerFromGeoJSON(InputFile="layers/co-state-senate-districts-2021.geojson",GeoLayerID="StateSenateLegislativeDistrictsLayer",Name="State Senate Districts (2021)",Description="Colorado State Senate districts (2021)")
+ReadGeoLayerFromGeoJSON(InputFile="https://data.openwaterfoundation.org/state/co/circ/legislative-districts/2021/co-state-senate-districts-2021.geojson",GeoLayerID="StateSenateLegislativeDistrictsLayer",Name="State Senate Districts (2021)",Description="Colorado State Senate districts (2021)")
 AddGeoLayerViewToGeoMap(GeoLayerID="StateSenateLegislativeDistrictsLayer",GeoLayerViewID="StateSenateDistrictsLayerView",Name="State Senate Districts (2021)",Description="Colorado State Senate districts from 2021 redistricting",Properties="docPath:layers/co-state-senate-districts-2021.md,highlightEnabled:true,highlightEnabled:true")
 SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="StateSenateDistrictsLayerView",Name="Colorize state senate districts",Description="Show each district the same color except those that overlap the Poudre",ClassificationAttribute="District",Properties="classificationType:'categorized',classificationFile:'layers/co-state-senate-districts-2021-classify-district.csv'")
 # Currently no graphs
@@ -151,12 +151,10 @@ CopyFile(SourceFile="../Administration-CoDwrWaterDistricts/layers/co-dwr-water-d
 #CopyFile(SourceFile="layers/counties.geojson",DestinationFile="${MapFolder}/layers/counties.geojson")
 #CopyFile(SourceFile="layers/counties-classify-county.csv",DestinationFile="${MapFolder}/layers/counties-classify-county.csv")
 #
-CopyFile(SourceFile="layers/co-state-house-districts-2021.geojson",DestinationFile="${MapFolder}/layers/co-state-house-districts-2021.geojson")
 CopyFile(SourceFile="layers/co-state-house-districts-2021-classify-district.csv",DestinationFile="${MapFolder}/layers/co-state-house-districts-2021-classify-district.csv")
 CopyFile(SourceFile="layers/co-state-house-districts-2021.md",DestinationFile="${MapFolder}/layers/co-state-house-districts-2021.md")
 CopyFile(SourceFile="layers/co-state-house-districts-2021-event-config.json",DestinationFile="${MapFolder}/layers/co-state-house-districts-2021-event-config.json")
 #
-CopyFile(SourceFile="layers/co-state-senate-districts-2021.geojson",DestinationFile="${MapFolder}/layers/co-state-senate-districts-2021.geojson")
 CopyFile(SourceFile="layers/co-state-senate-districts-2021-classify-district.csv",DestinationFile="${MapFolder}/layers/co-state-senate-districts-2021-classify-district.csv")
 CopyFile(SourceFile="layers/co-state-senate-districts-2021.md",DestinationFile="${MapFolder}/layers/co-state-senate-districts-2021.md")
 CopyFile(SourceFile="layers/co-state-senate-districts-2021-event-config.json",DestinationFile="${MapFolder}/layers/co-state-senate-districts-2021-event-config.json")

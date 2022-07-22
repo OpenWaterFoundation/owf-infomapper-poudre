@@ -44,6 +44,8 @@ The following release notes summarize changes to the Poudre Basin Information we
 * [2.4.0] Update the [***Current Conditions / Environment - Wildfires***](#/map/current-wildfires) map:
     + Fix the historical wildfire perimeters layer due to a change in the dataset URL.
     + Add the HUC 12 basins layer to the map.
+* [2.4.0] Update the [***Basin Entities / Political - Legislative Districts***](#/map/entities-legislative) map:
+    + Update the Colorado State House and Senate districts for 2021 redistricting.
 
 ## 2.3.0 ##
 

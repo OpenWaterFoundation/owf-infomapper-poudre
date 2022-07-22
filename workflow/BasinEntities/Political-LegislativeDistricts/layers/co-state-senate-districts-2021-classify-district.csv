@@ -12,11 +12,11 @@ value,color,opacity,fillColor,fillOpacity,weight,label
 23,#59b300,1.0,#59b300,0.3,5,"District 23 - Poudre in District"
 # Districts that provide water to the Poudre via transbasin diversions
 # - light blue
-8,#003cb3,1.0,#003cb3,0.3,2,"District 8 - Transbasin diversion to Poudre"
+8,#003cb3,1.0,#003cb3,0.3,2,"District 8 - Transbasin diversion to the Poudre"
 # Districts that do transfers out of the basin via transbasin diversions
 # - yellow for planned #ffff00
 # - reddish for actual #b30000
-24,#ffff00,1.0,#ffff00,0.3,2,"District 24 - Transbasin diversion from Poudre - Thornton (future)"
+24,#ffff00,1.0,#ffff00,0.3,2,"District 24 - Transbasin diversion from the Poudre (Thornton pipeline)"
 # Other districts in Division 1
 # - light green, #b3ff66
 2,#b3ff66,1.0,#b3ff66,0.3,2,"District 2 - Overlaps South Platte (Division 1)"

@@ -6,4 +6,4 @@ Only information about major events that intersect with information on this webs
 
 | **Event** | **Dates** | **Information** |
 | -- | -- | -- |
-| Cameron Peak Fire | | The Cameron Peak wildfire efforts are focusing on recovery.  See the [***Current Conditions / Environment - Wildfires***](#/map/current-wildfires) map - click on the information icon for the map for more links. |
+| No current events. | | |

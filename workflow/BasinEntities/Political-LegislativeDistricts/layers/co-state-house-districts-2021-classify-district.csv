@@ -18,12 +18,12 @@ value,color,opacity,fillColor,fillOpacity,weight,label
 #--
 # Districts that provide water to the Poudre via transbasin diversions
 # - light blue
-13,#003cb3,1.0,#003cb3,0.3,2,"District 13 - Transbasin diversion to Poudre AND is in South Platte"
+13,#003cb3,1.0,#003cb3,0.3,2,"District 13 - Transbasin diversion to the Poudre"
 #--
 # Districts that do transfers out of the basin via transbasin diversions
 # - yellow for planned #ffff00
 # - reddish for actual #b30000
-31,#ffff00,1.0,#ffff00,0.3,2,"District 31"
+31,#ffff00,1.0,#ffff00,0.3,2,"District 31 - Transbasin diversion from the Poudre (Thornton pipeline)"
 33,#ffff00,1.0,#ffff00,0.3,2,"District 33"
 34,#ffff00,1.0,#ffff00,0.3,2,"District 34"
 #--

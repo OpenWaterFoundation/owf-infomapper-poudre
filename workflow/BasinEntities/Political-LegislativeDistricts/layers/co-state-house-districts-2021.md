@@ -18,7 +18,7 @@ The following are data sources for this map:
 
 | **Resource** | **Source** |
 | -- | -- |
-|  House Districts map layer. | [Colorado Independent Redistricting Commissions](https://redistricting.colorado.gov/content/house-final-approved) - see the shapefile zip file download. |
+|  House Districts map layer. | [Open Water Foundation GeoJSON dataset](https://data.openwaterfoundation.org/state/co/circ/legislative-districts/) created from the [Colorado Independent Redistricting Commissions](https://redistricting.colorado.gov/content/house-final-approved) shapefile zip file. |
 
 ## Old Data Sources ##
 
@@ -26,7 +26,7 @@ The following are data sources for previous version of this map, for 2011 redist
 
 | **Resource** | **Source** |
 | -- | -- |
-|  House Districts map layer. | [Colorado State House of Representatives District Boundaries (2011)](https://data.colorado.gov/Legislative/Colorado-State-House-of-Representatives-District-B/jf7j-4sik) dataset from Colorado Information Marketplace. |
+|  House Districts map layer. | [Open Water Foundation GeoJSON dataset](https://data.openwaterfoundation.org/state/co/circ/legislative-districts/) created from the [Colorado State House of Representatives District Boundaries (2011)](https://data.colorado.gov/Legislative/Colorado-State-House-of-Representatives-District-B/jf7j-4sik) dataset from Colorado Information Marketplace. |
 
 ## Workflow ##
 
