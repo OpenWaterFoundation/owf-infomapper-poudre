@@ -10,7 +10,7 @@ The following are data sources for this map:
 
 | **Resource** | **Source** |
 | -- | -- |
-| CO DWR IBCC Roundtable Basins layer | [Basin Roundtable Boundaries](https://www.colorado.gov/pacific/cdss/gis-data-category) from CDSS Data by Category. |
+| CO DWR IBCC Roundtable Basins layer | Open Water Foundation [Colorado IBCC Roundatbles layer](https://data.openwaterfoundation.org/state/co/ibcc/roundtables/) GeoJSON file created from the [Basin Roundtable Boundaries](https://www.colorado.gov/pacific/cdss/gis-data-category) CDSS Data by Category zipped shapefile. |
 
 ## Map Creation Workflow
 

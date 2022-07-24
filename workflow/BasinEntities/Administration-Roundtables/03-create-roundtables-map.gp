@@ -78,7 +78,7 @@ SetGeoLayerViewEventHandler(GeoLayerViewID="ContinentalDivideLayerView",EventTyp
 # Roundtables:  read layer and add to a layer view group.
 # GeoLayerViewGroupID: RoundtablesGroup
 AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="RoundtablesGroup",Name="IBCC Roundtable Basins",Description="Interbasin Compact Commission Roundtable Basins",Properties="selectedInitial: true",InsertPosition="Top")
-ReadGeoLayerFromGeoJSON(InputFile="layers/roundtables.geojson",GeoLayerID="RoundtablesLayer",Name="IBCC Basins",Description="Interbasin Compact Commission Roundtable Basins")
+ReadGeoLayerFromGeoJSON(InputFile="https://data.openwaterfoundation.org/state/co/ibcc/roundtables/co-ibcc-roundtables.geojson",GeoLayerID="RoundtablesLayer",Name="IBCC Basins",Description="Interbasin Compact Commission Roundtable Basins")
 AddGeoLayerViewToGeoMap(GeoLayerID="RoundtablesLayer",GeoLayerViewID="RoundtablesLayerView",Name="IBCC Roundtable Basins",Description="Interbasin Compact Commission Roundtable Basins",Properties="docPath:layers/roundtables.md")
 SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="RoundtablesLayerView",Name="Colorize roundtable basins",Description="Show South Platte roundtable in one color and others in another color",ClassificationAttribute="Label",Properties="classificationType:'categorized',classificationFile:'layers/roundtables-classify-label.csv'")
 SetGeoLayerViewEventHandler(GeoLayerViewID="RoundtablesLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/roundtables-event-config.json")
@@ -111,7 +111,6 @@ CopyFile(SourceFile="layers/co-dwr-water-district-3-classify-district.csv",Desti
 CopyFile(SourceFile="../Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3.md",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3.md")
 CopyFile(SourceFile="../Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3-event-config.json",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3-event-config.json")
 #
-CopyFile(SourceFile="layers/roundtables.geojson",DestinationFile="${MapFolder}/layers/roundtables.geojson")
 CopyFile(SourceFile="layers/roundtables-classify-label.csv",DestinationFile="${MapFolder}/layers/roundtables-classify-label.csv")
 CopyFile(SourceFile="layers/roundtables.md",DestinationFile="${MapFolder}/layers/roundtables.md")
 CopyFile(SourceFile="layers/roundtables-event-config.json",DestinationFile="${MapFolder}/layers/roundtables-event-config.json")
