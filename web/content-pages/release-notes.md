@@ -11,6 +11,7 @@ The following release notes summarize changes to the Poudre Basin Information we
 
 | **Release** | **Date**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | **Description** |
 | -- | -- | -- |
+| 2.5.0 | 2022-07-22 | Convert data sources to use OWF `data` website as much as possible. Fix flood map legend. |
 | 2.4.0 | 2022-07-05 | Begin phasing in datasets from the OWF `data` website to streamline use of shared datasets.  Initial dashboards released.  Many updates. |
 | 2.3.0 | | Add East Troublesome soil burn severity, various other data additions. |
 | 2.2.0 | | Functional data table search tool for points and polygons. |

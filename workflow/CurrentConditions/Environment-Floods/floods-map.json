@@ -521,7 +521,7 @@
                   "description": "Hover event configuration",
                   "hasVisualization": false,
                   "properties": {
-                    "eventConfigPath": "layers/fws-precip-stations-event-config.json"
+                    "eventConfigPath": "layers/fws-precip-stations-3hour-event-config.json"
                   }
                 },
                 {
@@ -530,7 +530,7 @@
                   "description": "Click event configuration",
                   "hasVisualization": false,
                   "properties": {
-                    "eventConfigPath": "layers/fws-precip-stations-event-config.json"
+                    "eventConfigPath": "layers/fws-precip-stations-3hour-event-config.json"
                   }
                 }
               ]
@@ -564,7 +564,7 @@
                   "description": "Hover event configuration",
                   "hasVisualization": false,
                   "properties": {
-                    "eventConfigPath": "layers/fws-precip-stations-event-config.json"
+                    "eventConfigPath": "layers/fws-precip-stations-1day-event-config.json"
                   }
                 },
                 {
@@ -573,7 +573,7 @@
                   "description": "Click event configuration",
                   "hasVisualization": false,
                   "properties": {
-                    "eventConfigPath": "layers/fws-precip-stations-event-config.json"
+                    "eventConfigPath": "layers/fws-precip-stations-1day-event-config.json"
                   }
                 }
               ]
@@ -607,7 +607,7 @@
                   "description": "Hover event configuration",
                   "hasVisualization": false,
                   "properties": {
-                    "eventConfigPath": "layers/fws-precip-stations-event-config.json"
+                    "eventConfigPath": "layers/fws-precip-stations-7day-event-config.json"
                   }
                 },
                 {
@@ -616,7 +616,7 @@
                   "description": "Click event configuration",
                   "hasVisualization": false,
                   "properties": {
-                    "eventConfigPath": "layers/fws-precip-stations-event-config.json"
+                    "eventConfigPath": "layers/fws-precip-stations-7day-event-config.json"
                   }
                 }
               ]
