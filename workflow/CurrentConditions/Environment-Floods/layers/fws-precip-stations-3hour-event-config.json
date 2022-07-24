@@ -1,10 +1,10 @@
 {
   "id" : "fws-precip-stations-event-config",
-  "name": "Flood warning precipitation stations event configuration",
+  "name": "Flood warning precipitation stations (3Hour) event configuration",
   "description":  "List main attributes.",
   "layerAttributes" : {
     "xinclude" : [ "*" ],
-    "include" : [ "numId", "name", "outOfService", "stationTypeProtocol", "dashboardUrl", "Precip.1Day" ],
+    "include" : [ "numId", "name", "outOfService", "stationTypeProtocol", "dashboardUrl", "Precip.3Hour" ],
     "exclude" : [],
     "formats": []
   },
