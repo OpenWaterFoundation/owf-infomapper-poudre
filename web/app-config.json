@@ -133,7 +133,7 @@
         },
         {
           "id": "entities-roundtables",
-          "name": "Administration - Roundtable Basins",
+          "name": "Administration - IBCC Roundtable Basins",
           "action": "displayMap",
           "mapProject" : "data-maps/BasinEntities/Administration-Roundtables/roundtables-map.json"
         },
