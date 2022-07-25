@@ -11,7 +11,7 @@ The following are data sources for this map:
 
 | **Resource** | **Source** |
 | -- | -- |
-| Television Stations layer | [Television Stations](https://github.com/OpenWaterFoundation/owf-infomapper-poudre/tree/master/workflow/BasinEntities/Education-Organizations/data) dataset created by the Open Water Foundation. |
+| Television Stations layer | [Television Stations](https://data.openwaterfoundation.org/state/co/owf/news-orgs/) dataset created by the Open Water Foundation. |
 
 ## Workflow
 

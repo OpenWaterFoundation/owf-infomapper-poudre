@@ -1,4 +1,4 @@
-# Map: Poudre Education Organizations
+# Map: Education Organizations
 
 * Overview
 * Layer Groups
@@ -7,7 +7,7 @@
 
 ## Overview
 
-The Poudre Education Organizations map shows information for
+The Education Organizations map shows information for
 organizations that provide education programs about water.
 
 ## Layer Groups
@@ -16,7 +16,7 @@ The following layer groups are included in this map.
 
 | **Layer Group** | **Description** |
 | -- | -- |
-| Poudre Education Organizations | Organizations that provide educational programs about water. |
+| Water Education Organizations | Organizations that provide educational programs about water. |
 | News Organizations | Organizations that provide local news, which includes news about water. |
 | CO DWR Water Districts | Division of Water Resources water districts, to highlight the Poudre Basin (Water District 3).  See the [***Basin Entities / Administration - CO DWR Water Districts***](#map/entities-codwr-waterdistricts) map for more information. |
 | Background Layers | Background layers that provide a frame of reference. |

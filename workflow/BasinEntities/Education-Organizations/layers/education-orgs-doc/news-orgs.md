@@ -12,7 +12,7 @@ The following are data sources for this map:
 
 | **Resource** | **Source** |
 | -- | -- |
-| News Organizations layer | [News Organizations](https://github.com/OpenWaterFoundation/owf-infomapper-poudre/tree/master/workflow/BasinEntities/Education-Organizations/data) dataset created by the Open Water Foundation. |
+| News Organizations layer | [News Organizations](https://data.openwaterfoundation.org/state/co/owf/news-orgs/) dataset created by the Open Water Foundation. |
 
 ## Workflow
 
