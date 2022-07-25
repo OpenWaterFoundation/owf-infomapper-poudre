@@ -13,8 +13,8 @@ SetProperty(PropertyName="MapFolder",PropertyType="str",PropertyValue="${MapsFol
 # Create a single map project and map for that project.
 # - GeoMapProjectID:  EnvironmentOrgProject
 # - GeoMapID:  EnvironmentOrgMap
-CreateGeoMapProject(NewGeoMapProjectID="EnvironmentOrgProject",ProjectType="SingleMap",Name="Environmental Organizations",Description="Poudre Environmental Organizations",Properties="author:'Open Water Foundation',specificationFlavor:'',specificationVersion:'1.0.0'")
-CreateGeoMap(NewGeoMapID="EnvironmentOrgMap",Name="Environmental Organizations",Description="Poudre Environmental Organizations",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.5,40.7,10',docPath:'environment-orgs-map.md'")
+CreateGeoMapProject(NewGeoMapProjectID="EnvironmentOrgProject",ProjectType="SingleMap",Name="Environmental Organizations",Description="Environmental organizations",Properties="author:'Open Water Foundation',specificationFlavor:'',specificationVersion:'1.0.0'")
+CreateGeoMap(NewGeoMapID="EnvironmentOrgMap",Name="Environmental Organizations",Description="Environmental Organizations",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.5,40.7,10',docPath:'environment-orgs-map.md'")
 AddGeoMapToGeoMapProject(GeoMapProjectID="EnvironmentOrgProject",GeoMapID="EnvironmentOrgMap")
 # = = = = = = = = = =
 # Background layers:  read layers and add a layer view group
@@ -88,9 +88,9 @@ SetGeoLayerViewEventHandler(GeoLayerViewID="WaterDistrictLayerView",EventType="c
 # = = = = = = = = = =
 # Environmental Organizations:  read layer and add to a layer view group.
 # GeoLayerViewGroupID: EnvironmentGroup
-ReadGeoLayerFromGeoJSON(InputFile="layers/environment-orgs.geojson",GeoLayerID="EnvironmentLayer",Name="Environmental Organizations",Description="Poudre environmental organizations")
-AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="EnvironmentGroup",Name="Poudre Environmental Organizations",Description="Poudre environmental organizations",Properties="selectedInitial: true",InsertPosition="Top")
-AddGeoLayerViewToGeoMap(GeoLayerID="EnvironmentLayer",GeoLayerViewID="EnvironmentLayerView",Name="Poudre Environmental Organizations",Description="Poudre environmental organizations",Properties="docPath:'layers/environment-orgs.md")
+ReadGeoLayerFromGeoJSON(InputFile="https://data.openwaterfoundation.org/state/co/owf/environment-orgs/co-environment-orgs.geojson",GeoLayerID="EnvironmentLayer",Name="Environmental Organizations",Description="Environmental organizations")
+AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="EnvironmentGroup",Name="Environmental Organizations",Description="Environmental organizations",Properties="selectedInitial: true",InsertPosition="Top")
+AddGeoLayerViewToGeoMap(GeoLayerID="EnvironmentLayer",GeoLayerViewID="EnvironmentLayerView",Name="Environmental Organizations",Description="Environmental organizations",Properties="docPath:'layers/environment-orgs.md")
 SetGeoLayerViewSingleSymbol(GeoLayerViewID="EnvironmentLayerView",Name="Poudre Environmental Organizations",Description="Poudre environmental organizations",Properties="symbolImage:/img/wetlands-32x37.png,imageAnchorPoint:Bottom")
 SetGeoLayerViewEventHandler(GeoLayerViewID="EnvironmentLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/environment-orgs-event-config.json")
 SetGeoLayerViewEventHandler(GeoLayerViewID="EnvironmentLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/environment-orgs-event-config.json")
@@ -108,7 +108,6 @@ CopyFile(SourceFile="../Administration-CoDwrWaterDistricts/layers/co-dwr-water-d
 CopyFile(SourceFile="../Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3.md",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3.md")
 #
 #CopyFile(SourceFile="layers/stream-reaches.geojson",DestinationFile="${MapFolder}/layers/stream-reaches.geojson")
-# Environment organizations
-CopyFile(SourceFile="layers/environment-orgs.geojson",DestinationFile="${MapFolder}/layers/environment-orgs.geojson")
+# Environmental organizations
 CopyFile(SourceFile="layers/environment-orgs.md",DestinationFile="${MapFolder}/layers/environment-orgs.md")
 CopyFile(SourceFile="layers/environment-orgs-event-config.json",DestinationFile="${MapFolder}/layers/environment-orgs-event-config.json")
