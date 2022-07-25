@@ -1,7 +1,7 @@
 {
   "geoMapProjectId": "EducationProject",
-  "name": "Poudre Education Organizations",
-  "description": "Poudre Education Organizations",
+  "name": "Education Organizations",
+  "description": "Education Organizations",
   "projectType": "SingleMap",
   "properties": {
     "author": "Open Water Foundation",
@@ -11,8 +11,8 @@
   "geoMaps": [
     {
       "geoMapId": "EducationMap",
-      "name": "Poudre Education Organizations",
-      "description": "Poudre Education Organizations",
+      "name": "Education Organizations",
+      "description": "Education Organizations",
       "dataPath": ".",
       "crs": "EPSG:4326",
       "properties": {
@@ -297,10 +297,10 @@
           "geometryType": "WKT:Point",
           "layerType": "Vector",
           "sourceFormat": "GeoJSON",
-          "sourcePath": "layers/news-orgs.geojson",
+          "sourcePath": "https://data.openwaterfoundation.org/state/co/owf/news-orgs/co-news-orgs.geojson",
           "properties": {},
           "history:": [
-            "Read GeoLayer from GeoJSON file:  'C:\\Users\\sam\\owf-dev\\InfoMapper-Poudre\\git-repos\\owf-infomapper-poudre\\workflow\\BasinEntities\\Education-Organizations\\layers\\news-orgs.geojson'"
+            "Read GeoLayer from GeoJSON file:  'https://data.openwaterfoundation.org/state/co/owf/news-orgs/co-news-orgs.geojson'"
           ]
         },
         {
@@ -311,10 +311,10 @@
           "geometryType": "WKT:Point",
           "layerType": "Vector",
           "sourceFormat": "GeoJSON",
-          "sourcePath": "layers/tv-stations.geojson",
+          "sourcePath": "https://data.openwaterfoundation.org/state/co/owf/news-orgs/co-tv-stations.geojson",
           "properties": {},
           "history:": [
-            "Read GeoLayer from GeoJSON file:  'C:\\Users\\sam\\owf-dev\\InfoMapper-Poudre\\git-repos\\owf-infomapper-poudre\\workflow\\BasinEntities\\Education-Organizations\\layers\\tv-stations.geojson'"
+            "Read GeoLayer from GeoJSON file:  'https://data.openwaterfoundation.org/state/co/owf/news-orgs/co-tv-stations.geojson'"
           ]
         },
         {
@@ -325,10 +325,10 @@
           "geometryType": "WKT:Point",
           "layerType": "Vector",
           "sourceFormat": "GeoJSON",
-          "sourcePath": "layers/radio-stations.geojson",
+          "sourcePath": "https://data.openwaterfoundation.org/state/co/owf/news-orgs/co-radio-stations.geojson",
           "properties": {},
           "history:": [
-            "Read GeoLayer from GeoJSON file:  'C:\\Users\\sam\\owf-dev\\InfoMapper-Poudre\\git-repos\\owf-infomapper-poudre\\workflow\\BasinEntities\\Education-Organizations\\layers\\radio-stations.geojson'"
+            "Read GeoLayer from GeoJSON file:  'https://data.openwaterfoundation.org/state/co/owf/news-orgs/co-radio-stations.geojson'"
           ]
         },
         {
@@ -339,33 +339,33 @@
           "geometryType": "WKT:Point",
           "layerType": "Vector",
           "sourceFormat": "GeoJSON",
-          "sourcePath": "layers/education-orgs.geojson",
+          "sourcePath": "https://data.openwaterfoundation.org/state/co/owf/water-education-orgs/co-water-education-orgs.geojson",
           "properties": {},
           "history:": [
-            "Read GeoLayer from GeoJSON file:  'C:\\Users\\sam\\owf-dev\\InfoMapper-Poudre\\git-repos\\owf-infomapper-poudre\\workflow\\BasinEntities\\Education-Organizations\\layers\\education-orgs.geojson'"
+            "Read GeoLayer from GeoJSON file:  'https://data.openwaterfoundation.org/state/co/owf/water-education-orgs/co-water-education-orgs.geojson'"
           ]
         }
       ],
       "geoLayerViewGroups": [
         {
           "geoLayerViewGroupId": "EducationGroup",
-          "name": "Poudre Education Organizations",
-          "description": "Poudre Education Organizations",
+          "name": "Water Education Organizations",
+          "description": "Water education organizations",
           "properties": {
             "selectedInitial": "true"
           },
           "geoLayerViews": [
             {
               "geoLayerViewId": "EducationLayerView",
-              "name": "Poudre Education Organizations",
-              "description": "Poudre Education Organizations",
+              "name": "Water Education Organizations",
+              "description": "Water education organizations",
               "geoLayerId": "EducationLayer",
               "properties": {
                 "docPath": "layers/education-orgs-doc/education-orgs.md"
               },
               "geoLayerSymbol": {
-                "name": "Poudre Education Organizations",
-                "description": "Poudre Education Organizations",
+                "name": "Water Education Organizations",
+                "description": "Water education organizations",
                 "classificationType": "SingleSymbol",
                 "classificationAttribute": "",
                 "properties": {

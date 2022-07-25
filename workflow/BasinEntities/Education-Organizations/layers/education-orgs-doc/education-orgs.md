@@ -1,6 +1,6 @@
-# Layer: Poudre Education Organizations
+# Layer: Water Education Organizations
 
-The Poudre Education Organizations layer shows the locations of organizations
+The Water Education Organizations layer shows the locations of organizations
 that provide water education programs.
 
 Organizations that have offices outside of the basin have been assigned a location
@@ -16,7 +16,7 @@ The following are data sources for this map:
 
 | **Resource** | **Source** |
 | -- | -- |
-| Poudre Education Organizations layer | [Poudre Education Organizations](https://github.com/OpenWaterFoundation/owf-infomapper-poudre/tree/master/workflow/BasinEntities/Education-Organizations/data) dataset created by the Open Water Foundation. |
+| Water Education Organizations layer | [Water Education Organizations](https://data.openwaterfoundation.org/state/co/owf/water-education-orgs/) dataset created by the Open Water Foundation. |
 
 ## Workflow
 
