@@ -1,6 +1,6 @@
-# Layer: Poudre Environmental Organizations
+# Layer: Environmental Organizations
 
-The Poudre Environmental Organizations layer shows the locations of organizations
+The Environment Organizations layer shows the locations of organizations
 that provide environmental programs related to water.
 
 Organizations that have offices outside of the basin have been assigned a location
@@ -12,7 +12,7 @@ The following are data sources for this map:
 
 | **Resource** | **Source** |
 | -- | -- |
-| Poudre Environmental Organizations layer | [Poudre Environmental Organizations](https://github.com/OpenWaterFoundation/owf-infomapper-poudre/tree/master/workflow/BasinEntities/Education-Organizations/data) dataset created by the Open Water Foundation. |
+| Environmental Organizations layer | [Environmental Organizations](https://data.openwaterfoundation.org/state/co/owf/environment-orgs/) dataset created by the Open Water Foundation. |
 
 ## Workflow
 
