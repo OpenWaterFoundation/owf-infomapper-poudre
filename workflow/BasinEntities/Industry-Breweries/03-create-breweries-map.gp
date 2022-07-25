@@ -13,8 +13,8 @@ SetProperty(PropertyName="MapFolder",PropertyType="str",PropertyValue="${MapsFol
 # Create a single map project and map for that project.
 # - GeoMapProjectID:  BreweriesProject
 # - GeoMapID:  BreweriesMap
-CreateGeoMapProject(NewGeoMapProjectID="BreweriesProject",ProjectType="SingleMap",Name="Poudre Breweries",Description="Poudre Breweries",Properties="author:'Open Water Foundation',specificationFlavor:'',specificationVersion:'1.0.0'")
-CreateGeoMap(NewGeoMapID="BreweriesMap",Name="Poudre Breweries",Description="Poudre Breweries",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.5,40.7,10',docPath:'breweries-map.md'")
+CreateGeoMapProject(NewGeoMapProjectID="BreweriesProject",ProjectType="SingleMap",Name="Breweries",Description="Breweries",Properties="author:'Open Water Foundation',specificationFlavor:'',specificationVersion:'1.0.0'")
+CreateGeoMap(NewGeoMapID="BreweriesMap",Name="Breweries",Description="Breweries",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.5,40.7,10',docPath:'breweries-map.md'")
 AddGeoMapToGeoMapProject(GeoMapProjectID="BreweriesProject",GeoMapID="BreweriesMap")
 # = = = = = = = = = =
 # Background layers:  read layers and add a layer view group
@@ -78,14 +78,14 @@ SetGeoLayerViewEventHandler(GeoLayerViewID="WaterDistrictLayerView",EventType="c
 # = = = = = = = = = =
 # Breweries:  read layer and add to a layer view group.
 # GeoLayerViewGroupID: BreweriesGroup
-AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="BreweriesGroup",Name="Poudre Breweries",Description="Poudre Breweries",Properties="selectedInitial: true",InsertPosition="Top")
+AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="BreweriesGroup",Name="Breweries",Description="Breweries",Properties="selectedInitial: true",InsertPosition="Top")
 #
-ReadGeoLayerFromGeoJSON(InputFile="layers/breweries.geojson",GeoLayerID="BreweriesLayer",Name="Poudre Breweries",Description="Poudre Breweries")
-AddGeoLayerViewToGeoMap(GeoLayerID="BreweriesLayer",GeoLayerViewID="BreweriesLayerView",Name="Poudre Breweries",Description="Poudre Breweries",Properties="docPath:layers/breweries.md")
+ReadGeoLayerFromGeoJSON(InputFile="https://data.openwaterfoundation.org/state/co/owf/breweries/co-breweries.geojson",GeoLayerID="BreweriesLayer",Name="Breweries",Description="Breweries")
+AddGeoLayerViewToGeoMap(GeoLayerID="BreweriesLayer",GeoLayerViewID="BreweriesLayerView",Name="Breweries",Description="Breweries",Properties="docPath:layers/breweries.md")
 # For now use single symbol
 # - TODO smalers 2020-05-22 need to enable a graduated symbol based on flow value
-SetGeoLayerViewSingleSymbol(GeoLayerViewID="BreweriesLayerView",Name="Poudre Breweries",Description="Poudre Breweries",Properties="symbolImage:/img/brewery2-32x37.png,imageAnchorPoint:Bottom")
-# SetGeoLayerViewCategorizedSymbol(GeoLayerViewGroupID="BreweriesGroup",GeoLayerViewID="BreweriesLayerView",Name="Poudre Breweries",Description="Poudre Basin breweries",ClassificationAttribute="county",Properties="classificationType:'SingleSymbol'")
+SetGeoLayerViewSingleSymbol(GeoLayerViewID="BreweriesLayerView",Name="Breweries",Description="Breweries",Properties="symbolImage:/img/brewery2-32x37.png,imageAnchorPoint:Bottom")
+# SetGeoLayerViewCategorizedSymbol(GeoLayerViewGroupID="BreweriesGroup",GeoLayerViewID="BreweriesLayerView",Name="Breweries",Description="Breweries",ClassificationAttribute="county",Properties="classificationType:'SingleSymbol'")
 SetGeoLayerViewEventHandler(GeoLayerViewID="BreweriesLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/breweries-event-config.json")
 SetGeoLayerViewEventHandler(GeoLayerViewID="BreweriesLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/breweries-event-config.json")
 # = = = = = = = = = =
@@ -103,6 +103,5 @@ CopyFile(SourceFile="../Administration-CoDwrWaterDistricts/layers/co-dwr-water-d
 #
 #CopyFile(SourceFile="layers/stream-reaches.geojson",DestinationFile="${MapFolder}/layers/stream-reaches.geojson")
 #
-CopyFile(SourceFile="layers/breweries.geojson",DestinationFile="${MapFolder}/layers/breweries.geojson")
 CopyFile(SourceFile="layers/breweries.md",DestinationFile="${MapFolder}/layers/breweries.md")
 CopyFile(SourceFile="layers/breweries-event-config.json",DestinationFile="${MapFolder}/layers/breweries-event-config.json")

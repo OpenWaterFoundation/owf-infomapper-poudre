@@ -1,6 +1,6 @@
-# Layer: Poudre Breweries
+# Layer: Breweries
 
-The Poudre Breweries layer contains breweries in the Poudre Basin.
+The ***Breweries*** layer contains breweries in the Poudre Basin.
 
 **The dataset is incomplete and is a snapshot of Fort Collins breweries that is several years old.**
 
@@ -10,7 +10,7 @@ The following are data sources for this map:
 
 | **Resource** | **Source** |
 | -- | -- |
-| Poudre Breweries layer | [Poudre Breweries](https://github.com/OpenWaterFoundation/owf-data-co-breweries) dataset created by the Open Water Foundation. |
+| Breweries layer | [Breweries](https://data.openwaterfoundation.org/state/co/owf/breweries/) dataset created by the Open Water Foundation. |
 
 ## Workflow
 
