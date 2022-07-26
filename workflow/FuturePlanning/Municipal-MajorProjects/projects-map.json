@@ -325,10 +325,10 @@
           "geometryType": "WKT:Point",
           "layerType": "Vector",
           "sourceFormat": "GeoJSON",
-          "sourcePath": "layers/projects.geojson",
+          "sourcePath": "https://data.openwaterfoundation.org/state/co/owf/water-projects/co-water-projects.geojson",
           "properties": {},
           "history:": [
-            "Read GeoLayer from GeoJSON file:  'C:\\Users\\sam\\owf-dev\\InfoMapper-Poudre\\git-repos\\owf-infomapper-poudre\\workflow\\FuturePlanning\\Municipal-MajorProjects\\layers\\projects.geojson'"
+            "Read GeoLayer from GeoJSON file:  'https://data.openwaterfoundation.org/state/co/owf/water-projects/co-water-projects.geojson'"
           ]
         }
       ],
