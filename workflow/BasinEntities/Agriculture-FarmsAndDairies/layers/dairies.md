@@ -1,14 +1,6 @@
-# Layer: Local Food
+# Layer: Dairies
 
-* Overview
-* Data Sources
-* Workflow
-
---------
-
-## Overview
-
-The Local Food layer contains organizations that produce local food and other agricultural products.
+The Dairies layer contains dairies in Colorado.
 
 ## Data Sources
 
@@ -16,7 +8,7 @@ The following are data sources for this map:
 
 | **Resource** | **Source** |
 | -- | -- |
-| Local Food layer. | Dataset created by the Open Water Foundation from multiple web sources. |
+| Colorado Dairies layer. | [Colorado Dairies](https://data.openwaterfoundation.org/state/co/owf/dairies/) dataset created by the Open Water Foundation. |
 
 ## Workflow
 
