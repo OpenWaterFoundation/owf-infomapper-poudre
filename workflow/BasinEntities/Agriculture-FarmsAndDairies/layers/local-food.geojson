@@ -1,0 +1,519 @@
+{
+  "type": "FeatureCollection",
+  "bbox": [-105.17452, 40.29625, -104.92805, 40.66648],
+  "features": [
+      {
+      "type": "Feature",
+      "bbox": [-105.01335, 40.63917, -105.01335, 40.63917],
+      "properties": {
+        "Organization": "Bartels Farm",
+        "OrganizationType": "Local farm",
+        "Description": "Local farm, pumpkins",
+        "Address": "3424 E Douglas Road, Fort Collins, CO 80524",
+        "AddressType": "Farm",
+        "Website": "https://thebartelsfarm.com/",
+        "Longitude": -105.01335,
+        "Latitude": 40.63917,
+        "Notes": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-105.01335, 40.63917]
+      }
+    },
+    {
+      "type": "Feature",
+      "bbox": [-104.92805, 40.59474, -104.92805, 40.59474],
+      "properties": {
+        "Organization": "Blue Barrel Farm",
+        "OrganizationType": "CSA",
+        "Description": "CSA",
+        "Address": "40907 Co Rd 15, Fort Collins, CO 80524",
+        "AddressType": "Farm",
+        "Website": "http://www.bluebarrel.farm/",
+        "Longitude": -104.92805,
+        "Latitude": 40.59474,
+        "Notes": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-104.92805, 40.59474]
+      }
+    },
+    {
+      "type": "Feature",
+      "bbox": [-105.10187, 40.59853, -105.10187, 40.59853],
+      "properties": {
+        "Organization": "Blush Flowers",
+        "OrganizationType": "Flower CSA",
+        "Description": "Flower CSA",
+        "Address": "1428 West Vine Dr, Fort Colins CO 80521",
+        "AddressType": "",
+        "Website": "https://www.blushflowersonvine.com/",
+        "Longitude": -105.10187,
+        "Latitude": 40.59853,
+        "Notes": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-105.10187, 40.59853]
+      }
+    },
+    {
+      "type": "Feature",
+      "bbox": [-104.9626, 40.47082, -104.9626, 40.47082],
+      "properties": {
+        "Organization": "Buena Vida Farm",
+        "OrganizationType": "Local farm",
+        "Description": "Local farm and christmas trees",
+        "Address": "8204 S County Road 3, Fort Collins, CO 80528",
+        "AddressType": "",
+        "Website": "http://www.buenavidafarm.com/",
+        "Longitude": -104.9626,
+        "Latitude": 40.47082,
+        "Notes": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-104.9626, 40.47082]
+      }
+    },
+    {
+      "type": "Feature",
+      "bbox": [-105.04009, 40.47252, -105.04009, 40.47252],
+      "properties": {
+        "Organization": "Colorado Fresh Farms",
+        "OrganizationType": "Local farm",
+        "Description": "Local Farm",
+        "Address": "8101 S Timberline Rd, Fort Collins, CO 80525",
+        "AddressType": "Farm stand",
+        "Website": "https://coloradofreshfarms.com/",
+        "Longitude": -105.04009,
+        "Latitude": 40.47252,
+        "Notes": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-105.04009, 40.47252]
+      }
+    },
+    {
+      "type": "Feature",
+      "bbox": [-105.03633, 40.53226, -105.03633, 40.53226],
+      "properties": {
+        "Organization": "Compost Queen",
+        "OrganizationType": "Food compost",
+        "Description": "Weekly food composting service",
+        "Address": "2224 Stonegate Dr. Fort Collins, CO 80525",
+        "AddressType": "Mail only",
+        "Website": "https://compostqueenfc.com/",
+        "Longitude": -105.03633,
+        "Latitude": 40.53226,
+        "Notes": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-105.03633, 40.53226]
+      }
+    },
+    {
+      "type": "Feature",
+      "bbox": [-105.06211, 40.63517, -105.06211, 40.63517],
+      "properties": {
+        "Organization": "Folks Farm and Seed",
+        "OrganizationType": "CSA",
+        "Description": "CSA",
+        "Address": "801 Inverness Road, Fort Collins, CO 8024",
+        "AddressType": "Farm",
+        "Website": "https://www.folksfarmandseed.com/",
+        "Longitude": -105.06211,
+        "Latitude": 40.63517,
+        "Notes": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-105.06211, 40.63517]
+      }
+    },
+    {
+      "type": "Feature",
+      "bbox": [-104.9983, 40.45087, -104.9983, 40.45087],
+      "properties": {
+        "Organization": "Food Bank for Larimer County",
+        "OrganizationType": "Food bank",
+        "Description": "Food bank",
+        "Address": "5706 Wright Dr., Loveland, CO",
+        "AddressType": "Business",
+        "Website": "https://foodbanklarimer.org/",
+        "Longitude": -104.9983,
+        "Latitude": 40.45087,
+        "Notes": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-104.9983, 40.45087]
+      }
+    },
+    {
+      "type": "Feature",
+      "bbox": [-105.07264, 40.60469, -105.07264, 40.60469],
+      "properties": {
+        "Organization": "Fort Collins Food Share",
+        "OrganizationType": "Food bank",
+        "Description": "Food bank",
+        "Address": "1301 Blue Spruce Dr., Fort Collins, CO",
+        "AddressType": "Business",
+        "Website": "https://foodbanklarimer.org/",
+        "Longitude": -105.07264,
+        "Latitude": 40.60469,
+        "Notes": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-105.07264, 40.60469]
+      }
+    },
+    {
+      "type": "Feature",
+      "bbox": [-105.12875, 40.57638, -105.12875, 40.57638],
+      "properties": {
+        "Organization": "Happy Heart Farm",
+        "OrganizationType": "CSA",
+        "Description": "CSA",
+        "Address": "2820 W Elizabeth St, Fort Collins, CO",
+        "AddressType": "Farm",
+        "Website": "https://happyheartfarmcsa.com/",
+        "Longitude": -105.12875,
+        "Latitude": 40.57638,
+        "Notes": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-105.12875, 40.57638]
+      }
+    },
+    {
+      "type": "Feature",
+      "bbox": [-105.08808, 40.60912, -105.08808, 40.60912],
+      "properties": {
+        "Organization": "Garden Sweet",
+        "OrganizationType": "CSA",
+        "Description": "CSA",
+        "Address": "719 Willoc Ln, Fort Collins, CO 80524",
+        "AddressType": "Farm",
+        "Website": "https://gardensweet.com/",
+        "Longitude": -105.08808,
+        "Latitude": 40.60912,
+        "Notes": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-105.08808, 40.60912]
+      }
+    },
+    {
+      "type": "Feature",
+      "bbox": [-105.14035, 40.6269, -105.14035, 40.6269],
+      "properties": {
+        "Organization": "Green Dog Farm CSA",
+        "OrganizationType": "CSA",
+        "Description": "CSA",
+        "Address": "3421 W County Rd 54G, Laporte, CO 80535",
+        "AddressType": "Farm",
+        "Website": "http://www.greendogfarmcsa.com/",
+        "Longitude": -105.14035,
+        "Latitude": 40.6269,
+        "Notes": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-105.14035, 40.6269]
+      }
+    },
+    {
+      "type": "Feature",
+      "bbox": [-104.97794, 40.59683, -104.97794, 40.59683],
+      "properties": {
+        "Organization": "Jodar Farms",
+        "OrganizationType": "CSA",
+        "Description": "CSA",
+        "Address": "5324 E County Rd 48, Fort Collins, CO 80524",
+        "AddressType": "Farm",
+        "Website": "https://www.jodarfarms.com/",
+        "Longitude": -104.97794,
+        "Latitude": 40.59683,
+        "Notes": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-104.97794, 40.59683]
+      }
+    },
+    {
+      "type": "Feature",
+      "bbox": [-105.13927, 40.29625, -105.13927, 40.29625],
+      "properties": {
+        "Organization": "Long Shadow Farm",
+        "OrganizationType": "Animal farm",
+        "Description": "Meat, dairy.",
+        "Address": "101 Bothun Rd, Berthoud, Co 80513",
+        "AddressType": "Farm",
+        "Website": "https://longshadowfarm.wixsite.com/longshadow",
+        "Longitude": -105.13927,
+        "Latitude": 40.29625,
+        "Notes": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-105.13927, 40.29625]
+      }
+    },
+    {
+      "type": "Feature",
+      "bbox": [-105.07118, 40.41941, -105.07118, 40.41941],
+      "properties": {
+        "Organization": "Loveland Food Share",
+        "OrganizationType": "Food bank",
+        "Description": "Food bank",
+        "Address": "2600 N. Lincoln Ave., Loveland, CO",
+        "AddressType": "Business",
+        "Website": "https://foodbanklarimer.org/",
+        "Longitude": -105.07118,
+        "Latitude": 40.41941,
+        "Notes": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-105.07118, 40.41941]
+      }
+    },
+    {
+      "type": "Feature",
+      "bbox": [-105.11465, 40.62606, -105.11465, 40.62606],
+      "properties": {
+        "Organization": "Native Hill Farm",
+        "OrganizationType": "CSA",
+        "Description": "CSA",
+        "Address": "2100 County Rd 54G, Fort Collins, CO 80524",
+        "AddressType": "Farm",
+        "Website": "https://www.nativehillfarm.com/",
+        "Longitude": -105.11465,
+        "Latitude": 40.62606,
+        "Notes": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-105.11465, 40.62606]
+      }
+    },
+    {
+      "type": "Feature",
+      "bbox": [-105.09897, 40.53761, -105.09897, 40.53761],
+      "properties": {
+        "Organization": "On the Vine at Richmond Farms",
+        "OrganizationType": "Market Farm",
+        "Description": "Market Farm",
+        "Address": "3611 Richmond Dr, Fort Collins, CO 80526",
+        "AddressType": "Farm",
+        "Website": "http://onthevineatrichmondfarms.com/",
+        "Longitude": -105.09897,
+        "Latitude": 40.53761,
+        "Notes": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-105.09897, 40.53761]
+      }
+    },
+    {
+      "type": "Feature",
+      "bbox": [-105.17259, 40.62958, -105.17259, 40.62958],
+      "properties": {
+        "Organization": "Raindrop",
+        "OrganizationType": "CSA",
+        "Description": "CSA",
+        "Address": "6901 McMurry, Bellvue, CO 80512",
+        "AddressType": "",
+        "Website": "https://raindropretreat.com/",
+        "Longitude": -105.17259,
+        "Latitude": 40.62958,
+        "Notes": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-105.17259, 40.62958]
+      }
+    },
+    {
+      "type": "Feature",
+      "bbox": [-105.11894, 40.59581, -105.11894, 40.59581],
+      "properties": {
+        "Organization": "Raisin\u0027 Roots Farm",
+        "OrganizationType": "CSA",
+        "Description": "CSA",
+        "Address": "2229 W Vine Dr, Fort Collins, CO 80521",
+        "AddressType": "Farm stand",
+        "Website": "https://raisinroots.com/",
+        "Longitude": -105.11894,
+        "Latitude": 40.59581,
+        "Notes": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-105.11894, 40.59581]
+      }
+    },
+    {
+      "type": "Feature",
+      "bbox": [-105.07958, 40.58638, -105.07958, 40.58638],
+      "properties": {
+        "Organization": "ReKaivery",
+        "OrganizationType": "Local food access",
+        "Description": "Local sales and pickup of local food",
+        "Address": "See website",
+        "AddressType": "",
+        "Website": "https://www.rekaivery.com/",
+        "Longitude": -105.07958,
+        "Latitude": 40.58638,
+        "Notes": "Location is placeholder"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-105.07958, 40.58638]
+      }
+    },
+    {
+      "type": "Feature",
+      "bbox": [-105.06604, 40.56684, -105.06604, 40.56684],
+      "properties": {
+        "Organization": "Shire CSA",
+        "OrganizationType": "CSA",
+        "Description": "CSA",
+        "Address": "713 E Prospect Rd, Fort Collins, CO 80525",
+        "AddressType": "Farm",
+        "Website": "https://www.shirecsa.com/",
+        "Longitude": -105.06604,
+        "Latitude": 40.56684,
+        "Notes": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-105.06604, 40.56684]
+      }
+    },
+    {
+      "type": "Feature",
+      "bbox": [-105.01335, 40.63917, -105.01335, 40.63917],
+      "properties": {
+        "Organization": "Something from the Farm",
+        "OrganizationType": "Pumpkin Farm",
+        "Description": "Pumpkin farm, seasonal",
+        "Address": "8020 S Timberline Rd, Fort Collins, CO 80525",
+        "AddressType": "Farm",
+        "Website": "http://www.somethingfromthefarm.com/",
+        "Longitude": -105.01335,
+        "Latitude": 40.63917,
+        "Notes": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-105.01335, 40.63917]
+      }
+    },
+    {
+      "type": "Feature",
+      "bbox": [-105.07745, 40.61551, -105.07745, 40.61551],
+      "properties": {
+        "Organization": "Sproutin\u0027 Up",
+        "OrganizationType": "Youth CSA",
+        "Description": "Youth CSA",
+        "Address": "See website",
+        "AddressType": "",
+        "Website": "https://www.sproutinup.com/csa-farm-memberships",
+        "Longitude": -105.07745,
+        "Latitude": 40.61551,
+        "Notes": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-105.07745, 40.61551]
+      }
+    },
+    {
+      "type": "Feature",
+      "bbox": [-105.04442, 40.66648, -105.04442, 40.66648],
+      "properties": {
+        "Organization": "Sunray Natural",
+        "OrganizationType": "Farm Store",
+        "Description": "Farm Store",
+        "Address": "5656 N HWY 1, Fort Collins, CO 80524",
+        "AddressType": "Store",
+        "Website": "http://www.sunraynatural.farm/",
+        "Longitude": -105.04442,
+        "Latitude": 40.66648,
+        "Notes": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-105.04442, 40.66648]
+      }
+    },
+    {
+      "type": "Feature",
+      "bbox": [-105.09446, 40.58108, -105.09446, 40.58108],
+      "properties": {
+        "Organization": "Sunspot Urban Farm",
+        "OrganizationType": "NSA",
+        "Description": "NSA",
+        "Address": "1008 Sunset Ave, Fort Collins, CO 80521",
+        "AddressType": "Farm",
+        "Website": "http://sunspoturbanfarm.squarespace.com/",
+        "Longitude": -105.09446,
+        "Latitude": 40.58108,
+        "Notes": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-105.09446, 40.58108]
+      }
+    },
+    {
+      "type": "Feature",
+      "bbox": [-105.17452, 40.42681, -105.17452, 40.42681],
+      "properties": {
+        "Organization": "Vibrant Life Farm",
+        "OrganizationType": "Aquaponics Farm",
+        "Description": "Aquaponics Farm",
+        "Address": "3315 Glade Road, Loveland, CO 80538",
+        "AddressType": "Farm",
+        "Website": "https://www.vibrantlifefarms.com/",
+        "Longitude": -105.17452,
+        "Latitude": 40.42681,
+        "Notes": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-105.17452, 40.42681]
+      }
+    },
+    {
+      "type": "Feature",
+      "bbox": [-105.11533, 40.58574, -105.11533, 40.58574],
+      "properties": {
+        "Organization": "Woolly Goat Farm",
+        "OrganizationType": "CSA",
+        "Description": "CSA",
+        "Address": "117 S Taft Hill Rd, Fort Collins, CO 80521",
+        "AddressType": "Farm",
+        "Website": "https://www.woollygoatfarm.com/",
+        "Longitude": -105.11533,
+        "Latitude": 40.58574,
+        "Notes": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-105.11533, 40.58574]
+      }
+    }
+  ]
+}

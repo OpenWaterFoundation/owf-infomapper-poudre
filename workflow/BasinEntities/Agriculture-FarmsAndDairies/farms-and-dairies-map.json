@@ -1,7 +1,7 @@
 {
-  "geoMapProjectId": "FoodAndDairiesProject",
-  "name": "Food and Dairies",
-  "description": "Food and Dairies",
+  "geoMapProjectId": "FarmsAndDairiesProject",
+  "name": "Farms and Dairies",
+  "description": "Farms and dairies",
   "projectType": "SingleMap",
   "properties": {
     "author": "Open Water Foundation",
@@ -11,13 +11,13 @@
   "geoMaps": [
     {
       "geoMapId": "DairiesMap",
-      "name": "Food and Dairies",
-      "description": "Food and Dairies",
+      "name": "Farms and Dairies",
+      "description": "Farms and dairies",
       "dataPath": ".",
       "crs": "EPSG:4326",
       "properties": {
         "extentInitial": "ZoomLevel:-105.5,40.7,10",
-        "docPath": "food-and-dairies-map.md"
+        "docPath": "farms-and-dairies-map.md"
       },
       "geoLayers": [
         {
@@ -300,35 +300,35 @@
           "sourcePath": "layers/co-dwr-water-district-3.geojson",
           "properties": {},
           "history:": [
-            "Read GeoLayer from GeoJSON file:  'C:\\Users\\sam\\owf-dev\\InfoMapper-Poudre\\git-repos\\owf-infomapper-poudre\\workflow\\BasinEntities\\Agriculture-FoodAndDairies\\layers\\co-dwr-water-district-3.geojson'"
+            "Read GeoLayer from GeoJSON file:  'C:\\Users\\sam\\owf-dev\\InfoMapper-Poudre\\git-repos\\owf-infomapper-poudre\\workflow\\BasinEntities\\Agriculture-FarmsAndDairies\\layers\\co-dwr-water-district-3.geojson'"
           ]
         },
         {
           "geoLayerId": "DairiesLayer",
-          "name": "Colorado Dairies",
-          "description": "Colorado dairies",
+          "name": "Dairies",
+          "description": "Dairies",
           "crs": "EPSG:4326",
           "geometryType": "WKT:Point",
           "layerType": "Vector",
           "sourceFormat": "GeoJSON",
-          "sourcePath": "layers/dairies.geojson",
+          "sourcePath": "https://data.openwaterfoundation.org/state/co/owf/dairies/co-dairies.geojson",
           "properties": {},
           "history:": [
-            "Read GeoLayer from GeoJSON file:  'C:\\Users\\sam\\owf-dev\\InfoMapper-Poudre\\git-repos\\owf-infomapper-poudre\\workflow\\BasinEntities\\Agriculture-FoodAndDairies\\layers\\dairies.geojson'"
+            "Read GeoLayer from GeoJSON file:  'https://data.openwaterfoundation.org/state/co/owf/dairies/co-dairies.geojson'"
           ]
         },
         {
           "geoLayerId": "LocalFoodLayer",
           "name": "Local Food",
-          "description": "Local food producers and access",
+          "description": "Local food producers, food banks, etc.",
           "crs": "EPSG:4326",
           "geometryType": "WKT:Point",
           "layerType": "Vector",
           "sourceFormat": "GeoJSON",
-          "sourcePath": "layers/local-food.geojson",
+          "sourcePath": "https://data.openwaterfoundation.org/state/co/owf/farms/co-farms.geojson",
           "properties": {},
           "history:": [
-            "Read GeoLayer from GeoJSON file:  'C:\\Users\\sam\\owf-dev\\InfoMapper-Poudre\\git-repos\\owf-infomapper-poudre\\workflow\\BasinEntities\\Agriculture-FoodAndDairies\\layers\\local-food.geojson'"
+            "Read GeoLayer from GeoJSON file:  'https://data.openwaterfoundation.org/state/co/owf/farms/co-farms.geojson'"
           ]
         }
       ],
@@ -344,14 +344,14 @@
             {
               "geoLayerViewId": "LocalFoodLayerView",
               "name": "Local Food",
-              "description": "Local food producers and access",
+              "description": "Local food producers, food banks, etc.",
               "geoLayerId": "LocalFoodLayer",
               "properties": {
                 "docPath": "layers/local-food.md"
               },
               "geoLayerSymbol": {
                 "name": "Local Food",
-                "description": "Local food producers and access",
+                "description": "Local food producers, food banks, etc.",
                 "classificationType": "SingleSymbol",
                 "classificationAttribute": "",
                 "properties": {
@@ -384,23 +384,23 @@
         },
         {
           "geoLayerViewGroupId": "DairiesGroup",
-          "name": "Colorado Dairies",
-          "description": "Colorado dairies",
+          "name": "Dairies",
+          "description": "Dairies",
           "properties": {
             "selectedInitial": "true"
           },
           "geoLayerViews": [
             {
               "geoLayerViewId": "DairiesLayerView",
-              "name": "Colorado Dairies",
-              "description": "Colorado dairies",
+              "name": "Dairies",
+              "description": "Dairies",
               "geoLayerId": "DairiesLayer",
               "properties": {
                 "docPath": "layers/dairies.md"
               },
               "geoLayerSymbol": {
-                "name": "Colorado Dairies",
-                "description": "Colorado dairies",
+                "name": "Dairies",
+                "description": "Dairies",
                 "classificationType": "SingleSymbol",
                 "classificationAttribute": "",
                 "properties": {

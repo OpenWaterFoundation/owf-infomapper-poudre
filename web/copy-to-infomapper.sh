@@ -82,9 +82,9 @@ copy_BasinEntities_Administration_WaterDistricts() {
 }
 
 # Copy dairies map folder and files.
-copy_BasinEntities_Agriculture_FoodAndDairies() {
+copy_BasinEntities_Agriculture_FarmsAndDairies() {
   checkBasinEntitiesFolder
-  cp -rv ${scriptFolder}/data-maps/BasinEntities/Agriculture-FoodAndDairies ${folder}
+  cp -rv ${scriptFolder}/data-maps/BasinEntities/Agriculture-FarmsAndDairies ${folder}
 }
 
 # Copy ditches map folder and files.
@@ -274,7 +274,7 @@ runInteractive() {
     echo "                         eb.      Copy Physical - Basins files."
     echo "                         es.      Copy Physical - StreamReaches files."
     echo "                         edi.     Copy Agriculture - Ditches files."
-    echo "                         eaf.     Copy Agriculture - Food and Dairies files."
+    echo "                         eaf.     Copy Agriculture - Farms and Dairies files."
     echo "                         edu.     Copy Education - Organizations files."
     echo "                         ei.      Copy Environment - InstreamFlowReaches files."
     echo "                         eeo.     Copy Environment - Organizations files."
@@ -370,7 +370,7 @@ runInteractive() {
     elif [ "${answer}" = "es" ]; then
       copy_BasinEntities_Physical_StreamReaches
     elif [ "${answer}" = "eaf" ]; then
-      copy_BasinEntities_Agriculture_FoodAndDairies
+      copy_BasinEntities_Agriculture_FarmsAndDairies
     elif [ "${answer}" = "edi" ]; then
       copy_BasinEntities_Agriculture_Ditches
     elif [ "${answer}" = "edu" ]; then

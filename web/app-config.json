@@ -171,10 +171,10 @@
           "doubleSeparatorBefore" : true
         },
         {
-          "id": "entities-food-and-dairies",
-          "name":  "Agriculture - Food and Dairies",
+          "id": "entities-farms-and-dairies",
+          "name":  "Agriculture - Farms and Dairies",
           "action": "displayMap",
-          "mapProject" : "data-maps/BasinEntities/Agriculture-FoodAndDairies/food-and-dairies-map.json"
+          "mapProject" : "data-maps/BasinEntities/Agriculture-FarmsAndDairies/farms-and-dairies-map.json"
         },
         {
           "id": "entities-education",

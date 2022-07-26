@@ -16,4 +16,4 @@ The following are data sources for this map:
 
 ## Workflow
 
-The workflow to create the map can be found in the [GitHub repository](https://github.com/OpenWaterFoundation/owf-infomapper-poudre/workflow/BasinEntities/Recreation-Boating).
+The workflow to create the map can be found in the [GitHub repository](https://github.com/OpenWaterFoundation/owf-infomapper-poudre/tree/master/workflow/BasinEntities/Recreation-Boating).

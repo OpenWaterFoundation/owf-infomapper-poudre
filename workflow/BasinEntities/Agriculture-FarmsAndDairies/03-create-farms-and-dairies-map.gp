@@ -1,4 +1,4 @@
-# Create a GeoMapProject file for food and dairies
+# Create a GeoMapProject file for farms and dairies
 # - read the previously downloaded layer file
 # - output to the web folder for use by the InfoMapper
 # - layer view groups are added from 1st drawn (bottom) to last drawn (top)
@@ -8,14 +8,14 @@
 # - AssetsFolder is where map files exist for the InfoMapper tool
 SetProperty(PropertyName="AppFolder",PropertyType="str",PropertyValue="../../../web")
 SetProperty(PropertyName="MapsFolder",PropertyType="str",PropertyValue="${AppFolder}/data-maps")
-SetProperty(PropertyName="MapFolder",PropertyType="str",PropertyValue="${MapsFolder}/BasinEntities/Agriculture-FoodAndDairies")
+SetProperty(PropertyName="MapFolder",PropertyType="str",PropertyValue="${MapsFolder}/BasinEntities/Agriculture-FarmsAndDairies")
 #
 # Create a single map project and map for that project.
-# - GeoMapProjectID:  FoodAndDairiesProject
-# - GeoMapID:  FoodAndDairiesMap
-CreateGeoMapProject(NewGeoMapProjectID="FoodAndDairiesProject",ProjectType="SingleMap",Name="Food and Dairies",Description="Food and Dairies",Properties="author:'Open Water Foundation',specificationFlavor:'',specificationVersion:'1.0.0'")
-CreateGeoMap(NewGeoMapID="DairiesMap",Name="Food and Dairies",Description="Food and Dairies",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.5,40.7,10',docPath:'food-and-dairies-map.md'")
-AddGeoMapToGeoMapProject(GeoMapProjectID="FoodAndDairiesProject",GeoMapID="DairiesMap")
+# - GeoMapProjectID:  FarmsAndDairiesProject
+# - GeoMapID:  FarmsAndDairiesMap
+CreateGeoMapProject(NewGeoMapProjectID="FarmsAndDairiesProject",ProjectType="SingleMap",Name="Farms and Dairies",Description="Farms and dairies",Properties="author:'Open Water Foundation',specificationFlavor:'',specificationVersion:'1.0.0'")
+CreateGeoMap(NewGeoMapID="DairiesMap",Name="Farms and Dairies",Description="Farms and dairies",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.5,40.7,10',docPath:'farms-and-dairies-map.md'")
+AddGeoMapToGeoMapProject(GeoMapProjectID="FarmsAndDairiesProject",GeoMapID="DairiesMap")
 # = = = = = = = = = =
 # Background layers:  read layers and add a layer view group
 # GeoLayerViewGroupID: BackgroundGroup
@@ -87,14 +87,14 @@ SetGeoLayerViewEventHandler(GeoLayerViewID="WaterDistrictLayerView",EventType="c
 # = = = = = = = = = =
 # Dairies:  read layer and add to a layer view group.
 # GeoLayerViewGroupID: DairiesGroup
-AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="DairiesGroup",Name="Colorado Dairies",Description="Colorado dairies",Properties="selectedInitial: true",InsertPosition="Top")
+AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="DairiesGroup",Name="Dairies",Description="Dairies",Properties="selectedInitial: true",InsertPosition="Top")
 #
-ReadGeoLayerFromGeoJSON(InputFile="layers/dairies.geojson",GeoLayerID="DairiesLayer",Name="Colorado Dairies",Description="Colorado dairies")
-AddGeoLayerViewToGeoMap(GeoLayerID="DairiesLayer",GeoLayerViewID="DairiesLayerView",Name="Colorado Dairies",Description="Colorado dairies",Properties="docPath:layers/dairies.md")
+ReadGeoLayerFromGeoJSON(InputFile="https://data.openwaterfoundation.org/state/co/owf/dairies/co-dairies.geojson",GeoLayerID="DairiesLayer",Name="Dairies",Description="Dairies")
+AddGeoLayerViewToGeoMap(GeoLayerID="DairiesLayer",GeoLayerViewID="DairiesLayerView",Name="Dairies",Description="Dairies",Properties="docPath:layers/dairies.md")
 # For now use single symbol
 # - TODO smalers 2020-05-22 need to enable a graduated symbol based on flow value
-SetGeoLayerViewSingleSymbol(GeoLayerViewID="DairiesLayerView",Name="Colorado Dairies",Description="Colorado dairies",Properties="symbolImage:/img/milk_bottle-32x37.png,imageAnchorPoint:Bottom")
-# SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="DairiesLayerView",Name="Colorado Dairies",Description="Colorado dairies",ClassificationAttribute="county",Properties="classificationType:'SingleSymbol'")
+SetGeoLayerViewSingleSymbol(GeoLayerViewID="DairiesLayerView",Name="Dairies",Description="Dairies",Properties="symbolImage:/img/milk_bottle-32x37.png,imageAnchorPoint:Bottom")
+# SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="DairiesLayerView",Name="Dairies",Description="Dairies",ClassificationAttribute="county",Properties="classificationType:'SingleSymbol'")
 SetGeoLayerViewEventHandler(GeoLayerViewID="DairiesLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/dairies-event-config.json")
 SetGeoLayerViewEventHandler(GeoLayerViewID="DairiesLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/dairies-event-config.json")
 # = = = = = = = = = =
@@ -102,21 +102,21 @@ SetGeoLayerViewEventHandler(GeoLayerViewID="DairiesLayerView",EventType="click",
 # GeoLayerViewGroupID: LocalFoodGroup
 AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="LocalFoodGroup",Name="Local Food",Description="Local Food",Properties="selectedInitial: true",InsertPosition="Top")
 #
-ReadGeoLayerFromGeoJSON(InputFile="layers/local-food.geojson",GeoLayerID="LocalFoodLayer",Name="Local Food",Description="Local food producers and access")
-AddGeoLayerViewToGeoMap(GeoLayerID="LocalFoodLayer",GeoLayerViewID="LocalFoodLayerView",Name="Local Food",Description="Local food producers and access",Properties="docPath:layers/local-food.md")
+ReadGeoLayerFromGeoJSON(InputFile="https://data.openwaterfoundation.org/state/co/owf/farms/co-farms.geojson",GeoLayerID="LocalFoodLayer",Name="Local Food",Description="Local food producers, food banks, etc.")
+AddGeoLayerViewToGeoMap(GeoLayerID="LocalFoodLayer",GeoLayerViewID="LocalFoodLayerView",Name="Local Food",Description="Local food producers, food banks, etc.",Properties="docPath:layers/local-food.md")
 # For now use single symbol
 # - TODO smalers 2020-05-22 need to enable a category symbol based on organization type
-SetGeoLayerViewSingleSymbol(GeoLayerViewID="LocalFoodLayerView",Name="Local Food",Description="Local food producers and access",Properties="symbolImage:/img/farm2-32x37.png,imageAnchorPoint:Bottom")
-# SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="LocalFoodLayerView",Name="Local Food",Description="Local food producers and access",ClassificationAttribute="county",Properties="classificationType:'SingleSymbol'")
+SetGeoLayerViewSingleSymbol(GeoLayerViewID="LocalFoodLayerView",Name="Local Food",Description="Local food producers, food banks, etc.",Properties="symbolImage:/img/farm2-32x37.png,imageAnchorPoint:Bottom")
+# SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="LocalFoodLayerView",Name="Local Food",Description="Local food producers, food banks, etc.",ClassificationAttribute="county",Properties="classificationType:'SingleSymbol'")
 SetGeoLayerViewEventHandler(GeoLayerViewID="LocalFoodLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/local-food-event-config.json")
 SetGeoLayerViewEventHandler(GeoLayerViewID="LocalFoodLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/local-food-event-config.json")
 # = = = = = = = = = =
 # Write the map project file and copy layers to the location needed by the web application.
 # - follow InfoMapper conventions
-WriteGeoMapProjectToJSON(GeoMapProjectID="FoodAndDairiesProject",Indent="2",OutputFile="food-and-dairies-map.json")
+WriteGeoMapProjectToJSON(GeoMapProjectID="FarmsAndDairiesProject",Indent="2",OutputFile="farms-and-dairies-map.json")
 CreateFolder(Folder="${MapFolder}/layers",CreateParentFolders="True",IfFolderExists="Ignore")
-CopyFile(SourceFile="food-and-dairies-map.json",DestinationFile="${MapFolder}/food-and-dairies-map.json")
-CopyFile(SourceFile="food-and-dairies-map.md",DestinationFile="${MapFolder}/food-and-dairies-map.md")
+CopyFile(SourceFile="farms-and-dairies-map.json",DestinationFile="${MapFolder}/farms-and-dairies-map.json")
+CopyFile(SourceFile="farms-and-dairies-map.md",DestinationFile="${MapFolder}/farms-and-dairies-map.md")
 #
 CopyFile(SourceFile="layers/co-dwr-water-district-3.geojson",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3.geojson")
 CopyFile(SourceFile="layers/co-dwr-water-district-3-classify-district.csv",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3-classify-district.csv")
@@ -125,11 +125,9 @@ CopyFile(SourceFile="../Administration-CoDwrWaterDistricts/layers/co-dwr-water-d
 #
 #CopyFile(SourceFile="layers/stream-reaches.geojson",DestinationFile="${MapFolder}/layers/stream-reaches.geojson")
 #
-CopyFile(SourceFile="layers/dairies.geojson",DestinationFile="${MapFolder}/layers/dairies.geojson")
 CopyFile(SourceFile="layers/dairies.md",DestinationFile="${MapFolder}/layers/dairies.md")
 CopyFile(SourceFile="layers/dairies-event-config.json",DestinationFile="${MapFolder}/layers/dairies-event-config.json")
 #
-CopyFile(SourceFile="layers/local-food.geojson",DestinationFile="${MapFolder}/layers/local-food.geojson")
 CopyFile(SourceFile="layers/local-food.md",DestinationFile="${MapFolder}/layers/local-food.md")
 CopyFile(SourceFile="layers/local-food-event-config.json",DestinationFile="${MapFolder}/layers/local-food-event-config.json")
 #
