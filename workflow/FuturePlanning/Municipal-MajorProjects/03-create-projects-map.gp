@@ -129,7 +129,7 @@ AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="ProjectsGroup",Name="Major Wat
 # = = = = = = = = = =
 # Project markers:  read layer and add to a layer view group.
 # GeoLayerViewGroupID: ProjectsGroup
-ReadGeoLayerFromGeoJSON(InputFile="layers/projects.geojson",GeoLayerID="ProjectsLayer",Name="Major Water Projects",Description="Major projects")
+ReadGeoLayerFromGeoJSON(InputFile="https://data.openwaterfoundation.org/state/co/owf/water-projects/co-water-projects.geojson",GeoLayerID="ProjectsLayer",Name="Major Water Projects",Description="Major projects")
 AddGeoLayerViewToGeoMap(GeoLayerID="ProjectsLayer",GeoLayerViewID="ProjectsLayerView",Name="Major Water Projects",Description="Major water projects",InsertPosition="Top",Properties="docPath:'layers/projects.md")
 SetGeoLayerViewSingleSymbol(GeoLayerViewID="ProjectsLayerView",Name="Major Water Projects",Description="Major water projects",Properties="symbolImage:/img/mastcrane1-32x37.png,imageAnchorPoint:Bottom")
 SetGeoLayerViewEventHandler(GeoLayerViewID="ProjectsLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/projects-event-config.json")
@@ -164,7 +164,6 @@ CopyFile(SourceFile="../../BasinEntities/Physical-StreamReaches/layers/stream-re
 #CopyFile(SourceFile="layers/municipalities.md",DestinationFile="${MapFolder}/layers/municipalities.md")
 #CopyFile(SourceFile="layers/municipalities-event-config.json",DestinationFile="${MapFolder}/layers/municipalities-event-config.json")
 # Trail organizations
-CopyFile(SourceFile="layers/projects.geojson",DestinationFile="${MapFolder}/layers/projects.geojson")
 CopyFile(SourceFile="layers/projects.md",DestinationFile="${MapFolder}/layers/projects.md")
 CopyFile(SourceFile="layers/projects-event-config.json",DestinationFile="${MapFolder}/layers/projects-event-config.json")
 # State boundary.
