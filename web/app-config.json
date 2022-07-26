@@ -212,9 +212,9 @@
         },
         {
           "id": "entities-boating-orgs",
-          "name": "Recreation - Boating Organizations",
+          "name": "Recreation - Boating",
           "action": "displayMap",
-          "mapProject": "data-maps/BasinEntities/Recreation-BoatingOrganizations/boating-orgs-map.json",
+          "mapProject": "data-maps/BasinEntities/Recreation-Boating/boating-map.json",
           "separatorBefore" : true
         },
         {

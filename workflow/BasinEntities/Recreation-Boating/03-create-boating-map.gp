@@ -1,4 +1,4 @@
-# Create a GeoMapProject file for Boating Organizations
+# Create a GeoMapProject file for Boating
 # - read the previously downloaded layer file
 # - output to the web folder for use by the InfoMapper
 # - layer view groups are added from 1st drawn (bottom) to last drawn (top)
@@ -8,14 +8,14 @@
 # - AssetsFolder is where map files exist for the InfoMapper tool
 SetProperty(PropertyName="AppFolder",PropertyType="str",PropertyValue="../../../web")
 SetProperty(PropertyName="MapsFolder",PropertyType="str",PropertyValue="${AppFolder}/data-maps")
-SetProperty(PropertyName="MapFolder",PropertyType="str",PropertyValue="${MapsFolder}/BasinEntities/Recreation-BoatingOrganizations")
+SetProperty(PropertyName="MapFolder",PropertyType="str",PropertyValue="${MapsFolder}/BasinEntities/Recreation-Boating")
 #
 # Create a single map project and map for that project.
-# - GeoMapProjectID:  BoatingOrgsProject
-# - GeoMapID:  BoatingOrgsMap
-CreateGeoMapProject(NewGeoMapProjectID="BoatingOrgsProject",ProjectType="SingleMap",Name="Poudre Boating Organizations",Description="Poudre Boating Organizations",Properties="author:'Open Water Foundation',specificationFlavor:'',specificationVersion:'1.0.0'")
-CreateGeoMap(NewGeoMapID="BoatingOrgsMap",Name="Poudre Boating Organizations",Description="Poudre Boating Organizations",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.5,40.7,10',docPath:'boating-orgs-map.md'")
-AddGeoMapToGeoMapProject(GeoMapProjectID="BoatingOrgsProject",GeoMapID="BoatingOrgsMap")
+# - GeoMapProjectID:  BoatingProject
+# - GeoMapID:  BoatingMap
+CreateGeoMapProject(NewGeoMapProjectID="BoatingProject",ProjectType="SingleMap",Name="Boating",Description="Boating",Properties="author:'Open Water Foundation',specificationFlavor:'',specificationVersion:'1.0.0'")
+CreateGeoMap(NewGeoMapID="BoatingMap",Name="Boating",Description="Boating",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.5,40.7,10',docPath:'boating-map.md'")
+AddGeoMapToGeoMapProject(GeoMapProjectID="BoatingProject",GeoMapID="BoatingMap")
 # = = = = = = = = = =
 # Background layers:  read layers and add a layer view group
 # GeoLayerViewGroupID: BackgroundGroup
@@ -78,20 +78,20 @@ SetGeoLayerViewEventHandler(GeoLayerViewID="WaterDistrictLayerView",EventType="c
 # = = = = = = = = = =
 # Boating Organizations:  read layer and add to a layer view group.
 # GeoLayerViewGroupID: BoatingOrgsGroup
-AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="BoatingOrgsGroup",Name="Poudre Boating Organizations",Description="Poudre Boating Organizations",Properties="selectedInitial: true",InsertPosition="Top")
+AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="BoatingOrgsGroup",Name="Boating Organizations",Description="Boating Organizations",Properties="selectedInitial: true",InsertPosition="Top")
 #
-ReadGeoLayerFromGeoJSON(InputFile="layers/boating-orgs.geojson",GeoLayerID="BoatingOrgsLayer",Name="Poudre Boating Organizations",Description="Poudre Boating Organizations")
-AddGeoLayerViewToGeoMap(GeoLayerID="BoatingOrgsLayer",GeoLayerViewID="BoatingOrgsLayerView",Name="Poudre Boating Organizations",Description="Poudre Boating Organizations",Properties="docPath:'layers/boating-orgs.md'")
-SetGeoLayerViewSingleSymbol(GeoLayerViewID="BoatingOrgsLayerView",Name="Poudre Boating Organizations",Description="Poudre Boating Organizations",Properties="symbolImage:/img/kayaking-32x37.png,imageAnchorPoint:Bottom")
+ReadGeoLayerFromGeoJSON(InputFile="https://data.openwaterfoundation.org/state/co/owf/boating-orgs/co-boating-orgs.geojson",GeoLayerID="BoatingOrgsLayer",Name="Boating Organizations",Description="Boating Organizations")
+AddGeoLayerViewToGeoMap(GeoLayerID="BoatingOrgsLayer",GeoLayerViewID="BoatingOrgsLayerView",Name="Boating Organizations",Description="Boating Organizations",Properties="docPath:'layers/boating-orgs.md'")
+SetGeoLayerViewSingleSymbol(GeoLayerViewID="BoatingOrgsLayerView",Name="Boating Organizations",Description="Boating Organizations",Properties="symbolImage:/img/kayaking-32x37.png,imageAnchorPoint:Bottom")
 SetGeoLayerViewEventHandler(GeoLayerViewID="BoatingOrgsLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/boating-orgs-event-config.json")
 SetGeoLayerViewEventHandler(GeoLayerViewID="BoatingOrgsLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/boating-orgs-event-config.json")
 # = = = = = = = = = =
 # Write the map project file and copy layers to the location needed by the web application.
 # - follow InfoMapper conventions
-WriteGeoMapProjectToJSON(GeoMapProjectID="BoatingOrgsProject",Indent="2",OutputFile="boating-orgs-map.json")
+WriteGeoMapProjectToJSON(GeoMapProjectID="BoatingProject",Indent="2",OutputFile="boating-map.json")
 CreateFolder(Folder="${MapFolder}/layers",CreateParentFolders="True",IfFolderExists="Ignore")
-CopyFile(SourceFile="boating-orgs-map.json",DestinationFile="${MapFolder}/boating-orgs-map.json")
-CopyFile(SourceFile="boating-orgs-map.md",DestinationFile="${MapFolder}/boating-orgs-map.md")
+CopyFile(SourceFile="boating-map.json",DestinationFile="${MapFolder}/boating-map.json")
+CopyFile(SourceFile="boating-map.md",DestinationFile="${MapFolder}/boating-map.md")
 #
 CopyFile(SourceFile="layers/co-dwr-water-district-3.geojson",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3.geojson")
 CopyFile(SourceFile="layers/co-dwr-water-district-3-classify-district.csv",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3-classify-district.csv")
@@ -100,6 +100,5 @@ CopyFile(SourceFile="../Administration-CoDwrWaterDistricts/layers/co-dwr-water-d
 #
 #CopyFile(SourceFile="layers/stream-reaches.geojson",DestinationFile="${MapFolder}/layers/stream-reaches.geojson")
 #
-CopyFile(SourceFile="layers/boating-orgs.geojson",DestinationFile="${MapFolder}/layers/boating-orgs.geojson")
 CopyFile(SourceFile="layers/boating-orgs.md",DestinationFile="${MapFolder}/layers/boating-orgs.md")
 CopyFile(SourceFile="layers/boating-orgs-event-config.json",DestinationFile="${MapFolder}/layers/boating-orgs-event-config.json")

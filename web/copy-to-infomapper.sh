@@ -147,10 +147,10 @@ copy_BasinEntities_Physical_StreamReaches() {
   cp -rv ${scriptFolder}/data-maps/BasinEntities/Physical-StreamReaches ${folder}
 }
 
-# Copy boating organizations map folder and files.
-copy_BasinEntities_Recreation_BoatingOrganizations() {
+# Copy boating map folder and files.
+copy_BasinEntities_Recreation_Boating() {
   checkBasinEntitiesFolder
-  cp -rv ${scriptFolder}/data-maps/BasinEntities/Recreation-BoatingOrganizations ${folder}
+  cp -rv ${scriptFolder}/data-maps/BasinEntities/Recreation-Boating ${folder}
 }
 
 # Copy trails map folder and files.
@@ -280,7 +280,7 @@ runInteractive() {
     echo "                         eeo.     Copy Environment - Organizations files."
     echo "                         ebrew.   Copy Industry - Breweries files."
     echo "                         emuni.   Copy Municipal - Municipalities files."
-    echo "                         eboat.   Copy Recreation - BoatingOrganizations files."
+    echo "                         eboat.   Copy Recreation - Boating files."
     echo "                         etrail.  Copy Recreation - Trails files."
     echo "                         ewq.     Copy WaterQuality - Monitoring files."
     echo "                         ewp.     Copy WaterSupply - WaterProviders files."
@@ -384,7 +384,7 @@ runInteractive() {
     elif [ "${answer}" = "emuni" ]; then
       copy_BasinEntities_Municipal_Municipalities
     elif [ "${answer}" = "eboat" ]; then
-      copy_BasinEntities_Recreation_BoatingOrganizations
+      copy_BasinEntities_Recreation_Boating
     elif [ "${answer}" = "etrail" ]; then
       copy_BasinEntities_Recreation_Trails
     elif [ "${answer}" = "ewq" ]; then
@@ -446,5 +446,5 @@ echo "infoMapperRepoFolder=${infoMapperRepoFolder}"
 echo "infoMapperFolder=${infoMapperRepoFolder}"
 echo "appFolder=${appFolder}"
 
-# Run interactively. with script exit from that function
+# Run interactively with exit from that function.
 runInteractive
