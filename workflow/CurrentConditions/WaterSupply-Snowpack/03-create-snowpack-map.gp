@@ -108,7 +108,7 @@ ReadGeoLayerFromGeoJSON(InputFile="https://snodas.cdss.state.co.us/app/SnowpackS
 # The following was implemented because the SNODAS website was not using GeoJSON 2 format (latest SNODAS tools uses the correct format):
 # - uses the build-util/harvest-data.bash script
 #ReadGeoLayerFromGeoJSON(InputFile="http://data.openwaterfoundation.org/CO/CDSS/SNODAS/SnowpackStatisticsByDate_LatestDate.geojson",GeoLayerID="SnodasLayer",Name="Snowpack (SNODAS)",Description="Snowpack from SNODAS")
-AddGeoLayerViewToGeoMap(GeoLayerID="SnodasLayer",GeoLayerViewID="SnodasLayerView",Name="Snowpack (SNODAS)",Description="Snowpack from SNODAS as basin mean SWE (in)",Properties="docPath:layers/snodas.md")
+AddGeoLayerViewToGeoMap(GeoLayerID="SnodasLayer",GeoLayerViewID="SnodasLayerView",Name="Snowpack (SNODAS)",Description="Snowpack from SNODAS as basin mean SWE (in)",Properties="docPath:layers/snodas.md,refreshInterval:6Hour")
 # Use graduated symbol the same as the SNODAS website
 SetGeoLayerViewEventHandler(GeoLayerViewID="SnodasLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/snodas-event-config.json")
 SetGeoLayerViewEventHandler(GeoLayerViewID="SnodasLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/snodas-event-config.json")
@@ -136,7 +136,7 @@ SetGeoLayerViewEventHandler(GeoLayerViewID="StreamReachesLayerView",EventType="c
 # GeoLayerViewGroupID: SnowStationsGroup
 AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="SnowStationsGroup",Name="Snow Stations",Description="Snow stations",Properties="selectedInitial: true",InsertPosition="Top")
 #
-ReadGeoLayerFromGeoJSON(InputFile="layers/snotel-stations.geojson",GeoLayerID="SnotelStationsLayer",Name="SNOTEL Stations",Description="SNOTEL stations from NRCS")
+ReadGeoLayerFromGeoJSON(InputFile="https://data.openwaterfoundation.org/country/us/nrcs/snotel/co-snotel-stations.geojson",GeoLayerID="SnotelStationsLayer",Name="SNOTEL Stations",Description="SNOTEL stations from NRCS")
 AddGeoLayerViewToGeoMap(GeoLayerID="SnotelStationsLayer",GeoLayerViewID="SnotelStationsLayerView",Name="SNOTEL Stations",Description="SNOTEL stations from NRCS",Properties="docPath:'layers/snotel-stations.md'")
 # For now use single symbol
 # - TODO smalers 2020-05-22 need to enable a graduated symbol based on SWE value
@@ -153,7 +153,6 @@ CopyFile(SourceFile="snowpack-map.md",DestinationFile="${MapFolder}/snowpack-map
 # -----
 # Layer
 # SNOTEL stations.
-CopyFile(SourceFile="layers/snotel-stations.geojson",DestinationFile="${MapFolder}/layers/snotel-stations.geojson")
 CopyFile(SourceFile="layers/snotel-stations.md",DestinationFile="${MapFolder}/layers/snotel-stations.md")
 CopyFile(SourceFile="layers/snotel-stations-event-config.json",DestinationFile="${MapFolder}/layers/snotel-stations-event-config.json")
 # Stream reaches.
@@ -162,7 +161,6 @@ CopyFile(SourceFile="layers/stream-reaches-event-config.json",DestinationFile="$
 CopyFile(SourceFile="../../BasinEntities/Physical-StreamReaches/layers/stream-reaches.md",DestinationFile="${MapFolder}/layers/stream-reaches.md")
 # SNODAS snowpack.
 # - no need to copy layer because read from URL
-#CopyFile(SourceFile="layers/snodas.geojson",DestinationFile="${MapFolder}/layers/snodas.geojson")
 CopyFile(SourceFile="layers/snodas.md",DestinationFile="${MapFolder}/layers/snodas.md")
 CopyFile(SourceFile="layers/snodas-event-config.json",DestinationFile="${MapFolder}/layers/snodas-event-config.json")
 CopyFile(SourceFile="layers/snodas-classify-swe-in.csv",DestinationFile="${MapFolder}/layers/snodas-classify-swe-in.csv")
