@@ -367,7 +367,7 @@
           "geometryType": "Raster",
           "layerType": "Raster",
           "sourceFormat": null,
-          "sourcePath": "layers/east-troublesome-sbs.tif",
+          "sourcePath": "https://data.openwaterfoundation.org/country/us/usfs/baer/2020/east-troublesome/east-troublesome-2020-sbs.tif",
           "properties": {},
           "history:": []
         },
@@ -379,7 +379,7 @@
           "geometryType": "Raster",
           "layerType": "Raster",
           "sourceFormat": null,
-          "sourcePath": "layers/cameron-peak-sbs.tif",
+          "sourcePath": "https://data.openwaterfoundation.org/country/us/usfs/baer/2020/cameron-peak/cameron-peak-2020-sbs.tif",
           "properties": {},
           "history:": []
         },

@@ -218,7 +218,7 @@ AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="SoilBurnSeverityGroup",Name="S
 # Soil Burn Severity for East Troublesome (raster):
 # GeoLayerViewGroupID: SoilBurnSeverityGroup
 # - raster is faster
-ReadRasterGeoLayerFromFile(InputFile="layers/east-troublesome-sbs.tif",GeoLayerID="EastTroublesomeSoilBurnSeverityRasterLayer",Name="East Troublesome Fire Soil Burn Severity (raster)",Description="East Troublesome Fire soil burn severity")
+ReadRasterGeoLayerFromFile(InputFile="https://data.openwaterfoundation.org/country/us/usfs/baer/2020/east-troublesome/east-troublesome-2020-sbs.tif",GeoLayerID="EastTroublesomeSoilBurnSeverityRasterLayer",Name="East Troublesome Fire Soil Burn Severity (raster)",Description="East Troublesome Fire soil burn severity")
 AddGeoLayerViewToGeoMap(GeoLayerID="EastTroublesomeSoilBurnSeverityRasterLayer",GeoLayerViewID="EastTroublesomeSoilBurnSeverityRasterLayerView",Name="East Troublesome Fire Soil Burn Severity (raster)",Description="East Troublesome Fire soil burn severity from USFS BAER",Properties="docPath:layers/east-troublesome-sbs.md",InsertPosition="Top")
 SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="EastTroublesomeSoilBurnSeverityRasterLayerView",Name="Colorize soil burn severity",Description="Symbol for the soil burn severity",ClassificationAttribute="1",Properties="classificationFile:'layers/east-troublesome-sbs-classify-gridcode.csv',rasterResolution:'128'")
 SetGeoLayerViewEventHandler(GeoLayerViewID="EastTroublesomeSoilBurnSeverityRasterLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/east-troublesome-sbs-raster-event-config.json")
@@ -227,7 +227,7 @@ SetGeoLayerViewEventHandler(GeoLayerViewID="EastTroublesomeSoilBurnSeverityRaste
 # Soil Burn Severity for Cameron Peak (raster):
 # GeoLayerViewGroupID: SoilBurnSeverityGroup
 # - raster is faster
-ReadRasterGeoLayerFromFile(InputFile="layers/cameron-peak-sbs.tif",GeoLayerID="CameronPeakSoilBurnSeverityRasterLayer",Name="Cameron Peak Fire Soil Burn Severity (raster)",Description="Cameron Peak Fire soil burn severity")
+ReadRasterGeoLayerFromFile(InputFile="https://data.openwaterfoundation.org/country/us/usfs/baer/2020/cameron-peak/cameron-peak-2020-sbs.tif",GeoLayerID="CameronPeakSoilBurnSeverityRasterLayer",Name="Cameron Peak Fire Soil Burn Severity (raster)",Description="Cameron Peak Fire soil burn severity")
 AddGeoLayerViewToGeoMap(GeoLayerID="CameronPeakSoilBurnSeverityRasterLayer",GeoLayerViewID="CameronPeakSoilBurnSeverityRasterLayerView",Name="Cameron Peak Fire Soil Burn Severity (raster)",Description="Cameron Peak Fire soil burn severity from USFS BAER",Properties="docPath:layers/cameron-peak-sbs.md",InsertPosition="Top")
 SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="CameronPeakSoilBurnSeverityRasterLayerView",Name="Colorize soil burn severity",Description="Symbol for the soil burn severity",ClassificationAttribute="1",Properties="classificationFile:'layers/cameron-peak-sbs-classify-gridcode.csv',rasterResolution:'128'")
 SetGeoLayerViewEventHandler(GeoLayerViewID="CameronPeakSoilBurnSeverityRasterLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/cameron-peak-sbs-raster-event-config.json")
@@ -304,14 +304,11 @@ CopyFile(SourceFile="../../BasinEntities/Physical-StreamReaches/layers/stream-re
 CopyFile(SourceFile="layers/stream-reaches.geojson",DestinationFile="${MapFolder}/layers/stream-reaches.geojson")
 CopyFile(SourceFile="layers/stream-reaches-event-config.json",DestinationFile="${MapFolder}/layers/stream-reaches-event-config.json")
 # Cameron Peak burn severity.
-CopyFile(SourceFile="layers/cameron-peak-sbs.geojson",DestinationFile="${MapFolder}/layers/cameron-peak-sbs.geojson")
-CopyFile(SourceFile="layers/cameron-peak-sbs.tif",DestinationFile="${MapFolder}/layers/cameron-peak-sbs.tif")
 CopyFile(SourceFile="layers/cameron-peak-sbs-classify-gridcode.csv",DestinationFile="${MapFolder}/layers/cameron-peak-sbs-classify-gridcode.csv")
 CopyFile(SourceFile="layers/cameron-peak-sbs.md",DestinationFile="${MapFolder}/layers/cameron-peak-sbs.md")
 CopyFile(SourceFile="layers/cameron-peak-sbs-event-config.json",DestinationFile="${MapFolder}/layers/cameron-peak-sbs-event-config.json")
 CopyFile(SourceFile="layers/cameron-peak-sbs-raster-event-config.json",DestinationFile="${MapFolder}/layers/cameron-peak-sbs-raster-event-config.json")
 # East Troublesome burn severity.
-CopyFile(SourceFile="layers/east-troublesome-sbs.tif",DestinationFile="${MapFolder}/layers/east-troublesome-sbs.tif")
 CopyFile(SourceFile="layers/east-troublesome-sbs-classify-gridcode.csv",DestinationFile="${MapFolder}/layers/east-troublesome-sbs-classify-gridcode.csv")
 CopyFile(SourceFile="layers/east-troublesome-sbs.md",DestinationFile="${MapFolder}/layers/east-troublesome-sbs.md")
 CopyFile(SourceFile="layers/east-troublesome-sbs-raster-event-config.json",DestinationFile="${MapFolder}/layers/east-troublesome-sbs-raster-event-config.json")

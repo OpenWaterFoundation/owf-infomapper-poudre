@@ -19,7 +19,7 @@ The following are data sources for this map:
 
 | **Resource** | **Source** |
 | -- | -- |
-| East Troublesome SBS (raster) layer. | [USFS BAER imagery support data download](https://fsapps.nwcg.gov/baer/baer-imagery-support-data-download), 2020 archive. |
+| East Troublesome SBS (raster) layer. | [East Troublesome BAER](https://data.openwaterfoundation.org/country/us/usfs/baer/2020/east-troublesome/) dataset created by the Open Water Foundation from the [USFS BAER imagery support data download](https://burnseverity.cr.usgs.gov/baer/baer-imagery-support-data-download), 2020 archive. |
 
 ## Workflow
 
