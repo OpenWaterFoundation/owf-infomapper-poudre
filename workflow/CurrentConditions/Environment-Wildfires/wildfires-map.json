@@ -293,14 +293,14 @@
           "geoLayerId": "SnodasLayer",
           "name": "Snowpack (SNODAS)",
           "description": "Snowpack from SNODAS",
-          "crs": "EPSG:4326",
+          "crs": "EPSG:26913",
           "geometryType": "WKT:Polygon",
           "layerType": "Vector",
           "sourceFormat": "GeoJSON",
-          "sourcePath": "http://data.openwaterfoundation.org/CO/CDSS/SNODAS/SnowpackStatisticsByDate_LatestDate.geojson",
+          "sourcePath": "https://snodas.cdss.state.co.us/app/SnowpackStatisticsByDate/SnowpackStatisticsByDate_LatestDate.geojson",
           "properties": {},
           "history:": [
-            "Read GeoLayer from GeoJSON file:  'http://data.openwaterfoundation.org/CO/CDSS/SNODAS/SnowpackStatisticsByDate_LatestDate.geojson'"
+            "Read GeoLayer from GeoJSON file:  'https://snodas.cdss.state.co.us/app/SnowpackStatisticsByDate/SnowpackStatisticsByDate_LatestDate.geojson'"
           ]
         },
         {
@@ -419,10 +419,10 @@
           "geometryType": "WKT:Point",
           "layerType": "Vector",
           "sourceFormat": "GeoJSON",
-          "sourcePath": "layers/snotel-stations.geojson",
+          "sourcePath": "https://data.openwaterfoundation.org/country/us/nrcs/snotel/co-snotel-stations.geojson",
           "properties": {},
           "history:": [
-            "Read GeoLayer from GeoJSON file:  'C:\\Users\\sam\\owf-dev\\InfoMapper-Poudre\\git-repos\\owf-infomapper-poudre\\workflow\\CurrentConditions\\Environment-Wildfires\\layers\\snotel-stations.geojson'"
+            "Read GeoLayer from GeoJSON file:  'https://data.openwaterfoundation.org/country/us/nrcs/snotel/co-snotel-stations.geojson'"
           ]
         }
       ],
@@ -685,7 +685,8 @@
               "description": "Current year wildfire perimeters from the National Interagency Fire Center",
               "geoLayerId": "WildfirePerimetersLayer",
               "properties": {
-                "docPath": "layers/wildfire-perimeters.md"
+                "docPath": "layers/wildfire-perimeters.md",
+                "refreshInterval": "24Hour"
               },
               "geoLayerSymbol": {
                 "name": "WildfirePerimetersSymbol",
@@ -877,7 +878,8 @@
               "geoLayerId": "SnodasLayer",
               "properties": {
                 "docPath": "layers/snodas.md",
-                "selectedInitial": "false"
+                "selectedInitial": "false",
+                "refreshInterval": "6Hour"
               },
               "geoLayerSymbol": {
                 "name": "Colorize SWE",

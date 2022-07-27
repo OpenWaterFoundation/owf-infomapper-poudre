@@ -91,8 +91,8 @@ CopyFile(SourceFile="../WaterSupply-SnowPack/layers/snodas-event-config.json",De
 # - after that attempt, use the file from the data harvester
 #ReadGeoLayerFromGeoJSON(InputFile="https://snodas.cdss.state.co.us/app/SnowpackStatisticsByDate/SnowpackStatisticsByDate_LatestDate.geojson",GeoLayerID="SnodasLayer",Name="Snowpack (SNODAS)",Description="Snowpack from SNODAS")
 #ReadGeoLayerFromGeoJSON(InputFile="layers/snodas.geojson",GeoLayerID="SnodasLayer",Name="Snowpack (SNODAS)",Description="Snowpack from SNODAS")
-ReadGeoLayerFromGeoJSON(InputFile="http://data.openwaterfoundation.org/CO/CDSS/SNODAS/SnowpackStatisticsByDate_LatestDate.geojson",GeoLayerID="SnodasLayer",Name="Snowpack (SNODAS)",Description="Snowpack from SNODAS")
-AddGeoLayerViewToGeoMap(GeoLayerID="SnodasLayer",GeoLayerViewID="SnodasLayerView",Name="Snowpack (SNODAS)",Description="Snowpack from SNODAS as basin mean SWE (in)",Properties="docPath:layers/snodas.md,selectedInitial:false")
+ReadGeoLayerFromGeoJSON(InputFile="https://snodas.cdss.state.co.us/app/SnowpackStatisticsByDate/SnowpackStatisticsByDate_LatestDate.geojson",GeoLayerID="SnodasLayer",Name="Snowpack (SNODAS)",Description="Snowpack from SNODAS")
+AddGeoLayerViewToGeoMap(GeoLayerID="SnodasLayer",GeoLayerViewID="SnodasLayerView",Name="Snowpack (SNODAS)",Description="Snowpack from SNODAS as basin mean SWE (in)",Properties="docPath:layers/snodas.md,selectedInitial:false,refreshInterval:6Hour")
 # Use graduated symbol the same as the SNODAS website
 SetGeoLayerViewEventHandler(GeoLayerViewID="SnodasLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/snodas-event-config.json")
 SetGeoLayerViewEventHandler(GeoLayerViewID="SnodasLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/snodas-event-config.json")
@@ -200,7 +200,7 @@ If(Name="UseGeoJSONFromWFSIf",Condition="${PerimeterSource} == GeoJSONFromWFS")
     # The following uses too many parameters based on the Esri URL-builder, which are difficult for a user to deal with.
     #ReadGeoLayerFromGeoJSON(InputFile="https://services3.arcgis.com/T4QMspbfLg3qTGWY/ArcGIS/rest/services/Public_Wildfire_Perimeters_View/FeatureServer/0/query?where=1%3D1&objectIds=&time=&geometry=-109.05%2C36.99%2C-102.05%2C41&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelContains&resultType=none&distance=0.0&units=esriSRUnit_Meter&returnGeodetic=false&outFields=*&returnGeometry=true&returnCentroid=false&featureEncoding=esriDefault&multipatchOption=xyFootprint&maxAllowableOffset=&geometryPrecision=&outSR=&datumTransformation=&applyVCSProjection=false&returnIdsOnly=false&returnUniqueIdsOnly=false&returnCountOnly=false&returnExtentOnly=false&returnQueryGeometry=false&returnDistinctValues=false&cacheHint=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&having=&resultOffset=&resultRecordCount=&returnZ=false&returnM=false&returnExceededLimitFeatures=true&quantizationParameters=&sqlFormat=none&f=pgeojson&token=",GeoLayerID="WildfirePerimetersLayer",Name="Colorado Wildfire Perimeters",Description="Colorado wildfire perimeters web service")
 EndIf(Name="UseGeoJSONFromWFSIf")
-AddGeoLayerViewToGeoMap(GeoLayerID="WildfirePerimetersLayer",GeoLayerViewID="WildfirePerimetersLayerView",Name="Current Year Wildfire Perimeters",Description="Current year wildfire perimeters from the National Interagency Fire Center",Properties="docPath:layers/wildfire-perimeters.md",InsertPosition="Top")
+AddGeoLayerViewToGeoMap(GeoLayerID="WildfirePerimetersLayer",GeoLayerViewID="WildfirePerimetersLayerView",Name="Current Year Wildfire Perimeters",Description="Current year wildfire perimeters from the National Interagency Fire Center",Properties="docPath:layers/wildfire-perimeters.md,refreshInterval:24Hour",InsertPosition="Top")
 # Switch from solid fill to only outline
 #SetGeoLayerViewSingleSymbol(GeoLayerViewID="WildfirePerimetersLayerView",Name="WildfirePerimetersSymbol",Description="Wildfire Perimeters symbol",Properties="color:#ff0000,fillColor:#ff0000,fillOpacity:0.3")
 SetGeoLayerViewSingleSymbol(GeoLayerViewID="WildfirePerimetersLayerView",Name="WildfirePerimetersSymbol",Description="Wildfire Perimeters symbol",Properties="color:#ff0000,fillColor:#000000,fillOpacity:0.0")
@@ -278,10 +278,9 @@ SetGeoLayerViewEventHandler(GeoLayerViewID="StreamReachesLayerView",EventType="c
 # GeoLayerViewGroupID: SnowStationsGroup
 AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="SnowStationsGroup",Name="Snow Stations",Description="Snow stations",Properties="selectedInitial: true",InsertPosition="Top")
 #
-CopyFile(SourceFile="../WaterSupply-Snowpack/layers/snotel-stations.geojson",DestinationFile="layers/snotel-stations.geojson")
 CopyFile(SourceFile="../WaterSupply-Snowpack/layers/snotel-stations.md",DestinationFile="layers/snotel-stations.md")
 CopyFile(SourceFile="../WaterSupply-Snowpack/layers/snotel-stations-event-config.json",DestinationFile="layers/snotel-stations-event-config.json")
-ReadGeoLayerFromGeoJSON(InputFile="layers/snotel-stations.geojson",GeoLayerID="SnotelStationsLayer",Name="SNOTEL Stations",Description="SNOTEL stations from NRCS")
+ReadGeoLayerFromGeoJSON(InputFile="https://data.openwaterfoundation.org/country/us/nrcs/snotel/co-snotel-stations.geojson",GeoLayerID="SnotelStationsLayer",Name="SNOTEL Stations",Description="SNOTEL stations from NRCS")
 AddGeoLayerViewToGeoMap(GeoLayerID="SnotelStationsLayer",GeoLayerViewID="SnotelStationsLayerView",Name="SNOTEL Stations",Description="SNOTEL stations from NRCS",Properties="docPath:'layers/snotel-stations.md'")
 # For now use single symbol
 # - TODO smalers 2020-05-22 need to enable a graduated symbol based on SWE value
@@ -298,7 +297,6 @@ CopyFile(SourceFile="wildfires-map.md",DestinationFile="${MapFolder}/wildfires-m
 # -----
 # Layers
 # SNOTEL stations.
-CopyFile(SourceFile="layers/snotel-stations.geojson",DestinationFile="${MapFolder}/layers/snotel-stations.geojson")
 CopyFile(SourceFile="layers/snotel-stations.md",DestinationFile="${MapFolder}/layers/snotel-stations.md")
 CopyFile(SourceFile="layers/snotel-stations-event-config.json",DestinationFile="${MapFolder}/layers/snotel-stations-event-config.json")
 # Stream reaches.
@@ -340,7 +338,6 @@ CopyFile(SourceFile="layers/continental-divide-co-event-config.json",Destination
 CopyFile(SourceFile="../../SupportingData/Physical-ContinentalDivide/layers/continental-divide.md",DestinationFile="${MapFolder}/layers/continental-divide.md")
 # SNODAS snowpack.
 # - no need to copy layer because read from URL
-#CopyFile(SourceFile="layers/snodas.geojson",DestinationFile="${MapFolder}/layers/snodas.geojson")
 CopyFile(SourceFile="layers/snodas.md",DestinationFile="${MapFolder}/layers/snodas.md")
 CopyFile(SourceFile="layers/snodas-event-config.json",DestinationFile="${MapFolder}/layers/snodas-event-config.json")
 CopyFile(SourceFile="layers/snodas-classify-swe-in.csv",DestinationFile="${MapFolder}/layers/snodas-classify-swe-in.csv")

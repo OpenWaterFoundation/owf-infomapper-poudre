@@ -1,6 +1,6 @@
 # Layer: SNOTEL Stations
 
-The SNOTEL Stations layer contains SNOTEL stations for the Poudre Basin,
+The SNOTEL Stations layer contains SNOTEL stations for Colorado,
 with links to SNOTEL station web pages.
 
 ## Data Sources
@@ -9,7 +9,7 @@ The following are data sources for this map:
 
 | **Resource** | **Source** |
 | -- | -- |
-| SNOTEL Stations | [NRCS SNOTEL data](https://www.wcc.nrcs.usda.gov/snow/).  TSTool software is used with the NRCS AWDB web services to create a GeoJSON layer file (see workflow link below). |
+| SNOTEL Stations | Open Water Foundation [SNOTEL Station](https://data.openwaterfoundation.org/country/us/nrcs/snotel/) dataset, based on NRCS data. |
 
 ## Workflow
 
