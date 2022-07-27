@@ -19,7 +19,7 @@ The following are data sources for this map:
 
 | **Resource** | **Source** |
 | -- | -- |
-| Cameron Peak SBS (raster) layer. | [USFS BAER imagery support data download](https://fsapps.nwcg.gov/baer/baer-imagery-support-data-download), 2020 archive. |
+| Cameron Peak SBS (raster) layer. | [Cameron Peak BAER](https://data.openwaterfoundation.org/country/us/usfs/baer/2020/cameron-peak/) dataset created by the Open Water Foundation from the [USFS BAER imagery support data download](https://burnseverity.cr.usgs.gov/baer/baer-imagery-support-data-download), 2020 archive. |
 
 ## Workflow
 
