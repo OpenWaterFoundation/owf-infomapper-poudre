@@ -108,8 +108,8 @@ AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="SnowpackBasinsGroup",Name="Sno
 # Use the current GeoJSON file from the SNODAS tools website
 # - TODO smalers 2021-04-20 this is old GeoJSON which causes problems for InfoMapper
 ReadGeoLayerFromGeoJSON(InputFile="https://snodas.cdss.state.co.us/app/SnowpackStatisticsByDate/SnowpackStatisticsByDate_LatestDate.geojson",GeoLayerID="SnodasLayer",Name="Snowpack (SNODAS)",Description="Snowpack from SNODAS")
-AddGeoLayerViewToGeoMap(GeoLayerID="SnodasLayer",GeoLayerViewID="SnodasLayerView",Name="Snowpack (SNODAS)",Description="Snowpack from SNODAS as basin mean SWE (in)",Properties="docPath:../WaterSupply-Snowpack/layers/snodas.md")
-# Use graduated symbol the same as the SNODAS website
+AddGeoLayerViewToGeoMap(GeoLayerID="SnodasLayer",GeoLayerViewID="SnodasLayerView",Name="Snowpack (SNODAS)",Description="Snowpack from SNODAS as basin mean SWE (in)",Properties="docPath:../WaterSupply-Snowpack/layers/snodas.md,refreshInterval:6Hour")
+# Use graduated symbol the same as the SNODAS website.
 SetGeoLayerViewEventHandler(GeoLayerViewID="SnodasLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:../WaterSupply-Snowpack/layers/snodas-event-config.json")
 SetGeoLayerViewEventHandler(GeoLayerViewID="SnodasLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:../WaterSupply-Snowpack/layers/snodas-event-config.json")
 SetGeoLayerViewGraduatedSymbol(GeoLayerViewID="SnodasLayerView",Name="Colorize SWE",Description="Show SWE using SNODAS tools colors.",ClassificationAttribute="SNODAS_SWE_Mean_in",Properties="classificationFile:../WaterSupply-Snowpack/layers/snodas-classify-swe-in.csv")
@@ -205,7 +205,7 @@ AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="SoilBurnSeverityGroup",Name="S
 # Soil Burn Severity for East Troublesome (raster):
 # GeoLayerViewGroupID: SoilBurnSeverityGroup
 # - raster is faster
-ReadRasterGeoLayerFromFile(InputFile="../Environment-Wildfires/layers/east-troublesome-sbs.tif",GeoLayerID="EastTroublesomeSoilBurnSeverityRasterLayer",Name="East Troublesome Fire Soil Burn Severity (raster)",Description="East Troublesome Fire soil burn severity")
+ReadRasterGeoLayerFromFile(InputFile="http://data.openwaterfoundation.org/country/us/usfs/baer/2020/east-troublesome/east-troublesome-2020-sbs.tif",GeoLayerID="EastTroublesomeSoilBurnSeverityRasterLayer",Name="East Troublesome Fire Soil Burn Severity (raster)",Description="East Troublesome Fire soil burn severity")
 AddGeoLayerViewToGeoMap(GeoLayerID="EastTroublesomeSoilBurnSeverityRasterLayer",GeoLayerViewID="EastTroublesomeSoilBurnSeverityRasterLayerView",Name="East Troublesome Fire Soil Burn Severity (raster)",Description="East Troublesome Fire soil burn severity from USFS BAER",Properties="docPath:layers/east-troublesome-sbs.md",InsertPosition="Top")
 SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="EastTroublesomeSoilBurnSeverityRasterLayerView",Name="Colorize soil burn severity",Description="Symbol for the soil burn severity",ClassificationAttribute="1",Properties="classificationFile:'../Environment-Wildfires/layers/east-troublesome-sbs-classify-gridcode.csv',rasterResolution:'128'")
 SetGeoLayerViewEventHandler(GeoLayerViewID="EastTroublesomeSoilBurnSeverityRasterLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:../Environment-Wildfires/layers/east-troublesome-sbs-raster-event-config.json")
@@ -214,7 +214,7 @@ SetGeoLayerViewEventHandler(GeoLayerViewID="EastTroublesomeSoilBurnSeverityRaste
 # Soil Burn Severity for Cameron Peak (raster):
 # GeoLayerViewGroupID: SoilBurnSeverityGroup
 # - raster is faster
-ReadRasterGeoLayerFromFile(InputFile="../Environment-Wildfires/layers/cameron-peak-sbs.tif",GeoLayerID="CameronPeakSoilBurnSeverityRasterLayer",Name="Cameron Peak Fire Soil Burn Severity (raster)",Description="Cameron Peak Fire soil burn severity")
+ReadRasterGeoLayerFromFile(InputFile="https://data.openwaterfoundation.org/country/us/usfs/baer/2020/cameron-peak/cameron-peak-2020-sbs.tif",GeoLayerID="CameronPeakSoilBurnSeverityRasterLayer",Name="Cameron Peak Fire Soil Burn Severity (raster)",Description="Cameron Peak Fire soil burn severity")
 AddGeoLayerViewToGeoMap(GeoLayerID="CameronPeakSoilBurnSeverityRasterLayer",GeoLayerViewID="CameronPeakSoilBurnSeverityRasterLayerView",Name="Cameron Peak Fire Soil Burn Severity (raster)",Description="Cameron Peak Fire soil burn severity from USFS BAER",Properties="docPath:layers/cameron-peak-sbs.md",InsertPosition="Top")
 SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="CameronPeakSoilBurnSeverityRasterLayerView",Name="Colorize soil burn severity",Description="Symbol for the soil burn severity",ClassificationAttribute="1",Properties="classificationFile:'../Environment-Wildfires/layers/cameron-peak-sbs-classify-gridcode.csv',rasterResolution:'128'")
 SetGeoLayerViewEventHandler(GeoLayerViewID="CameronPeakSoilBurnSeverityRasterLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:../Environment-Wildfires/layers/cameron-peak-sbs-raster-event-config.json")
@@ -264,19 +264,19 @@ SetGeoLayerViewEventHandler(GeoLayerViewID="StreamReachesLayerView",EventType="c
 #  SetGeoLayerViewEventHandler(GeoLayerViewID="SnotelStationsLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/snotel-stations-event-config.json")
 */
 # = = = = = = = = = =
-# Flood Control Organizations:  read layer and add to the layer view group.
-# GeoLayerViewGroupID: FloodControlGroup
+# Flood Organizations:  read layer and add to the layer view group.
+# GeoLayerViewGroupID: FloodOrgsGroup
 # = = = = = = = = = =
-AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="FloodplainRegulationGroup",Name="Floodplain Regulation",Description="Floodplain regulation resources",Properties="selectedInitial: true",InsertPosition="Top")
+AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="FloodOrgsGroup",Name="Flood Organizations",Description="Flood organizations (regulation, etc.)",Properties="selectedInitial: true",InsertPosition="Top")
 #
 # Organization offices:  read layer and add to the same layer group
 # GeoLayerViewGroupID: FloodControlGroup
 # - group was added above
-ReadGeoLayerFromGeoJSON(InputFile="layers/flood-orgs.geojson",GeoLayerID="FloodOrganizationsLayer",Name="Floodplain Regulation Organizations",Description="Organizations that regulate floodplains")
-AddGeoLayerViewToGeoMap(GeoLayerID="FloodOrganizationsLayer",GeoLayerViewID="FloodOrganizationsLayerView",Name="Floodplain Regulation Organizations",Description="Organizations that regulate floodplains",Properties="docPath:layers/flood-orgs.md",InsertPosition="Top")
-SetGeoLayerViewSingleSymbol(GeoLayerViewID="FloodOrganizationsLayerView",Name="Use marker image for offices",Description="Use marker image for offices",Properties="symbolImage:/img/office-building-32x37.png,imageAnchorPoint:Bottom")
-SetGeoLayerViewEventHandler(GeoLayerViewID="FloodOrganizationsLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/flood-orgs-event-config.json")
-SetGeoLayerViewEventHandler(GeoLayerViewID="FloodOrganizationsLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/flood-orgs-event-config.json")
+ReadGeoLayerFromGeoJSON(InputFile="https://data.openwaterfoundation.org/state/co/owf/flood-orgs/co-flood-orgs.geojson",GeoLayerID="FloodOrgsLayer",Name="Flood Organizations",Description="Flood organizations (regulation, etc.)")
+AddGeoLayerViewToGeoMap(GeoLayerID="FloodOrgsLayer",GeoLayerViewID="FloodOrgsLayerView",Name="Flood Organizations",Description="Flood organizations (regulation, etc.)",Properties="docPath:layers/flood-orgs.md",InsertPosition="Top")
+SetGeoLayerViewSingleSymbol(GeoLayerViewID="FloodOrgsLayerView",Name="Use marker image for offices",Description="Use marker image for offices",Properties="symbolImage:/img/office-building-32x37.png,imageAnchorPoint:Bottom")
+SetGeoLayerViewEventHandler(GeoLayerViewID="FloodOrgsLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/flood-orgs-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="FloodOrgsLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/flood-orgs-event-config.json")
 # = = = = = = = = = =
 # Flood warning system water level stations:
 # - read layers and add to a layer view group
@@ -340,7 +340,6 @@ CopyFile(SourceFile="floods-map.md",DestinationFile="${MapFolder}/floods-map.md"
 # -----
 # Layers
 # Flood organizations
-CopyFile(SourceFile="layers/flood-orgs.geojson",DestinationFile="${MapFolder}/layers/flood-orgs.geojson")
 CopyFile(SourceFile="layers/flood-orgs.md",DestinationFile="${MapFolder}/layers/flood-orgs.md")
 CopyFile(SourceFile="layers/flood-orgs-event-config.json",DestinationFile="${MapFolder}/layers/flood-orgs-event-config.json")
 #
