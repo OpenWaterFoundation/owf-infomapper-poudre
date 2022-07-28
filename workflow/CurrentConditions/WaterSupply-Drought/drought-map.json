@@ -325,10 +325,10 @@
           "geometryType": "WKT:Polygon",
           "layerType": "Vector",
           "sourceFormat": "GeoJSON",
-          "sourcePath": "https://data.openwaterfoundation.org/US/USDM/USDM_current_M.geojson",
+          "sourcePath": "https://data.openwaterfoundation.org/country/us/usdm/drought-monitor/us-drought-monitor-current.geojson",
           "properties": {},
           "history:": [
-            "Read GeoLayer from GeoJSON file:  'https://data.openwaterfoundation.org/US/USDM/USDM_current_M.geojson'"
+            "Read GeoLayer from GeoJSON file:  'https://data.openwaterfoundation.org/country/us/usdm/drought-monitor/us-drought-monitor-current.geojson'"
           ]
         },
         {
@@ -409,7 +409,9 @@
               "description": "US Drought Monitor",
               "geoLayerId": "DroughtLayer",
               "properties": {
-                "docPath": "layers/drought-monitor.md"
+                "docPath": "layers/drought-monitor.md",
+                "refreshOffset": "12Hour",
+                "refreshInterval": "24Hour"
               },
               "geoLayerSymbol": {
                 "name": "Colorize drought monitor",
