@@ -93,8 +93,9 @@ SetGeoLayerViewEventHandler(GeoLayerViewID="StreamReachesLayerView",EventType="c
 # Trails:  read layer and add to a layer view group.
 # GeoLayerViewGroupID: TrailsGroup
 AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="TrailsGroup",Name="Poudre Trails",Description="Poudre Trails",Properties="selectedInitial: true",InsertPosition="Top")
-#
-ReadGeoLayerFromGeoJSON(InputFile="layers/trails-fortcollins.geojson",GeoLayerID="TrailsLayer",Name="Poudre Trails",Description="Poudre Trails")
+# Use a web service instead of a file.
+#ReadGeoLayerFromGeoJSON(InputFile="layers/trails-fortcollins.geojson",GeoLayerID="TrailsLayer",Name="Poudre Trails",Description="Poudre Trails")
+ReadGeoLayerFromGeoJSON(InputFile="https://opendata.fcgov.com/api/geospatial/3j2e-2d5c?method=export&format=GeoJSON",GeoLayerID="TrailsLayer",Name="Poudre Trails",Description="Poudre Trails")
 AddGeoLayerViewToGeoMap(GeoLayerID="TrailsLayer",GeoLayerViewID="TrailsLayerView",Name="Poudre Trails",Description="Poudre trails, from Fort Collins",InsertPosition="Top",Properties="docPath:'layers/trails-fortcollins-doc/trails-fortcollins.md',highlightEnabled:true")
 SetGeoLayerViewSingleSymbol(GeoLayerViewID="TrailsLayerView",Name="Poudre Trails",Description="Poudre Trails",Properties="color:#ff9900,weight:3")
 SetGeoLayerViewEventHandler(GeoLayerViewID="TrailsLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/trails-fortcollins-event-config.json")
@@ -102,7 +103,7 @@ SetGeoLayerViewEventHandler(GeoLayerViewID="TrailsLayerView",EventType="click",N
 # = = = = = = = = = =
 # Trail Organizations:  read layer and add to a layer view group.
 # GeoLayerViewGroupID: TrailsGroup
-ReadGeoLayerFromGeoJSON(InputFile="layers/trail-orgs.geojson",GeoLayerID="TrailOrganizationsLayer",Name="Trail Organizations",Description="Trail Organizations")
+ReadGeoLayerFromGeoJSON(InputFile="https://data.openwaterfoundation.org/state/co/owf/trail-orgs/co-trail-orgs.geojson",GeoLayerID="TrailOrganizationsLayer",Name="Trail Organizations",Description="Trail Organizations")
 AddGeoLayerViewToGeoMap(GeoLayerID="TrailOrganizationsLayer",GeoLayerViewID="TrailOrganizationsLayerView",Name="Trail Organizations",Description="Trail organizations",InsertPosition="Top",Properties="docPath:'layers/trail-orgs.md")
 SetGeoLayerViewSingleSymbol(GeoLayerViewID="TrailOrganizationsLayerView",Name="Trail Organizations",Description="Trail organizations",Properties="symbolImage:/img/hiking2-32x37.png,imageAnchorPoint:Bottom")
 SetGeoLayerViewEventHandler(GeoLayerViewID="TrailOrganizationsLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/trail-orgs-event-config.json")
@@ -114,7 +115,7 @@ WriteGeoMapProjectToJSON(GeoMapProjectID="TrailsProject",Indent="2",OutputFile="
 CreateFolder(Folder="${MapFolder}/layers",CreateParentFolders="True",IfFolderExists="Ignore")
 CopyFile(SourceFile="trails-map.json",DestinationFile="${MapFolder}/trails-map.json")
 CopyFile(SourceFile="trails-map.md",DestinationFile="${MapFolder}/trails-map.md")
-# Disrict 3
+# District 3
 CopyFile(SourceFile="layers/co-dwr-water-district-3.geojson",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3.geojson")
 CopyFile(SourceFile="layers/co-dwr-water-district-3-classify-district.csv",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3-classify-district.csv")
 CopyFile(SourceFile="../Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3-event-config.json",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3-event-config.json")
@@ -125,11 +126,10 @@ CopyFile(SourceFile="../Physical-StreamReaches/layers/stream-reaches-event-confi
 CopyFile(SourceFile="../Physical-StreamReaches/layers/stream-reaches.md",DestinationFile="${MapFolder}/layers/stream-reaches.md")
 # Fort Collins trails
 CreateFolder(Folder="${MapFolder}/layers/trails-fortcollins-doc",CreateParentFolders="True",IfFolderExists="Ignore")
-CopyFile(SourceFile="layers/trails-fortcollins.geojson",DestinationFile="${MapFolder}/layers/trails-fortcollins.geojson")
+#CopyFile(SourceFile="layers/trails-fortcollins.geojson",DestinationFile="${MapFolder}/layers/trails-fortcollins.geojson")
 CopyFile(SourceFile="layers/trails-fortcollins-doc/trails-fortcollins.md",DestinationFile="${MapFolder}/layers/trails-fortcollins-doc/trails-fortcollins.md")
 CopyFile(SourceFile="layers/trails-fortcollins-doc/boxelder-creek.jpg",DestinationFile="${MapFolder}/layers/trails-fortcollins-doc/boxelder-creek.jpg")
 CopyFile(SourceFile="layers/trails-fortcollins-event-config.json",DestinationFile="${MapFolder}/layers/trails-fortcollins-event-config.json")
 # Trail organizations
-CopyFile(SourceFile="layers/trail-orgs.geojson",DestinationFile="${MapFolder}/layers/trail-orgs.geojson")
 CopyFile(SourceFile="layers/trail-orgs.md",DestinationFile="${MapFolder}/layers/trail-orgs.md")
 CopyFile(SourceFile="layers/trail-orgs-event-config.json",DestinationFile="${MapFolder}/layers/trail-orgs-event-config.json")
