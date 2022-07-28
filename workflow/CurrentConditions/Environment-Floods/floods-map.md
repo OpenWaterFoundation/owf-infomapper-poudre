@@ -1,6 +1,6 @@
 # Map: Flood Conditions #
 
-| [Larimer County Emergency Alerts](https://nocoalert.org/) | [Larimer County Flood Warning System](https://larimerco-ns5.trilynx-novastar.systems/novastar/operator/) |
+| [Larimer County Emergency Alerts](https://nocoalert.org/) | [Larimer County Flood Warning System](https://larimerco-ns5.trilynx-novastar.systems/novastar/operator/) | [NWS Weather Story](https://www.weather.gov/bou/weatherstory) |
 | -- | -- |
 
 * Overview
@@ -96,8 +96,9 @@ The following layer groups are included in this map.
 
 | **Layer Group** | **Description** |
 | -- | -- |
-| Flood Warning | Flood warning system (FWS) monitoring stations. Stations are retrieved from the Larimer County regional FWS.  See the [NovaStar Operator website](https://larimerco-ns5.trilynx-novastar.systems/novastar/operator/). |
-| Floodplain Regulation | Organizations that have floodplain regulation responsibilities, including stormwater utilities and districts. |
+| Flood Warning Precipitation Stations | Flood warning system (FWS) precipitation monitoring stations showing precipitation totals for useful intervals. Stations are retrieved from the Larimer County regional FWS.  See the [NovaStar Operator website](https://larimerco-ns5.trilynx-novastar.systems/novastar/operator/). |
+| Flood Warning Water Level Stations | Flood warning system (FWS) water level monitoring stations. Stations are retrieved from the Larimer County regional FWS.  See the [NovaStar Operator website](https://larimerco-ns5.trilynx-novastar.systems/novastar/operator/). |
+| Flood Organizations | Organizations that have floodplain regulation and control responsibilities, including stormwater utilities and districts. |
 | Stream Reaches | Stream lines for named streams and rivers. See also the [***Basin Entities / Physical - Stream Reaches***](#map/entities-stream-reaches) map. |
 | Hydrologic Unit Code (HUC) Basins | Basins that correspond to stream reaches and are often used when describing flood warnings, wildfire conditions, etc. See also the [***Basin Entities / Physical - Bassins***](#map/entities-basins) map. |
 | Soil Burn Severity | Burn severity assessment from Burn Area Emergency Response (BAER). See also the [***Current Conditions / Environment - Wildfires***](#map/current-wildfires) map. |

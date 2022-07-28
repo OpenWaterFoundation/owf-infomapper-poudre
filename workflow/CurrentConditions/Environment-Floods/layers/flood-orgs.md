@@ -15,7 +15,7 @@ The following are data sources for this map:
 
 | **Resource** | **Source** |
 | -- | -- |
-| Flood Organizations layer | [Flood Organizations](https://github.com/OpenWaterFoundation/owf-infomapper-poudre/tree/master/workflow/CurrentConditions/Environment-Floods/data/flood-orgs.xlsx) dataset created by the Open Water Foundation. |
+| Flood Organizations layer | [Flood Organizations](https://data.openwaterfoundation.org/state/co/owf/flood-orgs/) dataset created by the Open Water Foundation. |
 
 ## Workflow
 

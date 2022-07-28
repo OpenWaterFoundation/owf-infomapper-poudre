@@ -367,7 +367,7 @@
           "geometryType": "Raster",
           "layerType": "Raster",
           "sourceFormat": null,
-          "sourcePath": "../Environment-Wildfires/layers/east-troublesome-sbs.tif",
+          "sourcePath": "http://data.openwaterfoundation.org/country/us/usfs/baer/2020/east-troublesome/east-troublesome-2020-sbs.tif",
           "properties": {},
           "history:": []
         },
@@ -379,7 +379,7 @@
           "geometryType": "Raster",
           "layerType": "Raster",
           "sourceFormat": null,
-          "sourcePath": "../Environment-Wildfires/layers/cameron-peak-sbs.tif",
+          "sourcePath": "https://data.openwaterfoundation.org/country/us/usfs/baer/2020/cameron-peak/cameron-peak-2020-sbs.tif",
           "properties": {},
           "history:": []
         },
@@ -412,17 +412,17 @@
           ]
         },
         {
-          "geoLayerId": "FloodOrganizationsLayer",
-          "name": "Floodplain Regulation Organizations",
-          "description": "Organizations that regulate floodplains",
+          "geoLayerId": "FloodOrgsLayer",
+          "name": "Flood Organizations",
+          "description": "Flood organizations (regulation, etc.)",
           "crs": "EPSG:4326",
           "geometryType": "WKT:Point",
           "layerType": "Vector",
           "sourceFormat": "GeoJSON",
-          "sourcePath": "layers/flood-orgs.geojson",
+          "sourcePath": "https://data.openwaterfoundation.org/state/co/owf/flood-orgs/co-flood-orgs.geojson",
           "properties": {},
           "history:": [
-            "Read GeoLayer from GeoJSON file:  'C:\\Users\\sam\\owf-dev\\InfoMapper-Poudre\\git-repos\\owf-infomapper-poudre\\workflow\\CurrentConditions\\Environment-Floods\\layers\\flood-orgs.geojson'"
+            "Read GeoLayer from GeoJSON file:  'https://data.openwaterfoundation.org/state/co/owf/flood-orgs/co-flood-orgs.geojson'"
           ]
         },
         {
@@ -680,18 +680,18 @@
           ]
         },
         {
-          "geoLayerViewGroupId": "FloodplainRegulationGroup",
-          "name": "Floodplain Regulation",
-          "description": "Floodplain regulation resources",
+          "geoLayerViewGroupId": "FloodOrgsGroup",
+          "name": "Flood Organizations",
+          "description": "Flood organizations (regulation, etc.)",
           "properties": {
             "selectedInitial": "true"
           },
           "geoLayerViews": [
             {
-              "geoLayerViewId": "FloodOrganizationsLayerView",
-              "name": "Floodplain Regulation Organizations",
-              "description": "Organizations that regulate floodplains",
-              "geoLayerId": "FloodOrganizationsLayer",
+              "geoLayerViewId": "FloodOrgsLayerView",
+              "name": "Flood Organizations",
+              "description": "Flood organizations (regulation, etc.)",
+              "geoLayerId": "FloodOrgsLayer",
               "properties": {
                 "docPath": "layers/flood-orgs.md"
               },
@@ -1019,7 +1019,8 @@
               "description": "Snowpack from SNODAS as basin mean SWE (in)",
               "geoLayerId": "SnodasLayer",
               "properties": {
-                "docPath": "../WaterSupply-Snowpack/layers/snodas.md"
+                "docPath": "../WaterSupply-Snowpack/layers/snodas.md",
+                "refreshInterval": "6Hour"
               },
               "geoLayerSymbol": {
                 "name": "Colorize SWE",
