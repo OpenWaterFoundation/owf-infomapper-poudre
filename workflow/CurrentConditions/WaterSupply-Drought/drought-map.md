@@ -9,7 +9,7 @@
 
 ## Overview
 
-The Current Drought map provides information about current drought conditions in the Poudre Basin.
+The ***Current Drought*** map provides information about current drought conditions in the Poudre Basin.
 
 ## Drought Resources ##
 

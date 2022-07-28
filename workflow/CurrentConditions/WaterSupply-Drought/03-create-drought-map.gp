@@ -100,8 +100,9 @@ SetGeoLayerViewEventHandler(GeoLayerViewID="ContinentalDivideLayerView",EventTyp
 AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="DroughtGroup",Name="US Drought Monitor",Description="US Drought Monitor",InsertPosition="Top")
 #
 # Use the current GeoJSON file from the OWF cloud
-ReadGeoLayerFromGeoJSON(InputFile="https://data.openwaterfoundation.org/US/USDM/USDM_current_M.geojson",GeoLayerID="DroughtLayer",Name="US Drought Monitor",Description="US Drought Monitor")
-AddGeoLayerViewToGeoMap(GeoLayerID="DroughtLayer",GeoLayerViewID="DroughtLayerView",Name="US Drought Monitor",Description="US Drought Monitor",Properties="docPath:layers/drought-monitor.md")
+#ReadGeoLayerFromGeoJSON(InputFile="https://data.openwaterfoundation.org/US/USDM/USDM_current_M.geojson",GeoLayerID="DroughtLayer",Name="US Drought Monitor",Description="US Drought Monitor")
+ReadGeoLayerFromGeoJSON(InputFile="https://data.openwaterfoundation.org/country/us/usdm/drought-monitor/us-drought-monitor-current.geojson",GeoLayerID="DroughtLayer",Name="US Drought Monitor",Description="US Drought Monitor")
+AddGeoLayerViewToGeoMap(GeoLayerID="DroughtLayer",GeoLayerViewID="DroughtLayerView",Name="US Drought Monitor",Description="US Drought Monitor",Properties="docPath:layers/drought-monitor.md,refreshOffset:12Hour,refreshInterval:24Hour")
 # Use graduated symbol the same as the US Drought Monitor website
 SetGeoLayerViewEventHandler(GeoLayerViewID="DroughtLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/drought-monitor-event-config.json")
 SetGeoLayerViewEventHandler(GeoLayerViewID="DroughtLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/drought-monitor-event-config.json")
@@ -114,7 +115,7 @@ SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="DroughtLayerView",Name="Coloriz
 AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="StreamReachesGroup",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches",Properties="selectedInitial:true",InsertPosition="Top")
 #
 CopyFile(SourceFile="../../BasinEntities/Physical-StreamReaches/layers/stream-reaches.geojson",DestinationFile="layers/stream-reaches.geojson")
-CopyFile(SourceFile="../../BasinEntities/Physical-StreamReaches/layers/stream-reaches.geojson",DestinationFile="layers/stream-reaches-event-config.json")
+CopyFile(SourceFile="../../BasinEntities/Physical-StreamReaches/layers/stream-reaches-event-config.json",DestinationFile="layers/stream-reaches-event-config.json")
 ReadGeoLayerFromGeoJSON(InputFile="layers/stream-reaches.geojson",GeoLayerID="StreamReachesLayer",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches")
 AddGeoLayerViewToGeoMap(GeoLayerID="StreamReachesLayer",GeoLayerViewID="StreamReachesLayerView",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches",Properties="docPath:layers/stream-reaches.md,highlightEnabled:true")
 SetGeoLayerViewSingleSymbol(GeoLayerViewID="StreamReachesLayerView",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches",Properties="color:#6297f7,width:2")

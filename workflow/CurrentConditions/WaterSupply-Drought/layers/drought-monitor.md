@@ -1,6 +1,8 @@
 # Layer: US Drought Monitor
 
-The US Drought Monitor layer contains weekly drought monitor conditions.
+The US Drought Monitor layer contains drought conditions, updated weekly.
+The full US layer is shown because drought in one area tends to have impacts in other areas,
+such as in the Colorado River Basin.
 
 ## Data Sources
 
@@ -8,7 +10,7 @@ The following are data sources for this map:
 
 | **Resource** | **Source** |
 | -- | -- |
-| US Drought Monitor | [US Drought Monitor](https://droughtmonitor.unl.edu/Data/GISData.aspx).  The current US Drought Monitor data are displayed. |
+| US Drought Monitor | [US Drought Monitor](https://data.openwaterfoundation.org/country/us/usdm/drought-monitor/) dataset created by the Open Water Foundation from the [US Drought Monitor](https://droughtmonitor.unl.edu/DmData/GISData.aspx). The current US Drought Monitor data are displayed. |
 
 ## Workflow
 
