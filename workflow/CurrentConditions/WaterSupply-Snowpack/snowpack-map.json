@@ -297,10 +297,10 @@
           "geometryType": "WKT:Polygon",
           "layerType": "Vector",
           "sourceFormat": "GeoJSON",
-          "sourcePath": "layers/co-dwr-water-district-3.geojson",
+          "sourcePath": "https://data.openwaterfoundation.org/state/co/dwr/districts/co-dwr-district-3.geojson",
           "properties": {},
           "history:": [
-            "Read GeoLayer from GeoJSON file:  'C:\\Users\\sam\\owf-dev\\InfoMapper-Poudre\\git-repos\\owf-infomapper-poudre\\workflow\\CurrentConditions\\WaterSupply-Snowpack\\layers\\co-dwr-water-district-3.geojson'"
+            "Read GeoLayer from GeoJSON file:  'https://data.openwaterfoundation.org/state/co/dwr/districts/co-dwr-district-3.geojson'"
           ]
         },
         {
