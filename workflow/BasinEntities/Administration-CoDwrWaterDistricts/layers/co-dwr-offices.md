@@ -14,7 +14,7 @@ The following are data sources for this map:
 
 | **Resource** | **Source** |
 | -- | -- |
-| CO DWR Division Offices layer | [Division Offices dataset](https://github.com/OpenWaterFoundation/owf-infomapper-poudre/tree/master/workflow/BasinEntities/Administration-CoDwrWaterDistricts/data) created by the Open Water Foundation. |
+| CO DWR Division Offices layer | [DWR Divisions dataset](https://data.openwaterfoundation.org/state/co/dwr/divisions/) created by the Open Water Foundation. |
 
 ## Map Creation Workflow
 

@@ -15,7 +15,7 @@ The following are data sources for this map:
 
 | **Resource** | **Source** |
 | -- | -- |
-| CO DWR Division 1 layer | [Division Boundaries](https://www.colorado.gov/pacific/cdss/gis-data-category) from CDSS Data by Category. |
+| CO DWR Division 1 layer | Open Water Foundation [Colorado DWR Water Divisions](https://data.openwaterfoundation.org/state/co/dwr/divisions/) dataset created from the [Division Boundaries](https://www.colorado.gov/pacific/cdss/gis-data-category) dataset from CDSS. |
 
 ## Map Creation Workflow
 

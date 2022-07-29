@@ -297,10 +297,10 @@
           "geometryType": "WKT:Polygon",
           "layerType": "Vector",
           "sourceFormat": "GeoJSON",
-          "sourcePath": "layers/co-dwr-water-division.geojson",
+          "sourcePath": "https://data.openwaterfoundation.org/state/co/dwr/divisions/co-dwr-division-1.geojson",
           "properties": {},
           "history:": [
-            "Read GeoLayer from GeoJSON file:  'C:\\Users\\sam\\owf-dev\\InfoMapper-Poudre\\git-repos\\owf-infomapper-poudre\\workflow\\BasinEntities\\Administration-CoDwrWaterDistricts\\layers\\co-dwr-water-division.geojson'"
+            "Read GeoLayer from GeoJSON file:  'https://data.openwaterfoundation.org/state/co/dwr/divisions/co-dwr-division-1.geojson'"
           ]
         },
         {
@@ -311,10 +311,10 @@
           "geometryType": "WKT:Polygon",
           "layerType": "Vector",
           "sourceFormat": "GeoJSON",
-          "sourcePath": "layers/co-dwr-water-districts-division1.geojson",
+          "sourcePath": "https://data.openwaterfoundation.org/state/co/dwr/districts/co-dwr-districts-division1.geojson",
           "properties": {},
           "history:": [
-            "Read GeoLayer from GeoJSON file:  'C:\\Users\\sam\\owf-dev\\InfoMapper-Poudre\\git-repos\\owf-infomapper-poudre\\workflow\\BasinEntities\\Administration-CoDwrWaterDistricts\\layers\\co-dwr-water-districts-division1.geojson'"
+            "Read GeoLayer from GeoJSON file:  'https://data.openwaterfoundation.org/state/co/dwr/districts/co-dwr-districts-division1.geojson'"
           ]
         },
         {
@@ -325,10 +325,10 @@
           "geometryType": "WKT:Polygon",
           "layerType": "Vector",
           "sourceFormat": "GeoJSON",
-          "sourcePath": "layers/co-dwr-water-district-3.geojson",
+          "sourcePath": "https://data.openwaterfoundation.org/state/co/dwr/districts/co-dwr-district-3.geojson",
           "properties": {},
           "history:": [
-            "Read GeoLayer from GeoJSON file:  'C:\\Users\\sam\\owf-dev\\InfoMapper-Poudre\\git-repos\\owf-infomapper-poudre\\workflow\\BasinEntities\\Administration-CoDwrWaterDistricts\\layers\\co-dwr-water-district-3.geojson'"
+            "Read GeoLayer from GeoJSON file:  'https://data.openwaterfoundation.org/state/co/dwr/districts/co-dwr-district-3.geojson'"
           ]
         },
         {
@@ -339,10 +339,10 @@
           "geometryType": "WKT:Point",
           "layerType": "Vector",
           "sourceFormat": "GeoJSON",
-          "sourcePath": "layers/co-dwr-offices.geojson",
+          "sourcePath": "https://data.openwaterfoundation.org/state/co/dwr/divisions/co-dwr-offices.geojson",
           "properties": {},
           "history:": [
-            "Read GeoLayer from GeoJSON file:  'C:\\Users\\sam\\owf-dev\\InfoMapper-Poudre\\git-repos\\owf-infomapper-poudre\\workflow\\BasinEntities\\Administration-CoDwrWaterDistricts\\layers\\co-dwr-offices.geojson'"
+            "Read GeoLayer from GeoJSON file:  'https://data.openwaterfoundation.org/state/co/dwr/divisions/co-dwr-offices.geojson'"
           ]
         }
       ],
@@ -473,7 +473,7 @@
             {
               "geoLayerViewId": "WaterDivisionLayerView",
               "name": "CO DWR Division 1",
-              "description": "Boundary for Division 1 from the Colorado Division of Water Resources",
+              "description": "Water Division 1 boundary from the Colorado Division of Water Resources",
               "geoLayerId": "WaterDivisionLayer",
               "properties": {
                 "docPath": "layers/co-dwr-water-division.md"
