@@ -1,6 +1,6 @@
-# Layer: Poudre Basin Instream Flow Reach Termini 
+# Layer: Instream Flow Reach Termini 
 
-The Poudre Basin Instream Flow Reach Termini layer contains the upstream and downstream
+The ***Instream Flow Reach Termini*** layer contains the upstream and downstream
 termini for corresponding instream flow reaches.
 
 * Overview
@@ -11,7 +11,7 @@ termini for corresponding instream flow reaches.
 
 ## Overview
 
-See the background for the Poudre Basin Instream Flow Reaches layer.
+See the background for the ***Instream Flow Reaches*** layer.
 
 ## Data Sources
 
@@ -20,7 +20,8 @@ See also the instream flow reaches layer.
 
 | **Resource** | **Source** |
 | -- | -- |
-| Poudre Basin Instream Flow Reach Termini layer | [Colorado's Decision Support Systems](https://www.colorado.gov/pacific/cdss/gis-data-category) Instream Flow. |
+| Instream Flow Reach Termini layer | [Colorado Instream Flow dataset](https://data.openwaterfoundation.org/state/co/cwcb/instream-flow/) from the Open Water Foundation created from the [Colorado's Decision Support Systems](https://www.colorado.gov/pacific/cdss/gis-data-category) Instream Flow. |
+| Poudre Basin Instream Flow Reaches layer |
 
 ## Map Creation Workflow
 

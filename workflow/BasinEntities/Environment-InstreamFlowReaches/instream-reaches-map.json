@@ -1,7 +1,7 @@
 {
   "geoMapProjectId": "InstreamReachesProject",
-  "name": "Poudre Instream Flow Reaches",
-  "description": "Poudre Basin Instream Flow Reaches",
+  "name": "Instream Flow Reaches",
+  "description": "Instream Flow Reaches",
   "projectType": "SingleMap",
   "properties": {
     "author": "Open Water Foundation",
@@ -10,8 +10,8 @@
   "geoMaps": [
     {
       "geoMapId": "InstreamReachesMap",
-      "name": "Poudre Instream Flow Reaches",
-      "description": "Poudre Basin Instream Flow Reaches",
+      "name": "Instream Flow Reaches",
+      "description": "Instream Flow Reaches",
       "dataPath": ".",
       "crs": "EPSG:4326",
       "properties": {
@@ -289,55 +289,69 @@
           ]
         },
         {
-          "geoLayerId": "InstreamReachesLayer",
-          "name": "Poudre Instream Flow Reaches",
-          "description": "Poudre Basin Instream Flow Reaches",
-          "crs": "EPSG:4326",
-          "geometryType": "WKT:LineString",
-          "layerType": "Vector",
-          "sourceFormat": "GeoJSON",
-          "sourcePath": "layers/instream-reaches.geojson",
-          "properties": {},
-          "history:": [
-            "Read GeoLayer from GeoJSON file:  'C:\\Users\\sam\\owf-dev\\InfoMapper-Poudre\\git-repos\\owf-infomapper-poudre\\workflow\\BasinEntities\\Environment-InstreamFlowReaches\\layers\\instream-reaches.geojson'"
-          ]
-        },
-        {
-          "geoLayerId": "InstreamTerminiLayer",
-          "name": "Poudre Instream Flow Reach Termini",
-          "description": "Poudre Basin Instream Flow Reach Termini",
+          "geoLayerId": "NaturalLakesLayer",
+          "name": "Natural Lakes",
+          "description": "Natural lakes from CWCB",
           "crs": "EPSG:4326",
           "geometryType": "WKT:Point",
           "layerType": "Vector",
           "sourceFormat": "GeoJSON",
-          "sourcePath": "layers/instream-termini.geojson",
+          "sourcePath": "https://data.openwaterfoundation.org/state/co/cwcb/instream-flow/co-natural-lakes.geojson",
           "properties": {},
           "history:": [
-            "Read GeoLayer from GeoJSON file:  'C:\\Users\\sam\\owf-dev\\InfoMapper-Poudre\\git-repos\\owf-infomapper-poudre\\workflow\\BasinEntities\\Environment-InstreamFlowReaches\\layers\\instream-termini.geojson'"
+            "Read GeoLayer from GeoJSON file:  'https://data.openwaterfoundation.org/state/co/cwcb/instream-flow/co-natural-lakes.geojson'"
+          ]
+        },
+        {
+          "geoLayerId": "InstreamReachesLayer",
+          "name": "Instream Flow Reaches",
+          "description": "Instream Flow Reaches",
+          "crs": "EPSG:4326",
+          "geometryType": "WKT:LineString",
+          "layerType": "Vector",
+          "sourceFormat": "GeoJSON",
+          "sourcePath": "https://data.openwaterfoundation.org/state/co/cwcb/instream-flow/co-isf-reaches-division1.geojson",
+          "properties": {},
+          "history:": [
+            "Read GeoLayer from GeoJSON file:  'https://data.openwaterfoundation.org/state/co/cwcb/instream-flow/co-isf-reaches-division1.geojson'"
+          ]
+        },
+        {
+          "geoLayerId": "InstreamTerminiLayer",
+          "name": "Instream Flow Reach Termini",
+          "description": "Instream Flow Reach Termini",
+          "crs": "EPSG:4326",
+          "geometryType": "WKT:Point",
+          "layerType": "Vector",
+          "sourceFormat": "GeoJSON",
+          "sourcePath": "https://data.openwaterfoundation.org/state/co/cwcb/instream-flow/co-isf-reach-termini-division1.geojson",
+          "properties": {},
+          "history:": [
+            "Read GeoLayer from GeoJSON file:  'https://data.openwaterfoundation.org/state/co/cwcb/instream-flow/co-isf-reach-termini-division1.geojson'"
           ]
         }
       ],
       "geoLayerViewGroups": [
         {
           "geoLayerViewGroupId": "InstreamReachesGroup",
-          "name": "Poudre Instream Flow Reaches",
-          "description": "Poudre Basin Instream Flow Reaches",
+          "name": "Instream Flow Reaches",
+          "description": "Instream Flow Reaches",
           "properties": {
             "selectedInitial": "true"
           },
           "geoLayerViews": [
             {
               "geoLayerViewId": "InstreamReachesLayerView",
-              "name": "Poudre Basin Instream Flow Reaches",
-              "description": "Poudre Basin Instream Flow Reaches",
+              "name": "Instream Flow Reaches",
+              "description": "Instream Flow Reaches",
               "geoLayerId": "InstreamReachesLayer",
               "properties": {
                 "docPath": "layers/instream-reaches.md",
                 "highlightEnabled": "true"
               },
               "geoLayerSymbol": {
-                "name": "Poudre Basin Instream Flow Reaches",
-                "description": "Poudre Basin Instream Flow Reaches",
+                "name": "Instream Flow Reaches",
+                "description": "Instream Flow Reaches",
                 "classificationType": "SingleSymbol",
                 "classificationAttribute": "",
                 "properties": {
@@ -367,16 +381,16 @@
             },
             {
               "geoLayerViewId": "InstreamTerminiLayerView",
-              "name": "Poudre Instream Flow Reach Termini",
-              "description": "Poudre Basin Instream Flow Reach Termini",
+              "name": "Instream Flow Reach Termini",
+              "description": "Instream Flow Reach Termini",
               "geoLayerId": "InstreamTerminiLayer",
               "properties": {
                 "docPath": "layers/instream-termini.md",
                 "highlightEnabled": "true"
               },
               "geoLayerSymbol": {
-                "name": "Poudre Instream Flow Reach Termini",
-                "description": "Poudre Basin Instream Flow Reach Termini shown as cyan diamond",
+                "name": "Instream Flow Reach Termini",
+                "description": "Instream Flow Reach Termini shown as cyan diamond",
                 "classificationType": "SingleSymbol",
                 "classificationAttribute": "",
                 "properties": {
@@ -407,6 +421,61 @@
                   "hasVisualization": false,
                   "properties": {
                     "eventConfigPath": "layers/instream-termini-event-config.json"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "geoLayerViewGroupId": "NaturalLakesGroup",
+          "name": "Natural Lakes",
+          "description": "Natural lakes",
+          "properties": {
+            "selectedInitial": "true"
+          },
+          "geoLayerViews": [
+            {
+              "geoLayerViewId": "NaturalLakesLayerView",
+              "name": "Natural Lakes",
+              "description": "Natural lakes from CWCB",
+              "geoLayerId": "NaturalLakesLayer",
+              "properties": {
+                "docPath": "layers/natural-lakes.md"
+              },
+              "geoLayerSymbol": {
+                "name": "Natural Lakes",
+                "description": "Natural lakes from CWCB",
+                "classificationType": "SingleSymbol",
+                "classificationAttribute": "",
+                "properties": {
+                  "symbolShape": "Circle",
+                  "color": "black",
+                  "fillColor": "black",
+                  "symbolSize": "4",
+                  "sizeUnits": "pixels",
+                  "opacity": "1.0",
+                  "fillOpacity": "1.0",
+                  "weight": "1.5"
+                }
+              },
+              "eventHandlers": [
+                {
+                  "eventType": "hover",
+                  "name": "Hover event",
+                  "description": "Hover event configuration",
+                  "hasVisualization": false,
+                  "properties": {
+                    "eventConfigPath": "layers/natural-lakes-event-config.json"
+                  }
+                },
+                {
+                  "eventType": "click",
+                  "name": "Click event",
+                  "description": "Click event configuration",
+                  "hasVisualization": false,
+                  "properties": {
+                    "eventConfigPath": "layers/natural-lakes-event-config.json"
                   }
                 }
               ]
