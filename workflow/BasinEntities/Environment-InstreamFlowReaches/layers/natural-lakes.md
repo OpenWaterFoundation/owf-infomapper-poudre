@@ -1,7 +1,7 @@
-# Layer: Instream Flow Reaches 
+# Layer: Natural Lkes 
 
-The ***Instream Flow Reaches*** layer contains linework for streams
-that are protected with an instream flow water right.
+The ***Natural Lakes*** layer contains points for natural lakes
+that are protected with a lake level water right (similar to instream flow right).
 
 * Overview
 * Data Sources
@@ -11,19 +11,11 @@ that are protected with an instream flow water right.
 
 ## Overview
 
-Instream flow reaches in Colorado are associated with the
+Instream flow reaches and lake levels in Colorado are associated with the
 [Instream Flow Program of the Colorado Water Conservation Board](https://cwcb.colorado.gov/focus-areas/ecosystem-health/instream-flow-program).
 
-Instream flow water rights are generally junior to water rights for agriculture and municipal water supply
+Instream flow and lake level water rights are generally junior to water rights for agriculture and municipal water supply
 and are often appropriated for headwaters in order to protect species in those areas from additional water development.
-
-Instream flow water rights can also be appropriated for "recreational in channel diversions" such
-as whitewater parks.
-
-An [instream flow augmentation plan](https://coloradowatertrust.org/project/isf-augmentation-plan-poudre)
-is being developed for the Poudre River.
-Augmentation plans are typically used to offset impacts of groundwater pumping on surface water flows.
-The legal framework for augmentation plans is being applied to enhance the instream flow in the Poudre River.
 
 ## Data Sources
 

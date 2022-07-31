@@ -13,8 +13,8 @@ SetProperty(PropertyName="MapFolder",PropertyType="str",PropertyValue="${MapsFol
 # Create a single map project and map for that project.
 # - GeoMapProjectID:  InstreamReachesProject
 # - GeoMapID:  InstreamReachesMap
-CreateGeoMapProject(NewGeoMapProjectID="InstreamReachesProject",ProjectType="SingleMap",Name="Poudre Instream Flow Reaches",Description="Poudre Basin Instream Flow Reaches",Properties="author:'Open Water Foundation',specificationVersion:'1.0.0'")
-CreateGeoMap(NewGeoMapID="InstreamReachesMap",Name="Poudre Instream Flow Reaches",Description="Poudre Basin Instream Flow Reaches",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.5,40.7,10',docPath:'instream-reaches-map.md'")
+CreateGeoMapProject(NewGeoMapProjectID="InstreamReachesProject",ProjectType="SingleMap",Name="Instream Flow Reaches",Description="Instream Flow Reaches",Properties="author:'Open Water Foundation',specificationVersion:'1.0.0'")
+CreateGeoMap(NewGeoMapID="InstreamReachesMap",Name="Instream Flow Reaches",Description="Instream Flow Reaches",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.5,40.7,10',docPath:'instream-reaches-map.md'")
 AddGeoMapToGeoMapProject(GeoMapProjectID="InstreamReachesProject",GeoMapID="InstreamReachesMap")
 # = = = = = = = = = =
 # Background layers:  read layers and add a layer view group
@@ -76,21 +76,32 @@ SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="WaterDistrictLayerView",Name="C
 SetGeoLayerViewEventHandler(GeoLayerViewID="WaterDistrictLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/co-dwr-water-district-3-event-config.json")
 SetGeoLayerViewEventHandler(GeoLayerViewID="WaterDistrictLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/co-dwr-water-district-3-event-config.json")
 # = = = = = = = = = =
+# Natural Lakes:  read layer and add to a layer view group.
+# GeoLayerViewGroupID: NaturalLakesGroup
+AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="NaturalLakesGroup",Name="Natural Lakes",Description="Natural lakes",Properties="selectedInitial: true",InsertPosition="Top")
+#
+ReadGeoLayerFromGeoJSON(InputFile="https://data.openwaterfoundation.org/state/co/cwcb/instream-flow/co-natural-lakes.geojson",GeoLayerID="NaturalLakesLayer",Name="Natural Lakes",Description="Natural lakes from CWCB")
+AddGeoLayerViewToGeoMap(GeoLayerID="NaturalLakesLayer",GeoLayerViewID="NaturalLakesLayerView",Name="Natural Lakes",Description="Natural lakes from CWCB",Properties="docPath:'layers/natural-lakes.md'")
+# Use single symbol.
+SetGeoLayerViewSingleSymbol(GeoLayerViewID="NaturalLakesLayerView",Name="Natural Lakes",Description="Natural lakes from CWCB",Properties="symbolShape:Circle,color:black,fillColor:black,symbolSize:4,sizeUnits:pixels,opacity:1.0,fillOpacity:1.0,weight:1.5")
+SetGeoLayerViewEventHandler(GeoLayerViewID="NaturalLakesLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/natural-lakes-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="NaturalLakesLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/natural-lakes-event-config.json")
+# = = = = = = = = = =
 # Instream flow reaches:  read layer and add to a layer view group.
 # GeoLayerViewGroupID: InstreamReachesGroup
-AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="InstreamReachesGroup",Name="Poudre Instream Flow Reaches",Description="Poudre Basin Instream Flow Reaches",Properties="selectedInitial: true",InsertPosition="Top")
+AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="InstreamReachesGroup",Name="Instream Flow Reaches",Description="Instream Flow Reaches",Properties="selectedInitial: true",InsertPosition="Top")
 #
-ReadGeoLayerFromGeoJSON(InputFile="layers/instream-reaches.geojson",GeoLayerID="InstreamReachesLayer",Name="Poudre Instream Flow Reaches",Description="Poudre Basin Instream Flow Reaches")
-AddGeoLayerViewToGeoMap(GeoLayerID="InstreamReachesLayer",GeoLayerViewID="InstreamReachesLayerView",Name="Poudre Basin Instream Flow Reaches",Description="Poudre Basin Instream Flow Reaches",Properties="docPath:'layers/instream-reaches.md',highlightEnabled:true")
-SetGeoLayerViewSingleSymbol(GeoLayerViewID="InstreamReachesLayerView",Name="Poudre Basin Instream Flow Reaches",Description="Poudre Basin Instream Flow Reaches",Properties="color:#6297f7")
+ReadGeoLayerFromGeoJSON(InputFile="https://data.openwaterfoundation.org/state/co/cwcb/instream-flow/co-isf-reaches-division1.geojson",GeoLayerID="InstreamReachesLayer",Name="Instream Flow Reaches",Description="Instream Flow Reaches")
+AddGeoLayerViewToGeoMap(GeoLayerID="InstreamReachesLayer",GeoLayerViewID="InstreamReachesLayerView",Name="Instream Flow Reaches",Description="Instream Flow Reaches",Properties="docPath:'layers/instream-reaches.md',highlightEnabled:true")
+SetGeoLayerViewSingleSymbol(GeoLayerViewID="InstreamReachesLayerView",Name="Instream Flow Reaches",Description="Instream Flow Reaches",Properties="color:#6297f7")
 SetGeoLayerViewEventHandler(GeoLayerViewID="InstreamReachesLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/instream-reaches-event-config.json")
 SetGeoLayerViewEventHandler(GeoLayerViewID="InstreamReachesLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/instream-reaches-event-config.json")
 # = = = = = = = = = =
 # Instream flow termini:  read layer and add to a layer view group.
 # GeoLayerViewGroupID: InstreamReachesGroup
-ReadGeoLayerFromGeoJSON(InputFile="layers/instream-termini.geojson",GeoLayerID="InstreamTerminiLayer",Name="Poudre Instream Flow Reach Termini",Description="Poudre Basin Instream Flow Reach Termini")
-AddGeoLayerViewToGeoMap(GeoLayerID="InstreamTerminiLayer",GeoLayerViewID="InstreamTerminiLayerView",Name="Poudre Instream Flow Reach Termini",Description="Poudre Basin Instream Flow Reach Termini",Properties="docPath:'layers/instream-termini.md',highlightEnabled:true")
-SetGeoLayerViewSingleSymbol(GeoLayerViewID="InstreamTerminiLayerView",Name="Poudre Instream Flow Reach Termini",Description="Poudre Basin Instream Flow Reach Termini shown as cyan diamond",Properties="symbolShape:Diamond,color:cyan,fillColor:cyan,size:6,sizeUnits:pixels,opacity:1.0,fillOpacity:1.0,weight:1.5")
+ReadGeoLayerFromGeoJSON(InputFile="https://data.openwaterfoundation.org/state/co/cwcb/instream-flow/co-isf-reach-termini-division1.geojson",GeoLayerID="InstreamTerminiLayer",Name="Instream Flow Reach Termini",Description="Instream Flow Reach Termini")
+AddGeoLayerViewToGeoMap(GeoLayerID="InstreamTerminiLayer",GeoLayerViewID="InstreamTerminiLayerView",Name="Instream Flow Reach Termini",Description="Instream Flow Reach Termini",Properties="docPath:'layers/instream-termini.md',highlightEnabled:true")
+SetGeoLayerViewSingleSymbol(GeoLayerViewID="InstreamTerminiLayerView",Name="Instream Flow Reach Termini",Description="Instream Flow Reach Termini shown as cyan diamond",Properties="symbolShape:Diamond,color:cyan,fillColor:cyan,size:6,sizeUnits:pixels,opacity:1.0,fillOpacity:1.0,weight:1.5")
 SetGeoLayerViewEventHandler(GeoLayerViewID="InstreamTerminiLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/instream-termini-event-config.json")
 SetGeoLayerViewEventHandler(GeoLayerViewID="InstreamTerminiLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/instream-termini-event-config.json")
 # = = = = = = = = = =
@@ -105,10 +116,11 @@ CopyFile(SourceFile="layers/co-dwr-water-district-3-classify-district.csv",Desti
 CopyFile(SourceFile="../Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3-event-config.json",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3-event-config.json")
 CopyFile(SourceFile="../Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3.md",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3.md")
 #
-CopyFile(SourceFile="layers/instream-reaches.geojson",DestinationFile="${MapFolder}/layers/instream-reaches.geojson")
 CopyFile(SourceFile="layers/instream-reaches.md",DestinationFile="${MapFolder}/layers/instream-reaches.md")
 CopyFile(SourceFile="layers/instream-reaches-event-config.json",DestinationFile="${MapFolder}/layers/instream-reaches-event-config.json")
 #
-CopyFile(SourceFile="layers/instream-termini.geojson",DestinationFile="${MapFolder}/layers/instream-termini.geojson")
 CopyFile(SourceFile="layers/instream-termini.md",DestinationFile="${MapFolder}/layers/instream-termini.md")
 CopyFile(SourceFile="layers/instream-termini-event-config.json",DestinationFile="${MapFolder}/layers/instream-termini-event-config.json")
+#
+CopyFile(SourceFile="layers/natural-lakes.md",DestinationFile="${MapFolder}/layers/natural-lakes.md")
+CopyFile(SourceFile="layers/natural-lakes-event-config.json",DestinationFile="${MapFolder}/layers/natural-lakes-event-config.json")
