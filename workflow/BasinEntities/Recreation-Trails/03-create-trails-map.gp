@@ -13,8 +13,8 @@ SetProperty(PropertyName="MapFolder",PropertyType="str",PropertyValue="${MapsFol
 # Create a single map project and map for that project.
 # - GeoMapProjectID:  TrailsProject
 # - GeoMapID:  TrailsMap
-CreateGeoMapProject(NewGeoMapProjectID="TrailsProject",ProjectType="SingleMap",Name="Poudre Trails",Description="Poudre Trails",Properties="author:'Open Water Foundation',specificationFlavor:'',specificationVersion:'1.0.0'")
-CreateGeoMap(NewGeoMapID="TrailsMap",Name="Poudre Trails",Description="Poudre Trails",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.5,40.7,10',docPath:trails-map.md")
+CreateGeoMapProject(NewGeoMapProjectID="TrailsProject",ProjectType="SingleMap",Name="Trails",Description="Trails",Properties="author:'Open Water Foundation',specificationFlavor:'',specificationVersion:'1.0.0'")
+CreateGeoMap(NewGeoMapID="TrailsMap",Name="Trails",Description="Trails",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.5,40.7,10',docPath:trails-map.md")
 AddGeoMapToGeoMapProject(GeoMapProjectID="TrailsProject",GeoMapID="TrailsMap")
 # = = = = = = = = = =
 # Background layers:  read layers and add a layer view group
@@ -79,25 +79,25 @@ SetGeoLayerViewEventHandler(GeoLayerViewID="WaterDistrictLayerView",EventType="c
 # Stream reaches:  read layer and add to a layer view group.
 # - TODO smalers 2020-05-22 for now copy the stream reaches but want to use shared layer
 # GeoLayerViewGroupID: StreamReachesGroup
-AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="StreamReachesGroup",Name="Poudre Stream Reaches",Description="Poudre stream reaches",Properties="selectedInitial: true",InsertPosition="Top")
+AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="StreamReachesGroup",Name="Stream Reaches",Description="stream reaches",Properties="selectedInitial: true",InsertPosition="Top")
 #
-CopyFile(SourceFile="../../BasinEntities/Physical-StreamReaches/layers/stream-reaches.geojson",DestinationFile="layers/stream-reaches.geojson")
-ReadGeoLayerFromGeoJSON(InputFile="layers/stream-reaches.geojson",GeoLayerID="StreamReachesLayer",Name="Poudre Stream Reaches",Description="Poudre stream reaches")
-AddGeoLayerViewToGeoMap(GeoLayerID="StreamReachesLayer",GeoLayerViewID="StreamReachesLayerView",Name="Poudre Stream Reaches",Description="Poudre stream reaches, from the Colorado Division of Water Resources",Properties="docPath:layers/stream-reaches.md,highlightEnabled:true")
-SetGeoLayerViewSingleSymbol(GeoLayerViewID="StreamReachesLayerView",Name="Poudre Stream Reaches",Description="Poudre stream reaches",Properties="color:#6297f7,width:2")
-#SetGeoLayerViewSingleSymbol(GeoLayerViewID="StreamReachesLayerView",Name="Poudre Stream Reaches",Description="Poudre stream reaches")
-# SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="StreamReachesLayerView",Name="Poudre Stream Reaches",Description="Show stream reaches is blue lines",ClassificationAttribute="county",Properties="classificationType:'SingleSymbol'")
+CopyFile(SourceFile="../../BasinEntities/Physical-StreamReaches/layers/stream-reaches.md",DestinationFile="layers/stream-reaches.md")
+ReadGeoLayerFromGeoJSON(InputFile="https://data.openwaterfoundation.org/state/co/dwr/stream-reaches/co-stream-reaches-district3.geojson",GeoLayerID="StreamReachesLayer",Name="Stream Reaches",Description="Stream reaches")
+AddGeoLayerViewToGeoMap(GeoLayerID="StreamReachesLayer",GeoLayerViewID="StreamReachesLayerView",Name="Stream Reaches",Description="Stream reaches, from the Colorado Division of Water Resources",Properties="docPath:layers/stream-reaches.md,highlightEnabled:true")
+SetGeoLayerViewSingleSymbol(GeoLayerViewID="StreamReachesLayerView",Name="Stream Reaches",Description="Stream reaches",Properties="color:#6297f7,width:2")
+#SetGeoLayerViewSingleSymbol(GeoLayerViewID="StreamReachesLayerView",Name="Stream Reaches",Description="Stream reaches")
+# SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="StreamReachesLayerView",Name="Stream Reaches",Description="Show stream reaches is blue lines",ClassificationAttribute="county",Properties="classificationType:'SingleSymbol'")
 SetGeoLayerViewEventHandler(GeoLayerViewID="StreamReachesLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/stream-reaches-event-config.json")
 SetGeoLayerViewEventHandler(GeoLayerViewID="StreamReachesLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/stream-reaches-event-config.json")
 # = = = = = = = = = =
 # Trails:  read layer and add to a layer view group.
 # GeoLayerViewGroupID: TrailsGroup
-AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="TrailsGroup",Name="Poudre Trails",Description="Poudre Trails",Properties="selectedInitial: true",InsertPosition="Top")
+AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="TrailsGroup",Name="Trails",Description="Trails",Properties="selectedInitial: true",InsertPosition="Top")
 # Use a web service instead of a file.
-#ReadGeoLayerFromGeoJSON(InputFile="layers/trails-fortcollins.geojson",GeoLayerID="TrailsLayer",Name="Poudre Trails",Description="Poudre Trails")
-ReadGeoLayerFromGeoJSON(InputFile="https://opendata.fcgov.com/api/geospatial/3j2e-2d5c?method=export&format=GeoJSON",GeoLayerID="TrailsLayer",Name="Poudre Trails",Description="Poudre Trails")
-AddGeoLayerViewToGeoMap(GeoLayerID="TrailsLayer",GeoLayerViewID="TrailsLayerView",Name="Poudre Trails",Description="Poudre trails, from Fort Collins",InsertPosition="Top",Properties="docPath:'layers/trails-fortcollins-doc/trails-fortcollins.md',highlightEnabled:true")
-SetGeoLayerViewSingleSymbol(GeoLayerViewID="TrailsLayerView",Name="Poudre Trails",Description="Poudre Trails",Properties="color:#ff9900,weight:3")
+#ReadGeoLayerFromGeoJSON(InputFile="layers/trails-fortcollins.geojson",GeoLayerID="TrailsLayer",Name="Trails",Description="Trails")
+ReadGeoLayerFromGeoJSON(InputFile="https://opendata.fcgov.com/api/geospatial/3j2e-2d5c?method=export&format=GeoJSON",GeoLayerID="TrailsLayer",Name="Trails",Description="Trails")
+AddGeoLayerViewToGeoMap(GeoLayerID="TrailsLayer",GeoLayerViewID="TrailsLayerView",Name="Trails",Description="trails, from Fort Collins",InsertPosition="Top",Properties="docPath:'layers/trails-fortcollins-doc/trails-fortcollins.md',highlightEnabled:true")
+SetGeoLayerViewSingleSymbol(GeoLayerViewID="TrailsLayerView",Name="Trails",Description="Trails",Properties="color:#ff9900,weight:3")
 SetGeoLayerViewEventHandler(GeoLayerViewID="TrailsLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/trails-fortcollins-event-config.json")
 SetGeoLayerViewEventHandler(GeoLayerViewID="TrailsLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/trails-fortcollins-event-config.json")
 # = = = = = = = = = =
@@ -120,7 +120,6 @@ CopyFile(SourceFile="layers/co-dwr-water-district-3-classify-district.csv",Desti
 CopyFile(SourceFile="../Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3-event-config.json",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3-event-config.json")
 CopyFile(SourceFile="../Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3.md",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3.md")
 # Stream reaches
-CopyFile(SourceFile="layers/stream-reaches.geojson",DestinationFile="${MapFolder}/layers/stream-reaches.geojson")
 CopyFile(SourceFile="../Physical-StreamReaches/layers/stream-reaches-event-config.json",DestinationFile="${MapFolder}/layers/stream-reaches-event-config.json")
 CopyFile(SourceFile="../Physical-StreamReaches/layers/stream-reaches.md",DestinationFile="${MapFolder}/layers/stream-reaches.md")
 # Fort Collins trails

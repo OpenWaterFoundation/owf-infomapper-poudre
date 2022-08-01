@@ -7,7 +7,7 @@
 
 ## Overview
 
-The Poudre Trails map shows trails in the basin.
+The ***Trails*** map shows trails in the basin.
 
 This map will be updated in the future to:
 
@@ -18,8 +18,8 @@ This map will be updated in the future to:
 See also:
 
 * [Colorado Trail Explorer (COTREX)](https://trails.colorado.gov/):
-	+ [Larimer County](https://trails.colorado.gov/places/na~1931563)
-	+ [Weld County](https://trails.colorado.gov/places/na~1931512)
+    + [Larimer County](https://trails.colorado.gov/places/na~1931563)
+    + [Weld County](https://trails.colorado.gov/places/na~1931512)
 
 ## Layer Groups
 
@@ -27,7 +27,7 @@ The following layer groups are included in this map.
 
 | **Layer Group** | **Description** |
 | -- | -- |
-| Poudre Trails | Trails in the Poudre Basin. |
-| Poudre Stream Reaches | Stream lines for named streams and rivers. |
+| ***Trails*** | Trails in the basin. |
+| Stream Reaches | Stream lines for named streams and rivers. |
 | CO DWR Water Districts | Division of Water Resources water districts, to highlight the Poudre Basin (Water District 3).  See the [***Basin Entities / Administration - CO DWR Water Districts***](#map/entities-codwr-waterdistricts) map for more information. |
 | Background Layers | Background layers that provide a frame of reference. |

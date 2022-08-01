@@ -3,6 +3,7 @@
 * Overview
 * Comparison with Administrative and Other Basins
     + Joe Wright Creek Omitted from Water District 3
+    + Wyoming Streams Omitted from Water District 3
 * Layer Groups
 
 -------------------
@@ -70,13 +71,21 @@ The District 3 Water Commissioner indicated that "Joe Wright was tributary to th
 landslide created [Chambers Lake](https://en.wikipedia.org/wiki/Chambers_Lake_(Colorado))
 and pushed Joe Wright Creek south to the Poudre."
 
+### Wyoming Streams Omitted from Water District 3
+
+DWR's Source Water Route Framework dataset,
+which is the basis of the stream reach data, did not originally include streams outside of District 3.
+Over time, streams in Wyoming are being added.
+The Open Water Foundation has requested that the remaining Wyoming streams in the
+Poudre HUC basin should be included in the State's dataset.
+
 ## Layer Groups
 
 The following layer groups are included in this map.
 
 | **Layer Group** | **Description** |
 | -- | -- |
-| Poudre Stream Reaches | Stream reaches within the basin. |
+| Stream Reaches | Stream reaches within the basin. |
 | Hydrologic Unit Code Basins | Hydrologic Unit Code (HUC) basins. |
 | CO DWR Water Districts | Division of Water Resources water districts, to highlight the Poudre Basin (Water District 3).  See the [***Basin Entities / Administration - CO DWR Water Districts***](#map/entities-codwr-waterdistricts) map for more information. |
 | Continental Divide | Continental divide line, to help understand transbasin issues. |

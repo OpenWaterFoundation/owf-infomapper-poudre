@@ -30,7 +30,7 @@ The following layer groups are included in this map.
 
 | **Layer Group** | **Description** |
 | -- | -- |
-| Poudre Stream Reaches | Stream lines for named streams and rivers. |
+| Stream Reaches | Stream lines for named streams and rivers. |
 | Station Snowpack | Current snowpack conditions at snow stations. |
 | Basin Snowpack | Current snowpack conditions for basins. |
 | CO DWR Water Districts | Division of Water Resources water districts, to highlight the Poudre Basin (Water District 3).  See the [***Basin Entities / Administration - CO DWR Water Districts***](#map/entities-codwr-waterdistricts) map for more information. |

@@ -1,7 +1,7 @@
 # Map: Current Wildfires
 
 * Overview
-	+ Active and Recent Fires
+    + Active and Recent Fires
 * Protection and Restoration
 * Layer Groups
 
@@ -52,7 +52,7 @@ The following layer groups are included in this map.
 
 | **Layer Group** | **Description** |
 | -- | -- |
-| Poudre Stream Reaches | Stream lines for named streams and rivers. |
+| Stream Reaches | Stream lines for named streams and rivers. |
 | Wildfires | Colorado wildfire burn areas. |
 | Soil Burn Severity | Burn severity assessment from Burn Area Emergency Response (BAER). |
 | National Parks | National parks impacted by wildfires. |
