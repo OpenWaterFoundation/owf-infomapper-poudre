@@ -1,7 +1,7 @@
-# Layer Group: Poudre Trails
+# Layer Group: Trails
 
-The Poudre trails layer group provides information about trails in the basin.
+The trails layer group provides information about trails in the basin.
 
 | **Layer** | **Description** |
 | -- | -- |
-| Poudre Trails | Poudre trails, currently only shows Fort Collins trails. |
+| Trails | Trails, currently only shows Fort Collins trails. |

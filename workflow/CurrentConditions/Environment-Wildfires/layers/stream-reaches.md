@@ -1,6 +1,6 @@
-# Layer: Poudre Stream Reaches 
+# Layer: Stream Reaches 
 
-The Poudre Stream Reaches layer contains linework for physical streams in the basin.
+The ***Stream Reaches*** layer contains linework for physical streams in the basin.
 
 * Overview
 * Data Sources
@@ -10,7 +10,7 @@ The Poudre Stream Reaches layer contains linework for physical streams in the ba
 
 ## Overview
 
-The Poudre Stream Reaches layer features were extracted from statewide
+The ***Stream Reaches*** layer features were extracted from statewide
 Source Water Route Framework (SWRF) layer, developed by the Colorado Division of Water Resources.
 This layer uses linework from the
 [National Hydrography Dataset (NHD)](https://www.usgs.gov/core-science-systems/ngp/national-hydrography/national-hydrography-dataset?qt-science_support_page_related_con=0#qt-science_support_page_related_con).
@@ -36,7 +36,7 @@ The following are data sources for this layer:
 
 | **Resource** | **Source** |
 | -- | -- |
-| Source Water Route Framework layer | [Colorado's Decision Support Systems](https://www.colorado.gov/pacific/cdss/gis-data-category) Source Water Route Framework. |
+| Stream Reaches layer | [Colorado Stream Reaches dataset](https://data.openwaterfoundation.org/state/co/dwr/stream-reaches/) from the Open Water Foundation, created from the [Colorado's Decision Support Systems](https://www.colorado.gov/pacific/cdss/gis-data-category) Source Water Route Framework. |
 
 ## Map Creation Workflow
 

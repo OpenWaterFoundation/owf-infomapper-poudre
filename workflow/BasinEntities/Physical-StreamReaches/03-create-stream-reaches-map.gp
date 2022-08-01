@@ -13,8 +13,8 @@ SetProperty(PropertyName="MapFolder",PropertyType="str",PropertyValue="${MapsFol
 # Create a single map project and map for that project.
 # - GeoMapProjectID:  StreamReachesProject
 # - GeoMapID:  StreamReachesMap
-CreateGeoMapProject(NewGeoMapProjectID="StreamReachesProject",ProjectType="SingleMap",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches",Properties="author:'Open Water Foundation',specificationFlavor:'',specificationVersion:'1.0.0'")
-CreateGeoMap(NewGeoMapID="StreamReachesMap",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.5,40.7,10',docPath:stream-reaches-map.md")
+CreateGeoMapProject(NewGeoMapProjectID="StreamReachesProject",ProjectType="SingleMap",Name="Stream Reaches",Description="Stream Reaches",Properties="author:'Open Water Foundation',specificationFlavor:'',specificationVersion:'1.0.0'")
+CreateGeoMap(NewGeoMapID="StreamReachesMap",Name="Stream Reaches",Description="Stream Reaches",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.5,40.7,10',docPath:stream-reaches-map.md")
 AddGeoMapToGeoMapProject(GeoMapProjectID="StreamReachesProject",GeoMapID="StreamReachesMap")
 # = = = = = = = = = =
 # Background layers:  read layers and add a layer view group
@@ -78,12 +78,12 @@ SetGeoLayerViewEventHandler(GeoLayerViewID="WaterDistrictLayerView",EventType="c
 # = = = = = = = = = =
 # Stream reaches:  read layer and add to a layer view group.
 # GeoLayerViewGroupID: StreamReachesGroup
-AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="StreamReachesGroup",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches",Properties="selectedInitial: true",InsertPosition="Top")
+AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="StreamReachesGroup",Name="Stream Reaches",Description="Stream Reaches",Properties="selectedInitial: true",InsertPosition="Top")
 #
-ReadGeoLayerFromGeoJSON(InputFile="layers/stream-reaches.geojson",GeoLayerID="StreamReachesLayer",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches")
-AddGeoLayerViewToGeoMap(GeoLayerID="StreamReachesLayer",GeoLayerViewID="StreamReachesLayerView",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches",Properties="docPath:layers/stream-reaches.md,highlightEnabled:true")
-SetGeoLayerViewSingleSymbol(GeoLayerViewID="StreamReachesLayerView",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches",Properties="color:#6297f7")
-# SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="StreamReachesLayerView",Name="Poudre Stream Reaches",Description="Show stream reaches is blue lines",ClassificationAttribute="county",Properties="classificationType:'SingleSymbol'")
+ReadGeoLayerFromGeoJSON(InputFile="https://data.openwaterfoundation.org/state/co/dwr/stream-reaches/co-stream-reaches-district3.geojson",GeoLayerID="StreamReachesLayer",Name="Stream Reaches",Description="Stream Reaches")
+AddGeoLayerViewToGeoMap(GeoLayerID="StreamReachesLayer",GeoLayerViewID="StreamReachesLayerView",Name="Stream Reaches",Description="Stream Reaches",Properties="docPath:layers/stream-reaches.md,highlightEnabled:true")
+SetGeoLayerViewSingleSymbol(GeoLayerViewID="StreamReachesLayerView",Name="Stream Reaches",Description="Stream Reaches",Properties="color:#6297f7")
+# SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="StreamReachesLayerView",Name="Stream Reaches",Description="Show stream reaches is blue lines",ClassificationAttribute="county",Properties="classificationType:'SingleSymbol'")
 SetGeoLayerViewEventHandler(GeoLayerViewID="StreamReachesLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/stream-reaches-event-config.json")
 SetGeoLayerViewEventHandler(GeoLayerViewID="StreamReachesLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/stream-reaches-event-config.json")
 # = = = = = = = = = =
@@ -98,7 +98,6 @@ CopyFile(SourceFile="layers/co-dwr-water-district-3-classify-district.csv",Desti
 CopyFile(SourceFile="../Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3-event-config.json",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3-event-config.json")
 CopyFile(SourceFile="../Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3.md",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3.md")
 #
-CopyFile(SourceFile="layers/stream-reaches.geojson",DestinationFile="${MapFolder}/layers/stream-reaches.geojson")
 CreateFolder(Folder="${MapFolder}/layers/stream-reaches-doc",CreateParentFolders="True",IfFolderExists="Ignore")
 CopyFile(SourceFile="layers/stream-reaches.md",DestinationFile="${MapFolder}/layers/stream-reaches.md")
 CopyFile(SourceFile="layers/stream-reaches-event-config.json",DestinationFile="${MapFolder}/layers/stream-reaches-event-config.json")

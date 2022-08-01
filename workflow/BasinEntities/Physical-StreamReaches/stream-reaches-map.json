@@ -1,7 +1,7 @@
 {
   "geoMapProjectId": "StreamReachesProject",
-  "name": "Poudre Stream Reaches",
-  "description": "Poudre Stream Reaches",
+  "name": "Stream Reaches",
+  "description": "Stream Reaches",
   "projectType": "SingleMap",
   "properties": {
     "author": "Open Water Foundation",
@@ -11,8 +11,8 @@
   "geoMaps": [
     {
       "geoMapId": "StreamReachesMap",
-      "name": "Poudre Stream Reaches",
-      "description": "Poudre Stream Reaches",
+      "name": "Stream Reaches",
+      "description": "Stream Reaches",
       "dataPath": ".",
       "crs": "EPSG:4326",
       "properties": {
@@ -291,40 +291,40 @@
         },
         {
           "geoLayerId": "StreamReachesLayer",
-          "name": "Poudre Stream Reaches",
-          "description": "Poudre Stream Reaches",
+          "name": "Stream Reaches",
+          "description": "Stream Reaches",
           "crs": "EPSG:4326",
           "geometryType": "WKT:LineString",
           "layerType": "Vector",
           "sourceFormat": "GeoJSON",
-          "sourcePath": "layers/stream-reaches.geojson",
+          "sourcePath": "https://data.openwaterfoundation.org/state/co/dwr/stream-reaches/co-stream-reaches-district3.geojson",
           "properties": {},
           "history:": [
-            "Read GeoLayer from GeoJSON file:  'C:\\Users\\sam\\owf-dev\\InfoMapper-Poudre\\git-repos\\owf-infomapper-poudre\\workflow\\BasinEntities\\Physical-StreamReaches\\layers\\stream-reaches.geojson'"
+            "Read GeoLayer from GeoJSON file:  'https://data.openwaterfoundation.org/state/co/dwr/stream-reaches/co-stream-reaches-district3.geojson'"
           ]
         }
       ],
       "geoLayerViewGroups": [
         {
           "geoLayerViewGroupId": "StreamReachesGroup",
-          "name": "Poudre Stream Reaches",
-          "description": "Poudre Stream Reaches",
+          "name": "Stream Reaches",
+          "description": "Stream Reaches",
           "properties": {
             "selectedInitial": "true"
           },
           "geoLayerViews": [
             {
               "geoLayerViewId": "StreamReachesLayerView",
-              "name": "Poudre Stream Reaches",
-              "description": "Poudre Stream Reaches",
+              "name": "Stream Reaches",
+              "description": "Stream Reaches",
               "geoLayerId": "StreamReachesLayer",
               "properties": {
                 "docPath": "layers/stream-reaches.md",
                 "highlightEnabled": "true"
               },
               "geoLayerSymbol": {
-                "name": "Poudre Stream Reaches",
-                "description": "Poudre Stream Reaches",
+                "name": "Stream Reaches",
+                "description": "Stream Reaches",
                 "classificationType": "SingleSymbol",
                 "classificationAttribute": "",
                 "properties": {

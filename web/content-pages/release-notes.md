@@ -11,8 +11,8 @@ The following release notes summarize changes to the Poudre Basin Information we
 
 | **Release** | **Date**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | **Description** |
 | -- | -- | -- |
-| 2.5.0 | 2022-07-22 | Convert data sources to use OWF `data` website as much as possible. Fix flood map legend. |
-| 2.4.0 | 2022-07-05 | Begin phasing in datasets from the OWF `data` website to streamline use of shared datasets.  Initial dashboards released.  Many updates. |
+| 2.5.0 | 2022-07-22 | Convert data sources to use Open Water Foundation `data` website as much as possible. Fix flood map legend. |
+| 2.4.0 | 2022-07-05 | Begin phasing in datasets from the Open Water Foundation `data` website to streamline use of shared datasets.  Initial dashboards released.  Many updates. |
 | 2.3.0 | | Add East Troublesome soil burn severity, various other data additions. |
 | 2.2.0 | | Functional data table search tool for points and polygons. |
 | 2.1.0 | | Add SNODAS snowpack to wildfires map and for water supply map, add US Drought Monitor map. |
@@ -29,9 +29,25 @@ The following release notes summarize changes to the Poudre Basin Information we
 
 ------------
 
+## 2.5.0 ##
+
+**Feature release including use of datasets on public pages.**
+
+* [2.5.0] Datasets have been migrated to public pages:
+    + **This migration is still in progress.**
+    + Datasets that previously were processed when configuring the website
+      are now published on [`data.openwaterfoundation.org`](https://data.openwaterfoundation.org).
+    + Datasets can now be shared between applications.
+    + Datasets can be updated on a schedule that is appropriate for each dataset.
+    + The size of the InfoMapper website implementation is much less and consists of only
+      configuration files.
+* [2.5.0] Several maps (e.g., Floods, Wildfires) now include stream reaches for the Big Thompson basin
+  because of overlapping water issues.
+* [2.5.0] Instream flow reaches are now included for Division 1 (South Platte).
+
 ## 2.4.0 ##
 
-**Feature release reflecting many software and dataset updates.**
+**Feature release including many software and dataset updates.**
 
 * [2.4.0] Update the website from `http` to `https` protocol to adhere to web security requirements.
   Some `http` links broke and have been updated in this release.
