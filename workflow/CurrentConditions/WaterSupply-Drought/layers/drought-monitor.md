@@ -10,7 +10,7 @@ The following are data sources for this map:
 
 | **Resource** | **Source** |
 | -- | -- |
-| US Drought Monitor | [US Drought Monitor](https://data.openwaterfoundation.org/country/us/usdm/drought-monitor/) dataset created by the Open Water Foundation from the [US Drought Monitor](https://droughtmonitor.unl.edu/DmData/GISData.aspx). The current US Drought Monitor data are displayed. |
+| US Drought Monitor | [US Drought Monitor](https://data.openwaterfoundation.org/country/us/usdm/drought-monitor/) dataset from the Open Water Foundation, created from the [US Drought Monitor](https://droughtmonitor.unl.edu/DmData/GISData.aspx). The current US Drought Monitor data are displayed. |
 
 ## Workflow
 

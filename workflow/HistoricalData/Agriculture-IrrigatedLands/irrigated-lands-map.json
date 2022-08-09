@@ -296,24 +296,10 @@
           "geometryType": "WKT:Polygon",
           "layerType": "Vector",
           "sourceFormat": "GeoJSON",
-          "sourcePath": "layers/irrigated-lands-1956.geojson",
+          "sourcePath": "https://data.openwaterfoundation.org/state/co/dwr/irrigated-lands/co-dwr-irrigated-lands-district3-1956.geojson",
           "properties": {},
           "history:": [
-            "Read GeoLayer from GeoJSON file:  'C:\\Users\\sam\\owf-dev\\InfoMapper-Poudre\\git-repos\\owf-infomapper-poudre\\workflow\\HistoricalData\\Agriculture-IrrigatedLands\\layers\\irrigated-lands-1956.geojson'"
-          ]
-        },
-        {
-          "geoLayerId": "IrrigatedLands1976Layer",
-          "name": "District 3 Irrigated Lands",
-          "description": "Irrigated lands (1976) for District 3 from Colorado's Decision Support Systems.",
-          "crs": "EPSG:4326",
-          "geometryType": "WKT:Polygon",
-          "layerType": "Vector",
-          "sourceFormat": "GeoJSON",
-          "sourcePath": "layers/irrigated-lands-1976.geojson",
-          "properties": {},
-          "history:": [
-            "Read GeoLayer from GeoJSON file:  'C:\\Users\\sam\\owf-dev\\InfoMapper-Poudre\\git-repos\\owf-infomapper-poudre\\workflow\\HistoricalData\\Agriculture-IrrigatedLands\\layers\\irrigated-lands-1976.geojson'"
+            "Read GeoLayer from GeoJSON file:  'https://data.openwaterfoundation.org/state/co/dwr/irrigated-lands/co-dwr-irrigated-lands-district3-1956.geojson'"
           ]
         },
         {
@@ -324,10 +310,10 @@
           "geometryType": "WKT:Polygon",
           "layerType": "Vector",
           "sourceFormat": "GeoJSON",
-          "sourcePath": "layers/irrigated-lands-1987.geojson",
+          "sourcePath": "https://data.openwaterfoundation.org/state/co/dwr/irrigated-lands/co-dwr-irrigated-lands-district3-1987.geojson",
           "properties": {},
           "history:": [
-            "Read GeoLayer from GeoJSON file:  'C:\\Users\\sam\\owf-dev\\InfoMapper-Poudre\\git-repos\\owf-infomapper-poudre\\workflow\\HistoricalData\\Agriculture-IrrigatedLands\\layers\\irrigated-lands-1987.geojson'"
+            "Read GeoLayer from GeoJSON file:  'https://data.openwaterfoundation.org/state/co/dwr/irrigated-lands/co-dwr-irrigated-lands-district3-1987.geojson'"
           ]
         },
         {
@@ -338,10 +324,10 @@
           "geometryType": "WKT:Polygon",
           "layerType": "Vector",
           "sourceFormat": "GeoJSON",
-          "sourcePath": "layers/irrigated-lands-1997.geojson",
+          "sourcePath": "https://data.openwaterfoundation.org/state/co/dwr/irrigated-lands/co-dwr-irrigated-lands-district3-1997.geojson",
           "properties": {},
           "history:": [
-            "Read GeoLayer from GeoJSON file:  'C:\\Users\\sam\\owf-dev\\InfoMapper-Poudre\\git-repos\\owf-infomapper-poudre\\workflow\\HistoricalData\\Agriculture-IrrigatedLands\\layers\\irrigated-lands-1997.geojson'"
+            "Read GeoLayer from GeoJSON file:  'https://data.openwaterfoundation.org/state/co/dwr/irrigated-lands/co-dwr-irrigated-lands-district3-1997.geojson'"
           ]
         },
         {
@@ -352,10 +338,10 @@
           "geometryType": "WKT:Polygon",
           "layerType": "Vector",
           "sourceFormat": "GeoJSON",
-          "sourcePath": "layers/irrigated-lands-2001.geojson",
+          "sourcePath": "https://data.openwaterfoundation.org/state/co/dwr/irrigated-lands/co-dwr-irrigated-lands-district3-2001.geojson",
           "properties": {},
           "history:": [
-            "Read GeoLayer from GeoJSON file:  'C:\\Users\\sam\\owf-dev\\InfoMapper-Poudre\\git-repos\\owf-infomapper-poudre\\workflow\\HistoricalData\\Agriculture-IrrigatedLands\\layers\\irrigated-lands-2001.geojson'"
+            "Read GeoLayer from GeoJSON file:  'https://data.openwaterfoundation.org/state/co/dwr/irrigated-lands/co-dwr-irrigated-lands-district3-2001.geojson'"
           ]
         },
         {
@@ -366,10 +352,10 @@
           "geometryType": "WKT:Polygon",
           "layerType": "Vector",
           "sourceFormat": "GeoJSON",
-          "sourcePath": "layers/irrigated-lands-2005.geojson",
+          "sourcePath": "https://data.openwaterfoundation.org/state/co/dwr/irrigated-lands/co-dwr-irrigated-lands-district3-2005.geojson",
           "properties": {},
           "history:": [
-            "Read GeoLayer from GeoJSON file:  'C:\\Users\\sam\\owf-dev\\InfoMapper-Poudre\\git-repos\\owf-infomapper-poudre\\workflow\\HistoricalData\\Agriculture-IrrigatedLands\\layers\\irrigated-lands-2005.geojson'"
+            "Read GeoLayer from GeoJSON file:  'https://data.openwaterfoundation.org/state/co/dwr/irrigated-lands/co-dwr-irrigated-lands-district3-2005.geojson'"
           ]
         },
         {
@@ -380,10 +366,10 @@
           "geometryType": "WKT:Polygon",
           "layerType": "Vector",
           "sourceFormat": "GeoJSON",
-          "sourcePath": "layers/irrigated-lands-2010.geojson",
+          "sourcePath": "https://data.openwaterfoundation.org/state/co/dwr/irrigated-lands/co-dwr-irrigated-lands-district3-2010.geojson",
           "properties": {},
           "history:": [
-            "Read GeoLayer from GeoJSON file:  'C:\\Users\\sam\\owf-dev\\InfoMapper-Poudre\\git-repos\\owf-infomapper-poudre\\workflow\\HistoricalData\\Agriculture-IrrigatedLands\\layers\\irrigated-lands-2010.geojson'"
+            "Read GeoLayer from GeoJSON file:  'https://data.openwaterfoundation.org/state/co/dwr/irrigated-lands/co-dwr-irrigated-lands-district3-2010.geojson'"
           ]
         },
         {
@@ -394,10 +380,24 @@
           "geometryType": "WKT:Polygon",
           "layerType": "Vector",
           "sourceFormat": "GeoJSON",
-          "sourcePath": "layers/irrigated-lands-2015.geojson",
+          "sourcePath": "https://data.openwaterfoundation.org/state/co/dwr/irrigated-lands/co-dwr-irrigated-lands-district3-2015.geojson",
           "properties": {},
           "history:": [
-            "Read GeoLayer from GeoJSON file:  'C:\\Users\\sam\\owf-dev\\InfoMapper-Poudre\\git-repos\\owf-infomapper-poudre\\workflow\\HistoricalData\\Agriculture-IrrigatedLands\\layers\\irrigated-lands-2015.geojson'"
+            "Read GeoLayer from GeoJSON file:  'https://data.openwaterfoundation.org/state/co/dwr/irrigated-lands/co-dwr-irrigated-lands-district3-2015.geojson'"
+          ]
+        },
+        {
+          "geoLayerId": "IrrigatedLands2020Layer",
+          "name": "District 3 Irrigated Lands",
+          "description": "Irrigated lands (2020) for District 3 from Colorado's Decision Support Systems.",
+          "crs": "EPSG:4326",
+          "geometryType": "WKT:Polygon",
+          "layerType": "Vector",
+          "sourceFormat": "GeoJSON",
+          "sourcePath": "https://data.openwaterfoundation.org/state/co/dwr/irrigated-lands/co-dwr-irrigated-lands-district3-2020.geojson",
+          "properties": {},
+          "history:": [
+            "Read GeoLayer from GeoJSON file:  'https://data.openwaterfoundation.org/state/co/dwr/irrigated-lands/co-dwr-irrigated-lands-district3-2020.geojson'"
           ]
         }
       ],
@@ -411,13 +411,53 @@
           },
           "geoLayerViews": [
             {
+              "geoLayerViewId": "IrrigatedLands2020LayerView",
+              "name": "District 3 Irrigated Lands (2020)",
+              "description": "Irrigated lands (2020) from CDSS",
+              "geoLayerId": "IrrigatedLands2020Layer",
+              "properties": {
+                "docPath": "layers/irrigated-lands.md",
+                "selectedInitial": "true"
+              },
+              "geoLayerSymbol": {
+                "name": "Colorize irrigated lands by crop type",
+                "description": "Show each irrigated parcel colored by crop type.",
+                "classificationType": "Categorized",
+                "classificationAttribute": "CROP_TYPE",
+                "properties": {
+                  "classificationType": "categorized",
+                  "classificationFile": "layers/irrigated-lands-classify-croptype.csv"
+                }
+              },
+              "eventHandlers": [
+                {
+                  "eventType": "hover",
+                  "name": "Hover event",
+                  "description": "Hover event configuration",
+                  "hasVisualization": false,
+                  "properties": {
+                    "eventConfigPath": "layers/irrigated-lands-2020-event-config.json"
+                  }
+                },
+                {
+                  "eventType": "click",
+                  "name": "Click event",
+                  "description": "Click event configuration",
+                  "hasVisualization": false,
+                  "properties": {
+                    "eventConfigPath": "layers/irrigated-lands-2020-event-config.json"
+                  }
+                }
+              ]
+            },
+            {
               "geoLayerViewId": "IrrigatedLands2015LayerView",
               "name": "District 3 Irrigated Lands (2015)",
               "description": "Irrigated lands (2015) from CDSS",
               "geoLayerId": "IrrigatedLands2015Layer",
               "properties": {
                 "docPath": "layers/irrigated-lands.md",
-                "selectedInitial": "true"
+                "selectedInitial": "false"
               },
               "geoLayerSymbol": {
                 "name": "Colorize irrigated lands by crop type",
@@ -646,46 +686,6 @@
                   "hasVisualization": false,
                   "properties": {
                     "eventConfigPath": "layers/irrigated-lands-1987-event-config.json"
-                  }
-                }
-              ]
-            },
-            {
-              "geoLayerViewId": "IrrigatedLands1976LayerView",
-              "name": "District 3 Irrigated Lands (1976)",
-              "description": "Irrigated lands (1976) from CDSS",
-              "geoLayerId": "IrrigatedLands1976Layer",
-              "properties": {
-                "docPath": "layers/irrigated-lands.md",
-                "selectedInitial": "false"
-              },
-              "geoLayerSymbol": {
-                "name": "Colorize irrigated lands by crop type",
-                "description": "Show each irrigated parcel colored by crop type.",
-                "classificationType": "Categorized",
-                "classificationAttribute": "CROP_TYPE",
-                "properties": {
-                  "classificationType": "categorized",
-                  "classificationFile": "layers/irrigated-lands-classify-croptype.csv"
-                }
-              },
-              "eventHandlers": [
-                {
-                  "eventType": "hover",
-                  "name": "Hover event",
-                  "description": "Hover event configuration",
-                  "hasVisualization": false,
-                  "properties": {
-                    "eventConfigPath": "layers/irrigated-lands-1976-event-config.json"
-                  }
-                },
-                {
-                  "eventType": "click",
-                  "name": "Click event",
-                  "description": "Click event configuration",
-                  "hasVisualization": false,
-                  "properties": {
-                    "eventConfigPath": "layers/irrigated-lands-1976-event-config.json"
                   }
                 }
               ]

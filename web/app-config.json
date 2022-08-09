@@ -4,7 +4,7 @@
   "favicon": "/img/owf-favicon-32x32.ico",
   "dataUnitsPath": "/system/DATAUNIT",
   "googleAnalyticsTrackingId": "UA-135465513-1",
-  "version": "2.5.0 (2022-07-22)",
+  "version": "3.0.0 (2022-08-01)",
   "datastores": [
      {
         "name": "SateModGitHub",

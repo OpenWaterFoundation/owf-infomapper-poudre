@@ -325,10 +325,10 @@
           "geometryType": "WKT:Polygon",
           "layerType": "Vector",
           "sourceFormat": "GeoJSON",
-          "sourcePath": "layers/huc2.geojson",
+          "sourcePath": "https://data.openwaterfoundation.org/country/us/usgs/huc-basins/huc2-basin-10-missouri.geojson",
           "properties": {},
           "history:": [
-            "Read GeoLayer from GeoJSON file:  'C:\\Users\\sam\\owf-dev\\InfoMapper-Poudre\\git-repos\\owf-infomapper-poudre\\workflow\\BasinEntities\\Physical-Basins\\layers\\huc2.geojson'"
+            "Read GeoLayer from GeoJSON file:  'https://data.openwaterfoundation.org/country/us/usgs/huc-basins/huc2-basin-10-missouri.geojson'"
           ]
         },
         {
@@ -339,10 +339,10 @@
           "geometryType": "WKT:Polygon",
           "layerType": "Vector",
           "sourceFormat": "GeoJSON",
-          "sourcePath": "layers/huc4.geojson",
+          "sourcePath": "https://data.openwaterfoundation.org/country/us/usgs/huc-basins/huc4-basin-1019-south-platte.geojson",
           "properties": {},
           "history:": [
-            "Read GeoLayer from GeoJSON file:  'C:\\Users\\sam\\owf-dev\\InfoMapper-Poudre\\git-repos\\owf-infomapper-poudre\\workflow\\BasinEntities\\Physical-Basins\\layers\\huc4.geojson'"
+            "Read GeoLayer from GeoJSON file:  'https://data.openwaterfoundation.org/country/us/usgs/huc-basins/huc4-basin-1019-south-platte.geojson'"
           ]
         },
         {
@@ -353,10 +353,10 @@
           "geometryType": "WKT:Polygon",
           "layerType": "Vector",
           "sourceFormat": "GeoJSON",
-          "sourcePath": "layers/huc8.geojson",
+          "sourcePath": "https://data.openwaterfoundation.org/country/us/usgs/huc-basins/huc8-basin-10190007-poudre.geojson",
           "properties": {},
           "history:": [
-            "Read GeoLayer from GeoJSON file:  'C:\\Users\\sam\\owf-dev\\InfoMapper-Poudre\\git-repos\\owf-infomapper-poudre\\workflow\\BasinEntities\\Physical-Basins\\layers\\huc8.geojson'"
+            "Read GeoLayer from GeoJSON file:  'https://data.openwaterfoundation.org/country/us/usgs/huc-basins/huc8-basin-10190007-poudre.geojson'"
           ]
         },
         {
@@ -367,10 +367,10 @@
           "geometryType": "WKT:Polygon",
           "layerType": "Vector",
           "sourceFormat": "GeoJSON",
-          "sourcePath": "layers/huc10.geojson",
+          "sourcePath": "https://data.openwaterfoundation.org/country/us/usgs/huc-basins/huc10-basins-10190007-poudre.geojson",
           "properties": {},
           "history:": [
-            "Read GeoLayer from GeoJSON file:  'C:\\Users\\sam\\owf-dev\\InfoMapper-Poudre\\git-repos\\owf-infomapper-poudre\\workflow\\BasinEntities\\Physical-Basins\\layers\\huc10.geojson'"
+            "Read GeoLayer from GeoJSON file:  'https://data.openwaterfoundation.org/country/us/usgs/huc-basins/huc10-basins-10190007-poudre.geojson'"
           ]
         },
         {
@@ -381,10 +381,10 @@
           "geometryType": "WKT:Polygon",
           "layerType": "Vector",
           "sourceFormat": "GeoJSON",
-          "sourcePath": "layers/huc12.geojson",
+          "sourcePath": "https://data.openwaterfoundation.org/country/us/usgs/huc-basins/huc12-basins-10190007-poudre.geojson",
           "properties": {},
           "history:": [
-            "Read GeoLayer from GeoJSON file:  'C:\\Users\\sam\\owf-dev\\InfoMapper-Poudre\\git-repos\\owf-infomapper-poudre\\workflow\\BasinEntities\\Physical-Basins\\layers\\huc12.geojson'"
+            "Read GeoLayer from GeoJSON file:  'https://data.openwaterfoundation.org/country/us/usgs/huc-basins/huc12-basins-10190007-poudre.geojson'"
           ]
         },
         {
@@ -474,7 +474,7 @@
                 "name": "Colorize HUC12",
                 "description": "Transparent polygon.",
                 "classificationType": "Categorized",
-                "classificationAttribute": "HUC12",
+                "classificationAttribute": "huc12",
                 "properties": {
                   "classificationFile": "layers/huc12-classify-huc12.csv"
                 }
@@ -513,7 +513,7 @@
                 "name": "Colorize HUC10",
                 "description": "Transparent polygon.",
                 "classificationType": "Categorized",
-                "classificationAttribute": "HUC10",
+                "classificationAttribute": "huc10",
                 "properties": {
                   "classificationFile": "layers/huc10-classify-huc10.csv"
                 }
@@ -551,7 +551,7 @@
                 "name": "Colorize HUC8",
                 "description": "Transparent polygon.",
                 "classificationType": "Categorized",
-                "classificationAttribute": "HUC8",
+                "classificationAttribute": "huc8",
                 "properties": {
                   "classificationFile": "layers/huc8-classify-huc8.csv"
                 }
@@ -589,7 +589,7 @@
                 "name": "Colorize HUC4",
                 "description": "Transparent polygon.",
                 "classificationType": "Categorized",
-                "classificationAttribute": "HUC4",
+                "classificationAttribute": "huc4",
                 "properties": {
                   "classificationFile": "layers/huc4-classify-huc4.csv"
                 }
@@ -627,7 +627,7 @@
                 "name": "Colorize HUC2",
                 "description": "Transparent polygon.",
                 "classificationType": "Categorized",
-                "classificationAttribute": "HUC2",
+                "classificationAttribute": "huc2",
                 "properties": {
                   "classificationFile": "layers/huc2-classify-huc2.csv"
                 }

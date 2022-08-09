@@ -17,7 +17,7 @@ The following are data sources for this map:
 
 | **Resource** | **Source** |
 | -- | -- |
-| District 3 Irrigated Lands layer | Extracted from [Irrigated Lands](https://www.colorado.gov/pacific/cdss/gis-data-category) layers from CDSS Data by Category. |
+| District 3 Irrigated Lands layer | [Colorado DWR Irrigated Lands dataset](https://data.openwaterfoundation.org/state/co/dwr/irrigated-lands) created by the Open Water Foundation, created from [Irrigated Lands](https://www.colorado.gov/pacific/cdss/gis-data-category) layers from CDSS Data by Category. |
 
 ## Map Creation Workflow
 

@@ -1,6 +1,6 @@
 # Layer:  HUC12 Basins
 
-The HUC12 Basins layer contains data for Hydrologic Unit Code (HUC) basins
+The ***HUC12 Basins*** layer contains data for Hydrologic Unit Code (HUC) basins
 from the United States Geological Survey (USGS).
 HUC basins are often used when working with hydrologic and environmental data.
 This layer contains 12-digit HUC sub-basins within the 8-digit HUC Cache la Poudre Basin.
@@ -11,7 +11,7 @@ The following are data sources for this map:
 
 | **Resource** | **Source** |
 | -- | -- |
-| HUC12 Basins layer | [Hydrologic Unit Maps](https://water.usgs.gov/GIS/huc.html) from the USGS, specifically the HUC12 [Watershed Boundary Dataset](ftp://rockyftp.cr.usgs.gov/vdelivery/Datasets/Staged/Hydrography/WBD/) data for HUC2=10 (Missiouri). |
+| HUC12 Basins layer | [HUC Basins dataset](https://data.openwaterfoundation.org/country/us/usgs/huc-basins/) from the Open Water Foundation, created from the [Hydrologic Unit Maps](https://water.usgs.gov/GIS/huc.html) from the USGS. |
 
 ## Map Creation Workflow
 

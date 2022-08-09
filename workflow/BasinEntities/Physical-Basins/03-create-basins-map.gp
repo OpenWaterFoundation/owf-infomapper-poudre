@@ -102,33 +102,33 @@ SetGeoLayerViewEventHandler(GeoLayerViewID="WaterDistrictLayerView",EventType="c
 #
 AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="HUCBasinsGroup",Name="Hydrologic Unit Code (HUC) Basins",Description="HUC Basin boundaries from the USGS.",Properties="selectedInitial: true",InsertPosition="Top")
 # HUC 2 on bottom
-ReadGeoLayerFromGeoJSON(InputFile="layers/huc2.geojson",GeoLayerID="HUC2BasinLayer",Name="HUC2 Basin: 10, Missouri",Description="HUC2 Basin boundaries from the USGS")
+ReadGeoLayerFromGeoJSON(InputFile="https://data.openwaterfoundation.org/country/us/usgs/huc-basins/huc2-basin-10-missouri.geojson",GeoLayerID="HUC2BasinLayer",Name="HUC2 Basin: 10, Missouri",Description="HUC2 Basin boundaries from the USGS")
 AddGeoLayerViewToGeoMap(GeoLayerID="HUC2BasinLayer",GeoLayerViewID="HUC2BasinsLayerView",Name="HUC2 Basin: 10, Missouri",Description="HUC2 Basin boundaries from the USGS",InsertPosition="Top",Properties="docPath:layers/huc2.md")
-SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="HUC2BasinsLayerView",Name="Colorize HUC2",Description="Transparent polygon.",ClassificationAttribute="HUC2",Properties="classificationFile:layers/huc2-classify-huc2.csv")
+SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="HUC2BasinsLayerView",Name="Colorize HUC2",Description="Transparent polygon.",ClassificationAttribute="huc2",Properties="classificationFile:layers/huc2-classify-huc2.csv")
 SetGeoLayerViewEventHandler(GeoLayerViewID="HUC2BasinsLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/huc2-event-config.json")
 SetGeoLayerViewEventHandler(GeoLayerViewID="HUC2BasinsLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/huc2-event-config.json")
 # HUC 4 next on top
-ReadGeoLayerFromGeoJSON(InputFile="layers/huc4.geojson",GeoLayerID="HUC4BasinLayer",Name="HUC4 Basin: 1019, Platte",Description="HUC4 Basin boundaries from the USGS")
+ReadGeoLayerFromGeoJSON(InputFile="https://data.openwaterfoundation.org/country/us/usgs/huc-basins/huc4-basin-1019-south-platte.geojson",GeoLayerID="HUC4BasinLayer",Name="HUC4 Basin: 1019, Platte",Description="HUC4 Basin boundaries from the USGS")
 AddGeoLayerViewToGeoMap(GeoLayerID="HUC4BasinLayer",GeoLayerViewID="HUC4BasinsLayerView",Name="HUC4 Basin: 1019, Platte",Description="HUC4 Basin boundaries from the USGS",InsertPosition="Top",Properties="docPath:layers/huc4.md")
-SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="HUC4BasinsLayerView",Name="Colorize HUC4",Description="Transparent polygon.",ClassificationAttribute="HUC4",Properties="classificationFile:layers/huc4-classify-huc4.csv")
+SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="HUC4BasinsLayerView",Name="Colorize HUC4",Description="Transparent polygon.",ClassificationAttribute="huc4",Properties="classificationFile:layers/huc4-classify-huc4.csv")
 SetGeoLayerViewEventHandler(GeoLayerViewID="HUC4BasinsLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/huc4-event-config.json")
 SetGeoLayerViewEventHandler(GeoLayerViewID="HUC4BasinsLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/huc4-event-config.json")
 # HUC 8 next on top
-ReadGeoLayerFromGeoJSON(InputFile="layers/huc8.geojson",GeoLayerID="HUC8BasinLayer",Name="HUC8 Basin: 10190007, Cache la Poudre",Description="HUC8 Basin boundaries from the USGS")
+ReadGeoLayerFromGeoJSON(InputFile="https://data.openwaterfoundation.org/country/us/usgs/huc-basins/huc8-basin-10190007-poudre.geojson",GeoLayerID="HUC8BasinLayer",Name="HUC8 Basin: 10190007, Cache la Poudre",Description="HUC8 Basin boundaries from the USGS")
 AddGeoLayerViewToGeoMap(GeoLayerID="HUC8BasinLayer",GeoLayerViewID="HUC8BasinsLayerView",Name="HUC8 Basin: 10100007, Cache la Poudre",Description="HUC8 Basin boundaries from the USGS",InsertPosition="Top",Properties="docPath:layers/huc8.md")
-SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="HUC8BasinsLayerView",Name="Colorize HUC8",Description="Transparent polygon.",ClassificationAttribute="HUC8",Properties="classificationFile:layers/huc8-classify-huc8.csv")
+SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="HUC8BasinsLayerView",Name="Colorize HUC8",Description="Transparent polygon.",ClassificationAttribute="huc8",Properties="classificationFile:layers/huc8-classify-huc8.csv")
 SetGeoLayerViewEventHandler(GeoLayerViewID="HUC8BasinsLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/huc8-event-config.json")
 SetGeoLayerViewEventHandler(GeoLayerViewID="HUC8BasinsLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/huc8-event-config.json")
 # HUC 10 next on top
-ReadGeoLayerFromGeoJSON(InputFile="layers/huc10.geojson",GeoLayerID="HUC10BasinLayer",Name="Cache la Poudre HUC10 Basins",Description="HUC10 Basin boundaries from the USGS")
+ReadGeoLayerFromGeoJSON(InputFile="https://data.openwaterfoundation.org/country/us/usgs/huc-basins/huc10-basins-10190007-poudre.geojson",GeoLayerID="HUC10BasinLayer",Name="Cache la Poudre HUC10 Basins",Description="HUC10 Basin boundaries from the USGS")
 AddGeoLayerViewToGeoMap(GeoLayerID="HUC10BasinLayer",GeoLayerViewID="HUC10BasinsLayerView",Name="Cache la Poudre HUC10 Basins",Description="HUC10 Basin boundaries from the USGS",InsertPosition="Top",Properties="docPath:layers/huc10.md,highlightEnabled:true")
-SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="HUC10BasinsLayerView",Name="Colorize HUC10",Description="Transparent polygon.",ClassificationAttribute="HUC10",Properties="classificationFile:layers/huc10-classify-huc10.csv")
+SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="HUC10BasinsLayerView",Name="Colorize HUC10",Description="Transparent polygon.",ClassificationAttribute="huc10",Properties="classificationFile:layers/huc10-classify-huc10.csv")
 SetGeoLayerViewEventHandler(GeoLayerViewID="HUC10BasinsLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/huc10-event-config.json")
 SetGeoLayerViewEventHandler(GeoLayerViewID="HUC10BasinsLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/huc10-event-config.json")
 # HUC 12 next on top
-ReadGeoLayerFromGeoJSON(InputFile="layers/huc12.geojson",GeoLayerID="HUC12BasinLayer",Name="Cache la Poudre HUC12 Basins",Description="HUC12 Basin boundaries from the USGS")
+ReadGeoLayerFromGeoJSON(InputFile="https://data.openwaterfoundation.org/country/us/usgs/huc-basins/huc12-basins-10190007-poudre.geojson",GeoLayerID="HUC12BasinLayer",Name="Cache la Poudre HUC12 Basins",Description="HUC12 Basin boundaries from the USGS")
 AddGeoLayerViewToGeoMap(GeoLayerID="HUC12BasinLayer",GeoLayerViewID="HUC12BasinsLayerView",Name="Cache la Poudre HUC 12 Basins",Description="HUC12 Basin boundaries from the USGS",InsertPosition="Top",Properties="docPath:layers/huc12.md,highlightEnabled:true")
-SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="HUC12BasinsLayerView",Name="Colorize HUC12",Description="Transparent polygon.",ClassificationAttribute="HUC12",Properties="classificationFile:layers/huc12-classify-huc12.csv")
+SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="HUC12BasinsLayerView",Name="Colorize HUC12",Description="Transparent polygon.",ClassificationAttribute="huc12",Properties="classificationFile:layers/huc12-classify-huc12.csv")
 SetGeoLayerViewEventHandler(GeoLayerViewID="HUC12BasinsLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/huc12-event-config.json")
 SetGeoLayerViewEventHandler(GeoLayerViewID="HUC12BasinsLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/huc12-event-config.json")
 # = = = = = = = = = =
@@ -151,27 +151,22 @@ CreateFolder(Folder="${MapFolder}/layers",CreateParentFolders="True",IfFolderExi
 CopyFile(SourceFile="basins-map.json",DestinationFile="${MapFolder}/basins-map.json")
 CopyFile(SourceFile="basins-map.md",DestinationFile="${MapFolder}/basins-map.md")
 #
-CopyFile(SourceFile="layers/huc2.geojson",DestinationFile="${MapFolder}/layers/huc2.geojson")
 CopyFile(SourceFile="layers/huc2-classify-huc2.csv",DestinationFile="${MapFolder}/layers/huc2-classify-huc2.csv")
 CopyFile(SourceFile="layers/huc2.md",DestinationFile="${MapFolder}/layers/huc2.md")
 CopyFile(SourceFile="layers/huc2-event-config.json",DestinationFile="${MapFolder}/layers/huc2-event-config.json")
 #
-CopyFile(SourceFile="layers/huc4.geojson",DestinationFile="${MapFolder}/layers/huc4.geojson")
 CopyFile(SourceFile="layers/huc4-classify-huc4.csv",DestinationFile="${MapFolder}/layers/huc4-classify-huc4.csv")
 CopyFile(SourceFile="layers/huc4.md",DestinationFile="${MapFolder}/layers/huc4.md")
 CopyFile(SourceFile="layers/huc4-event-config.json",DestinationFile="${MapFolder}/layers/huc4-event-config.json")
 #
-CopyFile(SourceFile="layers/huc8.geojson",DestinationFile="${MapFolder}/layers/huc8.geojson")
 CopyFile(SourceFile="layers/huc8-classify-huc8.csv",DestinationFile="${MapFolder}/layers/huc8-classify-huc8.csv")
 CopyFile(SourceFile="layers/huc8.md",DestinationFile="${MapFolder}/layers/huc8.md")
 CopyFile(SourceFile="layers/huc8-event-config.json",DestinationFile="${MapFolder}/layers/huc8-event-config.json")
 #
-CopyFile(SourceFile="layers/huc10.geojson",DestinationFile="${MapFolder}/layers/huc10.geojson")
 CopyFile(SourceFile="layers/huc10-classify-huc10.csv",DestinationFile="${MapFolder}/layers/huc10-classify-huc10.csv")
 CopyFile(SourceFile="layers/huc10.md",DestinationFile="${MapFolder}/layers/huc10.md")
 CopyFile(SourceFile="layers/huc10-event-config.json",DestinationFile="${MapFolder}/layers/huc10-event-config.json")
 #
-CopyFile(SourceFile="layers/huc12.geojson",DestinationFile="${MapFolder}/layers/huc12.geojson")
 CopyFile(SourceFile="layers/huc12-classify-huc12.csv",DestinationFile="${MapFolder}/layers/huc12-classify-huc12.csv")
 CopyFile(SourceFile="layers/huc12.md",DestinationFile="${MapFolder}/layers/huc12.md")
 CopyFile(SourceFile="layers/huc12-event-config.json",DestinationFile="${MapFolder}/layers/huc12-event-config.json")
