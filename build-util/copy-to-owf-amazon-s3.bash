@@ -40,6 +40,19 @@ buildDist() {
     exit 1
   fi
 
+  # Override to experiment with the base href.
+
+  # If using a period, get the following:
+  #  <base href=".">
+
+  # The following results in 503 errors.
+  #   <base href="/3.0.0">
+  #ngBuildHrefOpt="//3.0.0"
+
+  # The following results in the following, which is incorrect.
+  #   <base href="//3.0.0/">
+  //ngBuildHrefOpt="//3.0.0/"
+
   logInfo ""
   logInfo "Regenerating Angular dist folder to deploy the website..."
   logInfo "Changing to:  ${infoMapperMainFolder}"
@@ -52,12 +65,15 @@ buildDist() {
   fi
 
   # Run the ng build:
+  # - see: https://angular.io/cli/build
+  # - see: https://github.com/angular/angular-cli/issues/5606#issuecomment-397445530
   # - use the command line from 'copy-to-owf-amazon-s3.bat', which was used more recently
   # - this should be found in the Windows PATH, for example C:\Users\user\AppData\Roaming\npm\ng
   # - 2022-05-16 changed --prod=true to --configuration production
   # - 2022-05-16 removed --extractCss=true, which is now the default behavior
-  logInfo "Start running:  ng build --configuration production --aot=true --baseHref=${ngBuildHrefOpt} --namedChunks=false --outputHashing=all --sourceMap=false ${optimizationArg}"
-  ng build --configuration production --aot=true --baseHref=${ngBuildHrefOpt} --namedChunks=false --outputHashing=all --sourceMap=false ${optimizationArg}
+  # - 2022-08-01 change camelCase options to lowercase as per the documentation
+  logInfo "Start running:  ng build --configuration production --aot=true --base-href=${ngBuildHrefOpt} --named-chunks=false --output-hashing=all --source-map=false ${optimizationArg}"
+  ng build --configuration production --aot=true --base-href=${ngBuildHrefOpt} --named-chunks=false --output-hashing=all --source-map=false ${optimizationArg}
   exitCode=$?
   logInfo "...done running 'ng build... (exit code ${exitCode})'"
   if [ "${exitCode}" -ne 0 ]; then
@@ -67,7 +83,6 @@ buildDist() {
     exit ${exitCode}
   fi
 
-  indexFile="${infoMapperDistAppFolder}/index.html"
   logInfo "Updating mime type in: ${indexFile}"
   if [ -f "${indexFile}" ]; then
     # Fix the distribution index.html file as per:  
@@ -393,7 +408,19 @@ syncFiles() {
     exit 1
   fi
 
-  # First synchronie the files to S3.
+  # Must edit the <base href> for path location strategy:
+  # - this has to be done after building, based on the version folder
+
+  # Change:
+  #  <base href=".">
+  # to:
+  #  <base href="/3.0.0/">
+  #  or:
+  #  <base href="/latest/">
+  logInfo "Updating <base href...> in: ${indexFile}"
+  sed -i "s~^.*<base href=.*$~  <base href=\"/${deployedVersion}/\">~" ${indexFile}
+
+  # First synchronize the files to S3.
   doSync="true"
   if [ "${doSync}" = "true" ]; then
     ${awsExe} s3 sync ${infoMapperDistAppFolder} ${s3FolderUrl} ${dryrun} --delete --profile "${awsProfile}"
@@ -415,7 +442,7 @@ syncFiles() {
     logError "Unable to find CloudFront distribution ID."
     exit 1
   else
-    logInfo "Found CloudFront distribution ID: ${distributionId}"
+    logInfo "Found CloudFront distribution ID: ${cloudFrontDistributionId}"
   fi
   logInfo "Invalidating files so that CloudFront will make new files available..."
   ${awsExe} cloudfront create-invalidation --distribution-id ${cloudFrontDistributionId} --paths "/${deployedVersion}/*" --profile "${awsProfile}"
@@ -532,6 +559,8 @@ infoMapperDistFolder="${infoMapperMainFolder}/dist"
 infoMapperDistAppFolder="${infoMapperDistFolder}/infomapper"
 # Application configuration file used to extract application version and Google Analytics tracking ID.
 appConfigFile="${webFolder}/app-config.json"
+# Index file in the dist build.
+indexFile="${infoMapperDistAppFolder}/index.html"
 # ...end must match Info Mapper
 programName=$(basename $0)
 programVersion="1.6.0"

@@ -2,6 +2,9 @@
 
 ## New ##
 
+* On 2022-08-03, the URLs for the website were updated to not use `#` for resources.
+  Old URLs should work but if a blank page is shown for a map it may be necessary to do a hard refresh for the site using ***Ctrl-F5***
+  to ensure that the new website software is used.
 * See flood monitoring in [***Current Conditions / Environment - Floods***](#/map/current-floods).
 * See prototype dashboards under the ***Dashboards*** menu.
 * See also [***Release Notes***](#/content-page/release-notes).
@@ -28,7 +31,7 @@ Click on the information ![info-icon](/img/info-icon.png) icons for maps and lay
 
 | **Menu** | **Description** |
 | -- | -- |
-| ***Dashboards*** | Dashboards with indicators and visualiations of important data, to help with decision-making. |
+| ***Dashboards*** | Dashboards with indicators and visualizations of important data, to help with decision-making. |
 | ***Basin Entities*** | "Lay of the land" to understand the entities and programs that exist and operate in the basin, as well as important concepts.  Map layers are used in other maps where appropriate. |
 | ***Historical Data*** | Historical context to help understand magnitudes and trends for various indicators and conditions. | 
 | ***Current Conditions*** | Situational awareness for current water-related conditions. |
@@ -64,7 +67,7 @@ Bookmarking the URL that includes "latest" will ensure that latest available con
 
 ## Contributing to This Website ##
 
-See the list of funding contributors under [***Resources / Funding Contributors***](#content-page/funders.md).
+See the list of funding contributors under [***Resources / Funding Contributors***](#/content-page/funders.md).
 
 The Open Water Foundation is actively seeking funding to develop and maintain this website.
 See the [River Basin Information Websites Funding Request](https://poudre.openwaterfoundation.org/latest/assets/app/content-pages/OWF-RiverBasinInfoWebsites-FundingRequest-2020-12-06.pdf).

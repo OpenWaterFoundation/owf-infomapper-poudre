@@ -252,10 +252,10 @@ EndIf(Name="IncludeBurnAreaVector")
 #
 AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="HUCBasinsGroup",Name="Hydrologic Unit Code (HUC) Basins",Description="HUC Basin boundaries from the USGS.",Properties="selectedInitial: true",InsertPosition="Top")
 # HUC 12 next on top
-ReadGeoLayerFromGeoJSON(InputFile="../../BasinEntities/Physical-Basins/layers/huc12.geojson",GeoLayerID="HUC12BasinLayer",Name="Cache la Poudre HUC12 Basins",Description="HUC12 Basin boundaries from the USGS")
+ReadGeoLayerFromGeoJSON(InputFile="https://data.openwaterfoundation.org/country/us/usgs/huc-basins/huc12-basins-10190007-poudre.geojson",GeoLayerID="HUC12BasinLayer",Name="Cache la Poudre HUC12 Basins",Description="HUC12 Basin boundaries from the USGS")
 AddGeoLayerViewToGeoMap(GeoLayerID="HUC12BasinLayer",GeoLayerViewID="HUC12BasinsLayerView",Name="Cache la Poudre HUC 12 Basins",Description="HUC12 Basin boundaries from the USGS",InsertPosition="Top",Properties="docPath:../../BasinEntities/Physical-Basins/layers/huc12.md,highlightEnabled:true")
 # Width of 2 is a bit overwhelming.  Use the same color as the basins map.
-SetGeoLayerViewSingleSymbol(GeoLayerViewID="HUC12BasinsLayerView",Name="Colorize HUC12",Description="Transparent polygon",Properties="color:#ff3399,width:.5,fillOpacity:0.0")
+SetGeoLayerViewSingleSymbol(GeoLayerViewID="HUC12BasinsLayerView",Name="Colorize HUC12",Description="Transparent polygon",Properties="color:#663300,width:.5,fillOpacity:0.0")
 SetGeoLayerViewEventHandler(GeoLayerViewID="HUC12BasinsLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:../../BasinEntities/Physical-Basins/layers/huc12-event-config.json")
 SetGeoLayerViewEventHandler(GeoLayerViewID="HUC12BasinsLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:../../BasinEntities/Physical-Basins/layers/huc12-event-config.json")
 # = = = = = = = = = =

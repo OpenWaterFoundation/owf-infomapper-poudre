@@ -18,7 +18,7 @@ The following are data sources for this map:
 
 | **Resource** | **Source** |
 | -- | -- |
-| Senate Senate Districts map layer. | [Open Water Foundation GeoJSON dataset](https://data.openwaterfoundation.org/state/co/circ/legislative-districts/) created from the [Colorado Independent Redistricting Commissions](https://redistricting.colorado.gov/content/senate-final-approved-errata) shapefile zip file. |
+| Senate Senate Districts map layer. | [Colorado Legislative Districts dataset](https://data.openwaterfoundation.org/state/co/circ/legislative-districts/) from the Open Water Foundation, created from the [Colorado Independent Redistricting Commissions](https://redistricting.colorado.gov/content/senate-final-approved-errata) shapefile zip file. |
 
 ## Old Data Sources ##
 
@@ -26,7 +26,7 @@ The following are data sources for previous version of this map, for 2011 redist
 
 | **Resource** | **Source** |
 | -- | -- |
-| Senate Senate Districts map layer. | [Open Water Foundation GeoJSON dataset](https://data.openwaterfoundation.org/state/co/circ/legislative-districts/) created from the [Colorado State Senate District Boundaries (2011)](https://data.colorado.gov/Legislative/Colorado-State-Senate-District-Boundaries-2011-/c9h8-fdgk) dataset from Colorado Information Marketplace. |
+| Senate Senate Districts map layer. | [Colorado Legislative Districts dataset](https://data.openwaterfoundation.org/state/co/circ/legislative-districts/) from the Open Water Foundation, created from the [Colorado State Senate District Boundaries (2011)](https://data.colorado.gov/Legislative/Colorado-State-Senate-District-Boundaries-2011-/c9h8-fdgk) dataset from Colorado Information Marketplace. |
 
 ## Workflow ##
 

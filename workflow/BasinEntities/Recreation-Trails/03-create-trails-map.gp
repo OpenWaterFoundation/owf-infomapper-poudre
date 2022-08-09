@@ -96,7 +96,7 @@ AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="TrailsGroup",Name="Trails",Des
 # Use a web service instead of a file.
 #ReadGeoLayerFromGeoJSON(InputFile="layers/trails-fortcollins.geojson",GeoLayerID="TrailsLayer",Name="Trails",Description="Trails")
 ReadGeoLayerFromGeoJSON(InputFile="https://opendata.fcgov.com/api/geospatial/3j2e-2d5c?method=export&format=GeoJSON",GeoLayerID="TrailsLayer",Name="Trails",Description="Trails")
-AddGeoLayerViewToGeoMap(GeoLayerID="TrailsLayer",GeoLayerViewID="TrailsLayerView",Name="Trails",Description="trails, from Fort Collins",InsertPosition="Top",Properties="docPath:'layers/trails-fortcollins-doc/trails-fortcollins.md',highlightEnabled:true")
+AddGeoLayerViewToGeoMap(GeoLayerID="TrailsLayer",GeoLayerViewID="TrailsLayerView",Name="Trails",Description="Trails, from Fort Collins",InsertPosition="Top",Properties="docPath:'layers/trails-fortcollins-doc/trails-fortcollins.md',highlightEnabled:true")
 SetGeoLayerViewSingleSymbol(GeoLayerViewID="TrailsLayerView",Name="Trails",Description="Trails",Properties="color:#ff9900,weight:3")
 SetGeoLayerViewEventHandler(GeoLayerViewID="TrailsLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/trails-fortcollins-event-config.json")
 SetGeoLayerViewEventHandler(GeoLayerViewID="TrailsLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/trails-fortcollins-event-config.json")

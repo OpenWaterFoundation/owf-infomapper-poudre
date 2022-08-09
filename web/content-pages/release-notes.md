@@ -11,6 +11,7 @@ The following release notes summarize changes to the Poudre Basin Information we
 
 | **Release** | **Date**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | **Description** |
 | -- | -- | -- |
+| 3.0.0 | 2022-08-03 | Additional changes to use Open Water Foundation `data` website. Update to use InfoMapper 4.0.0, which uses application URLs without `#` character. |
 | 2.5.0 | 2022-07-22 | Convert data sources to use Open Water Foundation `data` website as much as possible. Fix flood map legend. |
 | 2.4.0 | 2022-07-05 | Begin phasing in datasets from the Open Water Foundation `data` website to streamline use of shared datasets.  Initial dashboards released.  Many updates. |
 | 2.3.0 | | Add East Troublesome soil burn severity, various other data additions. |
@@ -28,6 +29,21 @@ The following release notes summarize changes to the Poudre Basin Information we
 | 0.1.0 | | Initial version as custom application. | 
 
 ------------
+
+## 3.0.0 ##
+
+**Feature release including new InfoMapper 4.0 URL approach.**
+
+* [3.0.0] Continue migrating datasets to public pages:
+    + **As of 2022-08-08, all datasets other than irrigated lands and population have been published.**
+    + Dataset landing pages now have links to preview data layers, using a simple viewing tool.
+* [3.0.0] Update to InfoMapper 4.0.0 software:
+    + URLs for main resources no longer use `#` character in URLs:
+        - Old URLs are automatically translated to new URLs.
+        - The new approach allows for improved search and analytics features.
+    + Fix the bug where sometimes a map would not load due to map initialization timing.
+* [3.0.0] Add the canals layer to the 
+  [***Basin Eintities / Agriculture - Ditches***](#/map/entities-ditches) map.
 
 ## 2.5.0 ##
 

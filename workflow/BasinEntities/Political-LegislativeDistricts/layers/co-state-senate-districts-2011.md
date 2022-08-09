@@ -18,7 +18,7 @@ The following are data sources for this map:
 
 | **Resource** | **Source** |
 | -- | -- |
-| Senate Senate Districts map layer. | [Colorado State Senate District Boundaries (2011)](https://data.colorado.gov/Legislative/Colorado-State-Senate-District-Boundaries-2011-/c9h8-fdgk) dataset from Colorado Information Marketplace. |
+| State Senate Districts map layer. | [Colorado Legislative Districts dataset](https://data.openwaterfoundation.org/state/co/circ/legislative-districts/) from the Open Water Foundation, created from [Colorado State Senate District Boundaries (2011)](https://data.colorado.gov/Legislative/Colorado-State-Senate-District-Boundaries-2011-/c9h8-fdgk) dataset from Colorado Information Marketplace. |
 
 ## Workflow
 

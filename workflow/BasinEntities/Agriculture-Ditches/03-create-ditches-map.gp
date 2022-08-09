@@ -13,8 +13,8 @@ SetProperty(PropertyName="MapFolder",PropertyType="str",PropertyValue="${MapsFol
 # Create a single map project and map for that project.
 # - GeoMapProjectID:  DitchesProject
 # - GeoMapID:  DitchesMap
-CreateGeoMapProject(NewGeoMapProjectID="DitchesProject",ProjectType="SingleMap",Name="Poudre Ditch Service Areas",Description="Poudre Basin Ditch Service Areas.",Properties="author:'Open Water Foundation',specificationVersion:'1.0.0'")
-CreateGeoMap(NewGeoMapID="DitchesMap",Name="Poudre Ditch Service Areas",Description="Poudre Basin ditch service areas from CDSS.",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.5,40.7,10',docPath:'ditches-map.md'")
+CreateGeoMapProject(NewGeoMapProjectID="DitchesProject",ProjectType="SingleMap",Name="Ditches",Description="Ditch service areas and canals.",Properties="author:'Open Water Foundation',specificationVersion:'1.0.0'")
+CreateGeoMap(NewGeoMapID="DitchesMap",Name="Ditches",Description="Ditch service areas and canals from CDSS.",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.5,40.7,10',docPath:'ditches-map.md'")
 AddGeoMapToGeoMapProject(GeoMapProjectID="DitchesProject",GeoMapID="DitchesMap")
 # = = = = = = = = = =
 # Background layers:  read layers and add a layer view group
@@ -82,50 +82,61 @@ SetGeoLayerViewEventHandler(GeoLayerViewID="WaterDistrictLayerView",EventType="c
 # Ditch service areas (1956):  read layer and add to a layer view group.
 # - color is yellow
 # GeoLayerViewGroupID: DitchServiceAreasGroup
-AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="DitchServiceAreasGroup",Name="Poudre Ditch Service Areas",Description="Ditch service areas for District 3 from from Colorado's Decision Support System.",Properties="selectedInitial: true,docPath:'layers/group-ditch-service-areas.md'",InsertPosition="Top")
+AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="DitchServiceAreasGroup",Name="Ditch Service Areas",Description="Ditch service areas from from Colorado's Decision Support System.",Properties="selectedInitial: true,docPath:'layers/group-ditch-service-areas.md'",InsertPosition="Top")
 #
-ReadGeoLayerFromGeoJSON(InputFile="layers/ditch-service-areas-1956.geojson",GeoLayerID="DitchServiceAreas1956Layer",Name="Poudre  Ditch Service Areas",Description="Ditch service areas (1956) for District 3 from Colorado's Decision Support Systems.")
+ReadGeoLayerFromGeoJSON(InputFile="https://data.openwaterfoundation.org/state/co/dwr/irrigated-lands/co-dwr-ditch-service-area-district3-1956.geojson",GeoLayerID="DitchServiceAreas1956Layer",Name="Poudre  Ditch Service Areas",Description="Ditch service areas (1956) for District 3 from Colorado's Decision Support Systems.")
 # The following layer view group is used for all years
 AddGeoLayerViewToGeoMap(GeoLayerID="DitchServiceAreas1956Layer",GeoLayerViewID="DitchServiceAreas1956LayerView",Name="District 3 Ditch Service Areas (1956)",Description="Ditch service areas (1956) from CDSS",InsertPosition="Top",Properties="docPath:layers/ditch-service-areas.md,selectedInitial:false,highlightEnabled:true")
-SetGeoLayerViewSingleSymbol(GeoLayerViewID="DitchServiceAreas1956LayerView",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches",Properties="color:#ffff00,opacity:1.0,fillColor:#ffff00,fillOpacity:0.3,weight:2")
+SetGeoLayerViewSingleSymbol(GeoLayerViewID="DitchServiceAreas1956LayerView",Name="Ditch Service Areas",Description="Ditch Service Areas",Properties="color:#ffff00,opacity:1.0,fillColor:#ffff00,fillOpacity:0.3,weight:2")
 SetGeoLayerViewEventHandler(GeoLayerViewID="DitchServiceAreas1956LayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/ditch-service-areas-1956-event-config.json")
 SetGeoLayerViewEventHandler(GeoLayerViewID="DitchServiceAreas1956LayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/ditch-service-areas-1956-event-config.json")
 # = = = = = = = = = =
 # Ditch service areas (1976):  read layer and add to a layer view group.
 # - color is orange
 # GeoLayerViewGroupID: DitchServiceAreasGroup
-ReadGeoLayerFromGeoJSON(InputFile="layers/ditch-service-areas-1976.geojson",GeoLayerID="DitchServiceAreas1976Layer",Name="Poudre Ditch Service Areas (1976)",Description="Ditch service areas (1976) for District 3 from Colorado's Decision Support Systems.")
+ReadGeoLayerFromGeoJSON(InputFile="https://data.openwaterfoundation.org/state/co/dwr/irrigated-lands/co-dwr-ditch-service-area-district3-1976.geojson",GeoLayerID="DitchServiceAreas1976Layer",Name="Poudre Ditch Service Areas (1976)",Description="Ditch service areas (1976) for District 3 from Colorado's Decision Support Systems.")
 AddGeoLayerViewToGeoMap(GeoLayerID="DitchServiceAreas1976Layer",GeoLayerViewID="DitchServiceAreas1976LayerView",Name="District 3 Ditch Service Areas (1976)",Description="Ditch service areas (1976) from CDSS",InsertPosition="Top",Properties="docPath:layers/ditch-service-areas.md,selectedInitial:false,highlightEnabled:true")
-SetGeoLayerViewSingleSymbol(GeoLayerViewID="DitchServiceAreas1976LayerView",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches",Properties="color:#ff6600,opacity:1.0,fillColor:#ff6600,fillOpacity:0.3,weight:2")
+SetGeoLayerViewSingleSymbol(GeoLayerViewID="DitchServiceAreas1976LayerView",Name="Ditch Service Areas",Description="Ditch Service Areas",Properties="color:#ff6600,opacity:1.0,fillColor:#ff6600,fillOpacity:0.3,weight:2")
 SetGeoLayerViewEventHandler(GeoLayerViewID="DitchServiceAreas1976LayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/ditch-service-areas-1976-event-config.json")
 SetGeoLayerViewEventHandler(GeoLayerViewID="DitchServiceAreas1976LayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/ditch-service-areas-1976-event-config.json")
 # = = = = = = = = = =
 # Ditch service areas (1987):  read layer and add to a layer view group.
 # - color is cyan
 # GeoLayerViewGroupID: DitchServiceAreasGroup
-ReadGeoLayerFromGeoJSON(InputFile="layers/ditch-service-areas-1987.geojson",GeoLayerID="DitchServiceAreas1987Layer",Name="Poudre Ditch Service Areas (1987)",Description="Ditch service areas (1987) for District 3 from Colorado's Decision Support Systems.")
+ReadGeoLayerFromGeoJSON(InputFile="https://data.openwaterfoundation.org/state/co/dwr/irrigated-lands/co-dwr-ditch-service-area-district3-1987.geojson",GeoLayerID="DitchServiceAreas1987Layer",Name="Poudre Ditch Service Areas (1987)",Description="Ditch service areas (1987) for District 3 from Colorado's Decision Support Systems.")
 AddGeoLayerViewToGeoMap(GeoLayerID="DitchServiceAreas1987Layer",GeoLayerViewID="DitchServiceAreas1987LayerView",Name="District 3 Ditch Service Areas (1987)",Description="Ditch service areas (1987) from CDSS",InsertPosition="Top",Properties="docPath:layers/ditch-service-areas.md,selectedInitial:false,highlightEnabled:true")
-SetGeoLayerViewSingleSymbol(GeoLayerViewID="DitchServiceAreas1987LayerView",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches",Properties="color:#00ffff,opacity:1.0,fillColor:#00ffff,fillOpacity:0.3,weight:2")
+SetGeoLayerViewSingleSymbol(GeoLayerViewID="DitchServiceAreas1987LayerView",Name="Ditch Service Areas",Description="Ditch Service Areas",Properties="color:#00ffff,opacity:1.0,fillColor:#00ffff,fillOpacity:0.3,weight:2")
 SetGeoLayerViewEventHandler(GeoLayerViewID="DitchServiceAreas1987LayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/ditch-service-areas-1987-event-config.json")
 SetGeoLayerViewEventHandler(GeoLayerViewID="DitchServiceAreas1987LayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/ditch-service-areas-1987-event-config.json")
 # = = = = = = = = = =
 # Ditch service areas (2001):  read layer and add to a layer view group.
 # - color is light green
 # GeoLayerViewGroupID: DitchServiceAreasGroup
-ReadGeoLayerFromGeoJSON(InputFile="layers/ditch-service-areas-2001.geojson",GeoLayerID="DitchServiceAreas2001Layer",Name="Poudre Ditch Service Areas (2001)",Description="Ditch service areas (2001) for District 3 from Colorado's Decision Support Systems.")
+ReadGeoLayerFromGeoJSON(InputFile="https://data.openwaterfoundation.org/state/co/dwr/irrigated-lands/co-dwr-ditch-service-area-district3-2001.geojson",GeoLayerID="DitchServiceAreas2001Layer",Name="Poudre Ditch Service Areas (2001)",Description="Ditch service areas (2001) for District 3 from Colorado's Decision Support Systems.")
 AddGeoLayerViewToGeoMap(GeoLayerID="DitchServiceAreas2001Layer",GeoLayerViewID="DitchServiceAreas2001LayerView",Name="District 3 Ditch Service Areas (2001)",Description="Ditch service areas (2001) from CDSS",InsertPosition="Top",Properties="docPath:layers/ditch-service-areas.md,selectedInitial:false,highlightEnabled:true")
-SetGeoLayerViewSingleSymbol(GeoLayerViewID="DitchServiceAreas2001LayerView",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches",Properties="color:#b3ff66,opacity:1.0,fillColor:#b3ff66,fillOpacity:0.3,weight:2")
+SetGeoLayerViewSingleSymbol(GeoLayerViewID="DitchServiceAreas2001LayerView",Name="Ditch Service Areas",Description="Ditch Service Areas",Properties="color:#b3ff66,opacity:1.0,fillColor:#b3ff66,fillOpacity:0.3,weight:2")
 SetGeoLayerViewEventHandler(GeoLayerViewID="DitchServiceAreas2001LayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/ditch-service-areas-2001-event-config.json")
 SetGeoLayerViewEventHandler(GeoLayerViewID="DitchServiceAreas2001LayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/ditch-service-areas-2001-event-config.json")
 # = = = = = = = = = =
 # Ditch service areas (2005):  read layer and add to a layer view group.
 # - color is green
 # GeoLayerViewGroupID: DitchServiceAreasGroup
-ReadGeoLayerFromGeoJSON(InputFile="layers/ditch-service-areas-2005.geojson",GeoLayerID="DitchServiceAreas2005Layer",Name="Poudre Ditch Service Areas (2005)",Description="Ditch service areas (2005) for District 3 from Colorado's Decision Support Systems.")
+ReadGeoLayerFromGeoJSON(InputFile="https://data.openwaterfoundation.org/state/co/dwr/irrigated-lands/co-dwr-ditch-service-area-district3-2005.geojson",GeoLayerID="DitchServiceAreas2005Layer",Name="Poudre Ditch Service Areas (2005)",Description="Ditch service areas (2005) for District 3 from Colorado's Decision Support Systems.")
 AddGeoLayerViewToGeoMap(GeoLayerID="DitchServiceAreas2005Layer",GeoLayerViewID="DitchServiceAreas2005LayerView",Name="District 3 Ditch Service Areas (2005)",Description="Ditch service areas (2005) from CDSS",InsertPosition="Top",Properties="docPath:layers/ditch-service-areas.md,selectedInitial:true,highlightEnabled:true")
-SetGeoLayerViewSingleSymbol(GeoLayerViewID="DitchServiceAreas2005LayerView",Name="Poudre Stream Reaches",Description="Poudre Stream Reaches",Properties="color:#33cc33,opacity:1.0,fillColor:#33cc33,fillOpacity:0.3,weight:2")
+SetGeoLayerViewSingleSymbol(GeoLayerViewID="DitchServiceAreas2005LayerView",Name="Ditch Service Areas",Description="Ditch service areas",Properties="color:#33cc33,opacity:1.0,fillColor:#33cc33,fillOpacity:0.3,weight:2")
 SetGeoLayerViewEventHandler(GeoLayerViewID="DitchServiceAreas2005LayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/ditch-service-areas-2005-event-config.json")
 SetGeoLayerViewEventHandler(GeoLayerViewID="DitchServiceAreas2005LayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/ditch-service-areas-2005-event-config.json")
+# = = = = = = = = = =
+# Canals:  read layer and add to a layer view group.
+# GeoLayerViewGroupID: CanalsGroup
+AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="CanalsGroup",Name="Canals (ditches)",Description="Canals (ditches)",Properties="selectedInitial: true",InsertPosition="Top")
+#
+ReadGeoLayerFromGeoJSON(InputFile="https://data.openwaterfoundation.org/state/co/dwr/irrigated-lands/co-dwr-canals-district3.geojson",GeoLayerID="CanalsLayer",Name="Canals (ditches)",Description="Canals (ditches)")
+AddGeoLayerViewToGeoMap(GeoLayerID="CanalsLayer",GeoLayerViewID="CanalsLayerView",Name="Canals (ditches)",Description="Canals (ditches)",Properties="docPath:layers/canals.md,highlightEnabled:true")
+SetGeoLayerViewSingleSymbol(GeoLayerViewID="CanalsLayerView",Name="Canals (ditches)",Description="Canals (ditches)",Properties="color:#d9d9d9,width:1")
+# SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="CanalsLayerView",Name="Canals (ditches)",Description="Show canals in dark grey",ClassificationAttribute="county",Properties="classificationType:'SingleSymbol'")
+SetGeoLayerViewEventHandler(GeoLayerViewID="CanalsLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/canals-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="CanalsLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/canals-event-config.json")
 # = = = = = = = = = =
 # Write the map project file and copy layers to the location needed by the web application.
 # - follow InfoMapper conventions
@@ -138,11 +149,6 @@ CopyFile(SourceFile="layers/co-dwr-water-district-3-classify-district.csv",Desti
 CopyFile(SourceFile="../Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3-event-config.json",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3-event-config.json")
 CopyFile(SourceFile="../Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3.md",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3.md")
 #
-CopyFile(SourceFile="layers/ditch-service-areas-1956.geojson",DestinationFile="${MapFolder}/layers/ditch-service-areas-1956.geojson")
-CopyFile(SourceFile="layers/ditch-service-areas-1976.geojson",DestinationFile="${MapFolder}/layers/ditch-service-areas-1976.geojson")
-CopyFile(SourceFile="layers/ditch-service-areas-1987.geojson",DestinationFile="${MapFolder}/layers/ditch-service-areas-1987.geojson")
-CopyFile(SourceFile="layers/ditch-service-areas-2001.geojson",DestinationFile="${MapFolder}/layers/ditch-service-areas-2001.geojson")
-CopyFile(SourceFile="layers/ditch-service-areas-2005.geojson",DestinationFile="${MapFolder}/layers/ditch-service-areas-2005.geojson")
 CopyFile(SourceFile="layers/group-ditch-service-areas.md",DestinationFile="${MapFolder}/layers/group-ditch-service-areas.md")
 #
 # CopyFile(SourceFile="layers/ditch-service-areas-classify-croptype.csv",DestinationFile="${MapFolder}/layers/ditch-service-areas-classify-croptype.csv")
@@ -151,5 +157,7 @@ CopyFile(SourceFile="layers/ditch-service-areas-1976-event-config.json",Destinat
 CopyFile(SourceFile="layers/ditch-service-areas-1987-event-config.json",DestinationFile="${MapFolder}/layers/ditch-service-areas-1987-event-config.json")
 CopyFile(SourceFile="layers/ditch-service-areas-2001-event-config.json",DestinationFile="${MapFolder}/layers/ditch-service-areas-2001-event-config.json")
 CopyFile(SourceFile="layers/ditch-service-areas-2005-event-config.json",DestinationFile="${MapFolder}/layers/ditch-service-areas-2005-event-config.json")
+#
+CopyFile(SourceFile="layers/canals-event-config.json",DestinationFile="${MapFolder}/layers/canals-event-config.json")
 #
 CopyFile(SourceFile="layers/ditch-service-areas.md",DestinationFile="${MapFolder}/layers/ditch-service-areas.md")

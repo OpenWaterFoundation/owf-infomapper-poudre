@@ -383,7 +383,7 @@
             {
               "geoLayerViewId": "TrailsLayerView",
               "name": "Trails",
-              "description": "trails, from Fort Collins",
+              "description": "Trails, from Fort Collins",
               "geoLayerId": "TrailsLayer",
               "properties": {
                 "docPath": "layers/trails-fortcollins-doc/trails-fortcollins.md",

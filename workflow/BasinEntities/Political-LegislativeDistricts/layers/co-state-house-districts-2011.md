@@ -18,7 +18,7 @@ The following are data sources for this map:
 
 | **Resource** | **Source** |
 | -- | -- |
-|  House Districts map layer. | [Colorado State House of Representatives District Boundaries (2011)](https://data.colorado.gov/Legislative/Colorado-State-House-of-Representatives-District-B/jf7j-4sik) dataset from Colorado Information Marketplace. |
+|  State House Districts map layer. | [Colorado Legislative Districts dataset](https://data.openwaterfoundation.org/state/co/circ/legislative-districts/) from the Open Water Foundation, created from the [Colorado State House of Representatives District Boundaries (2011)](https://data.colorado.gov/Legislative/Colorado-State-House-of-Representatives-District-B/jf7j-4sik) dataset from Colorado Information Marketplace. |
 
 ## Workflow
 
