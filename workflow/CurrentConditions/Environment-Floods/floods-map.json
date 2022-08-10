@@ -843,7 +843,7 @@
               "description": "Cameron Peak Fire soil burn severity from USFS BAER",
               "geoLayerId": "CameronPeakSoilBurnSeverityRasterLayer",
               "properties": {
-                "docPath": "layers/cameron-peak-sbs.md"
+                "docPath": "../Environment-Wildfires/layers/cameron-peak-sbs.md"
               },
               "geoLayerSymbol": {
                 "name": "Colorize soil burn severity",
@@ -882,7 +882,7 @@
               "description": "East Troublesome Fire soil burn severity from USFS BAER",
               "geoLayerId": "EastTroublesomeSoilBurnSeverityRasterLayer",
               "properties": {
-                "docPath": "layers/east-troublesome-sbs.md"
+                "docPath": "../Environment-Wildfires/layers/east-troublesome-sbs.md"
               },
               "geoLayerSymbol": {
                 "name": "Colorize soil burn severity",
