@@ -68,12 +68,12 @@ AddGeoLayerViewToGeoMap(GeoLayerID="USGSTopo",GeoLayerViewID="USGSTopoView",Name
 # GeoLayerViewGroupID: WaterDistrictsGroup
 AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="WaterDistrictsGroup",Name="CO DWR Water Districts",Description="Water District boundaries from the Colorado Division of Water Resources.",Properties="selectedInitial:true",InsertPosition="Top")
 #
-CopyFile(SourceFile="../../BasinEntities/Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3.md",DestinationFile="layers/co-dwr-water-district-3.md")
-CopyFile(SourceFile="../../BasinEntities/Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3-event-config.json",DestinationFile="layers/co-dwr-water-district-3-event-config.json")
-CopyFile(SourceFile="../../BasinEntities/Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3-classify-district.csv",DestinationFile="layers/co-dwr-water-district-3-classify-district.csv")
+#CopyFile(SourceFile="../../BasinEntities/Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3.md",DestinationFile="layers/co-dwr-water-district-3.md")
+#CopyFile(SourceFile="../../BasinEntities/Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3-event-config.json",DestinationFile="layers/co-dwr-water-district-3-event-config.json")
+#CopyFile(SourceFile="../../BasinEntities/Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3-classify-district.csv",DestinationFile="layers/co-dwr-water-district-3-classify-district.csv")
 ReadGeoLayerFromGeoJSON(InputFile="https://data.openwaterfoundation.org/state/co/dwr/districts/co-dwr-district-3.geojson",GeoLayerID="WaterDistrictLayer",Name="CO DWR Water District 3",Description="Water District 3 boundary from the Colorado Division of Water Resources.")
 AddGeoLayerViewToGeoMap(GeoLayerID="WaterDistrictLayer",GeoLayerViewID="WaterDistrictLayerView",Name="CO DWR Water District 3",Description="Water District 3 boundary from the Colorado Division of Water Resources",Properties="docPath:../../BasinEntities/Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3.md",InsertPosition="Top")
-SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="WaterDistrictLayerView",Name="Colorize district",Description="Show Water District 3 in black.",ClassificationAttribute="DISTRICT",Properties="classificationFile:layers/co-dwr-water-district-3-classify-district.csv")
+SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="WaterDistrictLayerView",Name="Colorize district",Description="Show Water District 3 in black.",ClassificationAttribute="DISTRICT",Properties="classificationFile:../../BasinEntities/Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3-classify-district.csv")
 SetGeoLayerViewEventHandler(GeoLayerViewID="WaterDistrictLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:../../BasinEntities/Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3-event-config.json")
 SetGeoLayerViewEventHandler(GeoLayerViewID="WaterDistrictLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:../../BasinEntities/Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3-event-config.json")
 # = = = = = = = = = =
@@ -90,16 +90,16 @@ SetGeoLayerViewEventHandler(GeoLayerViewID="ContinentalDivideLayerView",EventTyp
 # National parks:  read layer and add to a layer view group.
 # GeoLayerViewGroupID: NationalParksGroup
 #
-AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="NationalParksGroup",Name="National Parks",Description="National parks",Properties="selectedInitial:true,docPath:'national-parks-group.md'",InsertPosition="Top")
+AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="NationalParksGroup",Name="National Parks",Description="National parks",Properties="selectedInitial:true",InsertPosition="Top")
 #
 # Use the GeoJSON dataset
 #ReadGeoLayerFromGeoJSON(InputFile="https://services1.arcgis.com/fBc8EJBxQRMcHlei/arcgis/rest/services/ROMO_BND_Boundary_py_NAD83_1/FeatureServer/0/query?geometry=-109.05%2C36.99%2C-102.05%2C41&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelContains&outFields=*&geometryPrecision=5&f=geojson",GeoLayerID="RMNPBoundaryLayer",Name="RMNP Boundary",Description="Rocky Mountain National Parck boundary web service")
-ReadGeoLayerFromGeoJSON(InputFile="https://opendata.arcgis.com/datasets/7cb5f22df8c44900a9f6632adb5f96a5_0.geojson",GeoLayerID="RMNPBoundaryLayer",Name="RMNP Boundary",Description="Rocky Mountain National Parck boundary web service")
-AddGeoLayerViewToGeoMap(GeoLayerID="RMNPBoundaryLayer",GeoLayerViewID="RMNPBoundaryLayerView",Name="RMNP Boundary",Description="Rocky Mountain National Park boundary from National Park Service",Properties="docPath:../../CurrentConditions/Environment-WildFires/layers/national-parks-rmnp.md")
+ReadGeoLayerFromGeoJSON(InputFile="https://opendata.arcgis.com/datasets/7cb5f22df8c44900a9f6632adb5f96a5_0.geojson",GeoLayerID="RMNPBoundaryLayer",Name="RMNP Boundary",Description="Rocky Mountain National Park boundary web service")
+AddGeoLayerViewToGeoMap(GeoLayerID="RMNPBoundaryLayer",GeoLayerViewID="RMNPBoundaryLayerView",Name="RMNP Boundary",Description="Rocky Mountain National Park boundary from National Park Service",Properties="docPath:../Environment-WildFires/layers/national-parks-rmnp.md")
 # Use #339933 - dark green
 SetGeoLayerViewSingleSymbol(GeoLayerViewID="RMNPBoundaryLayerView",Name="RMNPBoundarySymbol",Description="RMNP boundaries symbol",Properties="color:#339933,fillColor:#339933,fillOpacity:0.3")
-SetGeoLayerViewEventHandler(GeoLayerViewID="RMNPBoundaryLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:../../CurrentConditions/Environment-Wildfires/layers/national-parks-rmnp-event-config.json")
-SetGeoLayerViewEventHandler(GeoLayerViewID="RMNPBoundaryLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:../../CurrentConditions/Environment-Wildfires/layers/national-parks-rmnp-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="RMNPBoundaryLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:../Environment-Wildfires/layers/national-parks-rmnp-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="RMNPBoundaryLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:../Environment-Wildfires/layers/national-parks-rmnp-event-config.json")
 # = = = = = = = = = =
 # SNODAS snow:  read layer and add to a layer view group.
 # GeoLayerViewGroupID: SnowpackBasinsGroup
@@ -205,7 +205,7 @@ AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="SoilBurnSeverityGroup",Name="S
 # Soil Burn Severity for East Troublesome (raster):
 # GeoLayerViewGroupID: SoilBurnSeverityGroup
 # - raster is faster
-ReadRasterGeoLayerFromFile(InputFile="http://data.openwaterfoundation.org/country/us/usfs/baer/2020/east-troublesome/east-troublesome-2020-sbs.tif",GeoLayerID="EastTroublesomeSoilBurnSeverityRasterLayer",Name="East Troublesome Fire Soil Burn Severity (raster)",Description="East Troublesome Fire soil burn severity")
+ReadRasterGeoLayerFromFile(InputFile="https://data.openwaterfoundation.org/country/us/usfs/baer/2020/east-troublesome/east-troublesome-2020-sbs.tif",GeoLayerID="EastTroublesomeSoilBurnSeverityRasterLayer",Name="East Troublesome Fire Soil Burn Severity (raster)",Description="East Troublesome Fire soil burn severity")
 AddGeoLayerViewToGeoMap(GeoLayerID="EastTroublesomeSoilBurnSeverityRasterLayer",GeoLayerViewID="EastTroublesomeSoilBurnSeverityRasterLayerView",Name="East Troublesome Fire Soil Burn Severity (raster)",Description="East Troublesome Fire soil burn severity from USFS BAER",Properties="docPath:../Environment-Wildfires/layers/east-troublesome-sbs.md",InsertPosition="Top")
 SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="EastTroublesomeSoilBurnSeverityRasterLayerView",Name="Colorize soil burn severity",Description="Symbol for the soil burn severity",ClassificationAttribute="1",Properties="classificationFile:'../Environment-Wildfires/layers/east-troublesome-sbs-classify-gridcode.csv',rasterResolution:'128'")
 SetGeoLayerViewEventHandler(GeoLayerViewID="EastTroublesomeSoilBurnSeverityRasterLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:../Environment-Wildfires/layers/east-troublesome-sbs-raster-event-config.json")
@@ -237,15 +237,15 @@ SetGeoLayerViewEventHandler(GeoLayerViewID="HUC12BasinsLayerView",EventType="cli
 # GeoLayerViewGroupID: StreamReachesGroup
 AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="StreamReachesGroup",Name="Stream Reaches",Description="Stream reaches",Properties="selectedInitial:true",InsertPosition="Top")
 #
-CopyFile(SourceFile="../../BasinEntities/Physical-StreamReaches/layers/stream-reaches.md",DestinationFile="layers/stream-reaches.md")
-CopyFile(SourceFile="../../BasinEntities/Physical-StreamReaches/layers/stream-reaches-event-config.json",DestinationFile="layers/stream-reaches-event-config.json")
+#CopyFile(SourceFile="../../BasinEntities/Physical-StreamReaches/layers/stream-reaches.md",DestinationFile="layers/stream-reaches.md")
+#CopyFile(SourceFile="../../BasinEntities/Physical-StreamReaches/layers/stream-reaches-event-config.json",DestinationFile="layers/stream-reaches-event-config.json")
 ReadGeoLayerFromGeoJSON(InputFile="https://data.openwaterfoundation.org/state/co/dwr/stream-reaches/co-stream-reaches-districts3_4.geojson",GeoLayerID="StreamReachesLayer",Name="Stream Reaches",Description="Stream reaches")
-AddGeoLayerViewToGeoMap(GeoLayerID="StreamReachesLayer",GeoLayerViewID="StreamReachesLayerView",Name="Stream Reaches",Description="Stream reaches",Properties="docPath:layers/stream-reaches.md,highlightEnabled:true")
+AddGeoLayerViewToGeoMap(GeoLayerID="StreamReachesLayer",GeoLayerViewID="StreamReachesLayerView",Name="Stream Reaches",Description="Stream reaches",Properties="docPath:../../BasinEntities/Physical-StreamReaches/layers/stream-reaches.md,highlightEnabled:true")
 SetGeoLayerViewSingleSymbol(GeoLayerViewID="StreamReachesLayerView",Name="Stream Reaches",Description="Stream reaches",Properties="color:#6297f7,width:2")
 #SetGeoLayerViewSingleSymbol(GeoLayerViewID="StreamReachesLayerView",Name="Stream Reaches",Description="Stream reaches")
 #SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="StreamReachesLayerView",Name="Stream Reaches",Description="Show stream reaches is blue lines",ClassificationAttribute="county",Properties="classificationType:'SingleSymbol'")
-SetGeoLayerViewEventHandler(GeoLayerViewID="StreamReachesLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/stream-reaches-event-config.json")
-SetGeoLayerViewEventHandler(GeoLayerViewID="StreamReachesLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/stream-reaches-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="StreamReachesLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:../../BasinEntities/Physical-StreamReaches/layers/stream-reaches-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="StreamReachesLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:../../BasinEntities/Physical-StreamReaches/layers/stream-reaches-event-config.json")
 /*
 #  # = = = = = = = = = =
 #  # Snow stations:  read layer and add to a layer view group.
@@ -361,8 +361,8 @@ CopyFile(SourceFile="layers/fws-level-stations-event-config.json",DestinationFil
 #  CopyFile(SourceFile="layers/snotel-stations-event-config.json",DestinationFile="${MapFolder}/layers/snotel-stations-event-config.json")
 */
 # Stream reaches.
-CopyFile(SourceFile="../../BasinEntities/Physical-StreamReaches/layers/stream-reaches.md",DestinationFile="${MapFolder}/layers/stream-reaches.md")
-CopyFile(SourceFile="layers/stream-reaches-event-config.json",DestinationFile="${MapFolder}/layers/stream-reaches-event-config.json")
+#CopyFile(SourceFile="../../BasinEntities/Physical-StreamReaches/layers/stream-reaches.md",DestinationFile="${MapFolder}/layers/stream-reaches.md")
+#CopyFile(SourceFile="layers/stream-reaches-event-config.json",DestinationFile="${MapFolder}/layers/stream-reaches-event-config.json")
 /*
 #  # Cameron Peak burn severity.
 #  CopyFile(SourceFile="layers/cameron-peak-sbs.tif",DestinationFile="${MapFolder}/layers/cameron-peak-sbs.tif")
@@ -395,7 +395,7 @@ CopyFile(SourceFile="layers/stream-reaches-event-config.json",DestinationFile="$
 # CopyFile(SourceFile="../../BasinEntities/Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3.md",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3.md")
 # Continental divide:
 # - no need to copy layer because read from URL
-CopyFile(SourceFile="layers/continental-divide-co-event-config.json",DestinationFile="${MapFolder}/layers/continental-divide-co-event-config.json")
+#CopyFile(SourceFile="layers/continental-divide-co-event-config.json",DestinationFile="${MapFolder}/layers/continental-divide-co-event-config.json")
 /*
 #  # SNODAS snowpack.
 #  # - no need to copy layer because read from URL

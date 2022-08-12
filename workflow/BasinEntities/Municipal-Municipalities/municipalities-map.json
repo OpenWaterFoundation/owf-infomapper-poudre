@@ -330,9 +330,73 @@
           "history:": [
             "Read GeoLayer from GeoJSON file:  'C:\\Users\\sam\\owf-dev\\InfoMapper-Poudre\\git-repos\\owf-infomapper-poudre\\workflow\\BasinEntities\\Municipal-Municipalities\\layers\\municipalities.geojson'"
           ]
+        },
+        {
+          "geoLayerId": "StreamReachesLayer",
+          "name": "Stream Reaches",
+          "description": "Stream reaches",
+          "crs": "EPSG:4326",
+          "geometryType": "WKT:LineString",
+          "layerType": "Vector",
+          "sourceFormat": "GeoJSON",
+          "sourcePath": "https://data.openwaterfoundation.org/state/co/dwr/stream-reaches/co-stream-reaches-districts3_4.geojson",
+          "properties": {},
+          "history:": [
+            "Read GeoLayer from GeoJSON file:  'https://data.openwaterfoundation.org/state/co/dwr/stream-reaches/co-stream-reaches-districts3_4.geojson'"
+          ]
         }
       ],
       "geoLayerViewGroups": [
+        {
+          "geoLayerViewGroupId": "StreamReachesGroup",
+          "name": "Stream Reaches",
+          "description": "Stream reaches",
+          "properties": {
+            "selectedInitial": "true"
+          },
+          "geoLayerViews": [
+            {
+              "geoLayerViewId": "StreamReachesLayerView",
+              "name": "Stream Reaches",
+              "description": "Stream reaches",
+              "geoLayerId": "StreamReachesLayer",
+              "properties": {
+                "docPath": "../Physical-StreamReaches/layers/stream-reaches.md",
+                "highlightEnabled": "true"
+              },
+              "geoLayerSymbol": {
+                "name": "Stream Reaches",
+                "description": "Stream reaches",
+                "classificationType": "SingleSymbol",
+                "classificationAttribute": "",
+                "properties": {
+                  "color": "#6297f7",
+                  "width": "2"
+                }
+              },
+              "eventHandlers": [
+                {
+                  "eventType": "hover",
+                  "name": "Hover event",
+                  "description": "Hover event configuration",
+                  "hasVisualization": false,
+                  "properties": {
+                    "eventConfigPath": "../Physical-StreamReaches/layers/stream-reaches-event-config.json"
+                  }
+                },
+                {
+                  "eventType": "click",
+                  "name": "Click event",
+                  "description": "Click event configuration",
+                  "hasVisualization": false,
+                  "properties": {
+                    "eventConfigPath": "../Physical-StreamReaches/layers/stream-reaches-event-config.json"
+                  }
+                }
+              ]
+            }
+          ]
+        },
         {
           "geoLayerViewGroupId": "MunicipalitiesGroup",
           "name": "Colorado Municipalities",
@@ -437,7 +501,7 @@
               "description": "Water District 3 boundary from the Colorado Division of Water Resources",
               "geoLayerId": "WaterDistrictLayer",
               "properties": {
-                "docPath": "layers/co-dwr-water-district-3.md"
+                "docPath": "../Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3.md"
               },
               "geoLayerSymbol": {
                 "name": "Colorize district",
@@ -445,7 +509,7 @@
                 "classificationType": "Categorized",
                 "classificationAttribute": "DISTRICT",
                 "properties": {
-                  "classificationFile": "layers/co-dwr-water-district-3-classify-district.csv"
+                  "classificationFile": "../Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3-classify-district.csv"
                 }
               },
               "eventHandlers": [
@@ -455,7 +519,7 @@
                   "description": "Hover event configuration",
                   "hasVisualization": false,
                   "properties": {
-                    "eventConfigPath": "layers/co-dwr-water-district-3-event-config.json"
+                    "eventConfigPath": "../Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3-event-config.json"
                   }
                 },
                 {
@@ -464,7 +528,7 @@
                   "description": "Click event configuration",
                   "hasVisualization": false,
                   "properties": {
-                    "eventConfigPath": "layers/co-dwr-water-district-3-event-config.json"
+                    "eventConfigPath": "../Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3-event-config.json"
                   }
                 }
               ]
@@ -485,7 +549,7 @@
               "description": "Colorado state boundary from CDPHE",
               "geoLayerId": "StateBoundaryLayer",
               "properties": {
-                "docPath": "layers/co-state-boundary.md"
+                "docPath": "../../SupportingData/Political-ColoradoStateBoundary/layers/co-state-boundary.md"
               },
               "geoLayerSymbol": {
                 "name": "State boundary symbol",

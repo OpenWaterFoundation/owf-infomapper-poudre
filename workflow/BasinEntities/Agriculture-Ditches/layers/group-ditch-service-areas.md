@@ -9,11 +9,11 @@ Note the following:
 
 * Ditch service areas change over time, due to irrigating more or less lands.
 * Ditches that have a diversion point in the Poudre Basin (Water District 3) may irrigate lands outside
-of the Poudre Basin.
+  of the Poudre Basin.
 * Ditch service areas overlap urban areas - see the ***Historical Data / Agriculture - Irrigated Lands***
-menu for detailed data for irrigated parcels.
-When urban areas grow onto irrigated lands, the water right ownership is typically transferred to those
-urban entities, although water rental programs may continue to provide water to agriculture in many years.
+  menu for detailed data for irrigated parcels.
+  When urban areas grow onto irrigated lands, the water right ownership is typically transferred to those
+  urban entities, although water rental programs may continue to provide water to agriculture in many years.
 
 ## Data Sources
 
@@ -21,7 +21,7 @@ The following are data sources for this map:
 
 | **Resource** | **Source** |
 | -- | -- |
-| District 3 Ditch Service Areas layer | Extracted from [Irrigated Lands](https://www.colorado.gov/pacific/cdss/gis-data-category) layers from CDSS Data by Category. |
+| District 3 Ditch Service Areas layer | [Ditch Service Area layer from the Irrigated Lands dataset](https://data.openwaterfoundation.org/state/co/dwr/irrigated-lands/) from the Open Water Foundation, created from the [CDSS Irrigated Lands](https://www.colorado.gov/pacific/cdss/gis-data-category) GIS Data by Category. |
 
 ## Map Creation Workflow
 

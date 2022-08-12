@@ -24,7 +24,7 @@ The following are data sources for this layer:
 
 | **Resource** | **Source** |
 | -- | -- |
-| Canal layer | [Colorado Canals layer](http://data.openwaterfoundation.org/state/co/dwr/irrigated-lands/) from the Open Water Foundation datasets, created from [Colorado's Decision Support Systems GIS Data by Category - Irrigation Ditches](https://www.colorado.gov/pacific/cdss/gis-data-category). |
+| Canal layer | [Canals layer from the Colorado Irrigated Lands dataset](http://data.openwaterfoundation.org/state/co/dwr/irrigated-lands/) from the Open Water Foundation, created from [Colorado's Decision Support Systems GIS Data by Category - Irrigation Ditches](https://www.colorado.gov/pacific/cdss/gis-data-category). |
 
 ## Map Creation Workflow
 
