@@ -28,8 +28,8 @@ Simple workflows may combine steps.
 
 | **Command File Prefix** | **Description** |
 | -- | -- |
-| `01-download-...` | Command files that download data into `downloads` folder. |
-| `02-create-...` | Command files that process downloaded data to create layers in `layers` folder and other files for for the information product.  Common tasks include clipping larger data sets to the basin, converting file formats, and performing data clean up. |
+| `01-download-...` | Command files that download data into `downloads` folder. **In many cases, these command files have been moved to separate dataset repository `workflow` folders.** |
+| `02-create-...` | Command files that process downloaded data to create layers in `layers` folder and other files for for the information product.  Common tasks include clipping larger data sets to the basin, converting file formats, and performing data clean up. **In many cases, these command files have been moved to separate dataset repository `workflow` folders.** |
 | `03-create-map-...` | Command files that create maps. |
 
 ## Tools ##
