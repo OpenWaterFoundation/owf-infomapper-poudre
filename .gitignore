@@ -29,13 +29,14 @@ junk
 
 # Ignore working files, in particular dynamically-created files created for InfoMapper.
 # Putting these items here avoids the need for many separate .gitignore files,
-# but need to pay attention to conventions.
+# but need to pay attention to naming conventions so that dynamic files do not slip in.
 #
-#
-# For web, just ignore dynamically-created files
-# - all other content is version-controlled
+# For 'web' folder, ignore dynamically-created files:
+# - all other content such as documentation and images is version-controlled
 /web/data-maps/*
+!/web/data-maps/README.md
 /web/data-ts/*
+!/web/data-ts/README.md
 
 # ======================================================
 # Dashboards menu:
