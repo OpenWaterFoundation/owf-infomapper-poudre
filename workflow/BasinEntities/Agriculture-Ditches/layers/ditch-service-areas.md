@@ -20,7 +20,7 @@ The following are data sources for this layer:
 
 | **Resource** | **Source** |
 | -- | -- |
-| Ditch Service Area layers | [Colorado Ditches layer](http://data.openwaterfoundation.org/state/co/dwr/irrigated-lands/) from the Open Water Foundation datasets, created from [Colorado's Decision Support Systems GIS Data by Category - Irrigation Ditches](https://www.colorado.gov/pacific/cdss/gis-data-category). |
+| Ditch Service Area layers | [Colorado Ditch Service Area layer](http://data.openwaterfoundation.org/state/co/dwr/irrigated-lands/) from the Open Water Foundation datasets, created from [Colorado's Decision Support Systems GIS Data by Category - Irrigation Ditches](https://www.colorado.gov/pacific/cdss/gis-data-category). |
 
 ## Map Creation Workflow
 

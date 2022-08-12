@@ -306,7 +306,7 @@
         {
           "geoLayerId": "RMNPBoundaryLayer",
           "name": "RMNP Boundary",
-          "description": "Rocky Mountain National Parck boundary web service",
+          "description": "Rocky Mountain National Park boundary web service",
           "crs": "EPSG:4326",
           "geometryType": "WKT:Polygon",
           "layerType": "Vector",
@@ -367,7 +367,7 @@
           "geometryType": "Raster",
           "layerType": "Raster",
           "sourceFormat": null,
-          "sourcePath": "http://data.openwaterfoundation.org/country/us/usfs/baer/2020/east-troublesome/east-troublesome-2020-sbs.tif",
+          "sourcePath": "https://data.openwaterfoundation.org/country/us/usfs/baer/2020/east-troublesome/east-troublesome-2020-sbs.tif",
           "properties": {},
           "history:": []
         },
@@ -742,7 +742,7 @@
               "description": "Stream reaches",
               "geoLayerId": "StreamReachesLayer",
               "properties": {
-                "docPath": "layers/stream-reaches.md",
+                "docPath": "../../BasinEntities/Physical-StreamReaches/layers/stream-reaches.md",
                 "highlightEnabled": "true"
               },
               "geoLayerSymbol": {
@@ -762,7 +762,7 @@
                   "description": "Hover event configuration",
                   "hasVisualization": false,
                   "properties": {
-                    "eventConfigPath": "layers/stream-reaches-event-config.json"
+                    "eventConfigPath": "../../BasinEntities/Physical-StreamReaches/layers/stream-reaches-event-config.json"
                   }
                 },
                 {
@@ -771,7 +771,7 @@
                   "description": "Click event configuration",
                   "hasVisualization": false,
                   "properties": {
-                    "eventConfigPath": "layers/stream-reaches-event-config.json"
+                    "eventConfigPath": "../../BasinEntities/Physical-StreamReaches/layers/stream-reaches-event-config.json"
                   }
                 }
               ]
@@ -1059,8 +1059,7 @@
           "name": "National Parks",
           "description": "National parks",
           "properties": {
-            "selectedInitial": "true",
-            "docPath": "national-parks-group.md"
+            "selectedInitial": "true"
           },
           "geoLayerViews": [
             {
@@ -1069,7 +1068,7 @@
               "description": "Rocky Mountain National Park boundary from National Park Service",
               "geoLayerId": "RMNPBoundaryLayer",
               "properties": {
-                "docPath": "../../CurrentConditions/Environment-WildFires/layers/national-parks-rmnp.md"
+                "docPath": "../Environment-WildFires/layers/national-parks-rmnp.md"
               },
               "geoLayerSymbol": {
                 "name": "RMNPBoundarySymbol",
@@ -1089,7 +1088,7 @@
                   "description": "Hover event configuration",
                   "hasVisualization": false,
                   "properties": {
-                    "eventConfigPath": "../../CurrentConditions/Environment-Wildfires/layers/national-parks-rmnp-event-config.json"
+                    "eventConfigPath": "../Environment-Wildfires/layers/national-parks-rmnp-event-config.json"
                   }
                 },
                 {
@@ -1098,7 +1097,7 @@
                   "description": "Click event configuration",
                   "hasVisualization": false,
                   "properties": {
-                    "eventConfigPath": "../../CurrentConditions/Environment-Wildfires/layers/national-parks-rmnp-event-config.json"
+                    "eventConfigPath": "../Environment-Wildfires/layers/national-parks-rmnp-event-config.json"
                   }
                 }
               ]
@@ -1179,7 +1178,7 @@
                 "classificationType": "Categorized",
                 "classificationAttribute": "DISTRICT",
                 "properties": {
-                  "classificationFile": "layers/co-dwr-water-district-3-classify-district.csv"
+                  "classificationFile": "../../BasinEntities/Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3-classify-district.csv"
                 }
               },
               "eventHandlers": [

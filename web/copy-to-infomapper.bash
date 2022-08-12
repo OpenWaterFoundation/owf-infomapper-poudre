@@ -22,22 +22,38 @@ runWatcher() {
     # - exclude time series for now because there are many and it takes a long time to check
     #   (time series will soon be in a dataset and not in assets so this will get better)
     # The output of find will start with:  ./
-    find . | grep -v "." | grep -v "/ts/" | grep -E "./app-config.json|./content-pages/|./dashboards/|./data-maps/|./img/|./system/" | while read devFilePath; do
+    find . -type f | grep -v "/ts/" | grep -v ".swp" | grep -v "/downloads/" | grep -E "./app-config.json|./content-pages/|./dashboards/|./data-maps/|./img/|./system/" | while read devFilePath; do
       #echo "Checking dev file: ${devFilePath}"
       # Get the modification time for the development file.
       devFileTime=$(date -r ${devFilePath} "+%s")
+      if [ -z "${devFileTime}" ]; then
+        # For some reason, the process sometimes does not return a result on Git Bash (process died?).
+        echo "Could not get time for dev file: ${devFilePath}"
+        continue
+      fi
       # Get the modification time for the asset file.
-      assetFilePath=${appFolder}/${devFilePath}
+      assetFilePath="${appFolder}/${devFilePath}"
       # Default is not to copy.
       doCopy="false"
       if [ -f "${assetFilePath}" ]; then
         # Asset file does exist so compare the modification times.
         assetFileTime=$(date -r ${assetFilePath} "+%s")
-        # echo "devFileTime=${devFileTime} assetFileTime=${assetFileTime}"
-        if [ ${devFileTime} -gt ${assetFileTime} ]; then
-          echo "Updating asset file: ${assetFilePath}"
-          cp "${devFilePath}" "${assetFilePath}"
+        if [ -z "${assetFileTime}" ]; then
+          # For some reason, the process sometimes does not return a result on Git Bash (process died?).
+          echo "Could not get time for asset file: ${assetFilePath}"
+          continue
         fi
+        #echo "devFileTime=${devFileTime} assetFileTime=${assetFileTime}"
+        if [ ${devFileTime} -gt ${assetFileTime} ]; then
+          doCopy="true"
+        fi
+      else
+        # Asset file does not exist so need to copy.
+        doCopy="true"
+      fi
+      if [ "${doCopy}" = "true" ]; then
+        echo "Updating asset file: ${assetFilePath}"
+        cp "${devFilePath}" "${assetFilePath}"
       fi
       #echo "Done checking dev file: ${devFilePath}"
     done

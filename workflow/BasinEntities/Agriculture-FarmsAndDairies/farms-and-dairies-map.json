@@ -445,7 +445,7 @@
               "description": "Water District 3 boundary from the Colorado Division of Water Resources",
               "geoLayerId": "WaterDistrictLayer",
               "properties": {
-                "docPath": "layers/co-dwr-water-district-3.md"
+                "docPath": "../Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3.md"
               },
               "geoLayerSymbol": {
                 "name": "Colorize district",
@@ -453,7 +453,7 @@
                 "classificationType": "Categorized",
                 "classificationAttribute": "DISTRICT",
                 "properties": {
-                  "classificationFile": "layers/co-dwr-water-district-3-classify-district.csv"
+                  "classificationFile": "../Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3-classify-district.csv"
                 }
               },
               "eventHandlers": [
@@ -463,7 +463,7 @@
                   "description": "Hover event configuration",
                   "hasVisualization": false,
                   "properties": {
-                    "eventConfigPath": "layers/co-dwr-water-district-3-event-config.json"
+                    "eventConfigPath": "../Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3-event-config.json"
                   }
                 },
                 {
@@ -472,7 +472,7 @@
                   "description": "Click event configuration",
                   "hasVisualization": false,
                   "properties": {
-                    "eventConfigPath": "layers/co-dwr-water-district-3-event-config.json"
+                    "eventConfigPath": "../Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3-event-config.json"
                   }
                 }
               ]
@@ -493,7 +493,7 @@
               "description": "Colorado state boundary from CDPHE",
               "geoLayerId": "StateBoundaryLayer",
               "properties": {
-                "docPath": "layers/co-state-boundary.md"
+                "docPath": "../../SupportingData/Political-ColoradoStateBoundary/layers/co-state-boundary.md"
               },
               "geoLayerSymbol": {
                 "name": "State boundary symbol",
