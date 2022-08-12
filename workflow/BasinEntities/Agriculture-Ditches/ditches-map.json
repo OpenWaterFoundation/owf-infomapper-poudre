@@ -359,6 +359,20 @@
           ]
         },
         {
+          "geoLayerId": "StreamReachesLayer",
+          "name": "Stream Reaches",
+          "description": "Stream reaches",
+          "crs": "EPSG:4326",
+          "geometryType": "WKT:LineString",
+          "layerType": "Vector",
+          "sourceFormat": "GeoJSON",
+          "sourcePath": "https://data.openwaterfoundation.org/state/co/dwr/stream-reaches/co-stream-reaches-districts3_4.geojson",
+          "properties": {},
+          "history:": [
+            "Read GeoLayer from GeoJSON file:  'https://data.openwaterfoundation.org/state/co/dwr/stream-reaches/co-stream-reaches-districts3_4.geojson'"
+          ]
+        },
+        {
           "geoLayerId": "CanalsLayer",
           "name": "Canals (ditches)",
           "description": "Canals (ditches)",
@@ -418,6 +432,56 @@
                   "hasVisualization": false,
                   "properties": {
                     "eventConfigPath": "layers/canals-event-config.json"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "geoLayerViewGroupId": "StreamReachesGroup",
+          "name": "Stream Reaches",
+          "description": "Stream reaches",
+          "properties": {
+            "selectedInitial": "true"
+          },
+          "geoLayerViews": [
+            {
+              "geoLayerViewId": "StreamReachesLayerView",
+              "name": "Stream Reaches",
+              "description": "Stream reaches",
+              "geoLayerId": "StreamReachesLayer",
+              "properties": {
+                "docPath": "../Physical-StreamReaches/layers/stream-reaches.md",
+                "highlightEnabled": "true"
+              },
+              "geoLayerSymbol": {
+                "name": "Stream Reaches",
+                "description": "Stream reaches",
+                "classificationType": "SingleSymbol",
+                "classificationAttribute": "",
+                "properties": {
+                  "color": "#6297f7",
+                  "width": "2"
+                }
+              },
+              "eventHandlers": [
+                {
+                  "eventType": "hover",
+                  "name": "Hover event",
+                  "description": "Hover event configuration",
+                  "hasVisualization": false,
+                  "properties": {
+                    "eventConfigPath": "../Physical-StreamReaches/layers/stream-reaches-event-config.json"
+                  }
+                },
+                {
+                  "eventType": "click",
+                  "name": "Click event",
+                  "description": "Click event configuration",
+                  "hasVisualization": false,
+                  "properties": {
+                    "eventConfigPath": "../Physical-StreamReaches/layers/stream-reaches-event-config.json"
                   }
                 }
               ]

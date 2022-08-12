@@ -127,6 +127,18 @@ SetGeoLayerViewSingleSymbol(GeoLayerViewID="DitchServiceAreas2005LayerView",Name
 SetGeoLayerViewEventHandler(GeoLayerViewID="DitchServiceAreas2005LayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/ditch-service-areas-2005-event-config.json")
 SetGeoLayerViewEventHandler(GeoLayerViewID="DitchServiceAreas2005LayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/ditch-service-areas-2005-event-config.json")
 # = = = = = = = = = =
+# Stream reaches:  read layer and add to a layer view group.
+# GeoLayerViewGroupID: StreamReachesGroup
+AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="StreamReachesGroup",Name="Stream Reaches",Description="Stream reaches",Properties="selectedInitial:true",InsertPosition="Top")
+#
+ReadGeoLayerFromGeoJSON(InputFile="https://data.openwaterfoundation.org/state/co/dwr/stream-reaches/co-stream-reaches-districts3_4.geojson",GeoLayerID="StreamReachesLayer",Name="Stream Reaches",Description="Stream reaches")
+AddGeoLayerViewToGeoMap(GeoLayerID="StreamReachesLayer",GeoLayerViewID="StreamReachesLayerView",Name="Stream Reaches",Description="Stream reaches",Properties="docPath:../Physical-StreamReaches/layers/stream-reaches.md,highlightEnabled:true")
+SetGeoLayerViewSingleSymbol(GeoLayerViewID="StreamReachesLayerView",Name="Stream Reaches",Description="Stream reaches",Properties="color:#6297f7,width:2")
+#SetGeoLayerViewSingleSymbol(GeoLayerViewID="StreamReachesLayerView",Name="Stream Reaches",Description="Stream reaches")
+#SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="StreamReachesLayerView",Name="Stream Reaches",Description="Show stream reaches is blue lines",ClassificationAttribute="county",Properties="classificationType:'SingleSymbol'")
+SetGeoLayerViewEventHandler(GeoLayerViewID="StreamReachesLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:../Physical-StreamReaches/layers/stream-reaches-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="StreamReachesLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:../Physical-StreamReaches/layers/stream-reaches-event-config.json")
+# = = = = = = = = = =
 # Canals:  read layer and add to a layer view group.
 # GeoLayerViewGroupID: CanalsGroup
 AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="CanalsGroup",Name="Canals (ditches)",Description="Canals (ditches)",Properties="selectedInitial: true",InsertPosition="Top")
