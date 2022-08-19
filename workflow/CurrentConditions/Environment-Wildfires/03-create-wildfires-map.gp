@@ -125,6 +125,20 @@ SetGeoLayerViewSingleSymbol(GeoLayerViewID="RMNPBoundaryLayerView",Name="RMNPBou
 SetGeoLayerViewEventHandler(GeoLayerViewID="RMNPBoundaryLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/national-parks-rmnp-event-config.json")
 SetGeoLayerViewEventHandler(GeoLayerViewID="RMNPBoundaryLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/national-parks-rmnp-event-config.json")
 # = = = = = = = = = =
+# Fire Protection Districts
+# = = = = = = = = = =
+# - color is reddish
+# GeoLayerViewGroupID: SoilConservationDistrictsGoup
+AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="SoilConservationDistrictsGoup",Name="Fire Protection Districts",Description="Fire protection districts from DOLA.",Properties="selectedInitial: true",InsertPosition="Top")
+#
+ReadGeoLayerFromGeoJSON(InputFile="https://data.openwaterfoundation.org/state/co/dola/district-boundaries/latest/co-fire-protection-districts-waterdistrict3.geojson",GeoLayerID="SoilConservationDistrictsLayer",Name="Fire Protection Districts",Description="Fire protection districts from DOLA.")
+# Do not show by default because want to focus on municipal water providers.
+AddGeoLayerViewToGeoMap(GeoLayerID="SoilConservationDistrictsLayer",GeoLayerViewID="SoilConservationDistrictsLayerView",Name="Fire Protection Districts",Description="Fire protection districts from DOLA",InsertPosition="Top",Properties="docPath:../../BasinEntities/WaterSupply-WaterProviders/layers/fire-protection-districts.md,selectedInitial:false,highlightEnabled:true")
+# Color is a brownish orange.
+SetGeoLayerViewSingleSymbol(GeoLayerViewID="SoilConservationDistrictsLayerView",Name="Fire Protection Districts",Description="Fire protection districts from DOLA",Properties="color:#cc3300,opacity:1.0,fillColor:#cc3300,fillOpacity:0.3,weight:2")
+SetGeoLayerViewEventHandler(GeoLayerViewID="SoilConservationDistrictsLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:../../BasinEntities/WaterSupply-WaterProviders/layers/fire-protection-districts-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="SoilConservationDistrictsLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:../../BasinEntities/WaterSupply-WaterProviders/layers/fire-protection-districts-event-config.json")
+# = = = = = = = = = =
 # Wildfire Perimeters (historical archive):  read layer and add to a layer view group.
 # GeoLayerViewGroupID: WildfiresGroup
 # - get under ESRI map server 1000 feature limit, so limit to:

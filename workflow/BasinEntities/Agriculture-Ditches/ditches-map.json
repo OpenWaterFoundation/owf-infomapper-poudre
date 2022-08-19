@@ -289,8 +289,22 @@
           ]
         },
         {
+          "geoLayerId": "SoilConservationDistrictsLayer",
+          "name": "Soil Conservation Districts",
+          "description": "Soil conservation districts from DOLA.",
+          "crs": "EPSG:4326",
+          "geometryType": "WKT:Polygon",
+          "layerType": "Vector",
+          "sourceFormat": "GeoJSON",
+          "sourcePath": "https://data.openwaterfoundation.org/state/co/dola/district-boundaries/latest/co-soil-conservation-districts-waterdistrict3.geojson",
+          "properties": {},
+          "history:": [
+            "Read GeoLayer from GeoJSON file:  'https://data.openwaterfoundation.org/state/co/dola/district-boundaries/latest/co-soil-conservation-districts-waterdistrict3.geojson'"
+          ]
+        },
+        {
           "geoLayerId": "DitchServiceAreas1956Layer",
-          "name": "Poudre  Ditch Service Areas",
+          "name": "Ditch Service Areas",
           "description": "Ditch service areas (1956) for District 3 from Colorado's Decision Support Systems.",
           "crs": "EPSG:4326",
           "geometryType": "WKT:Polygon",
@@ -491,7 +505,7 @@
         {
           "geoLayerViewGroupId": "DitchServiceAreasGroup",
           "name": "Ditch Service Areas",
-          "description": "Ditch service areas from from Colorado's Decision Support System.",
+          "description": "Ditch service areas from Colorado's Decision Support System.",
           "properties": {
             "selectedInitial": "true",
             "docPath": "layers/group-ditch-service-areas.md"
@@ -713,6 +727,60 @@
                   "hasVisualization": false,
                   "properties": {
                     "eventConfigPath": "layers/ditch-service-areas-1956-event-config.json"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "geoLayerViewGroupId": "SoilConservationDistrictsGoup",
+          "name": "Soil Conservation Districts",
+          "description": "Soil conservation districts from DOLA.",
+          "properties": {
+            "selectedInitial": "true"
+          },
+          "geoLayerViews": [
+            {
+              "geoLayerViewId": "SoilConservationDistrictsLayerView",
+              "name": "Soil Conservation Districts",
+              "description": "Soil conservation districts from DOLA",
+              "geoLayerId": "SoilConservationDistrictsLayer",
+              "properties": {
+                "docPath": "layers/soil-conservation-districts.md",
+                "selectedInitial": "true",
+                "highlightEnabled": "true"
+              },
+              "geoLayerSymbol": {
+                "name": "Soil Conservation Districts",
+                "description": "Soil conservation districts from DOLA",
+                "classificationType": "SingleSymbol",
+                "classificationAttribute": "",
+                "properties": {
+                  "color": "#cc8500",
+                  "opacity": "1.0",
+                  "fillColor": "#cc8500",
+                  "fillOpacity": "0.3",
+                  "weight": "2"
+                }
+              },
+              "eventHandlers": [
+                {
+                  "eventType": "hover",
+                  "name": "Hover event",
+                  "description": "Hover event configuration",
+                  "hasVisualization": false,
+                  "properties": {
+                    "eventConfigPath": "layers/soil-conservation-districts-event-config.json"
+                  }
+                },
+                {
+                  "eventType": "click",
+                  "name": "Click event",
+                  "description": "Click event configuration",
+                  "hasVisualization": false,
+                  "properties": {
+                    "eventConfigPath": "layers/soil-conservation-districts-event-config.json"
                   }
                 }
               ]

@@ -13,8 +13,8 @@ SetProperty(PropertyName="MapFolder",PropertyType="str",PropertyValue="${MapsFol
 # Create a single map project and map for that project.
 # - GeoMapProjectID:  WaterProvidersProject
 # - GeoMapID:  WaterProvidersMap
-CreateGeoMapProject(NewGeoMapProjectID="WaterProvidersProject",ProjectType="SingleMap",Name="Colorado Water Providers",Description="Colorado Water Providers",Properties="author:'Open Water Foundation',specificationFlavor:'',specificationVersion:'1.0.0'")
-CreateGeoMap(NewGeoMapID="WaterProvidersMap",Name="Colorado Water Providers",Description="Colorado Water Providers",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.5,40.7,10',docPath:'water-providers-map.md'")
+CreateGeoMapProject(NewGeoMapProjectID="WaterProvidersProject",ProjectType="SingleMap",Name="Water Providers",Description="Water providers",Properties="author:'Open Water Foundation',specificationFlavor:'',specificationVersion:'1.0.0'")
+CreateGeoMap(NewGeoMapID="WaterProvidersMap",Name="Water Providers",Description="Water Providers",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.5,40.7,10',docPath:'water-providers-map.md'")
 AddGeoMapToGeoMapProject(GeoMapProjectID="WaterProvidersProject",GeoMapID="WaterProvidersMap")
 # = = = = = = = = = =
 # Background layers:  read layers and add a layer view group
@@ -84,49 +84,63 @@ SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="WaterDistrictLayerView",Name="C
 SetGeoLayerViewEventHandler(GeoLayerViewID="WaterDistrictLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:../Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3-event-config.json")
 SetGeoLayerViewEventHandler(GeoLayerViewID="WaterDistrictLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:../Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3-event-config.json")
 # = = = = = = = = = =
+# Fire Protection Districts
+# = = = = = = = = = =
+# - color is reddish
+# GeoLayerViewGroupID: SoilConservationDistrictsGoup
+AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="SoilConservationDistrictsGoup",Name="Fire Protection Districts",Description="Fire protection districts from DOLA.",Properties="selectedInitial: true",InsertPosition="Top")
+#
+ReadGeoLayerFromGeoJSON(InputFile="https://data.openwaterfoundation.org/state/co/dola/district-boundaries/latest/co-fire-protection-districts-waterdistrict3.geojson",GeoLayerID="SoilConservationDistrictsLayer",Name="Fire Protection Districts",Description="Fire protection districts from DOLA.")
+# Do not show by default because want to focus on municipal water providers.
+AddGeoLayerViewToGeoMap(GeoLayerID="SoilConservationDistrictsLayer",GeoLayerViewID="SoilConservationDistrictsLayerView",Name="Fire Protection Districts",Description="Fire protection districts from DOLA",InsertPosition="Top",Properties="docPath:layers/fire-protection-districts.md,selectedInitial:false,highlightEnabled:true")
+# Color is a brownish orange.
+SetGeoLayerViewSingleSymbol(GeoLayerViewID="SoilConservationDistrictsLayerView",Name="Fire Protection Districts",Description="Fire protection districts from DOLA",Properties="color:#cc3300,opacity:1.0,fillColor:#cc3300,fillOpacity:0.3,weight:2")
+SetGeoLayerViewEventHandler(GeoLayerViewID="SoilConservationDistrictsLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/fire-protection-districts-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="SoilConservationDistrictsLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/fire-protection-districts-event-config.json")
+# = = = = = = = = = =
 # Denver Water boundaries:  read layer and add to a layer view group.
 # GeoLayerViewGroupID: WaterProvidersGroup
 # - don't need anymore because now merged
 #
-AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="WaterProvidersGroup",Name="Colorado Water Providers",Description="Colorado Water Providers",InsertPosition="Top")
+AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="WaterProvidersGroup",Name="Municipal Water Providers",Description="Municipal water providers",InsertPosition="Top")
 #
-##ReadGeoLayerFromGeoJSON(InputFile="layers/denver-water-boundary.geojson",GeoLayerID="DenverWaterBoundaryLayer",Name="Denver Water Boundary",Description="Denver Water Boundary from Denver Water")
-##AddGeoLayerViewToGeoMap(GeoLayerID="DenverWaterBoundaryLayer",GeoLayerViewID="DenverWaterBoundaryLayerView",Name="Denver Water Boundary",Description="Denver Water Boundary",InsertPosition="Top",Properties="docPath:'layers/denver-water-boundary.md'")
+##ReadGeoLayerFromGeoJSON(InputFile="layers/denver-water-boundary.geojson",GeoLayerID="DenverWaterBoundaryLayer",Name="Denver Water Boundary",Description="Denver Water boundary from Denver Water")
+##AddGeoLayerViewToGeoMap(GeoLayerID="DenverWaterBoundaryLayer",GeoLayerViewID="DenverWaterBoundaryLayerView",Name="Denver Water Boundary",Description="Denver water boundary",InsertPosition="Top",Properties="docPath:'layers/denver-water-boundary.md'")
 # For now use single symbol
 # - grey
-##SetGeoLayerViewSingleSymbol(GeoLayerViewID="DenverWaterBoundaryLayerView",Name="Denver Water Boundary",Description="Denver Water Boundary",Properties="color:#cc7a00,opacity:1.0,fillColor:#cc7a00,fillOpacity:0.3,weight:2")
+##SetGeoLayerViewSingleSymbol(GeoLayerViewID="DenverWaterBoundaryLayerView",Name="Denver Water Boundary",Description="Denver Water boundary",Properties="color:#cc7a00,opacity:1.0,fillColor:#cc7a00,fillOpacity:0.3,weight:2")
 ##SetGeoLayerViewEventHandler(GeoLayerViewID="DenverWaterBoundaryLayerView",EventType="click",Properties="eventConfigPath:layers/denver-water-boundary-event-config.json")
 ##SetGeoLayerViewEventHandler(GeoLayerViewID="DenverWaterBoundaryLayerView",EventType="hover",Properties="eventConfigPath:layers/denver-water-boundary-event-config.json")
 # = = = = = = = = = =
-# Water Provider boundaries (DOLA):  read layer and add to a layer view group.
+# Municipal Water Provider boundaries (DOLA):  read layer and add to a layer view group.
 # GeoLayerViewGroupID: WaterProvidersGroup
 #
-ReadGeoLayerFromGeoJSON(InputFile="layers/water-provider-boundaries-dola.geojson",GeoLayerID="WaterProviderBoundariesDolaLayer",Name="Colorado Water Provider Boundaries",Description="Colorado Water Provider Boundaries")
-AddGeoLayerViewToGeoMap(GeoLayerID="WaterProviderBoundariesDolaLayer",GeoLayerViewID="WaterProviderBoundariesDolaLayerView",Name="Water Provider Boundaries (Districts)",Description="Water Provider Boundaries from DOLA water and sanitation districts, input to the above layer",InsertPosition="Top",Properties="docPath:'layers/water-provider-boundaries-dola.md',selectedInitial:false")
+ReadGeoLayerFromGeoJSON(InputFile="layers/water-provider-boundaries-dola.geojson",GeoLayerID="WaterProviderBoundariesDolaLayer",Name="Municipal Water Provider Boundaries",Description="Municipal water provider boundaries")
+AddGeoLayerViewToGeoMap(GeoLayerID="WaterProviderBoundariesDolaLayer",GeoLayerViewID="WaterProviderBoundariesDolaLayerView",Name="Municipal water Provider Boundaries (Districts)",Description="Water Provider Boundaries from DOLA water and sanitation districts, input to the above layer",InsertPosition="Top",Properties="docPath:'layers/water-provider-boundaries-dola.md',selectedInitial:false")
 # For now use single symbol
 # - grey
-SetGeoLayerViewSingleSymbol(GeoLayerViewID="WaterProviderBoundariesDolaLayerView",Name="Colorado Water Provider Boundaries",Description="Colorado Water Provider Boundaries",Properties="color:#595959,opacity:1.0,fillColor:#595959,fillOpacity:0.3,weight:2")
+SetGeoLayerViewSingleSymbol(GeoLayerViewID="WaterProviderBoundariesDolaLayerView",Name="Municipal Water Provider Boundaries",Description="Municipal Water provider boundaries",Properties="color:#595959,opacity:1.0,fillColor:#595959,fillOpacity:0.3,weight:2")
 SetGeoLayerViewEventHandler(GeoLayerViewID="WaterProviderBoundariesDolaLayerView",EventType="click",Properties="eventConfigPath:layers/water-provider-boundaries-dola-event-config.json")
 SetGeoLayerViewEventHandler(GeoLayerViewID="WaterProviderBoundariesDolaLayerView",EventType="hover",Properties="eventConfigPath:layers/water-provider-boundaries-dola-event-config.json")
 # = = = = = = = = = =
 # Water Provider boundaries (merged):  read layer and add to a layer view group.
 # GeoLayerViewGroupID: WaterProvidersGroup
 #
-ReadGeoLayerFromGeoJSON(InputFile="layers/water-provider-boundaries.geojson",GeoLayerID="WaterProviderBoundariesLayer",Name="Colorado Water Provider Boundaries",Description="Colorado Water Provider Boundaries")
-AddGeoLayerViewToGeoMap(GeoLayerID="WaterProviderBoundariesLayer",GeoLayerViewID="WaterProviderBoundariesLayerView",Name="Water Provider Boundaries (Districts & Utilities)",Description="Water Provider Boundaries, merged from multiple sources",InsertPosition="Top",Properties="docPath:'layers/water-provider-boundaries.md',highlightEnabled:true")
+ReadGeoLayerFromGeoJSON(InputFile="layers/water-provider-boundaries.geojson",GeoLayerID="WaterProviderBoundariesLayer",Name="Municipal Water Provider Boundaries",Description="Municipal water provider boundaries")
+AddGeoLayerViewToGeoMap(GeoLayerID="WaterProviderBoundariesLayer",GeoLayerViewID="WaterProviderBoundariesLayerView",Name="Municipal Water Provider Boundaries (Districts & Utilities)",Description="Municipal water provider boundaries, merged from multiple sources",InsertPosition="Top",Properties="docPath:'layers/water-provider-boundaries.md',highlightEnabled:true")
 # For now use single symbol, could categorize based on entity type
 # - grey
-SetGeoLayerViewSingleSymbol(GeoLayerViewID="WaterProviderBoundariesLayerView",Name="Colorado Water Provider Boundaries",Description="Colorado Water Provider Boundaries",Properties="color:#595959,opacity:1.0,fillColor:#595959,fillOpacity:0.3,weight:2")
+SetGeoLayerViewSingleSymbol(GeoLayerViewID="WaterProviderBoundariesLayerView",Name="Municipal Water Provider Boundaries",Description="Municipal water provider boundaries",Properties="color:#595959,opacity:1.0,fillColor:#595959,fillOpacity:0.3,weight:2")
 SetGeoLayerViewEventHandler(GeoLayerViewID="WaterProviderBoundariesLayerView",EventType="click",Properties="eventConfigPath:layers/water-provider-boundaries-event-config.json")
 SetGeoLayerViewEventHandler(GeoLayerViewID="WaterProviderBoundariesLayerView",EventType="hover",Properties="eventConfigPath:layers/water-provider-boundaries-event-config.json")
 # = = = = = = = = = =
 # Water provider points:  read layer and add to a layer view group.
 # GeoLayerViewGroupID: WaterProvidersGroup
-ReadGeoLayerFromGeoJSON(InputFile="layers/water-providers.geojson",GeoLayerID="WaterProvidersLayer",Name="Colorado Water Providers",Description="Colorado Water Providers")
-AddGeoLayerViewToGeoMap(GeoLayerID="WaterProvidersLayer",GeoLayerViewID="WaterProvidersLayerView",Name="Colorado Water Providers",Description="Colorado Water Providers",InsertPosition="Top",Properties="docPath:'layers/water-providers.md'")
+ReadGeoLayerFromGeoJSON(InputFile="https://data.openwaterfoundation.org/state/co/owf/municipal-water-providers/co-municipal-water-providers.geojson",GeoLayerID="WaterProvidersLayer",Name="Municipal Water Providers",Description="Municipal water providers")
+AddGeoLayerViewToGeoMap(GeoLayerID="WaterProvidersLayer",GeoLayerViewID="WaterProvidersLayerView",Name="Municipal Water Providers",Description="Municipal water providers",InsertPosition="Top",Properties="docPath:'layers/water-providers.md'")
 # For now use single symbol
 # - TODO smalers 2020-05-22 need to enable a graduated symbol based on flow value
-SetGeoLayerViewSingleSymbol(GeoLayerViewID="WaterProvidersLayerView",Name="Colorado Water Providers",Description="Colorado Water Providers",Properties="symbolImage:/img/drinkingwater-32x37.png,imageAnchorPoint:Bottom")
+SetGeoLayerViewSingleSymbol(GeoLayerViewID="WaterProvidersLayerView",Name="Municipal Water Providers",Description="municipal water providers",Properties="symbolImage:/img/drinkingwater-32x37.png,imageAnchorPoint:Bottom")
 SetGeoLayerViewEventHandler(GeoLayerViewID="WaterProvidersLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/water-providers-event-config.json")
 SetGeoLayerViewEventHandler(GeoLayerViewID="WaterProvidersLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/water-providers-event-config.json")
 # = = = = = = = = = =
@@ -156,6 +170,9 @@ CopyFile(SourceFile="water-providers-map.md",DestinationFile="${MapFolder}/water
 #CopyFile(SourceFile="../Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3-event-config.json",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3-event-config.json")
 #CopyFile(SourceFile="../Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3.md",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3.md")
 #
+CopyFile(SourceFile="layers/fire-protection-districts.md",DestinationFile="${MapFolder}/layers/fire-protection-districts.md")
+CopyFile(SourceFile="layers/fire-protection-districts-event-config.json",DestinationFile="${MapFolder}/layers/fire-protection-districts-event-config.json")
+#
 ##CopyFile(SourceFile="layers/denver-water-boundary.geojson",DestinationFile="${MapFolder}/layers/denver-water-boundary.geojson")
 ##CopyFile(SourceFile="layers/denver-water-boundary.md",DestinationFile="${MapFolder}/layers/denver-water-boundary.md")
 ##CopyFile(SourceFile="layers/denver-water-boundary-event-config.json",DestinationFile="${MapFolder}/layers/denver-water-boundary-event-config.json")
@@ -168,6 +185,5 @@ CopyFile(SourceFile="layers/water-provider-boundaries.geojson",DestinationFile="
 CopyFile(SourceFile="layers/water-provider-boundaries.md",DestinationFile="${MapFolder}/layers/water-provider-boundaries.md")
 CopyFile(SourceFile="layers/water-provider-boundaries-event-config.json",DestinationFile="${MapFolder}/layers/water-provider-boundaries-event-config.json")
 #
-CopyFile(SourceFile="layers/water-providers.geojson",DestinationFile="${MapFolder}/layers/water-providers.geojson")
 CopyFile(SourceFile="layers/water-providers.md",DestinationFile="${MapFolder}/layers/water-providers.md")
 CopyFile(SourceFile="layers/water-providers-event-config.json",DestinationFile="${MapFolder}/layers/water-providers-event-config.json")

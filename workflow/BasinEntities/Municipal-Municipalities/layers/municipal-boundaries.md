@@ -1,7 +1,6 @@
-# Layer: Colorado Municipal Boundaries
+# Layer: Municipal Boundaries
 
-The Colorado Municipal Boundaries layer contains boundaries for all municipalities in Colorado,
-for recent year.
+The ***Municipal Boundaries*** layer contains the latest boundaries for all municipalities in Colorado.
 
 ## Data Sources
 
@@ -9,7 +8,7 @@ The following are data sources for this map:
 
 | **Resource** | **Source** |
 | -- | -- |
-| Colorado municipal boundaries map layer. | [Colorado Municipal Boundaries](https://data.colorado.gov/resource/w6jq-7em5") dataset in the Colorado Information Marketplace. |
+| Municipal Boundaries map layer. | [Colorado Municipal Boundaries dataset](https://data.openwaterfoundation.org/state/co/dola/municipal-boundaries) from the Open Water Foundation, created from the [Municipal Boundaries](https://demography.dola.colorado.gov/assets/html/gis.html) dataset from the State Department of Local Affairs (DOLA). |
 
 ## Workflow
 
