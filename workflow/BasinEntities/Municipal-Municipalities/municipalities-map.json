@@ -1,7 +1,7 @@
 {
   "geoMapProjectId": "MunicipalitiesProject",
-  "name": "Colorado Municipalities",
-  "description": "Colorado Municipalities",
+  "name": "Municipalities",
+  "description": "Municipalities",
   "projectType": "SingleMap",
   "properties": {
     "author": "Open Water Foundation",
@@ -11,8 +11,8 @@
   "geoMaps": [
     {
       "geoMapId": "MunicipalitiesMap",
-      "name": "Colorado Municipalities",
-      "description": "Colorado Municipalities",
+      "name": "Municipalities",
+      "description": "Municipalities",
       "dataPath": ".",
       "crs": "EPSG:4326",
       "properties": {
@@ -305,30 +305,30 @@
         },
         {
           "geoLayerId": "MunicipalBoundariesLayer",
-          "name": "Colorado Municipal Boundaries",
-          "description": "Colorado Municipal Boundaries",
+          "name": "Municipal Boundaries",
+          "description": "Municipal boundaries from the State Department of Local Affairs (DOLA)",
           "crs": "EPSG:4326",
           "geometryType": "WKT:Polygon",
           "layerType": "Vector",
           "sourceFormat": "GeoJSON",
-          "sourcePath": "layers/municipal-boundaries.geojson",
+          "sourcePath": "https://data.openwaterfoundation.org/state/co/dola/municipal-boundaries/latest/co-municipal-boundaries.geojson",
           "properties": {},
           "history:": [
-            "Read GeoLayer from GeoJSON file:  'C:\\Users\\sam\\owf-dev\\InfoMapper-Poudre\\git-repos\\owf-infomapper-poudre\\workflow\\BasinEntities\\Municipal-Municipalities\\layers\\municipal-boundaries.geojson'"
+            "Read GeoLayer from GeoJSON file:  'https://data.openwaterfoundation.org/state/co/dola/municipal-boundaries/latest/co-municipal-boundaries.geojson'"
           ]
         },
         {
           "geoLayerId": "MunicipalitiesLayer",
-          "name": "Colorado Municipalities",
-          "description": "Colorado Municipalities",
+          "name": "Municipalities",
+          "description": "Municipalities",
           "crs": "EPSG:4326",
           "geometryType": "WKT:Point",
           "layerType": "Vector",
           "sourceFormat": "GeoJSON",
-          "sourcePath": "layers/municipalities.geojson",
+          "sourcePath": "https://data.openwaterfoundation.org/state/co/owf/municipalities/co-municipalities.geojson",
           "properties": {},
           "history:": [
-            "Read GeoLayer from GeoJSON file:  'C:\\Users\\sam\\owf-dev\\InfoMapper-Poudre\\git-repos\\owf-infomapper-poudre\\workflow\\BasinEntities\\Municipal-Municipalities\\layers\\municipalities.geojson'"
+            "Read GeoLayer from GeoJSON file:  'https://data.openwaterfoundation.org/state/co/owf/municipalities/co-municipalities.geojson'"
           ]
         },
         {
@@ -399,21 +399,21 @@
         },
         {
           "geoLayerViewGroupId": "MunicipalitiesGroup",
-          "name": "Colorado Municipalities",
-          "description": "Colorado Municipalities",
+          "name": "Municipalities",
+          "description": "Municipalities",
           "properties": {},
           "geoLayerViews": [
             {
               "geoLayerViewId": "MunicipalitiesLayerView",
-              "name": "Colorado Municipalities",
-              "description": "Colorado Municipalities",
+              "name": "Municipalities",
+              "description": "Municipalities",
               "geoLayerId": "MunicipalitiesLayer",
               "properties": {
                 "docPath": "layers/municipalities.md"
               },
               "geoLayerSymbol": {
-                "name": "Colorado Municipalities",
-                "description": "Colorado Municipalities",
+                "name": "Municipalities",
+                "description": "Municipalities",
                 "classificationType": "SingleSymbol",
                 "classificationAttribute": "",
                 "properties": {
@@ -444,16 +444,16 @@
             },
             {
               "geoLayerViewId": "MunicipalBoundariesLayerView",
-              "name": "Colorado Municipal Boundaries",
-              "description": "Colorado Municipal Boundaries",
+              "name": "Municipal Boundaries",
+              "description": "Municipal boundaries from the State Department of Local Affairs (DOLA)",
               "geoLayerId": "MunicipalBoundariesLayer",
               "properties": {
                 "docPath": "layers/municipal-boundaries.md",
                 "highlightEnabled": "true"
               },
               "geoLayerSymbol": {
-                "name": "Colorado Municipal Boundaries",
-                "description": "Colorado Municipal Boundaries",
+                "name": "Municipal Boundaries",
+                "description": "Municipal boundaries from the State Department of Local Affairs (DOLA)",
                 "classificationType": "SingleSymbol",
                 "classificationAttribute": "",
                 "properties": {

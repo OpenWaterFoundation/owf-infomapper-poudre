@@ -1,6 +1,6 @@
-# Layer: Colorado Water Providers
+# Layer: Water Providers
 
-The Colorado Water Providers layer contains all municipal water in Colorado,
+The ***Water Providers*** layer contains all municipal water providers in Colorado,
 displayed using an icon.
 
 ## Data Sources
@@ -9,7 +9,7 @@ The following are data sources for this map:
 
 | **Resource** | **Source** |
 | -- | -- |
-| Colorado Water Providers layer | [Colorado Water Providers](https://github.com/OpenWaterFoundation/owf-data-co-municipal-water-providers) dataset created by the Open Water Foundation. |
+| Water Providers layer | [Colorado Water Providers dataset](https://data.openwaterfoundation.org/state/co/owf/municipal-water-providers/) created by the Open Water Foundation. |
 
 ## Workflow
 

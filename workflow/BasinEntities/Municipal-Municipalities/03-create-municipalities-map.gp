@@ -14,8 +14,8 @@ SetProperty(PropertyName="MapFolder",PropertyType="str",PropertyValue="${MapsFol
 # Create a single map project and map for that project.
 # - GeoMapProjectID:  MunicipalitiesProject
 # - GeoMapID:  MunicipalitiesMap
-CreateGeoMapProject(NewGeoMapProjectID="MunicipalitiesProject",ProjectType="SingleMap",Name="Colorado Municipalities",Description="Colorado Municipalities",Properties="author:'Open Water Foundation',specificationFlavor:'',specificationVersion:'1.0.0'")
-CreateGeoMap(NewGeoMapID="MunicipalitiesMap",Name="Colorado Municipalities",Description="Colorado Municipalities",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.5,40.7,10',docPath:'municipalities-map.md'")
+CreateGeoMapProject(NewGeoMapProjectID="MunicipalitiesProject",ProjectType="SingleMap",Name="Municipalities",Description="Municipalities",Properties="author:'Open Water Foundation',specificationFlavor:'',specificationVersion:'1.0.0'")
+CreateGeoMap(NewGeoMapID="MunicipalitiesMap",Name="Municipalities",Description="Municipalities",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.5,40.7,10',docPath:'municipalities-map.md'")
 AddGeoMapToGeoMapProject(GeoMapProjectID="MunicipalitiesProject",GeoMapID="MunicipalitiesMap")
 # = = = = = = = = = =
 # Background layers:  read layers and add a layer view group
@@ -89,24 +89,24 @@ SetGeoLayerViewEventHandler(GeoLayerViewID="WaterDistrictLayerView",EventType="c
 # Municipal boundaries:  read layer and add to a layer view group.
 # - TODO smalers 2020-06-13 this seems to hang the app when in production
 # GeoLayerViewGroupID: MunicipalBoundariesGroup
-AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="MunicipalitiesGroup",Name="Colorado Municipalities",Description="Colorado Municipalities",InsertPosition="Top")
+AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="MunicipalitiesGroup",Name="Municipalities",Description="Municipalities",InsertPosition="Top")
 #
-ReadGeoLayerFromGeoJSON(InputFile="layers/municipal-boundaries.geojson",GeoLayerID="MunicipalBoundariesLayer",Name="Colorado Municipal Boundaries",Description="Colorado Municipal Boundaries")
-AddGeoLayerViewToGeoMap(GeoLayerID="MunicipalBoundariesLayer",GeoLayerViewID="MunicipalBoundariesLayerView",Name="Colorado Municipal Boundaries",Description="Colorado Municipal Boundaries",Properties="docPath:'layers/municipal-boundaries.md',highlightEnabled:true")
+ReadGeoLayerFromGeoJSON(InputFile="https://data.openwaterfoundation.org/state/co/dola/municipal-boundaries/latest/co-municipal-boundaries.geojson",GeoLayerID="MunicipalBoundariesLayer",Name="Municipal Boundaries",Description="Municipal boundaries from the State Department of Local Affairs (DOLA)")
+AddGeoLayerViewToGeoMap(GeoLayerID="MunicipalBoundariesLayer",GeoLayerViewID="MunicipalBoundariesLayerView",Name="Municipal Boundaries",Description="Municipal boundaries from the State Department of Local Affairs (DOLA)",Properties="docPath:'layers/municipal-boundaries.md',highlightEnabled:true")
 # For now use single symbol
 # - grey
-SetGeoLayerViewSingleSymbol(GeoLayerViewID="MunicipalBoundariesLayerView",Name="Colorado Municipal Boundaries",Description="Colorado Municipal Boundaries",Properties="color:#595959,opacity:1.0,fillColor:#595959,fillOpacity:0.3,weight:2")
+SetGeoLayerViewSingleSymbol(GeoLayerViewID="MunicipalBoundariesLayerView",Name="Municipal Boundaries",Description="Municipal boundaries from the State Department of Local Affairs (DOLA)",Properties="color:#595959,opacity:1.0,fillColor:#595959,fillOpacity:0.3,weight:2")
 SetGeoLayerViewEventHandler(GeoLayerViewID="MunicipalBoundariesLayerView",EventType="click",Properties="eventConfigPath:layers/municipal-boundaries-event-config.json")
 SetGeoLayerViewEventHandler(GeoLayerViewID="MunicipalBoundariesLayerView",EventType="hover",Properties="eventConfigPath:layers/municipal-boundaries-event-config.json")
 # = = = = = = = = = =
 # Municipalities:  read layer and add to a layer view group.
 # GeoLayerViewGroupID: MunicipalitiesGroup
-ReadGeoLayerFromGeoJSON(InputFile="layers/municipalities.geojson",GeoLayerID="MunicipalitiesLayer",Name="Colorado Municipalities",Description="Colorado Municipalities")
-AddGeoLayerViewToGeoMap(GeoLayerID="MunicipalitiesLayer",GeoLayerViewID="MunicipalitiesLayerView",Name="Colorado Municipalities",Description="Colorado Municipalities",InsertPosition="Top",Properties="docPath:'layers/municipalities.md'")
+ReadGeoLayerFromGeoJSON(InputFile="https://data.openwaterfoundation.org/state/co/owf/municipalities/co-municipalities.geojson",GeoLayerID="MunicipalitiesLayer",Name="Municipalities",Description="Municipalities")
+AddGeoLayerViewToGeoMap(GeoLayerID="MunicipalitiesLayer",GeoLayerViewID="MunicipalitiesLayerView",Name="Municipalities",Description="Municipalities",InsertPosition="Top",Properties="docPath:'layers/municipalities.md'")
 # For now use single symbol
 # - TODO smalers 2020-05-22 need to enable a graduated symbol based on flow value
-SetGeoLayerViewSingleSymbol(GeoLayerViewID="MunicipalitiesLayerView",Name="Colorado Municipalities",Description="Colorado Municipalities",Properties="symbolImage:/img/group-2-32x37.png,imageAnchorPoint:Bottom")
-# SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="MunicipalitiesLayerView",Name="Colorado Municipalities",Description="Colorado Municipalities",ClassificationAttribute="county",Properties="classificationType:'SingleSymbol'")
+SetGeoLayerViewSingleSymbol(GeoLayerViewID="MunicipalitiesLayerView",Name="Municipalities",Description="Municipalities",Properties="symbolImage:/img/group-2-32x37.png,imageAnchorPoint:Bottom")
+# SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="MunicipalitiesLayerView",Name="Municipalities",Description="Municipalities",ClassificationAttribute="county",Properties="classificationType:'SingleSymbol'")
 SetGeoLayerViewEventHandler(GeoLayerViewID="MunicipalitiesLayerView",EventType="click",Properties="eventConfigPath:layers/municipalities-event-config.json")
 SetGeoLayerViewEventHandler(GeoLayerViewID="MunicipalitiesLayerView",EventType="hover",Properties="eventConfigPath:layers/municipalities-event-config.json")
 # = = = = = = = = = =
@@ -141,12 +141,9 @@ CopyFile(SourceFile="municipalities-map.md",DestinationFile="${MapFolder}/munici
 #
 #CopyFile(SourceFile="layers/stream-reaches.geojson",DestinationFile="${MapFolder}/layers/stream-reaches.geojson")
 #
-## TODO smalers 2020-06-13 enable when it does not hang the app
-CopyFile(SourceFile="layers/municipal-boundaries.geojson",DestinationFile="${MapFolder}/layers/municipal-boundaries.geojson")
 CopyFile(SourceFile="layers/municipal-boundaries.md",DestinationFile="${MapFolder}/layers/municipal-boundaries.md")
 CopyFile(SourceFile="layers/municipal-boundaries-event-config.json",DestinationFile="${MapFolder}/layers/municipal-boundaries-event-config.json")
 #
-CopyFile(SourceFile="layers/municipalities.geojson",DestinationFile="${MapFolder}/layers/municipalities.geojson")
 CopyFile(SourceFile="layers/municipalities.md",DestinationFile="${MapFolder}/layers/municipalities.md")
 CopyFile(SourceFile="layers/municipalities-event-config.json",DestinationFile="${MapFolder}/layers/municipalities-event-config.json")
 #

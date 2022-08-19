@@ -1,7 +1,7 @@
 {
   "geoMapProjectId": "WaterProvidersProject",
-  "name": "Colorado Water Providers",
-  "description": "Colorado Water Providers",
+  "name": "Water Providers",
+  "description": "Water providers",
   "projectType": "SingleMap",
   "properties": {
     "author": "Open Water Foundation",
@@ -11,8 +11,8 @@
   "geoMaps": [
     {
       "geoMapId": "WaterProvidersMap",
-      "name": "Colorado Water Providers",
-      "description": "Colorado Water Providers",
+      "name": "Water Providers",
+      "description": "Water Providers",
       "dataPath": ".",
       "crs": "EPSG:4326",
       "properties": {
@@ -304,9 +304,23 @@
           ]
         },
         {
+          "geoLayerId": "SoilConservationDistrictsLayer",
+          "name": "Fire Protection Districts",
+          "description": "Fire protection districts from DOLA.",
+          "crs": "EPSG:4326",
+          "geometryType": "WKT:Polygon",
+          "layerType": "Vector",
+          "sourceFormat": "GeoJSON",
+          "sourcePath": "https://data.openwaterfoundation.org/state/co/dola/district-boundaries/latest/co-fire-protection-districts-waterdistrict3.geojson",
+          "properties": {},
+          "history:": [
+            "Read GeoLayer from GeoJSON file:  'https://data.openwaterfoundation.org/state/co/dola/district-boundaries/latest/co-fire-protection-districts-waterdistrict3.geojson'"
+          ]
+        },
+        {
           "geoLayerId": "WaterProviderBoundariesDolaLayer",
-          "name": "Colorado Water Provider Boundaries",
-          "description": "Colorado Water Provider Boundaries",
+          "name": "Municipal Water Provider Boundaries",
+          "description": "Municipal water provider boundaries",
           "crs": "EPSG:4326",
           "geometryType": "WKT:Polygon",
           "layerType": "Vector",
@@ -319,8 +333,8 @@
         },
         {
           "geoLayerId": "WaterProviderBoundariesLayer",
-          "name": "Colorado Water Provider Boundaries",
-          "description": "Colorado Water Provider Boundaries",
+          "name": "Municipal Water Provider Boundaries",
+          "description": "Municipal water provider boundaries",
           "crs": "EPSG:4326",
           "geometryType": "WKT:Polygon",
           "layerType": "Vector",
@@ -333,16 +347,16 @@
         },
         {
           "geoLayerId": "WaterProvidersLayer",
-          "name": "Colorado Water Providers",
-          "description": "Colorado Water Providers",
+          "name": "Municipal Water Providers",
+          "description": "Municipal water providers",
           "crs": "EPSG:4326",
           "geometryType": "WKT:Point",
           "layerType": "Vector",
           "sourceFormat": "GeoJSON",
-          "sourcePath": "layers/water-providers.geojson",
+          "sourcePath": "https://data.openwaterfoundation.org/state/co/owf/municipal-water-providers/co-municipal-water-providers.geojson",
           "properties": {},
           "history:": [
-            "Read GeoLayer from GeoJSON file:  'C:\\Users\\sam\\owf-dev\\InfoMapper-Poudre\\git-repos\\owf-infomapper-poudre\\workflow\\BasinEntities\\WaterSupply-WaterProviders\\layers\\water-providers.geojson'"
+            "Read GeoLayer from GeoJSON file:  'https://data.openwaterfoundation.org/state/co/owf/municipal-water-providers/co-municipal-water-providers.geojson'"
           ]
         },
         {
@@ -413,21 +427,21 @@
         },
         {
           "geoLayerViewGroupId": "WaterProvidersGroup",
-          "name": "Colorado Water Providers",
-          "description": "Colorado Water Providers",
+          "name": "Municipal Water Providers",
+          "description": "Municipal water providers",
           "properties": {},
           "geoLayerViews": [
             {
               "geoLayerViewId": "WaterProvidersLayerView",
-              "name": "Colorado Water Providers",
-              "description": "Colorado Water Providers",
+              "name": "Municipal Water Providers",
+              "description": "Municipal water providers",
               "geoLayerId": "WaterProvidersLayer",
               "properties": {
                 "docPath": "layers/water-providers.md"
               },
               "geoLayerSymbol": {
-                "name": "Colorado Water Providers",
-                "description": "Colorado Water Providers",
+                "name": "Municipal Water Providers",
+                "description": "municipal water providers",
                 "classificationType": "SingleSymbol",
                 "classificationAttribute": "",
                 "properties": {
@@ -458,16 +472,16 @@
             },
             {
               "geoLayerViewId": "WaterProviderBoundariesLayerView",
-              "name": "Water Provider Boundaries (Districts & Utilities)",
-              "description": "Water Provider Boundaries, merged from multiple sources",
+              "name": "Municipal Water Provider Boundaries (Districts & Utilities)",
+              "description": "Municipal water provider boundaries, merged from multiple sources",
               "geoLayerId": "WaterProviderBoundariesLayer",
               "properties": {
                 "docPath": "layers/water-provider-boundaries.md",
                 "highlightEnabled": "true"
               },
               "geoLayerSymbol": {
-                "name": "Colorado Water Provider Boundaries",
-                "description": "Colorado Water Provider Boundaries",
+                "name": "Municipal Water Provider Boundaries",
+                "description": "Municipal water provider boundaries",
                 "classificationType": "SingleSymbol",
                 "classificationAttribute": "",
                 "properties": {
@@ -501,7 +515,7 @@
             },
             {
               "geoLayerViewId": "WaterProviderBoundariesDolaLayerView",
-              "name": "Water Provider Boundaries (Districts)",
+              "name": "Municipal water Provider Boundaries (Districts)",
               "description": "Water Provider Boundaries from DOLA water and sanitation districts, input to the above layer",
               "geoLayerId": "WaterProviderBoundariesDolaLayer",
               "properties": {
@@ -509,8 +523,8 @@
                 "selectedInitial": "false"
               },
               "geoLayerSymbol": {
-                "name": "Colorado Water Provider Boundaries",
-                "description": "Colorado Water Provider Boundaries",
+                "name": "Municipal Water Provider Boundaries",
+                "description": "Municipal Water provider boundaries",
                 "classificationType": "SingleSymbol",
                 "classificationAttribute": "",
                 "properties": {
@@ -538,6 +552,60 @@
                   "hasVisualization": false,
                   "properties": {
                     "eventConfigPath": "layers/water-provider-boundaries-dola-event-config.json"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "geoLayerViewGroupId": "SoilConservationDistrictsGoup",
+          "name": "Fire Protection Districts",
+          "description": "Fire protection districts from DOLA.",
+          "properties": {
+            "selectedInitial": "true"
+          },
+          "geoLayerViews": [
+            {
+              "geoLayerViewId": "SoilConservationDistrictsLayerView",
+              "name": "Fire Protection Districts",
+              "description": "Fire protection districts from DOLA",
+              "geoLayerId": "SoilConservationDistrictsLayer",
+              "properties": {
+                "docPath": "layers/fire-protection-districts.md",
+                "selectedInitial": "false",
+                "highlightEnabled": "true"
+              },
+              "geoLayerSymbol": {
+                "name": "Fire Protection Districts",
+                "description": "Fire protection districts from DOLA",
+                "classificationType": "SingleSymbol",
+                "classificationAttribute": "",
+                "properties": {
+                  "color": "#cc3300",
+                  "opacity": "1.0",
+                  "fillColor": "#cc3300",
+                  "fillOpacity": "0.3",
+                  "weight": "2"
+                }
+              },
+              "eventHandlers": [
+                {
+                  "eventType": "hover",
+                  "name": "Hover event",
+                  "description": "Hover event configuration",
+                  "hasVisualization": false,
+                  "properties": {
+                    "eventConfigPath": "layers/fire-protection-districts-event-config.json"
+                  }
+                },
+                {
+                  "eventType": "click",
+                  "name": "Click event",
+                  "description": "Click event configuration",
+                  "hasVisualization": false,
+                  "properties": {
+                    "eventConfigPath": "layers/fire-protection-districts-event-config.json"
                   }
                 }
               ]

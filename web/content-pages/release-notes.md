@@ -35,15 +35,21 @@ The following release notes summarize changes to the Poudre Basin Information we
 **Feature release including new InfoMapper 4.0 URL approach.**
 
 * [3.0.0] Continue migrating datasets to public pages:
-    + **As of 2022-08-08, all datasets other than irrigated lands and population have been published.**
+    + **As of 2022-08-19, all datasets other than municipal data have been updated.**
     + Dataset landing pages now have links to preview data layers, using a simple viewing tool.
 * [3.0.0] Update to InfoMapper 4.0.0 software:
     + URLs for main resources no longer use `#` character in URLs:
         - Old URLs are automatically translated to new URLs.
         - The new approach allows for improved search and analytics features.
     + Fix the bug where sometimes a map would not load due to map initialization timing.
-* [3.0.0] Add the canals layer to the 
-  [***Basin Eintities / Agriculture - Ditches***](#/map/entities-ditches) map.
+* [3.0.0] Add new data layers:
+    + Add the fire protection districts layer to the [***Basin Entities / Water Supply - Water Providers***](#/map/entities-water-providers) map.
+    + Add the fire protection districts layer to the [***Current Conditions/ Environment - Wildfires***](#/map/current-wildfires) map.
+    + Add the canals layer to the [***Basin Entities / Agriculture - Ditches***](#/map/entities-ditches) map.
+    + Add the soil conservation districts layer to the [***Basin Entities / Agriculture - Ditches***](#/map/entities-ditches) map.
+* [3.0.0] Update the municipalities data:
+    + Most website addresses have changed to https.
+    + Quite a few new addresses have been implemented.
 
 ## 2.5.0 ##
 

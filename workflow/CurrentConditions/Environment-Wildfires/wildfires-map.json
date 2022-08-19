@@ -332,6 +332,20 @@
           ]
         },
         {
+          "geoLayerId": "SoilConservationDistrictsLayer",
+          "name": "Fire Protection Districts",
+          "description": "Fire protection districts from DOLA.",
+          "crs": "EPSG:4326",
+          "geometryType": "WKT:Polygon",
+          "layerType": "Vector",
+          "sourceFormat": "GeoJSON",
+          "sourcePath": "https://data.openwaterfoundation.org/state/co/dola/district-boundaries/latest/co-fire-protection-districts-waterdistrict3.geojson",
+          "properties": {},
+          "history:": [
+            "Read GeoLayer from GeoJSON file:  'https://data.openwaterfoundation.org/state/co/dola/district-boundaries/latest/co-fire-protection-districts-waterdistrict3.geojson'"
+          ]
+        },
+        {
           "geoLayerId": "WildfirePerimetersArchiveLayer",
           "name": "Historical Wildfire Perimeters",
           "description": "Wildfire perimeters web service",
@@ -756,6 +770,60 @@
                   "hasVisualization": false,
                   "properties": {
                     "eventConfigPath": "layers/wildfire-perimeters-archive-event-config.json"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "geoLayerViewGroupId": "SoilConservationDistrictsGoup",
+          "name": "Fire Protection Districts",
+          "description": "Fire protection districts from DOLA.",
+          "properties": {
+            "selectedInitial": "true"
+          },
+          "geoLayerViews": [
+            {
+              "geoLayerViewId": "SoilConservationDistrictsLayerView",
+              "name": "Fire Protection Districts",
+              "description": "Fire protection districts from DOLA",
+              "geoLayerId": "SoilConservationDistrictsLayer",
+              "properties": {
+                "docPath": "../../BasinEntities/WaterSupply-WaterProviders/layers/fire-protection-districts.md",
+                "selectedInitial": "false",
+                "highlightEnabled": "true"
+              },
+              "geoLayerSymbol": {
+                "name": "Fire Protection Districts",
+                "description": "Fire protection districts from DOLA",
+                "classificationType": "SingleSymbol",
+                "classificationAttribute": "",
+                "properties": {
+                  "color": "#cc3300",
+                  "opacity": "1.0",
+                  "fillColor": "#cc3300",
+                  "fillOpacity": "0.3",
+                  "weight": "2"
+                }
+              },
+              "eventHandlers": [
+                {
+                  "eventType": "hover",
+                  "name": "Hover event",
+                  "description": "Hover event configuration",
+                  "hasVisualization": false,
+                  "properties": {
+                    "eventConfigPath": "../../BasinEntities/WaterSupply-WaterProviders/layers/fire-protection-districts-event-config.json"
+                  }
+                },
+                {
+                  "eventType": "click",
+                  "name": "Click event",
+                  "description": "Click event configuration",
+                  "hasVisualization": false,
+                  "properties": {
+                    "eventConfigPath": "../../BasinEntities/WaterSupply-WaterProviders/layers/fire-protection-districts-event-config.json"
                   }
                 }
               ]

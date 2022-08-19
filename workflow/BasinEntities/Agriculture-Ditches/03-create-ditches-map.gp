@@ -76,15 +76,29 @@ SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="WaterDistrictLayerView",Name="C
 SetGeoLayerViewEventHandler(GeoLayerViewID="WaterDistrictLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:../Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3-event-config.json")
 SetGeoLayerViewEventHandler(GeoLayerViewID="WaterDistrictLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:../Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3-event-config.json")
 # = = = = = = = = = =
+# Soil Conservation Districts
+# = = = = = = = = = =
+# - color is orange
+# GeoLayerViewGroupID: SoilConservationDistrictsGoup
+AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="SoilConservationDistrictsGoup",Name="Soil Conservation Districts",Description="Soil conservation districts from DOLA.",Properties="selectedInitial: true",InsertPosition="Top")
+#
+ReadGeoLayerFromGeoJSON(InputFile="https://data.openwaterfoundation.org/state/co/dola/district-boundaries/latest/co-soil-conservation-districts-waterdistrict3.geojson",GeoLayerID="SoilConservationDistrictsLayer",Name="Soil Conservation Districts",Description="Soil conservation districts from DOLA.")
+# OK to show by default since renders OK with ditch service areas.
+AddGeoLayerViewToGeoMap(GeoLayerID="SoilConservationDistrictsLayer",GeoLayerViewID="SoilConservationDistrictsLayerView",Name="Soil Conservation Districts",Description="Soil conservation districts from DOLA",InsertPosition="Top",Properties="docPath:layers/soil-conservation-districts.md,selectedInitial:true,highlightEnabled:true")
+# Color is a brownish orange.
+SetGeoLayerViewSingleSymbol(GeoLayerViewID="SoilConservationDistrictsLayerView",Name="Soil Conservation Districts",Description="Soil conservation districts from DOLA",Properties="color:#cc8500,opacity:1.0,fillColor:#cc8500,fillOpacity:0.3,weight:2")
+SetGeoLayerViewEventHandler(GeoLayerViewID="SoilConservationDistrictsLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/soil-conservation-districts-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="SoilConservationDistrictsLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/soil-conservation-districts-event-config.json")
+# = = = = = = = = = =
 # Ditch service areas
 # - select the most recent for initial view, others are not selected
 # = = = = = = = = = =
 # Ditch service areas (1956):  read layer and add to a layer view group.
 # - color is yellow
 # GeoLayerViewGroupID: DitchServiceAreasGroup
-AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="DitchServiceAreasGroup",Name="Ditch Service Areas",Description="Ditch service areas from from Colorado's Decision Support System.",Properties="selectedInitial: true,docPath:'layers/group-ditch-service-areas.md'",InsertPosition="Top")
+AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="DitchServiceAreasGroup",Name="Ditch Service Areas",Description="Ditch service areas from Colorado's Decision Support System.",Properties="selectedInitial: true,docPath:'layers/group-ditch-service-areas.md'",InsertPosition="Top")
 #
-ReadGeoLayerFromGeoJSON(InputFile="https://data.openwaterfoundation.org/state/co/dwr/irrigated-lands/co-dwr-ditch-service-area-district3-1956.geojson",GeoLayerID="DitchServiceAreas1956Layer",Name="Poudre  Ditch Service Areas",Description="Ditch service areas (1956) for District 3 from Colorado's Decision Support Systems.")
+ReadGeoLayerFromGeoJSON(InputFile="https://data.openwaterfoundation.org/state/co/dwr/irrigated-lands/co-dwr-ditch-service-area-district3-1956.geojson",GeoLayerID="DitchServiceAreas1956Layer",Name="Ditch Service Areas",Description="Ditch service areas (1956) for District 3 from Colorado's Decision Support Systems.")
 # The following layer view group is used for all years
 AddGeoLayerViewToGeoMap(GeoLayerID="DitchServiceAreas1956Layer",GeoLayerViewID="DitchServiceAreas1956LayerView",Name="District 3 Ditch Service Areas (1956)",Description="Ditch service areas (1956) from CDSS",InsertPosition="Top",Properties="docPath:layers/ditch-service-areas.md,selectedInitial:false,highlightEnabled:true")
 SetGeoLayerViewSingleSymbol(GeoLayerViewID="DitchServiceAreas1956LayerView",Name="Ditch Service Areas",Description="Ditch Service Areas",Properties="color:#ffff00,opacity:1.0,fillColor:#ffff00,fillOpacity:0.3,weight:2")
@@ -160,6 +174,9 @@ CopyFile(SourceFile="ditches-map.md",DestinationFile="${MapFolder}/ditches-map.m
 #CopyFile(SourceFile="layers/co-dwr-water-district-3-classify-district.csv",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3-classify-district.csv")
 #CopyFile(SourceFile="../Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3-event-config.json",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3-event-config.json")
 #CopyFile(SourceFile="../Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3.md",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3.md")
+#
+CopyFile(SourceFile="layers/soil-conservation-districts-event-config.json",DestinationFile="${MapFolder}/layers/soil-conservation-districts-event-config.json")
+CopyFile(SourceFile="layers/soil-conservation-districts.md",DestinationFile="${MapFolder}/layers/soil-conservation-districts.md")
 #
 CopyFile(SourceFile="layers/group-ditch-service-areas.md",DestinationFile="${MapFolder}/layers/group-ditch-service-areas.md")
 #
