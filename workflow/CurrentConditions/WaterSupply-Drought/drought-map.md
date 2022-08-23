@@ -13,9 +13,17 @@ The ***Current Drought*** map provides information about current drought conditi
 
 ## Drought Resources ##
 
+The following resources include extensive information related to drought:
+
 * [Colorado Climate Center / Drought Information and Resources](https://climate.colostate.edu/drought_info.html)
 * [Colorado Water Conservation Board / Drought](https://cwcb.colorado.gov/drought)
 * [US Drought Monitor for Colorado](https://droughtmonitor.unl.edu/CurrentMap/StateDroughtMonitor.aspx?CO)
+
+The following are specific useful products:
+
+| **Product** | **Description** |
+| -- | -- |
+| [U.S. Drought Monitor Change Map](https://droughtmonitor.unl.edu/Maps/ChangeMaps.aspx) | Shows how drought classification has changed in one week (must navigate to Colorado using the page controls). |
 
 ## Climate Change ##
 

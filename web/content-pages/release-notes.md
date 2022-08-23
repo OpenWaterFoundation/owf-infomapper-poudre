@@ -35,7 +35,7 @@ The following release notes summarize changes to the Poudre Basin Information we
 **Feature release including new InfoMapper 4.0 URL approach.**
 
 * [3.0.0] Continue migrating datasets to public pages:
-    + **As of 2022-08-19, all datasets other than municipal data have been updated.**
+    + **As of 2022-08-23, all datasets other than county and municipal population data have been updated.**
     + Dataset landing pages now have links to preview data layers, using a simple viewing tool.
 * [3.0.0] Update to InfoMapper 4.0.0 software:
     + URLs for main resources no longer use `#` character in URLs:
@@ -44,6 +44,8 @@ The following release notes summarize changes to the Poudre Basin Information we
     + Fix the bug where sometimes a map would not load due to map initialization timing.
 * [3.0.0] Add new data layers:
     + Add the fire protection districts layer to the [***Basin Entities / Water Supply - Water Providers***](#/map/entities-water-providers) map.
+    + Add water conservancy districts layer to the [***Basin Entities / Water Supply - Water Providers***](#/map/entities-water-providers) map
+      and cleean up boundaries.  OWF is pursuing municipal boundaries for each entity.
     + Add the fire protection districts layer to the [***Current Conditions/ Environment - Wildfires***](#/map/current-wildfires) map.
     + Add the canals layer to the [***Basin Entities / Agriculture - Ditches***](#/map/entities-ditches) map.
     + Add the soil conservation districts layer to the [***Basin Entities / Agriculture - Ditches***](#/map/entities-ditches) map.

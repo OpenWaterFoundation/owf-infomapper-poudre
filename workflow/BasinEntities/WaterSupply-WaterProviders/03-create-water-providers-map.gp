@@ -87,62 +87,53 @@ SetGeoLayerViewEventHandler(GeoLayerViewID="WaterDistrictLayerView",EventType="c
 # Fire Protection Districts
 # = = = = = = = = = =
 # - color is reddish
-# GeoLayerViewGroupID: SoilConservationDistrictsGoup
-AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="SoilConservationDistrictsGoup",Name="Fire Protection Districts",Description="Fire protection districts from DOLA.",Properties="selectedInitial: true",InsertPosition="Top")
+# GeoLayerViewGroupID: FireProtectionDistrictsGoup
+AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="FireProtectionDistrictsGoup",Name="Fire Protection Districts",Description="Fire protection districts from DOLA.",Properties="selectedInitial: true",InsertPosition="Top")
 #
-ReadGeoLayerFromGeoJSON(InputFile="https://data.openwaterfoundation.org/state/co/dola/district-boundaries/latest/co-fire-protection-districts-waterdistrict3.geojson",GeoLayerID="SoilConservationDistrictsLayer",Name="Fire Protection Districts",Description="Fire protection districts from DOLA.")
+ReadGeoLayerFromGeoJSON(InputFile="https://data.openwaterfoundation.org/state/co/dola/district-boundaries/latest/co-fire-protection-districts-waterdistrict3.geojson",GeoLayerID="FireProtectionDistrictsLayer",Name="Fire Protection Districts",Description="Fire protection districts from DOLA.")
 # Do not show by default because want to focus on municipal water providers.
-AddGeoLayerViewToGeoMap(GeoLayerID="SoilConservationDistrictsLayer",GeoLayerViewID="SoilConservationDistrictsLayerView",Name="Fire Protection Districts",Description="Fire protection districts from DOLA",InsertPosition="Top",Properties="docPath:layers/fire-protection-districts.md,selectedInitial:false,highlightEnabled:true")
+AddGeoLayerViewToGeoMap(GeoLayerID="FireProtectionDistrictsLayer",GeoLayerViewID="FireProtectionDistrictsLayerView",Name="Fire Protection Districts",Description="Fire protection districts from DOLA",InsertPosition="Top",Properties="docPath:layers/fire-protection-districts.md,selectedInitial:false,highlightEnabled:true")
 # Color is a brownish orange.
-SetGeoLayerViewSingleSymbol(GeoLayerViewID="SoilConservationDistrictsLayerView",Name="Fire Protection Districts",Description="Fire protection districts from DOLA",Properties="color:#cc3300,opacity:1.0,fillColor:#cc3300,fillOpacity:0.3,weight:2")
-SetGeoLayerViewEventHandler(GeoLayerViewID="SoilConservationDistrictsLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/fire-protection-districts-event-config.json")
-SetGeoLayerViewEventHandler(GeoLayerViewID="SoilConservationDistrictsLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/fire-protection-districts-event-config.json")
+SetGeoLayerViewSingleSymbol(GeoLayerViewID="FireProtectionDistrictsLayerView",Name="Fire Protection Districts",Description="Fire protection districts from DOLA",Properties="color:#cc3300,opacity:1.0,fillColor:#cc3300,fillOpacity:0.3,weight:2")
+SetGeoLayerViewEventHandler(GeoLayerViewID="FireProtectionDistrictsLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/fire-protection-districts-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="FireProtectionDistrictsLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/fire-protection-districts-event-config.json")
 # = = = = = = = = = =
-# Denver Water boundaries:  read layer and add to a layer view group.
-# GeoLayerViewGroupID: WaterProvidersGroup
-# - don't need anymore because now merged
+# Water Conservancy Districts 
+# = = = = = = = = = =
+# - color is slightly purple/gray
+# GeoLayerViewGroupID: WaterConservancyDistrictsGoup
+AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="WaterConservancyDistrictsGoup",Name="Water Conservancy Districts",Description="Major water conservancy and conservation districts.",Properties="selectedInitial: true",InsertPosition="Top")
 #
-AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="WaterProvidersGroup",Name="Municipal Water Providers",Description="Municipal water providers",InsertPosition="Top")
+ReadGeoLayerFromGeoJSON(InputFile="https://data.openwaterfoundation.org/state/co/owf/municipal-water-provider-boundaries/latest/co-water-conservancy-district-boundaries.geojson",GeoLayerID="WaterConservancyDistrictsLayer",Name="Water Conservancy Districts",Description="Major water conservancy and conservation districts.")
+# Do not show by default because want to focus on retail districts.
+AddGeoLayerViewToGeoMap(GeoLayerID="WaterConservancyDistrictsLayer",GeoLayerViewID="WaterConservancyDistrictsLayerView",Name="Water Conservancy Districts",Description="Major water conservancy and conservation disricts",InsertPosition="Top",Properties="docPath:layers/water-conservancy-districts.md,selectedInitial:false,highlightEnabled:true")
+# Color is a brownish orange.
+SetGeoLayerViewSingleSymbol(GeoLayerViewID="WaterConservancyDistrictsLayerView",Name="Water Conservancy Districts",Description="Major water conservancy and conservation districts",Properties="color:#ff99ff,opacity:1.0,fillColor:#ff99ff,fillOpacity:0.3,weight:2")
+SetGeoLayerViewEventHandler(GeoLayerViewID="WaterConservancyDistrictsLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/water-conservancy-districts-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="WaterConservancyDistrictsLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/water-conservancy-districts-event-config.json")
+# = = = = = = = = = =
+# Municipal Water Provider boundaries (only Special Districts):  read layer and add to a layer view group.
+# GeoLayerViewGroupID: WaterProviderBoundariesGroup
 #
-##ReadGeoLayerFromGeoJSON(InputFile="layers/denver-water-boundary.geojson",GeoLayerID="DenverWaterBoundaryLayer",Name="Denver Water Boundary",Description="Denver Water boundary from Denver Water")
-##AddGeoLayerViewToGeoMap(GeoLayerID="DenverWaterBoundaryLayer",GeoLayerViewID="DenverWaterBoundaryLayerView",Name="Denver Water Boundary",Description="Denver water boundary",InsertPosition="Top",Properties="docPath:'layers/denver-water-boundary.md'")
+AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="WaterProviderBoundariesGroup",Name="Municipal Water Provider Boundaries",Description="Municipal water provider boundaries",Properties="selectBehavior:Single",InsertPosition="Top")
+ReadGeoLayerFromGeoJSON(InputFile="https://data.openwaterfoundation.org/state/co/owf/municipal-water-provider-boundaries/latest/co-municipal-water-provider-boundaries-districts-only.geojson",GeoLayerID="WaterProviderBoundariesDolaLayer",Name="Municipal Water Provider Boundaries (only special districts, no utilities or large conservancy districts)",Description="Municipal water provider boundaries (only special districts (no utilities or large conservancy districts)")
+AddGeoLayerViewToGeoMap(GeoLayerID="WaterProviderBoundariesDolaLayer",GeoLayerViewID="WaterProviderBoundariesDolaLayerView",Name="Municipal Water Provider Boundaries (only Special Districts)",Description="Municipal water provider boundaries from DOLA (no utilities or large conservancy districts, input to the merged layer)",InsertPosition="Top",Properties="docPath:'layers/water-provider-boundaries-dola.md',selectedInitial:false")
 # For now use single symbol
 # - grey
-##SetGeoLayerViewSingleSymbol(GeoLayerViewID="DenverWaterBoundaryLayerView",Name="Denver Water Boundary",Description="Denver Water boundary",Properties="color:#cc7a00,opacity:1.0,fillColor:#cc7a00,fillOpacity:0.3,weight:2")
-##SetGeoLayerViewEventHandler(GeoLayerViewID="DenverWaterBoundaryLayerView",EventType="click",Properties="eventConfigPath:layers/denver-water-boundary-event-config.json")
-##SetGeoLayerViewEventHandler(GeoLayerViewID="DenverWaterBoundaryLayerView",EventType="hover",Properties="eventConfigPath:layers/denver-water-boundary-event-config.json")
-# = = = = = = = = = =
-# Municipal Water Provider boundaries (DOLA):  read layer and add to a layer view group.
-# GeoLayerViewGroupID: WaterProvidersGroup
-#
-ReadGeoLayerFromGeoJSON(InputFile="layers/water-provider-boundaries-dola.geojson",GeoLayerID="WaterProviderBoundariesDolaLayer",Name="Municipal Water Provider Boundaries",Description="Municipal water provider boundaries")
-AddGeoLayerViewToGeoMap(GeoLayerID="WaterProviderBoundariesDolaLayer",GeoLayerViewID="WaterProviderBoundariesDolaLayerView",Name="Municipal water Provider Boundaries (Districts)",Description="Water Provider Boundaries from DOLA water and sanitation districts, input to the above layer",InsertPosition="Top",Properties="docPath:'layers/water-provider-boundaries-dola.md',selectedInitial:false")
-# For now use single symbol
-# - grey
-SetGeoLayerViewSingleSymbol(GeoLayerViewID="WaterProviderBoundariesDolaLayerView",Name="Municipal Water Provider Boundaries",Description="Municipal Water provider boundaries",Properties="color:#595959,opacity:1.0,fillColor:#595959,fillOpacity:0.3,weight:2")
+SetGeoLayerViewSingleSymbol(GeoLayerViewID="WaterProviderBoundariesDolaLayerView",Name="Municipal Water Provider Boundaries (only Special Districts)",Description="Municipal water provider boundaries (only special districts (no utilities or large conservancy districts)",Properties="color:#595959,opacity:1.0,fillColor:#595959,fillOpacity:0.3,weight:2")
 SetGeoLayerViewEventHandler(GeoLayerViewID="WaterProviderBoundariesDolaLayerView",EventType="click",Properties="eventConfigPath:layers/water-provider-boundaries-dola-event-config.json")
 SetGeoLayerViewEventHandler(GeoLayerViewID="WaterProviderBoundariesDolaLayerView",EventType="hover",Properties="eventConfigPath:layers/water-provider-boundaries-dola-event-config.json")
 # = = = = = = = = = =
 # Water Provider boundaries (merged):  read layer and add to a layer view group.
-# GeoLayerViewGroupID: WaterProvidersGroup
+# GeoLayerViewGroupID: WaterProviderBoundariesGroup
 #
-ReadGeoLayerFromGeoJSON(InputFile="layers/water-provider-boundaries.geojson",GeoLayerID="WaterProviderBoundariesLayer",Name="Municipal Water Provider Boundaries",Description="Municipal water provider boundaries")
-AddGeoLayerViewToGeoMap(GeoLayerID="WaterProviderBoundariesLayer",GeoLayerViewID="WaterProviderBoundariesLayerView",Name="Municipal Water Provider Boundaries (Districts & Utilities)",Description="Municipal water provider boundaries, merged from multiple sources",InsertPosition="Top",Properties="docPath:'layers/water-provider-boundaries.md',highlightEnabled:true")
+ReadGeoLayerFromGeoJSON(InputFile="https://data.openwaterfoundation.org/state/co/owf/municipal-water-provider-boundaries/latest/co-municipal-water-provider-boundaries.geojson",GeoLayerID="WaterProviderBoundariesLayer",Name="Municipal Water Provider Boundaries",Description="Municipal water provider boundaries")
+AddGeoLayerViewToGeoMap(GeoLayerID="WaterProviderBoundariesLayer",GeoLayerViewID="WaterProviderBoundariesLayerView",Name="Municipal Water Provider Boundaries (Special Districts & Utilities)",Description="Municipal water provider boundaries, merged from multiple sources (no large conservancy districts)",InsertPosition="Top",Properties="docPath:'layers/water-provider-boundaries.md',selectedInitial:true,highlightEnabled:true")
 # For now use single symbol, could categorize based on entity type
 # - grey
 SetGeoLayerViewSingleSymbol(GeoLayerViewID="WaterProviderBoundariesLayerView",Name="Municipal Water Provider Boundaries",Description="Municipal water provider boundaries",Properties="color:#595959,opacity:1.0,fillColor:#595959,fillOpacity:0.3,weight:2")
 SetGeoLayerViewEventHandler(GeoLayerViewID="WaterProviderBoundariesLayerView",EventType="click",Properties="eventConfigPath:layers/water-provider-boundaries-event-config.json")
 SetGeoLayerViewEventHandler(GeoLayerViewID="WaterProviderBoundariesLayerView",EventType="hover",Properties="eventConfigPath:layers/water-provider-boundaries-event-config.json")
-# = = = = = = = = = =
-# Water provider points:  read layer and add to a layer view group.
-# GeoLayerViewGroupID: WaterProvidersGroup
-ReadGeoLayerFromGeoJSON(InputFile="https://data.openwaterfoundation.org/state/co/owf/municipal-water-providers/co-municipal-water-providers.geojson",GeoLayerID="WaterProvidersLayer",Name="Municipal Water Providers",Description="Municipal water providers")
-AddGeoLayerViewToGeoMap(GeoLayerID="WaterProvidersLayer",GeoLayerViewID="WaterProvidersLayerView",Name="Municipal Water Providers",Description="Municipal water providers",InsertPosition="Top",Properties="docPath:'layers/water-providers.md'")
-# For now use single symbol
-# - TODO smalers 2020-05-22 need to enable a graduated symbol based on flow value
-SetGeoLayerViewSingleSymbol(GeoLayerViewID="WaterProvidersLayerView",Name="Municipal Water Providers",Description="municipal water providers",Properties="symbolImage:/img/drinkingwater-32x37.png,imageAnchorPoint:Bottom")
-SetGeoLayerViewEventHandler(GeoLayerViewID="WaterProvidersLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/water-providers-event-config.json")
-SetGeoLayerViewEventHandler(GeoLayerViewID="WaterProvidersLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/water-providers-event-config.json")
 # = = = = = = = = = =
 # Stream reaches:  read layer and add to a layer view group.
 # - TODO smalers 2020-05-22 for now copy the stream reaches but want to use shared layer
@@ -159,6 +150,17 @@ SetGeoLayerViewSingleSymbol(GeoLayerViewID="StreamReachesLayerView",Name="Stream
 SetGeoLayerViewEventHandler(GeoLayerViewID="StreamReachesLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:../Physical-StreamReaches/layers/stream-reaches-event-config.json")
 SetGeoLayerViewEventHandler(GeoLayerViewID="StreamReachesLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:../Physical-StreamReaches/layers/stream-reaches-event-config.json")
 # = = = = = = = = = =
+# Water provider points:  read layer and add to a layer view group.
+# GeoLayerViewGroupID: WaterProvidersGroup
+ReadGeoLayerFromGeoJSON(InputFile="https://data.openwaterfoundation.org/state/co/owf/municipal-water-providers/co-municipal-water-providers.geojson",GeoLayerID="WaterProvidersLayer",Name="Municipal Water Providers",Description="Municipal water providers")
+AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="WaterProvidersGroup",Name="Municipal Water Providers",Description="Municipal water providers",InsertPosition="Top")
+AddGeoLayerViewToGeoMap(GeoLayerID="WaterProvidersLayer",GeoLayerViewID="WaterProvidersLayerView",Name="Municipal Water Providers",Description="Municipal water providers",InsertPosition="Top",Properties="docPath:'layers/water-providers.md'")
+# For now use single symbol
+# - TODO smalers 2020-05-22 need to enable a graduated symbol based on flow value
+SetGeoLayerViewSingleSymbol(GeoLayerViewID="WaterProvidersLayerView",Name="Municipal Water Providers",Description="municipal water providers",Properties="symbolImage:/img/drinkingwater-32x37.png,imageAnchorPoint:Bottom")
+SetGeoLayerViewEventHandler(GeoLayerViewID="WaterProvidersLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/water-providers-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="WaterProvidersLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/water-providers-event-config.json")
+# = = = = = = = = = =
 # Write the map project file and copy layers to the location needed by the web application.
 # - follow InfoMapper conventions
 WriteGeoMapProjectToJSON(GeoMapProjectID="WaterProvidersProject",Indent="2",OutputFile="water-providers-map.json")
@@ -173,15 +175,18 @@ CopyFile(SourceFile="water-providers-map.md",DestinationFile="${MapFolder}/water
 CopyFile(SourceFile="layers/fire-protection-districts.md",DestinationFile="${MapFolder}/layers/fire-protection-districts.md")
 CopyFile(SourceFile="layers/fire-protection-districts-event-config.json",DestinationFile="${MapFolder}/layers/fire-protection-districts-event-config.json")
 #
+CopyFile(SourceFile="layers/water-conservancy-districts.md",DestinationFile="${MapFolder}/layers/water-conservancy-districts.md")
+CopyFile(SourceFile="layers/water-conservancy-districts-event-config.json",DestinationFile="${MapFolder}/layers/water-conservancy-districts-event-config.json")
+#
 ##CopyFile(SourceFile="layers/denver-water-boundary.geojson",DestinationFile="${MapFolder}/layers/denver-water-boundary.geojson")
 ##CopyFile(SourceFile="layers/denver-water-boundary.md",DestinationFile="${MapFolder}/layers/denver-water-boundary.md")
 ##CopyFile(SourceFile="layers/denver-water-boundary-event-config.json",DestinationFile="${MapFolder}/layers/denver-water-boundary-event-config.json")
 #
-CopyFile(SourceFile="layers/water-provider-boundaries-dola.geojson",DestinationFile="${MapFolder}/layers/water-provider-boundaries-dola.geojson")
+#CopyFile(SourceFile="layers/water-provider-boundaries-dola.geojson",DestinationFile="${MapFolder}/layers/water-provider-boundaries-dola.geojson")
 CopyFile(SourceFile="layers/water-provider-boundaries-dola.md",DestinationFile="${MapFolder}/layers/water-provider-boundaries-dola.md")
 CopyFile(SourceFile="layers/water-provider-boundaries-dola-event-config.json",DestinationFile="${MapFolder}/layers/water-provider-boundaries-dola-event-config.json")
 #
-CopyFile(SourceFile="layers/water-provider-boundaries.geojson",DestinationFile="${MapFolder}/layers/water-provider-boundaries.geojson")
+#CopyFile(SourceFile="layers/water-provider-boundaries.geojson",DestinationFile="${MapFolder}/layers/water-provider-boundaries.geojson")
 CopyFile(SourceFile="layers/water-provider-boundaries.md",DestinationFile="${MapFolder}/layers/water-provider-boundaries.md")
 CopyFile(SourceFile="layers/water-provider-boundaries-event-config.json",DestinationFile="${MapFolder}/layers/water-provider-boundaries-event-config.json")
 #
