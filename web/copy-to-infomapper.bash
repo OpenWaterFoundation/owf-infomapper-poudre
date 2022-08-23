@@ -22,7 +22,7 @@ runWatcher() {
     # - exclude time series for now because there are many and it takes a long time to check
     #   (time series will soon be in a dataset and not in assets so this will get better)
     # The output of find will start with:  ./
-    find . -type f | grep -v "/ts/" | grep -v ".swp" | grep -v "/downloads/" | grep -E "./app-config.json|./content-pages/|./dashboards/|./data-maps/|./img/|./system/" | while read devFilePath; do
+    find . -type f | grep -v "/ts/" | grep -v ".swp" | grep -v ".log" | grep -v "/downloads/" | grep -E "./app-config.json|./content-pages/|./dashboards/|./data-maps/|./img/|./system/" | while read devFilePath; do
       #echo "Checking dev file: ${devFilePath}"
       # Get the modification time for the development file.
       devFileTime=$(date -r ${devFilePath} "+%s")

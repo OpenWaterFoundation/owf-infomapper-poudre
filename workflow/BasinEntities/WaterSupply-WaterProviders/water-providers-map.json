@@ -304,7 +304,7 @@
           ]
         },
         {
-          "geoLayerId": "SoilConservationDistrictsLayer",
+          "geoLayerId": "FireProtectionDistrictsLayer",
           "name": "Fire Protection Districts",
           "description": "Fire protection districts from DOLA.",
           "crs": "EPSG:4326",
@@ -318,17 +318,31 @@
           ]
         },
         {
-          "geoLayerId": "WaterProviderBoundariesDolaLayer",
-          "name": "Municipal Water Provider Boundaries",
-          "description": "Municipal water provider boundaries",
+          "geoLayerId": "WaterConservancyDistrictsLayer",
+          "name": "Water Conservancy Districts",
+          "description": "Major water conservancy and conservation districts.",
           "crs": "EPSG:4326",
           "geometryType": "WKT:Polygon",
           "layerType": "Vector",
           "sourceFormat": "GeoJSON",
-          "sourcePath": "layers/water-provider-boundaries-dola.geojson",
+          "sourcePath": "https://data.openwaterfoundation.org/state/co/owf/municipal-water-provider-boundaries/latest/co-water-conservancy-district-boundaries.geojson",
           "properties": {},
           "history:": [
-            "Read GeoLayer from GeoJSON file:  'C:\\Users\\sam\\owf-dev\\InfoMapper-Poudre\\git-repos\\owf-infomapper-poudre\\workflow\\BasinEntities\\WaterSupply-WaterProviders\\layers\\water-provider-boundaries-dola.geojson'"
+            "Read GeoLayer from GeoJSON file:  'https://data.openwaterfoundation.org/state/co/owf/municipal-water-provider-boundaries/latest/co-water-conservancy-district-boundaries.geojson'"
+          ]
+        },
+        {
+          "geoLayerId": "WaterProviderBoundariesDolaLayer",
+          "name": "Municipal Water Provider Boundaries (only special districts, no utilities or large conservancy districts)",
+          "description": "Municipal water provider boundaries (only special districts (no utilities or large conservancy districts)",
+          "crs": "EPSG:4326",
+          "geometryType": "WKT:Polygon",
+          "layerType": "Vector",
+          "sourceFormat": "GeoJSON",
+          "sourcePath": "https://data.openwaterfoundation.org/state/co/owf/municipal-water-provider-boundaries/latest/co-municipal-water-provider-boundaries-districts-only.geojson",
+          "properties": {},
+          "history:": [
+            "Read GeoLayer from GeoJSON file:  'https://data.openwaterfoundation.org/state/co/owf/municipal-water-provider-boundaries/latest/co-municipal-water-provider-boundaries-districts-only.geojson'"
           ]
         },
         {
@@ -339,24 +353,10 @@
           "geometryType": "WKT:Polygon",
           "layerType": "Vector",
           "sourceFormat": "GeoJSON",
-          "sourcePath": "layers/water-provider-boundaries.geojson",
+          "sourcePath": "https://data.openwaterfoundation.org/state/co/owf/municipal-water-provider-boundaries/latest/co-municipal-water-provider-boundaries.geojson",
           "properties": {},
           "history:": [
-            "Read GeoLayer from GeoJSON file:  'C:\\Users\\sam\\owf-dev\\InfoMapper-Poudre\\git-repos\\owf-infomapper-poudre\\workflow\\BasinEntities\\WaterSupply-WaterProviders\\layers\\water-provider-boundaries.geojson'"
-          ]
-        },
-        {
-          "geoLayerId": "WaterProvidersLayer",
-          "name": "Municipal Water Providers",
-          "description": "Municipal water providers",
-          "crs": "EPSG:4326",
-          "geometryType": "WKT:Point",
-          "layerType": "Vector",
-          "sourceFormat": "GeoJSON",
-          "sourcePath": "https://data.openwaterfoundation.org/state/co/owf/municipal-water-providers/co-municipal-water-providers.geojson",
-          "properties": {},
-          "history:": [
-            "Read GeoLayer from GeoJSON file:  'https://data.openwaterfoundation.org/state/co/owf/municipal-water-providers/co-municipal-water-providers.geojson'"
+            "Read GeoLayer from GeoJSON file:  'https://data.openwaterfoundation.org/state/co/owf/municipal-water-provider-boundaries/latest/co-municipal-water-provider-boundaries.geojson'"
           ]
         },
         {
@@ -372,9 +372,70 @@
           "history:": [
             "Read GeoLayer from GeoJSON file:  'https://data.openwaterfoundation.org/state/co/dwr/stream-reaches/co-stream-reaches-districts3_4.geojson'"
           ]
+        },
+        {
+          "geoLayerId": "WaterProvidersLayer",
+          "name": "Municipal Water Providers",
+          "description": "Municipal water providers",
+          "crs": "EPSG:4326",
+          "geometryType": "WKT:Point",
+          "layerType": "Vector",
+          "sourceFormat": "GeoJSON",
+          "sourcePath": "https://data.openwaterfoundation.org/state/co/owf/municipal-water-providers/co-municipal-water-providers.geojson",
+          "properties": {},
+          "history:": [
+            "Read GeoLayer from GeoJSON file:  'https://data.openwaterfoundation.org/state/co/owf/municipal-water-providers/co-municipal-water-providers.geojson'"
+          ]
         }
       ],
       "geoLayerViewGroups": [
+        {
+          "geoLayerViewGroupId": "WaterProvidersGroup",
+          "name": "Municipal Water Providers",
+          "description": "Municipal water providers",
+          "properties": {},
+          "geoLayerViews": [
+            {
+              "geoLayerViewId": "WaterProvidersLayerView",
+              "name": "Municipal Water Providers",
+              "description": "Municipal water providers",
+              "geoLayerId": "WaterProvidersLayer",
+              "properties": {
+                "docPath": "layers/water-providers.md"
+              },
+              "geoLayerSymbol": {
+                "name": "Municipal Water Providers",
+                "description": "municipal water providers",
+                "classificationType": "SingleSymbol",
+                "classificationAttribute": "",
+                "properties": {
+                  "symbolImage": "/img/drinkingwater-32x37.png",
+                  "imageAnchorPoint": "Bottom"
+                }
+              },
+              "eventHandlers": [
+                {
+                  "eventType": "hover",
+                  "name": "Hover event",
+                  "description": "Hover event configuration",
+                  "hasVisualization": false,
+                  "properties": {
+                    "eventConfigPath": "layers/water-providers-event-config.json"
+                  }
+                },
+                {
+                  "eventType": "click",
+                  "name": "Click event",
+                  "description": "Click event configuration",
+                  "hasVisualization": false,
+                  "properties": {
+                    "eventConfigPath": "layers/water-providers-event-config.json"
+                  }
+                }
+              ]
+            }
+          ]
+        },
         {
           "geoLayerViewGroupId": "StreamReachesGroup",
           "name": "Stream Reaches",
@@ -426,57 +487,21 @@
           ]
         },
         {
-          "geoLayerViewGroupId": "WaterProvidersGroup",
-          "name": "Municipal Water Providers",
-          "description": "Municipal water providers",
-          "properties": {},
+          "geoLayerViewGroupId": "WaterProviderBoundariesGroup",
+          "name": "Municipal Water Provider Boundaries",
+          "description": "Municipal water provider boundaries",
+          "properties": {
+            "selectBehavior": "Single"
+          },
           "geoLayerViews": [
             {
-              "geoLayerViewId": "WaterProvidersLayerView",
-              "name": "Municipal Water Providers",
-              "description": "Municipal water providers",
-              "geoLayerId": "WaterProvidersLayer",
-              "properties": {
-                "docPath": "layers/water-providers.md"
-              },
-              "geoLayerSymbol": {
-                "name": "Municipal Water Providers",
-                "description": "municipal water providers",
-                "classificationType": "SingleSymbol",
-                "classificationAttribute": "",
-                "properties": {
-                  "symbolImage": "/img/drinkingwater-32x37.png",
-                  "imageAnchorPoint": "Bottom"
-                }
-              },
-              "eventHandlers": [
-                {
-                  "eventType": "hover",
-                  "name": "Hover event",
-                  "description": "Hover event configuration",
-                  "hasVisualization": false,
-                  "properties": {
-                    "eventConfigPath": "layers/water-providers-event-config.json"
-                  }
-                },
-                {
-                  "eventType": "click",
-                  "name": "Click event",
-                  "description": "Click event configuration",
-                  "hasVisualization": false,
-                  "properties": {
-                    "eventConfigPath": "layers/water-providers-event-config.json"
-                  }
-                }
-              ]
-            },
-            {
               "geoLayerViewId": "WaterProviderBoundariesLayerView",
-              "name": "Municipal Water Provider Boundaries (Districts & Utilities)",
-              "description": "Municipal water provider boundaries, merged from multiple sources",
+              "name": "Municipal Water Provider Boundaries (Special Districts & Utilities)",
+              "description": "Municipal water provider boundaries, merged from multiple sources (no large conservancy districts)",
               "geoLayerId": "WaterProviderBoundariesLayer",
               "properties": {
                 "docPath": "layers/water-provider-boundaries.md",
+                "selectedInitial": "true",
                 "highlightEnabled": "true"
               },
               "geoLayerSymbol": {
@@ -515,16 +540,16 @@
             },
             {
               "geoLayerViewId": "WaterProviderBoundariesDolaLayerView",
-              "name": "Municipal water Provider Boundaries (Districts)",
-              "description": "Water Provider Boundaries from DOLA water and sanitation districts, input to the above layer",
+              "name": "Municipal Water Provider Boundaries (only Special Districts)",
+              "description": "Municipal water provider boundaries from DOLA (no utilities or large conservancy districts, input to the merged layer)",
               "geoLayerId": "WaterProviderBoundariesDolaLayer",
               "properties": {
                 "docPath": "layers/water-provider-boundaries-dola.md",
                 "selectedInitial": "false"
               },
               "geoLayerSymbol": {
-                "name": "Municipal Water Provider Boundaries",
-                "description": "Municipal Water provider boundaries",
+                "name": "Municipal Water Provider Boundaries (only Special Districts)",
+                "description": "Municipal water provider boundaries (only special districts (no utilities or large conservancy districts)",
                 "classificationType": "SingleSymbol",
                 "classificationAttribute": "",
                 "properties": {
@@ -559,7 +584,61 @@
           ]
         },
         {
-          "geoLayerViewGroupId": "SoilConservationDistrictsGoup",
+          "geoLayerViewGroupId": "WaterConservancyDistrictsGoup",
+          "name": "Water Conservancy Districts",
+          "description": "Major water conservancy and conservation districts.",
+          "properties": {
+            "selectedInitial": "true"
+          },
+          "geoLayerViews": [
+            {
+              "geoLayerViewId": "WaterConservancyDistrictsLayerView",
+              "name": "Water Conservancy Districts",
+              "description": "Major water conservancy and conservation disricts",
+              "geoLayerId": "WaterConservancyDistrictsLayer",
+              "properties": {
+                "docPath": "layers/water-conservancy-districts.md",
+                "selectedInitial": "false",
+                "highlightEnabled": "true"
+              },
+              "geoLayerSymbol": {
+                "name": "Water Conservancy Districts",
+                "description": "Major water conservancy and conservation districts",
+                "classificationType": "SingleSymbol",
+                "classificationAttribute": "",
+                "properties": {
+                  "color": "#ff99ff",
+                  "opacity": "1.0",
+                  "fillColor": "#ff99ff",
+                  "fillOpacity": "0.3",
+                  "weight": "2"
+                }
+              },
+              "eventHandlers": [
+                {
+                  "eventType": "hover",
+                  "name": "Hover event",
+                  "description": "Hover event configuration",
+                  "hasVisualization": false,
+                  "properties": {
+                    "eventConfigPath": "layers/water-conservancy-districts-event-config.json"
+                  }
+                },
+                {
+                  "eventType": "click",
+                  "name": "Click event",
+                  "description": "Click event configuration",
+                  "hasVisualization": false,
+                  "properties": {
+                    "eventConfigPath": "layers/water-conservancy-districts-event-config.json"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "geoLayerViewGroupId": "FireProtectionDistrictsGoup",
           "name": "Fire Protection Districts",
           "description": "Fire protection districts from DOLA.",
           "properties": {
@@ -567,10 +646,10 @@
           },
           "geoLayerViews": [
             {
-              "geoLayerViewId": "SoilConservationDistrictsLayerView",
+              "geoLayerViewId": "FireProtectionDistrictsLayerView",
               "name": "Fire Protection Districts",
               "description": "Fire protection districts from DOLA",
-              "geoLayerId": "SoilConservationDistrictsLayer",
+              "geoLayerId": "FireProtectionDistrictsLayer",
               "properties": {
                 "docPath": "layers/fire-protection-districts.md",
                 "selectedInitial": "false",
