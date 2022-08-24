@@ -51,7 +51,7 @@ buildDist() {
 
   # The following results in the following, which is incorrect.
   #   <base href="//3.0.0/">
-  //ngBuildHrefOpt="//3.0.0/"
+  #ngBuildHrefOpt="//3.0.0/"
 
   logInfo ""
   logInfo "Regenerating Angular dist folder to deploy the website..."

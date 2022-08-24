@@ -18,7 +18,7 @@
       "SubTitleFontName" : "Arial",
       "SubTitleFontSize" : "10",
       "SubTitleFontStyle" : "Plain",
-      "SubTitleString" : "Source:  DOLA",
+      "SubTitleString" : "Source:  DOLA (2021 refresh)",
       "TotalHeight" : "400",
       "TotalWidth" : "600"
     },
@@ -114,7 +114,7 @@
           "Enabled" : "True",
           "FlaggedDataSymbolStyle" : "None",
           "GraphType" : "Line",
-          "LegendFormat" : "Auto",
+          "LegendFormat" : "%A (2021)",
           "LineStyle" : "Solid",
           "LineWidth" : "2",
           "SymbolSize" : "0",
