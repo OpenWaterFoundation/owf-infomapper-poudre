@@ -18,7 +18,7 @@
       "SubTitleFontName" : "Arial",
       "SubTitleFontSize" : "10",
       "SubTitleFontStyle" : "Plain",
-      "SubTitleString" : "Source:  DOLA",
+      "SubTitleString" : "Source:  DOLA (2021 refresh)",
       "TotalHeight" : "400",
       "TotalWidth" : "600"
     },
@@ -114,13 +114,13 @@
           "Enabled" : "True",
           "FlaggedDataSymbolStyle" : "None",
           "GraphType" : "Line",
-          "LegendFormat" : "Auto",
+          "LegendFormat" : "%A (2021)",
           "LineStyle" : "Solid",
           "LineWidth" : "2",
           "SymbolSize" : "0",
           "SymbolStyle" : "None",
           "TSAlias" : "${featureAttribute:county}.toMixedCase().replace(' ','')-County-Population-Total",
-          "TSID" : "County:${featureAttribute:county}.toMixedCase().replace(' ','').DOLA.Population-Total.Year~dv~ts/County_${featureAttribute:county}.toMixedCase().replace(' ','').DOLA.Population-Total.Year.dv",
+          "TSID" : "County:${featureAttribute:county}.toMixedCase().replace(' ','').DOLA.Population-Total.Year~dv~https://data.openwaterfoundation.org/state/co/dola/population/2021/ts/counties/County_${featureAttribute:county}.toMixedCase().replace(' ','').DOLA.Population-Total.Year.dv",
           "XAxis" : "Bottom",
           "YAxis" : "Left"
         }
@@ -132,13 +132,13 @@
           "Enabled" : "True",
           "FlaggedDataSymbolStyle" : "Circle-Filled",
           "GraphType" : "Point",
-          "LegendFormat" : "Auto",
+          "LegendFormat" : "%A (2021)",
           "LineStyle" : "Solid",
           "LineWidth" : "1",
           "SymbolSize" : "5",
           "SymbolStyle" : "Circle-Filled",
           "TSAlias" : "${featureAttribute:county}.toMixedCase().replace(' ','')-County-Population-Forecast",
-          "TSID" : "County:${featureAttribute:county}.toMixedCase().replace(' ','').DOLA.Population-Forecast.Year~dv~ts/County_${featureAttribute:county}.toMixedCase().replace(' ','').DOLA.Population-Forecast.Year.dv",
+          "TSID" : "County:${featureAttribute:county}.toMixedCase().replace(' ','').DOLA.Population-Forecast.Year~dv~https://data.openwaterfoundation.org/state/co/dola/population/2021/ts/counties/County_${featureAttribute:county}.toMixedCase().replace(' ','').DOLA.Population-Forecast.Year.dv",
           "XAxis" : "Bottom",
           "YAxis" : "Left"
         }
@@ -150,13 +150,13 @@
           "Enabled" : "True",
           "FlaggedDataSymbolStyle" : "None",
           "GraphType" : "Line",
-          "LegendFormat" : "Auto",
+          "LegendFormat" : "%A (2021)",
           "LineStyle" : "Solid",
           "LineWidth" : "2",
           "SymbolSize" : "0",
           "SymbolStyle" : "None",
           "TSAlias" : "${featureAttribute:county}.toMixedCase().replace(' ','')-County-Population-Muni",
-          "TSID" : "County:${featureAttribute:county}.toMixedCase().replace(' ','').DOLA.Population-Muni.Year~dv~ts/County_${featureAttribute:county}.toMixedCase().replace(' ','').DOLA.Population-Muni.Year.dv",
+          "TSID" : "County:${featureAttribute:county}.toMixedCase().replace(' ','').DOLA.Population-Muni.Year~dv~https://data.openwaterfoundation.org/state/co/dola/population/2021/ts/counties/County_${featureAttribute:county}.toMixedCase().replace(' ','').DOLA.Population-Muni.Year.dv",
           "XAxis" : "Bottom",
           "YAxis" : "Left"
         }
@@ -168,13 +168,13 @@
           "Enabled" : "True",
           "FlaggedDataSymbolStyle" : "None",
           "GraphType" : "Line",
-          "LegendFormat" : "Auto",
+          "LegendFormat" : "%A (2021)",
           "LineStyle" : "Solid",
           "LineWidth" : "2",
           "SymbolSize" : "0",
           "SymbolStyle" : "None",
           "TSAlias" : "${featureAttribute:county}.toMixedCase().replace(' ','')-County-Population-Unincorp",
-          "TSID" : "County:${featureAttribute:county}.toMixedCase().replace(' ','').DOLA.Population-Unincorp.Year~dv~ts/County_${featureAttribute:county}.toMixedCase().replace(' ','').DOLA.Population-Unincorp.Year.dv",
+          "TSID" : "County:${featureAttribute:county}.toMixedCase().replace(' ','').DOLA.Population-Unincorp.Year~dv~https://data.openwaterfoundation.org/state/co/dola/population/2021/ts/counties/County_${featureAttribute:county}.toMixedCase().replace(' ','').DOLA.Population-Unincorp.Year.dv",
           "XAxis" : "Bottom",
           "YAxis" : "Left"
         }

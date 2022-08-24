@@ -4,7 +4,7 @@ ProductType = "Graph"
 TotalWidth = "600"
 TotalHeight = "400"
 MainTitleString = "Swink Municipality Total Population"
-SubTitleString = "Source:  DOLA"
+SubTitleString = "Source:  DOLA (2021 refresh)"
 
 [SubProduct 1]
 

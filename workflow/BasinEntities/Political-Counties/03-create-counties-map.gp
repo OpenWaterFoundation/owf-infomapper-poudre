@@ -113,7 +113,7 @@ SetGeoLayerViewEventHandler(GeoLayerViewID="WaterDistrictLayerView",EventType="c
 # Counties:  read layer and add to a layer view group.
 # GeoLayerViewGroupID: CountiesGroup
 AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="CountiesGroup",Name="Colorado Counties",Description="Colorado Counties",Properties="selectedInitial: true",InsertPosition="Top")
-ReadGeoLayerFromGeoJSON(InputFile="layers/counties.geojson",GeoLayerID="CountiesLayer",Name="Colorado Counties",Description="Colorado Counties")
+ReadGeoLayerFromGeoJSON(InputFile="https://data.openwaterfoundation.org/state/co/owf/counties/co-counties.geojson",GeoLayerID="CountiesLayer",Name="Colorado Counties",Description="Colorado Counties")
 AddGeoLayerViewToGeoMap(GeoLayerID="CountiesLayer",GeoLayerViewID="CountiesLayerView",Name="Colorado Counties",Description="Colorado Counties",Properties="docPath:layers/counties.md,highlightEnabled:true")
 SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="CountiesLayerView",Name="Colorize counties",Description="Show each county the same color except those that overlap the Poudre",ClassificationAttribute="county",Properties="classificationType:'categorized',classificationFile:'layers/counties-classify-county.csv'")
 SetGeoLayerViewEventHandler(GeoLayerViewID="CountiesLayerView",EventType="click",Name="CountyClickEvents","Event handler configuration for counties layer",Properties="eventConfigPath:layers/counties-event-config.json")
@@ -136,7 +136,6 @@ CopyFile(SourceFile="layers/co-dwr-water-division-classify-division.csv",Destina
 #CopyFile(SourceFile="../Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3.md",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3.md")
 #CopyFile(SourceFile="../Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3-event-config.json",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3-event-config.json")
 #
-CopyFile(SourceFile="layers/counties.geojson",DestinationFile="${MapFolder}/layers/counties.geojson")
 CopyFile(SourceFile="layers/counties-classify-county.csv",DestinationFile="${MapFolder}/layers/counties-classify-county.csv")
 CopyFile(SourceFile="layers/counties.md",DestinationFile="${MapFolder}/layers/counties.md")
 CopyFile(SourceFile="layers/counties-event-config.json",DestinationFile="${MapFolder}/layers/counties-event-config.json")
